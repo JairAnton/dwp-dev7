@@ -259,15 +259,12 @@ public without sharing class ReevaluateButtonClass {
 		List <OpportunityLineItem> lstOLI = [Select Id, product_risk_approval_indicator__c, price_quote_status_id__c, product_price_approval_indicator__c, product_formalization_indicator__c, proposed_apr_per__c, price_quote_id__c, price_quote_owner_id__c, product_price_approval_method__c From OpportunityLineItem where OpportunityId =:Idopp];
 		Map<String, Object> mapReturn = new Map<String, Object>();
 		try {
-			if(!lstOLI.isEmpty()) {
-				//Call a RECOVER Service One product
-				if(lstOLI[0].price_quote_id__c != '' && lstOLI[0].product_price_approval_method__c == 'Web' && STATUSVALIDWS.contains(opp.opportunity_status_type__c)) {
-					//helper to call the service
-					ModifyQuotationRequest_helper modifyHelper = new ModifyQuotationRequest_helper(opp.Id, 'RECOVER', lstOLI[0].proposed_apr_per__c, opp.frm_ContractNumber__c, null);
-					//invoke the service
-					System.HttpResponse invoke = modifyHelper.invoke();
-					genericError = readResponse(invoke, lstOLI[0]);
-				}
+			if(!lstOLI.isEmpty() && lstOLI[0].price_quote_id__c != '' && lstOLI[0].product_price_approval_method__c == 'Web' && STATUSVALIDWS.contains(opp.opportunity_status_type__c)) {
+                //helper to call the service
+                ModifyQuotationRequest_helper modifyHelper = new ModifyQuotationRequest_helper(opp.Id, 'RECOVER', lstOLI[0].proposed_apr_per__c, opp.frm_ContractNumber__c, null);
+                //invoke the service
+                System.HttpResponse invoke = modifyHelper.invoke();
+                genericError = readResponse(invoke, lstOLI[0]);
 			}
 		} catch(Exception e) {
 			genericError = e.getMessage();
