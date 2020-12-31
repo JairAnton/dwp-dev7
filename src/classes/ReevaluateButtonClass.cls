@@ -51,15 +51,6 @@ public without sharing class ReevaluateButtonClass {
 	*/
     private static String evalStageFour(Opportunity opp, List<OpportunityLineItem> lstOLI) {
         String msg;
-        if(statusRisk.contains(opp.opportunity_status_type__c) && lstOLI[0].product_risk_approval_indicator__c) {
-            msg = 'Risk';
-        } else if(statusPrice.contains(opp.opportunity_status_type__c) && lstOLI[0].product_price_approval_indicator__c) {
-            if(lstOLI[0].product_risk_approval_indicator__c) {
-                msg = 'Both';
-            } else {
-                msg = 'Price';
-            }
-        }
         return msg;
     }
     
@@ -70,17 +61,6 @@ public without sharing class ReevaluateButtonClass {
 	*/
     private static String evalStageFive(Opportunity opp, List<OpportunityLineItem> lstOLI) {
         String msg;
-        if(opp.opportunity_status_type__c == '20' && lstOLI[0].product_formalization_indicator__c) {
-            if(lstOLI[0].product_risk_approval_indicator__c) {
-                if(lstOLI[0].product_price_approval_indicator__c) {
-                    msg = 'Both';
-                } else {
-                    msg = 'Risk';
-                }
-            } else if(lstOLI[0].product_price_approval_indicator__c) {
-                msg = 'Price';
-            }
-        }
         return msg;
     }
     
