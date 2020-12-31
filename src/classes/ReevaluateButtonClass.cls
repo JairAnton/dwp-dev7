@@ -18,51 +18,7 @@ public without sharing class ReevaluateButtonClass {
     /** status code risk */
     final private static List<String> statusRisk = new List<String> {'14', '15', '16', '17', '18'};
 
-	@auraenabled
-	public static Map<String, Object> start(String Idopp) {
-		/**
-		 *  @description Method to get Risk o Price from opportunity_status_type__c to put a button Risk, Price or both buttons
-		 *  @return String
-		 * */
-		String msg, genericError;
-		Opportunity opp = [Select Id, StageName, opportunity_status_type__c, frm_ContractNumber__c, OwnerId From Opportunity where Id =:Idopp];
-		List <OpportunityLineItem> lstOLI = [Select Id, product_risk_approval_indicator__c, price_quote_status_id__c, product_price_approval_indicator__c, product_formalization_indicator__c, proposed_apr_per__c, price_quote_id__c, price_quote_owner_id__c, product_price_approval_method__c From OpportunityLineItem where OpportunityId =:Idopp];
-		Map<String, Object> mapReturn = new Map<String, Object>();
-		try {
-			if(!lstOLI.isEmpty()) {
-				if(opp.StageName == '04') {
-					msg = evalStageFour(opp, lstOLI);
-				} else if(opp.StageName == '05')  {
-					msg = evalStageFive(opp, lstOLI);
-				}
-			}
-		} catch(Exception e) {
-			genericError = e.getMessage();
-		}
-		mapReturn.put('msg', msg);
-		mapReturn.put('genericError', genericError);
-		return mapReturn;
-	}
 	
-	/**
-	* @Description method to evaluate stage 04
-	* @param Opportunity opp
-	* @param List<OpportunityLineItem> lstOLI
-	*/
-    private static String evalStageFour(Opportunity opp, List<OpportunityLineItem> lstOLI) {
-        String msg;
-        return msg;
-    }
-    
-    /**
-	* @Description method to evaluate stage 05
-	* @param Opportunity opp
-	* @param List<OpportunityLineItem> lstOLI
-	*/
-    private static String evalStageFive(Opportunity opp, List<OpportunityLineItem> lstOLI) {
-        String msg;
-        return msg;
-    }
     
     /**
 	* @Description clear the set values when using a current quote
