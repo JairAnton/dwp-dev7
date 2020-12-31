@@ -20,75 +20,7 @@ public without sharing class ReevaluateButtonClass {
 
 	
     
-    /**
-	* @Description clear the set values when using a current quote
-	* @param String oppId
-	 */
-    private static Map<String, Object> clearOppQuoteValues(String oppId) {
-		Map<String, Object> mapReturn = new Map<String, Object>();
-        Final List<OpportunityLineItem> olis = [SELECT Id, price_quote_id__c, Opportunity.Account.Name FROM OpportunityLineItem WHERE OpportunityId = :oppId LIMIT 1];
-        Final String namePDF = olis[0].price_quote_id__c + ' - ' + olis[0].Opportunity.Account.Name;
-        Final String nullString;
-		Final Date nullDate;
-        Final Decimal nullDecimal;
-        Final OpportunityLineItem oli = new OpportunityLineItem();
-        oli.Id = olis[0].Id;
-        oli.price_quote_date__c = nullDate;
-        oli.suggested_apr_per__c = nullDecimal;
-        oli.validityDate__c = nullDate;
-        oli.proposed_apr_per__c = nullDecimal;
-        oli.minimun_apr_per__c = nullDecimal;
-		oli.proposed_fee_per__c = nullDecimal;
-        oli.price_quote_id__c = nullString;
-        oli.Assigned_analyst__c = nullString;
-        oli.price_operation_id__c = nullString;
-        update oli;
-        Final List<Opportunity_Solution_Commitment__c> commitments = [SELECT Id FROM Opportunity_Solution_Commitment__c WHERE opportunity_id__c = :oppId];
-        if(!commitments.isEmpty()) {
-            delete commitments;
-        }
-        Final List<ContentDocumentLink> ltsCDL = [SELECT Id, ContentDocumentId FROM ContentDocumentLink WHERE LinkedEntityId = :oppId AND ContentDocument.Title =:namePDF AND ContentDocument.FileType = 'pdf'];
-        if(!ltsCDL.isEmpty()) {
-            update new ContentDocument(Id = ltsCDL[0].ContentDocumentId, OwnerId = System.UserInfo.getUserId());
-            mapReturn.put('idDocument', ltsCDL[0].ContentDocumentId);
-        }
-		return mapReturn;
-    }
-	
-	/**
-	* @Description delete pdf of quotation
-	* @param String oppId
-	 */
-    @auraenabled
-    public static Map<String, Object> deleteQuotePdf(String idDoc) {
-        Map<String, Object> mapReturn = new Map<String, Object>();
-		String genericError;
-        try {
-            delete new ContentDocument(Id = idDoc);
-        } catch(Exception e) {
-            genericError = e.getMessage();
-        }
-        mapReturn.put('genericError', genericError);
-        return mapReturn;
-    }
     
-    /**
-	* @Description method to check if there are opportunities that use the quote id of the opportunity being reevaluated
-	* @param String oppId
-	 */
-    private static boolean checkQuoteUse(String oppId) {
-        final OpportunityLineItem oli = [SELECT Id, price_quote_id__c, Opportunity.AccountId, Product2Id, Opportunity.BE_UseApprovedQuote__c FROM OpportunityLineItem WHERE OpportunityId = :oppId LIMIT 1];
-        Boolean exist = false;
-        if(!oli.Opportunity.BE_UseApprovedQuote__c) {
-            for(OpportunityLineItem oliaux : [SELECT Id, OpportunityId FROM OpportunityLineItem WHERE Opportunity.BE_UseApprovedQuote__c = TRUE AND price_quote_id__c = :oli.price_quote_id__c AND Opportunity.AccountId = :oli.Opportunity.AccountId AND Product2Id = :oli.Product2Id]) {
-                if(oliaux.OpportunityId != oppId) {
-                    exist = true;
-                    break;
-                }
-            }
-        }
-		return exist;
-    }
 	
 	/**
 	* @Description method to call webservice
