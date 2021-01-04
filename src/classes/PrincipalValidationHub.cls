@@ -4,7 +4,7 @@
  *
  * @group global_hub
  *
- * @description This class contains the methods for the Validations logic of the main button panel
+ * @description This class contains the methods for the Validations logic of the main button panel 
  **/
 global class PrincipalValidationHub {
 	static final String admin = 'Administrador del sistema';
