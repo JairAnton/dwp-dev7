@@ -6930,6 +6930,11 @@ Ejecutivos de REDES</description>
         <readable>true</readable>
 	</fieldPermissions>
 	<fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.gipr_Tipo_Garantia__c</field>
+        <readable>true</readable>
+	</fieldPermissions>
+	<fieldPermissions>
         <editable>false</editable>
         <field>dwp_kitv__Visit__c.dwp_office_name__c</field>
         <readable>true</readable>

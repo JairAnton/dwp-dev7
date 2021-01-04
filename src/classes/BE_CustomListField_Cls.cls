@@ -16,7 +16,7 @@ public with sharing class BE_CustomListField_Cls {
     /**Method used to set sanction price summarize fields**/
     public static List<itemField> createListField(String oliId, String uniqueNameTable) {
         List<itemField> items = new List<itemField>();
-        Final List<field__mdt> lstFieldMDT = [SELECT field_api_name__c, Field_Custom_Label__c, order__c, Use_Product_Configuration_Value__c FROM Field__mdt WHERE field_form__r.unique_id__c = :uniqueNameTable ORDER BY order__c];
+        Final List<field__mdt> lstFieldMDT = [SELECT field_api_name__c, Field_Custom_Label__c, order__c, sub_order__c, Use_Product_Configuration_Value__c FROM Field__mdt WHERE field_form__r.unique_id__c = :uniqueNameTable ORDER BY order__c ASC, sub_order__c ASC];
 		Final Set<String> setFields = new Set<String>();
         Final Set<String> fieldsProdConf = new Set<String>();
         for(Field__mdt field : lstFieldMDT) {
