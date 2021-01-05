@@ -17,10 +17,24 @@
             &quot;type&quot;: &quot;picklist&quot;
         },
         {
-            &quot;label&quot;: &quot;MONTO&quot;,
-            &quot;fieldName&quot;: &quot;Amount__c&quot;,
-            &quot;type&quot;: &quot;currency&quot;
-        },
+			&quot;label&quot;: &quot;MONTO&quot;,
+			&quot;fieldName&quot;: &quot;Amount__c&quot;,
+			&quot;type&quot;: &quot;customcurrency&quot;,
+			&quot;typeAttributes&quot;: {
+			&quot;isCustom&quot;: &quot;true&quot;,
+			&quot;value&quot;: {
+				&quot;fieldName&quot;: &quot;Amount__c&quot;
+			},
+			&quot;currencyCode&quot;: {
+				&quot;fieldName&quot;: &quot;CurrencyIsoCode&quot;
+			},
+			&quot;displayAs&quot;: &quot;code&quot;,
+				&quot;maxFractionDigits&quot;: 2
+			},
+			&quot;cellAttributes&quot;: {
+				&quot;alignment&quot;: &quot;right&quot;
+			}
+		},
         {
             &quot;label&quot;: &quot;DETALLE&quot;,
             &quot;fieldName&quot;: &quot;bupl__gf_growth_drvr_prdt_desc__c&quot;,
@@ -74,7 +88,7 @@
                             },
                             {
                                 &quot;fieldName&quot;: &quot;ExpectedDate__c&quot;,
-&quot;required&quot;: &quot;true&quot;
+								&quot;required&quot;: &quot;true&quot;
                             },
                             {
                                 &quot;fieldName&quot;: &quot;CurrencyIsoCode&quot;

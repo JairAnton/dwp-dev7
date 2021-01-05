@@ -65,7 +65,7 @@ public without sharing class BE_SM_Visit_helper {
 	 */
     public static BE_SingleRelatedListCRUD_Cls.Response getVisits(Set<Id> setIds, Map<String, Object> params) {
         Final BE_SingleRelatedListCRUD_Cls.Response response = new BE_SingleRelatedListCRUD_Cls.Response();
-        Final String query = 'SELECT Id, '+ String.escapeSingleQuotes((String)params.get('sObjFields'))+ ' FROM '+ String.escapeSingleQuotes((String)params.get('sObjName')) + ' WHERE Id IN:setIds';
+        Final String query = 'SELECT Id, '+ String.escapeSingleQuotes((String)params.get('sObjFields'))+ ' FROM '+ String.escapeSingleQuotes((String)params.get('sObjName')) + ' WHERE Id IN:setIds ORDER BY dwp_kitv__visit_start_date__c DESC';
         response.data = Database.query(query);
         response.isSuccess = true;
         return response;

@@ -584,7 +584,7 @@
     <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>Invalid_DateTime_Ejecutivo_Planning_Type</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>If SM is Planning type and colaborator is ejecutivo, and BE_DateTime__c is greater than the first 6 working days of the month</description>
         <errorConditionFormula>IF(ISPICKVAL(Type_of_meeting__c, &apos;Planning&apos;) &amp;&amp; 
 	(Collaborator__r.prof_position_id__c == &apos;E03&apos; || 

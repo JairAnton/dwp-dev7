@@ -9,7 +9,7 @@
  *
  * @author Diego Carbajal
  */
-public with sharing class BE_SM_Pipeline_Update_cls extends BE_SingleRelatedListCRUD_Cls {
+public without sharing class BE_SM_Pipeline_Update_cls extends BE_SingleRelatedListCRUD_Cls {
     
     /*
     * @Description  method updateRecords

@@ -56,6 +56,8 @@
             case 'DOERROR':
                 cmp.set('v.step','3');
                 var errorMessage = evt.getParam("data").errorCode;
+                cmp.set('v.isError', true);
+                cmp.set('v.isLoad', true);
                 cmp.set('v.errorlst',errorMessage);
                 cmp.set('v.hasHeader',false);
                 break;

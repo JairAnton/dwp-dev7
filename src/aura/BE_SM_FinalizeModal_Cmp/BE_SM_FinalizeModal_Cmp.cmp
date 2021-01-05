@@ -4,6 +4,9 @@
     <aura:attribute name="summary" type="String" default="" />
     <aura:attribute name="isError" type="Boolean" default="false" />
     <aura:attribute name="errorlst" type="String[]" default="" description="List of error messages to be displayed"/>
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+    <aura:attribute name="spinner" type="boolean" default="FALSE"/>
     
     <lightning:navigation aura:id="navService"/>
     <aura:html tag="style">
@@ -19,6 +22,16 @@
         max-height:unset !important;
         }
     </aura:html>
+    <aura:if isTrue="{!v.spinner}">
+        <div aura:id="spinnerId" class="slds-spinner_container">
+            <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                <span class="slds-assistive-text">Loading...</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </aura:if>
+    
     <aura:if isTrue="{!v.isError}">
         <header aura:id="modalTemplateHeader" class="slds-modal__header slds-theme_alert-texture slds-theme_warning" style="background-color: none;">
             <lightning:buttonIcon class="slds-modal__close" iconName="utility:close" variant="bare-inverse" size="large" onclick="{!c.handleClose}" alternativeText="close" />
