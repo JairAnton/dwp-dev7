@@ -102,9 +102,7 @@ public without sharing class ReevaluateButtonClass {
 			List <dwp_cvad__Action_Audit__c> lstactionRisk = new List <dwp_cvad__Action_Audit__c>();
 			try {
                 Map<String, Object> callServ = new Map<String, Object>();
-                if(opp.BE_UseApprovedQuote__c) {
-                    mapReturn = clearOppQuoteValues(Idopp);
-                } else {
+                if(!opp.BE_UseApprovedQuote__c) {
                     callServ = ReevaluateButtonClass.callService(Idopp);
                 }
                 if(callServ.get('genericError') == null) {
@@ -149,9 +147,7 @@ public without sharing class ReevaluateButtonClass {
 			List <dwp_cvad__Action_Audit__c> lstactionPrice = new List <dwp_cvad__Action_Audit__c>();
             try {
                 Map<String, Object> callServ = new Map<String, Object>();
-                if(opp.BE_UseApprovedQuote__c) {
-                    mapReturn = clearOppQuoteValues(Idopp);
-                } else {
+                if(!opp.BE_UseApprovedQuote__c) {
                     callServ = ReevaluateButtonClass.callService(Idopp);
                 }
                 if(callServ.get('genericError') == null) {
