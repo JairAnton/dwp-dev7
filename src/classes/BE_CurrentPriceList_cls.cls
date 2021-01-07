@@ -58,7 +58,6 @@ public with sharing class BE_CurrentPriceList_cls extends BE_SingleRelatedListCR
             Final Map<String, Id> mapFileIds = getFileIds(ids);
             for(sObject obj : data) {
                 Final String namePDF = (String)obj.get('price_quote_id__c') + STRCONCAT + (String)obj.getSObject('Opportunity').getSObject('Account').get('Name');
-                Final String prodCode = (String)obj.getSObject('Product2').get('ProductCode');
                 if(mapFileIds.containsKey((String)obj.get(STROPPID) + STRCONCAT + namePDF)) {
                     obj.put('Unique_id__c', mapFileIds.get((String)obj.get(STROPPID) + STRCONCAT + namePDF));
                 }
