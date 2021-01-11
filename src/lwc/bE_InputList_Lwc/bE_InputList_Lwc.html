@@ -1,0 +1,21 @@
+<template>
+    <label class="slds-form-element__label" for="input">
+        <template if:true={isRequired}>
+            <abbr class="slds-required" title="required">* </abbr>
+        </template>
+        {labelName}
+    </label>
+    <div class="slds-form-element__control">
+        <template if:true={isDisabled}>
+            <input id={fieldName} name={fieldName} required={isRequired} class="slds-input" type="text" value={defaultValue} disabled/>
+        </template>
+        <template if:false={isDisabled}>
+            <input id={fieldName} name={fieldName} list="valueList" placeholder={placeholder} required={isRequired} class="slds-input" type="text" value={defaultValue} onchange={handleChange} onblur={handleChange}/>
+            <datalist id="valueList" class="">
+                <template for:each={options} for:item='item'>
+                    <option key={item.value} value={item.label}></option>
+                </template>
+            </datalist>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,288 @@
+<template>
+    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_small"
+        aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1">
+        <div class="slds-modal__container">
+            <!--HEADER-->
+            <header class="slds-modal__header">
+                <lightning-button-icon icon-name="utility:close" alternative-text="Close" class="slds-modal__close" onclick={handleCloseModal}>
+                </lightning-button-icon>
+                <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{title}</h2>
+            </header>
+            <!--CONTENT-->
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <div class="customForm">
+                    <!--VIEW-->
+                    <template if:true={mode.isView}>
+                        <lightning-record-form record-id={recordId} object-api-name={sobjectType} layout-type="Full"
+                            columns="2" mode="readonly">
+                        </lightning-record-form>
+                    </template>
+                    <!--CREATE-->
+                    <template if:true={mode.isInsert}>
+                        <lightning-messages></lightning-messages>
+                        <lightning-layout multiple-rows>
+                            <template for:each={fields} for:item="fieldItem">
+                                <lightning-layout-item key={fieldItem.fieldName} size="12" small-device-size="12" medium-device-size="12" large-device-size="6" padding="horizontal-medium">
+                                    <template if:true={fieldItem.isStandard}>
+                                        <div class="page-section page-header">
+                                            <div class="slds-global-header__item" style="width: 100%">
+                                                <template if:true={fieldItem.isDisabled}>
+                                                    <template if:true={fieldItem.isRequired}>
+                                                        <lightning-input type={fieldItem.fieldType} name={fieldItem.fieldName} placeholder={fieldItem.placeholder} label={fieldItem.fieldLabel} value={fieldItem.fieldValue} required disabled onblur={handleChangeField}>
+                                                        </lightning-input>
+                                                    </template>
+                                                    <template if:false={fieldItem.isRequired}>
+                                                        <lightning-input type={fieldItem.fieldType} name={fieldItem.fieldName} placeholder={fieldItem.placeholder} label={fieldItem.fieldLabel} value={fieldItem.fieldValue} disabled onblur={handleChangeField}>
+                                                        </lightning-input>
+                                                    </template>
+                                                </template>
+                                                <template if:false={fieldItem.isDisabled}>
+                                                    <template if:true={fieldItem.isRequired}>
+                                                        <lightning-input type={fieldItem.fieldType} name={fieldItem.fieldName} placeholder={fieldItem.placeholder} label={fieldItem.fieldLabel} value={fieldItem.fieldValue} required onblur={handleChangeField}>
+                                                        </lightning-input>
+                                                    </template>
+                                                    <template if:false={fieldItem.isRequired}>
+                                                        <lightning-input type={fieldItem.fieldType} name={fieldItem.fieldName} placeholder={fieldItem.placeholder} label={fieldItem.fieldLabel} value={fieldItem.fieldValue} onblur={handleChangeField}>
+                                                        </lightning-input>
+                                                    </template>
+                                                </template>
+                                            </div>
+                                        </div>
+                                    </template>
+                                    <template if:true={fieldItem.isPickList}>
+                                        <div class="page-section page-header">
+                                            <div class="slds-global-header__item" style="width: 100%">
+                                                <template if:true={fieldItem.isDisabled}>
+                                                    <template if:true={fieldItem.isRequired}>
+                                                        <lightning-combobox name={fieldItem.fieldName} label={fieldItem.fieldLabel} value={fieldItem.fieldValue} placeholder={fieldItem.placeholder} options={fieldItem.options} required disabled onblur={handleChangeField}>
+                                                        </lightning-combobox>
+                                                    </template>
+                                                    <template if:false={fieldItem.isRequired}>
+                                                        <lightning-combobox name={fieldItem.fieldName} label={fieldItem.fieldLabel} value={fieldItem.fieldValue} placeholder={fieldItem.placeholder} options={fieldItem.options} disabled onblur={handleChangeField}>
+                                                        </lightning-combobox>
+                                                    </template>
+                                                </template>
+                                                <template if:false={fieldItem.isDisabled}>
+                                                    <template if:true={fieldItem.isRequired}>
+                                                        <lightning-combobox name={fieldItem.fieldName} label={fieldItem.fieldLabel} value={fieldItem.fieldValue} placeholder={fieldItem.placeholder} options={fieldItem.options} required onblur={handleChangeField}>
+                                                        </lightning-combobox>
+                                                    </template>
+                                                    <template if:false={fieldItem.isRequired}>
+                                                        <lightning-combobox name={fieldItem.fieldName} label={fieldItem.fieldLabel} value={fieldItem.fieldValue} placeholder={fieldItem.placeholder} options={fieldItem.options} onblur={handleChangeField}>
+                                                        </lightning-combobox>
+                                                    </template>
+                                                </template>
+                                            </div>
+                                        </div>
+                                    </template>
+                                    <template if:true={fieldItem.isTextArea}>
+                                        <div class="page-section page-header">
+                                            <div class="slds-global-header__item" style="width: 100%">
+                                                <template if:true={fieldItem.isDisabled}>
+                                                    <template if:true={fieldItem.isRequired}>
+                                                        <lightning-textarea name={fieldItem.fieldName} label={fieldItem.fieldLabel} value={fieldItem.fieldValue} placeholder={fieldItem.placeholder} required disabled onblur={handleChangeField}>
+                                                        </lightning-textarea>
+                                                    </template>
+                                                    <template if:false={fieldItem.isRequired}>
+                                                        <lightning-textarea name={fieldItem.fieldName} label={fieldItem.fieldLabel} value={fieldItem.fieldValue} placeholder={fieldItem.placeholder} disabled onblur={handleChangeField}>
+                                                        </lightning-textarea>
+                                                    </template>
+                                                </template>
+                                                <template if:false={fieldItem.isDisabled}>
+                                                    <template if:true={fieldItem.isRequired}>
+                                                        <lightning-textarea name={fieldItem.fieldName} label={fieldItem.fieldLabel} value={fieldItem.fieldValue} placeholder={fieldItem.placeholder} required onblur={handleChangeField}>
+                                                        </lightning-textarea>
+                                                    </template>
+                                                    <template if:false={fieldItem.isRequired}>
+                                                        <lightning-textarea name={fieldItem.fieldName} label={fieldItem.fieldLabel} value={fieldItem.fieldValue} placeholder={fieldItem.placeholder} onblur={handleChangeField}>
+                                                        </lightning-textarea>
+                                                    </template>
+                                                </template>
+                                            </div>
+                                        </div>
+                                    </template>
+                                    <template if:true={fieldItem.isComboBox}>
+                                        <div class="page-section page-header">
+                                            <div class="slds-global-header__item" style="width: 100%">
+                                                <c-b-e_-input-list_-lwc label-name={fieldItem.fieldLabel} field-name={fieldItem.fieldName} default-value={fieldItem.fieldValue} is-disabled={fieldItem.isDisabled} is-required={fieldItem.isRequired} placeholder={fieldItem.placeholder} options={fieldItem.options} onchange={handleChangeCustomField}>
+                                                </c-b-e_-input-list_-lwc>
+                                            </div>
+                                        </div>
+                                    </template>
+                                    <template if:true={fieldItem.isSingleReference}>
+                                        <template for:each={fieldItem.relatedTo} for:item="object">
+                                            <div class="page-section page-header" key={fieldItem.fieldLabel}>
+                                                <div class="slds-global-header__item" style="width: 100%">
+                                                    <c-b-e_-generic-custom-lookup_-lwc obj-name={object.objName} default-value={fieldItem.fieldValue} fields={object.displayFields} is-disabled={fieldItem.isDisabled} is-required={fieldItem.isRequired} search-placeholder={fieldItem.placeholder} field-name={fieldItem.fieldName} label-name={fieldItem.fieldLabel} icon-name={object.iconName} onlookupselected={handleChangeCustomField}>
+                                                    </c-b-e_-generic-custom-lookup_-lwc>
+                                                </div>
+                                            </div>
+                                        </template>
+                                    </template>
+                                    <template if:true={fieldItem.isMultiReference}>
+                                        <div class="page-section page-header">
+                                            <div class="slds-global-header__item" style="width: 100%">
+                                                <c-b-e_-multi-entity-lookup_-lwc entities={fieldItem.relatedTo} record-id={fieldItem.fieldValue} object-name={fieldItem.objectName} is-disabled={fieldItem.isDisabled} is-required={fieldItem.isRequired} search-placeholder={fieldItem.placeholder} field-name={fieldItem.fieldName} label-name={fieldItem.fieldLabel} multi-entity="true" onlookupselected={handleChangeCustomField}>
+                                                </c-b-e_-multi-entity-lookup_-lwc>
+                                            </div>
+                                        </div>
+                                    </template>
+                                </lightning-layout-item>
+                            </template>
+                        </lightning-layout>
+                    </template>
+                    <!--EDIT-->
+                    <template if:true={mode.isUpdate}>
+                        <lightning-messages></lightning-messages>
+                        <lightning-layout multiple-rows>
+                            <template for:each={fields} for:item="fieldItem">
+                                <lightning-layout-item key={fieldItem.fieldName} size="12" small-device-size="12" medium-device-size="12" large-device-size="6" padding="horizontal-medium">
+                                    <template if:true={fieldItem.isStandard}>
+                                        <div class="page-section page-header">
+                                            <div class="slds-global-header__item" style="width: 100%">
+                                                <template if:true={fieldItem.isDisabled}>
+                                                    <template if:true={fieldItem.isRequired}>
+                                                        <lightning-input type={fieldItem.fieldType} name={fieldItem.fieldName} placeholder={fieldItem.placeholder} label={fieldItem.fieldLabel} value={fieldItem.fieldValue} required disabled onblur={handleChangeField}>
+                                                        </lightning-input>
+                                                    </template>
+                                                    <template if:false={fieldItem.isRequired}>
+                                                        <lightning-input type={fieldItem.fieldType} name={fieldItem.fieldName} placeholder={fieldItem.placeholder} label={fieldItem.fieldLabel} value={fieldItem.fieldValue} disabled onblur={handleChangeField}>
+                                                        </lightning-input>
+                                                    </template>
+                                                </template>
+                                                <template if:false={fieldItem.isDisabled}>
+                                                    <template if:true={fieldItem.isRequired}>
+                                                        <lightning-input type={fieldItem.fieldType} name={fieldItem.fieldName} placeholder={fieldItem.placeholder} label={fieldItem.fieldLabel} value={fieldItem.fieldValue} required onblur={handleChangeField}>
+                                                        </lightning-input>
+                                                    </template>
+                                                    <template if:false={fieldItem.isRequired}>
+                                                        <lightning-input type={fieldItem.fieldType} name={fieldItem.fieldName} placeholder={fieldItem.placeholder} label={fieldItem.fieldLabel} value={fieldItem.fieldValue} onblur={handleChangeField}>
+                                                        </lightning-input>
+                                                    </template>
+                                                </template>
+                                            </div>
+                                        </div>
+                                    </template>
+                                    <template if:true={fieldItem.isPickList}>
+                                        <div class="page-section page-header">
+                                            <div class="slds-global-header__item" style="width: 100%">
+                                                <template if:true={fieldItem.isDisabled}>
+                                                    <template if:true={fieldItem.isRequired}>
+                                                        <lightning-combobox name={fieldItem.fieldName} label={fieldItem.fieldLabel} value={fieldItem.fieldValue} placeholder={fieldItem.placeholder} options={fieldItem.options} required disabled onblur={handleChangeField}>
+                                                        </lightning-combobox>
+                                                    </template>
+                                                    <template if:false={fieldItem.isRequired}>
+                                                        <lightning-combobox name={fieldItem.fieldName} label={fieldItem.fieldLabel} value={fieldItem.fieldValue} placeholder={fieldItem.placeholder} options={fieldItem.options} disabled onblur={handleChangeField}>
+                                                        </lightning-combobox>
+                                                    </template>
+                                                </template>
+                                                <template if:false={fieldItem.isDisabled}>
+                                                    <template if:true={fieldItem.isRequired}>
+                                                        <lightning-combobox name={fieldItem.fieldName} label={fieldItem.fieldLabel} value={fieldItem.fieldValue} placeholder={fieldItem.placeholder} options={fieldItem.options} required onblur={handleChangeField}>
+                                                        </lightning-combobox>
+                                                    </template>
+                                                    <template if:false={fieldItem.isRequired}>
+                                                        <lightning-combobox name={fieldItem.fieldName} label={fieldItem.fieldLabel} value={fieldItem.fieldValue} placeholder={fieldItem.placeholder} options={fieldItem.options} onblur={handleChangeField}>
+                                                        </lightning-combobox>
+                                                    </template>
+                                                </template>
+                                            </div>
+                                        </div>
+                                    </template>
+                                    <template if:true={fieldItem.isTextArea}>
+                                        <div class="page-section page-header">
+                                            <div class="slds-global-header__item" style="width: 100%">
+                                                <template if:true={fieldItem.isDisabled}>
+                                                    <template if:true={fieldItem.isRequired}>
+                                                        <lightning-textarea name={fieldItem.fieldName} label={fieldItem.fieldLabel} value={fieldItem.fieldValue} placeholder={fieldItem.placeholder} required disabled onblur={handleChangeField}>
+                                                        </lightning-textarea>
+                                                    </template>
+                                                    <template if:false={fieldItem.isRequired}>
+                                                        <lightning-textarea name={fieldItem.fieldName} label={fieldItem.fieldLabel} value={fieldItem.fieldValue} placeholder={fieldItem.placeholder} disabled onblur={handleChangeField}>
+                                                        </lightning-textarea>
+                                                    </template>
+                                                </template>
+                                                <template if:false={fieldItem.isDisabled}>
+                                                    <template if:true={fieldItem.isRequired}>
+                                                        <lightning-textarea name={fieldItem.fieldName} label={fieldItem.fieldLabel} value={fieldItem.fieldValue} placeholder={fieldItem.placeholder} required onblur={handleChangeField}>
+                                                        </lightning-textarea>
+                                                    </template>
+                                                    <template if:false={fieldItem.isRequired}>
+                                                        <lightning-textarea name={fieldItem.fieldName} label={fieldItem.fieldLabel} value={fieldItem.fieldValue} placeholder={fieldItem.placeholder} onblur={handleChangeField}>
+                                                        </lightning-textarea>
+                                                    </template>
+                                                </template>
+                                            </div>
+                                        </div>
+                                    </template>
+                                    <template if:true={fieldItem.isComboBox}>
+                                        <div class="page-section page-header">
+                                            <div class="slds-global-header__item" style="width: 100%">
+                                                <c-b-e_-input-list_-lwc label-name={fieldItem.fieldLabel} field-name={fieldItem.fieldName} default-value={fieldItem.fieldValue} is-disabled={fieldItem.isDisabled} is-required={fieldItem.isRequired} placeholder={fieldItem.placeholder} options={fieldItem.options} onchange={handleChangeCustomField}>
+                                                </c-b-e_-input-list_-lwc>
+                                            </div>
+                                        </div>
+                                    </template>
+                                    <template if:true={fieldItem.isSingleReference}>
+                                        <template for:each={fieldItem.relatedTo} for:item="object">
+                                            <div class="page-section page-header" key={fieldItem.fieldLabel}>
+                                                <div class="slds-global-header__item" style="width: 100%">
+                                                    <c-b-e_-generic-custom-lookup_-lwc obj-name={object.objName} default-value={fieldItem.fieldValue} fields={object.displayFields} is-disabled={fieldItem.isDisabled} is-required={fieldItem.isRequired} search-placeholder={fieldItem.placeholder} field-name={fieldItem.fieldName} label-name={fieldItem.fieldLabel} icon-name={object.iconName} onlookupselected={handleChangeCustomField}>
+                                                    </c-b-e_-generic-custom-lookup_-lwc>
+                                                </div>
+                                            </div>
+                                        </template>
+                                    </template>
+                                    <template if:true={fieldItem.isMultiReference}>
+                                        <div class="page-section page-header">
+                                            <div class="slds-global-header__item" style="width: 100%">
+                                                <c-b-e_-multi-entity-lookup_-lwc entities={fieldItem.relatedTo} record-id={fieldItem.fieldValue} object-name={fieldItem.objectName} is-disabled={fieldItem.isDisabled} is-required={fieldItem.isRequired} search-placeholder={fieldItem.placeholder} field-name={fieldItem.fieldName} label-name={fieldItem.fieldLabel} multi-entity="true" onlookupselected={handleChangeCustomField}>
+                                                </c-b-e_-multi-entity-lookup_-lwc>
+                                            </div>
+                                        </div>
+                                    </template>
+                                </lightning-layout-item>
+                            </template>
+                        </lightning-layout>
+                    </template>
+                    <!--DELETE-->
+                    <template if:true={mode.isDelete}>
+                        <div class="slds-text-align_center">
+                            <h5>{label.deleteMessage}</h5>
+                        </div>
+                    </template>
+                </div>
+                <template if:false={loaded}>
+                    <div class="slds-spinner slds-spinner_medium">
+                        <lightning-spinner alternative-text="Loading"></lightning-spinner>
+                    </div>
+                </template>
+            </div>
+            <!--FOOTER-->
+            <footer class="slds-modal__footer">
+                <lightning-button label={label.btnCancel} title="Primary action" class="slds-button slds-m-left_x-small"
+                    onclick={handleCloseModal}>
+                </lightning-button>
+                <!--CREATE-->
+                <template if:true={mode.isInsert}>
+                    <lightning-button variant="brand" label={label.btnSave} title="Primary action"
+                        class="slds-button slds-m-left_x-small" onclick={handleCreateBtn}>
+                    </lightning-button>
+                </template>
+                <!--UPDATE-->
+                <template if:true={mode.isUpdate}>
+                    <lightning-button variant="brand" label={label.btnSave} title="Primary action"
+                        class="slds-button slds-m-left_x-small" onclick={handleUpdateBtn}>
+                    </lightning-button>
+                </template>
+                <!--DELETE-->
+                <template if:true={mode.isDelete}>
+                    <lightning-button variant="brand" label={label.btnDelete} title="Delete Action"
+                        class="slds-button slds-m-left_x-small" onclick={handleDeleteBtn}>
+                    </lightning-button>
+                </template>
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>

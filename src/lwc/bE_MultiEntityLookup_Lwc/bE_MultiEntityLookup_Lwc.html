@@ -1,0 +1,27 @@
+<template>
+    <div class="slds-form-element">
+        <label class="slds-form-element__label">
+            <template if:true={isRequired}>
+                <abbr class="slds-required" title="required">* </abbr>
+            </template>
+            {labelName}
+        </label>
+        <div class="slds-form-element__control">
+            <div class="slds-combobox-group">
+                <template if:true={readOnly}>
+                    <div class="disabled-overlay"></div>
+                </template>
+                <template if:true={showCombobox}>
+                    <div class="slds-combobox-addon_start" style="width: 62px;">
+                        <c-b-e_-combobox-icon_-lwc options={entityOptions} value={selectedEntity} onchange={handleEntityChange} variant="label-hidden" display-format="icon">
+                        </c-b-e_-combobox-icon_-lwc>
+                    </div>
+                </template>
+                <div class="slds-combobox_container slds-combobox-addon_end">
+                    <c-b-e_-related-to-lookup_-lwc record-id={recordId} config={entityConfig} is-disabled={isDisabled} onchange={handleChange}>
+                    </c-b-e_-related-to-lookup_-lwc>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
