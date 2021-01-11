@@ -21,14 +21,14 @@ public class BE_SchemaUtils_Tst {
         subjField.put('fieldName','Subject');
         subjField.put('label','Asunto');
         subjField.put('type','text');
-        subjField.put('required','true');
+        subjField.put('required','false');
 		fields.add(subjField);
         Final Map<Object, Object> slmtField = new Map<Object, Object>();
         slmtField.put('fieldName','slmt__management_plan_meeting_id__c');
         slmtField.put('label','Reunión individual');
         slmtField.put('type','search');
         slmtField.put('required','true');
-		slmtField.put('disabled','true');
+		slmtField.put('disabled','false');
 		fields.add(slmtField);
         Final Map<Object, Object> whatIdField = new Map<Object, Object>();
         whatIdField.put('fieldName','WhatId');

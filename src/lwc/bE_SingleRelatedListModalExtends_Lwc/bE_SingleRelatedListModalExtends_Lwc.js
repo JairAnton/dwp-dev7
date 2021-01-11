@@ -45,7 +45,7 @@ export default class BE_SingleRelatedListModalExtends_Lwc extends LightningEleme
     }) wiredFields({ error, data }) {
         if (data) {
             this.fields = data;
-            this.error = undefined;
+            this.error = null;
             this.record = { "sobjectType": this.sobjectType };
             for (const field of this.fields) {
                 Object.defineProperty(this.record, field.fieldName, {
@@ -73,7 +73,7 @@ export default class BE_SingleRelatedListModalExtends_Lwc extends LightningEleme
             }
         } else if (error) {
             this.error = error;
-            this.fields = undefined;
+            this.fields = null;
             console.log('############## ERROR');
             console.log(this.error);
         }

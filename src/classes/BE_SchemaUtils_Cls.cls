@@ -11,17 +11,19 @@
  */
 public without sharing class BE_SchemaUtils_Cls {
     /* @Variable: CONTENTTYPE */
-	private static Final String CONTENTTYPE = 'image/svg+xml';
+	private static final String CONTENTTYPE = 'image/svg+xml';
     /* @Variable: CONTENTTYPE */
-	private static Final String STRTEXTAREA = 'textarea';
+	private static final String STRTEXTAREA = 'textarea';
     /* @Variable: CONTENTTYPE */
-	private static Final String STRPICKLIST = 'picklist';
+	private static final String STRPICKLIST = 'picklist';
     /* @Variable: CONTENTTYPE */
-	private static Final String STRCOMBOBOX = 'combobox';
+	private static final String STRCOMBOBOX = 'combobox';
     /* @Variable: CONTENTTYPE */
-	private static Final String STRREFERENCE = 'reference';
+	private static final String STRREFERENCE = 'reference';
     /* @Variable: CONTENTTYPE */
-	private static Final String STRDOUBLE = 'double';
+	private static final String STRDOUBLE = 'double';
+    /* @Variable: VARONE */
+	private static final Integer VARONE = 1;
     
     /**
     @Description constructor of class
@@ -43,30 +45,17 @@ public without sharing class BE_SchemaUtils_Cls {
             for(Object obj : fields) {
                 final Map<Object, Object> data = (Map<Object, Object>)obj;
                 final String field = String.valueOf(data.get('fieldName'));
-                final String fieldName = String.valueOf(mfields.get(field.toLowerCase()).getDescribe().getName());
-                final String fieldLabel = String.valueOf(mfields.get(field.toLowerCase()).getDescribe().getLabel());
-                final String tipe = String.valueOf(mfields.get(field.toLowerCase()).getDescribe().getType()).toLowerCase();
-                final String typeFinal = (tipe == STRDOUBLE) ? 'number' : tipe;
-                Values item = new Values(typeFinal);
-                final List<Options> options = new List<Options>();
-                for (Schema.PicklistEntry pickListEntry : mfields.get(field.toLowerCase()).getDescribe().getPicklistValues()) {
-                    options.add(new Options(pickListEntry.getLabel(), pickListEntry.getValue()));
-                }
-                if(!mfields.get(field.toLowerCase()).getDescribe().getReferenceTo().isEmpty()) {
-                    item.relatedTo = addRelations(field, mfields);
-                } else {
-                    item.relatedTo = new List<RelatedTo>();
-                }
-                item.fieldName = fieldName;
-                item.fieldType = typeFinal;
-                if(item.relatedTo.size() > 1) {
+                final Values item = new Values(String.valueOf(mfields.get(field.toLowerCase()).getDescribe().getType()).toLowerCase());
+                item.fieldName = String.valueOf(mfields.get(field.toLowerCase()).getDescribe().getName());
+                item.options = addOptions(field, mfields);
+                item.relatedTo = addRelations(field, mfields);
+                if(item.relatedTo.size() > VARONE) {
                     item.isMultiReference = true;
                 }
-                item.options = options;
-                item.fieldLabel = data.get('label') == null ? fieldLabel : String.valueOf(data.get('label'));
-                item.isRequired = data.get('required') == null ? false : Boolean.valueOf(data.get('required')) ? true : false;
-                item.isDisabled = data.get('disabled') == null ? false : Boolean.valueOf(data.get('disabled')) ? true : false;
-                item.fieldValue = data.get('value') == null ? '' : String.valueOf(data.get('value'));
+                item.fieldLabel = String.valueOf(valueField(data, String.valueOf(mfields.get(field.toLowerCase()).getDescribe().getLabel()), 'label'));
+                item.isRequired = Boolean.valueOf(valueField(data, false, 'required'));
+                item.isDisabled = Boolean.valueOf(valueField(data, false, 'disabled'));
+                item.fieldValue = String.valueOf(valueField(data, '', 'value'));
                 if(item.fieldValue != '' && item.fieldType == STRREFERENCE) {
                     final Schema.SObjectType objType = ((Id)data.get('value')).getSobjectType();
                     item.objectName = String.valueOf(objType);
@@ -80,45 +69,78 @@ public without sharing class BE_SchemaUtils_Cls {
     }
     
     /**
+    @Description method used to add options to picklist.
+    @param Map<Object, Object> data map with configuration metadata.
+    @param Object defaultVal default value of field.
+    @param String fieldName field name to evaluate.
+    @return Object Object with value of field.
+    */
+    private static Object valueField(Map<Object, Object> data, Object defaultVal, String fieldName) {
+        Object returnVal;
+        if(data.get(fieldName) == null) {
+            returnVal = defaultVal;
+        } else {
+            returnVal = data.get(fieldName);
+        }
+		return returnVal;
+    }
+    
+    /**
+    @Description method used to add options to picklist.
+    @param String field field to search.
+    @param Map<String, Schema.SObjectField> mfields schema field to search.
+    @return List<Options> options with options to picklist field.
+    */
+    private static List<Options> addOptions(String field, Map<String, Schema.SObjectField> mfields) {
+		final List<Options> options = new List<Options>();
+        for (Schema.PicklistEntry pickListEntry : mfields.get(field.toLowerCase()).getDescribe().getPicklistValues()) {
+            options.add(new Options(pickListEntry.getLabel(), pickListEntry.getValue()));
+        }
+        return options;
+    }
+    
+    /**
     @Description method used to add relations to reference field.
     @param String field field to search.
     @param Map<String, Schema.SObjectField> mfields schema field to search.
     @return List<RelatedTo> ltsRelations with relations to reference field.
     */
     private static List<RelatedTo> addRelations(String field, Map<String, Schema.SObjectField> mfields) {
-		final Map<String, String> replaceIcons = new Map<String, String>();
-        replaceIcons.put('user', 'user');
-        replaceIcons.put('group', 'groups');
-        replaceIcons.put('quote', 'user');
-        replaceIcons.put('case', 'case');
-        replaceIcons.put('asset', 'asset_object');
-        replaceIcons.put('assetrelationship', 'asset_relationship');
-        replaceIcons.put('contactrequest', 'contact_request');
-        replaceIcons.put('contract', 'contract');
-        replaceIcons.put('order', 'orders');
-        replaceIcons.put('product', 'product');
-        replaceIcons.put('solution', 'solution');
-        final List<RelatedTo> ltsRelations = new List<RelatedTo>();
-        final Set<String> objList = new Set<String>();
-        for (Schema.SObjectType objectType : mfields.get(field.toLowerCase()).getDescribe().getReferenceTo()) {
-            objList.add(String.valueOf(objectType));
-        }
-        final Map<String,String> mapIcons = getIconName(objList);
-        for (Schema.SObjectType objectType : mfields.get(field.toLowerCase()).getDescribe().getReferenceTo()) {
-            Final RelatedTo relation = new RelatedTo();
-            relation.label = objectType.getDescribe().getLabel();
-            relation.objName = objectType.getDescribe().getName();
-            relation.pluralLabel = objectType.getDescribe().getLabelPlural();
-            relation.displayFields = 'Name';
-            relation.displayFormat = 'Name';
-            relation.iconName = 'standard:unmatched';
-            if(mapIcons.containskey(String.valueOf(objectType))) {
-                relation.iconName = mapIcons.get(String.valueOf(objectType));
+        List<RelatedTo> ltsRelations = new List<RelatedTo>();
+        if(!mfields.get(field.toLowerCase()).getDescribe().getReferenceTo().isEmpty()) {
+            final Map<String, String> replaceIcons = new Map<String, String>();
+            replaceIcons.put('user', 'user');
+            replaceIcons.put('group', 'groups');
+            replaceIcons.put('quote', 'user');
+            replaceIcons.put('case', 'case');
+            replaceIcons.put('asset', 'asset_object');
+            replaceIcons.put('assetrelationship', 'asset_relationship');
+            replaceIcons.put('contactrequest', 'contact_request');
+            replaceIcons.put('contract', 'contract');
+            replaceIcons.put('order', 'orders');
+            replaceIcons.put('product', 'product');
+            replaceIcons.put('solution', 'solution');
+            final Set<String> objList = new Set<String>();
+            for (Schema.SObjectType objectType : mfields.get(field.toLowerCase()).getDescribe().getReferenceTo()) {
+                objList.add(String.valueOf(objectType));
             }
-            if(replaceIcons.containskey(String.valueOf(objectType).toLowerCase())) {
-                relation.iconName = 'standard:'+replaceIcons.get(String.valueOf(objectType).toLowerCase());
+            final Map<String,String> mapIcons = getIconName(objList);
+            for (Schema.SObjectType objectType : mfields.get(field.toLowerCase()).getDescribe().getReferenceTo()) {
+                Final RelatedTo relation = new RelatedTo();
+                relation.label = objectType.getDescribe().getLabel();
+                relation.objName = objectType.getDescribe().getName();
+                relation.pluralLabel = objectType.getDescribe().getLabelPlural();
+                relation.displayFields = 'Name';
+                relation.displayFormat = 'Name';
+                relation.iconName = 'standard:unmatched';
+                if(mapIcons.containskey(String.valueOf(objectType))) {
+                    relation.iconName = mapIcons.get(String.valueOf(objectType));
+                }
+                if(replaceIcons.containskey(String.valueOf(objectType).toLowerCase())) {
+                    relation.iconName = 'standard:'+replaceIcons.get(String.valueOf(objectType).toLowerCase());
+                }
+                ltsRelations.add(relation);
             }
-            ltsRelations.add(relation);
         }
         return ltsRelations;
     }
@@ -200,20 +222,24 @@ public without sharing class BE_SchemaUtils_Cls {
         /**
         @Description constructor of class
         */
-        public Values(String fieldType) {
+        public Values(String fieldTypeVal) {
+            this.fieldType = fieldTypeVal;
             this.isSingleReference = false;
             this.isMultiReference = false;
             this.isComboBox = false;
             this.isPickList = false;
             this.isTextArea = false;
             this.isStandard = false;
-            if(fieldType==STRREFERENCE) {
+            if(this.fieldType == STRDOUBLE) {
+                this.fieldType = 'number';
+            }
+            if(this.fieldType==STRREFERENCE) {
                 this.isSingleReference = true;
-            } else if(fieldType==STRCOMBOBOX) {
+            } else if(this.fieldType==STRCOMBOBOX) {
                 this.isComboBox = true;
-            } else if(fieldType==STRPICKLIST) {
+            } else if(this.fieldType==STRPICKLIST) {
                 this.isPickList = true;
-            } else if(fieldType==STRTEXTAREA) {
+            } else if(this.fieldType==STRTEXTAREA) {
                 this.isTextArea = true;
             } else {
                 this.isStandard = true;

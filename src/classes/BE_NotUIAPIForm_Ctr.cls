@@ -11,6 +11,12 @@
  */
 public without sharing class BE_NotUIAPIForm_Ctr {
     /**
+    @Description constructor of class
+    */
+    private BE_NotUIAPIForm_Ctr() {
+    }
+    
+    /**
     @Description return list record to search.
     @param String searchTerm text to search.
     @param String objName sObject to search.
@@ -20,14 +26,12 @@ public without sharing class BE_NotUIAPIForm_Ctr {
     @AuraEnabled(cacheable=true)
     public static List<sObject> findLookupRecords(String searchTerm, string objName) {
         String myQuery = null;
-        if(searchTerm == null || searchTerm == ''){
+        if(searchTerm == null || searchTerm == '') {
             myQuery = 'Select Id, Name from '+String.escapeSingleQuotes(objName)+' Where LastViewedDate != NULL ORDER BY LastViewedDate DESC LIMIT  5';
-        }
-        else {
+        } else {
             myQuery = 'Select Id, Name from '+String.escapeSingleQuotes(objName)+' Where Name Like  \'%' + String.escapeSingleQuotes(searchTerm) + '%\' LIMIT  5';
         }
-        final List<sObject> lookUpList = database.query(myQuery);
-        return lookUpList;
+        return database.query(myQuery);
     }
     
     /**
@@ -53,7 +57,6 @@ public without sharing class BE_NotUIAPIForm_Ctr {
     @AuraEnabled(cacheable=true)
     public static List<List<SObject>> findRelatedToLookup(String searchTerm, string filters) {
         final String query = 'FIND \'' + String.escapeSingleQuotes(searchTerm) + '*\' RETURNING ' + String.escapeSingleQuotes(filters) + ' LIMIT 10';
-        final List<List <SObject>> searchList = search.query(query);
-        return searchList;
+        return search.query(query);
     }
 }
