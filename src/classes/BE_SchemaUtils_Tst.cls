@@ -30,18 +30,6 @@ public class BE_SchemaUtils_Tst {
         slmtField.put('required','true');
 		slmtField.put('disabled','true');
 		fields.add(slmtField);
-        Final Map<Object, Object> ownField = new Map<Object, Object>();
-        ownField.put('fieldName','OwnerId');
-        ownField.put('label','Asignado a');
-        ownField.put('type','search');
-        ownField.put('required','false');
-		fields.add(ownField);
-        Final Map<Object, Object> actDateField = new Map<Object, Object>();
-        actDateField.put('fieldName','ActivityDate');
-        actDateField.put('label','Fecha de vencimiento');
-        actDateField.put('type','datetime');
-        actDateField.put('required','true');
-        fields.add(actDateField);
         Final Map<Object, Object> whatIdField = new Map<Object, Object>();
         whatIdField.put('fieldName','WhatId');
         whatIdField.put('label','Relacionado con');

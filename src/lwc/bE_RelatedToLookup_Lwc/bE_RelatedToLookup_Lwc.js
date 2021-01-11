@@ -111,7 +111,7 @@ export default class BE_RelatedToLookup_Lwc extends LightningElement {
 
     handleClick(event) {
         this.recordId = event.currentTarget.dataset.id;
-        this.searchTerm = undefined;
+        this.searchTerm = null;
         let selected = this.records.filter(
             (option) => option.Id === this.recordId
         );
@@ -128,7 +128,7 @@ export default class BE_RelatedToLookup_Lwc extends LightningElement {
 
     handleRemovePill() {
         if(!this.isDisabled) {
-            this.recordId = undefined;
+            this.recordId = null;
             this.hasRecord = false;
             this.dispatchEvent(new CustomEvent('change', {
                 detail: {

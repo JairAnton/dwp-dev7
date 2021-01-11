@@ -7,7 +7,6 @@ export default class BE_GenericCustomLookup_Lwc extends LightningElement {
     @api iconName;
     @api labelName;
     @api fieldName;
-    @api filter = '';
     @api searchPlaceholder = '';
     @api defaultValue;
     @api isRequired = false;
@@ -24,14 +23,14 @@ export default class BE_GenericCustomLookup_Lwc extends LightningElement {
     @track boxClass = 'slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-has-focus';
     @track inputClass = '';
 
-    @wire(findLookupRecords, {searchTerm : '$searchTerm', myObject : '$objName', filter : '$filter'})
+    @wire(findLookupRecords, {searchTerm : '$searchTerm', myObject : '$objName'})
     wiredRecords({ error, data }) {
         if (data) {
-            this.error = undefined;
+            this.error = null;
             this.records = data;
         } else if (error) {
             this.error = error;
-            this.records = undefined;
+            this.records = null;
         }
     }
 

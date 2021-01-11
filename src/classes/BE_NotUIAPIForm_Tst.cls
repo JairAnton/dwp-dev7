@@ -22,9 +22,9 @@ public class BE_NotUIAPIForm_Tst {
         final Contact con= new Contact(AccountId=accOne.Id,Salutation='Mr.',FirstName='NON_CLIENT',LastName='NON_CLIENTE_CONTACT_ONE',decision_making_desc__c='Si',Email='contactone@test.com',MobilePhone='924567896',prof_position_type__c='APODERADO', contact_code__c='00001',phone_1__c='9876545',phone_1_area_code__c='01',phone_2__c='2235675',phone_2_area_code__c='01');
         insert con;
         Test.startTest();
-        BE_NotUIAPIForm_Ctr.findLookupRecords(null, 'Contact', null);
-        BE_NotUIAPIForm_Ctr.findLookupRecords('NON_CLIENTE_CONTACT_ONE', 'Contact', 'Salutation=\'Mr.\'');
-        final List<sObject> objs = BE_NotUIAPIForm_Ctr.findLookupRecords('NON_CLIENTE_CONTACT_ONE', 'Contact', null);
+        BE_NotUIAPIForm_Ctr.findLookupRecords(null, 'Contact');
+        BE_NotUIAPIForm_Ctr.findLookupRecords('NON_CLIENTE_CONTACT_ONE', 'Contact');
+        final List<sObject> objs = BE_NotUIAPIForm_Ctr.findLookupRecords('NON_CLIENTE_CONTACT_ONE', 'Contact');
         Test.stopTest();
         System.assert(!objs.isEmpty(), 'success!!!');
     }
