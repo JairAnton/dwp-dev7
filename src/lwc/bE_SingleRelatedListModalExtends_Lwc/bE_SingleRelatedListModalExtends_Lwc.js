@@ -78,7 +78,7 @@ export default class BE_SingleRelatedListModalExtends_Lwc extends LightningEleme
             console.log(this.error);
         }
     }
-    
+
     handleChangeField(event) {
         this.record[event.target.name] = event.target.value;
     }
@@ -86,7 +86,7 @@ export default class BE_SingleRelatedListModalExtends_Lwc extends LightningEleme
     handleChangeCustomField(event) {
         this.record[event.detail.target] = event.detail.value;
     }
-    
+
     handleCloseModal(refresh, isDML) {
         let evt = new CustomEvent('closemodalweb',
             { detail: {

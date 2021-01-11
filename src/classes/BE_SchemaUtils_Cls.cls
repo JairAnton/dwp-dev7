@@ -106,7 +106,7 @@ public without sharing class BE_SchemaUtils_Cls {
     @return List<RelatedTo> ltsRelations with relations to reference field.
     */
     private static List<RelatedTo> addRelations(String field, Map<String, Schema.SObjectField> mfields) {
-        List<RelatedTo> ltsRelations = new List<RelatedTo>();
+        final List<RelatedTo> ltsRelations = new List<RelatedTo>();
         if(!mfields.get(field.toLowerCase()).getDescribe().getReferenceTo().isEmpty()) {
             final Map<String, String> replaceIcons = new Map<String, String>();
             replaceIcons.put('user', 'user');
