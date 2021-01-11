@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+	<labels>
+        <fullName>AP_BadActionWithAPOutPetition</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AP_BadActionWithAPOutPetition</shortDescription>
+        <value>Para {0} este plan de cuenta, debe hacerlo a tráves de la petición del gestor.</value>
+    </labels>
+    <labels>
+        <fullName>AP_CantAddExistingUser</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AP_CantAddExistingUser</shortDescription>
+        <value>No puede agregar a un miembro ya existente en el equipo.</value>
+    </labels>
+    <labels>
+        <fullName>AP_CantDeleteItSelfAPT</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AP_CantDeleteItSelfAPT</shortDescription>
+        <value>No puede eliminar su propio registro como miembro.</value>
+    </labels>
+    <labels>
+        <fullName>AP_ChangeValidatorOutPetition</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AP_ChangeValidatorOutPetition</shortDescription>
+        <value>Para cambiar de validador debe hacerlo a tráves de la petición solicitada por el gestor.</value>
+    </labels>
     <labels>
         <fullName>NewOpportunityWarning</fullName>
         <language>es</language>
@@ -14,12 +42,75 @@
         <shortDescription>lblPDFProductCartaTecnicaEconomica</shortDescription>
         <value>PC00011</value>
     </labels>	
+    <labels>
+        <fullName>AP_ErrorSharingAPT</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AP_ErrorSharingAPT</shortDescription>
+        <value>Ha ocurrido al agregar un miembro: {0}</value>
+    </labels>
    <labels>
         <fullName>Hangout</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Hangout</shortDescription>
         <value>Start a Hangout</value>
+    </labels>
+    <labels>
+        <fullName>AP_InvalidAssignationValidatorByUser</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AP_InvalidAssignationValidatorByUser</shortDescription>
+        <value>No puede asignar otro validador a este plan de cuenta.</value>
+    </labels>
+    <labels>
+        <fullName>AP_MainGestorAddGestors</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AP_MainGestorAddGestors</shortDescription>
+        <value>Solo el gestor principal puede eliminar otros gestores.</value>
+    </labels>
+    <labels>
+        <fullName>AP_OnlyGestorAddMembers</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AP_OnlyGestorAddMembers</shortDescription>
+        <value>Solo los gestores pueden agregar miembros al equipo.</value>
+    </labels>
+    <labels>
+        <fullName>AP_OnlyGestorsDeleteMembers</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AP_OnlyGestorsDeleteMembers</shortDescription>
+        <value>Solo los gestores pueden eliminar miembros en el equipo.</value>
+    </labels>
+    <labels>
+        <fullName>AP_UnableToReturnAPUnassigned</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AP_UnableToReturnAPUnassigned</shortDescription>
+        <value>No puede devolver un plan de cuenta que no tiene asignado.</value>
+    </labels>
+    <labels>
+        <fullName>AP_UserCantAddGestor</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AP_UserCantAddGestor</shortDescription>
+        <value>Solo el gestor principal puede asignar otro gestor al plan de cuenta.</value>
+    </labels>
+    <labels>
+        <fullName>AP_ValidationByUnAssignedUser</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AP_ValidationByUnAssignedUser</shortDescription>
+        <value>No puede validar un plan de cuenta que no tiene asignado.</value>
+    </labels>
+    <labels>
+        <fullName>AP_ValidatorsCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AP_ValidatorsCode</shortDescription>
+        <value>E01,I21,OS8</value>
     </labels>
 	<labels>
         <fullName>Agree</fullName>
@@ -178,6 +269,20 @@
         <value>Total</value>
     </labels>
     <labels>
+        <fullName>Ask_for_validation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Ask_for_validation</shortDescription>
+        <value>Elevar</value>
+    </labels>
+    <labels>
+        <fullName>BE_AP_NewButton</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_AP_NewButton</shortDescription>
+        <value>No puede crear registros mediante esta vista. Por favor siga el manual indicado.</value>
+    </labels>
+    <labels>
         <fullName>BE_DynamicModalRecordForm</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -186,11 +291,61 @@
 Por favor verifique la estructura de acuerdo a la guía en la documentación.</value>
     </labels>
     <labels>
+        <fullName>BE_ImportRecord_Desc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_ImportRecord_Desc</shortDescription>
+        <value>Como administrador de plan de cuentas, puede crear registros de planes de cuentas mediante archivos de cargas.</value>
+    </labels>
+    <labels>
+        <fullName>BE_ImportRecord_Title</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_ImportRecord_Title</shortDescription>
+        <value>Importación de registros</value>
+    </labels>
+    <labels>
+        <fullName>BE_ImportRecord_btn_label</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_ImportRecord_btn_label</shortDescription>
+        <value>Importar registros</value>
+    </labels>
+    <labels>
+        <fullName>BE_NonClient_ErrorMessage</fullName>
+        <categories>BE_NonClient</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_NonClient_ErrorMessage</shortDescription>
+        <value>Please, put correct values</value>
+    </labels>
+    <labels>
         <fullName>BE_NotCreateEditAccount</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>BE_NotCreateEditAccount</shortDescription>
-        <value>Register a new Non Client you must access the Prospects tab and press the &quot;New Non-Client&quot; button</value>
+        <value>It is not possible to create a client.</value>
+    </labels>
+	<labels>
+        <fullName>BE_SalesMeeting_BtnCancel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_SalesMeeting_BtnCancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>BE_SalesMeeting_BtnFinalize</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_SalesMeeting_BtnFinalize</shortDescription>
+        <value>Finalize</value>
+    </labels>
+    <labels>
+        <fullName>BE_SalesMeeting_BtnFinalizeNew</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_SalesMeeting_BtnFinalizeNew</shortDescription>
+        <value>Finalize &amp; New</value>
     </labels>
     <labels>
         <fullName>BE_SingleRelatedListModal_BtnCancel</fullName>
@@ -264,6 +419,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>View All</value>
     </labels>
     <labels>
+        <fullName>Button_Collection_No_Actions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Button Collection No Actions</shortDescription>
+        <value>No existen acciones disponibles.</value>
+    </labels>
+    <labels>
         <fullName>Dwp_msgGenericError</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -271,25 +433,53 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>Ha ocurrido un error en el sistema, por favor inténtalo otra vez.</value>
     </labels>
     <labels>
+        <fullName>DynamicActionsAudit_SectionTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dynamic Action Audit Title</shortDescription>
+        <value>Historial de seguimiento</value>
+    </labels>
+    <labels>
+        <fullName>Extensions_Allowed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Extensions_Allowed</shortDescription>
+        <value>pdf,doc,docx,xls,csv,ppt,pptx,txt,xlsx,png,jpg,jpeg</value>
+    </labels>
+    <labels>
+        <fullName>Error_InvalidExtensionType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error_InvalidExtensionType</shortDescription>
+        <value>No puede agregar este tipo de archivo.</value>
+    </labels>
+    <labels>
+        <fullName>GenericCustomLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>GenericCustomLabel</shortDescription>
+        <value>{0}</value>
+    </labels>
+    <labels>
         <fullName>LblDirectDebt</fullName>
         <language>es</language>
         <protected>false</protected>
         <shortDescription>LblDirectDebt</shortDescription>
-        <value>DirectDebt</value>
+        <value>DIRECTA</value>
     </labels>
     <labels>
         <fullName>LblIndirectDebt</fullName>
         <language>es</language>
         <protected>false</protected>
         <shortDescription>LblIndirectDebt</shortDescription>
-        <value>IndirectDebt</value>
+        <value>INDIRECTA</value>
     </labels>
     <labels>
         <fullName>LblResources</fullName>
         <language>es</language>
         <protected>false</protected>
         <shortDescription>LblResources</shortDescription>
-        <value>Resources</value>
+        <value>RECURSOS GESTIONADOS</value>
     </labels>
     <labels>
         <fullName>Month10ShortName</fullName>
@@ -531,6 +721,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>Formalizar</value>
     </labels>
     <labels>
+        <fullName>lblGOFCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblGOFCode</shortDescription>
+        <value>E01,I21</value>
+    </labels>
+    <labels>
         <fullName>lblPDFProductCommercialLoanCP</fullName>
         <language>es</language>
         <protected>false</protected>
@@ -649,12 +846,26 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <shortDescription>lblSanctionRisk</shortDescription>
         <value>Risk Approval</value>
     </labels>
+	<labels>
+        <fullName>lblTitleCurrentPriceSanction</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblTitleCurrentPriceSanction</shortDescription>
+        <value>Sanction with current price</value>
+    </labels>
     <labels>
         <fullName>lblTitleFormalization</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>lblTitleFormalization</shortDescription>
         <value>formalizate Opportunity</value>
+    </labels>
+	<labels>
+        <fullName>lblTitleNewSalesMeeting</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblTitleNewSalesMeeting</shortDescription>
+        <value>New Sales Meeting</value>
     </labels>
     <labels>
         <fullName>lblTitleReevaluate</fullName>
@@ -887,6 +1098,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <shortDescription>Embedded</shortDescription>
         <value>Embedded</value>
     </labels>
+	<labels>
+        <fullName>ErrorReevaluate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ErrorReevaluate</shortDescription>
+        <value>It is not possible to reevaluate an opportunity with a quote id used on another opportunity</value>
+    </labels>
     <labels>
         <fullName>Error_TEA_no_calculada</fullName>
         <categories>Error</categories>
@@ -1005,7 +1223,7 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>approveSucess</shortDescription>
-        <value>The Opportunity is successfully approved.</value>
+        <value>The opportunity is successfully approved.</value>
     </labels>
     <labels>
         <fullName>auditStyleSendBack</fullName>
@@ -1106,11 +1324,25 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>Complete</value>
     </labels>
     <labels>
+        <fullName>lblEjecutivoCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblEjecutivoCode</shortDescription>
+        <value>E03,I32</value>
+    </labels>
+    <labels>
         <fullName>lblUnlink</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>lblUnlink</shortDescription>
         <value>Unlink SIO</value>
+    </labels>
+    <labels>
+        <fullName>lblUseCurrentPrice</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblUseCurrentPrice</shortDescription>
+        <value>Use current price</value>
     </labels>
     <labels>
         <fullName>lblUserNotAuth</fullName>
@@ -1323,104 +1555,111 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>Price Sanction</value>
     </labels>
    <labels>
-    <fullName>lblEtapa01</fullName>
-    <language>es</language>
-    <protected>false</protected>
-    <shortDescription>lblEtapa01</shortDescription>
-    <value>Commercial actions</value>
-</labels>
-<labels>
-    <fullName>lblEtapa02</fullName>
-    <language>es</language>
-    <protected>false</protected>
-    <shortDescription>lblEtapa02</shortDescription>
-    <value>Pending to start</value>
-</labels>
-<labels>
-    <fullName>lblEtapa03</fullName>
-    <language>es</language>
-    <protected>false</protected>
-    <shortDescription>lblEtapa03</shortDescription>
-    <value>In Management</value>
-</labels>
-<labels>
-    <fullName>lblEtapa04</fullName>
-    <language>es</language>
-    <protected>false</protected>
-    <shortDescription>lblEtapa04</shortDescription>
-    <value>In Sanction</value>
-</labels>
-<labels>
-    <fullName>lblEtapa05</fullName>
-    <language>es</language>
-    <protected>false</protected>
-    <shortDescription>lblEtapa05</shortDescription>
-    <value>Formalization</value>
-</labels>
-<labels>
-    <fullName>lblEtapa06</fullName>
-    <language>es</language>
-    <protected>false</protected>
-    <shortDescription>lblEtapa06</shortDescription>
-    <value>Formalizate</value>
-</labels>
-<labels>
-    <fullName>lblEtapa07</fullName>
-    <language>es</language>
-    <protected>false</protected>
-    <shortDescription>lblEtapa07</shortDescription>
-    <value>Rejected</value>
-</labels>
-<labels>
-    <fullName>lblEtapaNoEncontrada</fullName>
-    <language>es</language>
-    <protected>false</protected>
-    <shortDescription>lblEtapaNoEncontrada</shortDescription>
-    <value>There is no stage in this opportunity</value>
-</labels>
-<labels>
-    <fullName>lblAnalistaProf</fullName>
-    <language>en_US</language>
-    <protected>false</protected>
-    <shortDescription>lblAnalistaProf</shortDescription>
-    <value>Analista</value>
-</labels>
-<labels>
-    <fullName>lblReasign</fullName>
-    <language>en_US</language>
-    <protected>false</protected>
-    <shortDescription>lblReasign</shortDescription>
-    <value>Reasign Owner</value>
-</labels>
-<labels>
-    <fullName>lblSearch</fullName>
-    <language>en_US</language>
-    <protected>false</protected>
-    <shortDescription>lblSearch</shortDescription>
-    <value>Search...</value>
-</labels>
-<labels>
-    <fullName>profAdministrator</fullName>
-    <language>en_US</language>
-    <protected>false</protected>
-    <shortDescription>profAdministrator</shortDescription>
-    <value>System Administrator</value>
-</labels>
-<labels>
-    <fullName>reasignSuccess</fullName>
-    <language>en_US</language>
-    <protected>false</protected>
-    <shortDescription>reasignSuccess</shortDescription>
-    <value>The case has been reasigned succesfully,</value>
-</labels>
-<labels>
-        <fullName>errorEmptyUser</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>errorEmptyUser</shortDescription>
-        <value>You have to insert an user.</value>
-</labels>
-<labels>
+		<fullName>lblEtapa01</fullName>
+		<language>es</language>
+		<protected>false</protected>
+		<shortDescription>lblEtapa01</shortDescription>
+		<value>Commercial actions</value>
+	</labels>
+	<labels>
+		<fullName>lblEtapa02</fullName>
+		<language>es</language>
+		<protected>false</protected>
+		<shortDescription>lblEtapa02</shortDescription>
+		<value>Pending to start</value>
+	</labels>
+	<labels>
+		<fullName>lblEtapa03</fullName>
+		<language>es</language>
+		<protected>false</protected>
+		<shortDescription>lblEtapa03</shortDescription>
+		<value>In Management</value>
+	</labels>
+	<labels>
+		<fullName>lblEtapa04</fullName>
+		<language>es</language>
+		<protected>false</protected>
+		<shortDescription>lblEtapa04</shortDescription>
+		<value>In Sanction</value>
+	</labels>
+	<labels>
+		<fullName>lblEtapa05</fullName>
+		<language>es</language>
+		<protected>false</protected>
+		<shortDescription>lblEtapa05</shortDescription>
+		<value>Formalization</value>
+	</labels>
+	<labels>
+		<fullName>lblEtapa06</fullName>
+		<language>es</language>
+		<protected>false</protected>
+		<shortDescription>lblEtapa06</shortDescription>
+		<value>Formalizate</value>
+	</labels>
+	<labels>
+		<fullName>lblEtapa07</fullName>
+		<language>es</language>
+		<protected>false</protected>
+		<shortDescription>lblEtapa07</shortDescription>
+		<value>Rejected</value>
+	</labels>
+	<labels>
+		<fullName>lblEtapaNoEncontrada</fullName>
+		<language>es</language>
+		<protected>false</protected>
+		<shortDescription>lblEtapaNoEncontrada</shortDescription>
+		<value>There is no stage in this opportunity</value>
+	</labels>
+	<labels>
+		<fullName>lblAlertCurrentPriceSanction</fullName>
+		<language>en_US</language>
+		<protected>false</protected>
+		<shortDescription>lblAlertCurrentPriceSanction</shortDescription>
+		<value>Select the sanction price to use in this opportunity</value>
+	</labels>
+	<labels>
+		<fullName>lblAnalistaProf</fullName>
+		<language>en_US</language>
+		<protected>false</protected>
+		<shortDescription>lblAnalistaProf</shortDescription>
+		<value>Analista</value>
+	</labels>
+	<labels>
+		<fullName>lblReasign</fullName>
+		<language>en_US</language>
+		<protected>false</protected>
+		<shortDescription>lblReasign</shortDescription>
+		<value>Reasign Owner</value>
+	</labels>
+	<labels>
+		<fullName>lblSearch</fullName>
+		<language>en_US</language>
+		<protected>false</protected>
+		<shortDescription>lblSearch</shortDescription>
+		<value>Search...</value>
+	</labels>
+	<labels>
+		<fullName>profAdministrator</fullName>
+		<language>en_US</language>
+		<protected>false</protected>
+		<shortDescription>profAdministrator</shortDescription>
+		<value>System Administrator</value>
+	</labels>
+	<labels>
+		<fullName>reasignSuccess</fullName>
+		<language>en_US</language>
+		<protected>false</protected>
+		<shortDescription>reasignSuccess</shortDescription>
+		<value>The case has been reasigned succesfully,</value>
+	</labels>
+	<labels>
+			<fullName>errorEmptyUser</fullName>
+			<language>en_US</language>
+			<protected>false</protected>
+			<shortDescription>errorEmptyUser</shortDescription>
+			<value>You have to insert an user.</value>
+	</labels>
+	<labels>
         <fullName>AddCommitment</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1531,7 +1770,14 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <protected>false</protected>
         <shortDescription>lblCREATE_CASE</shortDescription>
         <value>CREATE_CASE</value>
-    </labels> 
+    </labels>
+	<labels>
+        <fullName>lblCommentQuote</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblCommentQuote</shortDescription>
+        <value>Quote Comments:</value>
+    </labels>
     <labels>
         <fullName>OppPriceDecision02_long</fullName>
         <language>en_US</language>
@@ -1580,6 +1826,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <protected>false</protected>
         <shortDescription>OppStatusLabel13</shortDescription>
         <value>Price denied</value>
+    </labels>
+    <labels>
+        <fullName>Opp_LP_Products</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Opp_LP_Products</shortDescription>
+        <value>PC00009,PC00009_NEW,0159601,0159601_NEW</value>
     </labels>
     <labels>
         <fullName>PriceProposalSectionTitle</fullName>
@@ -1671,6 +1924,20 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <protected>false</protected>
         <shortDescription>SIOstatus3</shortDescription>
         <value>Sanction GM 2</value>
+    </labels>
+    <labels>
+        <fullName>SalesMeetingErrorFinalized</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SalesMeetingErrorFinalized</shortDescription>
+        <value>A sales meeting finalized cannot be modified.</value>
+    </labels>
+    <labels>
+        <fullName>SalesMeetingErrorUnrealized</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SalesMeetingErrorUnrealized</shortDescription>
+        <value>A sales meeting unrealized can only be modified the reason.</value>
     </labels>
     <labels>
         <fullName>PDFSectionPayment</fullName>
@@ -1925,6 +2192,62 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <shortDescription>Price WS Label 10</shortDescription>
         <value>EXPECTED_LOSS</value>
     </labels>
+	<labels>
+        <fullName>PriceWSLabel16</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 16</shortDescription>
+        <value>RORC_CLIENT_STOCK_MONTH_ACTIVE</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel17</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 17</shortDescription>
+        <value>RORC_CLIENT_VARIATION</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel18</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 18</shortDescription>
+        <value>RORC_OPERATION</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel19</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 19</shortDescription>
+        <value>RORC_CLIENT_POST</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel20</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 20</shortDescription>
+        <value>RAROEC_OPERATION</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel21</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 21</shortDescription>
+        <value>LOST_FINANCIAL_MARGIN</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel22</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 22</shortDescription>
+        <value>MARGIN_FINANCIAL_RECOVERY</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel23</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 23</shortDescription>
+        <value>CURRENCY_FINANCIAL_RECOVERY</value>
+    </labels>
     <labels>
         <fullName>PriceQuotationAvailabilityErrorMessageWrongUser</fullName>
         <language>en_US</language>
@@ -1945,6 +2268,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <protected>false</protected>
         <shortDescription>DecisionPriceActionError</shortDescription>
         <value>The action over the quotation could not be performed due to the following error:</value>
+    </labels>
+	<labels>
+        <fullName>PriceApprovalUsingQuote</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PriceApprovalUsingQuote</shortDescription>
+        <value>Authorized with current price</value>
     </labels>
     <labels>
         <fullName>PriceApproveDefaultComment</fullName>
@@ -2199,6 +2529,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>¿Deseas asignártela para poder completar la formalización?</value>
     </labels>
     <labels>
+        <fullName>lblAssistants</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblAssistants</shortDescription>
+        <value>E0B,I49</value>
+    </labels>
+    <labels>
         <fullName>lblAuth</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2345,5 +2682,26 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <protected>false</protected>
         <shortDescription>BE_UnpaidContracts</shortDescription>
         <value>Current and unpaid contracts</value>
+    </labels>
+	<labels>
+        <fullName>BE_AvgMonthlyBalance</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_AvgMonthlyBalance</shortDescription>
+        <value>Average monthly balance</value>
+    </labels>
+	<labels>
+        <fullName>BE_ViewReport</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_ViewReport</shortDescription>
+        <value>View Report</value>
+    </labels>
+	<labels>
+        <fullName>BE_VisitErrorDescField</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_VisitErrorDescField</shortDescription>
+        <value>Description is required</value>
     </labels>
 </CustomLabels>

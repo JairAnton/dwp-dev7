@@ -73,7 +73,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Header</name>
-                <value>Name,Document_Type_Abbreviation__c,Personal_Id__c,Birth_Date__c,Position__c,Position_Begin_Date__c</value>
+                <value>Customer_Name__c,Document_Type_Abbreviation__c,Personal_Id__c,Birth_Date__c,Position__c,Position_Begin_Date__c</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>HeaderGroup</name>
@@ -379,7 +379,7 @@
             <componentInstanceProperties>
                 <name>title</name>
             </componentInstanceProperties>
-            <componentName>bE_SingleRelatedList_Lwc</componentName>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
         </componentInstances>
         <name>Facet-6eb17ebb-29f1-45ea-92b0-07c60bc45f56</name>
         <type>Facet</type>
@@ -400,7 +400,7 @@
             <componentInstanceProperties>
                 <name>title</name>
             </componentInstanceProperties>
-            <componentName>bE_SingleRelatedList_Lwc</componentName>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
         </componentInstances>
         <name>Facet-c3257e6b-d906-49fb-85d3-f412cd1f87e4</name>
         <type>Facet</type>
@@ -421,7 +421,7 @@
             <componentInstanceProperties>
                 <name>title</name>
             </componentInstanceProperties>
-            <componentName>bE_SingleRelatedList_Lwc</componentName>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
         </componentInstances>
         <name>Facet-tbxmreqiyze</name>
         <type>Facet</type>
@@ -442,7 +442,7 @@
             <componentInstanceProperties>
                 <name>title</name>
             </componentInstanceProperties>
-            <componentName>bE_SingleRelatedList_Lwc</componentName>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
         </componentInstances>
         <name>Facet-ezc1o8ld0jm</name>
         <type>Facet</type>
@@ -463,7 +463,7 @@
             <componentInstanceProperties>
                 <name>title</name>
             </componentInstanceProperties>
-            <componentName>bE_SingleRelatedList_Lwc</componentName>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
         </componentInstances>
         <name>Facet-zelqc64gga</name>
         <type>Facet</type>
@@ -1630,6 +1630,248 @@
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
+                <name>Collapsed</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>CollapsedDefault</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>CurrencyDimension</name>
+                <value>Thousand</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FilterDynamic</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FilterDynamicField</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FilterStatic</name>
+                <value>gf_income_type__c IN (&apos;01&apos;, &apos;02&apos;, &apos;03&apos;) AND gf_income_movement_date__c &gt;= LAST_N_YEARS:2</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Format</name>
+                <value>NUM</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FormatDivisa</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Group</name>
+                <value>Type_Label__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Header</name>
+                <value>gf_income_amount__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>HeaderGroup</name>
+                <value>Period__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>LocaleCur</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Object</name>
+                <value>Account_Income__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Order</name>
+                <value>gf_income_movement_date__c DESC</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>PositionCurrency</name>
+                <value>Left</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>RelatedField</name>
+                <value>account_id__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Summarize</name>
+                <value>SUM</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Symbol</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Type</name>
+                <value>Matrix</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>allFilter</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>customLabelAPInameError</name>
+                <value>AccountNoData</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>headerApiName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>hidenSubHeadMatrix</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>labelFilterApi</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>labelTotalApi</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>reportTitleAPI</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showFilter</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showLink</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTitle</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTotal</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>Collapsed</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>CollapsedDefault</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>CurrencyDimension</name>
+                <value>Thousand</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FilterDynamic</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FilterDynamicField</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FilterStatic</name>
+                <value>gf_income_type__c = &apos;04&apos; AND Is_last_two_years__c = TRUE</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Format</name>
+                <value>NUM</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FormatDivisa</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Group</name>
+                <value>Period__c,product_service_id__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Header</name>
+                <value>gf_income_amount__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>HeaderGroup</name>
+                <value>Month__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>LocaleCur</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Object</name>
+                <value>Account_Income__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Order</name>
+                <value>gf_income_movement_date__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>PositionCurrency</name>
+                <value>Left</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>RelatedField</name>
+                <value>account_id__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Summarize</name>
+                <value>SUM</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Symbol</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Type</name>
+                <value>Matrix</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>allFilter</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>customLabelAPInameError</name>
+                <value>AccountNoData</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>headerApiName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>hidenSubHeadMatrix</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>labelFilterApi</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>labelTotalApi</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>reportTitleAPI</name>
+                <value>BE_AvgMonthlyBalance</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showFilter</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showLink</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTitle</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTotal</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentName>bE_AccountIncomeGraphic_Lwc</componentName>
+        </componentInstances>
+        <name>Facet-fd5efb96-fc01-4291-8276-bb8d42fd0e48</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
                 <name>cacheAge</name>
                 <value>1440</value>
             </componentInstanceProperties>
@@ -2140,6 +2382,21 @@
         <componentInstances>
             <componentInstanceProperties>
                 <name>body</name>
+                <value>Facet-fd5efb96-fc01-4291-8276-bb8d42fd0e48</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>Ingresos en cuenta</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection--14m1237kqtk</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
                 <value>facet-757848ee-d6fc-4e70-8dad-ebb7a685b838</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
@@ -2638,7 +2895,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId  AND gl_account_type__c=@@BG@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+                <value>account_id__c=:recordId  AND gl_account_type__c=@@BG@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c DESC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
@@ -2739,7 +2996,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId  AND gl_account_type__c=@@BG@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+                <value>account_id__c=:recordId  AND gl_account_type__c=@@BG@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c DESC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
@@ -2844,7 +3101,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId  AND gl_account_type__c=@@GP@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+                <value>account_id__c=:recordId  AND gl_account_type__c=@@GP@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c DESC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
@@ -2945,7 +3202,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId  AND gl_account_type__c=@@GP@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+                <value>account_id__c=:recordId  AND gl_account_type__c=@@GP@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c DESC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
@@ -3098,7 +3355,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@1@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@1@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c DESC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
@@ -3195,7 +3452,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@2@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@2@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c DESC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
@@ -3292,7 +3549,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@3@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@3@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c DESC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
@@ -3389,7 +3646,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@4@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@4@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c DESC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
@@ -3486,7 +3743,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@5@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@5@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c DESC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
@@ -4161,6 +4418,248 @@
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
+                <name>Collapsed</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>CollapsedDefault</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>CurrencyDimension</name>
+                <value>Thousand</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FilterDynamic</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FilterDynamicField</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FilterStatic</name>
+                <value>gf_income_type__c IN (&apos;01&apos;, &apos;02&apos;, &apos;03&apos;) AND gf_income_movement_date__c &gt;= LAST_N_YEARS:2</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Format</name>
+                <value>NUM</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FormatDivisa</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Group</name>
+                <value>Type_Label__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Header</name>
+                <value>gf_income_amount__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>HeaderGroup</name>
+                <value>Period__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>LocaleCur</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Object</name>
+                <value>Account_Income__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Order</name>
+                <value>gf_income_movement_date__c DESC</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>PositionCurrency</name>
+                <value>Left</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>RelatedField</name>
+                <value>account_id__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Summarize</name>
+                <value>SUM</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Symbol</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Type</name>
+                <value>Matrix</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>allFilter</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>customLabelAPInameError</name>
+                <value>AccountNoData</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>headerApiName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>hidenSubHeadMatrix</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>labelFilterApi</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>labelTotalApi</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>reportTitleAPI</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showFilter</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showLink</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTitle</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTotal</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>Collapsed</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>CollapsedDefault</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>CurrencyDimension</name>
+                <value>Thousand</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FilterDynamic</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FilterDynamicField</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FilterStatic</name>
+                <value>gf_income_type__c = &apos;04&apos; AND Is_last_two_years__c = TRUE</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Format</name>
+                <value>NUM</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>FormatDivisa</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Group</name>
+                <value>Period__c,product_service_id__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Header</name>
+                <value>gf_income_amount__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>HeaderGroup</name>
+                <value>Month__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>LocaleCur</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Object</name>
+                <value>Account_Income__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Order</name>
+                <value>gf_income_movement_date__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>PositionCurrency</name>
+                <value>Left</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>RelatedField</name>
+                <value>account_id__c</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Summarize</name>
+                <value>SUM</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Symbol</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>Type</name>
+                <value>Matrix</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>allFilter</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>customLabelAPInameError</name>
+                <value>AccountNoData</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>headerApiName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>hidenSubHeadMatrix</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>labelFilterApi</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>labelTotalApi</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>reportTitleAPI</name>
+                <value>BE_AvgMonthlyBalance</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showFilter</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showLink</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTitle</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTotal</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentName>Be_Dynamic_Tableconten_Cmp</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentName>bE_AccountIncomeGraphic_Lwc</componentName>
+        </componentInstances>
+        <name>Facet-e9714ww3my</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
                 <name>cacheAge</name>
                 <value>1440</value>
             </componentInstanceProperties>
@@ -4457,6 +4956,21 @@
             <componentInstanceProperties>
                 <name>name</name>
                 <value>accordionSection--daswlnjp3hl</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-e9714ww3my</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>Ingresos en cuenta</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection--j0d4qdxmux</value>
             </componentInstanceProperties>
             <componentName>flexipage:accordionSection</componentName>
         </componentInstances>
@@ -4912,7 +5426,7 @@
             <componentInstanceProperties>
                 <name>title</name>
             </componentInstanceProperties>
-            <componentName>bE_SingleRelatedList_Lwc</componentName>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
         </componentInstances>
         <name>Facet-3fe4a477-eb92-4481-8cb0-bffe653afb50</name>
         <type>Facet</type>
@@ -4933,7 +5447,7 @@
             <componentInstanceProperties>
                 <name>title</name>
             </componentInstanceProperties>
-            <componentName>bE_SingleRelatedList_Lwc</componentName>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
         </componentInstances>
         <name>Facet-5bbbd79b-1e8a-45b4-bbb5-616f0d8265df</name>
         <type>Facet</type>
@@ -4954,7 +5468,7 @@
             <componentInstanceProperties>
                 <name>title</name>
             </componentInstanceProperties>
-            <componentName>bE_SingleRelatedList_Lwc</componentName>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
         </componentInstances>
         <name>Facet-4ea46060-ba47-4304-b056-7232b13eebe5</name>
         <type>Facet</type>
@@ -4975,7 +5489,7 @@
             <componentInstanceProperties>
                 <name>title</name>
             </componentInstanceProperties>
-            <componentName>bE_SingleRelatedList_Lwc</componentName>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
         </componentInstances>
         <name>Facet-1a4ebf79-ae9c-420f-8f5c-679bcfa23392</name>
         <type>Facet</type>
@@ -4996,7 +5510,7 @@
             <componentInstanceProperties>
                 <name>title</name>
             </componentInstanceProperties>
-            <componentName>bE_SingleRelatedList_Lwc</componentName>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
         </componentInstances>
         <name>Facet-50ad078e-0bc1-4251-9f59-8f4ad368225f</name>
         <type>Facet</type>
@@ -5213,7 +5727,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId  AND gl_account_type__c=@@BG@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+                <value>account_id__c=:recordId  AND gl_account_type__c=@@BG@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c DESC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
@@ -5317,7 +5831,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId  AND gl_account_type__c=@@BG@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+                <value>account_id__c=:recordId  AND gl_account_type__c=@@BG@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c DESC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
@@ -5422,7 +5936,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId  AND gl_account_type__c=@@GP@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+                <value>account_id__c=:recordId  AND gl_account_type__c=@@GP@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c DESC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
@@ -5526,7 +6040,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId  AND gl_account_type__c=@@GP@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+                <value>account_id__c=:recordId  AND gl_account_type__c=@@GP@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c DESC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
@@ -5679,7 +6193,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@1@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@1@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c DESC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
@@ -5776,7 +6290,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@2@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@2@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c DESC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
@@ -5873,7 +6387,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@3@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@3@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c DESC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
@@ -5970,7 +6484,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@4@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@4@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c DESC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
@@ -6067,7 +6581,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterSQOLGroup</name>
-                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@5@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c ASC NULLS  LAST</value>
+                <value>account_id__c=:recordId AND gl_account_type__c=@@RT@@ AND gf_ratio_category_type__c=@@5@@ GROUP BY year_month_day_date__c ORDER BY year_month_day_date__c DESC NULLS  LAST</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>formatDate</name>
@@ -7004,7 +7518,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>Header</name>
-                <value>Name,Document_Type_Abbreviation__c,Personal_Id__c,Birth_Date__c,Position__c,Position_Begin_Date__c</value>
+                <value>Customer_Name__c,Document_Type_Abbreviation__c,Personal_Id__c,Birth_Date__c,Position__c,Position_Begin_Date__c</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>HeaderGroup</name>

@@ -1,3 +1,14 @@
+/**
+   -------------------------------------------------------------------------------------------------
+   @Name <SimulatePrice_ctrl_Test>
+   @Author 
+   @Date 
+   @Description Test class from SimulatePrice_ctrl
+   @Changes
+   Date        Author   Email                  				Type		Description
+   
+   -------------------------------------------------------------------------------------------------
+ */
 @istest
 public class SimulatePrice_ctrl_Test {
 	static Account acctest;
@@ -6,16 +17,24 @@ public class SimulatePrice_ctrl_Test {
 	static OpportunityLineItem olitest;
 	static Product2 prodtest;
 
+    /*
+     * Method used to create test data
+	*/
 	static void setData() {
 		defaultUser = TestFactory.createUser('Test', 'Migracion');
 		acctest = TestFactory.createAccount();
 		opptest = TestFactory.createOpportunity(acctest.Id, defaultUser.Id);
 		prodtest = TestFactory.createProduct();
 		olitest = TestFactory.createOLI(opptest.Id, prodtest.Id);
+        final BE_BailLetterCombination__c bailLetter = new BE_BailLetterCombination__c(UniqueId__c='USD020101', Currency__c='USD', Beneficiary__c = '02', BailObject__c='01', Period__c='01');
+        insert bailLetter;
 	}
 
+    /*
+     * Method used to test correct scenary
+	*/
 	@isTest
-	static void test_method_one() {
+	static void testMethodOne() {
 		setData();
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'SimulateRate', iaso__Url__c = 'https://SimulateRate/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
@@ -31,8 +50,11 @@ public class SimulatePrice_ctrl_Test {
 		Test.stopTest();
 	}
     
+    /*
+     * Method used to test correct scenary
+	*/
 	@isTest
-	static void test_method_two() {
+	static void testMethodTwo() {
 		setData();
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'SimulateRate', iaso__Url__c = 'https://SimulateRate/ko', iaso__Cache_Partition__c = 'local.CredentialsPeru');
@@ -46,5 +68,22 @@ public class SimulatePrice_ctrl_Test {
 		Map<String, Object> mapReturn = SimulatePrice_ctrl.getInfo(opptest.Id);
 		System.assert (mapReturn.containsKey('oli'));
 		Test.stopTest();
+	}
+    
+    /*
+     * Method used to test fail scenary
+	*/
+    @isTest
+	static void testMethodFail() {
+		setData();
+        final List<Product2> lstProd = [SELECT Id, Type_of_quote__c FROM Product2 LIMIT 1];
+		lstProd[0].Type_of_quote__c = 'Web';
+		update lstProd;
+        final List<OpportunityLineItem> lstOli = [SELECT Id, OpportunityId FROM OpportunityLineItem LIMIT 1];
+        lstOli[0].pricing_model_id__c = '8';
+        update lstOli;
+        SimulatePrice_ctrl.getInfo(null);
+		final String result = (String)SimulatePrice_ctrl.getInfo(lstOli[0].OpportunityId).get('genericError');
+        System.assert(!String.isBlank(result), 'Error!!!');
 	}
 }

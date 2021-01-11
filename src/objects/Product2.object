@@ -151,6 +151,35 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>type__c</fullName>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Direct</fullName>
+                    <default>false</default>
+                    <label>Direct</label>
+                </value>
+                <value>
+                    <fullName>Indirect</fullName>
+                    <default>false</default>
+                    <label>Indirect</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
     <listViews>
         <fullName>AllProducts</fullName>
         <filterScope>Everything</filterScope>

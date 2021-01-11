@@ -183,6 +183,10 @@
                 <behavior>Readonly</behavior>
                 <field>rejection_coin__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Loss_date__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>

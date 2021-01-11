@@ -1,0 +1,19 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" 
+                access="global" controller="DynamicRedirectPage_ctr">
+	<aura:attribute name="exceptionProfile" type="String" />
+    <aura:attribute name="exceptionUsers" type="String" />
+    <aura:attribute name="currentSObjectType" type="String" />
+    <aura:attribute name="fieldName" type="String" />
+    <aura:attribute name="redirectSObjectType" type="String" />
+    <aura:attribute name="redirectInFieldNull" type="Boolean" />
+    <aura:attribute name="handleError" type="String" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <aura:if isTrue="{!v.handleError}" >
+        <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning" role="alert">
+            <span class="slds-assistive-text">warning</span>
+            <span class="slds-icon_container slds-icon-utility-warning slds-m-right_x-small"></span>
+            <h2>Ha ocurrido un error con el componente. Por favor contacte a su administrador.</h2>
+        </div>
+    </aura:if>
+</aura:component>

@@ -112,14 +112,40 @@
                 
             </div>
             <footer class="slds-modal__footer slds-theme_default">
-                <aura:if isTrue="{!v.enableContinue}">
-                    <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPE"/>
+                <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP'}">
+                    <table width="100%">
+                        <tr>
+                            <td>
+                                <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
+                            </td>
+                            <td>
+                                <div class="slds-float_right">
+                                    <aura:if isTrue="{!v.enableContinue}">
+                                        <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPE"/>
+                                        <aura:set attribute="else">
+                                            <c:ButtonWithoutDoubleClick_cmp disabled="true" variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPE"/>
+                                        </aura:set>
+                                    </aura:if>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                     <aura:set attribute="else">
-                        <c:ButtonWithoutDoubleClick_cmp disabled="true" variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPE"/>
+                        <lightning:layout multipleRows="true">
+                            <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" padding="around-small">
+                                <aura:if isTrue="{!v.enableContinue}">
+                                    <c:ButtonWithoutDoubleClick_cmp class="slds-button slds-button_neutral slds-button_stretch" variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPE"/>
+                                    <aura:set attribute="else">
+                                        <c:ButtonWithoutDoubleClick_cmp class="slds-button slds-button_neutral slds-button_stretch" disabled="true" variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPE"/>
+                                    </aura:set>
+                                </aura:if>
+                            </lightning:layoutItem>
+                            <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" padding="around-small">
+                                <lightning:button class="slds-button slds-button_neutral slds-button_stretch" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
+                            </lightning:layoutItem>
+                        </lightning:layout>
                     </aura:set>
                 </aura:if>
-                
-                <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
             </footer>
             <aura:set attribute="else">
                 <c:ErrorMessageWS_cmp errorMessagesList="{!v.lstError}"/>

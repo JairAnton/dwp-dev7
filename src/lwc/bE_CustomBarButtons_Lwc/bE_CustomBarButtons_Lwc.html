@@ -1,0 +1,11 @@
+<template>
+    <!--BUTTONS-->
+    <template if:true={settings}>
+        <template for:each={settings.buttons} for:item="btnItem">
+            <lightning-button key={btnItem.name} label={btnItem.label} 
+                icon-name={btnItem.iconName} title="Non-primary action"
+                variant={btnItem.variant} onclick={navigateToDiffPageTypes} value={btnItem.name} 
+                class="slds-m-left_x-small"></lightning-button>
+        </template>
+    </template>
+</template>

@@ -110,6 +110,11 @@
                                 var ret = response.getReturnValue();
                                 if (ret.success == "true") {
                                     $A.get('e.force:refreshView').fire();
+                                    //Utilizado en Reunión individual para evitar el redirect
+                                    if(!component.get("v.redirect")) {
+                                        helper.showToast("Success", "La oportunidad se ha desestimado con exito!", "success");
+                                        helper.destroyCmp(component, event, helper);
+                                    }
                                     helper.navigateToRecord(component, event, helper);
                                 } else {
                                     component.set('v.isError', true);
@@ -150,5 +155,10 @@
             slideDevName: "SEGUIMIENTO"
         });
         navEvent.fire();
+    },
+    showToast : function(title, msg, type) {
+        var toastEvent = $A.get("e.force:showToast");
+        toastEvent.setParams({"title": title,"message": msg, "variant": type});
+        toastEvent.fire();
     }
 })

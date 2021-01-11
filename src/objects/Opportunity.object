@@ -204,6 +204,24 @@
         <trackFeedHistory>true</trackFeedHistory>
         <trackTrending>false</trackTrending>
     </fields>
+	<fields>
+        <fullName>BE_HasApprovedQuote__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>BE_HasApprovedQuote</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>BE_UseApprovedQuote__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>BE_UseApprovedQuote</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Branch_id__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -457,6 +475,19 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>commercial_plan_event__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Plan comercial</label>
+        <referenceTo>acpl__Commercial_Plan_Event__c</referenceTo>
+        <relationshipLabel>Opportunities</relationshipLabel>
+        <relationshipName>Opportunities</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>devolutionReason__c</fullName>
@@ -1201,6 +1232,15 @@
             <trackTrending>false</trackTrending>
             <type>Date</type>
         </fields>
+	<fields>
+        <fullName>Loss_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Loss date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
     <listViews>
         <fullName>AllOpportunities</fullName>
         <columns>OPPORTUNITY.NAME</columns>
@@ -1513,6 +1553,17 @@
         <description>Cannot be created Opportunity without an Account</description>
         <errorConditionFormula>AccountId == null</errorConditionFormula>
         <errorMessage>The account is required</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Name_or_Commercial_Action_modified</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF( 
+				AND($Profile.Name!=&apos;Administrador del sistema&apos;, ISCHANGED(commercial_plan_event__c)), 
+				true,
+				IF(AND($Profile.Name!=&apos;Administrador del sistema&apos;, NOT(ISBLANK(commercial_plan_event__c)), ISCHANGED(Name)),
+							true, false)
+)</errorConditionFormula>
+        <errorMessage>No puede modificar el nombre o plan comercial de esta oportunidad.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Opportunity_Validation_02_OnlyCommercial</fullName>

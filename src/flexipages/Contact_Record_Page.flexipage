@@ -53,6 +53,37 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
+            <componentInstanceProperties>
+                <name>iconName</name>
+                <value>action:view_relationship</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListSet</name>
+                <value>BE_RelatedAccounts</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relListType</name>
+                <value>Title</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>{     &quot;es&quot;: &quot;Clientes Relacionados&quot;,     &quot;en-US&quot;: &quot;Related Clients&quot; }</value>
+            </componentInstanceProperties>
+            <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>relatedListComponentOverride</name>
+                <value>NONE</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>rowsToDisplay</name>
+                <value>10</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showActionBar</name>
+                <value>true</value>
+            </componentInstanceProperties>
             <componentName>force:relatedListContainer</componentName>
         </componentInstances>
         <name>facet-5e945f55-6cf5-45f0-9cfe-2bd78dfc41bf</name>

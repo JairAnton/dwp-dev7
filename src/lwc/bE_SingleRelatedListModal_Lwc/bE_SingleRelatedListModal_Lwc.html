@@ -4,61 +4,59 @@
         <div class="slds-modal__container">
             <!--HEADER-->
             <header class="slds-modal__header">
-                <lightning-button-icon icon-name="utility:close" alternative-text="Close" class="slds-modal__close"
-                    onclick={handleCloseModal}>
-                </lightning-button-icon>
+                <template if:false={standardView}>
+                    <lightning-button-icon icon-name="utility:close" alternative-text="Close" class="slds-modal__close"
+                        onclick={handleCloseModal}>
+                    </lightning-button-icon>
+                </template>
                 <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{title}</h2>
             </header>
             <!--CONTENT-->
             <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
                 <div class="customForm">
-                    <template if:true={loaded}>
-                        <!--VIEW-->
-                        <template if:true={mode.isView}>
-                            <lightning-record-form record-id={recordId} object-api-name={sobjectType} layout-type="Full"
-                                columns="2" mode="readonly">
-                            </lightning-record-form>
-                        </template>
-                        <!--CREATE-->
-                        <template if:true={mode.isInsert}>
-                            <lightning-record-edit-form object-api-name={sobjectType}>
-                                <lightning-messages></lightning-messages>
-                                <lightning-layout multiple-rows>
-                                    <template for:each={sObjFields} for:item="fieldItem">
-                                        <lightning-layout-item key={fieldItem.name} size="12" small-device-size="12"
-                                            medium-device-size="12" large-device-size="6" padding="horizontal-medium">
-                                            <lightning-input-field field-name={fieldItem.fieldName}
-                                                value={fieldItem.value} required={fieldItem.required}
-                                                disabled={fieldItem.disabled} read-only={fieldItem.readOnly}>
-                                            </lightning-input-field>
-                                        </lightning-layout-item>
-                                    </template>
-                                </lightning-layout>
-                            </lightning-record-edit-form>
-                        </template>
-                        <!--EDIT-->
-                        <template if:true={mode.isUpdate}>
-                            <lightning-record-edit-form record-id={recordId} object-api-name={sobjectType}>
-                                <lightning-layout multiple-rows>
-                                    <template for:each={sObjFields} for:item="fieldItem">
-                                        <lightning-layout-item key={fieldItem} size="12" small-device-size="12"
-                                            medium-device-size="12" large-device-size="6" padding="horizontal-medium">
-                                            <lightning-input-field key={fieldItem.fieldName}
-                                                field-name={fieldItem.fieldName} value={fieldItem.value}
-                                                required={fieldItem.required} disabled={fieldItem.disabled}
-                                                read-only={fieldItem.readOnly}>
-                                            </lightning-input-field>
-                                        </lightning-layout-item>
-                                    </template>
-                                </lightning-layout>
-                            </lightning-record-edit-form>
-                        </template>
-                        <!--DELETE-->
-                        <template if:true={mode.isDelete}>
-                            <div class="slds-text-align_center">
-                                <h5>{label.deleteMessage}</h5>
-                            </div>
-                        </template>
+                    <!--VIEW-->
+                    <template if:true={mode.isView}>
+                        <lightning-record-form record-id={recordId} object-api-name={sobjectType} layout-type="Full"
+                            columns="2" mode="readonly">
+                        </lightning-record-form>
+                    </template>
+                    <!--CREATE-->
+                    <template if:true={mode.isInsert}>
+                        <lightning-record-edit-form object-api-name={sobjectType}>
+                            <lightning-messages></lightning-messages>
+                            <lightning-layout multiple-rows>
+                                <template for:each={sObjFields} for:item="fieldItem">
+                                    <lightning-layout-item key={fieldItem.name} size="12" small-device-size="12"
+                                        medium-device-size="12" large-device-size="6" padding="horizontal-medium">
+                                        <lightning-input-field field-name={fieldItem.fieldName} value={fieldItem.value}
+                                            required={fieldItem.required} disabled={fieldItem.disabled}>
+                                        </lightning-input-field>
+                                    </lightning-layout-item>
+                                </template>
+                            </lightning-layout>
+                        </lightning-record-edit-form>
+                    </template>
+                    <!--EDIT-->
+                    <template if:true={mode.isUpdate}>
+                        <lightning-record-edit-form record-id={recordId} object-api-name={sobjectType}>
+                            <lightning-layout multiple-rows>
+                                <template for:each={sObjFields} for:item="fieldItem">
+                                    <lightning-layout-item key={fieldItem} size="12" small-device-size="12"
+                                        medium-device-size="12" large-device-size="6" padding="horizontal-medium">
+                                        <lightning-input-field key={fieldItem.fieldName}
+                                            field-name={fieldItem.fieldName} value={fieldItem.value}
+                                            required={fieldItem.required} disabled={fieldItem.disabled}>
+                                        </lightning-input-field>
+                                    </lightning-layout-item>
+                                </template>
+                            </lightning-layout>
+                        </lightning-record-edit-form>
+                    </template>
+                    <!--DELETE-->
+                    <template if:true={mode.isDelete}>
+                        <div class="slds-text-align_center">
+                            <h5>{label.deleteMessage}</h5>
+                        </div>
                     </template>
                 </div>
                 <template if:false={loaded}>
@@ -93,5 +91,7 @@
             </footer>
         </div>
     </section>
-    <div class="slds-backdrop slds-backdrop_open"></div>
+    <template if:false={standardView}>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
 </template>

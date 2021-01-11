@@ -5,6 +5,10 @@
         <name>DWP_Sales</name>
     </customApplications>
     <customLabels>
+        <label><!-- AP_ValidatorsCode --></label>
+        <name>AP_ValidatorsCode</name>
+    </customLabels>
+    <customLabels>
         <label>Iniciar Hangout</label>
         <name>Hangout</name>
     </customLabels>
@@ -141,8 +145,28 @@
         <name>AccountRankingClassification3</name>
     </customLabels>
     <customLabels>
-        <label>Para dar de alta a un nuevo No Cliente debe acceder a la ficha de Prospectos y pulsar el botón &quot;Nuevo No Cliente&quot;</label>
+        <label><!-- Ask_for_validation --></label>
+        <name>Ask_for_validation</name>
+    </customLabels>
+    <customLabels>
+        <label>Por favor ingresar valores correctos.</label>
+        <name>BE_NonClient_ErrorMessage</name>
+    </customLabels>
+    <customLabels>
+        <label>No es posible crear un cliente.</label>
         <name>BE_NotCreateEditAccount</name>
+    </customLabels>
+    <customLabels>
+        <label>Cancelar</label>
+        <name>BE_SalesMeeting_BtnCancel</name>
+    </customLabels>
+    <customLabels>
+        <label>Finalizar</label>
+        <name>BE_SalesMeeting_BtnFinalize</name>
+    </customLabels>
+    <customLabels>
+        <label>Finalizar y nueva</label>
+        <name>BE_SalesMeeting_BtnFinalizeNew</name>
     </customLabels>
     <customLabels>
         <label>Cancelar</label>
@@ -187,6 +211,14 @@
     <customLabels>
         <label><!-- Imagen Modal de bienvenida WL --></label>
         <name>BE_WelcomeTabCteImg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Button Collection No Actions --></label>
+        <name>Button_Collection_No_Actions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dynamic Action Audit Title --></label>
+        <name>DynamicActionsAudit_SectionTitle</name>
     </customLabels>
     <customLabels>
         <label>DIRECTA</label>
@@ -705,7 +737,7 @@
         <name>Risk</name>
     </customLabels>
     <customLabels>
-        <label>La Oportunidad ha sido correctamente aprobada.</label>
+        <label>La oportunidad ha sido correctamente aprobada.</label>
         <name>approveSucess</name>
     </customLabels>
     <customLabels>
@@ -751,6 +783,10 @@
     <customLabels>
         <label>Desvincular SIO</label>
         <name>lblUnlink</name>
+    </customLabels>
+    <customLabels>
+        <label>Usar precio vigente</label>
+        <name>lblUseCurrentPrice</name>
     </customLabels>
     <customLabels>
         <label>Usuario no autorizado.</label>
@@ -1033,6 +1069,10 @@
         <name>lblCREATE_CASE</name>
     </customLabels>
     <customLabels>
+        <label>Comentarios de la cotización:</label>
+        <name>lblCommentQuote</name>
+    </customLabels>
+    <customLabels>
         <label>Elevar petición</label>
         <name>OppPriceDecision02_long</name>
     </customLabels>
@@ -1069,7 +1109,7 @@
         <name>SanctionPriceAnalistValidationMessage</name>
     </customLabels>
     <customLabels>
-        <label>Debe ser el propietario de la oportunidad</label>
+        <label>No tiene permisos para modificar la oportunidad</label>
         <name>Error_validation_01</name>
     </customLabels>
     <customLabels>
@@ -1103,6 +1143,14 @@
     <customLabels>
         <label>Sanción aprobado  GM 2</label>
         <name>SIOstatus3</name>
+    </customLabels>
+    <customLabels>
+        <label>Una reunión individual finalizada no puede ser modificada.</label>
+        <name>SalesMeetingErrorFinalized</name>
+    </customLabels>
+    <customLabels>
+        <label>Una reunión individual no realizada solo puede ser modificado el motivo.</label>
+        <name>SalesMeetingErrorUnrealized</name>
     </customLabels>
     <customLabels>
         <label>'Criterios de pago y liquidación','Información general del producto'</label>
@@ -1169,7 +1217,7 @@
         <name>PriceCreateQuotationRequestUnknowError</name>
     </customLabels>
     <customLabels>
-        <label>La cotización ha sido aprobada en delegación.</label>
+        <label>La sanción ha sido aprobada y la oportunidad está lista para ser formalizada.</label>
         <name>PriceCreateQuotationRequestApprovedMessage</name>
     </customLabels>
     <customLabels>
@@ -1181,7 +1229,7 @@
         <name>PriceCreateQuotationRequestKnowError</name>
     </customLabels>
     <customLabels>
-        <label>La cotización ha sido elevada para su evaluación.</label>
+        <label>La sanción ha sido elevada a un analista de precios para ser autorizada.</label>
         <name>PriceCreateQuotationRequestSentForApprovalMessage</name>
     </customLabels>
     <customLabels>
@@ -1387,6 +1435,982 @@
     <customLabels>
         <label>SOLICITADO</label>
         <name>lblReq</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AP_Timed_Out --></label>
+        <name>acpl__AP_Timed_Out</name>
+    </customLabels>
+    <customLabels>
+        <label>Fecha de renovación del programa financiero</label>
+        <name>acpl__AP_event_date</name>
+    </customLabels>
+    <customLabels>
+        <label>Cambio de estado:</label>
+        <name>acpl__AccPlan_ActionAud_StCh</name>
+    </customLabels>
+    <customLabels>
+        <label>Cambio de subestado:</label>
+        <name>acpl__AccPlan_ActionAud_SubStCh</name>
+    </customLabels>
+    <customLabels>
+        <label>Desbloqueo de plan de cuenta:</label>
+        <name>acpl__AccPlan_ActionAud_Unlk</name>
+    </customLabels>
+    <customLabels>
+        <label>Plan de cuenta aprobado por</label>
+        <name>acpl__Acc_Plan_Apprv_By</name>
+    </customLabels>
+    <customLabels>
+        <label>Plan de cuenta creada por</label>
+        <name>acpl__Acc_Plan_Ctr_By</name>
+    </customLabels>
+    <customLabels>
+        <label>El plan de cuenta no cumple con las condiciones.</label>
+        <name>acpl__Acc_Plan_Do_Not_Meet_Conds</name>
+    </customLabels>
+    <customLabels>
+        <label>Plan de cuenta modificada por</label>
+        <name>acpl__Acc_Plan_Modif_By</name>
+    </customLabels>
+    <customLabels>
+        <label>Elevar</label>
+        <name>acpl__Ask_for_validation</name>
+    </customLabels>
+    <customLabels>
+        <label>Plan de negocio creado:</label>
+        <name>acpl__BusPlan_ActionAud_Ctr</name>
+    </customLabels>
+    <customLabels>
+        <label>Plan de negocio creado por</label>
+        <name>acpl__BusPlan_ActionAud_Ctr_By</name>
+    </customLabels>
+    <customLabels>
+        <label>Plan de negocio modificado por</label>
+        <name>acpl__BusPlan_ActionAud_Modif_By</name>
+    </customLabels>
+    <customLabels>
+        <label>Cambio de plan de negocio público:</label>
+        <name>acpl__BusPlan_ActionAud_PubCh</name>
+    </customLabels>
+    <customLabels>
+        <label>No hay acciones para aplicar.</label>
+        <name>acpl__Button_Collection_No_Actions</name>
+    </customLabels>
+    <customLabels>
+        <label>Lo sentimos. El plan de cuenta no se puede editar.</label>
+        <name>acpl__Cannot_Be_Edited</name>
+    </customLabels>
+    <customLabels>
+        <label>El período para revisar el Plan de cuenta para</label>
+        <name>acpl__Chatter_AccPlan_Per_For_Rev</name>
+    </customLabels>
+    <customLabels>
+        <label>antes del final del día</label>
+        <name>acpl__Chatter_Before_End_Day</name>
+    </customLabels>
+    <customLabels>
+        <label>antes de</label>
+        <name>acpl__Chatter_Before_The</name>
+    </customLabels>
+    <customLabels>
+        <label>día(s) para revisar el Plan de cuenta para</label>
+        <name>acpl__Chatter_Days_To_Rev</name>
+    </customLabels>
+    <customLabels>
+        <label>hoy expira. Por favor revíselo antes del final del día</label>
+        <name>acpl__Chatter_Exp_Tdy_Rev</name>
+    </customLabels>
+    <customLabels>
+        <label>es alcanzado</label>
+        <name>acpl__Chatter_Is_Reached</name>
+    </customLabels>
+    <customLabels>
+        <label>Su PF caducará en</label>
+        <name>acpl__Chatter_PF_Will_Expire</name>
+    </customLabels>
+    <customLabels>
+        <label>Su PF caduca hoy. Ahora tienes</label>
+        <name>acpl__Chatter_Pf_Exp_Tdy_U_Have</name>
+    </customLabels>
+    <customLabels>
+        <label>Su PF caduca hoy. Revise el Plan de cuenta para</label>
+        <name>acpl__Chatter_Pf_Exp_Today</name>
+    </customLabels>
+    <customLabels>
+        <label>dia(s). Revise el Plan de cuenta para</label>
+        <name>acpl__Chatter_Pls_Review</name>
+    </customLabels>
+    <customLabels>
+        <label>No se han encontrado resultados...</label>
+        <name>acpl__Ctrl_Msg_NoResults</name>
+    </customLabels>
+    <customLabels>
+        <label>Definir pregunta de formulario dinámico</label>
+        <name>acpl__Define_Dynamic_Form_Questions_Button</name>
+    </customLabels>
+    <customLabels>
+        <label>Como administrador de Plan de cuentas, puede definir las preguntas que se harán a los usuarios en el Formulario estratégico</label>
+        <name>acpl__Define_Strategic_Questionnaire</name>
+    </customLabels>
+    <customLabels>
+        <label>Definir cuestionario estratégico</label>
+        <name>acpl__Define_Strategic_Questionnaire_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Eliminar o renombrar preguntas de formulario dinámico</label>
+        <name>acpl__Delete_or_Rename_Strategic_Button</name>
+    </customLabels>
+    <customLabels>
+        <label>Como administrador de Plan de cuentas, puede eliminar o cambiar el nombre de preguntas obsoletas del Formulario estratégico</label>
+        <name>acpl__Delete_or_Rename_Strategic_Questions</name>
+    </customLabels>
+    <customLabels>
+        <label>Eliminar o renombrar preguntas estratégicas</label>
+        <name>acpl__Delete_or_Rename_Strategic_Questions_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Como administrador de Plan de cuentas, puede vincular el ejercicio de plan de cuentas a la fecha de renovación del Programa financiero, definiendo el período anterior / posterior a la notificación a los usuarios</label>
+        <name>acpl__Edition_linked_to_event</name>
+    </customLabels>
+    <customLabels>
+        <label>Edición vinculada al evento</label>
+        <name>acpl__Edition_linked_to_event_title</name>
+    </customLabels>
+    <customLabels>
+        <label>Definir evento desencadenante</label>
+        <name>acpl__Edition_linked_to_event_title_button</name>
+    </customLabels>
+    <customLabels>
+        <label>Casilla</label>
+        <name>acpl__Fd_Checkbox</name>
+    </customLabels>
+    <customLabels>
+        <label>País</label>
+        <name>acpl__Fd_Country</name>
+    </customLabels>
+    <customLabels>
+        <label>Moneda</label>
+        <name>acpl__Fd_Currency</name>
+    </customLabels>
+    <customLabels>
+        <label>Fecha</label>
+        <name>acpl__Fd_Date</name>
+    </customLabels>
+    <customLabels>
+        <label>Eliminar una pregunta</label>
+        <name>acpl__Fd_Delete_Question</name>
+    </customLabels>
+    <customLabels>
+        <label>Editar una pregunta</label>
+        <name>acpl__Fd_Edit_Question</name>
+    </customLabels>
+    <customLabels>
+        <label>Fecha Fin</label>
+        <name>acpl__Fd_End_Date</name>
+    </customLabels>
+    <customLabels>
+        <label>Mensaje de fecha fin</label>
+        <name>acpl__Fd_End_Date_Msg</name>
+    </customLabels>
+    <customLabels>
+        <label>Mensaje de día fin</label>
+        <name>acpl__Fd_End_Day_Msg</name>
+    </customLabels>
+    <customLabels>
+        <label>En progreso</label>
+        <name>acpl__Fd_In_Progress</name>
+    </customLabels>
+    <customLabels>
+        <label>Lista</label>
+        <name>acpl__Fd_List</name>
+    </customLabels>
+    <customLabels>
+        <label>Mensaje</label>
+        <name>acpl__Fd_Message</name>
+    </customLabels>
+    <customLabels>
+        <label>Multi-Selección</label>
+        <name>acpl__Fd_Multiselect</name>
+    </customLabels>
+    <customLabels>
+        <label>Necesidad</label>
+        <name>acpl__Fd_Need</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Fd_Need_Details --></label>
+        <name>acpl__Fd_Need_Details</name>
+    </customLabels>
+    <customLabels>
+        <label>Nueva pregunta:</label>
+        <name>acpl__Fd_New_Question</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Fd_Not_Started --></label>
+        <name>acpl__Fd_Not_Started</name>
+    </customLabels>
+    <customLabels>
+        <label>Fecha de notificación</label>
+        <name>acpl__Fd_Notif_Date</name>
+    </customLabels>
+    <customLabels>
+        <label>Mensaje de fecha de notificación</label>
+        <name>acpl__Fd_Notif_Date_Msg</name>
+    </customLabels>
+    <customLabels>
+        <label>Tipo de Notificación</label>
+        <name>acpl__Fd_Notif_Type</name>
+    </customLabels>
+    <customLabels>
+        <label>Númerico</label>
+        <name>acpl__Fd_Number</name>
+    </customLabels>
+    <customLabels>
+        <label>Detalles de punto de dolor</label>
+        <name>acpl__Fd_Pain_Pt_Details</name>
+    </customLabels>
+    <customLabels>
+        <label>Punto de dolor</label>
+        <name>acpl__Fd_Paint_Point</name>
+    </customLabels>
+    <customLabels>
+        <label>Potencial aumento de ingresos</label>
+        <name>acpl__Fd_Potential_Rev_Incr</name>
+    </customLabels>
+    <customLabels>
+        <label>Prioridad</label>
+        <name>acpl__Fd_Priority</name>
+    </customLabels>
+    <customLabels>
+        <label>Aumento del límite de riesgo</label>
+        <name>acpl__Fd_Risk_Lmt_Incr</name>
+    </customLabels>
+    <customLabels>
+        <label>Fecha de inicio</label>
+        <name>acpl__Fd_Start_Date</name>
+    </customLabels>
+    <customLabels>
+        <label>Mensaje de fecha de inicio</label>
+        <name>acpl__Fd_Start_Date_Msg</name>
+    </customLabels>
+    <customLabels>
+        <label>Mensaje de día de inicio</label>
+        <name>acpl__Fd_Start_Day_Msg</name>
+    </customLabels>
+    <customLabels>
+        <label>Estado</label>
+        <name>acpl__Fd_Status</name>
+    </customLabels>
+    <customLabels>
+        <label>Texto</label>
+        <name>acpl__Fd_Text</name>
+    </customLabels>
+    <customLabels>
+        <label>Área de texto</label>
+        <name>acpl__Fd_Text_Area</name>
+    </customLabels>
+    <customLabels>
+        <label>Usuario</label>
+        <name>acpl__Fd_User</name>
+    </customLabels>
+    <customLabels>
+        <label>Validación</label>
+        <name>acpl__Fd_Validation</name>
+    </customLabels>
+    <customLabels>
+        <label>Como administrador de plan de cuentas, puede definir Directrices para el ejercicio del Plan de cuentas</label>
+        <name>acpl__Guidelines_configuration</name>
+    </customLabels>
+    <customLabels>
+        <label>Configuración de pautas</label>
+        <name>acpl__Guidelines_configuration_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Cerrar</label>
+        <name>acpl__Hdr_Close</name>
+    </customLabels>
+    <customLabels>
+        <label>Nueva variable de crecimiento</label>
+        <name>acpl__Hdr_New_Gwht_Driver</name>
+    </customLabels>
+    <customLabels>
+        <label>Nueva necesidad</label>
+        <name>acpl__Hdr_New_Need</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- In Progress --></label>
+        <name>acpl__In_Progress</name>
+    </customLabels>
+    <customLabels>
+        <label>ha sido bloqueado. La edición no está permitida</label>
+        <name>acpl__Lock_Account_Plan</name>
+    </customLabels>
+    <customLabels>
+        <label>Como administrador de los planes de cuentas, puede bloquear la edición de TODOS los planes de cuentas activos</label>
+        <name>acpl__Lock_Edition</name>
+    </customLabels>
+    <customLabels>
+        <label>Edición de bloqueo</label>
+        <name>acpl__Lock_edition_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Bloqueo</label>
+        <name>acpl__Lock_edition_Title_button</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No --></label>
+        <name>acpl__No</name>
+    </customLabels>
+    <customLabels>
+        <label>Como administrador de planes de cuentas, puede enviar una notificación individual o basada en estado</label>
+        <name>acpl__Notifications_Setup</name>
+    </customLabels>
+    <customLabels>
+        <label>Configuración de notificaciones</label>
+        <name>acpl__Notifications_Setup_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>Configuración de notificaciones</label>
+        <name>acpl__Notifications_Setup_Title_button</name>
+    </customLabels>
+    <customLabels>
+        <label>Configuraciones de período</label>
+        <name>acpl__Period_edition_type_title</name>
+    </customLabels>
+    <customLabels>
+        <label>Configurar ajustes de fecha</label>
+        <name>acpl__Period_edition_type_title_buttons</name>
+    </customLabels>
+    <customLabels>
+        <label>Lo sentimos, no puedes hacer esto todavía. Para enviar el Plan de cuenta a validación, asegúrese de haber completado las preguntas obligatorias.</label>
+        <name>acpl__Pls_Fill_Mandatory_Questions</name>
+    </customLabels>
+    <customLabels>
+        <label>GUÍA PARA EL ÉXITO</label>
+        <name>acpl__Sec_Lbl_Guid_For_Succ</name>
+    </customLabels>
+    <customLabels>
+        <label>Establecer pautas</label>
+        <name>acpl__Set_Guidelines_Button</name>
+    </customLabels>
+    <customLabels>
+        <label>Como esta es la primera vez que determina cuál será el criterio que controla la edición de los Planes de cuenta, primero debe elegir si prefiere establecer un período general de tiempo en el que los Planes de cuenta estén disponibles para edición o establecer un período diferente para cada nivel de prioridad</label>
+        <name>acpl__Text_Criterium_Controls_Acc_Plan</name>
+    </customLabels>
+    <customLabels>
+        <label>Breve descripción</label>
+        <name>acpl__Text_Short_Desc</name>
+    </customLabels>
+    <customLabels>
+        <label>Como administrador de Planes de cuentas, puede iniciar el ejercicio de Plan de cuentas definiendo las fechas y notificaciones que se enviarán. Puede establecer una fecha general o fechas diferentes según el nivel de prioridad del cliente.</label>
+        <name>acpl__Time_period_settings</name>
+    </customLabels>
+    <customLabels>
+        <label>Está a punto de solicitar la validación de este plan de cuenta a los aprobadores designados.</label>
+        <name>acpl__Txt_About_To_Ask_Validation</name>
+    </customLabels>
+    <customLabels>
+        <label>Está a punto de validar el plan de cuenta relacionado.</label>
+        <name>acpl__Txt_About_To_Val</name>
+    </customLabels>
+    <customLabels>
+        <label>¡Lo sentimos! Este plan de cuenta está bloqueado y no se permite la creación de necesidades.</label>
+        <name>acpl__Txt_Acc_Plan_Blckd</name>
+    </customLabels>
+    <customLabels>
+        <label>El plan de cuenta se ha enviado correctamente.</label>
+        <name>acpl__Txt_Acc_Plan_Correct_Subm</name>
+    </customLabels>
+    <customLabels>
+        <label>El siguiente plan de cuenta no requiere validación.</label>
+        <name>acpl__Txt_Acc_Plan_Dosnt_Require_Valida</name>
+    </customLabels>
+    <customLabels>
+        <label>El período de edición del Plan de cuenta comenzará</label>
+        <name>acpl__Txt_Acc_Plan_Ed_Start</name>
+    </customLabels>
+    <customLabels>
+        <label>Este plan de cuenta ya está pendiente de validación.</label>
+        <name>acpl__Txt_Acc_Plan_Pending_Val</name>
+    </customLabels>
+    <customLabels>
+        <label>Todos los miembros del equipo de Plan de cuentas ya han sido notificados.</label>
+        <name>acpl__Txt_Acc_Plan_Team_Memb_Notif</name>
+    </customLabels>
+    <customLabels>
+        <label>El período de edición del Plan de cuenta finalizará</label>
+        <name>acpl__Txt_Acc_Plan_Will_End</name>
+    </customLabels>
+    <customLabels>
+        <label>Todos los planes de cuenta se mantendrán tal como están. Recuerde que puede bloquearlos individualmente yendo directamente a su registro.</label>
+        <name>acpl__Txt_Acc_Plans_Will_Remain_As_They_Are_Lck</name>
+    </customLabels>
+    <customLabels>
+        <label>Todos los planes de cuenta se mantendrán tal como están. Recuerde que puede desbloquearlos individualmente yendo directamente a su registro.</label>
+        <name>acpl__Txt_Acc_Plans_Will_Remain_As_They_Are_Unlck</name>
+    </customLabels>
+    <customLabels>
+        <label>Comentarios adicionales</label>
+        <name>acpl__Txt_Additional_Comments</name>
+    </customLabels>
+    <customLabels>
+        <label>Después</label>
+        <name>acpl__Txt_After</name>
+    </customLabels>
+    <customLabels>
+        <label>Todos los planes de cuenta ahora están disponibles para edición. No olvides volver a bloquearlos una vez que finalice la edición correspondiente.</label>
+        <name>acpl__Txt_All_Acc_Plans_Avaliable_Edit</name>
+    </customLabels>
+    <customLabels>
+        <label>Si todos los valores tienen que mostrarse al mismo tiempo, introdúzcalos separados por comas.</label>
+        <name>acpl__Txt_All_Values_Shown_Same_Time</name>
+    </customLabels>
+    <customLabels>
+        <label>Su respuesta será enviada de vuelta al solicitante. Incluya a continuación cualquier comentario adicional que considere útil para que el Plan de Cuenta sea válido</label>
+        <name>acpl__Txt_Answer_Will_Sent_Back</name>
+    </customLabels>
+    <customLabels>
+        <label>Su respuesta ha sido enviada correctamente</label>
+        <name>acpl__Txt_Anwser_Correctly_Submitted</name>
+    </customLabels>
+    <customLabels>
+        <label>Solicite su inclusión si lo necesita.</label>
+        <name>acpl__Txt_Ask_For_Inc</name>
+    </customLabels>
+    <customLabels>
+        <label>Póngase en contacto con su administrador si lo necesita.</label>
+        <name>acpl__Txt_Ask_For_Unlck</name>
+    </customLabels>
+    <customLabels>
+        <label>Solo si ha introducido una nueva sección, asigne el orden en que se mostrará con respecto a las secciones existentes:</label>
+        <name>acpl__Txt_Assign_Order_Displayed</name>
+    </customLabels>
+    <customLabels>
+        <label>Asigne el orden de preguntas con respecto a las preguntas existentes en la misma sección y subsección previamente definidas:</label>
+        <name>acpl__Txt_Assign_Question_Order</name>
+    </customLabels>
+    <customLabels>
+        <label>Antes</label>
+        <name>acpl__Txt_Before</name>
+    </customLabels>
+    <customLabels>
+        <label>A continuación se presentan todas las preguntas incluidas en el catálogo que aparecerán en futuros Cuestionarios del Plan de Cuentas.</label>
+        <name>acpl__Txt_Bellow_All_Questions_Catalog_Acc_Plan</name>
+    </customLabels>
+    <customLabels>
+        <label>La privacidad del plan de negocio puede modificarse.</label>
+        <name>acpl__Txt_BusPlan_Priv_Can_Modify</name>
+    </customLabels>
+    <customLabels>
+        <label>¡Lo sentimos! Este plan de cuenta está bloqueado y no se permite la creación de variables de crecimiento.</label>
+        <name>acpl__Txt_Cant_Create_Growth_Dvr</name>
+    </customLabels>
+    <customLabels>
+        <label>Asegúrese de hacer clic en el botón &quot;Siguiente&quot; a continuación para guardar sus cambios.</label>
+        <name>acpl__Txt_Click_Next_To_Save</name>
+    </customLabels>
+    <customLabels>
+        <label>¡Felicidades!</label>
+        <name>acpl__Txt_Congrats</name>
+    </customLabels>
+    <customLabels>
+        <label>¡Felicidades! Los mensajes han sido enviados con éxito!</label>
+        <name>acpl__Txt_Congrats_Messages_Created</name>
+    </customLabels>
+    <customLabels>
+        <label>Notificación basada en criterios</label>
+        <name>acpl__Txt_Criteria_Based_Notif</name>
+    </customLabels>
+    <customLabels>
+        <label>Tipo {!currentConfiguration.acpl__gf_ap_edit_prms_type_name__c}</label>
+        <name>acpl__Txt_CurrConf_Type</name>
+    </customLabels>
+    <customLabels>
+        <label>Preguntas actuales del catálogo</label>
+        <name>acpl__Txt_Curr_Catalog_Quesitons</name>
+    </customLabels>
+    <customLabels>
+        <label>día(s) después de la fecha de referencia.</label>
+        <name>acpl__Txt_Days_After_Ref</name>
+    </customLabels>
+    <customLabels>
+        <label>día (s) antes de la fecha de referencia.</label>
+        <name>acpl__Txt_Days_Before_Ref_Date</name>
+    </customLabels>
+    <customLabels>
+        <label>¿La nueva pregunta depende de alguna pregunta previamente definida?</label>
+        <name>acpl__Txt_Depends_On_Previous_Quest</name>
+    </customLabels>
+    <customLabels>
+        <label>Detalles</label>
+        <name>acpl__Txt_Details</name>
+    </customLabels>
+    <customLabels>
+        <label>Duración del período (en días)</label>
+        <name>acpl__Txt_Duration_Per_Days</name>
+    </customLabels>
+    <customLabels>
+        <label>En este momento, los períodos de edición para los Planes de cuenta están establecidos por</label>
+        <name>acpl__Txt_Edition_Set_By</name>
+    </customLabels>
+    <customLabels>
+        <label>Secciones existentes:</label>
+        <name>acpl__Txt_Existing_Sec</name>
+    </customLabels>
+    <customLabels>
+        <label>Subsecciones existentes:</label>
+        <name>acpl__Txt_Existing_Sub_Sec</name>
+    </customLabels>
+    <customLabels>
+        <label>El primer paso es configurar la sección en la que se mostrará la pregunta.</label>
+        <name>acpl__Txt_First_Step_Config_Wich_Question</name>
+    </customLabels>
+    <customLabels>
+        <label>Los siguientes usuarios, miembros del equipo de Plan de cuentas, recibirán la siguiente notificación informándoles que el ejercicio de Plan de cuentas ha comenzado:</label>
+        <name>acpl__Txt_Follow_Users_Acc_Plan_Notif</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre completo</label>
+        <name>acpl__Txt_Full_Name</name>
+    </customLabels>
+    <customLabels>
+        <label>¡La variable de crecimiento se ha creado con éxito!</label>
+        <name>acpl__Txt_Growth_Dvr_Created</name>
+    </customLabels>
+    <customLabels>
+        <label>¡Hola!</label>
+        <name>acpl__Txt_Hey_There</name>
+    </customLabels>
+    <customLabels>
+        <label>Hola {!currentUser.FirstName}!</label>
+        <name>acpl__Txt_Hi_Curr_User</name>
+    </customLabels>
+    <customLabels>
+        <label>¡Hola!</label>
+        <name>acpl__Txt_Hi_There</name>
+    </customLabels>
+    <customLabels>
+        <label>(ejm: Europa mostrará España, Francia; América mostrará Argentina, EE. UU.)</label>
+        <name>acpl__Txt_Ie_Country</name>
+    </customLabels>
+    <customLabels>
+        <label>Si continúa, el Plan de cuenta se validará automáticamente.</label>
+        <name>acpl__Txt_If_Proceed_Acc_Plan_Valdiated</name>
+    </customLabels>
+    <customLabels>
+        <label>Si es así, ¿la nueva pregunta debe mostrarse solo cuando la pregunta seleccionada anteriormente tiene un valor específico? Si es así, introduzca los valores que hacen visible la nueva pregunta separados por comas (ejm: valor 1, valor 2, valor 3)</label>
+        <name>acpl__Txt_If_So_Does_New_Quest_Disp</name>
+    </customLabels>
+    <customLabels>
+        <label>Si es así, seleccione la pregunta adecuada:</label>
+        <name>acpl__Txt_If_So_Please_Select_Question</name>
+    </customLabels>
+    <customLabels>
+        <label>Indique si desea editar o eliminar una pregunta</label>
+        <name>acpl__Txt_Indicate_Edit_Or_Delete</name>
+    </customLabels>
+    <customLabels>
+        <label>Indique a continuación la forma en que desea reformular la pregunta.</label>
+        <name>acpl__Txt_Indicate_Way_To_Reformulate</name>
+    </customLabels>
+    <customLabels>
+        <label>Notificación individual</label>
+        <name>acpl__Txt_Indiv_Notif</name>
+    </customLabels>
+    <customLabels>
+        <label>O introduce una nueva subsección</label>
+        <name>acpl__Txt_Intro_New_Subsec</name>
+    </customLabels>
+    <customLabels>
+        <label>O introduce una nueva sección:</label>
+        <name>acpl__Txt_Introduce_New_Sec</name>
+    </customLabels>
+    <customLabels>
+        <label>¿Quieres mantener público el Plan de Negocio?</label>
+        <name>acpl__Txt_Keep_BusPlan_Public</name>
+    </customLabels>
+    <customLabels>
+        <label>No, mantenerlo privado</label>
+        <name>acpl__Txt_Keep_Prvt</name>
+    </customLabels>
+    <customLabels>
+        <label>¿Quieres hacer público el Plan de Negocio?</label>
+        <name>acpl__Txt_Make_BusPlan_Public</name>
+    </customLabels>
+    <customLabels>
+        <label>Si, mantenerlo público</label>
+        <name>acpl__Txt_Make_Public</name>
+    </customLabels>
+    <customLabels>
+        <label>No, hacerlo privado</label>
+        <name>acpl__Txt_Make_Pvrt</name>
+    </customLabels>
+    <customLabels>
+        <label>¿Es una pregunta obligatoria?</label>
+        <name>acpl__Txt_Mandaroty_Quest</name>
+    </customLabels>
+    <customLabels>
+        <label>¡La necesidad ha sido creada con éxito!</label>
+        <name>acpl__Txt_Need_Created_S</name>
+    </customLabels>
+    <customLabels>
+        <label>Su asistencia es necesaria para validar un plan de cuenta. Vaya a su página de inicio para responder la solicitud.</label>
+        <name>acpl__Txt_Need_Your_Assistance_Val_Acc_Plan</name>
+    </customLabels>
+    <customLabels>
+        <label>Si es necesario, agregue un mensaje personalizado al final de la notificación:</label>
+        <name>acpl__Txt_Needed_At_End_Notif</name>
+    </customLabels>
+    <customLabels>
+        <label>Agregar nueva configuración de período de prioridad?</label>
+        <name>acpl__Txt_New_Conf</name>
+    </customLabels>
+    <customLabels>
+        <label>La nueva pregunta se ha creado con éxito.</label>
+        <name>acpl__Txt_New_Question_Created</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Txt_No --></label>
+        <name>acpl__Txt_No</name>
+    </customLabels>
+    <customLabels>
+        <label>Lo sentimos, ningún plan de cuenta cumple con los criterios especificados.</label>
+        <name>acpl__Txt_No_Acc_Plann_Meets</name>
+    </customLabels>
+    <customLabels>
+        <label>No, mantenlos bloqueados</label>
+        <name>acpl__Txt_No_Keep_Locked</name>
+    </customLabels>
+    <customLabels>
+        <label>No, manténlos desbloqueados</label>
+        <name>acpl__Txt_No_Keep_Unlocke</name>
+    </customLabels>
+    <customLabels>
+        <label>¡No hay problema!</label>
+        <name>acpl__Txt_No_Problem</name>
+    </customLabels>
+    <customLabels>
+        <label>Mensaje de notificación</label>
+        <name>acpl__Txt_Notif_Message</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre - Rol</label>
+        <name>acpl__Txt_Notif_Role</name>
+    </customLabels>
+    <customLabels>
+        <label>Notifique a los miembros del equipo los planes de cuenta que se encuentran en el siguiente estado:</label>
+        <name>acpl__Txt_Notify_Team_Members_Acc_Plann</name>
+    </customLabels>
+    <customLabels>
+        <label>Solo si ha introducido una nueva subsección, asigne el orden en que se mostrará con respecto a las subsecciones existentes:</label>
+        <name>acpl__Txt_Only_If_New_Subsec_Intro</name>
+    </customLabels>
+    <customLabels>
+        <label>¡Lo siento! Solo los miembros del equipo del plan de cuentas pueden incluir necesidades.</label>
+        <name>acpl__Txt_Only_Members</name>
+    </customLabels>
+    <customLabels>
+        <label>¡Lo siento! Solo los miembros del equipo del plan de cuentas pueden incluir variables de crecimiento.</label>
+        <name>acpl__Txt_Only_Members_Driv</name>
+    </customLabels>
+    <customLabels>
+        <label>Comentarios del peticionario</label>
+        <name>acpl__Txt_Petitioner_Comments</name>
+    </customLabels>
+    <customLabels>
+        <label>Seleccione una sección existente o introduzca una nueva.</label>
+        <name>acpl__Txt_Please_Assign_New</name>
+    </customLabels>
+    <customLabels>
+        <label>Asigne el orden a la nueva sección a partir de 1. Si desea ver el orden actual de las secciones existentes, expanda la lista de selección &quot;Secciones existentes&quot;.</label>
+        <name>acpl__Txt_Please_Assign_Sec</name>
+    </customLabels>
+    <customLabels>
+        <label>Asigne el orden a la nueva subsección a partir de 1. Si desea ver el orden actual de las subsecciones existentes, expanda la lista de selección &quot;Subsecciones existentes&quot;.</label>
+        <name>acpl__Txt_Please_Assign_Subs</name>
+    </customLabels>
+    <customLabels>
+        <label>Siga cuidadosamente las instrucciones para definir las opciones de lista de la nueva pregunta en la siguiente pantalla.</label>
+        <name>acpl__Txt_Please_Follow_Instructions</name>
+    </customLabels>
+    <customLabels>
+        <label>Introduzca la opción principal que hará visibles las opciones introducidas anteriormente (ejm, Europa)</label>
+        <name>acpl__Txt_Please_Intro_Parent_Option_Mk_Visible</name>
+    </customLabels>
+    <customLabels>
+        <label>Presente el conjunto de opciones de la nueva pregunta separadas por comas (ejm, España, Francia)</label>
+        <name>acpl__Txt_Please_Intro_Set_Of_Options</name>
+    </customLabels>
+    <customLabels>
+        <label>Ahora, introduzca la nueva pregunta que se agregará al catálogo:</label>
+        <name>acpl__Txt_Please_Introduce_New_Quest</name>
+    </customLabels>
+    <customLabels>
+        <label>Seleccione el formato de la respuesta que tomará la nueva pregunta:</label>
+        <name>acpl__Txt_Please_Select_Format</name>
+    </customLabels>
+    <customLabels>
+        <label>Establezca las fechas que limitarán el período de edición general para todas los planes de cuenta y proporcione los mensajes que se enviarán una vez que el período comience y finalice.</label>
+        <name>acpl__Txt_Pls_Set_Dates_Acc_Plan_Gen</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Txt_Pls_Set_Dates_Acc_Plan_Wave --></label>
+        <name>acpl__Txt_Pls_Set_Dates_Acc_Plan_Wave</name>
+    </customLabels>
+    <customLabels>
+        <label>El modo privado solo permite a los miembros del equipo de plan de cuentas ver las proyecciones de ingresos.</label>
+        <name>acpl__Txt_Prive_Mode_Acc_Plan_Members</name>
+    </customLabels>
+    <customLabels>
+        <label>Recuerde que siempre puede desbloquearlos individualmente yendo directamente al registro.</label>
+        <name>acpl__Txt_Remember_Can_Indiv_Unlck</name>
+    </customLabels>
+    <customLabels>
+        <label>Recuerde que siempre puede bloquearlos individualmente yendo directamente a su registro.</label>
+        <name>acpl__Txt_Remember_Can_Lock_Indiv</name>
+    </customLabels>
+    <customLabels>
+        <label>Esta sección es obligatoria, así que seleccione una existente o presente una nueva.</label>
+        <name>acpl__Txt_Sec_Mandatory</name>
+    </customLabels>
+    <customLabels>
+        <label>El segundo paso es configurar la subsección en la que se mostrará la pregunta. Este paso es opcional, por lo que puede dejar la subsección en blanco si no desea asignar ninguna.</label>
+        <name>acpl__Txt_Second_Step_Config_Wich_Question</name>
+    </customLabels>
+    <customLabels>
+        <label>CONFIGURACIÓN DE SECCIÓN</label>
+        <name>acpl__Txt_Section_Configuration</name>
+    </customLabels>
+    <customLabels>
+        <label>Para asignar una subsección, seleccione una subsección existente o introduzca una nueva.</label>
+        <name>acpl__Txt_Select_Existing_Sub_To_Assign</name>
+    </customLabels>
+    <customLabels>
+        <label>Seleccione la persona a la que le gustaría reasignar esta solicitud usando la barra de búsqueda a continuación</label>
+        <name>acpl__Txt_Select_Person_To_Reassign</name>
+    </customLabels>
+    <customLabels>
+        <label>Por favor seleccione cuáles quiere editar.</label>
+        <name>acpl__Txt_Select_Wich_To_Edit</name>
+    </customLabels>
+    <customLabels>
+        <label>Selecciona cuáles quieres eliminar de él.</label>
+        <name>acpl__Txt_Select_Wich_To_Remove</name>
+    </customLabels>
+    <customLabels>
+        <label>Establezca el período durante el cual todos los Planes de cuenta activos estarán disponibles para su edición.</label>
+        <name>acpl__Txt_Set_Acc_Plan_Active_Per</name>
+    </customLabels>
+    <customLabels>
+        <label>Presente el conjunto de opciones de la nueva pregunta separadas por comas (ejm: valor 1, valor 2)</label>
+        <name>acpl__Txt_Set_Of_Valid_Opts</name>
+    </customLabels>
+    <customLabels>
+        <label>Si, compártelo con todos</label>
+        <name>acpl__Txt_Share_It</name>
+    </customLabels>
+    <customLabels>
+        <label>Si se deben mostrar una o más opciones dependiendo de la opción de pregunta principal seleccionada, deberá definir los conjuntos uno por uno.</label>
+        <name>acpl__Txt_Shown_Depend_Parent</name>
+    </customLabels>
+    <customLabels>
+        <label>Lo sentimos!</label>
+        <name>acpl__Txt_Sorry</name>
+    </customLabels>
+    <customLabels>
+        <label>Lo sentimos {!currentUser.FirstName}, esta validación del Plan de cuenta se ha asignado a otra persona y se necesita su decisión para continuar con el proceso.</label>
+        <name>acpl__Txt_Sorry_Acc_Plann_Val_Dec_Needed</name>
+    </customLabels>
+    <customLabels>
+        <label>Lo sentimos, no puede hacer esta acción porque el plan de cuenta está bloqueado.</label>
+        <name>acpl__Txt_Sorry_Cannot_Do_Action_Acc_Plan_Lckd</name>
+    </customLabels>
+    <customLabels>
+        <label>Lo sentimos, solo {! Var_userRole} puede hacer esta acción.</label>
+        <name>acpl__Txt_Sorry_Only_Var_Usr</name>
+    </customLabels>
+    <customLabels>
+        <label>Lo sentimos, no puede realizar esta acción ya que el Plan de cuenta está bloqueado.</label>
+        <name>acpl__Txt_Sorry_You_Cant_Acc_Plan_Lckd</name>
+    </customLabels>
+    <customLabels>
+        <label>¿El período de edición comienza antes o después de la fecha de referencia?</label>
+        <name>acpl__Txt_Starts_Before_Or_After</name>
+    </customLabels>
+    <customLabels>
+        <label>CONFIGURACIÓN DE SUBSECCIÓN</label>
+        <name>acpl__Txt_Subsection_Conf</name>
+    </customLabels>
+    <customLabels>
+        <label>Ha configurado correctamente los períodos de edición del Planes de cuenta.</label>
+        <name>acpl__Txt_Succes_Acc_Plan_Created</name>
+    </customLabels>
+    <customLabels>
+        <label>¡Has eliminado con éxito la pregunta!</label>
+        <name>acpl__Txt_Succesfull_Del_Quest</name>
+    </customLabels>
+    <customLabels>
+        <label>Has evitado con éxito la planificación de cuentas desde la edición. Siempre puede desbloquearlos nuevamente si es necesario utilizando el acceso correspondiente en su página de inicio.</label>
+        <name>acpl__Txt_Succesfull_Prevent_Acc_Plan_Edit</name>
+    </customLabels>
+    <customLabels>
+        <label>¡Has actualizado con éxito la pregunta!</label>
+        <name>acpl__Txt_Succesfull_Updated_Quest</name>
+    </customLabels>
+    <customLabels>
+        <label>¿Estás segura de que quieres continuar?</label>
+        <name>acpl__Txt_Sure_To_Continue</name>
+    </customLabels>
+    <customLabels>
+        <label>¿Estas seguro que deseas continuar?</label>
+        <name>acpl__Txt_Sure_To_Proceed</name>
+    </customLabels>
+    <customLabels>
+        <label>Los miembros del equipo de plan de cuentas han sido notificados con éxito.</label>
+        <name>acpl__Txt_Team_Memb_Succ_Added</name>
+    </customLabels>
+    <customLabels>
+        <label>Gracias!</label>
+        <name>acpl__Txt_Thanks</name>
+    </customLabels>
+    <customLabels>
+        <label>Por lo tanto, nadie será notificado.</label>
+        <name>acpl__Txt_Therefor_No_Notif</name>
+    </customLabels>
+    <customLabels>
+        <label>Este plan de cuenta ya ha sido validado y no se requiere ninguna otra acción.</label>
+        <name>acpl__Txt_This_Acc_Plan_No_Further_Action</name>
+    </customLabels>
+    <customLabels>
+        <label>esta validación del Plan de cuenta se ha asignado a otra persona y se necesita su decisión para continuar con el proceso</label>
+        <name>acpl__Txt_This_Acc_Plan_Someone_Else</name>
+    </customLabels>
+    <customLabels>
+        <label>Usando {! Event_date_custom_label} como referencia, seleccione su duración (en días) y si el período comienza antes o después de esta fecha.</label>
+        <name>acpl__Txt_Use_Custom_Date_As_Ref</name>
+    </customLabels>
+    <customLabels>
+        <label>Su solicitud de validación ha sido enviada correctamente</label>
+        <name>acpl__Txt_Val_Request_Submitted</name>
+    </customLabels>
+    <customLabels>
+        <label>Tendrá que esperar hasta que se tome una decisión.</label>
+        <name>acpl__Txt_Wait_Until_Decision</name>
+    </customLabels>
+    <customLabels>
+        <label>¿Desea agregar (a) nuevos valores a la lista?</label>
+        <name>acpl__Txt_Want_To_Add_Value</name>
+    </customLabels>
+    <customLabels>
+        <label>¿Estas seguro que deseas continuar?</label>
+        <name>acpl__Txt_Want_To_Proceed</name>
+    </customLabels>
+    <customLabels>
+        <label>Bienvenido al asistente de configuración del período de edición.</label>
+        <name>acpl__Txt_Welcome_Edit_Wiz</name>
+    </customLabels>
+    <customLabels>
+        <label>Bienvenido al módulo de configuración del cuestionario.</label>
+        <name>acpl__Txt_Welcome_To_Quest_Module</name>
+    </customLabels>
+    <customLabels>
+        <label>Bienvenido al módulo de edición del cuestionario.</label>
+        <name>acpl__Txt_Welcome_To_Question_Module</name>
+    </customLabels>
+    <customLabels>
+        <label>¿Qué tipo de criterio quieres usar?</label>
+        <name>acpl__Txt_Wich_Criterium_Use</name>
+    </customLabels>
+    <customLabels>
+        <label>¿Qué tipo de notificación quieres generar?</label>
+        <name>acpl__Txt_Wich_Kind</name>
+    </customLabels>
+    <customLabels>
+        <label>¿Qué mensaje le gustaría enviar a los miembros del equipo de plan de cuenta?</label>
+        <name>acpl__Txt_Wich_Message_Send_Acc_PlanT</name>
+    </customLabels>
+    <customLabels>
+        <label>Esto enviará una notificación.</label>
+        <name>acpl__Txt_Will_Send_Notif_BusPlan_Public</name>
+    </customLabels>
+    <customLabels>
+        <label>¿Le gustaría cambiar cómo se controla la edición de los planes de cuenta?</label>
+        <name>acpl__Txt_Would_Like_ToChange_Ed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Txt_Yes --></label>
+        <name>acpl__Txt_Yes</name>
+    </customLabels>
+    <customLabels>
+        <label>Sí, bloquearlos</label>
+        <name>acpl__Txt_Yes_Lock</name>
+    </customLabels>
+    <customLabels>
+        <label>Si, desbloquearlos</label>
+        <name>acpl__Txt_Yes_Unlock</name>
+    </customLabels>
+    <customLabels>
+        <label>Está a punto de permitir la edición de TODOS los planes de cuentas activos.</label>
+        <name>acpl__Txt_You_Are_Allow_Acc_Plans_Edit</name>
+    </customLabels>
+    <customLabels>
+        <label>Está a punto de evitar la edición de TODOS los planes de cuentas activos.</label>
+        <name>acpl__Txt_You_Are_Preventing_Acc_Plans_Edit</name>
+    </customLabels>
+    <customLabels>
+        <label>&quot;Usted ha sido incluido como miembro de un equipo de planificación de cuentas. Vaya a su inicio para verificar los planes de cuentas en los que participa&quot;.</label>
+        <name>acpl__Txt_Yoube_Added</name>
+    </customLabels>
+    <customLabels>
+        <label>Como administrador de la planes de cuentas, puede permitir la edición de TODOS los planes de cuentas activos</label>
+        <name>acpl__UnLock_Edition</name>
+    </customLabels>
+    <customLabels>
+        <label>ha sido desbloqueado. La edición esta permitida</label>
+        <name>acpl__Unlock_Account_Plan</name>
+    </customLabels>
+    <customLabels>
+        <label>Desbloquear edición</label>
+        <name>acpl__Unlock_edition_Title</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Yes --></label>
+        <name>acpl__Yes</name>
+    </customLabels>
+    <customLabels>
+        <label>Para definir las Directrices del plan de cuentas, primero debe establecer la configuración adecuada para ellas. Puede hacerlo haciendo clic en el botón &quot;Configurar ajustes de fecha&quot;.</label>
+        <name>acpl__hide_guidelines_button</name>
+    </customLabels>
+    <customLabels>
+        <label>Para poder bloquear o desbloquear la edición de los Planes de cuenta, primero debe establecer la configuración adecuada para ello. Puede hacerlo haciendo clic en el botón &quot;Configurar ajustes de fecha&quot;.</label>
+        <name>acpl__hide_lock_unlock_button</name>
+    </customLabels>
+    <customLabels>
+        <label>Desbloquear</label>
+        <name>acpl__unLock_edition_Title_button</name>
+    </customLabels>
+    <customLabels>
+        <label>Esta es una versión anterior del Plan de Negocio. Puede seleccionar el Plan de negocio validado más recientemente del cliente o su versión en vivo no validada a través del menú desplegable.</label>
+        <name>bupl__BP_Versions_picklist</name>
+    </customLabels>
+    <customLabels>
+        <label>Este es un plan de negocio en vivo que aún no ha sido validado. Para planes comerciales validados, seleccione una versión anterior.</label>
+        <name>bupl__Current_BP_Version_picklist</name>
+    </customLabels>
+    <customLabels>
+        <label>Este es el plan de negocio validado más recientemente. Se ha creado una versión en vivo para la inclusión de cambios relevantes.</label>
+        <name>bupl__Last_validated_BP_Version_picklist</name>
+    </customLabels>
+    <customLabels>
+        <label>Este es el plan de negocio validado más recientemente.</label>
+        <name>bupl__Last_validated_current_BP_Version_picklist</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No --></label>
+        <name>bupl__No</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Yes --></label>
+        <name>bupl__Yes</name>
     </customLabels>
 	<customLabels>
         <label><!-- GBL_CheckInDisabled --></label>
@@ -1661,6 +2685,50 @@
         <name>Error_letter_of_credit</name>
     </customLabels>
     <customLabels>
+        <label>Cancelar</label>
+        <name>dyfr__Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label>Editar</label>
+        <name>dyfr__Edit</name>
+    </customLabels>
+    <customLabels>
+        <label>Error inesperado. Por favor, contacte a su administrador.</label>
+        <name>dyfr__ErrorServer</name>
+    </customLabels>
+    <customLabels>
+        <label>el valor del campo es invalido, no debe ser menor que</label>
+        <name>dyfr__InferiorLimit</name>
+    </customLabels>
+    <customLabels>
+        <label>Cargando</label>
+        <name>dyfr__LoadingRecord</name>
+    </customLabels>
+    <customLabels>
+        <label>es un campo obligatorio</label>
+        <name>dyfr__MandatoryField</name>
+    </customLabels>
+    <customLabels>
+        <label>Todos los cambios sin guardarn se perderán, esta seguro que quieres cerrar ?</label>
+        <name>dyfr__ModalCloseConfirmation</name>
+    </customLabels>
+    <customLabels>
+        <label>Modificar</label>
+        <name>dyfr__Modify</name>
+    </customLabels>
+    <customLabels>
+        <label>Guardar</label>
+        <name>dyfr__Save</name>
+    </customLabels>
+    <customLabels>
+        <label>el valor de este campo es invalido, no debe ser mayor a</label>
+        <name>dyfr__SuperiorLimit</name>
+    </customLabels>
+    <customLabels>
+        <label>El registro se ha guardado satisfactoriamente.</label>
+        <name>dyfr__ToastSavedOk</name>
+    </customLabels>
+    <customLabels>
         <label>Asignarme petición</label>
         <name>lblReasignOwnerFormalization</name>
     </customLabels>
@@ -1761,7 +2829,7 @@
         <name>nonc__NClient_lbl_NoListView</name>
     </customLabels>
     <customLabels>
-        <label>No se encontraron registros con el nombre</label>
+        <label>No se encontraron registros con el el RUC y nombre</label>
         <name>nonc__NClient_lbl_No_accounts_under_name</name>
     </customLabels>
     <customLabels>
@@ -1773,7 +2841,7 @@
         <name>nonc__NClient_lbl_NotExistCustomField</name>
     </customLabels>
     <customLabels>
-        <label><!-- NClient_lbl_NotExistCustomValue --></label>
+        <label>El &amp;Field&amp; : &amp;Valor&amp; ya existe.</label>
         <name>nonc__NClient_lbl_NotExistCustomValue</name>
     </customLabels>
     <customLabels>
@@ -1785,7 +2853,7 @@
         <name>nonc__NClient_lbl_NotExistsRT</name>
     </customLabels>
     <customLabels>
-        <label>Dueño</label>
+        <label>Gestor</label>
         <name>nonc__NClient_lbl_Owner</name>
     </customLabels>
     <customLabels>
@@ -1801,7 +2869,7 @@
         <name>nonc__NClient_lbl_Select_a_record_type</name>
     </customLabels>
     <customLabels>
-        <label>No Cliente %field% tiene similar RUC</label>
+        <label>No Cliente tiene similar RUC</label>
         <name>nonc__NClient_lbl_Similar</name>
     </customLabels>
     <customLabels>
@@ -1811,7 +2879,7 @@
     <customLabels>
         <label>¿Desea continuar?</label>
         <name>nonc__NClient_lbl_WishContinue</name>
-    </customLabels>
+    </customLabels> 
 	<customLabels>
         <label>Contratos vigentes e impagos</label>
         <name>BE_UnpaidContracts</name>
@@ -1872,13 +2940,45 @@
         <label> Participante(s) agregado correctamente</label>
         <name>dwp_kitv__MngrAttendeeToastMessage</name>
     </customLabels>
-    <customTabs>
+	<customLabels>
+        <label>Ver Informe</label>
+        <name>BE_ViewReport</name>
+    </customLabels>
+	<customLabels>
+        <label>Saldo medio mensual</label>
+        <name>BE_AvgMonthlyBalance</name>
+    </customLabels>
+	<customLabels>
+        <label>La descripción es obligatoria</label>
+        <name>BE_VisitErrorDescField</name>
+    </customLabels>
+	<customLabels>
+        <label>No es posible reevaluar una oportunidad con un id de cotiza usado en otra oportunidad</label>
+        <name>ErrorReevaluate</name>
+    </customLabels>
+	<customLabels>
+        <label>Selecciona la sanción de precio a utilizar en esta oportunidad</label>
+        <name>lblAlertCurrentPriceSanction</name>
+    </customLabels>
+	<customLabels>
+        <label>Sancionar con precio vigente</label>
+        <name>lblTitleCurrentPriceSanction</name>
+    </customLabels>
+    <customLabels>
+        <label>Autorizado con precio vigente</label>
+        <name>PriceApprovalUsingQuote</name>
+    </customLabels>
+	<customTabs>
         <label>No clientes</label>
         <name>nonc__Prospects</name>
     </customTabs>
     <quickActions>
         <label>Llamada</label>
         <name>LogACall</name>
+    </quickActions>
+    <quickActions>
+        <label>Nuevo Contacto</label>
+        <name>NewContact</name>
     </quickActions>
     <quickActions>
         <label>Evento</label>

@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Commercial_Plan_Event_Record_Page1</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Commercial_Plan_Event_Record_Page1</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>GrowthDriver__r.Amount__c</formula>
+        <label>Importe en soles</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Asiggned_User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Usuario asignado</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Commercial_Plan_Events</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ClientAssigned__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Asignación de cliente</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Commercial Plan Events (Asignación de cliente)</relationshipLabel>
+        <relationshipName>Commercial_Plan_Events</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Comentarios</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>GrowthDriver__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Variable de crecimiento</label>
+        <referenceTo>bupl__BP_GrowthDriver__c</referenceTo>
+        <relationshipLabel>Commercial Plan Events</relationshipLabel>
+        <relationshipName>Commercial_Plan_Events</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(GrowthDriver__r.bupl__solution_category_desc__c, 
+							&quot;0160010&quot;, &quot;Préstamo comercial CP (manual)&quot;, 
+							&quot;0160010_NEW&quot;, &quot;Préstamo comercial CP&quot;,
+							&quot;0161720&quot;, &quot;	Comex importación (manual)&quot;,
+							&quot;0161720_NEW&quot;, &quot;Comex importación&quot;,
+							&quot;0161710&quot;, &quot;Comex exportación (manual)&quot;,
+							&quot;0161710_NEW&quot;, &quot;Comex exportación&quot;,
+							&quot;0161730&quot;, &quot;Forfaiting&quot;,
+							&quot;0159501&quot;, &quot;Letras (manual)&quot;,
+							&quot;0159501_NEW&quot;, &quot;Letras&quot;,
+							&quot;0159502&quot;, &quot;Factoring&quot;,
+							&quot;PC00009&quot;, &quot;Préstamo comercial LP (manual)&quot;,
+							&quot;PC00009_NEW&quot;, &quot;Préstamo comercial LP&quot;,
+							&quot;0159601&quot;, &quot;	Leasing (manual)&quot;,
+							&quot;0159601_NEW&quot;, &quot;Leasing&quot;,
+							&quot;0292235&quot;, &quot;Carta fianza técnica (manual)&quot;,
+							&quot;0292235_NEW&quot;, &quot;Carta fianza técnica&quot;,
+							&quot;0292230&quot;, &quot;Carta fianza económica (manual)&quot;,
+							&quot;0292230_NEW&quot;, &quot;Carta fianza económica&quot;,
+							&quot;0292420&quot;, &quot;Stand by&quot;,
+							&quot;0292410&quot;, &quot;Carta de crédito de importación&quot;,
+							&quot;0292430&quot;, &quot;Carta de crédito de exportación&quot;,
+							&quot;0240011&quot;, &quot;Vista PJ&quot;,
+							&quot;0241041&quot;, &quot;Depósito a plazo&quot;,
+							&quot;08&quot;, &quot;Pago a proveedores&quot;,
+							&quot;09&quot;, &quot;Pago de haberes&quot;,
+							&quot;21&quot;, &quot;Net Cash&quot;,
+							&quot;PC00035&quot;, &quot;FX&quot;,
+							&quot;PC00036&quot;, &quot;Forward&quot;,
+							&quot;PC00040&quot;, &quot;PFL&quot;,
+							&quot;PC00041&quot;, &quot;PFF&quot;,
+							&quot;PC00042&quot;, &quot;PFA&quot;,
+							&quot;&quot;)</formula>
+        <label>Producto</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>acpl__customer_business_country_id__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_account_planning_id__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Account Planning</label>
+        <referenceTo>acpl__Account_Planning__c</referenceTo>
+        <relationshipLabel>Commercial Plan Events</relationshipLabel>
+        <relationshipName>Commercial_Plan_Events</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_ap_product_family_type_name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Product Family</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_comm_plan_event_type_name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Visit</fullName>
+                    <default>false</default>
+                    <label>Visit</label>
+                </value>
+                <value>
+                    <fullName>Opportunity</fullName>
+                    <default>false</default>
+                    <label>Opportunity</label>
+                </value>
+                <value>
+                    <fullName>Task</fullName>
+                    <default>false</default>
+                    <label>Task</label>
+                </value>
+                <value>
+                    <fullName>Call</fullName>
+                    <default>false</default>
+                    <label>Call</label>
+                </value>
+                <value>
+                    <fullName>Pitch</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Pitch</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_event_date_Q__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(
+                    MONTH(acpl__gf_event_date__c) &lt; 4, &apos;1Q&apos; &amp; TEXT(YEAR(acpl__gf_event_date__c)),
+                    IF(
+                                MONTH(acpl__gf_event_date__c) &lt; 7, &apos;2Q&apos; &amp; TEXT(YEAR(acpl__gf_event_date__c)),
+                                IF(
+                                                MONTH(acpl__gf_event_date__c) &lt; 10, &apos;3Q&apos; &amp; TEXT(YEAR(acpl__gf_event_date__c)),
+                                                &apos;4Q&apos; &amp; TEXT(YEAR(acpl__gf_event_date__c))
+                                )
+                )
+)</formula>
+        <label>Expected Completion Date Q</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_event_date__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Expected Completion Date</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_event_date_formula__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(acpl__gf_event_date__c &lt; TODAY(), &apos;Overdue &apos; &amp; TEXT(acpl__gf_event_date__c),
+      TEXT(acpl__gf_event_date__c)
+    )</formula>
+        <label>Expected Completion Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>acpl__participant_id__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Client</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Commercial Plan Events</relationshipLabel>
+        <relationshipName>Commercial_Plan_Events</relationshipName>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Commercial Plan Event</label>
+    <nameField>
+        <encryptionScheme>None</encryptionScheme>
+        <label>Commercial Plan Event Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Commercial Plan Events</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Assign_Client_Group</fullName>
+        <active>true</active>
+        <description>Validación para asignar un cliente a una acción comercial perteneciente a un Grupo Económico</description>
+        <errorConditionFormula>acpl__gf_account_planning_id__r.acpl__participant_id__r.RecordType.DeveloperName == &apos;Record_Type_Economic_Group&apos; &amp;&amp;
+acpl__gf_account_planning_id__r.acpl__participant_id__c != ClientAssigned__r.ParentId</errorConditionFormula>
+        <errorDisplayField>ClientAssigned__c</errorDisplayField>
+        <errorMessage>Debe asignar la variable a un cliente del grupo económico.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>acpl__Expected_completion_date_TODAY</fullName>
+        <active>false</active>
+        <errorConditionFormula>acpl__gf_event_date__c  &lt;  TODAY()</errorConditionFormula>
+        <errorDisplayField>acpl__gf_event_date__c</errorDisplayField>
+        <errorMessage>The Expected Completion Date has to be greater or equal today</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

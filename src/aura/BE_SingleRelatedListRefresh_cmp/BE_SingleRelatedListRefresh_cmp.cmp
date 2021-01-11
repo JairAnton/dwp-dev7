@@ -1,0 +1,22 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSobjectName"
+    access="public">
+    <aura:attribute name="title" type="String" default="" />
+    <aura:attribute name="iconName" type="String" default="" />
+    <aura:attribute name="relListSet" type="String" default="" />
+    <aura:attribute name="relListType" type="String" default="" />
+    <aura:attribute name="idAux" type="String" />
+    <aura:attribute name="load" type="Boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:handler event="force:refreshView" action="{!c.init}" description="Handler to update completion" />
+    <!--Valores de nuevo componente dinamico-->
+    <aura:attribute name="dynamicComponent" type="Object[]"/>
+    <lightning:messageChannel type="BE_SingleRelatedList_MessageChannel__c" onMessage="{!c.hideDynamicComponent}"/>
+
+    <aura:if isTrue="{!v.load}">
+        <c:bE_SingleRelatedList_Lwc title="{!v.title}" iconName="{!v.iconName}" relListSet="{!v.relListSet}"
+                relListType="{!v.relListType}" recordId="{!v.idAux}"
+                onrefreshCmp="{!c.refreshOnAura}" oncustomtypebutton="{!c.handleCustomAction}"/>
+        <!--Componente Dinamico-->
+        {!v.dynamicComponent}
+    </aura:if>
+</aura:component>

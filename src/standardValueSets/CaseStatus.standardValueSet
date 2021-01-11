@@ -67,4 +67,28 @@
         <label>Formalization dismissed</label>
         <closed>true</closed>
     </standardValue>
+    <standardValue>
+        <fullName>Pending Approval</fullName>
+        <default>false</default>
+        <label>Pending Approval</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Request Approved</fullName>
+        <default>false</default>
+        <label>Request Approved</label>
+        <closed>true</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Request Sent For Review</fullName>
+        <default>false</default>
+        <label>Request Sent For Review</label>
+        <closed>true</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Request Re-Assigned</fullName>
+        <default>false</default>
+        <label>Request Re-Assigned</label>
+        <closed>false</closed>
+    </standardValue>
 </StandardValueSet>

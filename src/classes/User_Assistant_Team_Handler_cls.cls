@@ -10,17 +10,17 @@
  * @author Jose Luis Ruiz Garrido
  */
 public without sharing class User_Assistant_Team_Handler_cls extends TriggerHandler {
-	list<User_Assistant_Team__c> UAssT_New = Trigger.new;
-	list<User_Assistant_Team__c> UAssT_Old = Trigger.Old;
-	Map<id, User_Assistant_Team__c> UAssT_NewMap = ((Map<Id, User_Assistant_Team__c>)(Trigger.NewMap));
-	Map<id, User_Assistant_Team__c> UAssT_OldMap = ((Map<Id, User_Assistant_Team__c>)(Trigger.OldMap));
+	list<User_Assistant_Team__c> uatNew = Trigger.new;
+	list<User_Assistant_Team__c> uatOld = Trigger.Old;
+	Map<id, User_Assistant_Team__c> uatNewMap = ((Map<Id, User_Assistant_Team__c>)(Trigger.NewMap));
+	Map<id, User_Assistant_Team__c> uatOldMap = ((Map<Id, User_Assistant_Team__c>)(Trigger.OldMap));
 
 	@TestVisible
 	protected override void afterInsert() {
-		new User_Assistant_Team_Trigger_cls().AsignAfterInsert(UAssT_New, UAssT_NewMap, UAssT_Old, UAssT_OldMap);
+		User_Assistant_Team_Trigger_cls.asignAfterInsert(uatNew, uatNewMap, uatOld, uatOldMap);
 	}
 	@TestVisible
 	protected override void afterDelete() {
-		new User_Assistant_Team_Trigger_cls().AsignAfterDelete(UAssT_Old);
+		User_Assistant_Team_Trigger_cls.asignAfterDelete(uatOld);
 	}
 }

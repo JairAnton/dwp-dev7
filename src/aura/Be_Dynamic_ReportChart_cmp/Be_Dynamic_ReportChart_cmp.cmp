@@ -1,0 +1,28 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" 
+                controller="Be_RecordId_Related_Sobject_helper">
+    <aura:attribute name="sObjTypeReference" type="String"/>
+    <aura:attribute name="fieldReference" type="String"/>
+    <aura:attribute name="reportName" type="String"/>
+    <aura:attribute name="url" type="String"/>
+    <aura:attribute name="showReport" type="Boolean" default="false"/>
+    <aura:attribute name="handleError" type="Boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    
+    <div class="slds-is-relative">
+      <aura:if isTrue="{! v.showReport != v.handleError}">
+        <aura:if isTrue="{!v.showReport}">
+          <iframe src="{!v.url}" width="100%" height="700px;" style="margin:auto;padding:auto;" frameborder="0"/>
+        </aura:if>
+        <aura:if isTrue="{!v.handleError}">
+          <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning" role="alert">
+            <span class="slds-assistive-text">warning</span>
+            <span class="slds-icon_container slds-icon-utility-warning slds-m-right_x-small"></span>
+            <h2>Ha ocurrido un error con el componente. Por favor contacte a su administrador.</h2>
+          </div>
+        </aura:if>
+      <aura:set attribute="else">
+          <lightning:spinner variant="brand" alternative-text="Cargando..." size="medium"></lightning:spinner>
+      </aura:set>
+    </aura:if>
+  </div>
+</aura:component>

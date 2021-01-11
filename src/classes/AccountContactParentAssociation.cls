@@ -40,7 +40,8 @@ public with sharing class AccountContactParentAssociation {
 		                                                    phone_2__c,
 		                                                    events_info_type__c,
 		                                                    Status_desc__c,
-		                                                    Description
+		                                                    Description,
+                                                            contact_code__c
 		                                                    FROM Contact
 		                                                    WHERE Id IN: Ids]);
 		for(AccountContactRelation objAccountContactRelation : lstAccountContactRelation) {
@@ -58,7 +59,8 @@ public with sharing class AccountContactParentAssociation {
 					phone_2__c = mapContact.get(objAccountContactRelation.contactId).phone_2__c,
 					events_info_type__c = mapContact.get(objAccountContactRelation.contactId).events_info_type__c,
 					Status_desc__c = mapContact.get(objAccountContactRelation.contactId).Status_desc__c,
-					Description__c = mapContact.get(objAccountContactRelation.contactId).Description
+					Description__c = mapContact.get(objAccountContactRelation.contactId).Description,
+                    contact_code__c=mapContact.get(objAccountContactRelation.contactId).contact_code__c
 					);
 				lstAccountContactRelationUpdated.add(objAccountContactRelation2);
 			}

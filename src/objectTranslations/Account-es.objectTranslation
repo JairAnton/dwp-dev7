@@ -1029,12 +1029,16 @@
         </sections>
     </layouts>
     <quickActions>
-        <label>Editar</label>
+        <label>Modificar</label>
         <name>BE_EditNonClient</name>
     </quickActions>
     <quickActions>
         <label><!-- Info.Ficha --></label>
         <name>BE_Info_Ficha</name>
+    </quickActions>
+    <quickActions>
+        <label>Nuevo Contacto</label>
+        <name>BE_NewContactNonClient</name>
     </quickActions>
     <quickActions>
         <label><!-- Child Account --></label>

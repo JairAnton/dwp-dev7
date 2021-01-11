@@ -1,0 +1,5 @@
+//Asignar permisos de validador
+List<String> lstCodes = System.Label.AP_ValidatorsCode.split(',');
+Map<Id, User> mapUsers = new Map<Id, User>([SELECT Id FROM User WHERE 
+                                            prof_position_id__c IN: lstCodes]);
+AssigmentPermissionValidationAP_cls.assigmentPermission(mapUsers.keySet());

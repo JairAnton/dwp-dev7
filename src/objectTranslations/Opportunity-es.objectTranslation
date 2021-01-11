@@ -489,6 +489,10 @@
         <label><!-- Unique identifier --></label>
         <name>unique_id__c</name>
     </fields>
+	<fields>
+        <label>Fecha de desestimación</label>
+        <name>Loss_date__c</name>
+    </fields>
     <layouts>
         <layout>Opportunity Layout</layout>
         <sections>

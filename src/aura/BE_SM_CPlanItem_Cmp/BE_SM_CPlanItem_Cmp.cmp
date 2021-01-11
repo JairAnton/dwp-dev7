@@ -1,0 +1,21 @@
+<aura:component implements="slmt:Item_Detail_Component_itf,flexipage:availableForAllPageTypes,force:hasRecordId"
+    access="global">
+    <aura:attribute name="activeSections" type="List" default="['A','B','C']" />
+    <lightning:card variant="Narrow" title="Planificación Commercial" iconName="standard:opportunity">
+        <lightning:accordion aura:id="accordion" allowMultipleSectionsOpen="true"
+            activeSectionName="{! v.activeSections }">
+            <lightning:accordionSection name="A" label="Inversion rentable">
+                <c:bE_SingleRelatedList_Lwc recordId="{!v.inputAttributes.recordId}"
+                    relListSet="BE_SM_CPlan_InversionRentable" relListType="Basic" iconName="" />
+            </lightning:accordionSection>
+            <lightning:accordionSection name="B" label="Riesgos de firma">
+                <c:bE_SingleRelatedList_Lwc recordId="{!v.inputAttributes.recordId}"
+                    relListSet="BE_SM_CPlan_RiesgoFirma" relListType="Basic" iconName="" />
+            </lightning:accordionSection>
+            <lightning:accordionSection name="C" label="Recursos">
+                <c:bE_SingleRelatedList_Lwc recordId="{!v.inputAttributes.recordId}" relListSet="BE_SM_CPlan_Recursos"
+                    relListType="Basic" iconName="" />
+            </lightning:accordionSection>
+        </lightning:accordion>
+    </lightning:card>
+</aura:component>

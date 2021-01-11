@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Account Planning --></label>
+        <name>acpl__gf_account_planning_id__c</name>
+        <relationshipLabel><!-- Growth Drivers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>bupl__country_id__c</name>
+        <picklistValues>
+            <masterLabel>Arab Emirates</masterLabel>
+            <translation><!-- Arab Emirates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Argentina</masterLabel>
+            <translation><!-- Argentina --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Belgium</masterLabel>
+            <translation><!-- Belgium --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Brazil</masterLabel>
+            <translation><!-- Brazil --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chile</masterLabel>
+            <translation><!-- Chile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>China</masterLabel>
+            <translation><!-- China --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Colombia</masterLabel>
+            <translation><!-- Colombia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compass</masterLabel>
+            <translation><!-- Compass --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>France</masterLabel>
+            <translation><!-- France --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Germany</masterLabel>
+            <translation><!-- Germany --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Global</masterLabel>
+            <translation><!-- Global --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hong Kong</masterLabel>
+            <translation><!-- Hong Kong --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>India</masterLabel>
+            <translation><!-- India --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Indonesia</masterLabel>
+            <translation><!-- Indonesia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Italy</masterLabel>
+            <translation><!-- Italy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Japan</masterLabel>
+            <translation><!-- Japan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mexico</masterLabel>
+            <translation><!-- Mexico --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NY</masterLabel>
+            <translation><!-- NY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paraguay</masterLabel>
+            <translation><!-- Paraguay --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Peru</masterLabel>
+            <translation><!-- Peru --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Portugal</masterLabel>
+            <translation><!-- Portugal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Puerto Rico</masterLabel>
+            <translation><!-- Puerto Rico --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Russia</masterLabel>
+            <translation><!-- Russia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Singapore</masterLabel>
+            <translation><!-- Singapore --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>South Korea</masterLabel>
+            <translation><!-- South Korea --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spain</masterLabel>
+            <translation><!-- Spain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Taiwan</masterLabel>
+            <translation><!-- Taiwan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Turkey</masterLabel>
+            <translation><!-- Turkey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USA</masterLabel>
+            <translation><!-- USA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>United Kingdom</masterLabel>
+            <translation><!-- United Kingdom --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Uruguay</masterLabel>
+            <translation><!-- Uruguay --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Venezuela</masterLabel>
+            <translation><!-- Venezuela --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Counter --></label>
+        <name>bupl__gf_business_growth_rec_number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Name --></label>
+        <name>bupl__gf_business_plan_growth_name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Business Plan --></label>
+        <name>bupl__gf_business_plan_id__c</name>
+        <relationshipLabel><!-- Growth Drivers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Details --></label>
+        <name>bupl__gf_growth_drvr_prdt_desc__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>bupl__solution_category_desc__c</name>
+        <picklistValues>
+            <masterLabel>Carta de crédito de exportación</masterLabel>
+            <translation><!-- Carta de crédito de exportación --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Carta de crédito de importación</masterLabel>
+            <translation><!-- Carta de crédito de importación --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Carta fianza económica</masterLabel>
+            <translation><!-- Carta fianza económica --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Carta fianza económica (manual)</masterLabel>
+            <translation><!-- Carta fianza económica (manual) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Carta fianza técnica</masterLabel>
+            <translation><!-- Carta fianza técnica --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Carta fianza técnica (manual)</masterLabel>
+            <translation><!-- Carta fianza técnica (manual) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Comex exportación</masterLabel>
+            <translation><!-- Comex exportación --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Comex exportación (manual)</masterLabel>
+            <translation><!-- Comex exportación (manual) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Comex importación</masterLabel>
+            <translation><!-- Comex importación --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Comex importación (manual)</masterLabel>
+            <translation><!-- Comex importación (manual) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Depósito a plazo</masterLabel>
+            <translation><!-- Depósito a plazo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FX</masterLabel>
+            <translation><!-- FX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Factoring</masterLabel>
+            <translation><!-- Factoring --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forfaiting</masterLabel>
+            <translation><!-- Forfaiting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forward</masterLabel>
+            <translation><!-- Forward --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leasing</masterLabel>
+            <translation><!-- Leasing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leasing (manual)</masterLabel>
+            <translation><!-- Leasing (manual) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Letras</masterLabel>
+            <translation><!-- Letras --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Letras (manual)</masterLabel>
+            <translation><!-- Letras (manual) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Net Cash</masterLabel>
+            <translation><!-- Net Cash --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PFA</masterLabel>
+            <translation><!-- PFA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PFL</masterLabel>
+            <translation><!-- PFL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PPF</masterLabel>
+            <translation><!-- PPF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pago a proveedores</masterLabel>
+            <translation><!-- Pago a proveedores --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pago de haberes</masterLabel>
+            <translation><!-- Pago de haberes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Préstamo comercial CP</masterLabel>
+            <translation><!-- Préstamo comercial CP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Préstamo comercial CP (manual)</masterLabel>
+            <translation><!-- Préstamo comercial CP (manual) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Préstamo comercial LP</masterLabel>
+            <translation><!-- Préstamo comercial LP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Préstamo comercial LP (manual)</masterLabel>
+            <translation><!-- Préstamo comercial LP (manual) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stand by</masterLabel>
+            <translation><!-- Stand by --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vista PJ</masterLabel>
+            <translation><!-- Vista PJ --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Product Family --></label>
+        <name>bupl__solution_category_id__c</name>
+        <picklistValues>
+            <masterLabel>Financiamiento a corto plazo</masterLabel>
+            <translation><!-- Financiamiento a corto plazo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Programa financiero</masterLabel>
+            <translation><!-- Programa financiero --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recursos</masterLabel>
+            <translation><!-- Recursos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Riesgo de firma</masterLabel>
+            <translation><!-- Riesgo de firma --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Serv. Transaccionales</masterLabel>
+            <translation><!-- Serv. Transaccionales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tesorería</masterLabel>
+            <translation><!-- Tesorería --></translation>
+        </picklistValues>
+    </fields>
+</CustomObjectTranslation>

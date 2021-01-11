@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Plan de negocio</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Planes de negocio</value>
+    </caseValues>
+    <fields>
+        <label>Plan de cuenta</label>
+        <name>acpl__gf_account_planning_id__c</name>
+        <relationshipLabel><!-- Business Plans --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Plan de cuenta desbloqueado</label>
+        <name>acpl__gf_ap_indvi_lock_edit_ind_type__c</name>
+    </fields>
+    <fields>
+        <label>Plan de negocio público</label>
+        <name>bupl__gf_ap_public_ind_type__c</name>
+    </fields>
+    <fields>
+        <label>Incremento de límite de riesgo</label>
+        <name>bupl__gf_bus_pl_lock_lim_tot_amount__c</name>
+    </fields>
+    <fields>
+        <label>Potencial de volumen de negocio nuevo</label>
+        <name>bupl__gf_bus_pl_lock_rev_tot_amount__c</name>
+    </fields>
+    <fields>
+        <label>Total de variables creadas</label>
+        <name>bupl__gf_business_growth_rec_number__c</name>
+    </fields>
+    <fields>
+        <label>Total de necesidades creadas</label>
+        <name>bupl__gf_business_lock_record_number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total number of Business Plan Versions --></label>
+        <name>bupl__gf_counter_number__c</name>
+    </fields>
+    <fields>
+        <label>Cliente</label>
+        <name>bupl__participant_id__c</name>
+        <relationshipLabel><!-- Business Plans --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Estado</label>
+        <name>bupl__status_type__c</name>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation>En progreso</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not started</masterLabel>
+            <translation>No iniciado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Validation</masterLabel>
+            <translation>Pendiente de validación</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Validated</masterLabel>
+            <translation>Validado</translation>
+        </picklistValues>
+    </fields>
+    <gender>Feminine</gender>
+    <nameFieldLabel>Plan de negocio</nameFieldLabel>
+</CustomObjectTranslation>

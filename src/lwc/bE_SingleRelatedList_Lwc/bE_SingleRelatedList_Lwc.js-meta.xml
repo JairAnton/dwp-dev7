@@ -15,6 +15,7 @@
             <property name="iconName" type="String" default="standard:opportunity" label="Icon name" required="false"/>
             <property name="relListSet" type="String" default="None" label="Custom Metadata" datasource="apex://BE_SingleRelatedListSetting_Cls"/>
             <property name="relListType" type="String" default="Default" label="Related List Type" datasource="Basic,Enhaced,Title,Default"/>
+            <property name="helpText" type="String" default="" label="Help Text"/>
             <supportedFormFactors>
                 <supportedFormFactor type="Small"/>
             </supportedFormFactors>
@@ -24,6 +25,7 @@
             <property name="iconName" type="String" default="standard:opportunity" label="Icon name" required="false"/>
             <property name="relListSet" type="String" default="None" label="Custom Metadata" datasource="apex://BE_SingleRelatedListSetting_Cls"/>
             <property name="relListType" type="String" default="Default" label="Related List Type" datasource="Basic,Enhaced,Title,Default"/>
+            <property name="helpText" type="String" default="" label="Help Text"/>
             <supportedFormFactors>
                 <supportedFormFactor type="Large"/>
             </supportedFormFactors>
@@ -33,6 +35,7 @@
             <property name="iconName" type="String" default="standard:opportunity" label="Icon name" required="false"/>
             <property name="relListSet" type="String" default="None" label="Custom Metadata" datasource="apex://BE_SingleRelatedListSetting_Cls"/>
             <property name="relListType" type="String" default="Default" label="Related List Type" datasource="Basic,Enhaced,Title,Default"/>
+            <property name="helpText" type="String" default="" label="Help Text"/>
             <supportedFormFactors>
                 <supportedFormFactor type="Large"/>
                 <supportedFormFactor type="Small"/>

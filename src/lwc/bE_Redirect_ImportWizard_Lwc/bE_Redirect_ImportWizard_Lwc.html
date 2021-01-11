@@ -1,0 +1,17 @@
+<template>
+    <div class="slds-box slds-theme--shade">
+        <div class="slds-page-header__name-title">
+            <h1>
+                <span class="slds-page-header__title slds-truncate" title={label.title}>
+                    {label.title}
+                </span>
+                <br />
+            </h1>
+            <div>
+                <div>{label.description}<br /><br /></div>
+                <lightning-button variant="brand" label={label.btnLabel} title={label.btnLabel} onclick={redirectIDW}
+                    class="slds-align_absolute-center slds-is-static"></lightning-button>
+            </div>
+        </div>
+    </div>
+</template>

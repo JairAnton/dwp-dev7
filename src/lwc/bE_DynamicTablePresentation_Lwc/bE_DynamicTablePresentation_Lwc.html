@@ -1,0 +1,232 @@
+<template>
+    <div class="slds-is-relative">
+        <lightning-spinner variant="brand" if:true={spinner} alternative-text="Cargando..." size="medium">
+        </lightning-spinner>
+        <template if:true={loadView}>
+            <lightning-card title={title} variant="narrow" icon-name={iconName}>
+                <div slot="actions">
+                    <template if:true={hasFilters}>
+                        <lightning-button-menu slot="actions" alternative-text="Filtro" variant="border-filled"
+                            icon-name="utility:side_list">
+                            <template for:each={filters} for:item="filter">
+                                <lightning-menu-item key={filter.code} value={filter.code} label={filter.label}
+                                    onclick={onRowAction}>
+                                </lightning-menu-item>
+                            </template>
+                        </lightning-button-menu>
+                    </template>
+                    <lightning-button-icon if:true={enableReload} icon-name="utility:loop" onclick={refreshTable}>
+                    </lightning-button-icon>
+                </div>
+                <template if:true={mode.isBasic}>
+                    <div style="border-style:solid; border-radius:0.25rem; border-color:rgb(221, 219, 218);">
+                        <lightning-datatable key-field="id" data={values} hide-checkbox-column columns={columns}>
+                        </lightning-datatable>
+                    </div>
+                </template>
+                <template if:true={mode.isTitle}>
+                    <lightning-layout multiple-rows="true">
+                        <template for:each={values} for:item="item">
+                            <!--RECORD VALUES-->
+                            <lightning-layout-item key={item.key} size="6" small-device-size="12"
+                                medium-device-size="12" large-device-size="6" padding="around-small" flexibility="auto">
+                                <template slot="body" iterator:it={item.record}>
+                                    <div key={it.value.key} style="display:flex; justify-content:space-between;">
+                                        <div if:false={it.first} class="slds-text-align_left slds-text-color_weak"
+                                            style="display:inline-block;">{it.value.label}:</div>
+                                        <div style="display:inline-block; text-align: right;">
+                                            <lightning-formatted-text if:true={it.value.isText} value={it.value.value}>
+                                            </lightning-formatted-text>
+                                            <lightning-formatted-date-time if:true={it.value.isDate}
+                                                value={it.value.value}>
+                                            </lightning-formatted-date-time>
+                                            <lightning-formatted-number if:true={it.value.isCurrency}
+                                                value={it.value.value} format-style={it.value.formatStyle}
+                                                currency-code={it.value.currencyIsoCode} currency-display-as="code">
+                                            </lightning-formatted-number>
+                                            <lightning-formatted-number if:true={it.value.isPercent}
+                                                value={it.value.value} format-style={it.value.formatStyle}>
+                                            </lightning-formatted-number>
+                                            <lightning-formatted-number if:true={it.value.isNumber}
+                                                value={it.value.value} format-style={it.value.formatStyle}>
+                                            </lightning-formatted-number>
+                                            <lightning-formatted-phone if:true={it.value.isPhone}
+                                                value={it.value.value}>
+                                            </lightning-formatted-phone>
+                                            <lightning-formatted-url if:true={it.value.isUrl} value={it.value.value}
+                                                label={it.value.urlLabel}>
+                                            </lightning-formatted-url>
+                                            <lightning-formatted-email if:true={it.value.isEmail}
+                                                value={it.value.value}>
+                                            </lightning-formatted-email>
+                                        </div>
+                                    </div>
+                                </template>
+                                <br key={item.key} if:true={isMobile} />
+                            </lightning-layout-item>
+                        </template>
+                    </lightning-layout>
+                </template>
+                <template if:true={mode.isTitleLarge}>
+                    <lightning-layout multiple-rows="true">
+                        <template for:each={values} for:item="item">
+                            <!--RECORD VALUES-->
+                            <template slot="body" iterator:it={item.record}>
+                                <!--RECORD LABELS-->
+                                <lightning-layout-item if:false={it.first} key={it.value.label} size="5"
+                                    small-device-size="5" medium-device-size="5" padding="horizontal-small">
+                                    <div class="slds-text-align_left slds-text-color_weak">{it.value.label}:</div>
+                                </lightning-layout-item>
+                                <!--FIRST RECORD VALUES-->
+                                <lightning-layout-item if:true={it.first} key={it.value.value} size="11"
+                                    small-device-size="10" medium-device-size="10" padding="horizontal-small">
+                                    <div class="slds-text-align_left">
+                                        <lightning-formatted-text if:true={it.value.isText} value={it.value.value}>
+                                        </lightning-formatted-text>
+                                        <lightning-formatted-number if:true={it.value.isCurrency} value={it.value.value}
+                                            format-style={it.value.formatStyle} currency-code={it.value.currencyIsoCode}
+                                            currency-display-as="code">
+                                        </lightning-formatted-number>
+                                        <lightning-formatted-number if:true={it.value.isPercent} value={it.value.value}
+                                            format-style={it.value.formatStyle}>
+                                        </lightning-formatted-number>
+                                        <lightning-formatted-number if:true={it.value.isNumber} value={it.value.value}
+                                            format-style={it.value.formatStyle}>
+                                        </lightning-formatted-number>
+                                        <lightning-formatted-phone if:true={it.value.isPhoneNumber}
+                                            value={it.value.value}>
+                                        </lightning-formatted-phone>
+                                        <lightning-formatted-url if:true={it.value.isUrl} value={it.value.value}
+                                            label={it.value.urlLabel}>
+                                        </lightning-formatted-url>
+                                        <lightning-formatted-email if:true={it.value.isEmail} value={it.value.value}>
+                                        </lightning-formatted-email>
+                                    </div>
+                                </lightning-layout-item>
+                                <!--ALL RECORDS VALUES-->
+                                <lightning-layout-item if:false={it.first} key={it.value.value} size="7"
+                                    small-device-size="7" medium-device-size="7" padding="horizontal-small">
+                                    <div class="slds-text-align_left">
+                                        <lightning-formatted-text if:true={it.value.isText} value={it.value.value}>
+                                        </lightning-formatted-text>
+                                        <lightning-formatted-number if:true={it.value.isCurrency} value={it.value.value}
+                                            format-style={it.value.formatStyle} currency-code={it.value.currencyIsoCode}
+                                            currency-display-as="code">
+                                        </lightning-formatted-number>
+                                        <lightning-formatted-number if:true={it.value.isPercent} value={it.value.value}
+                                            format-style={it.value.formatStyle}>
+                                        </lightning-formatted-number>
+                                        <lightning-formatted-number if:true={it.value.isNumber} value={it.value.value}
+                                            format-style={it.value.formatStyle}>
+                                        </lightning-formatted-number>
+                                        <lightning-formatted-phone if:true={it.value.isPhoneNumber}
+                                            value={it.value.value}>
+                                        </lightning-formatted-phone>
+                                        <lightning-formatted-url if:true={it.value.isUrl} value={it.value.value}
+                                            label={it.value.urlLabel}>
+                                        </lightning-formatted-url>
+                                        <lightning-formatted-email if:true={it.value.isEmail} value={it.value.value}>
+                                        </lightning-formatted-email>
+                                    </div>
+                                </lightning-layout-item>
+                                <div if:true={it.last} key={it.value.value} style="display: block;"></div>
+                                <lightning-layout-item if:true={it.last} key={it.value.value} size="12"
+                                    small-device-size="12" medium-device-size="12" padding="around-small">
+                                </lightning-layout-item>
+                            </template>
+                        </template>
+                    </lightning-layout>
+                </template>
+                <template if:true={mode.isTitleMedium}>
+                    <lightning-layout multiple-rows="true">
+                        <template for:each={values} for:item="item">
+                            <!--RECORD VALUES-->
+                            <lightning-layout-item key={item.key} size="12" small-device-size="12"
+                                medium-device-size="12" large-device-size="12">
+                                <lightning-layout key={item.key} multiple-rows="true">
+                                    <template iterator:it={item.record}>
+                                        <lightning-layout-item if:false={it.first} key={it.value.key} size="6"
+                                            small-device-size="6" medium-device-size="6" large-device-size="6"
+                                            padding="horizontal-small" flexibility="shrink">
+                                            <div key={it.value.key}
+                                                style="display:flex; justify-content:space-between;">
+                                                <div class="slds-text-align_left slds-text-color_weak"
+                                                    style="display:inline-block;">{it.value.label}:</div>
+                                                <div class="slds-text-align_right" style="display:inline-block;">
+                                                    <lightning-formatted-text if:true={it.value.isText}
+                                                        value={it.value.value}>
+                                                    </lightning-formatted-text>
+                                                    <lightning-formatted-date-time if:true={it.value.isDate}
+                                                        value={it.value.value}>
+                                                    </lightning-formatted-date-time>
+                                                    <lightning-formatted-number if:true={it.value.isCurrency}
+                                                        value={it.value.value} format-style={it.value.formatStyle}
+                                                        currency-code={it.value.currencyIsoCode}
+                                                        currency-display-as="code">
+                                                    </lightning-formatted-number>
+                                                    <lightning-formatted-number if:true={it.value.isPercent}
+                                                        value={it.value.value} format-style={it.value.formatStyle}>
+                                                    </lightning-formatted-number>
+                                                    <lightning-formatted-number if:true={it.value.isNumber}
+                                                        value={it.value.value} format-style={it.value.formatStyle}>
+                                                    </lightning-formatted-number>
+                                                    <lightning-formatted-phone if:true={it.value.isPhone}
+                                                        value={it.value.value}>
+                                                    </lightning-formatted-phone>
+                                                    <lightning-formatted-url if:true={it.value.isUrl}
+                                                        value={it.value.value} label={it.value.urlLabel}>
+                                                    </lightning-formatted-url>
+                                                    <lightning-formatted-email if:true={it.value.isEmail}
+                                                        value={it.value.value}>
+                                                    </lightning-formatted-email>
+                                                </div>
+                                            </div>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item if:true={it.first} key={it.value.key} size="12"
+                                            small-device-size="12" medium-device-size="12" large-device-size="12"
+                                            padding="horizontal-small">
+                                            <lightning-formatted-text if:true={it.value.isText} value={it.value.value}>
+                                            </lightning-formatted-text>
+                                            <lightning-formatted-date-time if:true={it.value.isDate}
+                                                value={it.value.value}>
+                                            </lightning-formatted-date-time>
+                                            <lightning-formatted-number if:true={it.value.isCurrency}
+                                                value={it.value.value} format-style="currency"
+                                                currency-code={it.value.currencyIsoCode} currency-display-as="code">
+                                            </lightning-formatted-number>
+                                            <lightning-formatted-number if:true={it.value.isPercent}
+                                                value={it.value.value} format-style="percent">
+                                            </lightning-formatted-number>
+                                            <lightning-formatted-number if:true={it.value.isNumber}
+                                                value={it.value.value} format-style={it.value.formatStyle}>
+                                            </lightning-formatted-number>
+                                            <lightning-formatted-phone if:true={it.value.isPhone}
+                                                value={it.value.value}>
+                                            </lightning-formatted-phone>
+                                            <lightning-formatted-url if:true={it.value.isUrl} value={it.value.value}
+                                                label={it.value.urlLabel}>
+                                            </lightning-formatted-url>
+                                            <lightning-formatted-email if:true={it.value.isEmail}
+                                                value={it.value.value}>
+                                            </lightning-formatted-email>
+                                        </lightning-layout-item>
+                                    </template>
+                                </lightning-layout>
+                                <br key={item.key} />
+                            </lightning-layout-item>
+                        </template>
+                    </lightning-layout>
+                </template>
+                <p slot="footer" if:false={viewAll} ><a onclick={redirectViewAll}>Ver todos</a></p>
+                <div if:true={noneData} style="text-align: center;">No se han encontrado registros.</div>
+            </lightning-card>
+        </template>
+        <div if:true={handleError} class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning"
+            role="alert">
+            <span class="slds-assistive-text">warning</span>
+            <span class="slds-icon_container slds-icon-utility-warning slds-m-right_x-small"></span>
+            <h2>Ha ocurrido un error con el componente. Por favor contacte a su administrador.</h2>
+        </div>
+    </div>
+
+</template>

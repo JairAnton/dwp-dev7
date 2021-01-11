@@ -4,7 +4,7 @@
  *
  * @group global_hub
  *
- * @description This class contains the methods for the Validations logic of the main button panel
+ * @description This class contains the methods for the Validations logic of the main button panel 
  **/
 global class PrincipalValidationHub {
 	static final String admin = 'Administrador del sistema';
@@ -15,10 +15,15 @@ global class PrincipalValidationHub {
 
 	// User with administrator profile or opportunity owner user
 	global static Boolean Condition1(String recordId) {
-		Final List<Opportunity> opps = [Select Id, OwnerId, Owner.Name, Branch_id__c from Opportunity where Id =:recordId];
-		Final List<Profile> profiles = [Select Id, Name from profile where Id =:UserInfo.getProfileId()];
+		Final List<Opportunity> opps = [Select Id, OwnerId, Owner.Name, Branch_id__c, Account.OwnerId from Opportunity where Id =:recordId];
+		Final Set<Id> idsValid = new Set<Id>();
+        idsValid.add(opps[0].Account.OwnerId);
+        for(User_Assistant_Team__c userAssis : [SELECT Id, assistant_id__c FROM User_Assistant_Team__c WHERE user_id__c =:opps[0].Account.OwnerId]) {
+            idsValid.add(userAssis.assistant_id__c);
+        }
+        Final List<Profile> profiles = [Select Id, Name from profile where Id =:UserInfo.getProfileId()];
 		Boolean result = true;
-		if((profiles[0].Name == admin) || (profiles[0].Name == sysAdmin) || (opps[0].OwnerId == UserInfo.getUserId())) {
+		if(profiles[0].Name == admin || profiles[0].Name == sysAdmin || opps[0].OwnerId == UserInfo.getUserId() || idsValid.contains(UserInfo.getUserId())) {
 			result = false;
 		}
 		return result;

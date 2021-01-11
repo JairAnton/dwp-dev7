@@ -7,6 +7,14 @@
                 <value>false</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
+                <name>enableActionsConfiguration</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>hideChatterActions</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
                 <name>numVisibleActions</name>
                 <value>3</value>
             </componentInstanceProperties>
@@ -353,19 +361,294 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
-            <componentName>Component_Profitability</componentName>
+            <componentInstanceProperties>
+                <name>enableReload</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>insideBox</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>metadataConfig</name>
+                <value>Economic_Group_BankingDebt</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>recordsToShow</name>
+                <value>100</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTotalRecords</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>tableModel</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>tableModelAll</name>
+                <value>Title</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>titleCard</name>
+                <value>DETALLE POR BANCO DEUDA (TOTAL D+I) SBS</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>viewAll</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentName>bE_DynamicTablePresentation_Lwc</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>enableReload</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>insideBox</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>metadataConfig</name>
+                <value>Economic_Group_Debt_Fee_BBVA</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>recordsToShow</name>
+                <value>100</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTotalRecords</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>tableModel</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>tableModelAll</name>
+                <value>Title</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>titleCard</name>
+                <value>DEUDA Y CUOTA BBVA</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>viewAll</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentName>bE_DynamicTablePresentation_Lwc</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>enableReload</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>iconName</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>insideBox</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>metadataConfig</name>
+                <value>Economic_Group_Position</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>recordsToShow</name>
+                <value>100</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTotalRecords</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>tableModel</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>tableModelAll</name>
+                <value>Title</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>titleCard</name>
+                <value>POSICION (Saldo Medio)</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>viewAll</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentName>bE_DynamicTablePresentation_Lwc</componentName>
+        </componentInstances>
+        <name>Facet-617d76rqrzt</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>enableReload</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>insideBox</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>metadataConfig</name>
+                <value>Economic_Group_AccountIncome</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>recordsToShow</name>
+                <value>100</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTotalRecords</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>tableModel</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>tableModelAll</name>
+                <value>Title</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>viewAll</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentName>bE_DynamicTablePresentation_Lwc</componentName>
+        </componentInstances>
+        <name>Facet-8cbe7a44-55cb-4025-865d-0b00f57a1cd7</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>enableReload</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>insideBox</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>metadataConfig</name>
+                <value>Economic_Group_ProfitabilityBilling</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>recordsToShow</name>
+                <value>100</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTotalRecords</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>tableModel</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>tableModelAll</name>
+                <value>Title</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>titleCard</name>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>viewAll</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentName>bE_DynamicTablePresentation_Lwc</componentName>
+        </componentInstances>
+        <name>Facet-54784889-06d5-4d81-a151-442db3ce6081</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>enableReload</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>insideBox</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>metadataConfig</name>
+                <value>Economic_Group_Profitability</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>recordsToShow</name>
+                <value>100</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>showTotalRecords</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>tableModel</name>
+                <value>Basic</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>tableModelAll</name>
+                <value>Title</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>viewAll</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentName>bE_DynamicTablePresentation_Lwc</componentName>
         </componentInstances>
         <name>facet-1a9d3154-c954-4ca8-8831-2d07c23b5186</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
-            <componentName>PositionGroupTable_comp</componentName>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-617d76rqrzt</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>INFORMACIÓN DE DEUDA BBVA Y SBS</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection--e85hme0x1jr</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
         </componentInstances>
-        <name>facet-8dba07fd-1bae-4818-bc28-0a7e2f2ae27e</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-8cbe7a44-55cb-4025-865d-0b00f57a1cd7</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>SALDO MEDIO ANUAL</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection--6n9p7g2mhxg</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>Facet-54784889-06d5-4d81-a151-442db3ce6081</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <value>FACTURACIÓN</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>name</name>
+                <value>accordionSection--h4a3hkboo5l</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:accordionSection</componentName>
+        </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
                 <name>body</name>
@@ -373,26 +656,11 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>label</name>
-                <value>Rentabilidad</value>
+                <value>RENTABILIDAD (ACUMULADO DE AÑO)</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>name</name>
                 <value>accordionSection1</value>
-            </componentInstanceProperties>
-            <componentName>flexipage:accordionSection</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>body</name>
-                <value>facet-8dba07fd-1bae-4818-bc28-0a7e2f2ae27e</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>label</name>
-                <value>Posiciones</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>name</name>
-                <value>accordionSection2</value>
             </componentInstanceProperties>
             <componentName>flexipage:accordionSection</componentName>
         </componentInstances>
@@ -407,7 +675,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>defaultSectionName</name>
-                <value>accordionSection1</value>
+                <value>accordionSection--e85hme0x1jr</value>
             </componentInstanceProperties>
             <componentName>flexipage:accordion</componentName>
         </componentInstances>

@@ -5,18 +5,21 @@
     },
     getInfo: function (component, event, helper) {
         var inputObject = component.get('v.inputAttributes');
+        var uniqueNameTable = 'Manual_Proposal_Summarize';
+        if (inputObject.approvalMethod === 'Web') {
+            uniqueNameTable = 'Web_Proposal_Summarize';
+        }
         var action = component.get("c.getInfoAnalist");
         action.setParams({
-            "recordIdOppLineItem": inputObject.opportunityLineItem
+            "oliId": inputObject.opportunityLineItem,
+            "uniqueNameTable": uniqueNameTable
         });
         action.setCallback(this, function (response) {
             var state = response.getState();
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
                 var objSetup = { 'nameProd': ret.lstOppLineItem[0].Product2.Name };
-                if (!ret.lstInfoIsEmpty) {
-                    objSetup['lstTile'] = helper.setFields(ret);
-                }
+                objSetup['lstTile'] = JSON.parse(ret.lstSummarize)
                 objSetup['getInfoButtons'] = helper.getInfoButtons(inputObject.approvalMethod, ret.caseOpen);
                 component.set('v.objSetup', objSetup);
                 var objectInput = {
@@ -171,7 +174,6 @@
         var storeHTML = document.getElementById('storeHTML');
         var objSetup = cmp.get('v.objSetup');
         var inputObject = cmp.get('v.inputAttributes');
-        //$A.get('e.force:refreshView').fire();
         var action = cmp.get("c.saveDecisionAnalist");
         action.setParams({
             "jsonParams": JSON.stringify({
@@ -224,45 +226,35 @@
             if (state === "SUCCESS") {
                 var res = response.getReturnValue();
                 if (!res.isError) {
-                    var nav = $A.get("e.force:navigateToList");
-                    nav.setParams({
-                        "listViewId": res.listView.Id,
-                        "listViewName": null,
-                        "scope": "Case"
-                    });
-                    nav.fire();
+                    helper.createQuotePdf(component, evt, res);
                 } else {
-                    helper.closeMe(cmp, evt, helper);
+                    helper.closeMe(component, evt, helper);
                 }
             } else {
-                helper.closeMe(cmp, evt, helper);
+                helper.closeMe(component, evt, helper);
             }
         });
         $A.enqueueAction(action);
     },
-    setFields: function (ret) {
-        var lstTile = [];
-        for (var i in ret.lstField) {
-            var strValue = ret.lstInfo[0][ret.lstField[i]];
-            if (ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_values__c !== undefined &&
-                ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_values__c !== '') {
-                var lovValues = ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_values__c.split(',');
-                var lovLabels = ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__LoV_labels__c.split(',');
-                var posVal = lovValues.indexOf(strValue);
-                strValue = lovLabels[posVal];
+    createQuotePdf: function (component, evt, res) {
+        var inputObject = component.get('v.inputAttributes');
+        var actionPdf = component.get("c.createPdf");
+        actionPdf.setParams({
+            "recordId": inputObject.recordId
+        });
+        actionPdf.setCallback(this, function (responsePdf) {
+            var statePdf = responsePdf.getState();
+            if (statePdf === "SUCCESS") {
+                var nav = $A.get("e.force:navigateToList");
+                nav.setParams({
+                    "listViewId": res.listView.Id,
+                    "listViewName": null,
+                    "scope": "Case"
+                });
+                nav.fire();
             }
-            if (ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__Type__c === 'currency' && !isNaN(strValue)) {
-                var val = Math.round(Number(strValue) * 100) / 100;
-                var parts = val.toString().split(".");
-                strValue = ret.lstOppLineItem[0].Opportunity.CurrencyIsoCode + ' ' + parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : ".00");
-            }
-            var tile = {
-                'label': ret.mapMapfieldConfig[ret.lstField[i].toString()].fprd__Label__c,
-                'value': strValue
-            }
-            lstTile.push(tile);
-        }
-        return lstTile;
+        });
+        $A.enqueueAction(actionPdf);
     },
     htmlObject: function (inputObject, evt) {
         var today = new Date();

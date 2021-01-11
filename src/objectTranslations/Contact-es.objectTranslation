@@ -217,7 +217,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Lima y Callao - 01</masterLabel>
-            <translation><!-- Lima y Callo - 01 --></translation>
+            <translation><!-- Lima y Callao - 01 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Loreto - 65</masterLabel>
@@ -571,6 +571,10 @@
             <section>Account Information</section>
         </sections>
     </layouts>
+    <quickActions>
+        <label>Modificar</label>
+        <name>BE_EditContact</name>
+    </quickActions>
 	<validationRules>
         <errorMessage>Por favor, compruebe que el Celular contiene 9 dígitos.</errorMessage>
         <name>Contact_Validation_Rule_Mobile</name>

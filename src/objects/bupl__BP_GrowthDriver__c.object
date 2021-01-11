@@ -1,0 +1,957 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Growth_Driver_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Growth_Driver_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Monto</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ClientAssigned__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Asignación de cliente</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Growth Drivers</relationshipLabel>
+        <relationshipName>Growth_Drivers</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ExpectedDate__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Fecha expectativa de completación</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>acpl__gf_account_planning_id__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Account Planning</label>
+        <referenceTo>acpl__Account_Planning__c</referenceTo>
+        <relationshipLabel>Growth Drivers</relationshipLabel>
+        <relationshipName>Growth_Drivers</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>bupl__country_id__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Arab Emirates</fullName>
+                    <default>false</default>
+                    <label>Arab Emirates</label>
+                </value>
+                <value>
+                    <fullName>Argentina</fullName>
+                    <default>false</default>
+                    <label>Argentina</label>
+                </value>
+                <value>
+                    <fullName>Belgium</fullName>
+                    <default>false</default>
+                    <label>Belgium</label>
+                </value>
+                <value>
+                    <fullName>Brazil</fullName>
+                    <default>false</default>
+                    <label>Brazil</label>
+                </value>
+                <value>
+                    <fullName>Chile</fullName>
+                    <default>false</default>
+                    <label>Chile</label>
+                </value>
+                <value>
+                    <fullName>China</fullName>
+                    <default>false</default>
+                    <label>China</label>
+                </value>
+                <value>
+                    <fullName>Colombia</fullName>
+                    <default>false</default>
+                    <label>Colombia</label>
+                </value>
+                <value>
+                    <fullName>Compass</fullName>
+                    <default>false</default>
+                    <label>Compass</label>
+                </value>
+                <value>
+                    <fullName>France</fullName>
+                    <default>false</default>
+                    <label>France</label>
+                </value>
+                <value>
+                    <fullName>Germany</fullName>
+                    <default>false</default>
+                    <label>Germany</label>
+                </value>
+                <value>
+                    <fullName>Global</fullName>
+                    <default>false</default>
+                    <label>Global</label>
+                </value>
+                <value>
+                    <fullName>Hong Kong</fullName>
+                    <default>false</default>
+                    <label>Hong Kong</label>
+                </value>
+                <value>
+                    <fullName>India</fullName>
+                    <default>false</default>
+                    <label>India</label>
+                </value>
+                <value>
+                    <fullName>Indonesia</fullName>
+                    <default>false</default>
+                    <label>Indonesia</label>
+                </value>
+                <value>
+                    <fullName>Italy</fullName>
+                    <default>false</default>
+                    <label>Italy</label>
+                </value>
+                <value>
+                    <fullName>Japan</fullName>
+                    <default>false</default>
+                    <label>Japan</label>
+                </value>
+                <value>
+                    <fullName>Mexico</fullName>
+                    <default>false</default>
+                    <label>Mexico</label>
+                </value>
+                <value>
+                    <fullName>NY</fullName>
+                    <default>false</default>
+                    <label>NY</label>
+                </value>
+                <value>
+                    <fullName>Paraguay</fullName>
+                    <default>false</default>
+                    <label>Paraguay</label>
+                </value>
+                <value>
+                    <fullName>Peru</fullName>
+                    <default>false</default>
+                    <label>Peru</label>
+                </value>
+                <value>
+                    <fullName>Portugal</fullName>
+                    <default>false</default>
+                    <label>Portugal</label>
+                </value>
+                <value>
+                    <fullName>Puerto Rico</fullName>
+                    <default>false</default>
+                    <label>Puerto Rico</label>
+                </value>
+                <value>
+                    <fullName>Russia</fullName>
+                    <default>false</default>
+                    <label>Russia</label>
+                </value>
+                <value>
+                    <fullName>Singapore</fullName>
+                    <default>false</default>
+                    <label>Singapore</label>
+                </value>
+                <value>
+                    <fullName>South Korea</fullName>
+                    <default>false</default>
+                    <label>South Korea</label>
+                </value>
+                <value>
+                    <fullName>Spain</fullName>
+                    <default>false</default>
+                    <label>Spain</label>
+                </value>
+                <value>
+                    <fullName>Taiwan</fullName>
+                    <default>false</default>
+                    <label>Taiwan</label>
+                </value>
+                <value>
+                    <fullName>Turkey</fullName>
+                    <default>false</default>
+                    <label>Turkey</label>
+                </value>
+                <value>
+                    <fullName>United Kingdom</fullName>
+                    <default>false</default>
+                    <label>United Kingdom</label>
+                </value>
+                <value>
+                    <fullName>Uruguay</fullName>
+                    <default>false</default>
+                    <label>Uruguay</label>
+                </value>
+                <value>
+                    <fullName>Venezuela</fullName>
+                    <default>false</default>
+                    <label>Venezuela</label>
+                </value>
+                <value>
+                    <fullName>USA</fullName>
+                    <default>false</default>
+                    <label>USA</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>bupl__gf_business_growth_rec_number__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Counter</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>bupl__gf_business_plan_growth_name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>HYPERLINK( &quot;/lightning/r/BusinessPlan_GrowthDriver__c/&quot; + Id + &quot;/view&quot;,&quot;Driver - &quot; + TEXT(bupl__gf_business_growth_rec_number__c) + &quot; &quot; + bupl__gf_business_plan_id__r.bupl__participant_id__r.Name,
+&quot;_self&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>bupl__gf_business_plan_id__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Business Plan</label>
+        <referenceTo>bupl__BusinessPlan__c</referenceTo>
+        <relationshipLabel>Growth Drivers</relationshipLabel>
+        <relationshipName>Growth_Drivers</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>bupl__gf_growth_drvr_prdt_desc__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Details</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>bupl__gf_growth_drvr_prdt_short_desc__c</fullName>
+        <deprecated>false</deprecated>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Short description</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>bupl__solution_category_desc__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>bupl__solution_category_id__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <label>Others</label>
+                </value>
+                <value>
+                    <fullName>0160010</fullName>
+                    <default>false</default>
+                    <label>Préstamo comercial CP (manual)</label>
+                </value>
+                <value>
+                    <fullName>0160010_NEW</fullName>
+                    <default>false</default>
+                    <label>Préstamo comercial CP</label>
+                </value>
+                <value>
+                    <fullName>0161720</fullName>
+                    <default>false</default>
+                    <label>Comex importación (manual)</label>
+                </value>
+                <value>
+                    <fullName>0161720_NEW</fullName>
+                    <default>false</default>
+                    <label>Comex importación</label>
+                </value>
+                <value>
+                    <fullName>0161710</fullName>
+                    <default>false</default>
+                    <label>Comex exportación (manual)</label>
+                </value>
+                <value>
+                    <fullName>0161710_NEW</fullName>
+                    <default>false</default>
+                    <label>Comex exportación</label>
+                </value>
+                <value>
+                    <fullName>0161730</fullName>
+                    <default>false</default>
+                    <label>Forfaiting</label>
+                </value>
+                <value>
+                    <fullName>0159501</fullName>
+                    <default>false</default>
+                    <label>Letras (manual)</label>
+                </value>
+                <value>
+                    <fullName>0159501_NEW</fullName>
+                    <default>false</default>
+                    <label>Letras</label>
+                </value>
+                <value>
+                    <fullName>0159502</fullName>
+                    <default>false</default>
+                    <label>Factoring</label>
+                </value>
+                <value>
+                    <fullName>PC00009</fullName>
+                    <default>false</default>
+                    <label>Préstamo comercial LP (manual)</label>
+                </value>
+                <value>
+                    <fullName>PC00009_NEW</fullName>
+                    <default>false</default>
+                    <label>Préstamo comercial LP</label>
+                </value>
+                <value>
+                    <fullName>0159601</fullName>
+                    <default>false</default>
+                    <label>Leasing (manual)</label>
+                </value>
+                <value>
+                    <fullName>0159601_NEW</fullName>
+                    <default>false</default>
+                    <label>Leasing</label>
+                </value>
+                <value>
+                    <fullName>0292235</fullName>
+                    <default>false</default>
+                    <label>Carta fianza técnica (manual)</label>
+                </value>
+                <value>
+                    <fullName>0292235_NEW</fullName>
+                    <default>false</default>
+                    <label>Carta fianza técnica</label>
+                </value>
+                <value>
+                    <fullName>0292230</fullName>
+                    <default>false</default>
+                    <label>Carta fianza económica (manual)</label>
+                </value>
+                <value>
+                    <fullName>0292230_NEW</fullName>
+                    <default>false</default>
+                    <label>Carta fianza económica</label>
+                </value>
+                <value>
+                    <fullName>0292420</fullName>
+                    <default>false</default>
+                    <label>Stand by</label>
+                </value>
+                <value>
+                    <fullName>0292410</fullName>
+                    <default>false</default>
+                    <label>Carta de crédito de importación</label>
+                </value>
+                <value>
+                    <fullName>0292430</fullName>
+                    <default>false</default>
+                    <label>Carta de crédito de exportación</label>
+                </value>
+                <value>
+                    <fullName>0240011</fullName>
+                    <default>false</default>
+                    <label>Vista PJ</label>
+                </value>
+                <value>
+                    <fullName>0241041</fullName>
+                    <default>false</default>
+                    <label>Depósito a plazo</label>
+                </value>
+                <value>
+                    <fullName>08</fullName>
+                    <default>false</default>
+                    <label>Pago a proveedores</label>
+                </value>
+                <value>
+                    <fullName>09</fullName>
+                    <default>false</default>
+                    <label>Pago de haberes</label>
+                </value>
+                <value>
+                    <fullName>21</fullName>
+                    <default>false</default>
+                    <label>Net Cash</label>
+                </value>
+                <value>
+                    <fullName>PC00035</fullName>
+                    <default>false</default>
+                    <label>FX</label>
+                </value>
+                <value>
+                    <fullName>PC00036</fullName>
+                    <default>false</default>
+                    <label>Forward</label>
+                </value>
+                <value>
+                    <fullName>PC00040</fullName>
+                    <default>false</default>
+                    <label>PFL</label>
+                </value>
+                <value>
+                    <fullName>PC00041</fullName>
+                    <default>false</default>
+                    <label>PFF</label>
+                </value>
+                <value>
+                    <fullName>PC00042</fullName>
+                    <default>false</default>
+                    <label>PFA</label>
+                </value>
+                <value>
+                    <fullName>Cash Management</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Cash Management</label>
+                </value>
+                <value>
+                    <fullName>Client Resources</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Client Resources</label>
+                </value>
+                <value>
+                    <fullName>Corporate Syndicated Lending</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Corporate Syndicated Lending</label>
+                </value>
+                <value>
+                    <fullName>Credit</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Credit</label>
+                </value>
+                <value>
+                    <fullName>DCM</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>DCM</label>
+                </value>
+                <value>
+                    <fullName>ECM</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>ECM</label>
+                </value>
+                <value>
+                    <fullName>Equity</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Equity</label>
+                </value>
+                <value>
+                    <fullName>Global Trade Finance</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Global Trade Finance</label>
+                </value>
+                <value>
+                    <fullName>M&amp;A</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>M&amp;A</label>
+                </value>
+                <value>
+                    <fullName>Others GF</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Others GF</label>
+                </value>
+                <value>
+                    <fullName>Others GM</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Others GM</label>
+                </value>
+                <value>
+                    <fullName>Others GTB</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Others GTB</label>
+                </value>
+                <value>
+                    <fullName>Portfolio Management &amp; Monitoring</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Portfolio Management &amp; Monitoring</label>
+                </value>
+                <value>
+                    <fullName>Rates</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Rates</label>
+                </value>
+                <value>
+                    <fullName>Securities Services</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Securities Services</label>
+                </value>
+                <value>
+                    <fullName>Structured Finance</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Structured Finance</label>
+                </value>
+                <value>
+                    <fullName>Working Capital</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Working Capital</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Programa financiero</controllingFieldValue>
+                <valueName>PC00040</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Programa financiero</controllingFieldValue>
+                <valueName>PC00041</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Programa financiero</controllingFieldValue>
+                <valueName>PC00042</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financiamiento a largo plazo</controllingFieldValue>
+                <valueName>PC00009</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financiamiento a largo plazo</controllingFieldValue>
+                <valueName>PC00009_NEW</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financiamiento a largo plazo</controllingFieldValue>
+                <valueName>0159601</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financiamiento a largo plazo</controllingFieldValue>
+                <valueName>0159601_NEW</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financiamiento a corto plazo</controllingFieldValue>
+                <valueName>0160010</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financiamiento a corto plazo</controllingFieldValue>
+                <valueName>0160010_NEW</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financiamiento a corto plazo</controllingFieldValue>
+                <valueName>0161720</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financiamiento a corto plazo</controllingFieldValue>
+                <valueName>0161720_NEW</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financiamiento a corto plazo</controllingFieldValue>
+                <valueName>0161710</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financiamiento a corto plazo</controllingFieldValue>
+                <valueName>0161710_NEW</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financiamiento a corto plazo</controllingFieldValue>
+                <valueName>0161730</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financiamiento a corto plazo</controllingFieldValue>
+                <valueName>0159501</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financiamiento a corto plazo</controllingFieldValue>
+                <valueName>0159501_NEW</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financiamiento a corto plazo</controllingFieldValue>
+                <valueName>0159502</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Riesgo de firma</controllingFieldValue>
+                <valueName>0292235</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Riesgo de firma</controllingFieldValue>
+                <valueName>0292235_NEW</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Riesgo de firma</controllingFieldValue>
+                <valueName>0292230</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Riesgo de firma</controllingFieldValue>
+                <valueName>0292230_NEW</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Riesgo de firma</controllingFieldValue>
+                <valueName>0292420</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Riesgo de firma</controllingFieldValue>
+                <valueName>0292410</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Riesgo de firma</controllingFieldValue>
+                <valueName>0292430</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Recursos</controllingFieldValue>
+                <valueName>0240011</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Recursos</controllingFieldValue>
+                <valueName>0241041</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Serv. Transaccionales</controllingFieldValue>
+                <valueName>08</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Serv. Transaccionales</controllingFieldValue>
+                <valueName>09</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Serv. Transaccionales</controllingFieldValue>
+                <valueName>21</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tesorería</controllingFieldValue>
+                <valueName>PC00035</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tesorería</controllingFieldValue>
+                <valueName>PC00036</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>bupl__solution_category_id__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Product Family</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Financiamiento a largo plazo</fullName>
+                    <default>false</default>
+                    <label>Financiamiento a largo plazo</label>
+                </value>
+                <value>
+                    <fullName>Financiamiento a corto plazo</fullName>
+                    <default>false</default>
+                    <label>Financiamiento a corto plazo</label>
+                </value>
+                <value>
+                    <fullName>Riesgo de firma</fullName>
+                    <default>false</default>
+                    <label>Riesgo de firma</label>
+                </value>
+                <value>
+                    <fullName>Recursos</fullName>
+                    <default>false</default>
+                    <label>Recursos</label>
+                </value>
+                <value>
+                    <fullName>Serv. Transaccionales</fullName>
+                    <default>false</default>
+                    <label>Serv. Transaccionales</label>
+                </value>
+                <value>
+                    <fullName>Tesorería</fullName>
+                    <default>false</default>
+                    <label>Tesorería</label>
+                </value>
+                <value>
+                    <fullName>Programa financiero</fullName>
+                    <default>false</default>
+                    <label>Programa financiero</label>
+                </value>
+                <value>
+                    <fullName>Corporate Finance</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Corporate Finance</label>
+                </value>
+                <value>
+                    <fullName>Global Finance</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Global Finance</label>
+                </value>
+                <value>
+                    <fullName>Global Markets</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Global Markets</label>
+                </value>
+                <value>
+                    <fullName>Global Transaction Banking</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Global Transaction Banking</label>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Others</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Growth Driver</label>
+    <nameField>
+        <displayFormat>GD_{YYYY}/{MM}-{0000}</displayFormat>
+        <label>Growth Driver Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Growth Drivers</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Assign_Client_Group</fullName>
+        <active>true</active>
+        <description>Validación para asignar un cliente a una variable de crecimiento perteneciente a un Grupo Económico</description>
+        <errorConditionFormula>acpl__gf_account_planning_id__r.acpl__participant_id__r.RecordType.DeveloperName == &apos;Record_Type_Economic_Group&apos; &amp;&amp; 
+acpl__gf_account_planning_id__r.acpl__participant_id__c != ClientAssigned__r.ParentId</errorConditionFormula>
+        <errorDisplayField>ClientAssigned__c</errorDisplayField>
+        <errorMessage>Debe asignar la variable a un cliente del grupo económico.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

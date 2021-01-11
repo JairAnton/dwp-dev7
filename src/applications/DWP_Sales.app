@@ -27,6 +27,24 @@
         <type>Flexipage</type>
         <pageOrSobjectType>Opportunity</pageOrSobjectType>
     </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>BE_Calce_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Calce__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>BE_Calce_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Calce__c</pageOrSobjectType>
+    </actionOverrides>
     <brand>
         <headerColor>#0070D2</headerColor>
         <logo>apps_logo</logo>
@@ -39,6 +57,150 @@
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>DWP Sales</label>
     <navType>Standard</navType>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Planning_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>acpl__Account_Planning__c</pageOrSobjectType>
+        <recordType>acpl__Account_Planning__c.acpl__Question_Catalog</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Planning_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>acpl__Account_Planning__c</pageOrSobjectType>
+        <recordType>acpl__Account_Planning__c.acpl__Question_Catalog</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Planning_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>acpl__Account_Planning__c</pageOrSobjectType>
+        <recordType>acpl__Account_Planning__c.acpl__Question_Catalog</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Planning_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>acpl__Account_Planning__c</pageOrSobjectType>
+        <recordType>acpl__Account_Planning__c.acpl__Question_Catalog</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Plan_Validation_Peru</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.acpl__Account_Plan_Validation</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Plan_Validation_Peru</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.acpl__Account_Plan_Validation</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Plan_Validation_Peru</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.acpl__Account_Plan_Validation</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Plan_Validation_Peru</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.acpl__Account_Plan_Validation</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Plan_Validation_Peru</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.acpl__Account_Plan_Validation</recordType>
+        <type>Flexipage</type>
+        <profile>Migracion</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Plan_Validation_Peru</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.acpl__Account_Plan_Validation</recordType>
+        <type>Flexipage</type>
+        <profile>Migracion</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Planning_Page_Peru</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>acpl__Account_Planning__c</pageOrSobjectType>
+        <recordType>acpl__Account_Planning__c.acpl__Account_Planning</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Planning_Page_Peru</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>acpl__Account_Planning__c</pageOrSobjectType>
+        <recordType>acpl__Account_Planning__c.acpl__Account_Planning</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Planning_Page_Peru</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>acpl__Account_Planning__c</pageOrSobjectType>
+        <recordType>acpl__Account_Planning__c.acpl__Account_Planning</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Planning_Page_Peru</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>acpl__Account_Planning__c</pageOrSobjectType>
+        <recordType>acpl__Account_Planning__c.acpl__Account_Planning</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Planning_Page_Peru</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>acpl__Account_Planning__c</pageOrSobjectType>
+        <recordType>acpl__Account_Planning__c.acpl__Account_Planning</recordType>
+        <type>Flexipage</type>
+        <profile>Migracion</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Planning_Page_Peru</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>acpl__Account_Planning__c</pageOrSobjectType>
+        <recordType>acpl__Account_Planning__c.acpl__Account_Planning</recordType>
+        <type>Flexipage</type>
+        <profile>Migracion</profile>
+    </profileActionOverrides>
 	<profileActionOverrides>
         <actionName>Tab</actionName>
         <content>HOMEPAGE_OPERATIVO</content>
@@ -339,9 +501,11 @@
     <tabs>standard-home</tabs>
     <tabs>standard-Account</tabs>
     <tabs>nonc__Prospects</tabs>
+    <tabs>Calce__c</tabs>
     <tabs>standard-Contact</tabs>
     <tabs>standard-Case</tabs>
     <tabs>standard-Opportunity</tabs>
+    <tabs>acpl__Account_Planning__c</tabs>
     <tabs>standard-Event</tabs>
     <tabs>standard-Task</tabs>
 	<tabs>standard-Feed</tabs>
