@@ -286,7 +286,7 @@
     callEvent : function(compEvent, inputObject, tipe, ret) {
         if(tipe === 'DOERROR') {
             var otherData1 = { "errorCode": ret.errorMessage };
-            compEvent.setParams({ "inputAttributes": inputObject, "typeMode": tipe, "rowData": otherData1 });
+            compEvent.setParams({ "inputAttributes": inputObject, "typeMode": tipe, "data": otherData1 });
         } else if(tipe === 'DOCONTINUE') {
             var otherData2 = {
                 "quotationStatusMessage": ret.quotationStatusMessage,

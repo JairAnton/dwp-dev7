@@ -10,15 +10,6 @@
    -------------------------------------------------------------------------------------------------
  */
 public without sharing class Event_Trigger_cls {
-    /** @Description GOF_CODE*/
-    static Final List<String> GOF_CODE = System.Label.lblGOFCode.split(',');
-    /** @Description EJE_CODE*/
-    static Final List<String> EJE_CODE = System.Label.lblEjecutivoCode.split(',');
-    /** @Description GOF*/
-    static Final String GOF = 'GOF';
-    /** @Description EJE*/
-    static Final String EJE = 'EJE';
-
     /**
      * @Description constructor
      */

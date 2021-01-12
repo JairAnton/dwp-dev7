@@ -16,10 +16,6 @@ public with sharing class BE_Quotation_Ctr {
 	public String comments {get; set;}
     /** string with modality */
 	public final String modality {get; set;}
-    /** Decimal with teaCom */
-	public final Decimal teaCom {get; set;}
-    /** string with validDate */
-	public final Date validDate {get; set;}
     /** string with userCode */
 	public final String userCode {get; set;}
     
@@ -29,8 +25,6 @@ public with sharing class BE_Quotation_Ctr {
 	 */
     public BE_Quotation_Ctr(ApexPages.StandardController stdController) {
         Final Opportunity opp = (Opportunity)stdController.getRecord();
-        validDate = Date.valueOf(ApexPages.currentPage().getParameters().get('validDate'));
-        teaCom = Decimal.valueOf(ApexPages.currentPage().getParameters().get('teaCom').escapeHtml4());
         for(dwp_cvad__Action_Audit_Detail__c auditDet : [SELECT Id, dwp_cvad__action_audit_detail_content__c FROM dwp_cvad__Action_Audit_Detail__c WHERE dwp_cvad__action_audit_id__r.dwp_cvad__action_audit_record_id__c = :opp.Id ORDER BY dwp_cvad__action_audit_id__r.CreatedDate DESC LIMIT 1]) {
             comments = auditDet.dwp_cvad__action_audit_detail_content__c;
             comments = comments.substringAfterLast('>Comentarios</h3>');

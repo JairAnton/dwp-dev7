@@ -35,8 +35,16 @@
 },
 {
 &quot;label&quot;: &quot;Fecha&quot;,
-&quot;fieldName&quot;: &quot;start_date_calculated__c&quot;,
-&quot;type&quot;: &quot;date-local&quot;
+&quot;fieldName&quot;: &quot;dwp_kitv__visit_start_date__c&quot;,
+&quot;type&quot;: &quot;date&quot;,
+&quot;typeAttributes&quot;: {
+&quot;year&quot;:&quot;numeric&quot;,
+&quot;day&quot;:&quot;2-digit&quot;,
+&quot;month&quot;:&quot;2-digit&quot;,
+&quot;hour&quot;:&quot;2-digit&quot;,
+&quot;minute&quot;:&quot;2-digit&quot;,
+&quot;time-zone&quot;:&quot;America/Bogota&quot;
+}
 },
 {
 &quot;label&quot;: &quot;Estado&quot;,
@@ -99,7 +107,7 @@
     </values>
     <values>
         <field>FieldsQuery__c</field>
-        <value xsi:type="xsd:string">Name, start_date_calculated__c, toLabel(dwp_kitv__visit_status_type__c), dwp_kitv__account_id__r.Name</value>
+        <value xsi:type="xsd:string">Name, dwp_kitv__visit_start_date__c, toLabel(dwp_kitv__visit_status_type__c), dwp_kitv__account_id__r.Name</value>
     </values>
     <values>
         <field>Filter__c</field>

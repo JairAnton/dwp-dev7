@@ -174,11 +174,25 @@
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
                 if (ret.isOk) {
-                    helper.closeMe(cmp, evt, helper);
+                    helper.createQuotePdf(cmp, evt, helper);
                 }
             }
         });
         $A.enqueueAction(action);
+    },
+    createQuotePdf: function (component, evt, helper) {
+        var inputObject = component.get('v.inputAttributes');
+        var actionPdf = component.get("c.createPdf");
+        actionPdf.setParams({
+            "recordId": inputObject.recordId
+        });
+        actionPdf.setCallback(this, function (responsePdf) {
+            var statePdf = responsePdf.getState();
+            if (statePdf === "SUCCESS") {
+                helper.closeMe(component, evt, helper);
+            }
+        });
+        $A.enqueueAction(actionPdf);
     },
     htmlObject: function (inputObject, evt) {
         var today = new Date();

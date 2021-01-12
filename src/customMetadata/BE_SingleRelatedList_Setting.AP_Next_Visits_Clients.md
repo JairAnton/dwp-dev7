@@ -6,11 +6,19 @@
         <field>Columns__c</field>
         <value xsi:type="xsd:string">{
     &quot;values&quot;: [
-        {
-            &quot;label&quot;: &quot;NOMBRE DE LA VISITA&quot;,
-            &quot;fieldName&quot;: &quot;Name&quot;,
-            &quot;type&quot;: &quot;Text&quot;
-        },
+		{
+			&quot;label&quot;: &quot;NOMBRE DE LA VISITA&quot;,
+			&quot;fieldName&quot;: &quot;Id&quot;,
+			&quot;type&quot;: &quot;customurl&quot;,
+			&quot;typeAttributes&quot;: {
+				&quot;rowData&quot;: {
+					&quot;fieldName&quot;: &quot;rowData&quot;
+				},
+				&quot;isCustom&quot;: true,
+				&quot;label&quot;: &quot;Name&quot;,
+				&quot;fieldName&quot;: &quot;Id&quot;
+			}
+		},
         {
             &quot;label&quot;: &quot;FECHA DE INICIO&quot;,
             &quot;fieldName&quot;: &quot;start_date_calculated__c&quot;,

@@ -1206,8 +1206,12 @@
         <apexClass>Email_SIO_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <classAccesses>
+	<classAccesses>
         <apexClass>Event_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Event_Trigger_cls</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -6153,9 +6157,9 @@ Asistente BE</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>OpportunityLineItem.gipr_Plazo__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -6168,9 +6172,9 @@ Asistente BE</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>OpportunityLineItem.gipr_Tipo_Garantia__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -9085,6 +9089,16 @@ Asistente BE</description>
     <fieldPermissions>
         <editable>true</editable>
         <field>slmt__Sales_Meeting_Item_Configuration__mdt.slmt__sales_meeting_item_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>slmt__Sales_Meeting__c.auxiliar_collaborator__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>slmt__Sales_Meeting__c.auxiliar_manager__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

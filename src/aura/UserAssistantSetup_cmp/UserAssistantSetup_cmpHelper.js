@@ -17,7 +17,6 @@
 					}
 				}
 				cmp.set('v.lstDataDelete', lstIds);
-				cmp.set('v.step', '0');
 				cmp.set('v.lstDataCustom', lstDataCustomDelete);
 				cmp.set('v.step', '1');
 			}

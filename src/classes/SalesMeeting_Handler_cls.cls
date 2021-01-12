@@ -44,7 +44,6 @@ public class SalesMeeting_Handler_cls extends TriggerHandler {
 	protected override void afterInsert() {
           //Comparte registros de SM con asistentes y JPN
           SalesMeeting_Trigger_cls.addRecordAccess(triggerNewMap);
-          SalesMeeting_Trigger_cls.migrateTasks(triggerNew);
 	}
     
     /**

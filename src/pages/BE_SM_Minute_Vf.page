@@ -1,4 +1,4 @@
-<apex:page showHeader="false" language="es_PE" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0" standardController="slmt__Sales_Meeting__c" extensions="BE_SM_Minute_Ctr" >
+<apex:page showHeader="false" language="es" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0" standardController="slmt__Sales_Meeting__c" extensions="BE_SM_Minute_Ctr" >
     <apex:stylesheet value="{!$Resource.BE_SM_Minute}"/>
     <head>
         <title>BBVA</title>
@@ -61,7 +61,7 @@
                         <tr>
                             <td width="50%">
                                 <span class="textBodyBold">Tipo de Reunion:&nbsp;</span>
-                                <span class="textBody"><apex:outputText value="{!slmt__Sales_Meeting__c.Type_of_meeting__c}"/></span>
+                                <span class="textBody"><apex:outputText value="{!meeting.Type_of_meeting__c}"/></span>
                             </td>
                             <td width="50%">
                                 <span class="textBodyBold">Fecha/hora:&nbsp;</span>
