@@ -122,7 +122,7 @@ public without sharing class BE_SM_Utils {
     }
     
     /*
-	 * @Description  method to return recordtypeId from task sales meeting
+	 * @Description method to return recordtypeId from task sales meeting
 	 */
     @AuraEnabled
     public static String getRecordTypeId(String developerName) {
@@ -132,7 +132,7 @@ public without sharing class BE_SM_Utils {
     }
     
     /*
-	 * @Description  method to return recordtypeId from task sales meeting
+	 * @Description method to return types of sales meeting
 	 */
     @AuraEnabled
     public static Map<String, String> retTypesSM() {

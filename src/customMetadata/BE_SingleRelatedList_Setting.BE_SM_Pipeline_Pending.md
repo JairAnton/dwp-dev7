@@ -33,10 +33,10 @@
                 &quot;fieldName&quot;: &quot;Id&quot;
             }
         },
-       {
-       &quot;label&quot;: &quot;Estado&quot;,
-       &quot;fieldName&quot;: &quot;opportunity_status_type__c&quot;,
-       &quot;type&quot;: &quot;picklist&quot;
+		{
+			&quot;label&quot;: &quot;Estado&quot;,
+			&quot;fieldName&quot;: &quot;opportunity_status_type__c&quot;,
+			&quot;type&quot;: &quot;picklist&quot;
         },
         {
             &quot;label&quot;: &quot;Importe&quot;,
@@ -63,35 +63,72 @@
             &quot;typeAttributes&quot;: {
                 &quot;rowActions&quot;: [
                     {
-                        &quot;objectApiName&quot;: &quot;Task&quot;,
-                        &quot;name&quot;: &quot;new&quot;,
-                        &quot;isNotUIAPI&quot;: &quot;true&quot;,
-                        &quot;navigationType&quot;: &quot;standard__objectPage&quot;,
-                        &quot;recordTypeDevName&quot;: &quot;Sales_Meeting&quot;,
-                        &quot;navigationLocation&quot;: &quot;RELATED_LIST&quot;,
-                        &quot;defaultValues&quot;: [
-                            {
-                                &quot;fieldName&quot;: &quot;slmt__management_plan_meeting_id__c&quot;,
-                                &quot;value&quot;: &quot;recordId&quot;
-                            },
-                            {
-                                &quot;fieldName&quot;: &quot;OwnerId&quot;,
-                                &quot;value&quot;: &quot;userId&quot;
-                            },
-                            {
-                                &quot;fieldName&quot;: &quot;WhatId&quot;,
-                                &quot;value&quot;: &quot;Id&quot;
-                            }
-                        ],
-                        &quot;title&quot;: {
-                            &quot;es&quot;: &quot;Nuevo Tema&quot;,
-                            &quot;en-US&quot;: &quot;New Topic&quot;
-                        },
-                        &quot;label&quot;: {
-                            &quot;es&quot;: &quot;Nuevo Tema&quot;,
-                            &quot;en-US&quot;: &quot;New Topic&quot;
-                        }
-                    },
+						&quot;name&quot;:&quot;insert&quot;,
+						&quot;title&quot;:{
+							&quot;es&quot;:&quot;Nuevo Tema&quot;,
+							&quot;en-US&quot;:&quot;New Topic&quot;
+						},
+						&quot;label&quot;:{
+							&quot;es&quot;:&quot;Nuevo Tema&quot;,
+							&quot;en-US&quot;:&quot;New Topic&quot;
+						},
+						&quot;objectApiName&quot;:&quot;Task&quot;,
+						&quot;isNotUIAPI&quot;:&quot;true&quot;,
+						&quot;recordTypeDevName&quot;:&quot;Sales_Meeting&quot;,
+						&quot;fields&quot;: [
+							{
+								&quot;fieldName&quot;: &quot;Subject&quot;,
+								&quot;label&quot;: &quot;Asunto&quot;,
+								&quot;type&quot;: &quot;text&quot;,
+								&quot;required&quot;: &quot;true&quot;
+							},
+							{
+								&quot;fieldName&quot;: &quot;slmt__management_plan_meeting_id__c&quot;,
+								&quot;value&quot;: &quot;recordId&quot;,
+								&quot;type&quot;: &quot;search&quot;,
+								&quot;label&quot;: &quot;Reunión individual&quot;,
+								&quot;required&quot;: &quot;true&quot;,
+								&quot;disabled&quot;: &quot;true&quot;
+							},
+							{
+								&quot;fieldName&quot;: &quot;OwnerId&quot;,
+								&quot;value&quot;: &quot;userId&quot;,
+								&quot;type&quot;: &quot;search&quot;,
+								&quot;label&quot;: &quot;Asignado a&quot;,
+								&quot;required&quot;: &quot;true&quot;
+							},
+							{
+								&quot;fieldName&quot;: &quot;ActivityDate&quot;,
+								&quot;type&quot;: &quot;datetime&quot;,
+								&quot;label&quot;: &quot;Fecha de vencimiento&quot;,
+								&quot;required&quot;: &quot;true&quot;
+							},
+							{
+								&quot;fieldName&quot;: &quot;WhatId&quot;,
+								&quot;value&quot;: &quot;Id&quot;,
+								&quot;type&quot;: &quot;search&quot;,
+								&quot;label&quot;: &quot;Relacionado con&quot;,
+								&quot;required&quot;: &quot;true&quot;
+							},
+							{
+								&quot;fieldName&quot;: &quot;Priority&quot;,
+								&quot;type&quot;: &quot;picklist&quot;,
+								&quot;label&quot;: &quot;Prioridad&quot;,
+								&quot;required&quot;: &quot;true&quot;
+							},
+							{
+								&quot;fieldName&quot;: &quot;Status&quot;,
+								&quot;type&quot;: &quot;picklist&quot;,
+								&quot;label&quot;: &quot;Estado&quot;,
+								&quot;required&quot;: &quot;true&quot;
+							},
+							{
+								&quot;fieldName&quot;: &quot;Description&quot;,
+								&quot;type&quot;: &quot;picklist&quot;,
+								&quot;label&quot;: &quot;Comentarios&quot;
+							}
+						]
+					},
                     {
                         &quot;name&quot;: &quot;update&quot;,
                         &quot;className&quot;: &quot;BE_SM_Pipeline_Update_cls&quot;,
@@ -118,7 +155,7 @@
                             },
                             {
                                 &quot;fieldName&quot;: &quot;CurrencyIsoCode&quot;,
-&quot;disabled&quot;: true
+								&quot;disabled&quot;: true
                             },
                             {
                                 &quot;fieldName&quot;: &quot;opportunity_planning_date__c&quot;
@@ -144,8 +181,10 @@
                         &quot;componentName&quot;: &quot;c:Reject_comp&quot;,
                         &quot;componentParams&quot;: {
                             &quot;recordId&quot;: &quot;Id&quot;,
-&quot;inputAttributes&quot;: {&quot;recordId&quot;:&quot;Id&quot;},
-&quot;redirect&quot;:false
+							&quot;inputAttributes&quot;: {
+								&quot;recordId&quot;:&quot;Id&quot;
+							},
+							&quot;redirect&quot;:false
                         }
                     }
                 ]

@@ -86,11 +86,19 @@
         <lightning-spinner alternative-text="Loading"></lightning-spinner>
     </template>
     <!--STANDARD MODAL-->
-    <template if:true={modalStandard.show}>
+    <template if:true={modalStandard.showApiModal}>
         <c-b-e_-single-related-list-modal_-lwc record-id={modalStandard.recordId} title={modalStandard.title}
             sobject-type={modalStandard.sobjectType} s-obj-fields={modalStandard.fields}
             class-name={modalStandard.className} mode-action={modalStandard.mode} redirect={modalStandard.redirect}
             onclosemodalweb={handleCloseStanModal}>
         </c-b-e_-single-related-list-modal_-lwc>
+    </template>
+    <!--STANDARD NOT API MODAL-->
+    <template if:true={modalStandard.showNotApiModal}>
+        <c-b-e_-single-related-list-modal-extends_-lwc record-id={modalStandard.recordId} title={modalStandard.title}
+            sobject-type={modalStandard.sobjectType} record-type-id={modalStandard.recordTypeId} s-obj-fields={modalStandard.fields}
+            class-name={modalStandard.className} mode-action={modalStandard.mode} redirect={modalStandard.redirect}
+            onclosemodalweb={handleCloseStanModal}>
+        </c-b-e_-single-related-list-modal-extends_-lwc>
     </template>
 </template>
