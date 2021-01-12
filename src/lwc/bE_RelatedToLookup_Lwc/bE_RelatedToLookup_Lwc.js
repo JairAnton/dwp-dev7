@@ -33,7 +33,7 @@ export default class BE_RelatedToLookup_Lwc extends LightningElement {
     }
 
     get placeholder() {
-        return 'Search ' + this._config.pluralLabel + '...';
+        return 'Search ...';
     }
 
     setObjFilters(entity) {
@@ -66,13 +66,17 @@ export default class BE_RelatedToLookup_Lwc extends LightningElement {
         }
     }
 
-    @wire(lookUpById, { recordId: '$recordId', objName: '$objName', fields: '$displayFields' })
-    fetchRecord({ error, data }) {
-        if (data) {
-            this.record = this.getRecord(data, this.index);
-            this.hasRecord = true;
-        } else if (error) {
-            this.error = error;
+    connectedCallback() {
+        if (this.recordId) {
+            lookUpById( {recordId : this.recordId, objName : this.objName, fields : this.displayFields} )
+            .then(result => {
+                this.record = this.getRecord(result, this.index);
+                this.hasRecord = true;
+            })
+            .catch(error => {
+                this.error = error;
+                console.log(error);
+            });
         }
     }
 

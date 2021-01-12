@@ -51,6 +51,7 @@ public without sharing class BE_SchemaUtils_Cls {
                 item.relatedTo = addRelations(field, mfields);
                 if(item.relatedTo.size() > VARONE) {
                     item.isMultiReference = true;
+                    item.isSingleReference = false;
                 }
                 item.fieldLabel = String.valueOf(valueField(data, String.valueOf(mfields.get(field.toLowerCase()).getDescribe().getLabel()), 'label'));
                 item.isRequired = Boolean.valueOf(valueField(data, false, 'required'));
