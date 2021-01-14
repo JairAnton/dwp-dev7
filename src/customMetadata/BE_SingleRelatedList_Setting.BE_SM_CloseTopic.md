@@ -61,8 +61,8 @@
                         &quot;objectApiName&quot;: &quot;Task&quot;,
                         &quot;isNotUIAPI&quot;: &quot;true&quot;,
                         &quot;title&quot;: {
-                            &quot;es&quot;: &quot;Modificar&quot;,
-                            &quot;en-US&quot;: &quot;Modify&quot;
+                            &quot;es&quot;: &quot;Editar&quot;,
+                            &quot;en-US&quot;: &quot;Edit&quot;
                         },
                         &quot;label&quot;: {
                             &quot;es&quot;: &quot;Editar&quot;,
@@ -98,8 +98,7 @@
 							{
 								&quot;fieldName&quot;: &quot;WhatId&quot;,
 								&quot;type&quot;: &quot;search&quot;,
-								&quot;label&quot;: &quot;Relacionado con&quot;,
-								&quot;required&quot;: &quot;true&quot;
+								&quot;label&quot;: &quot;Relacionado con&quot;
 							},
 							{
 								&quot;fieldName&quot;: &quot;Priority&quot;,
