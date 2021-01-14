@@ -265,7 +265,7 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
             auxShowNotApiModal = true;
         }
         let modalSet = {
-            recordId: event.detail.row.Id,
+            recordId: '',
             showApiModal: auxShowApiModal,
             showNotApiModal: auxShowNotApiModal,
             mode: event.detail.action.name,
@@ -279,6 +279,7 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
         if(event.detail.action.name === 'insert') {
             this.actRowNotStdModalInsert(event, fieldsWithVal, modalSet);
         } else if(event.detail.action.name === 'update') {
+            modalSet.recordId = event.detail.row.Id;
             this.actRowNotStdModalUpdate(event, fieldsWithVal, modalSet);
         }
     }

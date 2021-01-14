@@ -108,7 +108,7 @@
 								&quot;value&quot;: &quot;Id&quot;,
 								&quot;type&quot;: &quot;search&quot;,
 								&quot;label&quot;: &quot;Relacionado con&quot;,
-								&quot;required&quot;: &quot;true&quot;
+								&quot;disabled&quot;: &quot;true&quot;
 							},
 							{
 								&quot;fieldName&quot;: &quot;Priority&quot;,
