@@ -179,7 +179,7 @@
                             id: 'RORC',
                             empty: 'RORC (%)',
                             MIN: null,
-                            MODEL: rorcmodel,
+                            MODEL: null,
                             REQU: rorcreq,
                             AUTH: rorcapp
                         }
