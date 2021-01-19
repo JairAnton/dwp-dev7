@@ -84,11 +84,6 @@
                         formatNumber = parseFloat(baiapp);
                         baiapp = formatNumber.toFixed(2);
                     }
-                    var rorcmodel = ret.rorcmodel;
-                    if(rorcmodel !== undefined && rorcmodel !== '' && rorcmodel !== null) {
-                        formatNumber = parseFloat(rorcmodel);
-                        rorcmodel = formatNumber.toFixed(2);
-                    }
                     var rorcreq = ret.rorcreq;
                     if(rorcreq !== undefined && rorcreq !== '' && rorcreq !== null) {
                         formatNumber = parseFloat(rorcreq);
