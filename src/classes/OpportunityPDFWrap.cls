@@ -67,7 +67,6 @@ public without sharing virtual class OpportunityPDFWrap {
 		OLI2 = Database.query(String.escapeSingleQuotes(SOQLQuery)); //Yulino 04/12/2018 : se agrego String.escapeSingleQuotes()
 		OLI3 = Database.query(String.escapeSingleQuotes(SOQLQueryDepend));
 		boolean found;
-		List<String> ConditionValue;
 		for(fprd__GBL_Product_Configuration__c pc : PrdConfg) {
 			found = false;
             if(pc.fprd__Hidden__c) {
@@ -85,8 +84,8 @@ public without sharing virtual class OpportunityPDFWrap {
                             break;
                         }
                     }
-                    Final List<String> controlValuesPosition = controlValues[pos].split(',');
-                    if(controlValuesPosition.contains((String)OLI3.get(fieldName))) {
+                    Final List<String> ctrValuesItem = controlValues[pos].split(',');
+                    if(ctrValuesItem.contains((String)OLI3.get(fieldName))) {
                         found = true;
                     }
                     pos++;
