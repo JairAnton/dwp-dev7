@@ -44,7 +44,6 @@ public without sharing virtual class OpportunityPDFWrap {
 		A = new list<fprd__GBL_Product_Configuration__c>();
 		B = new list<fprd__GBL_Product_Configuration__c>();
 		fieldVisibility = new map<id, boolean>();
-		String fieldName;
 		String SOQLQuery;
 		String SOQLQueryDepend;
 		SObjectType objType = Schema.getGlobalDescribe().get('OpportunityLineItem');
@@ -68,27 +67,37 @@ public without sharing virtual class OpportunityPDFWrap {
 		OLI2 = Database.query(String.escapeSingleQuotes(SOQLQuery)); //Yulino 04/12/2018 : se agrego String.escapeSingleQuotes()
 		OLI3 = Database.query(String.escapeSingleQuotes(SOQLQueryDepend));
 		boolean found;
-		List<String> ConditionValue;
 		for(fprd__GBL_Product_Configuration__c pc : PrdConfg) {
 			found = false;
-			If(String.isNotBlank(pc.FPRD__VISIBILITY_CONTROL_FIELD__C)) {
-				fieldName = pc.FPRD__VISIBILITY_CONTROL_FIELD__C;
-				for(fprd__GBL_Product_Configuration__c prc : PrdConfg) {
-					If(fieldName ==  prc.fprd__DeveloperName__c) {
-						fieldName =  prc.fprd__Map_field__c;
-						break;
-					}
-				}
-				if(String.IsNotBlank(pc.FPRD__VISIBILITY_CONTROL_VALUE__C))
-					conditionValue = pc.FPRD__VISIBILITY_CONTROL_VALUE__C.split(',');
-				for(String val :conditionValue) {
-					if(val == OLI3.get(fieldName)) {
-						found = true;
-					}
-				}
-				fieldVisibility.put(pc.Id, found);
+            if(pc.fprd__Hidden__c) {
+                fieldVisibility.put(pc.Id, false);
+            } else if(String.isNotBlank(pc.FPRD__VISIBILITY_CONTROL_FIELD__C)) {
+                fieldVisibility.put(pc.Id, false);
+                final String[] controlFields = pc.FPRD__VISIBILITY_CONTROL_FIELD__C.split(';');
+                final String[] controlValues = pc.FPRD__VISIBILITY_CONTROL_VALUE__C.split(';');
+                Integer pos = 0;
+                for(String fieldName : controlFields) {
+                    found = false;
+                    for(fprd__GBL_Product_Configuration__c prc : PrdConfg) {
+                        If(fieldName ==  prc.fprd__DeveloperName__c) {
+                            fieldName =  prc.fprd__Map_field__c;
+                            break;
+                        }
+                    }
+                    Final List<String> ctrValuesItem = controlValues[pos].split(',');
+                    if(ctrValuesItem.contains((String)OLI3.get(fieldName))) {
+                        found = true;
+                    }
+                    pos++;
+                    if(!found) {
+                        break;
+                    }
+                }
+                if(found) {
+                    fieldVisibility.put(pc.Id, true);
+                }
 			} else {
-				fieldVisibility.put(pc.Id, true);
+                fieldVisibility.put(pc.Id, true);
 			}
 		}
 		for(fprd__GBL_Product_Configuration__c pc : PrdConfg) {
