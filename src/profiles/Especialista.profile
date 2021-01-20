@@ -646,6 +646,14 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BE_NotUIAPIForm_Ctr</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_NotUIAPIForm_Tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BE_OppCommercialActivChart_Cls</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -695,6 +703,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>BE_SanctionUseQuotation_Tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_SchemaUtils_Cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_SchemaUtils_Tst</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>

@@ -57,18 +57,67 @@
             &quot;typeAttributes&quot;: {
                 &quot;rowActions&quot;: [
                     {
-                        &quot;name&quot;: &quot;edit&quot;,
+                        &quot;name&quot;: &quot;update&quot;,
                         &quot;objectApiName&quot;: &quot;Task&quot;,
                         &quot;isNotUIAPI&quot;: &quot;true&quot;,
-                        &quot;navigationType&quot;: &quot;standard__recordPage&quot;,
                         &quot;title&quot;: {
-                            &quot;es&quot;: &quot;Modificar&quot;,
-                            &quot;en-US&quot;: &quot;Modify&quot;
+                            &quot;es&quot;: &quot;Editar&quot;,
+                            &quot;en-US&quot;: &quot;Edit&quot;
                         },
                         &quot;label&quot;: {
                             &quot;es&quot;: &quot;Editar&quot;,
                             &quot;en-US&quot;: &quot;Edit&quot;
-                        }
+                        },
+						&quot;fields&quot;: [
+							{
+								&quot;fieldName&quot;: &quot;Subject&quot;,
+								&quot;label&quot;: &quot;Asunto&quot;,
+								&quot;type&quot;: &quot;text&quot;,
+								&quot;required&quot;: &quot;true&quot;
+							},
+							{
+								&quot;fieldName&quot;: &quot;slmt__management_plan_meeting_id__c&quot;,
+								&quot;type&quot;: &quot;search&quot;,
+								&quot;label&quot;: &quot;Reunión individual&quot;,
+								&quot;required&quot;: &quot;true&quot;,
+								&quot;disabled&quot;: &quot;true&quot;
+							},
+							{
+								&quot;fieldName&quot;: &quot;OwnerId&quot;,
+								&quot;type&quot;: &quot;search&quot;,
+								&quot;label&quot;: &quot;Asignado a&quot;,
+								&quot;required&quot;: &quot;true&quot;,
+								&quot;disabled&quot;: &quot;false&quot;
+							},
+							{
+								&quot;fieldName&quot;: &quot;ActivityDate&quot;,
+								&quot;type&quot;: &quot;datetime&quot;,
+								&quot;label&quot;: &quot;Fecha de vencimiento&quot;,
+								&quot;required&quot;: &quot;true&quot;
+							},
+							{
+								&quot;fieldName&quot;: &quot;WhatId&quot;,
+								&quot;type&quot;: &quot;search&quot;,
+								&quot;label&quot;: &quot;Relacionado con&quot;
+							},
+							{
+								&quot;fieldName&quot;: &quot;Priority&quot;,
+								&quot;type&quot;: &quot;picklist&quot;,
+								&quot;label&quot;: &quot;Prioridad&quot;,
+								&quot;required&quot;: &quot;true&quot;
+							},
+							{
+								&quot;fieldName&quot;: &quot;Status&quot;,
+								&quot;type&quot;: &quot;picklist&quot;,
+								&quot;label&quot;: &quot;Estado&quot;,
+								&quot;required&quot;: &quot;true&quot;
+							},
+							{
+								&quot;fieldName&quot;: &quot;Description&quot;,
+								&quot;type&quot;: &quot;picklist&quot;,
+								&quot;label&quot;: &quot;Comentarios&quot;
+							}
+						]
                     }
                 ]
             }
@@ -78,7 +127,7 @@
     </values>
     <values>
         <field>FieldsQuery__c</field>
-        <value xsi:type="xsd:string">toLabel(Status),WhatId,Subject,What.Name,Owner.Name</value>
+        <value xsi:type="xsd:string">toLabel(Status),WhatId,toLabel(Subject),What.Name,Owner.Name</value>
     </values>
     <values>
         <field>Filter__c</field>

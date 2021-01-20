@@ -218,7 +218,9 @@ public without sharing class ReevaluateButtonClass {
         Map<String, Object> mapReturn = new Map<String, Object>();
 		String genericError;
         try {
-            delete new ContentDocument(Id = idDoc);
+			if(String.isNotBlank(idDoc)) {
+				delete new ContentDocument(Id = idDoc);
+			}
         } catch(Exception e) {
             genericError = e.getMessage();
         }
