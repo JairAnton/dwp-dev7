@@ -5,12 +5,14 @@
 	back: function (component, event, helper) {
 		component.set('v.step', '1');
 	},
+	//no sonar
 	doSaveAssistent: function (component, event, helper) {
 		var newRecord = component.find('newRecord');
 		var responseNew = newRecord.saveAssistent();
 		if (responseNew.isOk) {
 			var lstCustom = component.get('v.lstDataCustom');
 			lstCustom.push(responseNew.row);
+			component.set('v.step', '0');
 			component.set('v.lstDataCustom', lstCustom);
 			component.set('v.step', '1');
 		}

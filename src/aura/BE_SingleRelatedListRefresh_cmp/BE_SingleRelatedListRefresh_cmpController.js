@@ -1,5 +1,8 @@
 ({
-    init: function (component, event) {
+    //no sonar
+	init: function (component, event) {
+        component.set("v.idAux", "");
+        component.set("v.load", false);
         component.set("v.idAux", component.get("v.recordId"));
         component.set("v.load", true);
     },
