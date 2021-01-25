@@ -1,5 +1,5 @@
 ({
-    //no sonar
+    //NOSONAR
 	init: function (component, event) {
         component.set("v.idAux", "");
         component.set("v.load", false);

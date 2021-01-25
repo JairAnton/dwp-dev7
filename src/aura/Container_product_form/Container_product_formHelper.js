@@ -1,5 +1,5 @@
 ({
-    //no sonar
+    //NOSONAR
 	onInit: function (component) {
         var editJsonValue = { "style": "neutral", "unactiveStyle": "hidden", "active": true };
         var newJsonValue = { "style": "neutral", "unactiveStyle": "hidden", "active": true };

@@ -19,7 +19,7 @@
         });
         $A.enqueueAction(action);
     },
-	//no sonar
+	//NOSONAR
 	filtroGrafica : function(component,event,helper){
 		component.set("v.bGrafica",false);
 		component.set("v.sFiltro",component.find('selFiltro').get('v.value'));

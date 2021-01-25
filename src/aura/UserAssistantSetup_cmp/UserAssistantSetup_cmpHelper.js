@@ -1,5 +1,5 @@
 ({
-	//no sonar
+	//NOSONAR
 	doDeleteRecords: function (cmp, evt, helper) {
 		var tableCustom = (cmp.find('tableCustom')[0] == undefined ? cmp.find('tableCustom') : cmp.find('tableCustom')[0]);
 		var dataTable = tableCustom.find('dataTable');

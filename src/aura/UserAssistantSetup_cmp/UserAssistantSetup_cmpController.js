@@ -5,7 +5,7 @@
 	back: function (component, event, helper) {
 		component.set('v.step', '1');
 	},
-	//no sonar
+	//NOSONAR
 	doSaveAssistent: function (component, event, helper) {
 		var newRecord = component.find('newRecord');
 		var responseNew = newRecord.saveAssistent();

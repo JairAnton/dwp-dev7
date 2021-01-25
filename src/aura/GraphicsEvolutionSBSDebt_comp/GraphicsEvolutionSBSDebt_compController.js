@@ -2,7 +2,7 @@
 	init: function (component, event) {
 		component.set("v.bGrafica", true);
 	},
-	//no sonar
+	//NOSONAR
 	filtroGrafica: function (component, event, helper) {
 		component.set("v.bGrafica", false);
 		component.set("v.sFiltro", component.find('selFiltro').get('v.value'));
