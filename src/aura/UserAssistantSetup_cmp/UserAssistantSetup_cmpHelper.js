@@ -1,5 +1,4 @@
 ({
-	//NOSONAR
 	doDeleteRecords: function (cmp, evt, helper) {
 		var tableCustom = (cmp.find('tableCustom')[0] == undefined ? cmp.find('tableCustom') : cmp.find('tableCustom')[0]);
 		var dataTable = tableCustom.find('dataTable');
@@ -17,7 +16,6 @@
 						lstDataCustomDelete.push(lstDataCustom[i]);
 					}
 				}
-				cmp.set('v.step', '0');
 				cmp.set('v.lstDataDelete', lstIds);
 				cmp.set('v.lstDataCustom', lstDataCustomDelete);
 				cmp.set('v.step', '1');
