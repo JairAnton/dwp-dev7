@@ -13,6 +13,7 @@ import errorMsg from '@salesforce/label/c.Dwp_msgGenericError';
 import { isNotEmpty, transformColumns, transformHeadActions, transformData } from './bE_SingleRelatedListHelper_Lwc.js';
 import { getSettingsObj, defaultsValuesForm, obtainFields } from './bE_SingleRelatedListHelper_Lwc.js';
 import getRTId from '@salesforce/apex/BE_SM_Utils.getRecordTypeId';
+import lookUpById from '@salesforce/apex/BE_NotUIAPIForm_Ctr.lookUpById';
 import Id from '@salesforce/user/Id';
 
 export default class SingleRelatedList extends NavigationMixin(LightningElement) {
@@ -47,7 +48,8 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
     @track error;
     /**  CUSTOM MODAL ATTRIBUTES */
     @track modalStandard = {
-        show: false, /** Show modal */
+        showApiModal: false, /** Show api modal */
+        showNotApiModal: false, /** Show not api modal */
         recordId: '', /** recordId of Modal */
         sobjectType: '',
         fields: '',
@@ -171,17 +173,20 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
     }
     /** STANDARD MODAL */
     handleOpenStanModal(modalSet) {
-        this.modalStandard.show = true;
+        this.modalStandard.showApiModal = modalSet.showApiModal;
+        this.modalStandard.showNotApiModal = modalSet.showNotApiModal;
         this.modalStandard.title = modalSet.title;
         this.modalStandard.recordId = modalSet.recordId;
         this.modalStandard.sobjectType = modalSet.objectApiName;
+        this.modalStandard.recordTypeId = modalSet.recordTypeId;
         this.modalStandard.mode = modalSet.mode;
         this.modalStandard.fields = modalSet.fields;
         this.modalStandard.className = modalSet.className;
         this.modalStandard.redirect = modalSet.redirect;
     }
     handleCloseStanModal(event) {
-        this.modalStandard.show = false;
+        this.modalStandard.showApiModal = false;
+        this.modalStandard.showNotApiModal = false;
         if (event.detail.refresh === true) {
             this.sObjectData = [];
             this.callListData();
@@ -195,7 +200,7 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
     handleRowActionWeb(event) {
         console.log(JSON.stringify(event.detail));
         event.stopPropagation();
-        if (isNotEmpty(event.detail.action.isNotUIAPI)) {
+        if (event.detail.action.isStandardModal) {
             let defaultVal = null;
             if(event.detail.action.defaultValues !== null && event.detail.action.defaultValues!== undefined) {
                 defaultVal = encodeDefaultFieldValues(defaultsValuesForm(event.detail.action.defaultValues, this.recordId, this.userId, event));
@@ -248,21 +253,91 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
             });
             this.dispatchEvent(dynamicCMP);
         } else {
-            const modalSet = {
-                recordId: event.detail.row.Id,
-                mode: event.detail.action.name,
-                fields: event.detail.action.fields,
-                className: event.detail.action.className,
-                objectApiName: event.detail.action.objectApiName,
-                title: event.detail.action.title[this.lang],
-            };
+            this.actRowNotStdModal(event);
+        }
+    }
+
+	actRowNotStdModal(event) {
+        let auxShowApiModal = true;
+        let auxShowNotApiModal = false;
+        if(event.detail.action.isNotUIAPI) {
+            auxShowApiModal = false;
+            auxShowNotApiModal = true;
+        }
+        let modalSet = {
+            recordId: '',
+            showApiModal: auxShowApiModal,
+            showNotApiModal: auxShowNotApiModal,
+            mode: event.detail.action.name,
+            fields: event.detail.action.fields,
+            className: event.detail.action.className,
+            objectApiName: event.detail.action.objectApiName,
+            recordTypeId: '',
+            title: event.detail.action.title[this.lang],
+        };
+        if (event.detail.action.name === 'insert') {
+            let fieldsWithVal = [...event.detail.action.fields];
+            this.actRowNotStdModalInsert(event, fieldsWithVal, modalSet);
+        } else if (event.detail.action.name === 'view' || event.detail.action.name === 'delete') {
+            modalSet.recordId = event.detail.row.Id;
+            this.handleOpenStanModal(modalSet);
+        } else if (event.detail.action.name === 'update') {
+            let fieldsWithVal = [...event.detail.action.fields];
+            modalSet.recordId = event.detail.row.Id;
+            this.actRowNotStdModalUpdate(event, fieldsWithVal, modalSet);
+        }
+    }
+
+    actRowNotStdModalInsert(event, fieldsWithVal, modalSet) {
+        let defaultValues = defaultsValuesForm(event.detail.action.fields, this.recordId, this.userId, event);
+        fieldsWithVal.forEach(item => {
+            if(defaultValues.hasOwnProperty(item.fieldName)) {
+                item['value'] = defaultValues[item.fieldName];
+            }
+        });
+        modalSet.fields = fieldsWithVal;
+
+        if (event.detail.action.recordTypeDevName !== null && event.detail.action.recordTypeDevName !== undefined) {
+            getRTId({ "developerName": event.detail.action.recordTypeDevName })
+                .then(result => {
+                    modalSet.recordTypeId = result;
+                    this.handleOpenStanModal(modalSet);
+                }).catch(error => {
+                    console.log('############## ERROR');
+                    console.log(error);
+                });
+        } else {
             this.handleOpenStanModal(modalSet);
         }
     }
+
+    actRowNotStdModalUpdate(event, fieldsWithVal, modalSet) {
+        let fieldQuery = 'Id';
+        for (let fieldAux of event.detail.action.fields) {
+            fieldQuery += ','+fieldAux.fieldName;
+        }
+        lookUpById( {recordId : event.detail.row.Id, objName : event.detail.action.objectApiName, fields : fieldQuery} )
+        .then(result => {
+            fieldsWithVal.forEach(item => {
+                if(result.hasOwnProperty(item.fieldName)) {
+                    item['value'] = result[item.fieldName];
+                }
+            });
+            modalSet.fields = fieldsWithVal;
+            this.handleOpenStanModal(modalSet);
+        })
+        .catch(error => {
+            console.log('############## ERROR');
+            console.log(error);
+        });
+    }
+
     handleRowActionMobile(event) {
         event.stopPropagation();
         const modalSet = {
             recordId: event.detail.Id,
+            showApiModal: true,
+            showNotApiModal: false,
             mode: event.detail.action.name,
             fields: event.detail.action.fields,
             className: event.detail.action.className,
@@ -276,7 +351,7 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
         event.stopPropagation();
         console.log('event.target.isNotUIAPI');
         console.log(event.target.value.isNotUIAPI);
-        if (isNotEmpty(event.target.value.isNotUIAPI)) {
+        if (event.target.value.isStandardModal) {
             let recordTypeDevName = event.target.value.recordTypeDevName;
             let navigationType = event.target.value.navigationType;
             let objectApiName = event.target.value.objectApiName;
@@ -325,18 +400,43 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
             console.log(component);
             console.log(params);
         } else {
-            const modalSet = {
-                recordId: '',
-                mode: event.target.value.name,
-                fields: event.target.value.fields,
-                className: event.target.value.className,
-                objectApiName: event.target.value.objectApiName,
-                title: event.target.value.title[this.lang],
-                redirect: event.target.value.redirect
-            };
+            this.actHeadNotStdModal(event);
+        }
+    }
+
+	actHeadNotStdModal(event) {
+        let auxShowApiModal = true;
+        let auxShowNotApiModal = false;
+        if(event.target.value.isNotUIAPI) {
+            auxShowApiModal = false;
+            auxShowNotApiModal = true;
+        }
+        let modalSet = {
+            recordId: '',
+            showApiModal: auxShowApiModal,
+            showNotApiModal: auxShowNotApiModal,
+            mode: event.target.value.name,
+            fields: event.target.value.fields,
+            className: event.target.value.className,
+            objectApiName: event.target.value.objectApiName,
+            recordTypeId: '',
+            title: event.target.value.title[this.lang],
+            redirect: event.target.value.redirect
+        };
+        if (event.target.value.recordTypeDevName !== null && event.target.value.recordTypeDevName !== undefined) {
+            getRTId({ "developerName": event.target.value.recordTypeDevName })
+                .then(result => {
+                    modalSet.recordTypeId = result;
+                    this.handleOpenStanModal(modalSet);
+                }).catch(error => {
+                    console.log('############## ERROR');
+                    console.log(error);
+                });
+        } else {
             this.handleOpenStanModal(modalSet);
         }
     }
+
     /** HANDLE SAVE*/
     handleInlineSave(event) {
         event.stopPropagation();

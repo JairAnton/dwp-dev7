@@ -155,7 +155,7 @@
     <fields>
         <fullName>Is_last_two_years__c</fullName>
         <externalId>false</externalId>
-        <formula>OR( IF( AND ( (YEAR( gf_income_movement_date__c ) =  YEAR( ADDMONTHS( TODAY() , -1 ) ) ), ( MONTH( gf_income_movement_date__c ) &lt;  MONTH( TODAY() ) ) ), true , false ) , IF( YEAR( gf_income_movement_date__c ) =  YEAR( ADDMONTHS( TODAY() , -13 ) ) , true , false ) )</formula>
+        <formula>OR(IF(AND ((YEAR( gf_income_movement_date__c ) =  YEAR( ADDMONTHS( TODAY() , -1 ) )),(MONTH( gf_income_movement_date__c ) &lt;=  MONTH( ADDMONTHS( TODAY() , -1 ) ))), true , false) , IF( YEAR( gf_income_movement_date__c ) =  YEAR( ADDMONTHS( TODAY() , -13 ) ) , true , false ))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Is last two years</label>
         <trackTrending>false</trackTrending>

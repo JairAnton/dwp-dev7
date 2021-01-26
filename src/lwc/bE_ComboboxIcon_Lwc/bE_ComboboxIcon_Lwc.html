@@ -1,0 +1,41 @@
+<template>
+    <div class="slds-form-element">
+        <label class="slds-form-element__label">{label}</label>
+        <div class="slds-form-element__control">
+            <div class="slds-combobox_container">
+                <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click" role="combobox">
+                    <div class="slds-combobox__form-element slds-input-has-icon" role="none">
+                        <lightning-icon icon-name={selectedOption.iconName}
+                            class="slds-input__icon slds-input__icon_left multi-entity_icon" size="small">
+                        </lightning-icon>
+                        <input type="text" class="slds-input slds-combobox__input slds-combobox__input-value"
+                            autocomplete="off" role="textbox" onfocus={handleFocus} onblur={handleBlur}
+                            value={selectedOption.label} placeholder={placeholder} readonly tabindex="-1" />
+                        <lightning-icon icon-name="utility:down" size="xx-small"
+                            class="slds-input__icon slds-input__icon_right"></lightning-icon>
+                    </div>
+                    <div class="slds-dropdown slds-dropdown_length-5 slds-dropdown_x-small slds-dropdown_left"
+                        role="listbox">
+                        <ul class="slds-listbox slds-listbox_vertical" role="group">
+                            <template for:each={options} for:item="option">
+                                <li role="presentation" class="slds-listbox__item" key={option.value}
+                                    onclick={handleClick} onmousedown={handleMousedown} data-value={option.value}>
+                                    <div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small"
+                                        role="option">
+                                        <span class="slds-media__figure slds-listbox__option-icon">
+                                            <lightning-icon icon-name={option.iconName} size="small">
+                                            </lightning-icon>
+                                        </span>
+                                        <span class="slds-media__body">
+                                            <span class="slds-truncate" title={option.label}>{option.label}</span>
+                                        </span>
+                                    </div>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
