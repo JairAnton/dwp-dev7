@@ -2,10 +2,11 @@
  * Handler of Trigger of the AP_Team object.
  * <p /><p />
  * Modification log:<p />
- * -------------------------------------------------------------------
- * Developer                    Date                Description<p />
- * -------------------------------------------------------------------
- * Diego Carbajal    		15/05/2020          Original version.<p />
+ * --------------------------------------------------------------------------------
+ * Developer                    		Date                Description<p />
+ * --------------------------------------------------------------------------------
+ * Diego Carbajal    					15/05/2020          Original version.<p />
+ * Martin Alejandro Mori Chávez    		20/01/2021          Update methods for package 3.3.<p />
  *
  * @author Diego Carbajal
  */
@@ -61,7 +62,11 @@ public class AP_Team_Handler_cls extends TriggerHandler {
 		//Comparte registros de AP y BP con el miembro agregado
 		Sharing_AP_Team_User_cls.SharingAPT(triggerNewMap, true);
 		//Actualiza el estado desde 'Not started' a 'In progress' cuando se agrega un APT
-		AP_Team_Trigger_cls.updateStatusOnAP(triggerNewMap);
+		AP_Team_Trigger_cls.updateStatusOnAP(triggerNewMap);//  -- Deprecated
+        //start new methods ver 3.3
+        //Method updateStatusOnAP: Checks if AP Team Member has been added and propagates this change on Status field in related AP.
+		//apTeamHandler.updateStatusOnAP(triggerNewMap);
+        //end new methods ver 3.3
 	}
     /**
      * @Description afterDelete: Eliminar el compartimiento de registros de AP y BP

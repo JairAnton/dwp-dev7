@@ -275,10 +275,14 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
             recordTypeId: '',
             title: event.detail.action.title[this.lang],
         };
-        let fieldsWithVal = [... event.detail.action.fields];
-        if(event.detail.action.name === 'insert') {
+        if (event.detail.action.name === 'insert') {
+            let fieldsWithVal = [...event.detail.action.fields];
             this.actRowNotStdModalInsert(event, fieldsWithVal, modalSet);
-        } else if(event.detail.action.name === 'update') {
+        } else if (event.detail.action.name === 'view' || event.detail.action.name === 'delete') {
+            modalSet.recordId = event.detail.row.Id;
+            this.handleOpenStanModal(modalSet);
+        } else if (event.detail.action.name === 'update') {
+            let fieldsWithVal = [...event.detail.action.fields];
             modalSet.recordId = event.detail.row.Id;
             this.actRowNotStdModalUpdate(event, fieldsWithVal, modalSet);
         }
@@ -332,6 +336,8 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
         event.stopPropagation();
         const modalSet = {
             recordId: event.detail.Id,
+            showApiModal: true,
+            showNotApiModal: false,
             mode: event.detail.action.name,
             fields: event.detail.action.fields,
             className: event.detail.action.className,

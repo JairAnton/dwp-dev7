@@ -57,6 +57,10 @@ public without sharing class BP_Need_Handler_cls extends TriggerHandler {
 	@TestVisible
 	protected override void afterInsert() {
 		//Actualiza el estado del AP de 'Not started' a 'In Progress'
-		BP_Need_Trigger_cls.updateStatusOnAP(triggerNewMap);
+		BP_Need_Trigger_cls.updateStatusOnAP(triggerNewMap);//  -- Deprecated
+        //start new methods ver 3.3
+		//Method updateStatusOnAP: Checks if Need has been created and propagates this change on Status field in related AP.
+        //acpl.BP_NeedHandler.updateStatusOnAP(triggerNewMap);
+        //end new methods ver 3.3
 	}
 }

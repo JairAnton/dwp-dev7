@@ -199,16 +199,6 @@ public class AP_Handler_Helper_tst {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
 		final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, false);
 		insert apR;
-		Final List<acpl__Commercial_Plan_Event__c> lstCPE = new List<acpl__Commercial_Plan_Event__c>();
-		lstCPE.add(new acpl__Commercial_Plan_Event__c(acpl__gf_account_planning_id__c = apR.Id, Comments__c = COMENTARIOS, Name = 'Visita', Asiggned_User__c = UserInfo.getUserId(),
-		                                              acpl__gf_event_date__c = Date.today() + 20, acpl__gf_comm_plan_event_type_name__c = 'Visit', acpl__participant_id__c = acc.Id));
-		lstCPE.add(new acpl__Commercial_Plan_Event__c(acpl__gf_account_planning_id__c = apR.Id, Comments__c = COMENTARIOS, Name = 'Oportunidad', Asiggned_User__c = UserInfo.getUserId(),
-		                                              acpl__gf_event_date__c = Date.today() + 25, acpl__gf_comm_plan_event_type_name__c = 'Opportunity', acpl__participant_id__c = acc.Id));
-		lstCPE.add(new acpl__Commercial_Plan_Event__c(acpl__gf_account_planning_id__c = apR.Id, Comments__c = COMENTARIOS, Name = 'Tarea', Asiggned_User__c = UserInfo.getUserId(),
-		                                              acpl__gf_event_date__c = Date.today() + 30, acpl__gf_comm_plan_event_type_name__c = 'Task', acpl__participant_id__c = acc.Id));
-		lstCPE.add(new acpl__Commercial_Plan_Event__c(acpl__gf_account_planning_id__c = apR.Id, Comments__c = COMENTARIOS, Name = 'Llamada', Asiggned_User__c = UserInfo.getUserId(),
-		                                              acpl__gf_event_date__c = Date.today() + 31, acpl__gf_comm_plan_event_type_name__c = 'Call', acpl__participant_id__c = acc.Id));
-		insert lstCPE;
 		apR.acpl__gf_ap_status_type_name__c = VALIDATED;
 		apR.acpl__gf_ap_substatus_type_name__c = 'In place';
 		update apR;
