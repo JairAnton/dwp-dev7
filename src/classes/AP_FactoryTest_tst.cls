@@ -39,14 +39,17 @@ public class AP_FactoryTest_tst {
             Final Id questionRT = [SELECT Id FROM RecordType WHERE DeveloperName = 'Question_Catalog' LIMIT 1].Id;
             //Creación cuenta
             TestFactory.createAccount();
-
+            
+            insert new acpl__Account_Planning_Type__c(Name = 'Question Catalog',acpl__Default_Type__c = false, acpl__external_reference_id__c = 'TypeTest1');
+            
             insert new acpl__AP_PeriodConfiguration__c(Name = 'Configuration', acpl__gf_ap_bus_pl_guide_desc__c = 'BP', acpl__gf_ap_comm_plan_guide_desc__c = 'CP', 
                                                        acpl__gf_ap_strat_anlys_guide_desc__c = 'AE');
             
-            final acpl__Account_Planning__c accountPlanning = createAccountPlanning(null, null, questionRT, false);
+            /*final acpl__Account_Planning__c accountPlanning = createAccountPlanning(null, null, questionRT, false);
             accountPlanning.Name = 'Question Catalog';
-            insert accountPlanning;
-    
+            insert accountPlanning;*/
+            final acpl__Account_Planning__c accountPlanning = [SELECT Id FROM acpl__Account_Planning__c WHERE acpl__Account_Planning_Type__r.acpl__external_reference_id__c = 'TypeTest1' LIMIT 1];
+            
             final acpl__AP_Question__c apQuestion = createAPQuestion(accountPlanning);
             insert apQuestion;
     
@@ -70,11 +73,23 @@ public class AP_FactoryTest_tst {
   * Account planning record
   */
     public static acpl__Account_Planning__c createAccountPlanning(String account, String usuario, Id rtId, Boolean unlock) {
-        final acpl__Account_Planning__c accountPlanning = new acpl__Account_Planning__c(Name = 'Account Planning', acpl__gf_ap_status_type_name__c = 'Not started', 
-                                                                                       acpl__gf_ap_substatus_type_name__c = 'Not started', acpl__gf_ap_priority_type_name__c = 'High',
-                                                                                       acpl__participant_id__c = account, acpl__gf_mandatory_type__c = 'Mandatory', 
-                                                                                       acpl__gf_ap_limit_date__c = System.today()+31, acpl__proposal_manager_id__c = usuario, 
-                                                                                       acpl__gf_ap_indvi_lock_edit_ind_type__c = unlock, acpl__gf_ap_validator_user_id__c = null);
+        final List<acpl__Account_Planning_Type__c> apTypes = [SELECT Id FROM acpl__Account_Planning_Type__c WHERE acpl__external_reference_id__c = 'TypeTest1' LIMIT 1];
+        acpl__Account_Planning_Type__c apType;
+        if(apTypes.isEmpty()) {
+            apType = new acpl__Account_Planning_Type__c(Name = 'Question Catalog',acpl__Default_Type__c = false, acpl__external_reference_id__c = 'TypeTest1');
+            insert apType;
+        } else {
+            apType = apTypes[0];
+        }
+		final acpl__Account_Planning__c accountPlanning = new acpl__Account_Planning__c(NAME = 'Account Planning', ACPL__GF_ACCOUNT_PLANNING_NAME__C = 'Full', 
+                                                                                        ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = unlock, ACPL__GF_AP_LAUNCH_NAME__C = 'General period', 
+                                                                                        ACPL__GF_AP_LAUNCH_PERIOD_DESC__C = '20/20', ACPL__GF_AP_LIMIT_DATE__C = System.today()+31, 
+                                                                                        ACPL__GF_AP_REQ_VALIDATION_IND_TYPE__C = 'Yes', ACPL__GF_AP_STATUS_TYPE_NAME__C = 'Not started', 
+                                                                                        ACPL__GF_AP_SUBSTATUS_TYPE_NAME__C = 'Not started', ACPL__GF_MANDATORY_TYPE__C = 'Mandatory', 
+                                                                                        acpl__participant_id__c = account, acpl__proposal_manager_id__c = usuario, 
+                                                                                        acpl__gf_ap_priority_type_name__c = 'High', acpl__gf_ap_validator_user_id__c = null, 
+                                                                                        acpl__Account_Planning_Type__c = apType.Id);
+        
         if(String.isNotBlank(rtId)) {
             accountPlanning.recordTypeId = rtId;
         }

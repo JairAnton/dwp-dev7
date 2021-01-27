@@ -7,6 +7,8 @@ public with sharing class Case_Handler extends TriggerHandler {
 	@TestVisible
 	protected override void afterUpdate() {
 		Case_Helper.updateCaseNotification(lstNew, mpOld);
+        final acpl.CasePlanningHandler caseHandler = acpl.CasePlanningHandler.getInstance();
+        caseHandler.sendChatterChangeStatus(lstNew, mpOld);
 	}
     
 	@TestVisible

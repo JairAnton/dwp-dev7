@@ -43,7 +43,7 @@ public class AccountPlanning_Handler_cls extends TriggerHandler {
 		//apHandler.changeToTimedOut(triggerNew);  -- Deprecated
 		//start new methods ver 3.3
 		//Method setAPTypeDefault: If you do not have a defined Account Planning Type, set the default Account Planning Type
-        apHandler.setAPTypeDefault(triggerNew);
+        //apHandler.setAPTypeDefault(triggerNew);
         //end new methods ver 3.3
 	}
 
@@ -111,7 +111,7 @@ public class AccountPlanning_Handler_cls extends TriggerHandler {
 		apHandler.updateStatusOnBP(triggerNewMap, triggerOldMap);
         //start new methods ver 3.3
         //Method sendChatterChangeStatus: Send chatter notification to validator when AP change from In Progress to Pending Validaton
-        apHandler.sendChatterChangeStatus(triggerNew, triggerOldMap);
+        //apHandler.sendChatterChangeStatus(triggerNew, triggerOldMap);
         //end new methods ver 3.3
 		//Crea registros de acuerdo a las acciones comerciales cuando el AP es validado
 		AP_Trigger_Helper.postValidated(triggerNewMap);
