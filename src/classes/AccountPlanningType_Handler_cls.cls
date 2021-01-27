@@ -34,7 +34,8 @@ public class AccountPlanningType_Handler_cls extends TriggerHandler {
      */
 	@TestVisible
 	protected override void afterInsert() {
-		//Creates records acpl__AP_PeriodConfiguration__c, gfsc__Guidance_for_Success__c and dyfr__Template__c associated with this acpl__Account_Planning_Type__c. It also creates a Catalog record of type acpl__Account_Planning__c associated
+		//Creates records acpl__AP_PeriodConfiguration__c, gfsc__Guidance_for_Success__c and dyfr__Template__c associated 
+		//with this acpl__Account_Planning_Type__c. It also creates a Catalog record of type acpl__Account_Planning__c associated
 		aptHandler.afterInsert(triggerNew);
 	}
 }

@@ -36,7 +36,6 @@ public class AP_FactoryTest_tst {
         //Obtain admin
         Final User admin = [SELECT Id FROM User WHERE Id=:UserInfo.getUserId() LIMIT 1];
         System.runAs(admin) {
-            Final Id questionRT = [SELECT Id FROM RecordType WHERE DeveloperName = 'Question_Catalog' LIMIT 1].Id;
             //Creación cuenta
             TestFactory.createAccount();
             
@@ -45,9 +44,6 @@ public class AP_FactoryTest_tst {
             insert new acpl__AP_PeriodConfiguration__c(Name = 'Configuration', acpl__gf_ap_bus_pl_guide_desc__c = 'BP', acpl__gf_ap_comm_plan_guide_desc__c = 'CP', 
                                                        acpl__gf_ap_strat_anlys_guide_desc__c = 'AE');
             
-            /*final acpl__Account_Planning__c accountPlanning = createAccountPlanning(null, null, questionRT, false);
-            accountPlanning.Name = 'Question Catalog';
-            insert accountPlanning;*/
             final acpl__Account_Planning__c accountPlanning = [SELECT Id FROM acpl__Account_Planning__c WHERE acpl__Account_Planning_Type__r.acpl__external_reference_id__c = 'TypeTest1' LIMIT 1];
             
             final acpl__AP_Question__c apQuestion = createAPQuestion(accountPlanning);
