@@ -38,7 +38,7 @@ public without sharing class AP_Question_Handler_cls extends TriggerHandler {
 	@TestVisible
 	protected override void beforeInsert() {
 		//start new methods ver 3.3
-		//apQuestion.insertFinalResponse(triggerNew);
+		apQuestion.insertFinalResponse(triggerNew);
         //end new methods ver 3.3
 	}
 	/**
@@ -49,7 +49,7 @@ public without sharing class AP_Question_Handler_cls extends TriggerHandler {
 		//Valida si se puede modificar las preguntas de acuerdo al estado, bloqueo y usuario
 		AP_Question_Trigger_cls.preventModifyQuestions(triggerNewMap, 'update');
         //start new methods ver 3.3
-		//apQuestion.updateFinalResponse(triggerNewMap, triggerOldMap);
+		apQuestion.updateFinalResponse(triggerNewMap, triggerOldMap);
         //end new methods ver 3.3
 	}
 	/**
