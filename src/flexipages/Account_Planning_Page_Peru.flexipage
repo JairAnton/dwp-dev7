@@ -66,7 +66,10 @@
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
-		<!--
+		<componentInstances>
+            <componentName>acpl:Question_Form</componentName>
+        </componentInstances>
+        <!--
         <componentInstances>
             <componentInstanceProperties>
                 <name>editButton</name>
