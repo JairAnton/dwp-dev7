@@ -7669,6 +7669,9 @@
 	<layoutAssignments>
         <layout>Account_Income__c-Account Income Layout</layout>
     </layoutAssignments>
+    <layoutAssignments>
+        <layout>bupl__AP_Team__c-Planning Team Member Layout Peru</layout>
+    </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
