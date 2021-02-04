@@ -78,7 +78,7 @@ public class AP_FactoryTest_tst {
             apType = apTypes[0];
         }
 		final acpl__Account_Planning__c accountPlanning = new acpl__Account_Planning__c(NAME = 'Account Planning', ACPL__GF_ACCOUNT_PLANNING_NAME__C = 'Full', 
-                                                                                        ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = unlock, ACPL__GF_AP_LAUNCH_NAME__C = 'General period', 
+                                                                                        ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = !unlock, ACPL__GF_AP_LAUNCH_NAME__C = 'General period', 
                                                                                         ACPL__GF_AP_LAUNCH_PERIOD_DESC__C = '20/20', ACPL__GF_AP_LIMIT_DATE__C = System.today()+31, 
                                                                                         ACPL__GF_AP_REQ_VALIDATION_IND_TYPE__C = 'Yes', ACPL__GF_AP_STATUS_TYPE_NAME__C = 'Not started', 
                                                                                         ACPL__GF_AP_SUBSTATUS_TYPE_NAME__C = 'Not started', ACPL__GF_MANDATORY_TYPE__C = 'Mandatory', 

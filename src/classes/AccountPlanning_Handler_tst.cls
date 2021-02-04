@@ -62,6 +62,8 @@ public class AccountPlanning_Handler_tst {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
 		final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, false);
 		insert apR;
+		apR.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = false;
+        update apR;
 		Test.startTest();
 		System.runAs(MAP_USERS.get(EJECUTIVO)) {
 			try {
@@ -81,7 +83,7 @@ public class AccountPlanning_Handler_tst {
 	 */
 	public static testmethod void invalidUserModify() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
+		final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, false);
 		insert apR;
 		Test.startTest();
 		System.runAs(MAP_USERS.get(MANAGER)) {
