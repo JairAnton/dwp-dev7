@@ -16,12 +16,12 @@ public class BE_AP_CheckEditionByPeriodSchdl_tst {
     private static Final String FAIL = 'Fail';
     /** @Description  days*/
     private static Final Integer DAYS = 1;
-    /** @Description  FIVE*/
-    private static Final Integer FIVE = 5;
-    /** @Description  TEN*/
-    private static Final Integer TEN = 10;
-    /** @Description  FIFT*/
-    private static Final Integer FIFT = 15;
+    /** @Description  TWO*/
+    private static Final Integer TWO = 2;
+    /** @Description  FOUR*/
+    private static Final Integer FOUR = 4;
+    /** @Description  SIX*/
+    private static Final Integer SIX = 6;
 	/*
 	 * @Description  method setUp
 	 */
@@ -35,30 +35,41 @@ public class BE_AP_CheckEditionByPeriodSchdl_tst {
 			                                          acpl__Timed_Out_Schedulable_batch_size__c = 200);
 			Final User usuario = [SELECT Id FROM User WHERE LastName LIKE 'EJECUTIVO' LIMIT 1];
 			Final Account[] lstAccount = new Account[] {};
-			for(Integer i = 0; i < 20; i++) {
+			for(Integer i = 0; i < 8; i++) {
 				lstAccount.add(new Account(name = 'Acc ' + i));
 			}
 			insert lstAccount;
 			Final acpl__Account_Planning__c[] lstAP = new acpl__Account_Planning__c[] {};
-			for(Integer i = 0; i < 20; i++) {
-				if(math.mod(i, 2) == 0) {
+			for(Integer i = 0; i < 8; i++) {
+				/*if(math.mod(i, 2) == 0) {
 					lstAP.add(AP_FactoryTest_tst.createAccountPlanning(lstAccount[i].Id, usuario.Id, null, false));
-				} else {
+				} else {*/
 					lstAP.add(AP_FactoryTest_tst.createAccountPlanning(lstAccount[i].Id, usuario.Id, null, true));
-				}
+				//}
 			}
+            /*List<acpl__Account_Planning__c> ltsAP = [SELECT Id FROM acpl__Account_Planning__c WHERE RecordType.DeveloperName = 'Account_Planning' LIMIT 10];
+            for(acpl__Account_Planning__c aux : ltsAP) {
+                aux.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = false;
+            }
+            update ltsAP;*/
             for(Integer ite = 0; ite < lstAP.size(); ite++) {
-                if(ite < FIVE) {
+                if(ite < TWO) {
 					lstAP[ite] = getAP(lstAP[ite], 'General period', Date.today() - DAYS);
-				} else if(ite < TEN) {
+				} else if(ite < FOUR) {
 					lstAP[ite] = getAP(lstAP[ite], 'Period by priority', Date.today() + DAYS);
-				} else if(ite < FIFT) {
+				} else if(ite < SIX) {
 					lstAP[ite] = getAP(lstAP[ite], 'Event driven', Date.today() - DAYS);
 				} else {
 					lstAP[ite] = getAP(lstAP[ite], 'Event driven', Date.today());
 				}
             }
 			insert lstAP;
+            for(Integer ite = 0; ite < lstAP.size(); ite++) {
+				if(math.mod(ite, 2) == 0) {
+					lstAP[ite].ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = false;
+				}
+			}
+            update lstAP;
 		}
 	}
 
@@ -71,10 +82,10 @@ public class BE_AP_CheckEditionByPeriodSchdl_tst {
 		Final BE_AP_CheckEditionByPeriodSchedulable batch = new BE_AP_CheckEditionByPeriodSchedulable();
 		batch.execute(null);
 		Test.stopTest();
-		Final acpl__Account_Planning__c[] lstAP = [SELECT Id FROM acpl__Account_Planning__c WHERE acpl__gf_ap_indvi_lock_edit_ind_type__c = true AND 
+        Final acpl__Account_Planning__c[] lstAP = [SELECT Id FROM acpl__Account_Planning__c WHERE acpl__gf_ap_indvi_lock_edit_ind_type__c = true AND 
                                                    RecordType.DeveloperName = 'Account_Planning' AND acpl__gf_ap_launch_name__c = 'General period'];
 		Final Integer size = lstAP.size();
-		System.assertEquals(size, 5, FAIL);
+		System.assertEquals(size, 1, FAIL);
 	}
 
 	/*
@@ -89,7 +100,7 @@ public class BE_AP_CheckEditionByPeriodSchdl_tst {
 		Final acpl__Account_Planning__c[] lstAP = [SELECT Id FROM acpl__Account_Planning__c WHERE acpl__gf_ap_indvi_lock_edit_ind_type__c = false AND 
                                                    RecordType.DeveloperName = 'Account_Planning' AND acpl__gf_ap_launch_name__c = 'General period'];
 		Final Integer size = lstAP.size();
-		System.assertEquals(size, 5, FAIL);
+		System.assertEquals(size, 1, FAIL);
 	}
 
 	/*
@@ -104,7 +115,7 @@ public class BE_AP_CheckEditionByPeriodSchdl_tst {
 		Final acpl__Account_Planning__c[] lstAP = [SELECT Id FROM acpl__Account_Planning__c WHERE acpl__gf_ap_indvi_lock_edit_ind_type__c = false AND 
                                                    RecordType.DeveloperName = 'Account_Planning' AND acpl__gf_ap_launch_name__c = 'Period by priority'];
 		Final Integer size = lstAP.size();
-		System.assertEquals(size, 5, FAIL);
+		System.assertEquals(size, 1, FAIL);
 	}
 
 	/*
@@ -119,7 +130,7 @@ public class BE_AP_CheckEditionByPeriodSchdl_tst {
 		Final acpl__Account_Planning__c[] lstAP = [SELECT Id FROM acpl__Account_Planning__c WHERE acpl__gf_ap_indvi_lock_edit_ind_type__c = true AND 
                                                    RecordType.DeveloperName = 'Account_Planning' AND acpl__gf_ap_launch_name__c = 'Period by priority'];
 		Final Integer size = lstAP.size();
-		System.assertEquals(size, 5, FAIL);
+		System.assertEquals(size, 1, FAIL);
 	}
 
 	/*
@@ -135,7 +146,7 @@ public class BE_AP_CheckEditionByPeriodSchdl_tst {
                                                    RecordType.DeveloperName = 'Account_Planning' AND acpl__gf_ap_launch_name__c = 'Event driven' 
                                                    AND acpl__gf_event_date__c =:Date.today()];
 		Final Integer size = lstAP.size();
-		System.assertEquals(size, 5, FAIL);
+		System.assertEquals(size, 1, FAIL);
 	}
 
 	/*
@@ -151,7 +162,7 @@ public class BE_AP_CheckEditionByPeriodSchdl_tst {
                                                    RecordType.DeveloperName = 'Account_Planning' AND acpl__gf_ap_launch_name__c = 'Event driven' 
                                                    AND acpl__gf_event_date__c =:(Date.today()-DAYS)];
 		Final Integer size = lstAP.size();
-		System.assertEquals(size, 5, FAIL);
+		System.assertEquals(size, 1, FAIL);
 	}
 
 	/*

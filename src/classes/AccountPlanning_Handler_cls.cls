@@ -60,8 +60,7 @@ public class AccountPlanning_Handler_cls extends TriggerHandler {
 		//Method updateStatusOnAPnotStarted: Checks if AP has changed and field status  = 'Not started'
 		//apHandler.updateStatusOnAPnotStarted(triggerNew);
         //Method checkAPperiod: Disables the edition of the account plans if locked or timed out
-        //apHandler.checkAPperiod(triggerNew, triggerOldMap); // -- se comenta por error System.DmlException: Insert failed. 
-		//First exception on row 0; first error: CANNOT_INSERT_UPDATE_ACTIVATE_ENTITY, APTeam_tgr: execution of AfterInsert
+        apHandler.checkAPperiod(triggerNew, triggerOldMap);
         //Method fillMandatoryQuestions: Mandatory questions must be filled in order to change from In progress to Pending Validation Status
         apHandler.fillMandatoryQuestions(triggerNew, triggerOldMap);
         //end new methods ver 3.3

@@ -5305,6 +5305,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>acpl__AP_PeriodConfiguration__c.acpl__Account_Planning_Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>acpl__AP_PeriodConfiguration__c.acpl__gf_ap_bus_pl_guide_desc__c</field>
         <readable>true</readable>
@@ -5353,6 +5358,11 @@
         <editable>true</editable>
         <field>acpl__AP_PeriodConfiguration__c.acpl__gf_ap_update_event_type_name__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>acpl__AP_Period__c.acpl__Configuration__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -5425,9 +5435,24 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>acpl__AP_Question__c.acpl__AA_answer_text_area2__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>acpl__AP_Question__c.acpl__AA_answer_text_area__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>acpl__AP_Question__c.acpl__Answered__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>acpl__AP_Question__c.acpl__gf_ap_answer_form_desc2__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -5437,6 +5462,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>acpl__AP_Question__c.acpl__gf_ap_question_form_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>acpl__Account_Planning_Type__c.acpl__Default_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>acpl__Account_Planning_Type__c.acpl__external_reference_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5476,7 +5511,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>acpl__Account_Planning__c.acpl__Account_Planning_Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>acpl__Account_Planning__c.acpl__Group_has_PF__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>acpl__Account_Planning__c.acpl__Number_of_answered_qestions__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5635,6 +5680,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>acpl__Commercial_Plan_Event__c.Amount__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>acpl__Commercial_Plan_Event__c.Asiggned_User__c</field>
         <readable>true</readable>
@@ -5648,6 +5698,16 @@
         <editable>true</editable>
         <field>acpl__Commercial_Plan_Event__c.Comments__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>acpl__Commercial_Plan_Event__c.GrowthDriver__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>acpl__Commercial_Plan_Event__c.Product__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -5715,9 +5775,19 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>bupl__BP_GrowthDriver__c.Amount__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>bupl__BP_GrowthDriver__c.ClientAssigned__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>bupl__BP_GrowthDriver__c.ExpectedDate__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -5743,6 +5813,11 @@
         <editable>true</editable>
         <field>bupl__BP_GrowthDriver__c.bupl__gf_growth_drvr_prdt_desc__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>bupl__BP_GrowthDriver__c.bupl__gf_growth_drvr_prdt_short_desc__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -5882,6 +5957,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>bupl__BusinessPlan_Item__c.bupl__total_revenues_py_amount__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>bupl__BusinessPlan_Version__c.bupl__gf_bus_pl_lst_vldt_vr_ind_type__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6861,12 +6941,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>dyfr__Field_Config__c.dyfr__Blank_in_view_mode__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>dyfr__Field_Config__c.dyfr__Column_Size__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>dyfr__Field_Config__c.dyfr__Default_value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>dyfr__Field_Config__c.dyfr__Dependent_value_control_field__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6887,6 +6977,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>dyfr__Field_Config__c.dyfr__Hidden_in_edit_mode__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>dyfr__Field_Config__c.dyfr__Hidden_in_view_mode__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6947,6 +7042,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>dyfr__Field_Config__c.dyfr__Relationship_Object_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>dyfr__Field_Config__c.dyfr__Relationship_Order_By_Field__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7016,6 +7116,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>dyfr__Tab__c.dyfr__Hide_Edit_Button__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>dyfr__Tab__c.dyfr__Order__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -7032,6 +7137,21 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>dyfr__Tab__c.dyfr__Tab_Code__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>dyfr__Template__c.acpl__Account_Planning_Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>dyfr__Template__c.dyfr__Apply_Permissions__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>dyfr__Template__c.dyfr__Apply_Sharing__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7871,6 +7991,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>gfsc__Guidance_for_Success__c.acpl__Account_Planning_Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>gfsc__Guidance_for_Success__c.acpl__Guidance_Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>gfsc__Guidance_for_Success__c.gfsc__Field_name__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -8065,6 +8195,15 @@
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>acpl__Account_Planning_Type__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
@@ -8161,6 +8300,10 @@
     </tabSettings>
     <tabSettings>
         <tab>acpl__AP_Question__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>acpl__Account_Planning_Type__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>

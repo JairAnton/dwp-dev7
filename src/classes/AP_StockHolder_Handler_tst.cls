@@ -39,12 +39,14 @@ public class AP_StockHolder_Handler_tst {
 	 */
 	public static testmethod void beforeInsert() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c apRecord = AP_FactoryTest_tst.createAccountPlanning(acc.Id, mapUsers.get(EJECUTIVO).Id, null, false);
+		Final acpl__Account_Planning__c apRecord = AP_FactoryTest_tst.createAccountPlanning(acc.Id, mapUsers.get(EJECUTIVO).Id, null, true);
 		insert apRecord;
         Boolean error = false;
 		Test.startTest();
 		System.runAs(mapUsers.get(EJECUTIVO)) {
 			try {
+				apRecord.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = false;
+                update apRecord;
 				insert new BE_Stockholder__c(account_planning__c = apRecord.Id, Name = ACCIONISTA, DocumentNumber__c = DOCUMENT_NUMBER, DocumentType__c = DNI);
 			} catch(Exception e) {
                 error = true;
@@ -60,7 +62,7 @@ public class AP_StockHolder_Handler_tst {
 	 */
 	public static testmethod void beforeUpdate() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c apRecord = AP_FactoryTest_tst.createAccountPlanning(acc.Id, mapUsers.get(EJECUTIVO).Id, null, false);
+		Final acpl__Account_Planning__c apRecord = AP_FactoryTest_tst.createAccountPlanning(acc.Id, mapUsers.get(EJECUTIVO).Id, null, true);
 		insert apRecord;
 		Final BE_Stockholder__c stockholder = new BE_Stockholder__c(account_planning__c = apRecord.Id, Name = ACCIONISTA, DocumentNumber__c = DOCUMENT_NUMBER, DocumentType__c = DNI);
 		insert stockholder;
@@ -68,6 +70,8 @@ public class AP_StockHolder_Handler_tst {
 		Test.startTest();
 		System.runAs(mapUsers.get(EJECUTIVO)) {
 			try {
+				apRecord.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = false;
+                update apRecord;
 				stockholder.Name = 'ACCIONISTA Aux';
 				update stockholder;
 			} catch(Exception e) {
@@ -84,7 +88,7 @@ public class AP_StockHolder_Handler_tst {
 	 */
 	public static testmethod void beforeDelete() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c apRecord = AP_FactoryTest_tst.createAccountPlanning(acc.Id, mapUsers.get(EJECUTIVO).Id, null, false);
+		Final acpl__Account_Planning__c apRecord = AP_FactoryTest_tst.createAccountPlanning(acc.Id, mapUsers.get(EJECUTIVO).Id, null, true);
 		insert apRecord;
 		Final BE_Stockholder__c stockholder = new BE_Stockholder__c(account_planning__c = apRecord.Id, Name = ACCIONISTA, DocumentNumber__c = DOCUMENT_NUMBER, DocumentType__c = DNI);
 		insert stockholder;
@@ -92,6 +96,8 @@ public class AP_StockHolder_Handler_tst {
 		Test.startTest();
 		System.runAs(mapUsers.get(EJECUTIVO)) {
 			try {
+				apRecord.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = false;
+                update apRecord;
 				delete stockholder;
 			} catch(Exception e) {
                 error = true;
