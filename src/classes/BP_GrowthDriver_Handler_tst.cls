@@ -35,7 +35,7 @@ public class BP_GrowthDriver_Handler_tst {
 	 */
 	public static testmethod void beforeInsert() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, false);
+		Final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
 		insert apR;
 		Final bupl__BusinessPlan__c bpR = [SELECT Id FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c =:apR.Id LIMIT 1];
 		Test.startTest();
@@ -46,6 +46,8 @@ public class BP_GrowthDriver_Handler_tst {
 				new bupl__BP_GrowthDriver__c(acpl__gf_account_planning_id__c = apR.Id, bupl__gf_business_plan_id__c = bpR.Id,
                                              bupl__solution_category_id__c = RIESGO, bupl__solution_category_desc__c = PRODUCT)};
 			try {
+				apR.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = false;
+                update apR;
 				insert auxGD;
 			} catch(DMLException e) {
 				System.debug(e.getMessage());
@@ -62,15 +64,17 @@ public class BP_GrowthDriver_Handler_tst {
 	 */
 	public static testmethod void beforeUpdate() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, false);
+		Final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
 		insert apR;
-		Final bupl__BusinessPlan__c bpR = [SELECT Id FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c =:apR.Id LIMIT 1];
-		Final bupl__BP_GrowthDriver__c vGD = new bupl__BP_GrowthDriver__c(acpl__gf_account_planning_id__c = apR.Id, bupl__gf_business_plan_id__c = bpR.Id,
-		                                                                  bupl__solution_category_id__c = RIESGO, bupl__solution_category_desc__c = PRODUCT);
-		insert vGD;
 		Test.startTest();
 		System.runAs(MAP_USERS.get(EJECUTIVO)) {
 			try {
+				Final bupl__BusinessPlan__c bpR = [SELECT Id FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c =:apR.Id LIMIT 1];
+                Final bupl__BP_GrowthDriver__c vGD = new bupl__BP_GrowthDriver__c(acpl__gf_account_planning_id__c = apR.Id, bupl__gf_business_plan_id__c = bpR.Id,
+                                                                                  bupl__solution_category_id__c = RIESGO, bupl__solution_category_desc__c = PRODUCT);
+                insert vGD;
+                apR.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = false;
+                update apR;
 				vGD.bupl__solution_category_desc__c = '0292235';
 				update vGD;
 			} catch(Exception e) {
@@ -87,16 +91,18 @@ public class BP_GrowthDriver_Handler_tst {
 	 */
 	public static testmethod void beforeDelete() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, false);
+		Final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
 		insert apR;
-		Final bupl__BusinessPlan__c bpR = [SELECT Id FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c =:apR.Id LIMIT 1];
-		Final bupl__BP_GrowthDriver__c vGD = new bupl__BP_GrowthDriver__c(acpl__gf_account_planning_id__c = apR.Id, bupl__gf_business_plan_id__c = bpR.Id,
-		                                                                  bupl__solution_category_id__c = RIESGO, bupl__solution_category_desc__c = PRODUCT);
-		insert vGD;
 		Test.startTest();
 		System.runAs(MAP_USERS.get(EJECUTIVO)) {
 			try {
-				delete vGD;
+                Final bupl__BusinessPlan__c bpR = [SELECT Id FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c =:apR.Id LIMIT 1];
+                Final bupl__BP_GrowthDriver__c vGD = new bupl__BP_GrowthDriver__c(acpl__gf_account_planning_id__c = apR.Id, bupl__gf_business_plan_id__c = bpR.Id,
+                                                                                  bupl__solution_category_id__c = RIESGO, bupl__solution_category_desc__c = PRODUCT);
+                insert vGD;
+                apR.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = false;
+                update apR;
+                delete vGD;
 			} catch(Exception e) {
 				System.debug(e.getMessage());
 			}

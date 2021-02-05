@@ -64,13 +64,15 @@ public class AP_Team_Helper_tst {
 	 */
 	public static testmethod void updateValidateUserPermission() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c accPlan = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, false);
+		Final acpl__Account_Planning__c accPlan = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);
 		insert accPlan;
 		Final bupl__AP_Team__c apt = [SELECT Id, bupl__gf_ap_team_new_member_date__c FROM bupl__AP_Team__c WHERE acpl__gf_account_planning_id__c =:accPlan.Id LIMIT 1];
 		Final Date fecha = apt.bupl__gf_ap_team_new_member_date__c;
 		Test.startTest();
 		System.runAs(MAPUSERS.get(MANAGER)) {
 			try {
+                accPlan.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = false;
+                update accPlan;
 				apt.bupl__gf_ap_team_new_member_date__c = System.today();
 				update apt;
 			} catch(Exception e) {
