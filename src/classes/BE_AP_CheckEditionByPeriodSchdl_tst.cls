@@ -76,7 +76,7 @@ public class BE_AP_CheckEditionByPeriodSchdl_tst {
         Final acpl__Account_Planning__c[] lstAP = [SELECT Id FROM acpl__Account_Planning__c WHERE acpl__gf_ap_indvi_lock_edit_ind_type__c = true AND 
                                                    RecordType.DeveloperName = 'Account_Planning' AND acpl__gf_ap_launch_name__c = 'General period'];
 		Final Integer size = lstAP.size();
-		System.assertEquals(size, 1, FAIL);
+		System.assertEquals(size, 2, FAIL);
 	}
 
 	/*
@@ -91,7 +91,7 @@ public class BE_AP_CheckEditionByPeriodSchdl_tst {
 		Final acpl__Account_Planning__c[] lstAP = [SELECT Id FROM acpl__Account_Planning__c WHERE acpl__gf_ap_indvi_lock_edit_ind_type__c = false AND 
                                                    RecordType.DeveloperName = 'Account_Planning' AND acpl__gf_ap_launch_name__c = 'General period'];
 		Final Integer size = lstAP.size();
-		System.assertEquals(size, 1, FAIL);
+		System.assertEquals(size, 2, FAIL);
 	}
 
 	/*
@@ -106,7 +106,7 @@ public class BE_AP_CheckEditionByPeriodSchdl_tst {
 		Final acpl__Account_Planning__c[] lstAP = [SELECT Id FROM acpl__Account_Planning__c WHERE acpl__gf_ap_indvi_lock_edit_ind_type__c = false AND 
                                                    RecordType.DeveloperName = 'Account_Planning' AND acpl__gf_ap_launch_name__c = 'Period by priority'];
 		Final Integer size = lstAP.size();
-		System.assertEquals(size, 1, FAIL);
+		System.assertEquals(size, 2, FAIL);
 	}
 
 	/*
@@ -121,7 +121,7 @@ public class BE_AP_CheckEditionByPeriodSchdl_tst {
 		Final acpl__Account_Planning__c[] lstAP = [SELECT Id FROM acpl__Account_Planning__c WHERE acpl__gf_ap_indvi_lock_edit_ind_type__c = true AND 
                                                    RecordType.DeveloperName = 'Account_Planning' AND acpl__gf_ap_launch_name__c = 'Period by priority'];
 		Final Integer size = lstAP.size();
-		System.assertEquals(size, 1, FAIL);
+		System.assertEquals(size, 2, FAIL);
 	}
 
 	/*
@@ -137,7 +137,7 @@ public class BE_AP_CheckEditionByPeriodSchdl_tst {
                                                    RecordType.DeveloperName = 'Account_Planning' AND acpl__gf_ap_launch_name__c = 'Event driven' 
                                                    AND acpl__gf_event_date__c =:Date.today()];
 		Final Integer size = lstAP.size();
-		System.assertEquals(size, 1, FAIL);
+		System.assertEquals(size, 2, FAIL);
 	}
 
 	/*
@@ -153,7 +153,7 @@ public class BE_AP_CheckEditionByPeriodSchdl_tst {
                                                    RecordType.DeveloperName = 'Account_Planning' AND acpl__gf_ap_launch_name__c = 'Event driven' 
                                                    AND acpl__gf_event_date__c =:(Date.today()-DAYS)];
 		Final Integer size = lstAP.size();
-		System.assertEquals(size, 1, FAIL);
+		System.assertEquals(size, 2, FAIL);
 	}
 
 	/*
