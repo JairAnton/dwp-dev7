@@ -41,17 +41,8 @@ public class BE_AP_CheckEditionByPeriodSchdl_tst {
 			insert lstAccount;
 			Final acpl__Account_Planning__c[] lstAP = new acpl__Account_Planning__c[] {};
 			for(Integer i = 0; i < 8; i++) {
-				/*if(math.mod(i, 2) == 0) {
-					lstAP.add(AP_FactoryTest_tst.createAccountPlanning(lstAccount[i].Id, usuario.Id, null, false));
-				} else {*/
-					lstAP.add(AP_FactoryTest_tst.createAccountPlanning(lstAccount[i].Id, usuario.Id, null, true));
-				//}
+				lstAP.add(AP_FactoryTest_tst.createAccountPlanning(lstAccount[i].Id, usuario.Id, null, true));
 			}
-            /*List<acpl__Account_Planning__c> ltsAP = [SELECT Id FROM acpl__Account_Planning__c WHERE RecordType.DeveloperName = 'Account_Planning' LIMIT 10];
-            for(acpl__Account_Planning__c aux : ltsAP) {
-                aux.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = false;
-            }
-            update ltsAP;*/
             for(Integer ite = 0; ite < lstAP.size(); ite++) {
                 if(ite < TWO) {
 					lstAP[ite] = getAP(lstAP[ite], 'General period', Date.today() - DAYS);
