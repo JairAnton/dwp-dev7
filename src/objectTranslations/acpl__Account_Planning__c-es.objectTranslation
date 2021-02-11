@@ -9,12 +9,37 @@
         <value>Planes de cuentas</value>
     </caseValues>
     <fields>
+        <label><!-- Oficina principal --></label>
+        <name>AccountBranch__c</name>
+    </fields>
+    <fields>
+        <label><!-- Grupo --></label>
+        <name>AccountGroup__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gestor principal --></label>
+        <name>AccountOwner__c</name>
+    </fields>
+    <fields>
+        <label><!-- Código central --></label>
+        <name>Account_ClientCode__c</name>
+    </fields>
+    <fields>
         <label><!-- Account Planning Administration --></label>
         <name>Account_Planning_Administration__c</name>
     </fields>
     <fields>
+        <label><!-- Tipo --></label>
+        <name>Account_RecordType__c</name>
+    </fields>
+    <fields>
         <label>Estrategia de la compañía</label>
         <name>Strategic_desc__c</name>
+    </fields>
+    <fields>
+        <label>Tipo de plan de cuenta</label>
+        <name>acpl__Account_Planning_Type__c</name>
+        <relationshipLabel><!-- Account Plannings --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Group has PF --></label>
@@ -27,6 +52,10 @@
             <masterLabel>Yes</masterLabel>
             <translation><!-- Yes --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Number of answered qestions --></label>
+        <name>acpl__Number_of_answered_qestions__c</name>
     </fields>
     <fields>
         <label><!-- Required by (area) --></label>
@@ -129,11 +158,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Low</masterLabel>
-            <translation>Media</translation>
+            <translation>Baja</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Medium</masterLabel>
-            <translation>Baja</translation>
+            <translation>Media</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -277,6 +306,10 @@
     </fields>
     <gender>Feminine</gender>
     <nameFieldLabel>Plan de cuenta</nameFieldLabel>
+    <quickActions>
+        <label><!-- Nueva Variable --></label>
+        <name>Create_GrowthDriver</name>
+    </quickActions>
     <recordTypes>
         <label><!-- Account Planning --></label>
         <name>acpl__Account_Planning</name>
@@ -288,6 +321,10 @@
     <validationRules>
         <errorMessage><!-- No puede cambiar al propietario del plan de cuenta. --></errorMessage>
         <name>Change_Owner</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- No puede crear planes de cuenta de tipo Question Catalog --></errorMessage>
+        <name>New_Question_Catalog</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- Los campos cliente, fecha de vencimiento y gestor son obligatorios --></errorMessage>

@@ -1873,6 +1873,10 @@
         <name>acpl__Txt_Anwser_Correctly_Submitted</name>
     </customLabels>
     <customLabels>
+        <label>La validación de su plan de cuenta acaba de ser rechazada, incluyendo los siguientes comentarios:</label>
+        <name>acpl__Txt_ApVal_Rejected</name>
+    </customLabels>
+    <customLabels>
         <label>Solicite su inclusión si lo necesita.</label>
         <name>acpl__Txt_Ask_For_Inc</name>
     </customLabels>
@@ -2217,11 +2221,11 @@
         <name>acpl__Txt_Shown_Depend_Parent</name>
     </customLabels>
     <customLabels>
-        <label>Lo sentimos!</label>
+        <label>Lo sentimos!</label> 
         <name>acpl__Txt_Sorry</name>
     </customLabels>
     <customLabels>
-        <label>Lo sentimos {!currentUser.FirstName}, esta validación del Plan de cuenta se ha asignado a otra persona y se necesita su decisión para continuar con el proceso.</label>
+        <label>esta validación del Plan de cuenta se ha asignado a otra persona y se necesita su decisión para continuar con el proceso.</label>
         <name>acpl__Txt_Sorry_Acc_Plann_Val_Dec_Needed</name>
     </customLabels>
     <customLabels>
@@ -2235,6 +2239,10 @@
     <customLabels>
         <label>Lo sentimos, no puede realizar esta acción ya que el Plan de cuenta está bloqueado.</label>
         <name>acpl__Txt_Sorry_You_Cant_Acc_Plan_Lckd</name>
+    </customLabels>
+    <customLabels>
+        <label>Lo siento</label>
+        <name>acpl__Txt_Sorry_two</name>
     </customLabels>
     <customLabels>
         <label>¿El período de edición comienza antes o después de la fecha de referencia?</label>
@@ -2363,6 +2371,10 @@
     <customLabels>
         <label>&quot;Usted ha sido incluido como miembro de un equipo de planificación de cuentas. Vaya a su inicio para verificar los planes de cuentas en los que participa&quot;.</label>
         <name>acpl__Txt_Yoube_Added</name>
+    </customLabels>
+	<customLabels>
+        <label>esta validación del Plan de cuenta se ha asignado a otra persona y se necesita su decisión para continuar con el proceso.</label>
+        <name>acpl__Txt_this_ap_val_been_asigned</name>
     </customLabels>
     <customLabels>
         <label>Como administrador de la planes de cuentas, puede permitir la edición de TODOS los planes de cuentas activos</label>
