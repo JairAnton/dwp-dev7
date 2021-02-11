@@ -37,11 +37,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Low</masterLabel>
-            <translation>Media</translation>
+            <translation>Baja</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Medium</masterLabel>
-            <translation>Baja</translation>
+            <translation>Media</translation>
         </picklistValues>
     </fields>
     <fields>

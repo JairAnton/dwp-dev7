@@ -2,10 +2,11 @@
  * Handler of Trigger of the BusinessPlan object.
  * <p /><p />
  * Modification log:<p />
- * -------------------------------------------------------------------
- * Developer                    Date                Description<p />
- * -------------------------------------------------------------------
- * Diego Carbajal    		15/05/2020          Original version.<p />
+ * -----------------------------------------------------------------------------
+ * Developer                    	Date                Description<p />
+ * -----------------------------------------------------------------------------
+ * Diego Carbajal    				15/05/2020          Original version.<p />
+ * Martin Alejandro Mori Chávez    	20/01/2021          Update methods for package 3.3.<p />
  *
  * @author Diego Carbajal
  */
@@ -61,6 +62,10 @@ public without sharing class BusinessPlan_Handler_cls extends TriggerHandler {
 	@TestVisible
 	protected override void afterUpdate() {
 		bpHandler.insertAPHistory(triggerNewMap, triggerOldMap);
-		BusinessPlan_Trigger_cls.updateStatusOnAP(triggerNewMap, triggerOldMap);
+		BusinessPlan_Trigger_cls.updateStatusOnAP(triggerNewMap, triggerOldMap);//  -- Deprecated
+        //start new methods ver 3.3
+		//Method updateStatusOnAP: Checks if the Business Plan has changed and if so propagates this change on Status field in related AP.
+        //bpHandler.updateStatusOnAP(triggerNewMap, triggerOldMap);
+        //end new methods ver 3.3
 	}
 }

@@ -32,16 +32,18 @@ public class BP_Need_Handler_tst {
 	 */
 	public static testmethod void beforeInsert() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, false);
+		Final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
 		insert apR;
-		Final bupl__BusinessPlan__c bpR = [SELECT Id FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c =:apR.Id LIMIT 1];
 		Test.startTest();
 		System.runAs(MAP_USERS.get(EJECUTIVO)) {
 			try {
-				Final bupl__BP_Need__c[] auxNeed = new bupl__BP_Need__c[] {};
-				auxNeed.add(new bupl__BP_Need__c(acpl__gf_account_planning_id__c = apR.Id, bupl__gf_business_plan_id__c = bpR.Id,
-				                                 bupl__gf_bus_pl_unlk_revenue_amount__c = 12345678.24, bupl__gf_bus_pl_unlk_risk_lim_amount__c = 43643.23));
-				auxNeed.add(new bupl__BP_Need__c(acpl__gf_account_planning_id__c = apR.Id, bupl__gf_business_plan_id__c = bpR.Id,
+				apR.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = false;
+                update apR;
+                Final bupl__BusinessPlan__c bpR = [SELECT Id FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c =:apR.Id LIMIT 1];
+                Final bupl__BP_Need__c[] auxNeed = new bupl__BP_Need__c[] {};
+                    auxNeed.add(new bupl__BP_Need__c(acpl__gf_account_planning_id__c = apR.Id, bupl__gf_business_plan_id__c = bpR.Id,
+                                                     bupl__gf_bus_pl_unlk_revenue_amount__c = 12345678.24, bupl__gf_bus_pl_unlk_risk_lim_amount__c = 43643.23));
+                auxNeed.add(new bupl__BP_Need__c(acpl__gf_account_planning_id__c = apR.Id, bupl__gf_business_plan_id__c = bpR.Id,
 				                                 bupl__gf_bus_pl_unlk_revenue_amount__c = 1536.78, bupl__gf_bus_pl_unlk_risk_lim_amount__c = 1454.26));
 				insert auxNeed;
 			} catch(Exception e) {
@@ -59,16 +61,18 @@ public class BP_Need_Handler_tst {
 	 */
 	public static testmethod void beforeUpdate() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, false);
+		Final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
 		insert apR;
-		Final bupl__BusinessPlan__c bpR = [SELECT Id FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c =:apR.Id LIMIT 1];
-		Final bupl__BP_Need__c vNeed = new bupl__BP_Need__c(acpl__gf_account_planning_id__c = apR.Id, bupl__gf_business_plan_id__c = bpR.Id,
-		                                                    bupl__gf_bus_pl_unlk_revenue_amount__c = 12345678.24, bupl__gf_bus_pl_unlk_risk_lim_amount__c = 43643.23);
-		insert vNeed;
 		Test.startTest();
 		System.runAs(MAP_USERS.get(EJECUTIVO)) {
 			try {
-				vNeed.bupl__gf_bus_pl_unlk_revenue_amount__c = 123.54;
+                Final bupl__BusinessPlan__c bpR = [SELECT Id FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c =:apR.Id LIMIT 1];
+                Final bupl__BP_Need__c vNeed = new bupl__BP_Need__c(acpl__gf_account_planning_id__c = apR.Id, bupl__gf_business_plan_id__c = bpR.Id,
+                                                                    bupl__gf_bus_pl_unlk_revenue_amount__c = 12345678.24, bupl__gf_bus_pl_unlk_risk_lim_amount__c = 43643.23);
+                insert vNeed;
+                apR.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = false;
+                update apR;
+                vNeed.bupl__gf_bus_pl_unlk_revenue_amount__c = 123.54;
 				update vNeed;
 			} catch(Exception e) {
 				System.debug(e.getMessage());
@@ -84,16 +88,18 @@ public class BP_Need_Handler_tst {
 	 */
 	public static testmethod void beforeDelete() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, false);
+		Final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
 		insert apR;
-		Final bupl__BusinessPlan__c bpR = [SELECT Id FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c =:apR.Id LIMIT 1];
-		Final bupl__BP_Need__c vNeed = new bupl__BP_Need__c(acpl__gf_account_planning_id__c = apR.Id, bupl__gf_business_plan_id__c = bpR.Id,
-		                                                    bupl__gf_bus_pl_unlk_revenue_amount__c = 12345678.24, bupl__gf_bus_pl_unlk_risk_lim_amount__c = 43643.23);
-		insert vNeed;
 		Test.startTest();
 		System.runAs(MAP_USERS.get(EJECUTIVO)) {
 			try {
-				delete vNeed;
+                Final bupl__BusinessPlan__c bpR = [SELECT Id FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c =:apR.Id LIMIT 1];
+                Final bupl__BP_Need__c vNeed = new bupl__BP_Need__c(acpl__gf_account_planning_id__c = apR.Id, bupl__gf_business_plan_id__c = bpR.Id,
+                                                                    bupl__gf_bus_pl_unlk_revenue_amount__c = 12345678.24, bupl__gf_bus_pl_unlk_risk_lim_amount__c = 43643.23);
+                insert vNeed;
+                apR.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = false;
+                update apR;
+                delete vNeed;
 			} catch(Exception e) {
 				System.debug(e.getMessage());
 			}

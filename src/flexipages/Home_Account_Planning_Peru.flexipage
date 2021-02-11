@@ -23,72 +23,12 @@
             </componentInstanceProperties>
             <componentName>desktopDashboards:embeddedDashboard</componentName>
         </componentInstances>
-        <name>region1</name>
-        <type>Region</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>lpPicklist</name>
-                <value>Period edition type</value>
-            </componentInstanceProperties>
-            <componentName>acpl:AP_HomeButton</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>lpPicklist</name>
-                <value>Edit event date</value>
-            </componentInstanceProperties>
-            <componentName>acpl:AP_HomeButton</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>lpPicklist</name>
-                <value>Set form questions</value>
-            </componentInstanceProperties>
-            <componentName>acpl:AP_HomeButton</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>lpPicklist</name>
-                <value>Delete Dynamic Form Questions</value>
-            </componentInstanceProperties>
-            <componentName>acpl:AP_HomeButton</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>lpPicklist</name>
-                <value>Custom notification</value>
-            </componentInstanceProperties>
-            <componentName>acpl:AP_HomeButton</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>lpPicklist</name>
-                <value>Lock AP</value>
-            </componentInstanceProperties>
-            <componentName>acpl:AP_HomeButton</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>lpPicklist</name>
-                <value>Guidelines configuration</value>
-            </componentInstanceProperties>
-            <componentName>acpl:AP_HomeButton</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentName>bE_Redirect_ImportWizard_Lwc</componentName>
-        </componentInstances>
-        <name>region2</name>
-        <type>Region</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <name>region3</name>
+        <name>main</name>
         <type>Region</type>
     </flexiPageRegions>
     <masterLabel>Home Account Planning</masterLabel>
     <template>
-        <name>flexipage:appHomeTemplateTwoColumnsStacked</name>
+        <name>flexipage:defaultAppHomeTemplate</name>
     </template>
     <type>AppPage</type>
 </FlexiPage>

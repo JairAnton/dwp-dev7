@@ -66,6 +66,10 @@
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
+		<componentInstances>
+            <componentName>acpl:Question_Form</componentName>
+        </componentInstances>
+        <!--
         <componentInstances>
             <componentInstanceProperties>
                 <name>editButton</name>
@@ -198,7 +202,8 @@
                 </criteria>
             </visibilityRule>
         </componentInstances>
-        <componentInstances>
+        -->
+		<componentInstances>
             <componentInstanceProperties>
                 <name>iconName</name>
             </componentInstanceProperties>
@@ -1102,7 +1107,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>PLAN DE NEGOCIOS</value>
+                <value>OPORTUNIDADES COMERCIALES</value>
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>
@@ -1113,7 +1118,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
-                <value>PLAN COMERCIAL</value>
+                <value>GESTIÓN COMERCIAL</value>
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>

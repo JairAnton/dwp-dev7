@@ -64,12 +64,14 @@ public class AP_Team_Handler_tst {
 	 */
 	public static testmethod void beforeDMLInsertAPLock() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c accPlan = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, false);
+		Final acpl__Account_Planning__c accPlan = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);
 		insert accPlan;
 		Test.startTest();
 		System.runAs(MAPUSERS.get(EJECUTIVO)) {
 			try {
-				Final bupl__AP_Team__c apt = new bupl__AP_Team__c(acpl__gf_account_planning_id__c = accPlan.Id, Name = APT_MEMBER, bupl__gf_ap_team_role_user_name__c = ACOMPANANTE,
+				accPlan.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = false;
+                update accPlan;
+                Final bupl__AP_Team__c apt = new bupl__AP_Team__c(acpl__gf_account_planning_id__c = accPlan.Id, Name = APT_MEMBER, bupl__gf_ap_team_role_user_name__c = ACOMPANANTE,
 				                                                  bupl__gf_ap_team_user_id__c = MAPUSERS.get(MANAGER).Id);
 				insert apt;
 			} catch(Exception e) {
@@ -87,7 +89,7 @@ public class AP_Team_Handler_tst {
 	 */
 	public static testmethod void beforeDMLInsertExpired() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c accPlan = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, false);
+		Final acpl__Account_Planning__c accPlan = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);
 		insert accPlan;
 		accPlan.acpl__gf_ap_status_type_name__c = 'Not started';
 		accPlan.acpl__gf_ap_substatus_type_name__c = 'Expired';

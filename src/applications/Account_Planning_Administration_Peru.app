@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Account_Planning_Type_Record_Page_Peru</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>acpl__Account_Planning_Type__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Account_Planning_Type_Record_Page_Peru</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>acpl__Account_Planning_Type__c</pageOrSobjectType>
+    </actionOverrides>
     <brand>
         <headerColor>#0070D2</headerColor>
         <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
@@ -84,6 +102,7 @@
     </profileActionOverrides>
     <setupExperience>all</setupExperience>
     <tabs>AccountPlanning_AdminTab</tabs>
+    <tabs>acpl__Account_Planning_Type__c</tabs>
     <tabs>acpl__Account_Planning__c</tabs>
     <tabs>acpl__AP_PeriodConfiguration__c</tabs>
     <tabs>acpl__AP_Period__c</tabs>
