@@ -25,6 +25,8 @@ public class BE_HistoricalQuotes_Tst {
     final static String STROK = 'isOk';
     /* string error */
     final static String STRERROR = 'error!!!';
+	/* integer six result */
+    final static Integer SIX = 6;
 
 	/**@Description method used to success scenary for BE_HistoricalQuotes_Ctr*/
     @isTest
@@ -46,7 +48,7 @@ public class BE_HistoricalQuotes_Tst {
         Test.startTest();
         Final Map<String, Object> mapReturnLQ = BE_HistoricalQuotes_Ctr.getQuotes(opp.Id, 'ListQuotationRequests');
         Boolean isOk = false;
-        if(mapReturnLQ.get('totalPages')==6) {
+        if(mapReturnLQ.get('totalPages') == SIX) {
             isOk = true;
         }
 		System.assert(isOk, 'correct!!!');

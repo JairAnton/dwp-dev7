@@ -13,13 +13,13 @@
 	/* variable request wrapper */
 	public ListQuotationRequest_Wrapper inputDataMapping {get; set;}
 
-	// Method use to get input information
+	/* Method use to get input information */
 	public BE_ListQuotationRequest_Helper(String participantId, String paginationKey, String pageSize) {
-        ListQuotationRequest_Wrapper requestWrapper = new ListQuotationRequest_Wrapper(participantId, paginationKey, pageSize);
+        Final ListQuotationRequest_Wrapper requestWrapper = new ListQuotationRequest_Wrapper(participantId, paginationKey, pageSize);
         this.inputDataMapping = requestWrapper;
     }
 
-	//Wrapper class to map the input values with the input attributes of the webservice
+	/* Wrapper class to map the input values with the input attributes of the webservice */
 	public class ListQuotationRequest_Wrapper {
 		/* variable participantId */
 		public String participantId {get; set;}
@@ -30,18 +30,18 @@
         
 		/* constructor method */
 		public ListQuotationRequest_Wrapper(String participantId, String paginationKey, String pageSize) {
-			this.participantId = (participantId != null ? participantId : '');
-            this.paginationKey = (paginationKey != null ? paginationKey : '1');
-            this.pageSize = (pageSize != null ? pageSize : '10');
+			this.participantId = (participantId == null ? '' : participantId);
+            this.paginationKey = (paginationKey == null ? '1' : paginationKey);
+            this.pageSize = (pageSize == null ? '10' : pageSize);
 		}
 	}
 
-	//method to convert the input data mapping to a JSON structure
+	/* method to convert the input data mapping to a JSON structure */
 	public String generateJSONRequest() {
 		return JSON.serialize(this.inputDataMapping);
 	}
 
-	// Method to invoke the webservice
+	/* Method to invoke the webservice */
 	public System.HttpResponse invoke() {
 		return iaso.GBL_Integration_GenericService.invoke('ListQuotationRequests', generateJSONRequest());
 	}

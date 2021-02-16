@@ -9,7 +9,18 @@
    2021-02-16  MAMC     martin.mori.contractor@bbva.com    	Creation
    -------------------------------------------------------------------------------------------------
  */
-public class BE_HistoricalQuotes_Ctr {
+public with sharing class BE_HistoricalQuotes_Ctr {
+    /* string grantingtickets */
+    final static String STRKEYPROD = 'product';
+    /* string ListQuotationRequests */
+    final static String STRKEYDATE = 'dateCotiza';
+    /* string six result */
+    final static String FIFTEEN = '15';
+    
+    /* constructor of class */
+    private BE_HistoricalQuotes_Ctr() {
+    }
+    
     /**Method used to get quotes **/
 	@AuraEnabled
     public static Map<String, Object> getQuotes(String oppId, String config) {
@@ -17,7 +28,7 @@ public class BE_HistoricalQuotes_Ctr {
         try {
             Final Map<String, String> mapProds = new Map<String, String>();
             for(Product2 prod : [SELECT Id, Name, PRICE_APPROVAL_WEB_SERVICE_ID__C FROM Product2 WHERE TYPE_OF_QUOTE__C='Web']) {
-                if(prod.PRICE_APPROVAL_WEB_SERVICE_ID__C == '15') {
+                if(prod.PRICE_APPROVAL_WEB_SERVICE_ID__C == FIFTEEN) {
                     prod.Name = 'Carta fianza';
                 }
                 mapProds.put(prod.PRICE_APPROVAL_WEB_SERVICE_ID__C, prod.Name);
@@ -30,7 +41,7 @@ public class BE_HistoricalQuotes_Ctr {
             }
             mapReturn.put('columns', columns);
             
-            List<Object> rows = new List<Object>();
+            Final List<Object> rows = new List<Object>();
             Final BE_ListQuotationRequest_Helper listQuoteHelper = new BE_ListQuotationRequest_Helper(opp.Account.main_code_id__c, '1', '10');
             Final System.HttpResponse invoke = listQuoteHelper.invoke();
             switch on invoke.getStatusCode() {
@@ -49,9 +60,9 @@ public class BE_HistoricalQuotes_Ctr {
                         row = row.removeEnd(',')+'}';
                         rows.add(JSON.deserializeUntyped(row));
                     }
-                    mapReturn.put('rows', rows);
                 }
             }
+            mapReturn.put('rows', rows);
         } catch(Exception ex) {
             mapReturn.put('errorMessage', ex.getMessage());
         }
@@ -65,24 +76,26 @@ public class BE_HistoricalQuotes_Ctr {
         Integer posField = 0;
         Final List<Object> quotations = (List<Object>) itemMap.get(fieldSplit[posField]);
         Map<String, Object> auxMap = (Map<String, Object>) quotations[0];
-        posField++;
-        while(posField < fieldSplit.size()) {
-            if(posField == fieldSplit.size()-1) {
-                if(field.Use_Product_Configuration_Value__c) {
-                    row = readArrayResponse(row, field, auxMap, fieldSplit[posField]);
-                } else {
-                    String valAux = String.valueOf(auxMap.get(fieldSplit[posField]));
-                    if(field.DeveloperName == 'dateCotiza') {
-                        valAux = valAux.substring(0, 23)+'Z';
-                    } else if(field.DeveloperName == 'product') {
-                        valAux = mapProds.get(valAux);
-                    }
-                    row += '"'+field.DeveloperName+'": "'+valAux+'",';
-                }
-            } else {
-                auxMap = (Map<String, Object>) auxMap.get(fieldSplit[posField]);
-            }
+        if(!auxMap.isEmpty()) {
             posField++;
+            while(posField < fieldSplit.size()) {
+                if(posField == fieldSplit.size()-1) {
+                    if(field.Use_Product_Configuration_Value__c) {
+                        row = readArrayResponse(row, field, auxMap, fieldSplit[posField]);
+                    } else {
+                        String valAux = String.valueOf(auxMap.get(fieldSplit[posField]));
+                        if(field.DeveloperName == STRKEYDATE) {
+                            valAux = valAux.substring(0, 23)+'Z';
+                        } else if(field.DeveloperName == STRKEYPROD) {
+                            valAux = mapProds.get(valAux);
+                        }
+                        row += '"'+field.DeveloperName+'": "'+valAux+'",';
+                    }
+                } else {
+                    auxMap = (Map<String, Object>) auxMap.get(fieldSplit[posField]);
+                }
+                posField++;
+            }
         }
         return row;
     }
@@ -92,9 +105,9 @@ public class BE_HistoricalQuotes_Ctr {
         String row = rowAux;
         Final List<Object> ltsAux = (List<Object>) auxMap.get(fieldObj);
         for(Object objList : ltsAux) {
-            Map<String, Object> objMap = (Map<String, Object>) objList;
+            Final Map<String, Object> objMap = (Map<String, Object>) objList;
             if(String.valueOf(objMap.get('id'))==field.DeveloperName) {
-                row += '"'+field.DeveloperName+'": "'+String.valueOf(objMap.get(field.Field_Custom_Label__c))+'",';
+                row += '"'+field.DeveloperName+'": "'+objMap.get(field.Field_Custom_Label__c)+'",';
                 break;
             }
         }
