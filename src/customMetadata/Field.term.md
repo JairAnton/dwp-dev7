@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>term</label>
+    <protected>false</protected>
+    <values>
+        <field>Field_Custom_Label__c</field>
+        <value xsi:type="xsd:string">Plazo</value>
+    </values>
+    <values>
+        <field>Sub_Order__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Use_Product_Configuration_Value__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>default_value__c</field>
+        <value xsi:type="xsd:string">{&quot;label&quot;: &quot;Plazo&quot;, &quot;fieldName&quot;: &quot;term&quot;, &quot;type&quot;: &quot;number&quot;, &quot;initialWidth&quot;: 70}</value>
+    </values>
+    <values>
+        <field>field_api_name__c</field>
+        <value xsi:type="xsd:string">quotations.product.term.termNumber</value>
+    </values>
+    <values>
+        <field>field_form__c</field>
+        <value xsi:type="xsd:string">ListQuotationRequests</value>
+    </values>
+    <values>
+        <field>is_readonly__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>is_required__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>order__c</field>
+        <value xsi:type="xsd:double">7.0</value>
+    </values>
+</CustomMetadata>

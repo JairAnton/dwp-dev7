@@ -1,5 +1,6 @@
 <aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" controller="Product_cls" access="GLOBAL">
     <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="oppId" type="String" />
     <aura:attribute name="bGrafica" type="Boolean" default="false" />
     <aura:attribute name="sFiltro" type="String" default="Total" />  
     <aura:attribute name="record" type="Object" description="The record object to be displayed"/>
@@ -98,6 +99,18 @@
             <div >
                 <c:AccountProductContainer_comp recordId="{!v.recordId}" sObjectName="Account"/>
             </div>
+        </lightning:tab>
+		<lightning:tab >          
+            <aura:set attribute="label">
+                Hist. Cotizaciones<br/>
+            </aura:set>
+            <ul class="slds-has-dividers_around-space font1" >
+                <li class="slds-item">
+                    <lightning:tile label=" " class="slds-tile_board">
+                        <c:bE_HistoricalQuotes_Lwc recordId="{!v.oppId}" config="ListQuotationRequests"/>
+                    </lightning:tile>
+                </li>
+            </ul>
         </lightning:tab>
     </lightning:tabset> 
 </aura:component>
