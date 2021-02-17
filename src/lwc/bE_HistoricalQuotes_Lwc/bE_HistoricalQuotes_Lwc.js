@@ -37,7 +37,7 @@ export default class BE_HistoricalQuotes_Lwc extends LightningElement {
             return;
         } else {
             this.loading = true;
-            await getQuotes( {"oppId": this.recordId, "config": this.config} )
+            await getQuotes( {"accId": this.recordId, "config": this.config} )
             .then(result => {
                 if(this.columns===null || this.columns===undefined) {
                     this.columns = result.columns;

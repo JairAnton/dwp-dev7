@@ -23,7 +23,7 @@ public with sharing class BE_HistoricalQuotes_Ctr {
     
     /**Method used to get quotes **/
 	@AuraEnabled
-    public static Map<String, Object> getQuotes(String oppId, String config) {
+    public static Map<String, Object> getQuotes(String accId, String config) {
         Final Map<String, Object> mapReturn = new Map<String, Object>();
         try {
             Final Map<String, String> mapProds = new Map<String, String>();
@@ -33,7 +33,7 @@ public with sharing class BE_HistoricalQuotes_Ctr {
                 }
                 mapProds.put(prod.PRICE_APPROVAL_WEB_SERVICE_ID__C, prod.Name);
             }
-            Final Opportunity opp = [SELECT Id, Account.main_code_id__c FROM Opportunity WHERE Id = :oppId LIMIT 1];
+            Final Account acc = [SELECT Id, main_code_id__c FROM Account WHERE Id = :accId LIMIT 1];
             Final List<Field__mdt> fields = [SELECT Id, DeveloperName, Use_Product_Configuration_Value__c, Field_Custom_Label__c, default_value__c, field_api_name__c, order__c FROM Field__mdt WHERE field_form__r.unique_id__c = :config ORDER BY order__c];
             Final List<Object> columns = new List<Object>();
             for(Field__mdt field : fields) {
@@ -41,7 +41,7 @@ public with sharing class BE_HistoricalQuotes_Ctr {
             }
             mapReturn.put('columns', columns);
             Final List<Object> rows = new List<Object>();
-            Final BE_ListQuotationRequest_Helper listQuoteHelper = new BE_ListQuotationRequest_Helper(opp.Account.main_code_id__c, '1', '10');
+            Final BE_ListQuotationRequest_Helper listQuoteHelper = new BE_ListQuotationRequest_Helper(acc.main_code_id__c, '1', '10');
             Final System.HttpResponse invoke = listQuoteHelper.invoke();
             switch on invoke.getStatusCode() {
                 when 200 {

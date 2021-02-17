@@ -77,7 +77,7 @@
                             </aura:if>
                             <aura:if isTrue="{!v.type_of_quote!='COTIZA Beta'}">
                                 <div class="slds-col slds-p-left_small slds-size_1-of-1 slds-medium-size_8-of-12 slds-large-size_7-of-12">
-                                    <c:AccountResumeInfo_comp oppId="{!v.OppId}" recordId="{!v.AccId}" commercial_strategy="{!v.commercial_strategy}"  />
+                                    <c:AccountResumeInfo_comp recordId="{!v.AccId}" commercial_strategy="{!v.commercial_strategy}"  />
                                 </div>
                             </aura:if>  
                         </div>

@@ -34,7 +34,6 @@ public class BE_HistoricalQuotes_Tst {
         Final Account acc = TestFactory.createAccount();
         acc.main_code_id__c = '26835866';
         update acc;
-        Final Opportunity opp = TestFactory.createOpportunity(acc.Id, UserInfo.getUserId());
         Final Product2 prod = TestFactory.createProduct();
 		prod.Type_of_quote__c = 'Web';
         prod.PRICE_APPROVAL_WEB_SERVICE_ID__C = '15';
@@ -46,7 +45,7 @@ public class BE_HistoricalQuotes_Tst {
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 		
         Test.startTest();
-        Final Map<String, Object> mapReturnLQ = BE_HistoricalQuotes_Ctr.getQuotes(opp.Id, 'ListQuotationRequests');
+        Final Map<String, Object> mapReturnLQ = BE_HistoricalQuotes_Ctr.getQuotes(acc.Id, 'ListQuotationRequests');
         Boolean isOk = false;
         if(mapReturnLQ.get('totalPages') == SIX) {
             isOk = true;
