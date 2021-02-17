@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Tipo de plan de cuenta</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Tipos de plan de cuenta</value>
+    </caseValues>
+    <fields>
+        <label>Tipo predeterminado</label>
+        <name>acpl__Default_Type__c</name>
+    </fields>
+    <fields>
+        <label>Id externo</label>
+        <name>acpl__external_reference_id__c</name>
+    </fields>
+    <gender>Masculine</gender>
+    <nameFieldLabel>Tipo de plan de cuenta</nameFieldLabel>
+</CustomObjectTranslation>

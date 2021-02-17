@@ -47,7 +47,7 @@ public class AP_Handler_Helper_tst {
 	 */
 	public static testmethod void changeValidatorAPInvalidUser() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, false);
+		final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
 		insert apR;
 		Final acpl__Account_Planning__c apAux = [SELECT Id, acpl__gf_ap_validator_user_id__c, acpl__gf_ap_status_type_name__c, acpl__gf_ap_substatus_type_name__c
 		                                         FROM acpl__Account_Planning__c WHERE Id =:apR.Id];
@@ -58,6 +58,8 @@ public class AP_Handler_Helper_tst {
 		Test.startTest();
 		System.runAs(MAP_USERS.get(MANAGER)) {
 			try {
+                apR.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = false;
+                update apR;
 				apAux.acpl__gf_ap_validator_user_id__c = MAP_USERS.get(MANAGER).Id;
 				update apAux;
 			} catch(Exception e) {
@@ -75,7 +77,7 @@ public class AP_Handler_Helper_tst {
 	 */
 	public static testmethod void changeValidatorAPWithoutCase() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, false);
+		final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
 		insert apR;
 		Final acpl__Account_Planning__c apAux = [SELECT Id, acpl__gf_ap_validator_user_id__c, acpl__gf_ap_status_type_name__c, acpl__gf_ap_substatus_type_name__c
 		                                         FROM acpl__Account_Planning__c WHERE Id =:apR.Id];
@@ -86,6 +88,8 @@ public class AP_Handler_Helper_tst {
 		Test.startTest();
 		System.runAs(MAP_USERS.get(GERENTE)) {
 			try {
+				apR.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = false;
+                update apR;
 				apAux.acpl__gf_ap_validator_user_id__c = MAP_USERS.get(EJECUTIVO).Id;
 				update apAux;
 			} catch(Exception e) {
@@ -127,19 +131,20 @@ public class AP_Handler_Helper_tst {
 	 */
 	public static testmethod void changeValidatorAPWithCase() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, false);
+		final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
 		insert apR;
 		Final acpl__Account_Planning__c apAux = [SELECT Id, acpl__gf_ap_validator_user_id__c, acpl__gf_ap_status_type_name__c, acpl__gf_ap_substatus_type_name__c
 		                                         FROM acpl__Account_Planning__c WHERE Id =:apR.Id];
 		insert new Case(acpl__Account_plan_id__c = apAux.Id, recordTypeId = CASE_RT, Status = 'Request Sent For Review', OwnerId = MAP_USERS.get(GERENTE).Id);
 		insert new Case(acpl__Account_plan_id__c = apAux.Id, recordTypeId = CASE_RT, Status = 'Request Re-Assigned', OwnerId = MAP_USERS.get(GERENTE).Id);
-		apAux.acpl__gf_ap_status_type_name__c = PENDING_VALID;
-		apAux.acpl__gf_ap_req_validation_ind_type__c = 'Yes';
-		update apAux;
 		Final String validator = apAux.acpl__gf_ap_validator_user_id__c;
 		Test.startTest();
 		System.runAs(MAP_USERS.get(MANAGER)) {
 			try {
+                apAux.acpl__gf_ap_status_type_name__c = PENDING_VALID;
+                apAux.acpl__gf_ap_req_validation_ind_type__c = 'Yes';
+                apAux.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = false;
+                update apAux;
 				apAux.acpl__gf_ap_validator_user_id__c = MAP_USERS.get(EJECUTIVO).Id;
 				update apAux;
 			} catch(Exception e) {
@@ -157,11 +162,13 @@ public class AP_Handler_Helper_tst {
 	 */
 	public static testmethod void checkDeleteAP() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, false);
+		final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
 		insert apR;
 		Test.startTest();
 		System.runAs(MAP_USERS.get(MANAGER)) {
 			try {
+				apR.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = false;
+                update apR;
 				delete apR;
 			} catch(Exception e) {
 				System.debug(e.getMessage());
@@ -179,11 +186,13 @@ public class AP_Handler_Helper_tst {
 	public static testmethod void deleteAP() {
 		Final User admin = [SELECT Id FROM User WHERE Id =:UserInfo.getUserId() LIMIT 1];
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, false);
+		final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
 		insert apR;
 		Test.startTest();
 		System.runAs(admin) {
-			delete apR;
+			apR.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = false;
+            update apR;
+            delete apR;
 		}
 		Test.stopTest();
 		Final List<acpl__Account_Planning__c> apResult = [SELECT Id, acpl__gf_ap_validator_user_id__c FROM acpl__Account_Planning__c WHERE Id =:apR.Id];
@@ -197,24 +206,16 @@ public class AP_Handler_Helper_tst {
 	 */
 	public static testmethod void postValidate() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, false);
+		final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
 		insert apR;
-		Final List<acpl__Commercial_Plan_Event__c> lstCPE = new List<acpl__Commercial_Plan_Event__c>();
-		lstCPE.add(new acpl__Commercial_Plan_Event__c(acpl__gf_account_planning_id__c = apR.Id, Comments__c = COMENTARIOS, Name = 'Visita', Asiggned_User__c = UserInfo.getUserId(),
-		                                              acpl__gf_event_date__c = Date.today() + 20, acpl__gf_comm_plan_event_type_name__c = 'Visit', acpl__participant_id__c = acc.Id));
-		lstCPE.add(new acpl__Commercial_Plan_Event__c(acpl__gf_account_planning_id__c = apR.Id, Comments__c = COMENTARIOS, Name = 'Oportunidad', Asiggned_User__c = UserInfo.getUserId(),
-		                                              acpl__gf_event_date__c = Date.today() + 25, acpl__gf_comm_plan_event_type_name__c = 'Opportunity', acpl__participant_id__c = acc.Id));
-		lstCPE.add(new acpl__Commercial_Plan_Event__c(acpl__gf_account_planning_id__c = apR.Id, Comments__c = COMENTARIOS, Name = 'Tarea', Asiggned_User__c = UserInfo.getUserId(),
-		                                              acpl__gf_event_date__c = Date.today() + 30, acpl__gf_comm_plan_event_type_name__c = 'Task', acpl__participant_id__c = acc.Id));
-		lstCPE.add(new acpl__Commercial_Plan_Event__c(acpl__gf_account_planning_id__c = apR.Id, Comments__c = COMENTARIOS, Name = 'Llamada', Asiggned_User__c = UserInfo.getUserId(),
-		                                              acpl__gf_event_date__c = Date.today() + 31, acpl__gf_comm_plan_event_type_name__c = 'Call', acpl__participant_id__c = acc.Id));
-		insert lstCPE;
 		apR.acpl__gf_ap_status_type_name__c = VALIDATED;
 		apR.acpl__gf_ap_substatus_type_name__c = 'In place';
 		update apR;
 		Test.startTest();
 		System.runAs(MAP_USERS.get(EJECUTIVO)) {
 			try {
+				apR.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = false;
+                update apR;
 				apR.acpl__gf_ap_status_type_name__c = VALIDATED;
 				apR.acpl__gf_ap_substatus_type_name__c = 'In place';
 				update apR;

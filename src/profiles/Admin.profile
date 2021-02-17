@@ -1905,6 +1905,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>acpl__AP_QuestionHandler_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>acpl__AP_TeamHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1941,6 +1945,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>acpl__AccountPlanningTypeHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>acpl__BP_GrowthDriverHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1954,6 +1962,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>acpl__BusinessPlan_TriggerHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>acpl__CasePlanningHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1978,6 +1990,42 @@
     </classAccesses>
     <classAccesses>
         <apexClass>acpl__Flow_HelperTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>acpl__GuidanceForSuccessHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>acpl__GuidanceForSuccess_ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>acpl__GuidanceForSuccess_ctrl_test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>acpl__LoadGuidanceTypes</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>acpl__PeriodEventBatchHandler_test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>acpl__Question_form_ctrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>acpl__Question_form_ctrl_test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>acpl__TemplateHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>acpl__TriggerUtil_test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -6062,6 +6110,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>acpl__AP_PeriodConfiguration__c.acpl__Account_Planning_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>acpl__AP_PeriodConfiguration__c.acpl__gf_ap_bus_pl_guide_desc__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6108,6 +6161,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>acpl__AP_PeriodConfiguration__c.acpl__gf_ap_update_event_type_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>acpl__AP_Period__c.acpl__Configuration__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6182,7 +6240,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>acpl__AP_Question__c.acpl__AA_answer_text_area2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>acpl__AP_Question__c.acpl__AA_answer_text_area__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>acpl__AP_Question__c.acpl__gf_ap_answer_form_desc2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6193,6 +6261,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>acpl__AP_Question__c.acpl__gf_ap_question_form_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>acpl__Account_Planning_Type__c.acpl__Default_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>acpl__Account_Planning_Type__c.acpl__external_reference_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6232,7 +6310,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>acpl__Account_Planning__c.acpl__Account_Planning_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>acpl__Account_Planning__c.acpl__Group_has_PF__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>acpl__Account_Planning__c.acpl__Number_of_answered_qestions__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6523,6 +6611,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>bupl__BP_GrowthDriver__c.bupl__gf_growth_drvr_prdt_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>bupl__BP_GrowthDriver__c.bupl__gf_growth_drvr_prdt_short_desc__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8716,7 +8809,10 @@
 	<layoutAssignments>
         <layout>Account_Income__c-Account Income Layout</layout>
     </layoutAssignments>
-	<objectPermissions>
+	<layoutAssignments>
+        <layout>bupl__AP_Team__c-Planning Team Member Layout Peru</layout>
+    </layoutAssignments>
+    <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
@@ -8984,6 +9080,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>acpl__AP_Question__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>acpl__Account_Planning_Type__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>

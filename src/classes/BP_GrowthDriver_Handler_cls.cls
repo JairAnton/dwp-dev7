@@ -2,10 +2,11 @@
  * Handler of Trigger of the GrowthDriver object.
  * <p /><p />
  * Modification log:<p />
- * -------------------------------------------------------------------
- * Developer                    Date                Description<p />
- * -------------------------------------------------------------------
- * Diego Carbajal    		15/05/2020          Original version.<p />
+ * -------------------------------------------------------------------------------------
+ * Developer                    		Date                Description<p />
+ * -------------------------------------------------------------------------------------
+ * Diego Carbajal    					15/05/2020          Original version.<p />
+ * Martin Alejandro Mori Chávez    		20/01/2021          Update methods for package 3.3.<p />
  *
  * @author Diego Carbajal
  */
@@ -57,6 +58,10 @@ public without sharing class BP_GrowthDriver_Handler_cls extends TriggerHandler 
 	 */
 	@TestVisible
 	protected override void afterInsert() {
-		BP_GrowthDriver_Trigger_cls.updateStatusOnAP(triggerNewMap);
+		BP_GrowthDriver_Trigger_cls.updateStatusOnAP(triggerNewMap);//  -- Deprecated
+        //start new methods ver 3.3
+		//Method updateStatusOnAP: Checks if BP_GrowthDriver has been created and propagates this change on Status field in related AP.
+        //acpl.BP_GrowthDriverHandler.updateStatusOnAP(triggerNewMap);
+        //end new methods ver 3.3
 	}
 }

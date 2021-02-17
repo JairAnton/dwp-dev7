@@ -193,7 +193,6 @@ public without sharing class ReevaluateButtonClass {
         oli.proposed_apr_per__c = nullDecimal;
         oli.minimun_apr_per__c = nullDecimal;
 		oli.proposed_fee_per__c = nullDecimal;
-        oli.price_quote_id__c = nullString;
         oli.Assigned_analyst__c = nullString;
         oli.price_operation_id__c = nullString;
         update oli;

@@ -1549,7 +1549,7 @@ $Profile.Name == &quot;Administrador del sistema&quot;)</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>New_Question_Catalog</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>RecordType.DeveloperName == &apos;Question_Catalog&apos; &amp;&amp;
 ISNEW() &amp;&amp; 
 NOT(

@@ -90,7 +90,7 @@ public class Be_RecordId_Related_Sobject_tst {
 		Final User userOwner = [SELECT Id FROM User WHERE LastName LIKE '%Risotto%' LIMIT 1];
 		Final Account cuenta = [SELECT Id, branch_id__c FROM Account LIMIT 1];
 		Final acpl__Account_Planning__c apR = new acpl__Account_Planning__c(acpl__participant_id__c = cuenta.Id, acpl__external_reference_id__c = 'AP123', Name = 'AP record',
-		                                                             acpl__gf_ap_limit_date__c = System.today(), acpl__proposal_manager_id__c = userOwner.Id);
+		                                                             acpl__gf_ap_limit_date__c = System.today(), acpl__proposal_manager_id__c = userOwner.Id, ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = true);
 		insert apR;
 		List<Integer> lstResult;
 		Test.startTest();
@@ -111,7 +111,7 @@ public class Be_RecordId_Related_Sobject_tst {
         cuenta.RecordTypeId = rtIdGE;
         update cuenta;
 		Final acpl__Account_Planning__c apR = new acpl__Account_Planning__c(acpl__participant_id__c = cuenta.Id, acpl__external_reference_id__c = 'AP123', Name = 'AP record',
-		                                                             acpl__gf_ap_limit_date__c = System.today(), acpl__proposal_manager_id__c = userOwner.Id);
+		                                                             acpl__gf_ap_limit_date__c = System.today(), acpl__proposal_manager_id__c = userOwner.Id, ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = true);
 		insert apR;
 		List<Integer> lstResult;
 		Test.startTest();
@@ -130,7 +130,7 @@ public class Be_RecordId_Related_Sobject_tst {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
 		acc.recordTypeId = [SELECT Id FROM RecordType WHERE DeveloperName IN ('Record_Type_Economic_Group', 'Record_Type_Client') LIMIT 1].Id;
 		update acc;
-		Final acpl__Account_Planning__c accountPlanning1 = AP_FactoryTest_tst.createAccountPlanning(acc.Id, ejecutivo.Id, null, false);
+		Final acpl__Account_Planning__c accountPlanning1 = AP_FactoryTest_tst.createAccountPlanning(acc.Id, ejecutivo.Id, null, true);
         insert accountPlanning1;
 		Map<String, Object> mapResponse;
 		Test.startTest();
