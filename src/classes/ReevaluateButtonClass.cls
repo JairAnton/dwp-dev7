@@ -194,7 +194,6 @@ public without sharing class ReevaluateButtonClass {
         oli.minimun_apr_per__c = nullDecimal;
 		oli.proposed_fee_per__c = nullDecimal;
         oli.Assigned_analyst__c = nullString;
-        oli.price_operation_id__c = nullString;
         update oli;
         Final List<Opportunity_Solution_Commitment__c> commitments = [SELECT Id FROM Opportunity_Solution_Commitment__c WHERE opportunity_id__c = :oppId];
         if(!commitments.isEmpty()) {
