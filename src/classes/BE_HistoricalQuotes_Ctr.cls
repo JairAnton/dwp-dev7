@@ -39,17 +39,26 @@ public with sharing class BE_HistoricalQuotes_Ctr {
             for(Field__mdt field : fields) {
                 columns.add(JSON.deserializeUntyped(field.default_value__c));
             }
+            System.debug('####### columns:'+columns);
             mapReturn.put('columns', columns);
             
             Final List<Object> rows = new List<Object>();
             Final BE_ListQuotationRequest_Helper listQuoteHelper = new BE_ListQuotationRequest_Helper(opp.Account.main_code_id__c, '1', '10');
+            //Final GetQuotationRequest_helper listQuoteHelper = new GetQuotationRequest_helper('0061D00000BHoqPQAT');
+			//invoke the service
             Final System.HttpResponse invoke = listQuoteHelper.invoke();
+            System.debug('######## invoke.getStatusCode()'+invoke.getStatusCode());
             switch on invoke.getStatusCode() {
                 when 200 {
                     Final Map<String, Object> response = (Map<String, Object>) JSON.deserializeUntyped(invoke.getBody());
+                    System.debug('##### response'+response);
+                    //List<Map<String, String>> myMaps = (List<Map<String, String>>) meta.get('results');
+                    
                     Final Map<String, Object> pagination = (Map<String, Object>) response.get('pagination');
                     mapReturn.put('totalPages', pagination.get('totalPages'));
+                    System.debug('######## mapReturn.put(totalPages) '+mapReturn.get('totalPages'));
                     mapReturn.put('totalElements', pagination.get('totalElements'));
+                    
                     Final List<Object> data = (List<Object>) response.get('data');
                     for(Object item : data) {
                         String row = '{';
@@ -60,6 +69,7 @@ public with sharing class BE_HistoricalQuotes_Ctr {
                         row = row.removeEnd(',')+'}';
                         rows.add(JSON.deserializeUntyped(row));
                     }
+                    System.debug('################ rows'+rows);
                 }
             }
             mapReturn.put('rows', rows);
@@ -73,6 +83,7 @@ public with sharing class BE_HistoricalQuotes_Ctr {
 	private static String readData(String rowAux, Field__mdt field, Map<String, Object> itemMap, Map<String, String> mapProds) {
         String row = rowAux;
         final String[] fieldSplit = field.field_api_name__c.split('\\.');
+        //Map<String, String> objAux = Map<String, String> JSON.deserializeUntyped(item.get('ID'));
         Integer posField = 0;
         Final List<Object> quotations = (List<Object>) itemMap.get(fieldSplit[posField]);
         Map<String, Object> auxMap = (Map<String, Object>) quotations[0];
@@ -83,6 +94,8 @@ public with sharing class BE_HistoricalQuotes_Ctr {
                     if(field.Use_Product_Configuration_Value__c) {
                         row = readArrayResponse(row, field, auxMap, fieldSplit[posField]);
                     } else {
+                        System.debug('####### if key:'+fieldSplit[posField]);
+                        System.debug('####### if value:'+auxMap.get(fieldSplit[posField]));
                         String valAux = String.valueOf(auxMap.get(fieldSplit[posField]));
                         if(field.DeveloperName == STRKEYDATE) {
                             valAux = valAux.substring(0, 23)+'Z';
@@ -107,6 +120,8 @@ public with sharing class BE_HistoricalQuotes_Ctr {
         for(Object objList : ltsAux) {
             Final Map<String, Object> objMap = (Map<String, Object>) objList;
             if(String.valueOf(objMap.get('id'))==field.DeveloperName) {
+                System.debug('####### if key:'+objMap.get('id'));
+                System.debug('####### if value:'+objMap.get(field.Field_Custom_Label__c));
                 row += '"'+field.DeveloperName+'": "'+objMap.get(field.Field_Custom_Label__c)+'",';
                 break;
             }
