@@ -1,0 +1,58 @@
+<template>
+    <div style="width: 100%; text-align:right">
+        <lightning-button 
+            name="firstCall" 
+            label="Mostrar" 
+            onclick={firstCall}>
+        </lightning-button>
+    </div>
+    
+    <template if:true={pagedData}>
+
+        <lightning-datatable
+            hide-checkbox-column
+            key-field="historicalTable"
+            data={pagedData}
+            columns={columns}>
+        </lightning-datatable> 
+
+        <template if:true={loading}>
+            <lightning-dynamic-icon
+                type="ellie"
+                alternative-text="Data is loading."
+                option="3">
+            </lightning-dynamic-icon>Loading...
+        </template>
+
+        <div class="slds-var-p-top_small slds-align_absolute-center">
+
+            <lightning-button 
+                name="buttonBackwards" 
+                label="" 
+                title="" 
+                icon-name="utility:back" 
+                onclick={handleButtonPrevious}  
+                class="slds-var-m-left_x-small" 
+                disabled={disabledPreviousButton}>
+            </lightning-button>
+
+            &nbsp;&nbsp;Mostrando {currentPage} de {maxPages} resultados.
+
+            <lightning-button 
+                name="buttonForwards" 
+                label="" 
+                title="" 
+                icon-name="utility:forward" 
+                onclick={handleButtonNext} 
+                class="slds-var-m-left_x-small" 
+                disabled={disabledNextButton}>
+            </lightning-button>
+        </div>
+
+    </template>
+    
+    <template if:false={pagedData}>
+        <div>{msgerror}</div>
+    </template>
+
+</template>

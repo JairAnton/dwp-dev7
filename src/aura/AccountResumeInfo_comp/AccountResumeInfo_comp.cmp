@@ -99,5 +99,17 @@
                 <c:AccountProductContainer_comp recordId="{!v.recordId}" sObjectName="Account"/>
             </div>
         </lightning:tab>
+		<lightning:tab >          
+            <aura:set attribute="label">
+                Hist. Cotizaciones<br/>
+            </aura:set>
+            <ul class="slds-has-dividers_around-space font1" >
+                <li class="slds-item">
+                    <lightning:tile label=" " class="slds-tile_board">
+                        <c:bE_HistoricalQuotes_Lwc recordId="{!v.recordId}" config="ListQuotationRequests"/>
+                    </lightning:tile>
+                </li>
+            </ul>
+        </lightning:tab>
     </lightning:tabset> 
 </aura:component>
