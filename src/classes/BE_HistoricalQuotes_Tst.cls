@@ -45,7 +45,7 @@ public class BE_HistoricalQuotes_Tst {
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 		
         Test.startTest();
-        Final Map<String, Object> mapReturnLQ = BE_HistoricalQuotes_Ctr.getQuotes(acc.Id, 'ListQuotationRequests');
+        Final Map<String, Object> mapReturnLQ = BE_HistoricalQuotes_Ctr.getQuotes(acc.Id, 'ListQuotationRequests', '1');
         Boolean isOk = false;
         if(mapReturnLQ.get('totalPages') == SIX) {
             isOk = true;
@@ -58,7 +58,7 @@ public class BE_HistoricalQuotes_Tst {
     @isTest
 	static void testError() {
 		Test.startTest();
-        Final Map<String, Object> mapReturnLQ = BE_HistoricalQuotes_Ctr.getQuotes('26835866', 'ListQuotationRequests');
+        Final Map<String, Object> mapReturnLQ = BE_HistoricalQuotes_Ctr.getQuotes('26835866', 'ListQuotationRequests', '1');
 		System.assert(!(Boolean)mapReturnLQ.containsKey('totalPages'), STRERROR);
 		Test.stopTest();
 	}
