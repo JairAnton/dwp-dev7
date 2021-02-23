@@ -103,13 +103,6 @@ branches:
                         command: testDeploy
     hotfix:
         stages:
-            deploy: 
-                skip: false
-                params:
-                    mdapiConfig:
-                        apiVersion: 47.0
-                        credentialId: SFDC_PREPROD
-                        testLevel: RunLocalTests
             publish:
                 params:
                     mdapiConfig:
