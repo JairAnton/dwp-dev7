@@ -50,10 +50,7 @@ export default class BE_HistoricalQuotes_Lwc extends LightningElement {
                 if(this.currentPage === 1) {
                     this.disabledPreviousButton = true;
                 }
-				if(result.errorMessage!==null && result.errorMessage!=='') {
-                    this.msgerror = error;
-                }
-                this.loading = false;
+				this.loading = false;
             }).catch(error=>{
                 this.msgerror = error;
             });
