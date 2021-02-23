@@ -23,7 +23,7 @@ public with sharing class BE_HistoricalQuotes_Ctr {
     
     /**Method used to get quotes **/
 	@AuraEnabled
-    public static Map<String, Object> getQuotes(String accId, String config) {
+    public static Map<String, Object> getQuotes(String accId, String config, String numPag) {
         Final Map<String, Object> mapReturn = new Map<String, Object>();
         try {
             Final Map<String, String> mapProds = new Map<String, String>();
@@ -41,7 +41,7 @@ public with sharing class BE_HistoricalQuotes_Ctr {
             }
             mapReturn.put('columns', columns);
             Final List<Object> rows = new List<Object>();
-            Final BE_ListQuotationRequest_Helper listQuoteHelper = new BE_ListQuotationRequest_Helper(acc.main_code_id__c, '1', '10');
+            Final BE_ListQuotationRequest_Helper listQuoteHelper = new BE_ListQuotationRequest_Helper(acc.main_code_id__c, numPag, '10');
             Final System.HttpResponse invoke = listQuoteHelper.invoke();
             switch on invoke.getStatusCode() {
                 when 200 {
