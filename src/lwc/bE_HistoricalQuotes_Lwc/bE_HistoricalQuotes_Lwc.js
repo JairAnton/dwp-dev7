@@ -37,7 +37,7 @@ export default class BE_HistoricalQuotes_Lwc extends LightningElement {
             return;
         } else {
             this.loading = true;
-            await getQuotes( {"accId": this.recordId, "config": this.config} )
+            await getQuotes( {"accId": this.recordId, "config": this.config, "numPag": pageNumber} )
             .then(result => {
                 if(this.columns===null || this.columns===undefined) {
                     this.columns = result.columns;
@@ -50,7 +50,7 @@ export default class BE_HistoricalQuotes_Lwc extends LightningElement {
                 if(this.currentPage === 1) {
                     this.disabledPreviousButton = true;
                 }
-                this.loading = false;
+				this.loading = false;
             }).catch(error=>{
                 this.msgerror = error;
             });

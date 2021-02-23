@@ -4,7 +4,7 @@
     <protected>false</protected>
     <values>
         <field>Field_Custom_Label__c</field>
-        <value xsi:type="xsd:string">Fecha de sanción</value>
+        <value xsi:type="xsd:string">Fecha de creación</value>
     </values>
     <values>
         <field>Sub_Order__c</field>
@@ -16,7 +16,7 @@
     </values>
     <values>
         <field>default_value__c</field>
-        <value xsi:type="xsd:string">{&quot;label&quot;: &quot;Fecha de sanción&quot;, &quot;fieldName&quot;: &quot;dateCotiza&quot;, &quot;type&quot;: &quot;date-local&quot;, &quot;initialWidth&quot;: 120, &quot;typeAttributes&quot;:{ &quot;month&quot;: &quot;2-digit&quot;, &quot;day&quot;: &quot;2-digit&quot; }}</value>
+        <value xsi:type="xsd:string">{&quot;label&quot;: &quot;Fecha de creación&quot;, &quot;fieldName&quot;: &quot;dateCotiza&quot;, &quot;type&quot;: &quot;date-local&quot;, &quot;initialWidth&quot;: 120, &quot;typeAttributes&quot;:{ &quot;month&quot;: &quot;2-digit&quot;, &quot;day&quot;: &quot;2-digit&quot; }}</value>
     </values>
     <values>
         <field>field_api_name__c</field>
