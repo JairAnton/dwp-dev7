@@ -20,6 +20,20 @@
     <aura:attribute name="widthcot" type="String"/>
     <aura:attribute name="modalWidthCustom" type="String" access="global" description="Specify the modal" default="95%" />
     <aura:attribute type="Aura.Component[]" name="AccResInf" />
+	<aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+    <aura:attribute name="spinner" type="boolean" default="FALSE"/>
+    
+    <aura:if isTrue="{!v.spinner}">
+        <div aura:id="spinnerId" class="slds-spinner_container">
+            <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                <span class="slds-assistive-text">Loading...</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </aura:if>
+	
     <div class="slds-modal__content slds-p-around_medium" >
         <div class="slds-grid">
             <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_6-of-12">
