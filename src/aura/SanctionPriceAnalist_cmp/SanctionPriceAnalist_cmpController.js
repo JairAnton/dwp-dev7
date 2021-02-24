@@ -7,5 +7,11 @@
 	},
 	doInit: function (cmp, evt, helper) {
 		helper.getInfo(cmp, evt, helper);
-	}
+	},
+    showSpinner: function(component, event, helper) {
+        component.set("v.spinner", true);
+    },
+    hideSpinner : function(component,event,helper) {
+        component.set("v.spinner", false);
+    }
 })
