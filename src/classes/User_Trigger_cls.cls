@@ -23,6 +23,7 @@ public without sharing class User_Trigger_cls {
 	 */
 	public static void asignBeforeInsert(List<User> userNew, Map<id, User> userNewMap) {
 		putEquivalentValues(userNew);
+		setUserPermission(userNew);
 	}
 
 	/*
@@ -54,6 +55,7 @@ public without sharing class User_Trigger_cls {
 	 */
 	public static void asignBeforeUpdate(List<User> userNew, Map<id, User> userNewMap, list<User> userOld, Map<id, User> userOldMap) {
 		putEquivalentValues(userNew);
+		setUserPermission(userNew);
 	}
 
 	/*
@@ -204,5 +206,12 @@ public without sharing class User_Trigger_cls {
         if(!setJpnId.isEmpty()) {
             BE_SM_SharingUsers_cls.removeJPNofSMS(setJpnId);
         }
+	}
+
+	/** Set Marketing Permission */
+	private static void setUserPermission(List<User> userNew) {
+		for(User user : userNew) {
+			user.UserPermissionsMarketingUser=true;
+		}
 	}
 }

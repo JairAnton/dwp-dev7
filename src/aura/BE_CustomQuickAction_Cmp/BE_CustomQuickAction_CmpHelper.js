@@ -2,6 +2,7 @@
     getSettings: function (cmp, evt, helper) {
         var nameMetadata = cmp.get('v.nameMetadata');
         var action = cmp.get("c.getSettings");
+        var recordId = cmp.get("v.recordId");
         action.setParams({
             "nameMetadata": nameMetadata
         });
@@ -11,8 +12,8 @@
                 var ret = response.getReturnValue();
                 var locale = $A.get("$Locale.langLocale");
                 cmp.set('v.title', JSON.parse(ret.title)[locale]);
-                cmp.set("v.settings",ret);
-                this.getsObjectFields(cmp,evt,ret.sObjectType,ret.sObjectFields.fields);
+                cmp.set("v.settings", ret);
+                this.getsObjectFields(cmp, evt, ret.sObjectType, ret.sObjectFields);
             } else {
                 cmp.set("v.loaded", true);
                 this.showToast('Error', 'Comuniquese con su administrador', 'error');
@@ -62,10 +63,14 @@
     },
     callApexMethod: function (cmp, evt, sObjectUpdate,actionApex) {
         cmp.set("v.loaded", false);
+        var currentParams = {
+            "recordId": cmp.get("v.recordId"),
+            "className": cmp.get("v.settings").className
+        };
         var action = actionApex;
         action.setParams({
             "sObj": sObjectUpdate,
-            "className": cmp.get("v.settings").className
+            "params": currentParams
         });
         action.setCallback(this, function (response) {
             var state = response.getState();
@@ -85,8 +90,8 @@
         $A.enqueueAction(action);
     },
     closeModal: function (cmp, evt, recordId) {
-        if(cmp.get("v.isNotQuickAction")) {
-            if(recordId === null) {
+        if (cmp.get("v.isNotQuickAction")) {
+            if (recordId === null || recordId === "" || recordId === undefined) {
                 var homeEvent = $A.get("e.force:navigateToObjectHome");
                 homeEvent.setParams({
                     "scope": cmp.get('v.sObjData').sObjectType

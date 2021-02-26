@@ -11,30 +11,59 @@
  */
 @IsTest
 public with sharing class BE_CustomQuickAction_Tst {
+    /** GrantingTickets */
+	final static String CLASS_NAME='className';
+    
     /**
    @Description test BE_EditNonClient_Ctr.getFields(), correct scenary
      */
     @IsTest
-    static void getFieldsTest() {
-    	BE_CustomQuickAction_Ctr.getSettings('BE_ModifyContact');
+    static void getSettingsTest() {
+        Final BE_SingleRelatedList_QuickAction__mdt mdt = [SELECT Id, Title__c,CustomFields__c, sObjectType__c, ClassName__c, ModeAction__c FROM BE_SingleRelatedList_QuickAction__mdt LIMIT 1][0];
+    	Final Contact conOne = new Contact(Salutation='Mr.',FirstName='NON_CLIENT',LastName='NON_CLIENTE_CONTACT_ONE',decision_making_desc__c='Si',Email='contactone@test.com',MobilePhone='924567896',prof_position_type__c='APODERADO', contact_code__c='00001',phone_1__c='9876545',phone_1_area_code__c='01',phone_2__c='2235675',phone_2_area_code__c='01');
+        BE_CustomQuickAction_Ctr.getSettings('BE_ModifyContact',conOne.Id);
     	final BE_SingleRelatedList_QuickAction__mdt configMeta=(BE_SingleRelatedList_QuickAction__mdt) JSON.deserialize('{"DeveloperName":"TESTMETADATA_TST","MasterLabel":"Phone"}',BE_SingleRelatedList_QuickAction__mdt.class);
     	System.assertEquals('TESTMETADATA_TST',configMeta.DeveloperName,'Good');
     }
     /**
         @Description test BE_CustomQuickAction_Ctr.getsObjFieldsTest(), correct scenary
      */
+    @IsTest    
     static void getsObjFieldsTest() {
-        final Account acc = new Account(Name='Test_Success');
+        
+        final Account acc = new Account(Name='Test_Success');       
         insert acc;
-        final sObject sOBJ=BE_CustomQuickAction_Ctr.getsObjFields(acc.id, 'Account', new List<String>{'Name'});
+        test.startTest();
+        Map<String,Object> paramsMap = new Map<String,Object>{'Id'=> acc.Id , 'action' => 'update','sObjectType' => 'Account'};
+        final sObject sOBJ=BE_CustomQuickAction_Ctr.getsObjFields(paramsMap, new List<String>{'Name'});
+        System.debug('ACCOUNT'+ sOBJ);
         System.assertEquals(sOBJ.get('Name'),acc.Name,'Value Correct');
+        test.stopTest();
+    }
+        /**
+        @Description test BE_CustomQuickAction_Ctr.getsObjFieldsTest(), correct scenary
+     */
+    @IsTest    
+    static void getsObjFieldscreateTest() {
+        
+        final Account acc = new Account(Name='Test_Success');       
+        insert acc;
+        test.startTest();
+        Map<String,Object> paramsMap = new Map<String,Object>{'Id'=> '' , 'action' => 'create','sObjectType' => 'Account'};
+        final sObject sOBJ=BE_CustomQuickAction_Ctr.getsObjFields(paramsMap, new List<String>{'Name'});
+        System.assertEquals(Account.SobjectType.NewSobject(),sOBJ,'Value Correct');
+        test.stopTest();
     }
     /**
      @Description test createRecords method, correct scenary
     */
     @IsTest
     static void createSuccessMethodsTest() {
-        final BE_CustomQuickActionCRUD_Cls.Response resp = (BE_CustomQuickActionCRUD_Cls.Response)BE_CustomQuickAction_Ctr.createRecord(new Account(Name='Test'), '');
+        
+        Map<String,Object> paramsMap = new Map<String,Object>{'ClassName'=> ''};
+        BE_CustomQuickActionCRUD_Cls.Response resp = (BE_CustomQuickActionCRUD_Cls.Response)BE_CustomQuickAction_Ctr.createRecord(new Account(Name='Test'),paramsMap);
+        BE_CustomQuickActionCRUD_Cls.Response resp2 = (BE_CustomQuickActionCRUD_Cls.Response)BE_CustomQuickAction_Ctr.returnResponse(new Account(Name='Test'),'create');
+        System.debug('RESP DE CREACION ->>> '+ resp);
         System.assert(resp.isSuccess, 'success!');
     }
     
@@ -45,7 +74,8 @@ public with sharing class BE_CustomQuickAction_Tst {
     static void updateSuccessMethodsTest() {
         final Account acc = new Account(Name='Test_Success');
         insert acc;
-        final BE_CustomQuickActionCRUD_Cls.Response resp = (BE_CustomQuickActionCRUD_Cls.Response)BE_CustomQuickAction_Ctr.updateRecord(acc, '');
+        Map<String,Object> paramsMap = new Map<String,Object>{'ClassName'=> ''};
+        final BE_CustomQuickActionCRUD_Cls.Response resp = (BE_CustomQuickActionCRUD_Cls.Response)BE_CustomQuickAction_Ctr.updateRecord(acc, paramsMap);
         System.assert(resp.isSuccess, 'successUpdate!');
     }
     
@@ -56,7 +86,8 @@ public with sharing class BE_CustomQuickAction_Tst {
     static void deleteSuccessMethodsTest() {
         final Account acc = new Account(Name='Test_Delete_Success');
         insert acc;
-        final BE_CustomQuickActionCRUD_Cls.Response resp = (BE_CustomQuickActionCRUD_Cls.Response)BE_CustomQuickAction_Ctr.deleteRecord(acc, '');
+        Map<String,Object> paramsMap = new Map<String,Object>{'ClassName'=> ''};
+        final BE_CustomQuickActionCRUD_Cls.Response resp = (BE_CustomQuickActionCRUD_Cls.Response)BE_CustomQuickAction_Ctr.deleteRecord(acc,paramsMap);
         System.assert(resp.isSuccess, 'successDeleteSucess!');
     }
     
@@ -65,7 +96,8 @@ public with sharing class BE_CustomQuickAction_Tst {
     */
     @IsTest
     static void createErrorMethodsTest() {
-    	final BE_CustomQuickActionCRUD_Cls.Response resp = (BE_CustomQuickActionCRUD_Cls.Response)BE_CustomQuickAction_Ctr.createRecord(new Contact(LastName='TestError',MobilePhone='9876543213'), '');
+        Map<String,Object> paramsMap = new Map<String,Object>{'ClassName'=> ''};
+    	final BE_CustomQuickActionCRUD_Cls.Response resp = (BE_CustomQuickActionCRUD_Cls.Response)BE_CustomQuickAction_Ctr.createRecord(new Contact(LastName='TestError',MobilePhone='9876543213'), paramsMap);
         System.assert(!resp.isSuccess, 'errorCreate!');
     }
 
@@ -75,11 +107,14 @@ public with sharing class BE_CustomQuickAction_Tst {
     @IsTest
     static void allCRUDsTest() {
     	final BE_CustomQuickActionCRUD_Cls srl = new BE_CustomQuickActionCRUD_Cls();
-        srl.createRecord(null);
-        srl.updateRecord(null);
-        srl.deleteRecord(null);
+        final Account acc = new Account(Name='Test_Success');
+        Map<String,Object> paramsMap = new Map<String,Object>{'ClassName'=> ''};
+            
+        srl.createRecord(acc,paramsMap);
+        srl.updateRecord(acc,paramsMap);
+        srl.deleteRecord(acc,paramsMap);
         Boolean isNull = false;
-        final BE_CustomQuickActionCRUD_Cls.Response resp = srl.readRecord(null);
+        final BE_CustomQuickActionCRUD_Cls.Response resp = srl.readRecord(acc,paramsMap);
         if(resp==null) {
             isNull = true;
         }
