@@ -10,7 +10,7 @@
    -------------------------------------------------------------------------------------------------
  */
 @isTest
-public class BE_CA_NewVisit_Tst {
+public with sharing class BE_CA_NewVisit_Tst {
     
  /**
  @Description test BE_CA_NewVisit_Ctr.createRecord(), correct scenary
@@ -22,7 +22,7 @@ public class BE_CA_NewVisit_Tst {
         Final altm__Commercial_Alert__c commAlert = new altm__Commercial_Alert__c(Name='TEST CommAlert',altm__participant_id__c=acc.Id);
         insert commAlert;        
         Final dwp_kitv__Visit__c visit = new dwp_kitv__Visit__c(Name='Test Visit',dwp_kitv__visit_duration_number__c='45',dwp_kitv__visit_start_date__c=System.now());
-        Map<String,Object> paramsMap = new Map<String,Object>{'ClassName'=> '','recordId' => commAlert.Id};
+        Final Map<String,Object> paramsMap = new Map<String,Object>{'ClassName'=> '','recordId' => commAlert.Id};
       	final BE_CA_NewVisit_Ctr newVisitClass = New BE_CA_NewVisit_Ctr();
         final BE_CustomQuickActionCRUD_Cls.Response res = newVisitClass.createRecord(visit,paramsMap);
 		System.assert(res.isSuccess,'Correct Response');    
@@ -36,9 +36,9 @@ public class BE_CA_NewVisit_Tst {
     static void createErrorMethodsTest() {
         Final altm__Commercial_Alert__c commAlert = new altm__Commercial_Alert__c(Name='TEST CommAlert');     
         Final dwp_kitv__Visit__c visit = new dwp_kitv__Visit__c(Name='Test Visit');
-        Map<String,Object> paramsMap = new Map<String,Object>{'ClassName'=> '','recordId' => commAlert.Id};
-      	BE_CA_NewVisit_Ctr newVisitClass = New BE_CA_NewVisit_Ctr();
-        BE_CustomQuickActionCRUD_Cls.Response res = newVisitClass.createRecord(visit,paramsMap);
-        System.assertEquals(res.isSuccess,false, 'Invalid Creation')  ;
+        Final Map<String,Object> paramsMap = new Map<String,Object>{'ClassName'=> '','recordId' => commAlert.Id};
+      	Final BE_CA_NewVisit_Ctr newVisitClass = New BE_CA_NewVisit_Ctr();
+        Final BE_CustomQuickActionCRUD_Cls.Response res = newVisitClass.createRecord(visit,paramsMap);
+        System.assert(res.isSuccess, 'Invalid Creation');
     }
 }

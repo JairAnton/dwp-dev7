@@ -10,8 +10,6 @@ export default class BE_SingleRelatedListViews_Lwc extends LightningElement {
     @api relListSet; /** Dev name of metadata*/
     @api metaDev;
     viewOptions = [];
-    
-
     /** CONTROL ATRIBUTES */
     @track customTitle;
     @track hasRendered = false;
@@ -23,26 +21,30 @@ export default class BE_SingleRelatedListViews_Lwc extends LightningElement {
         "nameMetaData": "$relListSet"
     }) wiredMetadaConfig(value) {
         const { data, error } = value;
-        console.log("###Data##" + data);
         if (data) {
             this.viewOptions = data;
             this.metaDev = this.isNotEmpty(this.metaDev) ? this.metaDev :this.viewOptions[0];
-            console.log('this.viewOptions');
-            console.log(this.viewOptions);
-            console.log('this.viewMetaData');
-            console.log(this.metaDev);
+        } else {
+            this.showToastEvent("Error", error.message, "Error");
         }
-        //this.views=data;
     }
     /** MULTIPLE VIEWS */
     handleChangeView(event) {
         for (const iterator of this.viewOptions) {
-            if (event.detail == iterator.value) {
-                console.log('iterator');
-                console.log(iterator);
+            if (event.detail === iterator.value) {
                 this.metaDev = iterator;
             }
         }
+    }
+    /**UTILS FUNCTIONS*/
+    /** SHOW TOAST MESSAJE */
+    showToastEvent = (title, message, variant) => {
+        const evt = new ShowToastEvent({
+            title: title,
+            message: message,
+            variant: variant
+        });
+        this.dispatchEvent(evt);
     }
     /** VALIDATE NOT EMPTY */
     isNotEmpty = (obj) => {

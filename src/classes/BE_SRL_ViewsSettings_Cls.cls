@@ -23,12 +23,10 @@ global without sharing class BE_SRL_ViewsSettings_Cls extends VisualEditor.Dynam
      @return a VisualEditor.DynamicPickListRowsw from information of BE_SingleRelatedList_Setting__mdt
    */
     global override VisualEditor.DynamicPickListRows getValues() {
-      VisualEditor.DynamicPickListRows  myValues = new VisualEditor.DynamicPickListRows();
+      final VisualEditor.DynamicPickListRows  myValues = new VisualEditor.DynamicPickListRows();
       for (BE_SingleRetatedListView__mdt itemMdt : [SELECT MasterLabel, DeveloperName FROM BE_SingleRetatedListView__mdt LIMIT 10000]) {
         myValues.addRow(new VisualEditor.DataRow(itemMdt.MasterLabel, itemMdt.DeveloperName));
       }
-      System.debug('myValues');
-      System.debug(myValues);
       return myValues;
     }
 }
