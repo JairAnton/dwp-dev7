@@ -10,24 +10,25 @@
    ----------------------------------------------------------------------------------------------------
  */
 public without sharing class BE_CA_NewOpp_Ctr extends BE_CustomQuickActionCRUD_Cls {
-
+	/** Stage CommAlert */
+    List<String> STAGE_ALERT= new List<String>{'Pending','InManagement'};
     /**
     @Description createRecords
     @param  List<SObject> sObjs
     @return BE_SingleRelatedListCRUD_Cls.Response response
     */
     public override BE_CustomQuickActionCRUD_Cls.Response createRecord(sObject sObj,Map<String,Object> params) {
-        BE_CustomQuickActionCRUD_Cls.Response res = new BE_CustomQuickActionCRUD_Cls.Response();
+        Final BE_CustomQuickActionCRUD_Cls.Response res = new BE_CustomQuickActionCRUD_Cls.Response();
         try {
            	insert sObj;
-            List<OpportunityTeamMember> oppTeam = new List<OpportunityTeamMember>();
+            Final List<OpportunityTeamMember> oppTeam = new List<OpportunityTeamMember>();
             for (ctcp__Custom_Team__c cTeamItem:[SELECT ID, Commercial_Alert__c,ctcp__gf_team_users_desc__c FROM ctcp__Custom_Team__c WHERE Commercial_Alert__c=:(String)params.get('recordId')]) {
                 oppTeam.add(new OpportunityTeamMember(OpportunityId=sObj.Id,UserId=cTeamItem.ctcp__gf_team_users_desc__c));
             }
             insert oppTeam;
-            altm__Commercial_Alert__c commAlert = [SELECT ID,altm__alert_stage_type__c FROM altm__Commercial_Alert__c WHERE Id=:(String)params.get('recordId')];
-            if(commAlert.altm__alert_stage_type__c=='Pending') {
-                commAlert.altm__alert_stage_type__c='InManagement';
+            Final altm__Commercial_Alert__c commAlert = [SELECT ID,altm__alert_stage_type__c FROM altm__Commercial_Alert__c WHERE Id=:(String)params.get('recordId')];
+            if(commAlert.altm__alert_stage_type__c==STAGE_ALERT[0]) {
+                commAlert.altm__alert_stage_type__c=STAGE_ALERT[1];
                 update commAlert;
             }
             res.isSuccess=true;

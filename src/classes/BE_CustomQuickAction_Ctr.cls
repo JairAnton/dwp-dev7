@@ -37,7 +37,8 @@ public without sharing class BE_CustomQuickAction_Ctr {
     final Integer sizeFields=0;
     if(replaceFields.size()>sizeFields) {
         final Id sObjId = recordId;
-        final String query= 'SELECT '+ String.join(replaceFields, ',') + ' FROM '+ sObjId.getSObjectType().getDescribe().getName() +' WHERE Id=:recordId';
+        final String sObjectType = sObjId.getSObjectType().getDescribe().getName();
+        final String query= 'SELECT '+ String.join(replaceFields, ',') + ' FROM '+sObjectType+' WHERE Id=:recordId';
         final SObject sObj= Database.query(String.escapeSingleQuotes(query));
         for (String fieldReplace : replaceFields) {
              mdt.CustomFields__c =mdt.CustomFields__c.replaceAll('"replaced": "'+fieldReplace+'"', '"value": "'+sObj.get(fieldReplace)+'"');
@@ -65,10 +66,9 @@ public without sharing class BE_CustomQuickAction_Ctr {
           final Schema.SObjectType schemaType = schemaDesc.get((String)params.get('sObjectType'));
           returnObj = schemaType.newSobject();
       } else {
-          final String sObjectId=(String)params.get('Id');
           final String query= 'SELECT '+ String.join(sObjFields, ',') + 
-          ' FROM '+ (String)params.get('sObjectType') +' WHERE Id=:sObjectId';
-          returnObj = Database.query(String.escapeSingleQuotes(query));
+          ' FROM '+ (String)params.get('sObjectType') +' WHERE Id=@@'+(String)params.get('Id')+'@@';
+          returnObj = Database.query(String.escapeSingleQuotes(query).replace('@@','"'));
       }
       return returnObj;
   }

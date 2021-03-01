@@ -4,7 +4,8 @@
         var action = cmp.get("c.getSettings");
         var recordId = cmp.get("v.recordId");
         action.setParams({
-            "nameMetadata": nameMetadata
+            "nameMetadata": nameMetadata,
+            "recordId": recordId
         });
         action.setCallback(this, function (response) {
             var state = response.getState();
@@ -21,17 +22,17 @@
         });
         $A.enqueueAction(action);
     },
-    getsObjectFields: function (cmp, evt, sObjectType,fields) {
+    getsObjectFields: function (cmp, evt, sObjectType, fields) {
         var action = cmp.get("c.getsObjFields");
         var recordId = cmp.get("v.recordId");
         var currentFields = [];
+        var params = { "sObjectType": sObjectType, "Id": recordId, "action": cmp.get("v.settings").modeAction };
         for (const iterator of fields) {
             currentFields.push(iterator.fieldName);
         }
         action.setParams({
-            "accId": recordId,
+            "params": params,
             "sObjFields": currentFields,
-            "sObjectType": sObjectType
         });
         action.setCallback(this, function (response) {
             var state = response.getState();
@@ -61,7 +62,7 @@
         });
         $A.enqueueAction(action);
     },
-    callApexMethod: function (cmp, evt, sObjectUpdate,actionApex) {
+    callApexMethod: function (cmp, evt, sObjectUpdate, actionApex) {
         cmp.set("v.loaded", false);
         var currentParams = {
             "recordId": cmp.get("v.recordId"),
