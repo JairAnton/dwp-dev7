@@ -18,14 +18,10 @@ public class BE_CA_NewCampaign_Tst {
 	 */
     @TestSetup
     public static void setUp() {
-        //final list<string> ejecutivePositionCode = new list<string> {'E03','I32'}; manager = E01
-        //final string recordTypeNameAccount= 'BE_CLIENT';        
-        Final User admin = [SELECT Id FROM User WHERE id=:UserInfo.getUserId()];
-        Final Account acc = BE_EconomicGroup_DebtAndFee_tst.generateData(admin);
-        System.debug('Account');
-        System.debug(acc);
-        acc.RecordTypeId = '0121I000000aNyPQAU';
-        
+        final String recordTypeId= [SELECT ID FROM RecordType WHERE sObjectType='Account' AND DeveloperName='Record_Type_Client'].Id;     
+        final User admin = [SELECT Id FROM User WHERE id=:UserInfo.getUserId()];
+        final Account acc = BE_EconomicGroup_DebtAndFee_tst.generateData(admin);
+        acc.RecordTypeId =recordTypeId;
         System.runAs(admin) {
             update acc;
         }
@@ -37,20 +33,19 @@ public class BE_CA_NewCampaign_Tst {
 	 */
     @IsTest
     public static void getValues() {
-        Final User manager = [SELECT Id FROM User WHERE prof_position_id__c = 'E01'];
-        BE_CA_NewCampaign_Ctr s = new BE_CA_NewCampaign_Ctr();
-        BE_CustomQuickActionCRUD_Cls.Response response = new BE_CustomQuickActionCRUD_Cls.Response();
+        Final User manager = [SELECT Id FROM User WHERE prof_position_id__c = 'E01' LIMIT 1];
+        final BE_CA_NewCampaign_Ctr campaignClass = new BE_CA_NewCampaign_Ctr();
+        final BE_CustomQuickActionCRUD_Cls.Response response = new BE_CustomQuickActionCRUD_Cls.Response();
         response.isSuccess = false;
-        
         Final Map<String,Object> params = new Map<String,Object>{'config' => 'test'};
         Final altm__Commercial_Alert__c sObj = new altm__Commercial_Alert__c(altm__commercial_alert_record_type__c= 'Management',
-                                                                            altm__commercial_alert_end_date__c = Date.parse('2021-03-17 00:00:00'),
-                                                                            altm__commercial_alert_start_date__c = Date.parse('2021-03-08 00:00:00'),
+                                                                            altm__commercial_alert_end_date__c = system.today(),
+                                                                            altm__commercial_alert_start_date__c = system.today(),
                                                                             commercial_alert_category__c = 'Recursos',
                                                                             Name = 'Test Name');
         Test.startTest();
         System.runAs(manager) {
-            response = s.createRecord(sObj, params);
+            response = campaignClass.createRecord(sObj, params);
         }
         
         Test.stopTest();

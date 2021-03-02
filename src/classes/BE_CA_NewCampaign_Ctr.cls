@@ -22,17 +22,16 @@ public with sharing class BE_CA_NewCampaign_Ctr extends BE_CustomQuickActionCRUD
         final BE_CustomQuickActionCRUD_Cls.Response res = new BE_CustomQuickActionCRUD_Cls.Response();
         final Id currentRoleId = UserInfo.getUserRoleId();
         final list<string> ejecutive_position_code = new list<string> {'E03','I32'};
-        final string recordTypeName= 'BE_CLIENT';
+        final string recordTypeName= 'Record_Type_Client';
         
         try {        	
             List<altm__Commercial_Alert__c> alerList = new List<altm__Commercial_Alert__c>();
             
-            final Set<Id> allExcecutiveUsers = getRoleSubordinateUsers(currentRoleId, ejecutive_position_code);
-            final Map<Id,Campaign> campaignMap = generateCampaigns(allExcecutiveUsers, sObj);
-            
+            final Set<Id> allExcUsers = getRoleSubordinateUsers(currentRoleId, ejecutive_position_code);
+            final Map<Id,Campaign> campaignMap = generateCampaigns(allExcUsers, sObj);
             if( !campaignMap.isEmpty() ) {
                 insert campaignMap.values();
-                alerList = generateAlerts(sObj, recordTypeName, allExcecutiveUsers, campaignMap);
+                alerList = generateAlerts(sObj, recordTypeName, allExcUsers, campaignMap);
                 if( !alerList.isEmpty() ) {
                     insert alerList;
                 }
@@ -80,9 +79,9 @@ public with sharing class BE_CA_NewCampaign_Ctr extends BE_CustomQuickActionCRUD
     @return Map<Id,Campaign> response
     */
     private static Map<Id,Campaign> generateCampaigns(set<ID> allSubUsers, SObject sObj) {
-        Map<Id,Campaign> campaignResponse = new Map<Id,Campaign>();
+        final Map<Id,Campaign> campaignResponse = new Map<Id,Campaign>();
         for(Id userId : allSubUsers) {
-            Campaign campaign = new Campaign();
+            final Campaign campaign = new Campaign();
             campaign.Name = String.valueOf(sObj.get(altm__Commercial_Alert__c.Name));
             campaign.StartDate = Date.valueOf(sObj.get(altm__Commercial_Alert__c.altm__commercial_alert_start_date__c));
             campaign.EndDate = Date.valueOf(sObj.get(altm__Commercial_Alert__c.altm__commercial_alert_end_date__c));
@@ -94,14 +93,13 @@ public with sharing class BE_CA_NewCampaign_Ctr extends BE_CustomQuickActionCRUD
     
     /**
     @Description Generate Alerts List
-    @param  SObject sObj, string recordTypeName, Set<Id> allExcecutiveUsers, Map<Id,Campaign> campaignMap
+    @param  SObject sObj, string recordTypeName, Set<Id> allExcUsers, Map<Id,Campaign> campaignMap
     @return List<altm__Commercial_Alert__c>
     */
-    private static List<altm__Commercial_Alert__c> generateAlerts(SObject sObj, string recordTypeName, Set<Id> allExcecutiveUsers, Map<Id,Campaign> campaignMap) {
-       List<altm__Commercial_Alert__c> response = new List<altm__Commercial_Alert__c>(); 
-        
-        for (Account acc : [SELECT ID, Owner.user_id__c FROM Account WHERE Owner.Id IN :allExcecutiveUsers AND RecordType.DeveloperName = :recordTypeName]) {
-            altm__Commercial_Alert__c alert = new altm__Commercial_Alert__c();
+    private static List<altm__Commercial_Alert__c> generateAlerts(SObject sObj, string recordTypeName, Set<Id> allExcUsers, Map<Id,Campaign> campaignMap) {
+       final List<altm__Commercial_Alert__c> response = new List<altm__Commercial_Alert__c>(); 
+        for (Account acc : [SELECT ID, Owner.user_id__c FROM Account WHERE Owner.Id IN :allExcUsers AND RecordType.DeveloperName = :recordTypeName]) {
+            final altm__Commercial_Alert__c alert = new altm__Commercial_Alert__c();
             alert.Name = String.valueOf(sObj.get(altm__Commercial_Alert__c.Name));
             alert.altm__commercial_alert_start_date__c = Date.valueOf(sObj.get(altm__Commercial_Alert__c.altm__commercial_alert_start_date__c));
             alert.altm__commercial_alert_end_date__c = Date.valueOf(sObj.get(altm__Commercial_Alert__c.altm__commercial_alert_end_date__c));
@@ -109,9 +107,7 @@ public with sharing class BE_CA_NewCampaign_Ctr extends BE_CustomQuickActionCRUD
             alert.altm__commercial_alert_record_type__c = String.valueOf(sObj.get(altm__Commercial_Alert__c.altm__commercial_alert_record_type__c));
             alert.altm__User_id__c = acc.OwnerId;
             alert.altm__participant_id__c = acc.id;
-            
-            Campaign relatedCampaign = campaignMap.get(acc.OwnerId);
-            System.debug(relatedCampaign);
+            final Campaign relatedCampaign = campaignMap.get(acc.OwnerId);
             if( relatedCampaign != null) {
                 alert.altm__campaign_id__c = relatedCampaign.id;
             	response.add(alert);
