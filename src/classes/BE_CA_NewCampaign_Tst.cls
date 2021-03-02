@@ -35,7 +35,7 @@ public class BE_CA_NewCampaign_Tst {
     public static void getValues() {
         Final User manager = [SELECT Id FROM User WHERE prof_position_id__c = 'E01' LIMIT 1];
         final BE_CA_NewCampaign_Ctr campaignClass = new BE_CA_NewCampaign_Ctr();
-        final BE_CustomQuickActionCRUD_Cls.Response response = new BE_CustomQuickActionCRUD_Cls.Response();
+        BE_CustomQuickActionCRUD_Cls.Response response = new BE_CustomQuickActionCRUD_Cls.Response();
         response.isSuccess = false;
         Final Map<String,Object> params = new Map<String,Object>{'config' => 'test'};
         Final altm__Commercial_Alert__c sObj = new altm__Commercial_Alert__c(altm__commercial_alert_record_type__c= 'Management',

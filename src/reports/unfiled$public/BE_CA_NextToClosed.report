@@ -14,7 +14,7 @@
         <groupingColumn>altm__Commercial_Alert__c.commercial_alert_category__c</groupingColumn>
         <legendPosition>Right</legendPosition>
         <location>CHART_BOTTOM</location>
-        <showAxisLabels>false</showAxisLabels>
+        <showAxisLabels>true</showAxisLabels>
         <showPercentage>false</showPercentage>
         <showTotal>true</showTotal>
         <showValues>false</showValues>
@@ -26,13 +26,10 @@
         <titleSize>18</titleSize>
     </chart>
     <columns>
-        <field>CUST_NAME</field>
-    </columns>
-    <columns>
         <field>FK_NAME</field>
     </columns>
     <columns>
-        <field>altm__Commercial_Alert__c.altm__campaign_id__c</field>
+        <field>CUST_NAME</field>
     </columns>
     <columns>
         <field>altm__Commercial_Alert__c.altm__commercial_alert_end_date__c</field>
@@ -42,16 +39,23 @@
         <criteriaItems>
             <column>altm__Commercial_Alert__c.altm__commercial_alert_end_date__c</column>
             <columnToColumn>false</columnToColumn>
-            <isUnlocked>true</isUnlocked>
+            <isUnlocked>false</isUnlocked>
             <operator>lessOrEqual</operator>
             <value>NEXT_90_DAYS</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_CMP_ID</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>7010n000000d3ui</value>
         </criteriaItems>
         <language>en_US</language>
     </filter>
     <format>Matrix</format>
     <groupingsAcross>
         <dateGranularity>Day</dateGranularity>
-        <field>FK_$Account.main_code_id__c</field>
+        <field>altm__Commercial_Alert__c.altm__participant_id__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsAcross>
     <groupingsDown>
@@ -59,12 +63,12 @@
         <field>altm__Commercial_Alert__c.commercial_alert_category__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Number of Next to Close</name>
+    <name>Alertas Comerciales próximas a vencer</name>
     <params>
         <name>co</name>
         <value>1</value>
     </params>
-    <reportType>CustomEntity$altm__Commercial_Alert__c@altm__Commercial_Alert__c.altm__participant_id__c</reportType>
+    <reportType>CustomEntity$altm__Commercial_Alert__c@altm__Commercial_Alert__c.altm__campaign_id__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
     <showGrandTotal>true</showGrandTotal>

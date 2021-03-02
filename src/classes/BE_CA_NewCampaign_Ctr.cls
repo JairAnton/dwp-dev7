@@ -18,12 +18,10 @@ public with sharing class BE_CA_NewCampaign_Ctr extends BE_CustomQuickActionCRUD
     @return BE_SingleRelatedListCRUD_Cls.Response response
     */
     public override BE_CustomQuickActionCRUD_Cls.Response createRecord(sObject sObj,Map<String,Object> params) {
-        
-        final BE_CustomQuickActionCRUD_Cls.Response res = new BE_CustomQuickActionCRUD_Cls.Response();
         final Id currentRoleId = UserInfo.getUserRoleId();
         final list<string> ejecutive_position_code = new list<string> {'E03','I32'};
         final string recordTypeName= 'Record_Type_Client';
-        
+        final BE_CustomQuickActionCRUD_Cls.Response res = new BE_CustomQuickActionCRUD_Cls.Response();
         try {           
             List<altm__Commercial_Alert__c> alerList = new List<altm__Commercial_Alert__c>();
             final Map<String,User> allExcUsers = getRoleSubordinateUsers(currentRoleId, ejecutive_position_code);
@@ -32,7 +30,7 @@ public with sharing class BE_CA_NewCampaign_Ctr extends BE_CustomQuickActionCRUD
                 upsert campaignMap.values();
                 alerList = generateAlerts(sObj, recordTypeName, allExcUsers, campaignMap);
                 if( !alerList.isEmpty() ) {
-                    upsert alerList;
+                    insert alerList;
                 }
             }
 
@@ -42,6 +40,8 @@ public with sharing class BE_CA_NewCampaign_Ctr extends BE_CustomQuickActionCRUD
             res.isSuccess=false;
             res.message=e.getMessage();
         }
+        
+        System.debug('10');
         return res;
     }
     
@@ -84,9 +84,13 @@ public with sharing class BE_CA_NewCampaign_Ctr extends BE_CustomQuickActionCRUD
     private static Map<Id,Campaign> generateCampaigns(Map<String,User> allSubUsers, SObject sObj) {
         final Map<Id,Campaign> campaignResponse = new Map<Id,Campaign>();
         for(User userItem : allSubUsers.values()) {
+            String frdate = DateTime.newInstance(
+                Date.valueOf(sObj.get(altm__Commercial_Alert__c.altm__commercial_alert_end_date__c)).year(),
+                Date.valueOf(sObj.get(altm__Commercial_Alert__c.altm__commercial_alert_end_date__c)).month(),
+                Date.valueOf(sObj.get(altm__Commercial_Alert__c.altm__commercial_alert_end_date__c)).day()).format('yyyyMMdd');
             final Campaign campaign = new Campaign();
             campaign.unique_id__c =
-             DateTime.valueOf(sObj.get(altm__Commercial_Alert__c.altm__commercial_alert_end_date__c)).format('yyyyMMdd')+
+             frdate +
              String.valueOf(sObj.get(altm__Commercial_Alert__c.altm__commercial_alert_record_type__c))+
              userItem.Unique_id__c;
             campaign.Name = String.valueOf(sObj.get(altm__Commercial_Alert__c.Name));
@@ -111,7 +115,11 @@ public with sharing class BE_CA_NewCampaign_Ctr extends BE_CustomQuickActionCRUD
         final string stageType = 'Pending';
         final List<altm__Commercial_Alert__c> response = new List<altm__Commercial_Alert__c>(); 
         for (Account acc : [SELECT ID,unique_id__c, Owner.user_id__c FROM Account WHERE Owner.user_id__c IN :allExcUsers.keySet() AND RecordType.DeveloperName = :recordTypeName]) {
-             final altm__Commercial_Alert__c alert = new altm__Commercial_Alert__c();
+            String fmdate = DateTime.newInstance(
+                Date.valueOf(sObj.get(altm__Commercial_Alert__c.altm__commercial_alert_start_date__c)).year(),
+                Date.valueOf(sObj.get(altm__Commercial_Alert__c.altm__commercial_alert_start_date__c)).month(),
+                Date.valueOf(sObj.get(altm__Commercial_Alert__c.altm__commercial_alert_start_date__c)).day()).format('yyyyMMdd');
+            final altm__Commercial_Alert__c alert = new altm__Commercial_Alert__c();
            	 alert.altm__commercial_alert_id__c = 
              acc.unique_id__c +
              String.valueOf(sObj.get(altm__Commercial_Alert__c.altm__commercial_alert_record_type__c))+
@@ -128,7 +136,7 @@ public with sharing class BE_CA_NewCampaign_Ctr extends BE_CustomQuickActionCRUD
              alert.altm__commercial_alert_task_type__c = String.valueOf(sObj.get(altm__Commercial_Alert__c.altm__commercial_alert_task_type__c));
              alert.altm__alert_stage_type__c = stageType;
              alert.Name = alert.commercial_alert_category__c + ' ' + alert.altm__commercial_alert_task_type__c  + ' ' 
-                 + Datetime.valueOf(sObj.get(altm__Commercial_Alert__c.altm__commercial_alert_start_date__c)).format('yyyy-MM-dd'); 
+                 + fmdate; 
              final Campaign relatedCampaign = campaignMap.get(acc.OwnerId);
              if( relatedCampaign != null) {
                 alert.altm__campaign_id__c = relatedCampaign.id;

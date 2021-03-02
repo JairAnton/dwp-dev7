@@ -527,12 +527,10 @@
         <name>BE_CA_CreateTask</name>
     </quickActions>
     <quickActions>
-        <aspect>Master</aspect>
         <label>Nueva oportunidad</label>
         <name>BE_CA_NewOpp</name>
     </quickActions>
     <quickActions>
-        <aspect>Master</aspect>
         <label>Crear visita</label>
         <name>BE_CA_NewVisit</name>
     </quickActions>

@@ -384,7 +384,6 @@
         <customTabListAdditionalFields>CAMPAIGN.NUM_RESPONSES</customTabListAdditionalFields>
         <customTabListAdditionalFields>CORE.USERS.ALIAS</customTabListAdditionalFields>
         <excludedStandardButtons>IsotopeSubscription</excludedStandardButtons>
-        <listViewButtons>BE_CreateAlert</listViewButtons>
         <listViewButtons>altm__View_Alerts</listViewButtons>
         <lookupDialogsAdditionalFields>CAMPAIGN.NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>PARENT_NAME</lookupDialogsAdditionalFields>
@@ -410,22 +409,9 @@
         <searchResultsAdditionalFields>CAMPAIGN.END_DATE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CAMPAIGN.NUM_RESPONSES</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
-        <searchResultsCustomButtons>BE_CreateAlert</searchResultsCustomButtons>
         <searchResultsCustomButtons>altm__View_Alerts</searchResultsCustomButtons>
     </searchLayouts>
     <sharingModel>FullAccess</sharingModel>
-    <webLinks>
-        <fullName>BE_CreateAlert</fullName>
-        <availability>online</availability>
-        <displayType>massActionButton</displayType>
-        <height>600</height>
-        <linkType>page</linkType>
-        <masterLabel>Create Alert</masterLabel>
-        <openType>sidebar</openType>
-        <page>BE_CA_CreateCommAlert_Vfp</page>
-        <protected>false</protected>
-        <requireRowSelection>false</requireRowSelection>
-    </webLinks>
     <webLinks>
         <fullName>ViewAllCampaignMembers</fullName>
         <availability>online</availability>
