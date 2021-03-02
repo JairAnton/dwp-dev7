@@ -23,7 +23,7 @@ stages:
         params:
             mdapiConfig:
                 command: deploy
-                apiVersion: 51.0
+                apiVersion: 50.0
 branches:
     feature/dwp:
         stages:
@@ -33,7 +33,7 @@ branches:
                     mdapiConfig:
                         credentialId: SFDC_DEV
                         command: testDeploy
-                        apiVersion: 51.0
+                        apiVersion: 50.0
                         testLevel: RunLocalTests
                         
             publish:
@@ -50,7 +50,7 @@ branches:
                     mdapiConfig:
                         credentialId: SFDC_DEV
                         command: testDeploy
-                        apiVersion: 51.0
+                        apiVersion: 50.0
                         testLevel: RunLocalTests
                         
             publish:
@@ -133,7 +133,7 @@ pullRequests:
                     mdapiConfig:
                         credentialId: SFDC_DEV
                         command: testDeploy
-                        apiVersion: 51.0
+                        apiVersion: 50.0
                         testLevel: RunLocalTests
                         
             publish:
@@ -150,7 +150,7 @@ pullRequests:
                     mdapiConfig:
                         credentialId: SFDC_DEV
                         command: testDeploy
-                        apiVersion: 51.0
+                        apiVersion: 50.0
                         testLevel: RunLocalTests
                         
             publish:
