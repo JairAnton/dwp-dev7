@@ -5,7 +5,7 @@
    @Date 2020-03-01
    @Description Test Class  for Create Contact of Non Client (BE_CA_NewCampaign_Ctr)
    @Changes
-    Date        Author   Email       					           Type
+    Date        Author   Email                                     Type
     2020-03-01  LMBR     luis.vargas.matute.contractor@bbva.com    Creation
    ----------------------------------------------------------------------------------------------------
  */
@@ -14,8 +14,8 @@ public class BE_CA_NewCampaign_Tst {
     
     
     /**
-	 * @Description  setUp
-	 */
+     * @Description  setUp
+     */
     @TestSetup
     public static void setUp() {
         final String recordTypeId= [SELECT ID FROM RecordType WHERE sObjectType='Account' AND DeveloperName='Record_Type_Client'].Id;     
@@ -29,8 +29,8 @@ public class BE_CA_NewCampaign_Tst {
     }
     
      /**
-	 * @Description  Test BE_CA_NewCampaign_Ctr
-	 */
+     * @Description  Test BE_CA_NewCampaign_Ctr
+     */
     @IsTest
     public static void getValues() {
         Final User manager = [SELECT Id FROM User WHERE prof_position_id__c = 'E01' LIMIT 1];
@@ -42,6 +42,7 @@ public class BE_CA_NewCampaign_Tst {
                                                                             altm__commercial_alert_end_date__c = system.today(),
                                                                             altm__commercial_alert_start_date__c = system.today(),
                                                                             commercial_alert_category__c = 'Recursos',
+                                                                            altm__commercial_alert_task_type__c = 'Activo',
                                                                             Name = 'Test Name');
         Test.startTest();
         System.runAs(manager) {
@@ -49,7 +50,7 @@ public class BE_CA_NewCampaign_Tst {
         }
         
         Test.stopTest();
-		System.assert(response.isSuccess, true);
+        System.assert(response.isSuccess, true);
 
     }
     

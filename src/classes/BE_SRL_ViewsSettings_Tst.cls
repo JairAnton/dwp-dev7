@@ -5,13 +5,13 @@
    @Date 2021-02-23
    @Description test for BE_SRL_ViewsSettings_Cls class
    @Changes
-   Date        Author   Email                  			   Type
+   Date        Author   Email                              Type
    2021-02-23  DBAV     deyby.bazan.contractor@bbva.com    Creation
    -------------------------------------------------------------------------------------------------
  */
 @isTest
 public without sharing class BE_SRL_ViewsSettings_Tst {
-	
+    
     /**
      @Description test BE_SRL_ViewsSettings_Cls.getDefaultValue(), correct scenary
     */
@@ -21,7 +21,7 @@ public without sharing class BE_SRL_ViewsSettings_Tst {
         final VisualEditor.DataRow defaultValue=sinRelSet.getDefaultValue();
         System.assertEquals('NONE', defaultValue.getValue(), 'Correct Value');
     }
-	/**
+    /**
      @Description test BE_SRL_ViewsSettings_Cls.getValues(), correct scenary
     */
     @IsTest
