@@ -8,34 +8,32 @@
     </values>
     <values>
         <field>CustomFields__c</field>
-        <value xsi:type="xsd:string">{
-&quot;fields&quot;: [
-{
-&quot;fieldName&quot;: &quot;Name&quot;,
-&quot;disabled&quot;: true,
-&quot;value&quot;: &quot;Reunión de Planificación ...&quot;
-},
-{
-&quot;fieldName&quot;: &quot;Collaborator__c&quot;,
-&quot;required&quot;: true,
-&quot;value&quot;: &quot;UserId&quot;
-},
-{
-&quot;fieldName&quot;: &quot;Type_of_meeting__c&quot;,
-&quot;required&quot;: true,
-&quot;value&quot;: &quot;Planning&quot;
-},
-{
-&quot;fieldName&quot;: &quot;DateTime__c&quot;,
-&quot;required&quot;: true
-},
-{
-&quot;fieldName&quot;: &quot;slmt__mngmt_plan_meet_dur_number__c&quot;,
-&quot;required&quot;: true,
-&quot;value&quot;: &quot;45&quot;
-}
-]
-}</value>
+        <value xsi:type="xsd:string">[
+    {
+        &quot;fieldName&quot;: &quot;Name&quot;,
+        &quot;disabled&quot;: true,
+        &quot;value&quot;: &quot;Reunión de Planificación ...&quot;
+    },
+    {
+        &quot;fieldName&quot;: &quot;Collaborator__c&quot;,
+        &quot;required&quot;: true,
+        &quot;value&quot;: &quot;UserId&quot;
+    },
+    {
+        &quot;fieldName&quot;: &quot;Type_of_meeting__c&quot;,
+        &quot;required&quot;: true,
+        &quot;value&quot;: &quot;Planning&quot;
+    },
+    {
+        &quot;fieldName&quot;: &quot;DateTime__c&quot;,
+        &quot;required&quot;: true
+    },
+    {
+        &quot;fieldName&quot;: &quot;slmt__mngmt_plan_meet_dur_number__c&quot;,
+        &quot;required&quot;: true,
+        &quot;value&quot;: &quot;45&quot;
+    }
+]</value>
     </values>
     <values>
         <field>ModeAction__c</field>

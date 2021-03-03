@@ -29,11 +29,17 @@ public without sharing class BE_CustomQuickAction_Ctr {
     mdt.CustomFields__c = mdt.CustomFields__c.replaceAll(': "UserId"', ': "'+System.UserInfo.getUserId()+'"');
     mdt.CustomFields__c = mdt.CustomFields__c.replaceAll(': "recordId"', ': "'+recordId+'"');
     final List<String> replaceFields= new List<String>();
-    for (Fields fieldItem : (List<Fields>)JSON.deserialize(mdt.CustomFields__c,List<Fields>.class)) {
-        if(String.isNotEmpty(fieldItem.replaced)) {
-                replaceFields.add((String)fieldItem.replaced);
+    
+    try {
+        for (Fields fieldItem : (List<Fields>)JSON.deserialize(mdt.CustomFields__c,List<Fields>.class)) {
+            if(String.isNotEmpty(fieldItem.replaced)) {
+                    replaceFields.add((String)fieldItem.replaced);
+            }
         }
+    } catch (DmlException e) {
+        System.debug('The following exception has occurred: ' + e.getMessage());
     }
+      
     final Integer sizeFields=0;
     if(replaceFields.size()>sizeFields) {
         final Id sObjId = recordId;
@@ -68,7 +74,9 @@ public without sharing class BE_CustomQuickAction_Ctr {
       } else {
           final String query= 'SELECT '+ String.join(sObjFields, ',') + 
           ' FROM '+ (String)params.get('sObjectType') +' WHERE Id=@@'+(String)params.get('Id')+'@@';
-          returnObj = Database.query(String.escapeSingleQuotes(query).replace('@@','"'));
+          System.debug('##QUERY#'+String.escapeSingleQuotes(query).replace('@@','\''));
+          System.debug('###QUERY##'+query);
+          returnObj = Database.query(String.escapeSingleQuotes(query).replace('@@','\''));
       }
       return returnObj;
   }
