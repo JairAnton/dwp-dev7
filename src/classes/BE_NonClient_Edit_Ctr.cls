@@ -15,7 +15,7 @@ public without sharing class BE_NonClient_Edit_Ctr extends BE_CustomQuickActionC
      @param  sObjs Account sObject
      @return Object type BE_CustomQuickActionCRUD_Cls.Response Class
    */
-  public override BE_CustomQuickActionCRUD_Cls.Response updateRecord(sObject sObj) {
+  public override BE_CustomQuickActionCRUD_Cls.Response updateRecord(SObject sObj,Map<String,Object> params) {
     return BE_NonClient_Modify_Helper.modifyNonClient((Account)sObj);
   }
 }

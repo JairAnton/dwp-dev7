@@ -21,7 +21,7 @@ private static final String RUC_ACC = '20876543262';
 private static final String URL_GT = 'https://validation/ok';
 /**
    @Description test BE_NonClient_Ctr.checkDuplicateNonClients(), correct scenary
- */
+*/
 @IsTest
 static void checkDuplicateNonClientsTest() {
 	Test.startTest();
@@ -35,7 +35,7 @@ static void checkDuplicateNonClientsTest() {
 }
 /**
    @Description test BE_NonClient_Ctr.validateNonCliente(), exist non cliente.
- */
+*/
 @IsTest
 static void validateNonClienteTestExistNonClient() {
 	insert new iaso__GBL_Rest_Services_Url__c(Name = GRANT_TICKET, iaso__Url__c = URL_GT, iaso__Cache_Partition__c = CACHE_PARTITION);

@@ -10,7 +10,7 @@
    -------------------------------------------------------------------------------------------------
  */
 @IsTest
-public with sharing class BE_CustomQuickAction_Tst {
+public with sharing class BE_CustomQuickAction_Tst { 
     /** GrantingTickets */
 	final static String CLASS_NAME='className';
     
@@ -112,6 +112,6 @@ public with sharing class BE_CustomQuickAction_Tst {
         if(resp==null) {
             isNull = true;
         }
-        System.assert(!isNull, 'successAll!');
+        System.assert(!isNull, 'successAll!'); 
     }
 }
