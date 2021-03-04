@@ -1,7 +1,19 @@
+/**
+   -------------------------------------------------------------------------------------------------
+   @Name BE_AP_UpdateAPQuestions
+   @Author Lolo Bravo
+   @Date 2020-11-04
+   @Description
+   @Changes
+   Date        Author       Email                  Type
+   2021-03-04  LMBR     	lolo.bravo@bbva.com    Creation
+   -------------------------------------------------------------------------------------------------
+ */
 public class BE_AP_DeleteFieldConfigs  implements Database.Batchable<sObject>, Database.Stateful {
     // instance member to retain state across transactions
     public Integer recordsProcessed = 0;
     public List<Id> idCatalogs = new List<Id>();
+    /** Query BatchableContext*/
     public Database.QueryLocator start(Database.BatchableContext bc) {
 		for (acpl__Account_Planning__c accPlan : [SELECT Id FROM acpl__Account_Planning__c Where RecordType.DeveloperName = 'Question_Catalog']) {
     	idCatalogs.add(accPlan.id);
@@ -11,8 +23,9 @@ public class BE_AP_DeleteFieldConfigs  implements Database.Batchable<sObject>, D
         );
         
     }
-    public void execute(Database.BatchableContext bc, List<dyfr__Field_Config__c> scope){
-        List<dyfr__Field_Config__c> lstFCDelete = new List<dyfr__Field_Config__c>();
+    /** Execute BatchableContext*/
+    public void execute(Database.BatchableContext bc, List<dyfr__Field_Config__c> scope) {
+        final List<dyfr__Field_Config__c> lstFCDelete = new List<dyfr__Field_Config__c>();
         // process each batch of records
         for (dyfr__Field_Config__c fieldConfig : scope) {
             if (!idCatalogs.contains(fieldConfig.dyfr__DeveloperName__c.substringBefore('_'))) {
@@ -25,12 +38,14 @@ public class BE_AP_DeleteFieldConfigs  implements Database.Batchable<sObject>, D
         	delete lstFCDelete;
         }
     }
-    public void finish(Database.BatchableContext bc){
+    /** Finish BatchableContext*/
+    public void finish(Database.BatchableContext bc) {
         System.debug(recordsProcessed + 'Field Config records processed!');
-        AsyncApexJob job = [SELECT Id, Status, NumberOfErrors,
+        final AsyncApexJob job = [SELECT Id, Status, NumberOfErrors,
             JobItemsProcessed,
             TotalJobItems, CreatedBy.Email
             FROM AsyncApexJob
             WHERE Id = :bc.getJobId()];
+       	System.debug('##job##'+job.Id);
     }
 }
