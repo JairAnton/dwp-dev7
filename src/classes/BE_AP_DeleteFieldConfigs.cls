@@ -12,7 +12,7 @@
 public class BE_AP_DeleteFieldConfigs  implements Database.Batchable<sObject>, Database.Stateful {
     // instance member to retain state across transactions
     private Integer recordsProcessed = 0;
-    private List<Id> idCatalogs = new List<Id>();
+    final private List<Id> idCatalogs = new List<Id>();
     /** Query BatchableContext*/
     public Database.QueryLocator start(Database.BatchableContext bc) {
 		for (acpl__Account_Planning__c accPlan : [SELECT Id FROM acpl__Account_Planning__c Where RecordType.DeveloperName = 'Question_Catalog']) {

@@ -12,8 +12,8 @@
 public class BE_AP_UpdateAPQuestions  implements  Database.Batchable<sObject>, Database.Stateful {
     // instance member to retain state across transactions
     private Integer recordsProcessed = 0;
-    private Map<Id,Id> idCatalogs = new Map<Id,Id>(); //Id Account Plan Type - Id Account Plan Catalog
-    private List<Id> idAPCatalogs = new List<Id>();
+    final private Map<Id,Id> idCatalogs = new Map<Id,Id>(); //Id Account Plan Type - Id Account Plan Catalog
+    final private List<Id> idAPCatalogs = new List<Id>();
     /** BatchableContext*/
     public Database.QueryLocator start(Database.BatchableContext bc) {
         for (acpl__Account_Planning__c accPlan : [SELECT Id, acpl__Account_Planning_Type__c FROM acpl__Account_Planning__c Where RecordType.DeveloperName = 'Question_Catalog']) {
@@ -49,5 +49,6 @@ public class BE_AP_UpdateAPQuestions  implements  Database.Batchable<sObject>, D
             TotalJobItems, CreatedBy.Email
             FROM AsyncApexJob
             WHERE Id = :bc.getJobId()];
+        System.debug('##job##'+job.Id);
     }
 }
