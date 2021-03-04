@@ -1,0 +1,3 @@
+<aura:component implements="lightning:actionOverride,flexipage:availableForRecordHome,force:lightningQuickActionWithoutHeader,force:hasRecordId" access="global">
+    <c:BE_CustomQuickAction_Cmp recordId="{!v.recordId}" nameMetadata="BE_CA_NewCampaign" isNotQuickAction="true"/>
+</aura:component>

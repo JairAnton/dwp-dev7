@@ -17,7 +17,7 @@ public without sharing class BE_Contact_Edit_Ctr extends BE_CustomQuickActionCRU
     @param  sObject sObj
     @return BE_CustomQuickActionCRUD_Cls.Response response
     */
-    public override BE_CustomQuickActionCRUD_Cls.Response updateRecord(sObject sObj) {
+    public override BE_CustomQuickActionCRUD_Cls.Response updateRecord(SObject sObj,Map<String,Object> params) {
         res=new BE_CustomQuickActionCRUD_Cls.Response();
         final Contact conNew=(Contact)sObj;
         final Contact conOld=[SELECT ID,contact_code__c, AccountId,Account.RecordType.DeveloperName FROM Contact WHERE Id=:(Id)sObj.get('Id')];

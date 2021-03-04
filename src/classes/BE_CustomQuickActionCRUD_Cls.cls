@@ -17,7 +17,7 @@ public virtual class BE_CustomQuickActionCRUD_Cls {
     @param List<SObject> sObjs
     @return Response class
     */
-    public virtual Response createRecord(SObject sObj) {
+    public virtual Response createRecord(SObject sObj,Map<String,Object> params) {
         response=new Response();
         return response;
     }
@@ -26,7 +26,7 @@ public virtual class BE_CustomQuickActionCRUD_Cls {
     @param List<SObject> sObjs
     @return Response class
     */
-    public virtual Response updateRecord(SObject sObj) {
+    public virtual Response updateRecord(SObject sObj,Map<String,Object> params) {
         response=new Response();
         return response;
     }
@@ -35,7 +35,7 @@ public virtual class BE_CustomQuickActionCRUD_Cls {
     @param List<SObject> sObjs
     @return Response class
     */
-    public virtual Response deleteRecord(SObject sObjIds) {
+    public virtual Response deleteRecord(SObject sObj,Map<String,Object> params) {
         response=new Response();
         return response;
     }
@@ -44,7 +44,7 @@ public virtual class BE_CustomQuickActionCRUD_Cls {
     @param Map<String,Object> params
     @return Response class
     */
-    public virtual Response readRecord(Map<String,Object> params) {
+    public virtual Response readRecord(SObject sObj,Map<String,Object> params) {
         response=new Response();
         return response;
     }

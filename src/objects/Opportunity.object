@@ -477,6 +477,19 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>commercial_alert_id__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Commercial Alert</label>
+        <referenceTo>altm__Commercial_Alert__c</referenceTo>
+        <relationshipLabel>Oportunidades</relationshipLabel>
+        <relationshipName>Opportunities</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>commercial_plan_event__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>

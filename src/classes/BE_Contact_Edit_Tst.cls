@@ -21,6 +21,8 @@ public with sharing class BE_Contact_Edit_Tst {
     private static final String CACHE_PARTITION = 'iaso.ServicesPartition';
     /** GrantingTickets */
     static final List<String> SOBJTYPE_NAME=new List<String> {'Account'};
+    /** Map parmas */
+	private static final Map<String,Object> PARAMS=new Map<String,Object>{''=>''};
     /** ACC ONE */
     private static  Account accOne = new Account(Name='Client One',AccountNumber='20876543267',non_client_code__c='20876543267');
     /** ACC TWO */
@@ -47,7 +49,7 @@ public with sharing class BE_Contact_Edit_Tst {
         iaso.GBL_Mock.setMock(new Integration_MockGenerator());
         Test.startTest();
         contact.AccountId=accs[0].Id;
-        final BE_CustomQuickActionCRUD_Cls.Response res= conEdit.updateRecord(contact);
+        final BE_CustomQuickActionCRUD_Cls.Response res= conEdit.updateRecord(contact,PARAMS);
         System.assert(!res.isSuccess, ' updateRecordCreate Success');
         Test.stopTest();
     }
@@ -69,7 +71,7 @@ public with sharing class BE_Contact_Edit_Tst {
 	    Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 	    iaso.GBL_Mock.setMock(new Integration_MockGenerator());
         Test.startTest();
-        final BE_CustomQuickActionCRUD_Cls.Response res= conEdit.updateRecord(contact);
+        final BE_CustomQuickActionCRUD_Cls.Response res= conEdit.updateRecord(contact,PARAMS);
         System.assert(res.isSuccess, ' updateRecordUpdate Success');
         Test.stopTest();
     }
@@ -99,7 +101,7 @@ public with sharing class BE_Contact_Edit_Tst {
         iaso.GBL_Mock.setMock(new Integration_MockGenerator());
         Test.startTest();
         contacts[0].AccountId=accs[1].Id;
-        final BE_CustomQuickActionCRUD_Cls.Response res= conEdit.updateRecord(contacts[0]);
+        final BE_CustomQuickActionCRUD_Cls.Response res= conEdit.updateRecord(contacts[0],PARAMS);
         System.assert(res.isSuccess, 'updateRecordDeleteCreate Success');
         Test.stopTest();
     }
@@ -124,9 +126,8 @@ public with sharing class BE_Contact_Edit_Tst {
         iaso.GBL_Mock.setMock(new Integration_MockGenerator());
         Test.startTest();
         contact.AccountId=accs[0].Id;
-        final BE_CustomQuickActionCRUD_Cls.Response res= conEdit.updateRecord(contact);
+        final BE_CustomQuickActionCRUD_Cls.Response res= conEdit.updateRecord(contact,PARAMS);
         System.assert(res.isSuccess, 'updateRecordDelete Success');
         Test.stopTest();
     }
 }
-

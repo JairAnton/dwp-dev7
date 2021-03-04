@@ -3,7 +3,44 @@
     <!--CARD-->
     <template if:true={hasRendered}>
         <div class="slds-box">
-            <lightning-card variant="Narrow" title={customTitle} icon-name={iconName}>
+            <lightning-card>
+                <h3 slot="title" onclick={togleViews}>
+                    <div class="slds-card__header slds-grid">
+                        <div class="slds-media slds-media--center slds-has-flexi-truncate">
+                            <div class="slds-media__figure">
+                                <lightning-icon icon-name={iconName} size="small"></lightning-icon>
+                            </div>
+                            <div class="slds-media__body">
+                                <h2 class="slds-text-heading--small slds-truncate">
+                                    <template if:false={showIconViews}>{customTitle}</template>
+                                    <template if:true={showIconViews}>
+                                        {viewSet.label}
+                                        <lightning-button-icon icon-name="utility:down" alternative-text="Views"
+                                            title="Views" variant="bare">
+                                        </lightning-button-icon>
+                                    </template>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </h3>
+                <section if:true={showViews} role="dialog" class="slds-popover slds-popover_edit"
+                    style="position: absolute; z-index: 1;">
+                    <div>
+                        <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                            <template for:each={viewOptions} for:item="item">
+                                <li key={item.value} id={item.label} aria-label={item.label}
+                                    onclick={handleOnselectView} data-id={item.value} role="presentation"
+                                    class="slds-listbox__item">
+                                    <span class="slds-lookup__item-action slds-lookup__item-action--label"
+                                        role="option">
+                                        <span class="slds-truncate">{item.label}</span>
+                                    </span>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </section>
                 <div if:true={helpText} class="slds-text-align_left slds-p-bottom_x-small">{helpText}</div>
                 <!--DESKTOP-->
                 <template if:false={isMobile}>
@@ -20,16 +57,16 @@
                         <div class="slds-p-horizontal_small bodyBox">
                             <template if:true={showCheckbox}>
                                 <c-b-e_-custom-data-table_-lwc key-field="Id" max-row-selection={maxRowSelection}
-                                    draft-values={draftValues} data={sObjectData} wrap-text-max-lines="2" columns={columns}
-                                    onrowaction={handleRowActionWeb} onsave={handleInlineSave}
-                                    oncustomtypelookup={handleCustomTypeLookup} onvalueselect={handleSelection} 
+                                    draft-values={draftValues} data={sObjectData} wrap-text-max-lines="2"
+                                    columns={columns} onrowaction={handleRowActionWeb} onsave={handleInlineSave}
+                                    oncustomtypelookup={handleCustomTypeLookup} onvalueselect={handleSelection}
                                     onrowselection={handleCheckboxChange}>
                                 </c-b-e_-custom-data-table_-lwc>
                             </template>
                             <template if:false={showCheckbox}>
                                 <c-b-e_-custom-data-table_-lwc key-field="Id" hide-checkbox-column="true"
-                                    draft-values={draftValues} data={sObjectData} wrap-text-max-lines="2" columns={columns}
-                                    onrowaction={handleRowActionWeb} onsave={handleInlineSave}
+                                    draft-values={draftValues} data={sObjectData} wrap-text-max-lines="2"
+                                    columns={columns} onrowaction={handleRowActionWeb} onsave={handleInlineSave}
                                     oncustomtypelookup={handleCustomTypeLookup} onvalueselect={handleSelection}>
                                 </c-b-e_-custom-data-table_-lwc>
                             </template>
@@ -86,7 +123,7 @@
         <lightning-spinner alternative-text="Loading"></lightning-spinner>
     </template>
     <!--STANDARD MODAL-->
-    <template if:true={modalStandard.showApiModal}>
+    <template if:true={modalStandard.show}>
         <c-b-e_-single-related-list-modal_-lwc record-id={modalStandard.recordId} title={modalStandard.title}
             sobject-type={modalStandard.sobjectType} s-obj-fields={modalStandard.fields}
             class-name={modalStandard.className} mode-action={modalStandard.mode} redirect={modalStandard.redirect}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Alerta Comercial</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Alertas Comerciales</value>
+    </caseValues>
+    <fields>
+        <label><!-- Unique Identifier --></label>
+        <name>unique_id__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <quickActions>
+        <label><!-- Child Campaign --></label>
+        <name>Child_Campaign</name>
+    </quickActions>
+    <recordTypes>
+        <description><!-- Campañas de gerencia --></description>
+        <label><!-- Campaign --></label>
+        <name>BE_Campaign</name>
+    </recordTypes>
+    <webLinks>
+        <label><!-- BE_CreateAlert --></label>
+        <name>BE_CreateAlert</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ViewAllCampaignMembers --></label>
+        <name>ViewAllCampaignMembers</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ViewCampaignInfluenceReport --></label>
+        <name>ViewCampaignInfluenceReport</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- View_Alerts --></label>
+        <name>altm__View_Alerts</name>
+    </webLinks>
+</CustomObjectTranslation>

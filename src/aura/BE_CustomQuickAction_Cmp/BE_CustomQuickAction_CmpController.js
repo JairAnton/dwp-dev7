@@ -5,10 +5,10 @@
     handleSubmitCustom: function (cmp, evt, helper) {
         evt.preventDefault();
         var fields = evt.getParam('fields');
-        var initialsObject = { "sobjectType": cmp.get('v.sObjectType')};
+        var initialsObject = { "sobjectType": cmp.get('v.sObjData.sObjectType')};
         switch (cmp.get("v.settings").modeAction) {
             case 'view':
-                helper.callApexMethod(cmp, evt, JSON.stringify(initialsObject),cmp.get("c.readRecord"))
+                helper.callApexMethod(cmp, evt, JSON.stringify(initialsObject), cmp.get("c.readRecord"))
                 break;
             case 'create':
                 var sObjectCreate = Object.assign(initialsObject, fields);

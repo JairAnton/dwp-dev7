@@ -29,6 +29,8 @@ private static final String NOCLIENT_CODE='P0234234234';
 private static final String RUC='20000000002';
 /** Account Number*/
 private static final String ACC_NUMBER='10212210244';
+/** Map parmas */
+private static final Map<String,Object> PARAMS=new Map<String,Object>{''=>''};
 /**
    @Description test BE_EditNonClient_Ctr.updateRecord(),correct scenary
  */
@@ -44,7 +46,7 @@ static void updateRecordTestSucess() {
 	Test.startTest();
 	final Account acc= new Account(Id=nonClient.Id,Name='NON CLIENT TEST ONE',AccountNumber=ACC_NUMBER,email__c='test@gmail.com',Website='www.test.com',phone_area_code__c='41',other_phone_number__c='987654');
 	final BE_NonClient_Edit_Ctr nonClientClass=new BE_NonClient_Edit_Ctr();
-	final BE_CustomQuickActionCRUD_Cls.Response res=nonClientClass.updateRecord((sObject)acc);
+    final BE_CustomQuickActionCRUD_Cls.Response res=nonClientClass.updateRecord((sObject)acc,PARAMS);
 	System.assert (res.isSuccess,'Success Edit Non Client');
 	Test.stopTest();
 }
@@ -60,7 +62,7 @@ static void updateRecordTestServerError() {
 	Test.startTest();
 	final Account acc= new Account(Id=nonClient.Id,Name='NON CLIENT TEST TWO',AccountNumber=ACC_NUMBER);
 	final BE_NonClient_Edit_Ctr nonClientClass=new BE_NonClient_Edit_Ctr();
-	final BE_CustomQuickActionCRUD_Cls.Response res=nonClientClass.updateRecord((sObject)acc);
+	final BE_CustomQuickActionCRUD_Cls.Response res=nonClientClass.updateRecord((sObject)acc,PARAMS);
 	System.assert (!res.isSuccess,'Server error Edit Non Client');
 	Test.stopTest();
 }
@@ -76,7 +78,7 @@ static void updateRecordTestError() {
 	Test.startTest();
 	final Account acc= new Account(Id=nonClient.Id,Name='NON CLIENT TEST',AccountNumber=ACC_NUMBER);
 	final BE_NonClient_Edit_Ctr nonClientClass=new BE_NonClient_Edit_Ctr();
-	final BE_CustomQuickActionCRUD_Cls.Response res=nonClientClass.updateRecord(acc);
+	final BE_CustomQuickActionCRUD_Cls.Response res=nonClientClass.updateRecord(acc,PARAMS);
 	System.assert (!res.isSuccess,'Error Edit Non Client');
 	Test.stopTest();
 }
@@ -95,7 +97,7 @@ static void updateRecordTestException() {
 	Test.startTest();
 	final Account acc= new Account(Id=nonClient.Id,Name='NON CLIENT TEST THREE',AccountNumber=ACC_NUMBER,email__c='test@gmail.com',Website='www.test.com',phone_area_code__c='00',other_phone_number__c='987654');
 	final BE_NonClient_Edit_Ctr nonClientClass=new BE_NonClient_Edit_Ctr();
-	final BE_CustomQuickActionCRUD_Cls.Response res=nonClientClass.updateRecord((sObject)acc);
+	final BE_CustomQuickActionCRUD_Cls.Response res=nonClientClass.updateRecord((sObject)acc,PARAMS);
 	System.assert (!res.isSuccess,'Exception Non Client');
 	Test.stopTest();
 }
@@ -114,7 +116,7 @@ static void updateRecordAlphaTestError() {
 	Test.startTest();
 	final Account acc= new Account(Id=nonClient.Id,Name='NON CLIENT TEST SS',AccountNumber=ACC_NUMBER,email__c='test@gmail.com',Website='www.test.com',phone_area_code__c='00',other_phone_number__c='987654');
 	final BE_NonClient_Edit_Ctr nonClientClass=new BE_NonClient_Edit_Ctr();
-	final BE_CustomQuickActionCRUD_Cls.Response res=nonClientClass.updateRecord((sObject)acc);
+	final BE_CustomQuickActionCRUD_Cls.Response res=nonClientClass.updateRecord((sObject)acc,PARAMS);
 	System.assert (!res.isSuccess,'Exception');
 	Test.stopTest();
 }
