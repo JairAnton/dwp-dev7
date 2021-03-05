@@ -286,6 +286,26 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BE_CA_NewCampaign_Ctr</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_CA_NewCampaign_Tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_CA_NewOpp_Ctr</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_CA_NewVisit_Ctr</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_CA_NewVisit_Tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BE_CalceCancellationsOfDay_Ctr</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -696,6 +716,22 @@
     <classAccesses>
         <apexClass>BE_RelateList_Test</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_SRL_ViewsSettings_Cls</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_SRL_ViewsSettings_Tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_SRL_Views_Ctr</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_SRL_Views_Tst</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
 	<classAccesses>
         <apexClass>BE_SanctionUseQuotation_Ctr</apexClass>
@@ -4348,6 +4384,11 @@ Ejecutivos de REDES</description>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Type</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.unique_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
