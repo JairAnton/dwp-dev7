@@ -44,6 +44,7 @@ public with sharing class BE_CA_NewCampaign_Ctr extends BE_CustomQuickActionCRUD
         System.debug('10');
         return res;
     }
+	
     
     /**
     @Description Get Roles of Hierarchy
