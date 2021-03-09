@@ -10,27 +10,25 @@
    -------------------------------------------------------------------------------------------------
  */
 global without sharing class APDynamicButtonsStatusHandlerTactico implements dwp_dbpn.DynamicButtonsStatusInterface {
+    /** Private class*/
+    private APDynamicButtonsStatusHandlerTactico() {}
 	/** getDynamicButtonStatus*/
     global static Set<String> getDynamicButtonStatus(String recordId, String sObjectName) {
         Set<String> buttonsStatusSet = new Set<String>();
-        /*string para guardar el perfil del current user*/
-        final String currentUserId = userInfo.getProfileId();
-
         /*Id del AP para obtener su estado*/
         final acpl__Account_Planning__c accountPlan = [SELECT Id, acpl__gf_ap_status_type_name__c, acpl__gf_ap_indvi_lock_edit_ind_type__c
                                             FROM acpl__Account_Planning__c
                                             WHERE Id = :recordId LIMIT 1].get(0);
 
         /*Rol del usuario*/
-        acpl__Account_Plan_Settings__c apSetting = acpl__Account_Plan_Settings__c.getInstance();
-
+        final acpl__Account_Plan_Settings__c apSetting = acpl__Account_Plan_Settings__c.getInstance();
         //Si ap desbloqueado, añado los botones de "Growth Drivers" y "Needs"
         if(accountPlan.acpl__gf_ap_indvi_lock_edit_ind_type__c) {
             buttonsStatusSet.add('AP_New_Growth_Driver_Tactico');
             buttonsStatusSet.add('AP_New_Need_Tactico');
         }
         //Si ap in progress, desbloqueado y rol correcto, añado el botón "Ask for Validation"
-        if(apInProgressUnlocked(accountPlan) && hasCorrectRole(accountPlan, apSetting)) {
+        if(apInProgressUnlocked(accountPlan) && hasCorrectRole(accountPlan,apSetting)) {
             buttonsStatusSet.add('AP_Ask_for_validation_Tactico');
         }
         return buttonsStatusSet;
@@ -39,10 +37,8 @@ global without sharing class APDynamicButtonsStatusHandlerTactico implements dwp
     /** apInProgressUnlocked*/
     public static Boolean apInProgressUnlocked(acpl__Account_Planning__c accountPlan) {
         Boolean isInProgress = false;
-        if (accountPlan != null) {
-            if ( accountPlan.acpl__gf_ap_status_type_name__c == Label.acpl.In_Progress && accountPlan.acpl__gf_ap_indvi_lock_edit_ind_type__c) {
-                isInProgress = true;
-            }
+        if (accountPlan != null && accountPlan.acpl__gf_ap_status_type_name__c == Label.acpl.In_Progress && accountPlan.acpl__gf_ap_indvi_lock_edit_ind_type__c) {
+            isInProgress = true;
         }
         return isInProgress;
     }
