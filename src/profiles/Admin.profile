@@ -5483,7 +5483,8 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.commercial_alert_id__c</field>
-        <readable>true</readable>	
+        <readable>true</readable>    
+    </fieldPermissions>	
 	<fieldPermissions>
         <editable>true</editable>
         <field>Account_BBVA_Information__c.user_id__c</field>

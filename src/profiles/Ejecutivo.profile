@@ -9849,6 +9849,7 @@ Asistente BE</description>
         <layout>Campaign-Campaign Layout</layout>
         <recordType>Campaign.BE_Campaign</recordType>
     </layoutAssignments>
+    <layoutAssignments>
 		<layout>Case-acpl__Account Plan Validation</layout>
 	    <recordType>Case.acpl__Account_Plan_Validation</recordType>
 	</layoutAssignments>
