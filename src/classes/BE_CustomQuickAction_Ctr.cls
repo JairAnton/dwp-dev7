@@ -25,19 +25,27 @@ public without sharing class BE_CustomQuickAction_Ctr {
   */
   @AuraEnabled (cacheable=true)
   public static Map<String,Object> getSettings(String nameMetadata, String recordId) {
-    final BE_SingleRelatedList_QuickAction__mdt mdt = [SELECT Id, Title__c,CustomFields__c, sObjectType__c, ClassName__c, ModeAction__c FROM BE_SingleRelatedList_QuickAction__mdt WHERE DeveloperName = :nameMetadata LIMIT 1];
+    final BE_SingleRelatedList_QuickAction__mdt mdt = [SELECT Id, Title__c ,CustomFields__c, sObjectType__c, ClassName__c, ModeAction__c, Redirect__c FROM BE_SingleRelatedList_QuickAction__mdt WHERE DeveloperName = :nameMetadata LIMIT 1];
     mdt.CustomFields__c = mdt.CustomFields__c.replaceAll(': "UserId"', ': "'+System.UserInfo.getUserId()+'"');
     mdt.CustomFields__c = mdt.CustomFields__c.replaceAll(': "recordId"', ': "'+recordId+'"');
     final List<String> replaceFields= new List<String>();
+    final User currentUser = [Select prof_position_id__c From User Where Id = :UserInfo.getUserId() LIMIT 1];
+    //boolean isExcecutiveUser = false; 
+    Boolean isExcecutiveUser = label.lblEjecutivoCode.split(',').contains(currentUser.prof_position_id__c);
+
     
-    try {
-        for (Fields fieldItem : (List<Fields>)JSON.deserialize(mdt.CustomFields__c,List<Fields>.class)) {
-            if(String.isNotEmpty(fieldItem.replaced)) {
-                    replaceFields.add((String)fieldItem.replaced);
-            }
+    /*for( string label :  label.lblEjecutivoCode.split(',')) {
+        if( label.equals(currentUser.prof_position_id__c) ) {
+        	isExcecutiveUser = true;
+            break;
         }
-    } catch (DmlException e) {
-        System.debug('The following exception has occurred: ' + e.getMessage());
+        system.debug('s');
+    }*/
+      
+    for (Fields fieldItem : (List<Fields>)JSON.deserialize(mdt.CustomFields__c,List<Fields>.class)) {
+        if(String.isNotEmpty(fieldItem.replaced)) {
+            replaceFields.add((String)fieldItem.replaced);
+        }
     }
       
     final Integer sizeFields=0;
@@ -55,6 +63,8 @@ public without sharing class BE_CustomQuickAction_Ctr {
   	mapReturn.put('sObjectType', mdt.sObjectType__c);
   	mapReturn.put('className', mdt.ClassName__c);
   	mapReturn.put('modeAction', mdt.ModeAction__c);
+    mapReturn.put('redirect',mdt.redirect__c);
+    mapReturn.put('isExcecutiveUser',isExcecutiveUser);
     return mapReturn;
   }
 
@@ -64,7 +74,7 @@ public without sharing class BE_CustomQuickAction_Ctr {
    @param  sObjFields fields to Query
    @return Account
  */
-  @AuraEnabled
+  @AuraEnabled(cacheable=false)
   public static SObject getsObjFields(Map<String,Object> params,List<String> sObjFields) {
     SObject returnObj;
       if(String.isEmpty((String)params.get('Id')) || (String)params.get('action')=='create') {
@@ -78,6 +88,7 @@ public without sharing class BE_CustomQuickAction_Ctr {
           System.debug('###QUERY##'+query);
           returnObj = Database.query(String.escapeSingleQuotes(query).replace('@@','\''));
       }
+      System.debug('returnObj');
       return returnObj;
   }
   /**
