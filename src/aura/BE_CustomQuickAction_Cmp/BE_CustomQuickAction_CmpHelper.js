@@ -14,6 +14,8 @@
                 var locale = $A.get("$Locale.langLocale");
                 cmp.set('v.title', JSON.parse(ret.title)[locale]);
                 cmp.set("v.settings", ret);
+                
+        		console.log("#########Loading",ret.isExcecutiveUser, ret.sObjectType === 'Opportunity', !(!ret.isExcecutiveUser && ret.sObjectType !== 'Opportunity'));
                 this.getsObjectFields(cmp, evt, ret.sObjectType, ret.sObjectFields);
             } else {
                 cmp.set("v.loaded", true);
@@ -69,6 +71,7 @@
             "className": cmp.get("v.settings").className
         };
         var action = actionApex;
+        console.log(currentParams);
         action.setParams({
             "sObj": sObjectUpdate,
             "params": currentParams
@@ -91,25 +94,42 @@
         $A.enqueueAction(action);
     },
     closeModal: function (cmp, evt, recordId) {
+        var redirectsObj = this.isNotEmpty(cmp.get("v.settings").redirect) ? cmp.get("v.settings").redirect : cmp.get('v.sObjData').sObjectType;
+        var currentObject = cmp.get("v.settings").sObjectType;
+        
         if (cmp.get("v.isNotQuickAction")) {
             if (recordId === null || recordId === "" || recordId === undefined) {
                 var homeEvent = $A.get("e.force:navigateToObjectHome");
-                homeEvent.setParams({
-                    "scope": cmp.get('v.sObjData').sObjectType
-                });
-                homeEvent.fire();
+                switch (currentObject) {
+                  case 'altm__Commercial_Alert__c':
+                    homeEvent.setParams({
+                    	"scope": currentObject
+                	});
+                    homeEvent.fire();
+                    break;
+                  case 'Opportunity':
+                    $A.get("e.force:closeQuickAction").fire();
+            		$A.get('e.force:refreshView').fire();
+                    break;
+                  default:
+                    homeEvent.setParams({
+                    	"scope": redirectsObj
+                	});
+                    homeEvent.fire();
+                    break;
+                }                                
+                
             } else {
-                var navEvt = $A.get("e.force:navigateToSObject");
+                var navEvt = $A.get("e.force:navigateToObjectHome");
                 navEvt.setParams({
-                    "recordId": recordId,
-                    "slideDevName": "detail"
-                });
+                    "scope": redirectsObj
+                	});
                 navEvt.fire();
             }
         }
         else {
             $A.get("e.force:closeQuickAction").fire();
-        	$A.get('e.force:refreshView').fire();
+            $A.get('e.force:refreshView').fire();
         }
     },
     showToast: function (title, message, type) {

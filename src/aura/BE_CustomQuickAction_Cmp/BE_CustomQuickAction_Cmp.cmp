@@ -1,7 +1,8 @@
 <aura:component
-    implements="flexipage:availableForRecordHome,lightning:actionOverride,lightning:hasPageReference,force:hasRecordId"
+    implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId"
     access="global" controller="BE_CustomQuickAction_Ctr">
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="pageReference" type="Object"/>
     <aura:attribute name="recordId" type="String" default="" />
     <aura:attribute name="sObjectType" type="String" default="" />
     <aura:attribute name="nameMetadata" type="String" default="" />
@@ -10,13 +11,25 @@
     <aura:attribute name="title" type="String" />
     <aura:attribute name="loaded" type="Boolean" default="false" />
     <aura:attribute name="isNotQuickAction" type="Boolean" default="false" />
+    <lightning:navigation aura:id="navService"/>
+    <aura:attribute name="url" type="String"/>
+    <!--<a href="{!v.url}">Link</a>
+    <lightning:button name="cancelar" label="Cancelar" onclick="{!c.closeModal}" />-->
     <!--HEADER-->
     <header class="slds-modal__header">
         <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{!v.title}</h2>
     </header>
     <!--CONTENT-->
-    <div class="slds-p-around_medium">
+    <div class="slds-p-around_medium"> 
         <aura:if isTrue="{! v.loaded }">
+            <aura:if isTrue="{! and(v.settings.isExcecutiveUser, v.settings.sObjectType != 'Opportunity') }">
+                <ui:message title="Advertencia" severity="warning" closable="false">
+                    No cuentas con los permisos suficientes para realizar esta acción.
+                </ui:message>
+			</aura:if>
+            <aura:if isTrue="{! not(and(v.settings.isExcecutiveUser, v.settings.sObjectType != 'Opportunity')) }">
+
+            <lightning:navigation aura:id="navService_button"/>
             <!--VIEW-->
             <aura:if isTrue="{!v.settings.modeAction=='view'}">
                 <lightning:recordViewForm objectApiName="{!v.sObjData.sObjectType}" recordId="{!v.recordId}">
@@ -67,6 +80,7 @@
                         </div>
                     </lightning:layoutItem>
                 </lightning:layout>
+                </aura:if>
             </aura:if>
             <aura:set attribute="else">
                 <lightning:spinner alternativeText="Loading" class="slds-spinner" title="Loading" />

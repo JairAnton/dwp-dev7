@@ -12,20 +12,20 @@
                 break;
             case 'create':
                 var sObjectCreate = Object.assign(initialsObject, fields);
-                helper.callApexMethod(cmp, evt, sObjectCreate,cmp.get("c.createRecord"));
+                helper.callApexMethod(cmp, evt, sObjectCreate, cmp.get("c.createRecord"));
                 break;
             case 'update':
                 initialsObject.Id = cmp.get('v.recordId');
                 var sObjectUpdate = Object.assign(initialsObject, fields);
-                helper.callApexMethod(cmp, evt, JSON.stringify(sObjectUpdate),cmp.get("c.updateRecord"));
+                helper.callApexMethod(cmp, evt, JSON.stringify(sObjectUpdate), cmp.get("c.updateRecord"));
                 break;
             case 'delete':
                 initialsObject.Id = cmp.get('v.recordId');
-                helper.callApexMethod(cmp, evt, JSON.stringify(initialsObject),cmp.get("c.deleteRecord"));
+                helper.callApexMethod(cmp, evt, JSON.stringify(initialsObject), cmp.get("c.deleteRecord"));
                 break;
         }
     },
     closeModal: function (cmp, evt, helper) {
-        helper.closeModal(cmp, evt, null);
+        helper.closeModal(cmp, evt, helper);
     }
 })
