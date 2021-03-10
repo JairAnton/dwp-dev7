@@ -24,7 +24,7 @@ public class AP_DynamicButtonsPanelTacticoTest {
         insert template;
 
         final dyfr__Tab__c tab = new dyfr__Tab__c(dyfr__Template__c = template.Id);
-        insert tab;     
+        insert tab;
         
 		final Id devRecordTypeId = Schema.SObjectType.acpl__Account_Planning__c.getRecordTypeInfosByDeveloperName().get('Question_Catalog').getRecordTypeId();
         final acpl__Account_Planning__c accountPlanning = [SELECT Id FROM acpl__Account_Planning__c WHERE RecordType.Id =:devRecordTypeId LIMIT 1];
@@ -46,13 +46,13 @@ public class AP_DynamicButtonsPanelTacticoTest {
         
     }
     /** TestMethod */
-	static testmethod void test() { 
+	static testmethod void test() {
         Test.startTest();
         final Id devRecordTypeId = Schema.SObjectType.acpl__Account_Planning__c.getRecordTypeInfosByDeveloperName().get('Question_Catalog').getRecordTypeId();
         final acpl__Account_Planning__c accountPlanning = [SELECT Id FROM acpl__Account_Planning__c WHERE RecordType.Id =:devRecordTypeId LIMIT 1];
         final Set<String> buttonsStatusSet = APDynamicButtonsStatusHandlerTactico.getDynamicButtonStatus(accountPlanning.Id, 'acpl__Account_Planning__c');
-        final List<String> lstErrorMessage = APButtonsValidationMessagesTactico.getErrorMessagesList(accountPlanning.Id, '', '');
+       	APButtonsValidationMessagesTactico.getErrorMessagesList(accountPlanning.Id, '', '');
         Test.stopTest();
-        System.assert(!buttonsStatusSet.isEmpty());
+        System.assert(!buttonsStatusSet.isEmpty(),'Success');
     }
 }
