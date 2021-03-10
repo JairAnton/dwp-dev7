@@ -149,6 +149,10 @@
         <name>Ask_for_validation</name>
     </customLabels>
     <customLabels>
+        <label>Elevar</label>
+        <name>Ask_for_validationTactico</name>
+    </customLabels>
+    <customLabels>
         <label>Por favor ingresar valores correctos.</label>
         <name>BE_NonClient_ErrorMessage</name>
     </customLabels>
@@ -215,6 +219,10 @@
     <customLabels>
         <label><!-- Button Collection No Actions --></label>
         <name>Button_Collection_No_Actions</name>
+    </customLabels>
+    <customLabels>
+        <label>No existen acciones disponibles</label>
+        <name>Button_Collection_No_ActionsTactico</name>
     </customLabels>
     <customLabels>
         <label><!-- Dynamic Action Audit Title --></label>
@@ -1013,6 +1021,14 @@
         <name>OppStatusLabel09</name>
     </customLabels>
     <customLabels>
+        <label><!-- New_Growth_Driver --></label>
+        <name>New_Growth_DriverTactico</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- New_Need --></label>
+        <name>New_NeedTactico</name>
+    </customLabels>
+    <customLabels>
         <label>Precio aprobado</label>
         <name>OppStatusLabel11</name>
     </customLabels>
@@ -1435,6 +1451,10 @@
     <customLabels>
         <label>SOLICITADO</label>
         <name>lblReq</name>
+    </customLabels>
+    <customLabels>
+        <label>Error de validación para campos no completados</label>
+        <name>Validation_error_for_fields_not_completed_tactico</name>
     </customLabels>
     <customLabels>
         <label><!-- AP_Timed_Out --></label>
