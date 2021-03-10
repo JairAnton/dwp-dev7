@@ -10,8 +10,6 @@
    -------------------------------------------------------------------------------------------------
  */
 global without sharing class APButtonsValidationMessagesTactico implements dwp_dbpn.DynamicFlowValidationInterface {
-    /** Private class*/
-    private APButtonsValidationMessagesTactico() {}
 	/** getErrorMessagesList*/
     global static List<String> getErrorMessagesList(String recordId, String source, String validationClass) {
         List<String> lstErrorMessage;

@@ -10,8 +10,6 @@
    -------------------------------------------------------------------------------------------------
  */
 global without sharing class APDynamicButtonsStatusHandlerTactico implements dwp_dbpn.DynamicButtonsStatusInterface {
-    /** Private class*/
-    private APDynamicButtonsStatusHandlerTactico() {}
 	/** getDynamicButtonStatus*/
     global static Set<String> getDynamicButtonStatus(String recordId, String sObjectName) {
         Set<String> buttonsStatusSet = new Set<String>();
