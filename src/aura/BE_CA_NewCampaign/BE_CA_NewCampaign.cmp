@@ -1,3 +1,21 @@
-<aura:component implements="lightning:actionOverride,flexipage:availableForRecordHome,force:lightningQuickActionWithoutHeader,force:hasRecordId" access="global">
-    <c:BE_CustomQuickAction_Cmp recordId="{!v.recordId}" nameMetadata="BE_CA_NewCampaign" isNotQuickAction="true"/>
+<aura:component implements="lightning:actionOverride,flexipage:availableForRecordHome,force:lightningQuickActionWithoutHeader,force:hasRecordId" 
+                access="global"
+                controller="BE_CA_NewCampaignRoleValidation_Ctr">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="loaded" type="Boolean" default="false" />
+    <aura:attribute name="isNotQuickAction" type="Boolean" default="true" />
+    
+    
+    <aura:attribute name="settings" type="Object" />
+    <aura:if isTrue="{! v.loaded }">
+        <aura:if isTrue="{! v.settings.isExcecutiveUser }">
+            <ui:message title="Advertencia" severity="warning" closable="false">
+                No cuentas con los permisos suficientes para realizar esta acción.
+            </ui:message>
+        </aura:if>
+        <aura:if isTrue="{! not(v.settings.isExcecutiveUser) }">
+            <c:BE_CustomQuickAction_Cmp recordId="{!v.recordId}" nameMetadata="BE_CA_NewCampaign" isNotQuickAction="true"/>
+        </aura:if>
+    </aura:if>
+    
 </aura:component>
