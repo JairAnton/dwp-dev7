@@ -12,10 +12,12 @@
     {
         &quot;fieldName&quot;: &quot;Name&quot;,
         &quot;required&quot;: true
-    },    
+    },
     {
-        &quot;fieldName&quot;: &quot;commercial_alert_category__c&quot;,
-        &quot;required&quot;: true
+        &quot;fieldName&quot;: &quot;altm__commercial_alert_record_type__c&quot;,
+        &quot;required&quot;: true,
+        &quot;value&quot;: &quot;Management&quot;,
+        &quot;disabled&quot;: true
     },
     {
         &quot;fieldName&quot;: &quot;altm__commercial_alert_start_date__c&quot;,
@@ -26,7 +28,11 @@
         &quot;required&quot;: true
     },
     {
-        &quot;fieldName&quot;: &quot;altm__commercial_alert_record_type__c&quot;,
+        &quot;fieldName&quot;: &quot;commercial_alert_category__c&quot;,
+        &quot;required&quot;: true
+    },    
+    {
+        &quot;fieldName&quot;: &quot;altm__commercial_alert_task_type__c&quot;,
         &quot;required&quot;: true
     }
 ]</value>
@@ -41,7 +47,11 @@
     </values>
     <values>
         <field>Title__c</field>
-        <value xsi:type="xsd:string">{&quot;es&quot;: &quot;Crear alerta&quot;,&quot;en_US&quot;: &quot;Create alert&quot;}</value>
+        <value xsi:type="xsd:string">{&quot;es&quot;: &quot;Crear campañas de gerencia&quot;,&quot;en_US&quot;: &quot;Create managment campaign&quot;}</value>
+    </values>
+    <values>
+        <field>redirect__c</field>
+        <value xsi:type="xsd:string">Campaign</value>
     </values>
     <values>
         <field>sObjectType__c</field>

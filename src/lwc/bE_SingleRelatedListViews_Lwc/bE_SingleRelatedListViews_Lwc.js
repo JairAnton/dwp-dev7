@@ -25,7 +25,7 @@ export default class BE_SingleRelatedListViews_Lwc extends LightningElement {
             this.viewOptions = data;
             this.metaDev = this.isNotEmpty(this.metaDev) ? this.metaDev :this.viewOptions[0];
         } else {
-            this.showToastEvent("Error", error.message, "Error");
+            this.showToastEvent("Error",error, "Error");
         }
     }
     /** MULTIPLE VIEWS */

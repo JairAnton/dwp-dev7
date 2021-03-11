@@ -76,6 +76,10 @@
         <value xsi:type="xsd:string">{&quot;es&quot;: &quot;Crear Oportunidad&quot;,&quot;en_US&quot;: &quot;Create Opportunity&quot;}</value>
     </values>
     <values>
+        <field>redirect__c</field>
+        <value xsi:type="xsd:string">Opportunity</value>
+    </values>
+    <values>
         <field>sObjectType__c</field>
         <value xsi:type="xsd:string">Opportunity</value>
     </values>

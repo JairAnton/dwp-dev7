@@ -69,12 +69,20 @@
 ]</value>
     </values>
     <values>
+        <field>Fields__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
         <field>ModeAction__c</field>
         <value xsi:type="xsd:string">update</value>
     </values>
     <values>
         <field>Title__c</field>
         <value xsi:type="xsd:string">{ &quot;es&quot;: &quot;Modificar Contacto&quot;, &quot;en_US&quot;: &quot;Modify Contact&quot; }</value>
+    </values>
+    <values>
+        <field>redirect__c</field>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>sObjectType__c</field>

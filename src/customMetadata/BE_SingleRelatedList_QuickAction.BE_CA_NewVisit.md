@@ -50,6 +50,10 @@
         <value xsi:type="xsd:string">{&quot;es&quot;: &quot;Crear Visit&quot;,&quot;en_US&quot;: &quot;Create Visit&quot;}</value>
     </values>
     <values>
+        <field>redirect__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
         <field>sObjectType__c</field>
         <value xsi:type="xsd:string">dwp_kitv__Visit__c</value>
     </values>

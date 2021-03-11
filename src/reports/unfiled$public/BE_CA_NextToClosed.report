@@ -43,13 +43,6 @@
             <operator>lessOrEqual</operator>
             <value>NEXT_90_DAYS</value>
         </criteriaItems>
-        <criteriaItems>
-            <column>FK_CMP_ID</column>
-            <columnToColumn>false</columnToColumn>
-            <isUnlocked>false</isUnlocked>
-            <operator>equals</operator>
-            <value>7010n000000d3ui</value>
-        </criteriaItems>
         <language>en_US</language>
     </filter>
     <format>Matrix</format>
