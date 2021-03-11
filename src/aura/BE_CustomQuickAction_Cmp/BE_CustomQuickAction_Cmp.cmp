@@ -22,12 +22,12 @@
     <!--CONTENT-->
     <div class="slds-p-around_medium"> 
         <aura:if isTrue="{! v.loaded }">
-            <aura:if isTrue="{! and(v.settings.isExcecutiveUser, v.settings.sObjectType != 'Opportunity') }">
+            <aura:if isTrue="{! and(v.settings.isExcecutiveUser, v.settings.sObjectType == 'altm__Commercial_Alert__c') }">
                 <ui:message title="Advertencia" severity="warning" closable="false">
                     No cuentas con los permisos suficientes para realizar esta acción.
                 </ui:message>
 			</aura:if>
-            <aura:if isTrue="{! not(and(v.settings.isExcecutiveUser, v.settings.sObjectType != 'Opportunity')) }">
+            <aura:if isTrue="{! not(and(v.settings.isExcecutiveUser, v.settings.sObjectType == 'altm__Commercial_Alert__c')) }">
 
             <lightning:navigation aura:id="navService_button"/>
             <!--VIEW-->

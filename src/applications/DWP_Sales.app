@@ -587,6 +587,114 @@
         <type>Flexipage</type>
         <profile>Ejecutivo</profile>
     </profileActionOverrides>
+        <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>BE_Commercial_Alert_Record</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>altm__Commercial_Alert__c</pageOrSobjectType>
+        <recordType>altm__Commercial_Alert__c.BE_CommercialAlert</recordType>
+        <type>Flexipage</type>
+        <profile>Analista</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>BE_Commercial_Alert_Record</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>altm__Commercial_Alert__c</pageOrSobjectType>
+        <recordType>altm__Commercial_Alert__c.BE_CommercialAlert</recordType>
+        <type>Flexipage</type>
+        <profile>Analista</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>BE_Commercial_Alert_Record</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>altm__Commercial_Alert__c</pageOrSobjectType>
+        <recordType>altm__Commercial_Alert__c.BE_CommercialAlert</recordType>
+        <type>Flexipage</type>
+        <profile>Migracion</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>BE_Commercial_Alert_Record</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>altm__Commercial_Alert__c</pageOrSobjectType>
+        <recordType>altm__Commercial_Alert__c.BE_CommercialAlert</recordType>
+        <type>Flexipage</type>
+        <profile>Operativo</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>BE_Commercial_Alert_Record</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>altm__Commercial_Alert__c</pageOrSobjectType>
+        <recordType>altm__Commercial_Alert__c.BE_CommercialAlert</recordType>
+        <type>Flexipage</type>
+        <profile>Operativo</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>BE_Commercial_Alert_Record</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>altm__Commercial_Alert__c</pageOrSobjectType>
+        <recordType>altm__Commercial_Alert__c.BE_CommercialAlert</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>BE_Commercial_Alert_Record</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>altm__Commercial_Alert__c</pageOrSobjectType>
+        <recordType>altm__Commercial_Alert__c.BE_CommercialAlert</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>BE_Commercial_Alert_Record</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>altm__Commercial_Alert__c</pageOrSobjectType>
+        <recordType>altm__Commercial_Alert__c.BE_CommercialAlert</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>BE_Commercial_Alert_Record</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>altm__Commercial_Alert__c</pageOrSobjectType>
+        <recordType>altm__Commercial_Alert__c.BE_CommercialAlert</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>BE_Commercial_Alert_Record</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>altm__Commercial_Alert__c</pageOrSobjectType>
+        <recordType>altm__Commercial_Alert__c.BE_CommercialAlert</recordType>
+        <type>Flexipage</type>
+        <profile>Especialista</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>BE_Commercial_Alert_Record</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>altm__Commercial_Alert__c</pageOrSobjectType>
+        <recordType>altm__Commercial_Alert__c.BE_CommercialAlert</recordType>
+        <type>Flexipage</type>
+        <profile>Especialista</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>BE_Commercial_Alert_Record</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>altm__Commercial_Alert__c</pageOrSobjectType>
+        <recordType>altm__Commercial_Alert__c.BE_CommercialAlert</recordType>
+        <type>Flexipage</type>
+        <profile>Migracion</profile>
+    </profileActionOverrides>
 	<setupExperience>all</setupExperience>
     <tabs>standard-home</tabs>
     <tabs>standard-Account</tabs>
@@ -596,6 +704,7 @@
     <tabs>standard-Case</tabs>
     <tabs>standard-Opportunity</tabs>
     <tabs>acpl__Account_Planning__c</tabs>
+    <tabs>standard-Campaign</tabs>
     <tabs>standard-Event</tabs>
     <tabs>standard-Task</tabs>
 	<tabs>standard-Feed</tabs>

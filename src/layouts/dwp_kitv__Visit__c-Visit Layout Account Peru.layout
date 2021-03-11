@@ -201,7 +201,7 @@
         <fields>TASK.STATUS</fields>
         <relatedList>Activity.dwp_kitv__visit_id__c</relatedList>
     </relatedLists>
-        <relatedLists>
+    <relatedLists>
         <fields>altm__Commercial_Alert__c.NAME</fields>
         <fields>altm__Commercial_Alert__c.commercial_alert_category__c</fields>
         <fields>altm__Commercial_Alert__c.altm__commercial_alert_task_type__c</fields>
