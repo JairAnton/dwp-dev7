@@ -276,6 +276,13 @@
         <value>Elevar</value>
     </labels>
     <labels>
+        <fullName>Ask_for_validationTactico</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Ask for validation</shortDescription>
+        <value>Ask for validation</value>
+    </labels>
+    <labels>
         <fullName>BE_AP_NewButton</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -424,6 +431,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <protected>false</protected>
         <shortDescription>Button Collection No Actions</shortDescription>
         <value>No existen acciones disponibles.</value>
+    </labels>
+    <labels>
+        <fullName>Button_Collection_No_ActionsTactico</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Button_Collection_No_Actions</shortDescription>
+        <value>No actions to apply.</value>
     </labels>
     <labels>
         <fullName>Dwp_msgGenericError</fullName>
@@ -1294,6 +1308,20 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <protected>false</protected>
         <shortDescription>lblRiskSioCodeIs</shortDescription>
         <value>The selected SIO code is:</value>
+    </labels>
+    <labels>
+        <fullName>New_Growth_DriverTactico</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New_Growth_Driver</shortDescription>
+        <value>New Growth Driver</value>
+    </labels>
+    <labels>
+        <fullName>New_NeedTactico</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New_Need</shortDescription>
+        <value>New Need</value>
     </labels>
     <labels>
         <fullName>No_Buttons_Message</fullName>
@@ -2703,5 +2731,12 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <protected>false</protected>
         <shortDescription>BE_VisitErrorDescField</shortDescription>
         <value>Description is required</value>
+    </labels>
+    <labels>
+        <fullName>Validation_error_for_fields_not_completed_tactico</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validation error for fields not completed</shortDescription>
+        <value>You must answer the question</value>
     </labels>
 </CustomLabels>
