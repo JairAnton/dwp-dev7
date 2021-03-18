@@ -1,90 +1,234 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
     <flexiPageRegions>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>bacColor</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>bacColor2</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>cColor</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>className</name>
-                <value>slds-welcome-mat__tiles slds-size_2-of-2 slds-p-around_medium</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>description</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>icon</name>
-                <value>custom:custom27</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>iconVariant</name>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>title</name>
-                <value>Portal BEI</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>url</name>
-                <value>https://sites.google.com/a/bbva.com/bec-peru/</value>
-            </componentInstanceProperties>
-            <componentName>GBL_CustomLinks</componentName>
-        </componentInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>bacColor</name>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>bacColor2</name>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>cColor</name>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>className</name>
+                    <value>slds-welcome-mat__tiles slds-size_2-of-2 slds-p-around_medium</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>description</name>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>icon</name>
+                    <value>custom:custom27</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>iconVariant</name>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Portal BEI</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>url</name>
+                    <value>https://sites.google.com/a/bbva.com/bec-peru/</value>
+                </componentInstanceProperties>
+                <componentName>GBL_CustomLinks</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>className</name>
+                    <value>slds-welcome-mat__tiles slds-size_2-of-2 slds-p-around_medium</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>icon</name>
+                    <value>custom:custom17</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>iconVariant</name>
+                    <value>error</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Reporte de Activos</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>url</name>
+                    <value>https://datastudio.google.com/reporting/d77a877d-346f-43a4-9ff6-5c9e9ed185bc</value>
+                </componentInstanceProperties>
+                <componentName>GBL_CustomLinks</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>className</name>
+                    <value>slds-welcome-mat__tiles slds-size_2-of-2 slds-p-around_medium</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>icon</name>
+                    <value>custom:custom57</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Reporte Bono Target</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>url</name>
+                    <value>https://datastudio.google.com/u/1/reporting/a443c9e6-2a0c-4d06-bcd2-53f5b541793f/page/4K7vB</value>
+                </componentInstanceProperties>
+                <componentName>GBL_CustomLinks</componentName>
+            </componentInstance>
+        </itemInstances>
         <name>region1</name>
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>className</name>
-                <value>slds-welcome-mat__tiles slds-size_2-of-2 slds-p-around_medium</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>icon</name>
-                <value>custom:custom64</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>iconVariant</name>
-                <value>error</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>title</name>
-                <value>Herramientas de Riesgos</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>url</name>
-                <value>https://intraper.peru.ccr.igrupobbva/perueeff/EstadosFinancieros/index.do</value>
-            </componentInstanceProperties>
-            <componentName>GBL_CustomLinks</componentName>
-        </componentInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>className</name>
+                    <value>slds-welcome-mat__tiles slds-size_2-of-2 slds-p-around_medium</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>icon</name>
+                    <value>custom:custom64</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>iconVariant</name>
+                    <value>error</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Herramientas de Riesgos</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>url</name>
+                    <value>https://intraper.peru.ccr.igrupobbva/perueeff/EstadosFinancieros/index.do</value>
+                </componentInstanceProperties>
+                <componentName>GBL_CustomLinks</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>className</name>
+                    <value>slds-welcome-mat__tiles slds-size_2-of-2 slds-p-around_medium</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>icon</name>
+                    <value>custom:custom74</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>iconVariant</name>
+                    <value>error</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Reporte de Pasivos</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>url</name>
+                    <value>https://datastudio.google.com/reporting/73fd1f5c-c5b6-4ff4-a8b9-c45db7febd71</value>
+                </componentInstanceProperties>
+                <componentName>GBL_CustomLinks</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>className</name>
+                    <value>slds-welcome-mat__tiles slds-size_2-of-2 slds-p-around_medium</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>icon</name>
+                    <value>custom:custom64</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>iconVariant</name>
+                    <value>error</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Reporte Bono Target</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>url</name>
+                    <value>https://datastudio.google.com/reporting/67c1a518-2bd3-4ae2-b79f-72ecd0d49002</value>
+                </componentInstanceProperties>
+                <componentName>GBL_CustomLinks</componentName>
+            </componentInstance>
+        </itemInstances>
         <name>region2</name>
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>className</name>
-                <value>slds-welcome-mat__tiles slds-size_2-of-2 slds-p-around_medium</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>icon</name>
-                <value>custom:custom41</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>title</name>
-                <value>Cotiza</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>url</name>
-                <value>https://sites.google.com/a/bbva.com/cotiza/?pli=1</value>
-            </componentInstanceProperties>
-            <componentName>GBL_CustomLinks</componentName>
-        </componentInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>className</name>
+                    <value>slds-welcome-mat__tiles slds-size_2-of-2 slds-p-around_medium</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>icon</name>
+                    <value>custom:custom41</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Cotiza</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>url</name>
+                    <value>https://sites.google.com/a/bbva.com/cotiza/?pli=1</value>
+                </componentInstanceProperties>
+                <componentName>GBL_CustomLinks</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>className</name>
+                    <value>slds-welcome-mat__tiles slds-size_2-of-2 slds-p-around_medium</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>icon</name>
+                    <value>custom:custom11</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Reporte de Spread</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>url</name>
+                    <value>https://datastudio.google.com/reporting/5d89dfa9-5eec-4e5c-bbf4-04caab7d522f</value>
+                </componentInstanceProperties>
+                <componentName>GBL_CustomLinks</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>className</name>
+                    <value>slds-welcome-mat__tiles slds-size_2-of-2 slds-p-around_medium</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>icon</name>
+                    <value>custom:custom32</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Oficinas</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>url</name>
+                    <value>https://datastudio.google.com/reporting/bf67eda9-e403-4191-b8a1-27a2b2893332</value>
+                </componentInstanceProperties>
+                <componentName>GBL_CustomLinks</componentName>
+            </componentInstance>
+        </itemInstances>
         <name>region3</name>
         <type>Region</type>
     </flexiPageRegions>

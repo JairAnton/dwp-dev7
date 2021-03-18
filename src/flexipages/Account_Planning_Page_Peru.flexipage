@@ -42,7 +42,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>buttonsCollectionUniqueIdentifier</name>
-                <value>AccountPlanButtons</value>
+                <value>AccountPlanButtonsTactico</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>buttonsStyles</name>
@@ -50,7 +50,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>buttonsUniqueIdentifiers</name>
-                <value>AP_Ask_for_validation</value>
+                <value>AP_Ask_for_validation_Tactico</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>refreshOnRefreshView</name>
