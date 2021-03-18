@@ -13,12 +13,12 @@
                                 <criteria>
                                     <leftValue>{!Record.altm__alert_stage_type__c}</leftValue>
                                     <operator>EQUAL</operator>
-                                    <rightValue>Pending</rightValue>
+                                    <rightValue>01</rightValue>
                                 </criteria>
                                 <criteria>
                                     <leftValue>{!Record.altm__alert_stage_type__c}</leftValue>
                                     <operator>EQUAL</operator>
-                                    <rightValue>InManagement</rightValue>
+                                    <rightValue>02</rightValue>
                                 </criteria>
                             </visibilityRule>
                         </valueListItems>
@@ -29,12 +29,12 @@
                                 <criteria>
                                     <leftValue>{!Record.altm__alert_stage_type__c}</leftValue>
                                     <operator>EQUAL</operator>
-                                    <rightValue>Pending</rightValue>
+                                    <rightValue>01</rightValue>
                                 </criteria>
                                 <criteria>
                                     <leftValue>{!Record.altm__alert_stage_type__c}</leftValue>
                                     <operator>EQUAL</operator>
-                                    <rightValue>InManagement</rightValue>
+                                    <rightValue>02</rightValue>
                                 </criteria>
                             </visibilityRule>
                         </valueListItems>
@@ -45,12 +45,12 @@
                                 <criteria>
                                     <leftValue>{!Record.altm__alert_stage_type__c}</leftValue>
                                     <operator>EQUAL</operator>
-                                    <rightValue>Pending</rightValue>
+                                    <rightValue>01</rightValue>
                                 </criteria>
                                 <criteria>
                                     <leftValue>{!Record.altm__alert_stage_type__c}</leftValue>
                                     <operator>EQUAL</operator>
-                                    <rightValue>InManagement</rightValue>
+                                    <rightValue>02</rightValue>
                                 </criteria>
                             </visibilityRule>
                         </valueListItems>
@@ -74,7 +74,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>numVisibleActions</name>
-                    <value>4</value>
+                    <value>3</value>
                 </componentInstanceProperties>
                 <componentName>force:highlightsPanel</componentName>
             </componentInstance>
@@ -209,23 +209,6 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>columns</name>
-                    <value>Facet-a86bf6fd-fabd-4986-93cc-d697889f2cd6</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>label</name>
-                    <value>Información</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:fieldSection</componentName>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-3fff577e-8758-4a26-aeb0-e9dcc426bee6</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
@@ -316,6 +299,19 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>columns</name>
+                    <value>Facet-a86bf6fd-fabd-4986-93cc-d697889f2cd6</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>label</name>
+                    <value>Información</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:fieldSection</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>columns</name>
                     <value>Facet-13753e84-52aa-4522-a1dc-164e9545ea89</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
@@ -336,78 +332,6 @@
                     <value>System Information</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:fieldSection</componentName>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-72d6e084-03b7-4679-a838-54c17ec41101</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>body</name>
-                    <value>Facet-3fff577e-8758-4a26-aeb0-e9dcc426bee6</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>label</name>
-                    <value>Standard.Tab.fields</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>name</name>
-                    <value>accordionSection1</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:accordionSection</componentName>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>body</name>
-                    <value>Facet-72d6e084-03b7-4679-a838-54c17ec41101</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>label</name>
-                    <value>Standard.Tab.additionalFields</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>name</name>
-                    <value>accordionSection2</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:accordionSection</componentName>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-5a94bb05-47e2-4bb4-a81a-beb5e51bc94b</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>numberOfTopicsToDisplay</name>
-                    <value>10</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>searchHint</name>
-                    <value>Incentivar la facturación en mediado plazo con cliente de buen perfil de riesgos y ratios financieros</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>title</name>
-                    <value>Descripción</value>
-                </componentInstanceProperties>
-                <componentName>forceChatter:topicsOnRecordWrapper</componentName>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>accordionSections</name>
-                    <value>Facet-5a94bb05-47e2-4bb4-a81a-beb5e51bc94b</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>defaultSectionName</name>
-                    <value>accordionSection1</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:accordion</componentName>
             </componentInstance>
         </itemInstances>
         <itemInstances>

@@ -61,7 +61,7 @@
     </values>
     <values>
         <field>Filter__c</field>
-        <value xsi:type="xsd:string">altm__campaign_id__c=:recordId AND altm__alert_expiration_date__c &lt; TODAY AND altm__alert_expiration_date__c &gt;= LAST_90_DAYS</value>
+        <value xsi:type="xsd:string">altm__campaign_id__c=:recordId AND altm__commercial_alert_end_date__c &lt;= Today</value>
     </values>
     <values>
         <field>HeadActions__c</field>

@@ -294,8 +294,8 @@
         <columns>CAMPAIGN.STATUS</columns>
         <columns>CORE.USERS.FIRST_NAME</columns>
         <columns>CORE.USERS.LAST_NAME</columns>
-        <filterScope>Mine</filterScope>
-        <label>All Active Campaigns</label>
+        <filterScope>Everything</filterScope>
+        <label>All Campaigns</label>
     </listViews>
     <listViews>
         <fullName>MyActiveCampaigns</fullName>
@@ -311,17 +311,6 @@
             <value>1</value>
         </filters>
         <label>My Active Campaigns</label>
-    </listViews>
-    <listViews>
-        <fullName>Org_Campaign_Hierarchy</fullName>
-        <columns>CAMPAIGN.NAME</columns>
-        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
-        <columns>CAMPAIGN.ACTIVE</columns>
-        <columns>CAMPAIGN.STATUS</columns>
-        <columns>CAMPAIGN.START_DATE</columns>
-        <columns>CAMPAIGN.END_DATE</columns>
-        <filterScope>Mine</filterScope>
-        <label>Org_Campaign_Hierarchy</label>
     </listViews>
     <profileSearchLayouts>
         <fields>CAMPAIGN.NAME</fields>
@@ -342,47 +331,35 @@
         <picklistValues>
             <picklist>Status</picklist>
             <values>
-                <fullName>Aborted</fullName>
+                <fullName>01</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Completed</fullName>
+                <fullName>02</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>In Progress</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Planned</fullName>
-                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>Conjunctural</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Current</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Management</fullName>
+                <fullName>01</fullName>
                 <default>true</default>
+            </values>
+            <values>
+                <fullName>02</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>03</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
     </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>CAMPAIGN.NAME</customTabListAdditionalFields>
-        <customTabListAdditionalFields>PARENT_NAME</customTabListAdditionalFields>
-        <customTabListAdditionalFields>CAMPAIGN.CAMPAIGN_TYPE</customTabListAdditionalFields>
         <customTabListAdditionalFields>CAMPAIGN.STATUS</customTabListAdditionalFields>
         <customTabListAdditionalFields>CAMPAIGN.START_DATE</customTabListAdditionalFields>
-        <customTabListAdditionalFields>CAMPAIGN.END_DATE</customTabListAdditionalFields>
-        <customTabListAdditionalFields>CAMPAIGN.NUM_RESPONSES</customTabListAdditionalFields>
-        <customTabListAdditionalFields>CORE.USERS.ALIAS</customTabListAdditionalFields>
+        <excludedStandardButtons>OpenListInQuip</excludedStandardButtons>
         <excludedStandardButtons>IsotopeSubscription</excludedStandardButtons>
         <listViewButtons>altm__View_Alerts</listViewButtons>
         <lookupDialogsAdditionalFields>CAMPAIGN.NAME</lookupDialogsAdditionalFields>

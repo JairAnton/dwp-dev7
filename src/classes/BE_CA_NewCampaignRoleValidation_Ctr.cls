@@ -22,12 +22,39 @@ public without sharing class BE_CA_NewCampaignRoleValidation_Ctr {
   */
   @AuraEnabled(cacheable=true)
   public static Map<String,Object> validateUser() {
-     System.debug('######## VALIDATE USER START ###########');
-    final User currentUser = [Select prof_position_id__c From User Where Id = :UserInfo.getUserId() LIMIT 1];
-    Boolean isExcecutiveUser = label.lblEjecutivoCode.split(',').contains(currentUser.prof_position_id__c);
+      final User currentUser = [Select prof_position_id__c, UserRole.Name From User Where Id = :UserInfo.getUserId() LIMIT 1];
+      final string gBECentral = 'OS8';
+      final string gBInstitucional = 'GERENTE BANCA INSTITUCIONAL';
+      final string gLTransBanking = 'GERENTE LOCAL TRANSACTIONAL BANKING';
+      mapReturn.put('isExcecutiveUser',false);
 
-    mapReturn.put('isExcecutiveUser',isExcecutiveUser);
-    return mapReturn;
+      Boolean isExcecutiveUser = label.lblEjecutivoCode.split(',').contains(currentUser.prof_position_id__c);
+      if( isExcecutiveUser ) {
+          mapReturn.put('isExcecutiveUser',isExcecutiveUser);
+          return mapReturn;
+      }
+      
+      Boolean isgBECentral = gBECentral.contains(currentUser.prof_position_id__c);
+      if(isgBECentral) {
+          mapReturn.put('isExcecutiveUser',isgBECentral);
+          return mapReturn;
+      }
+      
+      Boolean isgBInstitucional = gBInstitucional.contains(currentUser.UserRole.Name);
+      if(isgBInstitucional) {
+          mapReturn.put('isExcecutiveUser',isgBInstitucional);
+          return mapReturn;
+      }
+      
+      Boolean isgLTransBanking = gLTransBanking.contains(currentUser.UserRole.Name);
+      if(isgLTransBanking) {
+          mapReturn.put('isExcecutiveUser',isgLTransBanking);
+          return mapReturn;
+      }
+      
+      return mapReturn;
+
+    
   }
      
 }
