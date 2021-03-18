@@ -5,18 +5,18 @@
     <fieldName>altm__alert_stage_type__c</fieldName>
     <masterLabel>Commercial Alert</masterLabel>
     <pathAssistantSteps>
+        <fieldNames>altm__alert_stage_type__c</fieldNames>
+        <picklistValueName>02</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <picklistValueName>03</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
         <fieldNames>altm__commercial_alert_record_type__c</fieldNames>
         <fieldNames>altm__BBVA_rejection_reason_desc__c</fieldNames>
         <fieldNames>BBVA_rejection_sub_reason_desc__c</fieldNames>
         <fieldNames>altm__Rejection_reason_desc__c</fieldNames>
-        <picklistValueName>Discarded</picklistValueName>
-    </pathAssistantSteps>
-    <pathAssistantSteps>
-        <fieldNames>altm__alert_stage_type__c</fieldNames>
-        <picklistValueName>InManagement</picklistValueName>
-    </pathAssistantSteps>
-    <pathAssistantSteps>
-        <picklistValueName>Won</picklistValueName>
+        <picklistValueName>04</picklistValueName>
     </pathAssistantSteps>
     <recordTypeName>BE_CommercialAlert</recordTypeName>
 </PathAssistant>

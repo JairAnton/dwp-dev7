@@ -13,7 +13,7 @@
     <fieldUpdates>
         <fullName>BE_ChangeStatus</fullName>
         <field>Status</field>
-        <literalValue>Completed</literalValue>
+        <literalValue>02</literalValue>
         <name>Cambio de estado</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
