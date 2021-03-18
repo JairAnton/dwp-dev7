@@ -22,7 +22,7 @@ public without sharing class BE_CA_NewCampaignRoleValidation_Ctr {
   */
   @AuraEnabled(cacheable=true)
   public static Map<String,Object> validateUser() {
-      final User currentUser = [Select prof_position_id__c, UserRole.Name From User Where Id = :UserInfo.getUserId() LIMIT 1];
+      final User currentUser = [Select Id, prof_position_id__c, UserRole.Name From User Where Id = :UserInfo.getUserId() LIMIT 1];
       final string gBECentral = 'OS8';
       final string gBInstitucional = 'GERENTE BANCA INSTITUCIONAL';
       final string gLTransBanking = 'GERENTE LOCAL TRANSACTIONAL BANKING';
@@ -33,7 +33,7 @@ public without sharing class BE_CA_NewCampaignRoleValidation_Ctr {
           mapReturn.put('isExcecutiveUser',isExcecutiveUser);
           return mapReturn;
       }
-      
+
       Boolean isgBECentral = gBECentral.contains(currentUser.prof_position_id__c);
       if(isgBECentral) {
           mapReturn.put('isExcecutiveUser',isgBECentral);
