@@ -1641,7 +1641,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>UsodeLíneas</fullName>
+                <fullName>UsodeLineas</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
