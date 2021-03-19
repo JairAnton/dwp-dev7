@@ -17,9 +17,16 @@ public class BE_CA_NewCampaignRoleValidation_tst {
      */
     @IsTest
     static void validateUserTest() {
-        
+        final User admin = [SELECT Id, prof_position_id__c, UserRole.Name FROM User WHERE id=:UserInfo.getUserId()];
+        final UserRole userRole = [SELECT Id,Name FROM UserRole LIMIT 1];
+        admin.prof_position_id__c = 'ADMIN';
+        admin.UserRoleId = userRole.Id;
+        update admin;
+        Map<String,Object> res = new Map<String,Object>();
         Test.startTest();
-        Map<String,Object> res = BE_CA_NewCampaignRoleValidation_Ctr.validateUser();
+        System.runAs(admin) {
+        	res = BE_CA_NewCampaignRoleValidation_Ctr.validateUser();
+        }
         Test.stopTest();
         System.assertEquals(res.get('isExcecutiveUser'), false);
         

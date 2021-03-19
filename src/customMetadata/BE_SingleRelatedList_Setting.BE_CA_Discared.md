@@ -90,7 +90,7 @@
     </values>
     <values>
         <field>Filter__c</field>
-        <value xsi:type="xsd:string">altm__campaign_id__c=:recordId AND altm__alert_stage_type__c=@@Discarded@@</value>
+        <value xsi:type="xsd:string">altm__campaign_id__c=:recordId AND altm__alert_stage_type__c=@@04@@</value>
     </values>
     <values>
         <field>HeadActions__c</field>

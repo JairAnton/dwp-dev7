@@ -509,22 +509,22 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Pending</fullName>
+                    <fullName>01</fullName>
                     <default>true</default>
                     <label>Pending</label>
                 </value>
                 <value>
-                    <fullName>InManagement</fullName>
+                    <fullName>02</fullName>
                     <default>false</default>
                     <label>In management</label>
                 </value>
                 <value>
-                    <fullName>Won</fullName>
+                    <fullName>03</fullName>
                     <default>false</default>
                     <label>Won</label>
                 </value>
                 <value>
-                    <fullName>Discarded</fullName>
+                    <fullName>04</fullName>
                     <default>false</default>
                     <label>Discarded</label>
                 </value>
@@ -667,17 +667,17 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Current</fullName>
+                    <fullName>01</fullName>
                     <default>false</default>
                     <label>Current</label>
                 </value>
                 <value>
-                    <fullName>Management</fullName>
+                    <fullName>02</fullName>
                     <default>false</default>
                     <label>Management</label>
                 </value>
                 <value>
-                    <fullName>Conjunutural</fullName>
+                    <fullName>03</fullName>
                     <default>false</default>
                     <label>Conjunutural</label>
                 </value>
@@ -1217,47 +1217,47 @@
                 </value>
             </valueSetDefinition>
             <valueSettings>
-                <controllingFieldValue>Management</controllingFieldValue>
+                <controllingFieldValue>02</controllingFieldValue>
                 <valueName>CashIn</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>Management</controllingFieldValue>
+                <controllingFieldValue>02</controllingFieldValue>
                 <valueName>Descuentos</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>Management</controllingFieldValue>
+                <controllingFieldValue>02</controllingFieldValue>
                 <valueName>Digitalizate</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>Management</controllingFieldValue>
-                <controllingFieldValue>Current</controllingFieldValue>
+                <controllingFieldValue>02</controllingFieldValue>
+                <controllingFieldValue>01</controllingFieldValue>
                 <valueName>MedianoPlazo</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>Management</controllingFieldValue>
-                <controllingFieldValue>Current</controllingFieldValue>
+                <controllingFieldValue>02</controllingFieldValue>
+                <controllingFieldValue>01</controllingFieldValue>
                 <valueName>NuevasLineas</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>Management</controllingFieldValue>
+                <controllingFieldValue>02</controllingFieldValue>
                 <valueName>Recursos</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>Management</controllingFieldValue>
-                <controllingFieldValue>Current</controllingFieldValue>
+                <controllingFieldValue>02</controllingFieldValue>
+                <controllingFieldValue>01</controllingFieldValue>
                 <valueName>Redes</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>Management</controllingFieldValue>
-                <controllingFieldValue>Current</controllingFieldValue>
+                <controllingFieldValue>02</controllingFieldValue>
+                <controllingFieldValue>01</controllingFieldValue>
                 <valueName>UsodeLíneas</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>Conjunutural</controllingFieldValue>
+                <controllingFieldValue>03</controllingFieldValue>
                 <valueName>Anticipa</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>Conjunutural</controllingFieldValue>
+                <controllingFieldValue>03</controllingFieldValue>
                 <valueName>PrecioSubestandar</valueName>
             </valueSettings>
         </valueSet>
@@ -1482,19 +1482,19 @@
         <picklistValues>
             <picklist>altm__alert_stage_type__c</picklist>
             <values>
-                <fullName>Discarded</fullName>
+                <fullName>01</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>InManagement</fullName>
+                <fullName>02</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Pending</fullName>
+                <fullName>03</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Won</fullName>
+                <fullName>04</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1508,15 +1508,15 @@
         <picklistValues>
             <picklist>altm__commercial_alert_record_type__c</picklist>
             <values>
-                <fullName>Conjunutural</fullName>
+                <fullName>01</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Current</fullName>
+                <fullName>02</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management</fullName>
+                <fullName>03</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1647,6 +1647,8 @@
         </picklistValues>
     </recordTypes>
     <searchLayouts>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <excludedStandardButtons>MassChangeOwner</excludedStandardButtons>
         <listViewButtons>altm__Discard</listViewButtons>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
@@ -1656,31 +1658,39 @@
         <errorConditionFormula>AND(
 ISCHANGED(altm__alert_stage_type__c), 
 OR($Profile.Name=&apos;Ejecutivo&apos;, $Profile.Name = &apos;Analista&apos;,
-$Profile.Name = &apos;Especialista&apos;,$Profile.Name = &apos;Operativo&apos;,
-$Profile.Name = &apos;Migracion&apos;),
+$Profile.Name = &apos;Especialista&apos;,$Profile.Name = &apos;Operativo&apos;),
 RecordType.DeveloperName=&apos;BE_CommercialAlert&apos;,
 OR(				
-ISPICKVAL(PRIORVALUE(altm__alert_stage_type__c),&quot;Won&quot;),
-ISPICKVAL(PRIORVALUE(altm__alert_stage_type__c),&quot;Discarded&quot;),
+ISPICKVAL(PRIORVALUE(altm__alert_stage_type__c),&apos;03&apos;),
+ISPICKVAL(PRIORVALUE(altm__alert_stage_type__c),&apos;04&apos;),
 OR(
 AND(
-				ISPICKVAL(altm__alert_stage_type__c,&quot;Pending&quot;),
-				ISPICKVAL(PRIORVALUE(altm__alert_stage_type__c),&quot;InManagement&quot;)
+				ISPICKVAL(altm__alert_stage_type__c,&apos;01&apos;),
+				ISPICKVAL(PRIORVALUE(altm__alert_stage_type__c),&apos;02&apos;)
 )
 )
 ))</errorConditionFormula>
         <errorMessage>No se puede modificar el estado de la Alerta Comercial.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>BE_CA_NotChangeName</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+OR($Profile.Name=&apos;Ejecutivo&apos;, $Profile.Name = &apos;Analista&apos;,
+$Profile.Name = &apos;Especialista&apos;,$Profile.Name = &apos;Operativo&apos;),
+ISCHANGED(altm__participant_id__c))</errorConditionFormula>
+        <errorDisplayField>altm__participant_id__c</errorDisplayField>
+        <errorMessage>No se puede editar el cliente.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>BE_ValidateComments</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
 			OR($Profile.Name=&apos;Ejecutivo&apos;, $Profile.Name = &apos;Analista&apos;,
-			$Profile.Name = &apos;Especialista&apos;,$Profile.Name = &apos;Operativo&apos;,
-			$Profile.Name = &apos;Migracion&apos;),
-   OR(ISPICKVAL(altm__commercial_alert_record_type__c, &apos;Management&apos;), 
-			ISPICKVAL(altm__commercial_alert_record_type__c, &apos;Current&apos;)),
-			ISPICKVAL(altm__alert_stage_type__c, &apos;Discarded&apos;),
+			$Profile.Name = &apos;Especialista&apos;,$Profile.Name = &apos;Operativo&apos;),
+   OR(ISPICKVAL(altm__commercial_alert_record_type__c, &apos;02&apos;), 
+			ISPICKVAL(altm__commercial_alert_record_type__c, &apos;01&apos;)),
+			ISPICKVAL(altm__alert_stage_type__c, &apos;04&apos;),
    altm__Rejection_reason_desc__c	= null)</errorConditionFormula>
         <errorDisplayField>altm__Rejection_reason_desc__c</errorDisplayField>
         <errorMessage>Debe registrar un comentario.</errorMessage>

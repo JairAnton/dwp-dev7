@@ -11,7 +11,7 @@
  */
 public without sharing class BE_CA_NewVisit_Ctr extends BE_CustomQuickActionCRUD_Cls {
     /** Stage CommAlert */
-    Private Final List<String> STAGE_ALERT= new List<String>{'Pending','InManagement'};
+    Private Final List<String> STAGE_ALERT= new List<String>{'01','02'};
     /**
     @Description createRecords
     @param  List<SObject> sObjs

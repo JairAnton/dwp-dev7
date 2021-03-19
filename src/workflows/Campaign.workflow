@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Activo</fullName>
+        <field>IsActive</field>
+        <literalValue>0</literalValue>
+        <name>Activo</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>BE_ChangeStatus</fullName>
+        <field>Status</field>
+        <literalValue>02</literalValue>
+        <name>Cambio de estado</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>BE_EndDate</fullName>
+        <actions>
+            <name>Activo</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>BE_ChangeStatus</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Campaign.EndDate</field>
+            <operation>lessOrEqual</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

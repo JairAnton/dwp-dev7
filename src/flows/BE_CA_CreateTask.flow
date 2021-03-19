@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <apiVersion>51.0</apiVersion>
+    <apiVersion>50.0</apiVersion>
     <choices>
         <name>Completed</name>
         <choiceText>Completada</choiceText>
@@ -87,8 +87,8 @@
     <recordCreates>
         <name>CreateTask</name>
         <label>CreateTask</label>
-        <locationX>376</locationX>
-        <locationY>498</locationY>
+        <locationX>404</locationX>
+        <locationY>331</locationY>
         <connector>
             <targetReference>Se_creo_la_tarea</targetReference>
         </connector>
@@ -114,12 +114,6 @@
             <field>Priority</field>
             <value>
                 <elementReference>Priority</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>RecordTypeId</field>
-            <value>
-                <elementReference>GetRecordType.Id</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -152,7 +146,7 @@
     <recordLookups>
         <name>GetCommAlert</name>
         <label>GetCommAlert</label>
-        <locationX>177</locationX>
+        <locationX>178</locationX>
         <locationY>200</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -168,27 +162,6 @@
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>altm__Commercial_Alert__c</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
-    <recordLookups>
-        <name>GetRecordType</name>
-        <label>GetRecordType</label>
-        <locationX>265</locationX>
-        <locationY>497</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>CreateTask</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>DeveloperName</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>visit_agreement</stringValue>
-            </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>RecordType</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
@@ -229,13 +202,13 @@
             <field>altm__alert_stage_type__c</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>Pending</stringValue>
+                <stringValue>01</stringValue>
             </value>
         </filters>
         <inputAssignments>
             <field>altm__alert_stage_type__c</field>
             <value>
-                <stringValue>InManagement</stringValue>
+                <stringValue>02</stringValue>
             </value>
         </inputAssignments>
         <object>altm__Commercial_Alert__c</object>
@@ -249,7 +222,7 @@
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
         <connector>
-            <targetReference>GetRecordType</targetReference>
+            <targetReference>CreateTask</targetReference>
         </connector>
         <fields>
             <name>Subject</name>
@@ -307,7 +280,7 @@
             <targetReference>GetCommAlert</targetReference>
         </connector>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <variables>
         <name>Done</name>
         <dataType>Boolean</dataType>
