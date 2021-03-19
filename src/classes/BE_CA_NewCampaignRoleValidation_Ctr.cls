@@ -28,22 +28,22 @@ public without sharing class BE_CA_NewCampaignRoleValidation_Ctr {
       final string gLTransBanking = 'GERENTE LOCAL TRANSACTIONAL BANKING';
       mapReturn.put('isExcecutiveUser',false);
 
-      Boolean isExcecutiveUser = label.lblEjecutivoCode.split(',').contains(currentUser.prof_position_id__c);
+      Final Boolean isExcecutiveUser = label.lblEjecutivoCode.split(',').contains(currentUser.prof_position_id__c);
       if( isExcecutiveUser ) {
           mapReturn.put('isExcecutiveUser',isExcecutiveUser);
       }
 
-      Boolean isgBECentral = gBECentral.contains(currentUser.prof_position_id__c);
+      Final Boolean isgBECentral = gBECentral.contains(currentUser.prof_position_id__c);
       if(isgBECentral) {
           mapReturn.put('isExcecutiveUser',isgBECentral);
       }
       
-      Boolean isgBInstitucional = gBInstitucional.contains(currentUser.UserRole.Name);
+      Final Boolean isgBInstitucional = gBInstitucional.contains(currentUser.UserRole.Name);
       if(isgBInstitucional) {
           mapReturn.put('isExcecutiveUser',isgBInstitucional);
       }
       
-      Boolean isgLTransBanking = gLTransBanking.contains(currentUser.UserRole.Name);
+      Final Boolean isgLTransBanking = gLTransBanking.contains(currentUser.UserRole.Name);
       if(isgLTransBanking) {
           mapReturn.put('isExcecutiveUser',isgLTransBanking);
       }
