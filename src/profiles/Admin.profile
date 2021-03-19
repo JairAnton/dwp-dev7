@@ -7448,6 +7448,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>ctcp__Custom_Team__c.Commercial_Alert__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>dwp_frct__management_plan__c.other_information_b_desc__c</field>
         <readable>true</readable>
     </fieldPermissions>

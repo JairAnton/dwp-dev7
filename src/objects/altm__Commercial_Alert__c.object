@@ -1211,7 +1211,7 @@
                     <label>Redes</label>
                 </value>
                 <value>
-                    <fullName>UsodeLíneas</fullName>
+                    <fullName>UsodeLineas</fullName>
                     <default>false</default>
                     <label>Uso de Líneas</label>
                 </value>
@@ -1250,7 +1250,7 @@
             <valueSettings>
                 <controllingFieldValue>02</controllingFieldValue>
                 <controllingFieldValue>01</controllingFieldValue>
-                <valueName>UsodeLíneas</valueName>
+                <valueName>UsodeLineas</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>03</controllingFieldValue>

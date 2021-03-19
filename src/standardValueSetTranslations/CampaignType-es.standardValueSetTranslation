@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>Conjunctural</masterLabel>
+        <translation>Alertas coyunturales</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Current</masterLabel>
+        <translation>Campañas vigentes</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Management</masterLabel>
+        <translation>Campañas de gerencia</translation>
+    </valueTranslation>
+</StandardValueSetTranslation>
