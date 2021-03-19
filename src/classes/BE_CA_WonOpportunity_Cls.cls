@@ -12,6 +12,11 @@
 public with sharing class BE_CA_WonOpportunity_Cls {
     /** class Name */ 
   	final static String WON_STAGE='03';
+    
+    /* constructor */
+    private BE_CA_WonOpportunity_Cls() {
+        
+    }
 	/**
      @Description get Metadata Config
      @param  nameMetadata DeveloperName of Metadata for QuickAction

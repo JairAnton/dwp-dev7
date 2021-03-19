@@ -31,30 +31,23 @@ public without sharing class BE_CA_NewCampaignRoleValidation_Ctr {
       Boolean isExcecutiveUser = label.lblEjecutivoCode.split(',').contains(currentUser.prof_position_id__c);
       if( isExcecutiveUser ) {
           mapReturn.put('isExcecutiveUser',isExcecutiveUser);
-          return mapReturn;
       }
 
       Boolean isgBECentral = gBECentral.contains(currentUser.prof_position_id__c);
       if(isgBECentral) {
           mapReturn.put('isExcecutiveUser',isgBECentral);
-          return mapReturn;
       }
       
       Boolean isgBInstitucional = gBInstitucional.contains(currentUser.UserRole.Name);
       if(isgBInstitucional) {
           mapReturn.put('isExcecutiveUser',isgBInstitucional);
-          return mapReturn;
       }
       
       Boolean isgLTransBanking = gLTransBanking.contains(currentUser.UserRole.Name);
       if(isgLTransBanking) {
           mapReturn.put('isExcecutiveUser',isgLTransBanking);
-          return mapReturn;
       }
-      
       return mapReturn;
-
-    
   }
      
 }
