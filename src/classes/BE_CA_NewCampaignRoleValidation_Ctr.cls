@@ -22,32 +22,13 @@ public without sharing class BE_CA_NewCampaignRoleValidation_Ctr {
   */
   @AuraEnabled(cacheable=true)
   public static Map<String,Object> validateUser() {
-      final User currentUser = [Select Id, prof_position_id__c, UserRole.Name From User Where Id = :UserInfo.getUserId() LIMIT 1];
-      final string gBECentral = 'OS8';
-      final string gBInstitucional = 'GERENTE BANCA INSTITUCIONAL';
-      final string gLTransBanking = 'GERENTE LOCAL TRANSACTIONAL BANKING';
-      mapReturn.put('isExcecutiveUser',false);
-
-      Boolean isExcecutiveUser = label.lblEjecutivoCode.split(',').contains(currentUser.prof_position_id__c);
-      if( isExcecutiveUser ) {
-          mapReturn.put('isExcecutiveUser',isExcecutiveUser);
-      }
-
-      Boolean isgBECentral = gBECentral.contains(currentUser.prof_position_id__c);
-      if(isgBECentral) {
-          mapReturn.put('isExcecutiveUser',isgBECentral);
-      }
-      
-      Boolean isgBInstitucional = gBInstitucional.contains(currentUser.UserRole.Name);
-      if(isgBInstitucional) {
-          mapReturn.put('isExcecutiveUser',isgBInstitucional);
-      }
-      
-      Boolean isgLTransBanking = gLTransBanking.contains(currentUser.UserRole.Name);
-      if(isgLTransBanking) {
-          mapReturn.put('isExcecutiveUser',isgLTransBanking);
+      final List<String> roles = new List<String>{'OS8','GERENTE BANCA INSTITUCIONAL','GERENTE LOCAL TRANSACTIONAL BANKING','System Administrator','Administrador del sistema'};
+      final User currentUser = [Select Id, prof_position_id__c, UserRole.Name,Profile.Name From User Where Id = :UserInfo.getUserId() LIMIT 1];
+      if(roles.contains(currentUser.UserRole.Name) ||roles.contains(currentUser.prof_position_id__c) || roles.contains(currentUser.Profile.Name)) {
+          mapReturn.put('isExcecutiveUser',false);
+      } else {
+          mapReturn.put('isExcecutiveUser',true);
       }
       return mapReturn;
   }
-     
 }
