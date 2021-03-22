@@ -8,14 +8,7 @@
     
     <aura:attribute name="settings" type="Object" />
     <aura:if isTrue="{! v.loaded }">
-        <aura:if isTrue="{! v.settings.isExcecutiveUser }">
-            <ui:message title="Advertencia" severity="warning" closable="false">
-                No cuentas con los permisos suficientes para realizar esta acción.
-            </ui:message>
-        </aura:if>
-        <aura:if isTrue="{! not(v.settings.isExcecutiveUser) }">
-            <c:BE_CustomQuickAction_Cmp recordId="{!v.recordId}" nameMetadata="BE_CA_NewCampaign" isNotQuickAction="true"/>
-        </aura:if>
+        <c:BE_CustomQuickAction_Cmp recordId="{!v.recordId}" nameMetadata="BE_CA_NewCampaign" isNotQuickAction="true"/>
     </aura:if>
     
 </aura:component>
