@@ -16,7 +16,7 @@
     {
         &quot;fieldName&quot;: &quot;altm__commercial_alert_record_type__c&quot;,
         &quot;required&quot;: true,
-        &quot;value&quot;: &quot;Management&quot;,
+        &quot;value&quot;: &quot;02&quot;,
         &quot;disabled&quot;: true
     },
     {
