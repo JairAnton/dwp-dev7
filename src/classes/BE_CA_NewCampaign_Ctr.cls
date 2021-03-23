@@ -27,7 +27,7 @@ public with sharing class BE_CA_NewCampaign_Ctr extends BE_CustomQuickActionCRUD
             final Map<String,User> allExcUsers = getRoleSubordinateUsers(currentRoleId, ejecutive_position_code);
             final Map<Id,Campaign> campaignMap = generateCampaigns(allExcUsers, sObj);
             if( !campaignMap.isEmpty() ) {
-                upsert campaignMap.values();
+                upsert campaignMap.values() unique_id__c;
                 alerList = generateAlerts(sObj, recordTypeName, allExcUsers, campaignMap);
                 if( !alerList.isEmpty() ) {
                     insert alerList;
@@ -44,7 +44,6 @@ public with sharing class BE_CA_NewCampaign_Ctr extends BE_CustomQuickActionCRUD
         System.debug('10');
         return res;
     }
-	
     
     /**
     @Description Get Roles of Hierarchy
@@ -113,7 +112,7 @@ public with sharing class BE_CA_NewCampaign_Ctr extends BE_CustomQuickActionCRUD
     @return List<altm__Commercial_Alert__c>
     */
     private static List<altm__Commercial_Alert__c> generateAlerts(SObject sObj, string recordTypeName, Map<String,User> allExcUsers, Map<Id,Campaign> campaignMap) {
-        final string stageType = 'Pending';
+        final string stageType = '01';
         final List<altm__Commercial_Alert__c> response = new List<altm__Commercial_Alert__c>(); 
         for (Account acc : [SELECT ID,unique_id__c, Owner.user_id__c FROM Account WHERE Owner.user_id__c IN :allExcUsers.keySet() AND RecordType.DeveloperName = :recordTypeName]) {
             String fmdate = DateTime.newInstance(
