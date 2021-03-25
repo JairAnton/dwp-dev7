@@ -306,10 +306,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>BE_CA_NewCampaignRoleValidation_tst</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>BE_CA_NewCampaign_Ctr</apexClass>
         <enabled>false</enabled>
     </classAccesses>
