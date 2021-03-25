@@ -157,7 +157,7 @@
         <fullName>Commercial_Alert__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Commercial Alert</label>
+        <label>Alerta Comercial</label>
         <referenceTo>altm__Commercial_Alert__c</referenceTo>
         <relationshipLabel>Equipo</relationshipLabel>
         <relationshipName>Custom_Teams</relationshipName>
@@ -218,7 +218,7 @@
     <recordTypes>
         <fullName>BE_Commercial_Alert</fullName>
         <active>true</active>
-        <label>CommercialAlert</label>
+        <label>Alerta comercial</label>
     </recordTypes>
     <recordTypes>
         <fullName>ctcp__Opportunity</fullName>

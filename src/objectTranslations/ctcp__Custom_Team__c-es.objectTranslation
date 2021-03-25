@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Equipo</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Equipos</value>
+    </caseValues>
+    <fields>
+        <label><!-- Alerta Comercial --></label>
+        <name>Commercial_Alert__c</name>
+        <relationshipLabel><!-- Equipo --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Object Name --></label>
+        <name>ctcp__Object_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>ctcp__Opportunity__c</name>
+        <relationshipLabel><!-- Custom Teams --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>ctcp__gf_team_users_desc__c</name>
+        <relationshipLabel><!-- Custom Teams --></relationshipLabel>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>BE_CommercialAlert</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel><!-- Custom Team Name --></nameFieldLabel>
+    <recordTypes>
+        <label><!-- Alerta comercial --></label>
+        <name>BE_Commercial_Alert</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Opportunity --></label>
+        <name>ctcp__Opportunity</name>
+    </recordTypes>
+    <sharingReasons>
+        <label><!-- AlertTeam --></label>
+        <name>AlertTeam</name>
+    </sharingReasons>
+    <validationRules>
+        <errorMessage><!-- You must insert a user --></errorMessage>
+        <name>ctcp__Required_User</name>
+    </validationRules>
+</CustomObjectTranslation>

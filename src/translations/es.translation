@@ -3036,4 +3036,13 @@
         <label>Email</label>
         <name>SendEmail</name>
     </quickActions>
+    <reportTypes>
+        <description><!-- Alertas Comerciales --></description>
+        <label><!-- Alertas Comerciales --></label>
+        <name>Alertas_Comerciales</name>
+        <sections>
+            <label><!-- Commercial Alerts --></label>
+            <name>Commercial Alerts</name>
+        </sections>
+    </reportTypes>
 </Translations>

@@ -46,7 +46,11 @@ export default class BE_DynamicRelatedItem_Lwc extends NavigationMixin(Lightning
                 case "double":
                     currentObj.isDecimal = true;
                     break;
-                case "url":
+                case "customurl":
+                    currentObj.urlLabel = this.sObjData[element.typeAttributes.label];
+                    currentObj.value = window.location.origin + '/' + this.sObjData[element.typeAttributes.fieldName];
+                    currentObj.isUrl = true;
+                    break;
                 case "customlookup":
                     currentObj.urlLabel = this.sObjData[element.typeAttributes.objectApiName][element.typeAttributes.label];
                     currentObj.value = window.location.origin + '/' + this.sObjData[element.typeAttributes.objectApiName][element.typeAttributes.fieldName];

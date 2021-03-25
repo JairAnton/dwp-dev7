@@ -2667,6 +2667,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Commercial_Alert_Visit_Relation__c.End_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Commercial_Alert_Visit_Relation__c.Start_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Commitment_Value__c.commitment_expiry_days_number__c</field>
         <readable>false</readable>
     </fieldPermissions>

@@ -21,7 +21,7 @@ public class BE_CA_NewCampaign_Tst {
         final String recordTypeId= [SELECT ID FROM RecordType WHERE sObjectType='Account' AND DeveloperName='Record_Type_Client'].Id;     
         final User admin = [SELECT Id FROM User WHERE id=:UserInfo.getUserId()];
         final Account acc = BE_EconomicGroup_DebtAndFee_tst.generateData(admin);
-        acc.RecordTypeId =recordTypeId;
+        acc.RecordTypeId = recordTypeId;
         System.runAs(admin) {
             update acc;
         }

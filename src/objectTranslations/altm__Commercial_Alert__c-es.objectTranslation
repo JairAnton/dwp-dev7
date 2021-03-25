@@ -208,7 +208,7 @@
         <name>altm__bloomberg_ticker_id__c</name>
     </fields>
     <fields>
-        <label><!-- Commercial Action --></label>
+        <label>Acción comercial</label>
         <name>altm__campaign_id__c</name>
         <relationshipLabel><!-- Commercial Alerts --></relationshipLabel>
     </fields>
@@ -521,7 +521,7 @@
             <section>Métricas de éxito</section>
         </sections>
     </layouts>
-    <nameFieldLabel>Nombre de Alerta Comercial</nameFieldLabel>
+    <nameFieldLabel>Nombre de alerta comercial</nameFieldLabel>
     <quickActions>
         <label><!-- Nueva Tarea --></label>
         <name>BE_CA_CreateTask</name>

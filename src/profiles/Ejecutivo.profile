@@ -303,6 +303,18 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BE_CA_AlertVisitRelationship_Cls</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_CA_CustomTeam_Cls</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_CA_CustomTeam_Tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BE_CA_NewCampaignRoleValidation_Ctr</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -312,7 +324,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>BE_CA_NewCampaign_Ctr</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>BE_CA_NewCampaign_Tst</apexClass>
@@ -332,7 +344,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>BE_CA_WonOpportunity_Cls</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>BE_CA_WonOpportunity_Tst</apexClass>
@@ -5162,6 +5174,16 @@ Asistente BE</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Commercial_Alert_Visit_Relation__c.End_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Commercial_Alert_Visit_Relation__c.Start_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Contact.AccountId</field>
         <readable>true</readable>
@@ -8043,6 +8065,21 @@ Asistente BE</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>ctcp__Custom_Team__c.ctcp__Object_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ctcp__Custom_Team__c.ctcp__Opportunity__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ctcp__Custom_Team__c.ctcp__gf_team_users_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>dwp_cvad__Action_Audit_Detail__c.dwp_cvad__action_audit_detail_content__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -9900,6 +9937,9 @@ Asistente BE</description>
     <layoutAssignments>
         <layout>Case-Case Layout</layout>
         <recordType>Case.Sanction_Price</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Commercial_Alert_Visit_Relation__c-Commercial Alert Task Relationship Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Global-Global Layout</layout>
