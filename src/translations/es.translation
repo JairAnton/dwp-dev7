@@ -149,10 +149,6 @@
         <name>Ask_for_validation</name>
     </customLabels>
     <customLabels>
-        <label>Elevar</label>
-        <name>Ask_for_validationTactico</name>
-    </customLabels>
-    <customLabels>
         <label>Por favor ingresar valores correctos.</label>
         <name>BE_NonClient_ErrorMessage</name>
     </customLabels>

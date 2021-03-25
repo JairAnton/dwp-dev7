@@ -48,9 +48,9 @@
             &quot;type&quot;: &quot;picklist&quot;
         },
         {
-            &quot;label&quot;: &quot;Fecha de Cierre&quot;,
-            &quot;fieldName&quot;: &quot;altm__alert_expiration_date__c&quot;,
-            &quot;type&quot;: &quot;checkbox&quot;
+            &quot;label&quot;: &quot;Fecha de finalización&quot;,
+            &quot;fieldName&quot;: &quot;altm__commercial_alert_end_date__c&quot;,
+            &quot;type&quot;: &quot;date-local&quot;
         },
         {
             &quot;type&quot;: &quot;action&quot;,

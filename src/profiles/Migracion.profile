@@ -8305,10 +8305,6 @@
         <recordType>Case.Formalization</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Campaign-Campaign Layout</layout>
-        <recordType>Campaign.BE_Campaign</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Case-Price Approval Case Layout</layout>
         <recordType>Case.Sanction_Price</recordType>
     </layoutAssignments>
