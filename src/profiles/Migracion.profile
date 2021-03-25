@@ -8386,13 +8386,6 @@
         <layout>bupl__AP_Team__c-Planning Team Member Layout Peru</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>altm__Commercial_Alert__c-BE_CommercialAlert</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>altm__Commercial_Alert__c-BE_CommercialAlert</layout>
-        <recordType>altm__Commercial_Alert__c.BE_CommercialAlert</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>ctcp__Custom_Team__c-BE_CommercialAlert</layout>
         <recordType>ctcp__Custom_Team__c.BE_Commercial_Alert</recordType>
     </layoutAssignments>

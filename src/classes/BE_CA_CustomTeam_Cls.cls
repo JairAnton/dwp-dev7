@@ -41,7 +41,7 @@ public with sharing class  BE_CA_CustomTeam_Cls extends BE_SingleRelatedListCRUD
     */
     public override BE_SingleRelatedListCRUD_Cls.Response createRecords(List<SObject> sObjs) {
 		final BE_SingleRelatedListCRUD_Cls.Response res=new BE_SingleRelatedListCRUD_Cls.Response();
-        final altm__Commercial_Alert__Share jobShr  = new altm__Commercial_Alert__Share();
+        final altm__Commercial_Alert__Share jobShr = new altm__Commercial_Alert__Share();
         insert sObjs;
         jobShr.ParentId = (String)sObjs[0].get('Commercial_Alert__c');
         jobShr.UserOrGroupId = (String)sObjs[0].get('ctcp__gf_team_users_desc__c');
