@@ -9,7 +9,7 @@
     2021-03-10  LMBR     lolo.bravo@bbva.com    			Creation
    ----------------------------------------------------------------------------------------------------
  */
-public class BE_CA_CustomTeam_Cls extends BE_SingleRelatedListCRUD_Cls {
+public with sharing class  BE_CA_CustomTeam_Cls extends BE_SingleRelatedListCRUD_Cls {
     	/**@Description Quotes*/
 		final static String QUOTES='\'';
 		/**@Description params to quotes*/
@@ -21,12 +21,12 @@ public class BE_CA_CustomTeam_Cls extends BE_SingleRelatedListCRUD_Cls {
 	 */
 	public override BE_SingleRelatedListCRUD_Cls.Response readRecords(Map<String,Object>param) {
 		final BE_SingleRelatedListCRUD_Cls.Response res=new BE_SingleRelatedListCRUD_Cls.Response();
-		final Map<String,String> messages = new Map<String,String>();
 		try {
             final Id recordId=(String)param.get('recordId');
             final String query= 'SELECT '+ String.escapeSingleQuotes((String)param.get('sObjFields'))+ ' FROM '+String.escapeSingleQuotes((String)param.get('sObjName'))+' WHERE '+String.escapeSingleQuotes((String)param.get('filterSQOL')).removeEndIgnoreCase('LIKE').replace(REFACTORPER,QUOTES);
             res.isSuccess=true;
             res.data=Database.query(query);
+            System.debug('##recordId##'+recordId);
 		} catch (DMLException ex) {
 			res.isSuccess=false;
 			res.message=ex.getDmlMessage(0);
@@ -47,12 +47,12 @@ public class BE_CA_CustomTeam_Cls extends BE_SingleRelatedListCRUD_Cls {
         jobShr.UserOrGroupId = (String)sObjs[0].get('ctcp__gf_team_users_desc__c');
         jobShr.AccessLevel = 'Edit';
         jobShr.RowCause = Schema.altm__Commercial_Alert__Share.RowCause.Manual;
-        final Database.SaveResult sr = Database.insert(jobShr,false);
-       if(sr.isSuccess()) {
+        final Database.SaveResult sResult = Database.insert(jobShr,false);
+        if(sResult.isSuccess()) {
          	res.isSuccess=true;
-       } else {
+        } else {
             res.isSuccess=false;
-       }
+        }
         return res;
     }
 

@@ -1,35 +1,59 @@
 /**
    ----------------------------------------------------------------------------------------------------
-   @Name <BE_CA_CustomTeam_Tst>
+   @Name <BE_CA_CustomTeam_Cls>
    @Author Lolo Michel Bravo Ruiz (lolo.bravo@bbva.com)
    @Date 2021-03-10
-   @Description Class test BE_CA_CustomTeam_Cls
+   @Description Class Ctr for BE_CA_CustomTeam_Cls
    @Changes
     Date        Author   Email                  			Type		Description
     2021-03-10  LMBR     lolo.bravo@bbva.com    			Creation
    ----------------------------------------------------------------------------------------------------
  */
-@isTest
-public class BE_CA_CustomTeam_Tst {
-    /** Test Method readRecordsTest */
-    @Istest
-    public static void readRecordsTest() {
-        final Account acc = TestFactory.createAccount();
-        final Map<String,Object> param = new Map<String,Object>{'recordId'=>acc.Id,'sObjFields'=>'Id,Name','sObjName'=>'Account','filterSQOL'=>'Id=:recordID'};
-    	final BE_CA_CustomTeam_Cls cTeam= new BE_CA_CustomTeam_Cls();
-        final BE_SingleRelatedListCRUD_Cls.Response res=cTeam.readRecords(param);
-        System.assert(res.isSuccess,'Success Read');
-      }
-   	 /** Test Method createRecords */
-     @Istest
-     public static void createRecords() {
-        final Account acc = TestFactory.createAccount();
-        final User cUser= TestFactory.createUser('testuseralertTeam', 'Ejecutivo');
-        final User cUser2= TestFactory.createUser('testuseralertTeam2', 'Ejecutivo');
-        final altm__Commercial_Alert__c commAlert= new altm__Commercial_Alert__c(Name='Test_CommAlert',OwnerId=cUser.Id);
-        final ctcp__Custom_Team__c cTeam = new ctcp__Custom_Team__c(Commercial_Alert__c=commAlert.id,ctcp__gf_team_users_desc__c=cUser2.id);
-    	final BE_CA_CustomTeam_Cls cClass= new BE_CA_CustomTeam_Cls();
-        final BE_SingleRelatedListCRUD_Cls.Response res=cClass.createRecords(new List<ctcp__Custom_Team__c>{cTeam});
-        System.assert(!res.isSuccess,'Success Create');
-      }
+public with sharing class  BE_CA_CustomTeam_Cls extends BE_SingleRelatedListCRUD_Cls {
+    	/**@Description Quotes*/
+		final static String QUOTES='\'';
+		/**@Description params to quotes*/
+		final static String REFACTORPER='@@';
+		/**
+	   @Description readRecords
+	   @param  List<SObject> sObjs
+	   @return BE_SingleRelatedListCRUD_Cls.Response response
+	 */
+	public override BE_SingleRelatedListCRUD_Cls.Response readRecords(Map<String,Object>param) {
+		final BE_SingleRelatedListCRUD_Cls.Response res=new BE_SingleRelatedListCRUD_Cls.Response();
+		try {
+            final Id recordId=(String)param.get('recordId');
+            final String query= 'SELECT '+ String.escapeSingleQuotes((String)param.get('sObjFields'))+ ' FROM '+String.escapeSingleQuotes((String)param.get('sObjName'))+' WHERE '+String.escapeSingleQuotes((String)param.get('filterSQOL')).removeEndIgnoreCase('LIKE').replace(REFACTORPER,QUOTES);
+            res.isSuccess=true;
+            res.data=Database.query(query);
+            System.debug('##recordId##'+recordId);
+		} catch (DMLException ex) {
+			res.isSuccess=false;
+			res.message=ex.getDmlMessage(0);
+		}
+		return res;
+	}
+    
+    /**
+    @Description createRecords
+    @param  List<SObject> sObjs
+    @return BE_SingleRelatedListCRUD_Cls.Response response
+    */
+    public override BE_SingleRelatedListCRUD_Cls.Response createRecords(List<SObject> sObjs) {
+		final BE_SingleRelatedListCRUD_Cls.Response res=new BE_SingleRelatedListCRUD_Cls.Response();
+        final altm__Commercial_Alert__Share jobShr  = new altm__Commercial_Alert__Share();
+        insert sObjs;
+        jobShr.ParentId = (String)sObjs[0].get('Commercial_Alert__c');
+        jobShr.UserOrGroupId = (String)sObjs[0].get('ctcp__gf_team_users_desc__c');
+        jobShr.AccessLevel = 'Edit';
+        jobShr.RowCause = Schema.altm__Commercial_Alert__Share.RowCause.Manual;
+        final Database.SaveResult sResult = Database.insert(jobShr,false);
+        if(sResult.isSuccess()) {
+         	res.isSuccess=true;
+        } else {
+            res.isSuccess=false;
+        }
+        return res;
+    }
+
 }
