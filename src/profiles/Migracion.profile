@@ -298,10 +298,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>BE_CA_AlertVisitRelationship_Cls</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>BE_CA_CustomTeam_Cls</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -8319,9 +8315,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>OpportunityTeamMember-Formato Miembro del equipo de oportunidades</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>altm__Commercial_Alert__c-BE_CommercialAlert</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>altm__Commercial_Alert__c-BE_CommercialAlert</layout>

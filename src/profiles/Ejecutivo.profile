@@ -303,10 +303,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>BE_CA_AlertVisitRelationship_Cls</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>BE_CA_CustomTeam_Cls</apexClass>
         <enabled>false</enabled>
     </classAccesses>

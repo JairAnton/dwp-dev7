@@ -149,6 +149,10 @@
         <name>Ask_for_validation</name>
     </customLabels>
     <customLabels>
+        <label>Elevar</label>
+        <name>Ask_for_validationTactico</name>
+    </customLabels>
+    <customLabels>
         <label>Por favor ingresar valores correctos.</label>
         <name>BE_NonClient_ErrorMessage</name>
     </customLabels>
@@ -3032,13 +3036,4 @@
         <label>Email</label>
         <name>SendEmail</name>
     </quickActions>
-    <reportTypes>
-        <description><!-- Alertas Comerciales --></description>
-        <label><!-- Alertas Comerciales --></label>
-        <name>Alertas_Comerciales</name>
-        <sections>
-            <label><!-- Commercial Alerts --></label>
-            <name>Commercial Alerts</name>
-        </sections>
-    </reportTypes>
 </Translations>
