@@ -306,10 +306,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>BE_CA_NewCampaignRoleValidation_Ctr</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>BE_CA_NewCampaignRoleValidation_tst</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -8384,10 +8380,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>bupl__AP_Team__c-Planning Team Member Layout Peru</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>ctcp__Custom_Team__c-BE_CommercialAlert</layout>
-        <recordType>ctcp__Custom_Team__c.BE_Commercial_Alert</recordType>
     </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
