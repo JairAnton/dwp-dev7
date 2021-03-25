@@ -1,14 +1,8 @@
 <aura:component implements="lightning:actionOverride,flexipage:availableForRecordHome,force:lightningQuickActionWithoutHeader,force:hasRecordId" 
-                access="global"
-                controller="BE_CA_NewCampaignRoleValidation_Ctr">
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
-    <aura:attribute name="loaded" type="Boolean" default="false" />
+                access="global">
+    <aura:attribute name="loaded" type="Boolean" default="true" />
     <aura:attribute name="isNotQuickAction" type="Boolean" default="true" />
-    
-    
-    <aura:attribute name="settings" type="Object" />
     <aura:if isTrue="{! v.loaded }">
         <c:BE_CustomQuickAction_Cmp recordId="{!v.recordId}" nameMetadata="BE_CA_NewCampaign" isNotQuickAction="true"/>
-    </aura:if>
-    
+    </aura:if>    
 </aura:component>

@@ -11,7 +11,7 @@
     </choices>
     <choices>
         <name>High</name>
-        <choiceText>High</choiceText>
+        <choiceText>Alta</choiceText>
         <dataType>String</dataType>
         <value>
             <stringValue>High</stringValue>
@@ -217,7 +217,7 @@
         <name>Crear_Tarea</name>
         <label>Crear Tarea</label>
         <locationX>291</locationX>
-        <locationY>332</locationY>
+        <locationY>333</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>

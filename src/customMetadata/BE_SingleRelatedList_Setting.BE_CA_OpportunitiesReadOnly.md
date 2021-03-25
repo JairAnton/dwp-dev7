@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <label>Alertas Comerciales Vencidas</label>
+    <label>CA-Opportunities</label>
     <protected>false</protected>
     <values>
         <field>BE_SingleRetatedListView__c</field>
@@ -25,43 +25,48 @@
         },
         {
             &quot;label&quot;: &quot;Cliente&quot;,
-            &quot;fieldName&quot;: &quot;altm__participant_id__c&quot;,
+            &quot;fieldName&quot;: &quot;AccountId&quot;,
             &quot;type&quot;: &quot;customlookup&quot;,
             &quot;typeAttributes&quot;: {
                 &quot;isCustom&quot;: true,
                 &quot;fieldName&quot;: &quot;Id&quot;,
                 &quot;label&quot;: &quot;Name&quot;,
-                &quot;objectApiName&quot;: &quot;altm__participant_id__r&quot;,
+                &quot;objectApiName&quot;: &quot;Account&quot;,
                 &quot;rowData&quot;: {
                     &quot;fieldName&quot;: &quot;rowData&quot;
                 }
             }
         },
         {
-            &quot;label&quot;: &quot;Categoría&quot;,
-            &quot;fieldName&quot;: &quot;commercial_alert_category__c&quot;,
-            &quot;type&quot;: &quot;picklist&quot;
+            &quot;label&quot;: &quot;Monto&quot;,
+            &quot;fieldName&quot;: &quot;Amount&quot;,
+            &quot;type&quot;: &quot;currency&quot;,
+            &quot;typeAttributes&quot;: {
+                &quot;minimumFractionDigits&quot;: &quot;2&quot;,
+                &quot;maximumFractionDigits&quot;: &quot;2&quot;,
+                &quot;currencyCode&quot;: {
+                    &quot;fieldName&quot;: &quot;CurrencyIsoCode&quot;
+                }
+            },
+            &quot;cellAttributes&quot;: {
+                &quot;alignment&quot;: &quot;right&quot;
+            }
         },
         {
-            &quot;label&quot;: &quot;Tipo&quot;,
-            &quot;fieldName&quot;: &quot;altm__commercial_alert_task_type__c&quot;,
+            &quot;label&quot;: &quot;Etapa&quot;,
+            &quot;fieldName&quot;: &quot;StageName&quot;,
             &quot;type&quot;: &quot;picklist&quot;
-        },
-        {
-            &quot;label&quot;: &quot;Fecha de finalización&quot;,
-            &quot;fieldName&quot;: &quot;altm__commercial_alert_end_date__c&quot;,
-            &quot;type&quot;: &quot;date-local&quot;
         }
     ]
 }</value>
     </values>
     <values>
         <field>FieldsQuery__c</field>
-        <value xsi:type="xsd:string">Name,altm__participant_id__c,toLabel(altm__alert_stage_type__c),toLabel(commercial_alert_category__c),altm__commercial_alert_desc__c,toLabel(altm__commercial_alert_task_type__c),altm__alert_expiration_date__c,altm__participant_id__r.Name</value>
+        <value xsi:type="xsd:string">Name,toLabel(StageName),Amount,CloseDate,Account.Name,Account.Id</value>
     </values>
     <values>
         <field>Filter__c</field>
-        <value xsi:type="xsd:string">altm__campaign_id__c=:recordId AND altm__commercial_alert_end_date__c &lt;= Today</value>
+        <value xsi:type="xsd:string">commercial_alert_id__c=:recordId</value>
     </values>
     <values>
         <field>HeadActions__c</field>
@@ -69,7 +74,7 @@
     </values>
     <values>
         <field>NumberRows__c</field>
-        <value xsi:type="xsd:double">5.0</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Order__c</field>
@@ -81,6 +86,6 @@
     </values>
     <values>
         <field>sObjectApiName__c</field>
-        <value xsi:type="xsd:string">altm__Commercial_Alert__c</value>
+        <value xsi:type="xsd:string">Opportunity</value>
     </values>
 </CustomMetadata>

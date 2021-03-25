@@ -114,7 +114,7 @@ public with sharing class BE_CA_NewCampaign_Ctr extends BE_CustomQuickActionCRUD
     private static List<altm__Commercial_Alert__c> generateAlerts(SObject sObj, string recordTypeName, Map<String,User> allExcUsers, Map<Id,Campaign> campaignMap) {
         final string stageType = '01';
         final List<altm__Commercial_Alert__c> response = new List<altm__Commercial_Alert__c>(); 
-        for (Account acc : [SELECT ID,unique_id__c, Owner.user_id__c FROM Account WHERE Owner.user_id__c IN :allExcUsers.keySet() AND RecordType.DeveloperName = :recordTypeName]) {
+        for (Account acc : [SELECT Name,ID,unique_id__c, Owner.user_id__c FROM Account WHERE Owner.user_id__c IN :allExcUsers.keySet() AND RecordType.DeveloperName = :recordTypeName]) {
             String fmdate = DateTime.newInstance(
                 Date.valueOf(sObj.get(altm__Commercial_Alert__c.altm__commercial_alert_start_date__c)).year(),
                 Date.valueOf(sObj.get(altm__Commercial_Alert__c.altm__commercial_alert_start_date__c)).month(),
@@ -135,16 +135,13 @@ public with sharing class BE_CA_NewCampaign_Ctr extends BE_CustomQuickActionCRUD
              alert.altm__participant_id__c = acc.Id;
              alert.altm__commercial_alert_task_type__c = String.valueOf(sObj.get(altm__Commercial_Alert__c.altm__commercial_alert_task_type__c));
              alert.altm__alert_stage_type__c = stageType;
-             alert.Name = alert.commercial_alert_category__c + ' ' + alert.altm__commercial_alert_task_type__c  + ' ' 
+             alert.Name = acc.Name.abbreviate(50) + ' - ' + alert.commercial_alert_category__c + ' ' + alert.altm__commercial_alert_task_type__c  + ' ' 
                  + fmdate; 
              final Campaign relatedCampaign = campaignMap.get(acc.OwnerId);
              if( relatedCampaign != null) {
                 alert.altm__campaign_id__c = relatedCampaign.id;
                 response.add(alert);
              }
-             System.debug('###---alert---###'+alert);
-
-
         }
         return response;
     }

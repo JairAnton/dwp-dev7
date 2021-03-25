@@ -115,7 +115,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>relListSet</name>
-                    <value>BE_CA_Expired</value>
+                    <value>BE_CA_Discared</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>relListType</name>
@@ -123,7 +123,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>title</name>
-                    <value>{     &quot;es&quot;: &quot;Vencidas&quot;,     &quot;en-US&quot;: &quot;Expired&quot; }</value>
+                    <value>{     &quot;es&quot;: &quot;Descartadas&quot;,     &quot;en-US&quot;: &quot;Discarded&quot; }</value>
                 </componentInstanceProperties>
                 <componentName>bE_SingleRelatedList_Lwc</componentName>
             </componentInstance>
@@ -139,7 +139,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>relListSet</name>
-                    <value>BE_CA_Discared</value>
+                    <value>BE_CA_Expired</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>relListType</name>
@@ -147,7 +147,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>title</name>
-                    <value>{     &quot;es&quot;: &quot;Descartadas&quot;,     &quot;en-US&quot;: &quot;Discarded&quot; }</value>
+                    <value>{     &quot;es&quot;: &quot;Vencidas&quot;,     &quot;en-US&quot;: &quot;Expired&quot; }</value>
                 </componentInstanceProperties>
                 <componentName>bE_SingleRelatedList_Lwc</componentName>
             </componentInstance>

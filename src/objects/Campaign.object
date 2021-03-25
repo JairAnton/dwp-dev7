@@ -295,7 +295,7 @@
         <columns>CORE.USERS.FIRST_NAME</columns>
         <columns>CORE.USERS.LAST_NAME</columns>
         <filterScope>Everything</filterScope>
-        <label>All Campaigns</label>
+        <label>Todas las campañas</label>
     </listViews>
     <listViews>
         <fullName>MyActiveCampaigns</fullName>

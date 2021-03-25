@@ -154,6 +154,26 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
+        <fullName>End_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>visit_id__r.dwp_kitv__visit_end_date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>visit_id__r.dwp_kitv__visit_start_date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>commercial_id__c</fullName>
         <externalId>false</externalId>
         <label>Commercial Alert</label>
@@ -180,13 +200,13 @@
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <gender>Feminine</gender>
-    <label>Commercial Alert Task Relationship</label>
+    <label>Relación de visita</label>
     <nameField>
         <displayFormat>CAT{YYYY}{MM}-{0}{00000000}</displayFormat>
         <label>Name</label>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Commercial Alert Task Relationship</pluralLabel>
+    <pluralLabel>Relación de visitas</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>

@@ -9,7 +9,7 @@
    2020-03-03  LMBR     lolo.bravo@bbva.com    Creation
    -------------------------------------------------------------------------------------------------
  */
-public with sharing class BE_CA_WonOpportunity_Cls {
+public without sharing class BE_CA_WonOpportunity_Cls {
     /** class Name */ 
   	final static String WON_STAGE='03';
     

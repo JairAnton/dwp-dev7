@@ -298,6 +298,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BE_CA_CustomTeam_Cls</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_CA_CustomTeam_Tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BE_CA_NewCampaign_Ctr</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -315,6 +323,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>BE_CA_NewVisit_Tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_CA_WonOpportunity_Cls</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_CA_WonOpportunity_Tst</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -4838,6 +4854,16 @@
         <field>Case.dwp_returned_date__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Commercial_Alert_Visit_Relation__c.End_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Commercial_Alert_Visit_Relation__c.Start_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.AccountId</field>
@@ -4936,6 +4962,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.Type</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.commercial_alert_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8247,16 +8278,19 @@
         <layout>Global-Global Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Campaign-Campaign Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Campaign-Campaign Layout</layout>
+        <recordType>Campaign.BE_Campaign</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
 		<layout>Case-acpl__Account Plan Validation</layout>
 	    <recordType>Case.acpl__Account_Plan_Validation</recordType>
 	</layoutAssignments>
     <layoutAssignments>
         <layout>Case-Formalization Case Layout</layout>
         <recordType>Case.Formalization</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Campaign-Campaign Layout</layout>
-        <recordType>Campaign.BE_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Case-Price Approval Case Layout</layout>
@@ -8273,6 +8307,14 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>OpportunityTeamMember-Formato Miembro del equipo de oportunidades</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>altm__Commercial_Alert__c-BE_CommercialAlert</layout>
+        <recordType>altm__Commercial_Alert__c.BE_CommercialAlert</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ctcp__Custom_Team__c-BE_CommercialAlert</layout>
+        <recordType>ctcp__Custom_Team__c.BE_Commercial_Alert</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>dwp_kitv__Visit_Contact__c-Visit Contact Layout Peru</layout>
@@ -8334,17 +8376,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>bupl__AP_Team__c-Planning Team Member Layout Peru</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>altm__Commercial_Alert__c-BE_CommercialAlert</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>altm__Commercial_Alert__c-BE_CommercialAlert</layout>
-        <recordType>altm__Commercial_Alert__c.BE_CommercialAlert</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>ctcp__Custom_Team__c-BE_CommercialAlert</layout>
-        <recordType>ctcp__Custom_Team__c.BE_Commercial_Alert</recordType>
     </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
@@ -8500,6 +8531,24 @@
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Campaign</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Commercial_Alert_Visit_Relation__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
@@ -8630,6 +8679,15 @@
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>altm__Commercial_Alert__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>bupl__AP_Team__c</object>
         <viewAllRecords>true</viewAllRecords>
@@ -8677,6 +8735,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>bupl__BusinessPlan__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ctcp__Custom_Team__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>

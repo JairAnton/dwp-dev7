@@ -329,7 +329,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>label</name>
-                    <value>System Information</value>
+                    <value>Información del sistema</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:fieldSection</componentName>
             </componentInstance>
@@ -1184,7 +1184,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>title</name>
-                    <value>Información Financiera</value>
+                    <value>Información financiera</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
             </componentInstance>
@@ -1211,18 +1211,22 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>parentFieldApiName</name>
-                    <value>altm__Commercial_Alert__c.Id</value>
+                    <name>iconName</name>
+                    <value>standard:opportunity</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
-                    <name>relatedListApiName</name>
-                    <value>Opportunities__r</value>
+                    <name>relListSet</name>
+                    <value>BE_CA_OpportunitiesReadOnly</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
-                    <name>relatedListComponentOverride</name>
-                    <value>GRID</value>
+                    <name>relListType</name>
+                    <value>Title</value>
                 </componentInstanceProperties>
-                <componentName>force:relatedListSingleContainer</componentName>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>{&quot;es&quot;: &quot;Oportunidades&quot;,&quot;en-US&quot;: &quot;Opportunities&quot;}</value>
+                </componentInstanceProperties>
+                <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -1248,23 +1252,53 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
+                <visibilityRule>
+                    <booleanFilter>1 OR 2</booleanFilter>
+                    <criteria>
+                        <leftValue>{!Record.altm__alert_stage_type__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>01</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!Record.altm__alert_stage_type__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>02</rightValue>
+                    </criteria>
+                </visibilityRule>
             </componentInstance>
         </itemInstances>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>parentFieldApiName</name>
-                    <value>altm__Commercial_Alert__c.Id</value>
+                    <name>iconName</name>
+                    <value>standard:team_member</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
-                    <name>relatedListApiName</name>
-                    <value>Custom_Teams__r</value>
+                    <name>relListSet</name>
+                    <value>BE_CA_CustomTeam</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
-                    <name>relatedListComponentOverride</name>
-                    <value>GRID</value>
+                    <name>relListType</name>
+                    <value>Title</value>
                 </componentInstanceProperties>
-                <componentName>force:relatedListSingleContainer</componentName>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>{&quot;es&quot;: &quot;Equipo&quot;,&quot;en-US&quot;: &quot;Team&quot;}</value>
+                </componentInstanceProperties>
+                <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
+                <visibilityRule>
+                    <booleanFilter>1 OR 2</booleanFilter>
+                    <criteria>
+                        <leftValue>{!Record.altm__alert_stage_type__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>01</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!Record.altm__alert_stage_type__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>02</rightValue>
+                    </criteria>
+                </visibilityRule>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -1282,6 +1316,121 @@
                     <value>NONE</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListSingleContainer</componentName>
+                <visibilityRule>
+                    <booleanFilter>1 OR 2</booleanFilter>
+                    <criteria>
+                        <leftValue>{!Record.altm__alert_stage_type__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>01</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!Record.altm__alert_stage_type__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>02</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>iconName</name>
+                    <value>custom:custom53</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>relListSet</name>
+                    <value>BE_CA_AlertVisitRelation_ReadOnly</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>relListType</name>
+                    <value>Title</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>{&quot;es&quot;: &quot;Relacion de visitas&quot;,&quot;en-US&quot;: &quot;Visit Relationship&quot;}</value>
+                </componentInstanceProperties>
+                <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
+                <visibilityRule>
+                    <booleanFilter>1 OR 2</booleanFilter>
+                    <criteria>
+                        <leftValue>{!Record.altm__alert_stage_type__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>03</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!Record.altm__alert_stage_type__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>04</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>iconName</name>
+                    <value>standard:team_member</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>relListSet</name>
+                    <value>BE_CA_CustomTeam_ReadOnly</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>relListType</name>
+                    <value>Title</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>{&quot;es&quot;: &quot;Equipo&quot;,&quot;en-US&quot;: &quot;Team&quot;}</value>
+                </componentInstanceProperties>
+                <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
+                <visibilityRule>
+                    <booleanFilter>1 OR 2</booleanFilter>
+                    <criteria>
+                        <leftValue>{!Record.altm__alert_stage_type__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>03</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!Record.altm__alert_stage_type__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>04</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>iconName</name>
+                    <value>custom:custom19</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>relListSet</name>
+                    <value>BE_CA_OpenActivities_ReadOnly</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>relListType</name>
+                    <value>Title</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>{&quot;es&quot;: &quot;Actividades abiertas&quot;,&quot;en-US&quot;: &quot;Open Activities&quot;}</value>
+                </componentInstanceProperties>
+                <componentName>BE_SingleRelatedListRefresh_cmp</componentName>
+                <visibilityRule>
+                    <booleanFilter>1 OR 2</booleanFilter>
+                    <criteria>
+                        <leftValue>{!Record.altm__alert_stage_type__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>03</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!Record.altm__alert_stage_type__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>04</rightValue>
+                    </criteria>
+                </visibilityRule>
             </componentInstance>
         </itemInstances>
         <mode>Replace</mode>

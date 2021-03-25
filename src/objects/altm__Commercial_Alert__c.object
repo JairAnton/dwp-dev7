@@ -1273,18 +1273,18 @@
         <columns>altm__alert_stage_type__c</columns>
         <columns>altm__commercial_alert_start_date__c</columns>
         <columns>altm__commercial_alert_end_date__c</columns>
-        <filterScope>Everything</filterScope>
+        <filterScope>Mine</filterScope>
         <filters>
             <field>altm__alert_stage_type__c</field>
             <operation>equals</operation>
-            <value>Pending</value>
+            <value>01</value>
         </filters>
         <filters>
             <field>altm__alert_stage_type__c</field>
             <operation>equals</operation>
-            <value>InManagement</value>
+            <value>02</value>
         </filters>
-        <label>Alertas Comerciales Activas</label>
+        <label>Alertas comerciales activas</label>
     </listViews>
     <listViews>
         <fullName>BE_CommercialAlertWon</fullName>
@@ -1300,7 +1300,7 @@
         <filters>
             <field>altm__alert_stage_type__c</field>
             <operation>equals</operation>
-            <value>Won</value>
+            <value>03</value>
         </filters>
         <filters>
             <field>altm__commercial_alert_end_date__c</field>
@@ -1312,7 +1312,7 @@
             <operation>equals</operation>
             <value>NEXT_90_DAYS</value>
         </filters>
-        <label>Alertas Comerciales Ganadas</label>
+        <label>Alertas comerciales ganadas</label>
     </listViews>
     <listViews>
         <fullName>BE_CommercialAlert_Closed</fullName>
@@ -1323,13 +1323,13 @@
         <columns>altm__alert_stage_type__c</columns>
         <columns>altm__commercial_alert_start_date__c</columns>
         <columns>altm__commercial_alert_end_date__c</columns>
-        <filterScope>Everything</filterScope>
+        <filterScope>Mine</filterScope>
         <filters>
             <field>altm__commercial_alert_end_date__c</field>
             <operation>equals</operation>
             <value>LAST_90_DAYS</value>
         </filters>
-        <label>Alertas Comerciales Cerradas</label>
+        <label>Alertas comerciales cerradas</label>
     </listViews>
     <listViews>
         <fullName>BE_CommercialAlert_Discarded</fullName>
@@ -1345,7 +1345,7 @@
         <filters>
             <field>altm__alert_stage_type__c</field>
             <operation>equals</operation>
-            <value>Discarded</value>
+            <value>04</value>
         </filters>
         <filters>
             <field>altm__commercial_alert_end_date__c</field>
@@ -1357,7 +1357,7 @@
             <operation>equals</operation>
             <value>NEXT_90_DAYS</value>
         </filters>
-        <label>Alertas Comerciales Descartas</label>
+        <label>Alertas comerciales descartas</label>
     </listViews>
     <listViews>
         <fullName>altm__All</fullName>
@@ -1369,7 +1369,7 @@
         <columns>altm__alert_stage_type__c</columns>
         <columns>altm__commercial_alert_start_date__c</columns>
         <columns>altm__commercial_alert_end_date__c</columns>
-        <filterScope>Everything</filterScope>
+        <filterScope>Mine</filterScope>
         <label>All</label>
     </listViews>
     <nameField>
@@ -1647,11 +1647,18 @@
         </picklistValues>
     </recordTypes>
     <searchLayouts>
-        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
         <excludedStandardButtons>MassChangeOwner</excludedStandardButtons>
-        <listViewButtons>altm__Discard</listViewButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>BE_CA_ChangeOwner</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND (ISCHANGED( OwnerId),$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &apos;Administrador del sistema&apos;,$Profile.Name &lt;&gt; &apos;Migracion&apos;)</errorConditionFormula>
+        <errorDisplayField>OwnerId</errorDisplayField>
+        <errorMessage>No se puede editar el propietario del registro.</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>BE_CA_ChangeStatus</fullName>
         <active>true</active>
