@@ -17,4 +17,5 @@ public without sharing class Visit_Relation_Handler_cls extends TriggerHandler {
     protected override void beforeInsert() {
         BE_CA_Visit_Relation_Trigger_cls.asignBeforeUpdate(newComVis);
     }
+
 }

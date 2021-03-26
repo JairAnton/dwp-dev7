@@ -16,7 +16,6 @@ public class BE_CA_Visit_Relation_Trigger_tst {
     /** Test Method*/
     @isTest
     static void testCAVisitRelationTrg() {
-        Boolean eExThrown = true;
         Test.startTest();
         final Account acc = New Account(
         	Name = 'Test Account'
@@ -41,7 +40,7 @@ public class BE_CA_Visit_Relation_Trigger_tst {
             final Database.SaveResult resultDup = Database.insert(dupliRel, false);
             System.debug('###resultDuplicated##'+resultDup);
         } catch(Exception ex) {
-            eExThrown =  ex.getMessage().contains(TEXT_MESSAGE) ? true : false;
+            System.debug('###Error###'+ex.getMessage());
         }
         Test.stopTest();      
         System.assert(result.isSuccess(),'Success testCAVisitRelationTrg');

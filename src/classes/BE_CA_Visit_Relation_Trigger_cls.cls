@@ -7,8 +7,6 @@
  * 
 */
 public with sharing class BE_CA_Visit_Relation_Trigger_cls {
-    /** MESSAGE */
-    final static String TEXT_MESSAGE='El registro ya existe';
 	/*Constructor Account_Trigger_cls*/
     private BE_CA_Visit_Relation_Trigger_cls() {}
     
@@ -23,9 +21,8 @@ public with sharing class BE_CA_Visit_Relation_Trigger_cls {
         if(accsNew.size() == sizeVal) {
             final List<Commercial_Alert_Visit_Relation__c> relation = [SELECT commercial_id__c, visit_id__c FROM Commercial_Alert_Visit_Relation__c WHERE commercial_id__c = :accsNew[0].commercial_id__c AND visit_id__c = :accsNew[0].visit_id__c];
             if(relation.size() >= sizeVal) {
-                accsNew[0].visit_id__c.addError(TEXT_MESSAGE);
+                accsNew[0].visit_id__c.addError(System.label.BE_CA_ExistVisitRelation);
             }
         }
     }
-
 }
