@@ -286,6 +286,26 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BE_CA_NewCampaign_Ctr</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_CA_NewCampaign_Tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_CA_NewOpp_Ctr</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_CA_NewVisit_Ctr</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_CA_NewVisit_Tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BE_CalceCancellationsOfDay_Ctr</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -696,6 +716,22 @@
     <classAccesses>
         <apexClass>BE_RelateList_Test</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_SRL_ViewsSettings_Cls</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_SRL_ViewsSettings_Tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_SRL_Views_Ctr</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_SRL_Views_Tst</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
 	<classAccesses>
         <apexClass>BE_SanctionUseQuotation_Ctr</apexClass>
@@ -4350,6 +4386,11 @@ Ejecutivos de REDES</description>
         <field>Campaign.Type</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.unique_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
 	<fieldPermissions>
         <editable>false</editable>
         <field>Case.Owner_Account__c</field>
@@ -5133,6 +5174,11 @@ Ejecutivos de REDES</description>
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.Type</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.commercial_alert_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7305,6 +7351,10 @@ Ejecutivos de REDES</description>
         <field>Opportunity.Loss_date__c</field>
         <readable>true</readable>
     </fieldPermissions>
+        <flowAccesses>
+        <enabled>false</enabled>
+        <flow>BE_CA_CreateTask</flow>
+    </flowAccesses>
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
     </layoutAssignments>
@@ -7364,6 +7414,16 @@ Ejecutivos de REDES</description>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Branch__c-Branch_Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Campaign-Campaign Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Campaign-Campaign Layout</layout>
+        <recordType>Campaign.BE_Campaign</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Commercial_Alert_Visit_Relation__c-Commercial Alert Task Relationship Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Contact-Contact Layout</layout>
@@ -7428,6 +7488,13 @@ Ejecutivos de REDES</description>
     </layoutAssignments>
     <layoutAssignments>
         <layout>CaseClose-Price Approval Case Close Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>altm__Commercial_Alert__c-BE_CommercialAlert</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>altm__Commercial_Alert__c-BE_CommercialAlert</layout>
+        <recordType>altm__Commercial_Alert__c.BE_CommercialAlert</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Opportunity_Solution_Commitment__c-Opportunity Solution Commitment Layout</layout>
@@ -7745,6 +7812,15 @@ Ejecutivos de REDES</description>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>QuickText</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+        <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>altm__Commercial_Alert__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -8085,6 +8161,11 @@ Ejecutivos de REDES</description>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
+        <recordType>Campaign.BE_Campaign</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
         <recordType>Guarantee_Details__c.Avales</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -8106,6 +8187,11 @@ Ejecutivos de REDES</description>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Guarantee_Details__c.Prendas</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>altm__Commercial_Alert__c.BE_CommercialAlert</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
 	<recordTypeVisibilities>
@@ -8188,6 +8274,10 @@ Ejecutivos de REDES</description>
     </tabVisibilities>
     <tabVisibilities>
         <tab>User_Branch__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Campaign</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>

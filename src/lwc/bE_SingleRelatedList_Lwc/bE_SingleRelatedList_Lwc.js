@@ -38,6 +38,14 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
     @track hasRendered = false;
     @api isViewAll = false;
     @api isMobile;
+
+    /** VIEWS */
+    @api viewSet;
+    @api viewApiName;
+    @api viewOptions = [];
+    showViews;
+    showIconViews;
+
     /** DATATABLE ATRIBUTTES */
     @track columns; /** Colums of datatable */
     @track draftValues = [];
@@ -70,6 +78,7 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
         this.switchTemplateMode();
         this.customTitle = isNotEmpty(this.title) ? JSON.parse((this.title))[this.lang] : '';
         this.helpText = isNotEmpty(this.helpText) ? JSON.parse(this.helpText)[this.lang] : '';
+        this.showIconViews = isNotEmpty(this.viewApiName);
     }
     renderedCallback() {
         if (this.hasRendered) return;
@@ -152,6 +161,7 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
     }
     /** VIEW ALL RECORDS */
     handleViewAll() {
+        var isViews = isNotEmpty(this.viewApiName);
         var sObject = {
             recordId: this.recordId,
             iconName: this.iconName,
@@ -159,6 +169,9 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
             relListSet: this.relListSet,
             relListType: 'Basic',
             isMobile: this.isMobile,
+            viewApiName: this.viewApiName,
+            metaDev: this.viewSet,
+            isViews: isViews,
             isViewAll: true
         }
         this[NavigationMixin.Navigate]({
@@ -528,5 +541,22 @@ export default class SingleRelatedList extends NavigationMixin(LightningElement)
         });
         this.dispatchEvent(checkboxChangeEvent);
     }
-
+    /** MULTIPLE VIEWS */
+    /**handleOnselectView */
+    handleOnselectView(event) {
+        let view = event.currentTarget.dataset.id;
+        const changeView = new CustomEvent('changeview', {
+            detail: view,
+        });
+        this.dispatchEvent(changeView);
+        this.showViews = false;
+    }
+    /** Togle Views */
+    togleViews() {
+        if (isNotEmpty(this.viewApiName) && this.showViews) {
+            return;
+        } else {
+            this.showViews = isNotEmpty(this.viewApiName);
+        }
+    }
 }

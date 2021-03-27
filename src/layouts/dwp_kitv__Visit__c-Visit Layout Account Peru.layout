@@ -201,6 +201,14 @@
         <fields>TASK.STATUS</fields>
         <relatedList>Activity.dwp_kitv__visit_id__c</relatedList>
     </relatedLists>
+    <relatedLists>
+        <fields>altm__Commercial_Alert__c.NAME</fields>
+        <fields>altm__Commercial_Alert__c.commercial_alert_category__c</fields>
+        <fields>altm__Commercial_Alert__c.altm__commercial_alert_task_type__c</fields>
+        <fields>altm__Commercial_Alert__c.altm__alert_stage_type__c</fields>
+        <fields>altm__Commercial_Alert__c.altm__alert_expiration_date__c</fields>
+        <relatedList>Commercial_Alert_Visit_Relation__c.visit_id__c</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>

@@ -1,0 +1,5 @@
+<aura:component implements="flexipage:availableForRecordHome,force:lightningQuickActionWithoutHeader,force:hasRecordId"
+    access="global">
+   <aura:attribute name="recordId" type="String" default="" />
+   <c:BE_CustomQuickAction_Cmp recordId="{!v.recordId}" nameMetadata="BE_CA_NewVisit" />
+</aura:component>

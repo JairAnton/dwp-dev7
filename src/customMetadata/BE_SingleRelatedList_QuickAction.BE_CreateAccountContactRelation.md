@@ -65,12 +65,20 @@
 }</value>
     </values>
     <values>
+        <field>Fields__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
         <field>ModeAction__c</field>
         <value xsi:type="xsd:string">Create</value>
     </values>
     <values>
         <field>Title__c</field>
         <value xsi:type="xsd:string">{     &quot;es&quot;: &quot;Nueva Relación de contacto de cuenta &quot;,     &quot;en_US&quot;: &quot;New Account Contact Relationship&quot; }</value>
+    </values>
+    <values>
+        <field>redirect__c</field>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>sObjectType__c</field>

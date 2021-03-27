@@ -84,7 +84,12 @@
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
         <label>Additional Information</label>
-        <layoutColumns/>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>commercial_alert_id__c</field>
+            </layoutItems>
+        </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>

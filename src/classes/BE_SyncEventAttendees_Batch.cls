@@ -86,7 +86,8 @@ public without sharing class BE_SyncEventAttendees_Batch implements Database.Bat
         if(!Test.isRunningTest()) {
             gcal.GBL_EventHandler.synchronizeEvent(new List<Id>(evtIds), googleConfig);
         }
-        final AsyncApexJob job = [SELECT Id FROM AsyncApexJob WHERE Id = :context.getJobId()];
-        system.abortJob(job.id);
+        for(CronTrigger job : [SELECT Id FROM CronTrigger WHERE State = 'DELETED' AND CronJobDetail.Name LIKE 'Sync attendees started at %']) {
+            system.abortJob(job.id);
+        }
     }
 }

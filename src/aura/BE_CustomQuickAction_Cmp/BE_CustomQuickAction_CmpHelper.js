@@ -2,8 +2,10 @@
     getSettings: function (cmp, evt, helper) {
         var nameMetadata = cmp.get('v.nameMetadata');
         var action = cmp.get("c.getSettings");
+        var recordId = cmp.get("v.recordId");
         action.setParams({
-            "nameMetadata": nameMetadata
+            "nameMetadata": nameMetadata,
+            "recordId": recordId
         });
         action.setCallback(this, function (response) {
             var state = response.getState();
@@ -11,8 +13,10 @@
                 var ret = response.getReturnValue();
                 var locale = $A.get("$Locale.langLocale");
                 cmp.set('v.title', JSON.parse(ret.title)[locale]);
-                cmp.set("v.settings",ret);
-                this.getsObjectFields(cmp,evt,ret.sObjectType,ret.sObjectFields.fields);
+                cmp.set("v.settings", ret);
+                
+        		console.log("#########Loading",ret.isExcecutiveUser, ret.sObjectType === 'Opportunity', !(!ret.isExcecutiveUser && ret.sObjectType !== 'Opportunity'));
+                this.getsObjectFields(cmp, evt, ret.sObjectType, ret.sObjectFields);
             } else {
                 cmp.set("v.loaded", true);
                 this.showToast('Error', 'Comuniquese con su administrador', 'error');
@@ -20,17 +24,17 @@
         });
         $A.enqueueAction(action);
     },
-    getsObjectFields: function (cmp, evt, sObjectType,fields) {
+    getsObjectFields: function (cmp, evt, sObjectType, fields) {
         var action = cmp.get("c.getsObjFields");
         var recordId = cmp.get("v.recordId");
         var currentFields = [];
+        var params = { "sObjectType": sObjectType, "Id": recordId, "action": cmp.get("v.settings").modeAction };
         for (const iterator of fields) {
             currentFields.push(iterator.fieldName);
         }
         action.setParams({
-            "accId": recordId,
+            "params": params,
             "sObjFields": currentFields,
-            "sObjectType": sObjectType
         });
         action.setCallback(this, function (response) {
             var state = response.getState();
@@ -60,12 +64,17 @@
         });
         $A.enqueueAction(action);
     },
-    callApexMethod: function (cmp, evt, sObjectUpdate,actionApex) {
+    callApexMethod: function (cmp, evt, sObjectUpdate, actionApex) {
         cmp.set("v.loaded", false);
+        var currentParams = {
+            "recordId": cmp.get("v.recordId"),
+            "className": cmp.get("v.settings").className
+        };
         var action = actionApex;
+        console.log(currentParams);
         action.setParams({
             "sObj": sObjectUpdate,
-            "className": cmp.get("v.settings").className
+            "params": currentParams
         });
         action.setCallback(this, function (response) {
             var state = response.getState();
@@ -85,25 +94,42 @@
         $A.enqueueAction(action);
     },
     closeModal: function (cmp, evt, recordId) {
-        if(cmp.get("v.isNotQuickAction")) {
-            if(recordId === null) {
+        var redirectsObj = this.isNotEmpty(cmp.get("v.settings").redirect) ? cmp.get("v.settings").redirect : cmp.get('v.sObjData').sObjectType;
+        var currentObject = cmp.get("v.settings").sObjectType;
+        
+        if (cmp.get("v.isNotQuickAction")) {
+            if (recordId === null || recordId === "" || recordId === undefined) {
                 var homeEvent = $A.get("e.force:navigateToObjectHome");
-                homeEvent.setParams({
-                    "scope": cmp.get('v.sObjData').sObjectType
-                });
-                homeEvent.fire();
+                switch (currentObject) {
+                  case 'altm__Commercial_Alert__c':
+                    homeEvent.setParams({
+                    	"scope": currentObject
+                	});
+                    homeEvent.fire();
+                    break;
+                  case 'Opportunity':
+                    $A.get("e.force:closeQuickAction").fire();
+            		$A.get('e.force:refreshView').fire();
+                    break;
+                  default:
+                    homeEvent.setParams({
+                    	"scope": redirectsObj
+                	});
+                    homeEvent.fire();
+                    break;
+                }                                
+                
             } else {
-                var navEvt = $A.get("e.force:navigateToSObject");
+                var navEvt = $A.get("e.force:navigateToObjectHome");
                 navEvt.setParams({
-                    "recordId": recordId,
-                    "slideDevName": "detail"
-                });
+                    "scope": redirectsObj
+                	});
                 navEvt.fire();
             }
         }
         else {
             $A.get("e.force:closeQuickAction").fire();
-        	$A.get('e.force:refreshView').fire();
+            $A.get('e.force:refreshView').fire();
         }
     },
     showToast: function (title, message, type) {

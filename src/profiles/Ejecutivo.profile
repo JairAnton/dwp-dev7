@@ -303,6 +303,42 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BE_CA_CustomTeam_Cls</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_CA_CustomTeam_Tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_CA_NewCampaign_Ctr</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_CA_NewCampaign_Tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_CA_NewOpp_Ctr</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_CA_NewVisit_Ctr</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_CA_NewVisit_Tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_CA_WonOpportunity_Cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_CA_WonOpportunity_Tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BE_CalceCancellationsOfDay_Ctr</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -906,7 +942,35 @@
         <apexClass>BE_SM_Visit_helper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-	<classAccesses>
+    <classAccesses>
+        <apexClass>BE_SRL_ViewsSettings_Cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_SRL_ViewsSettings_Tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_SRL_Views_Ctr</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_SRL_Views_Tst</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_SanctionUseQuotation_Ctr</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_SanctionUseQuotation_Tst</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BE_SchemaUtils_Cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BE_SearchClient_Helper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -4753,7 +4817,7 @@ Asistente BE</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Campaign.ActualCost</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4768,27 +4832,27 @@ Asistente BE</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Campaign.BudgetedCost</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Campaign.Description</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Campaign.EndDate</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Campaign.ExpectedResponse</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Campaign.ExpectedRevenue</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4853,7 +4917,7 @@ Asistente BE</description>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Campaign.IsActive</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4888,28 +4952,33 @@ Asistente BE</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Campaign.NumberSent</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Campaign.ParentId</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Campaign.StartDate</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Campaign.Status</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Campaign.Type</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign.unique_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
 	<fieldPermissions>
@@ -5090,6 +5159,16 @@ Asistente BE</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.opportunity_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Commercial_Alert_Visit_Relation__c.End_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Commercial_Alert_Visit_Relation__c.Start_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5775,6 +5854,11 @@ Asistente BE</description>
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.Type</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.commercial_alert_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7334,6 +7418,351 @@ Asistente BE</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>altm__Commercial_Alert_Setting__mdt.altm__Email_sender_address__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>altm__Commercial_Alert_Setting__mdt.altm__Email_template__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>altm__Commercial_Alert__c.BBVA_rejection_sub_reason_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__Access_to_this_alert__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__Actual_drawn_cr_revolving_per__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>altm__Commercial_Alert__c.altm__BBVA_rejection_reason_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__Client_product_accepted_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__Client_rejection_reason_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__Expected_drawn_cr_revolving_per__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__ISIN_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__Leveraged_Buyout_start_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__Monitor_manager_user_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__Origination_manager_user_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__Others_rejection_reason_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__Project_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>altm__Commercial_Alert__c.altm__Rejection_reason_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__Repayment_capital_drawn_per__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__Repayment_credit_limit_revlv_per__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__Transaction_type_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__User_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__alert_expiration_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>altm__Commercial_Alert__c.altm__alert_stage_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__amortization_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__bbva_share_amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__bloomberg_ticker_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__campaign_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__clan_syndicated_contract_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__client_process_accepted_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__comm_alerts_perf_actions_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__commercial_alert_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__commercial_alert_end_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__commercial_alert_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__commercial_alert_record_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__commercial_alert_rfq_amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__commercial_alert_start_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__commercial_alert_task_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__commercial_product_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__commercial_subalert_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__country_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__data_source_name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__entity_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__execution_indicator_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__financial_tail_month_number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__gf_alert_delay_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__gf_last_upload_alerts_ind_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__operation_amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__operation_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__opperation_amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__origination_manager_team_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__origl_currency_operation_amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__owner_access_alert_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__pricing_data_desc__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__primary_asset_clasification_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__priority_alert_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__process_discard_status_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__repayment_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__sector_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__solution_category_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__synd_loan_amortization_amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__syndicated_contract_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__syndicated_loan_committed_amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__syndicated_loan_drawn_amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__syndicated_loan_total_amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__syndicated_loan_undrawn_amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__syndicated_tranche_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__total_transaction_number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.altm__transaction_dest_country_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.campaign_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>altm__Commercial_Alert__c.commercial_alert_category__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>bupl__AP_Team__c.account_planning_Owner__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7615,6 +8044,26 @@ Asistente BE</description>
     <fieldPermissions>
         <editable>true</editable>
         <field>bupl__BusinessPlan__c.bupl__status_type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ctcp__Custom_Team__c.Commercial_Alert__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ctcp__Custom_Team__c.ctcp__Object_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ctcp__Custom_Team__c.ctcp__Opportunity__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ctcp__Custom_Team__c.ctcp__gf_team_users_desc__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9284,6 +9733,10 @@ Asistente BE</description>
     </fieldPermissions>
     <flowAccesses>
         <enabled>false</enabled>
+        <flow>BE_CA_CreateTask</flow>
+    </flowAccesses>
+    <flowAccesses>
+        <enabled>false</enabled>
         <flow>Change_Validator_AP_Cases</flow>
     </flowAccesses>
     <flowAccesses>
@@ -9430,6 +9883,15 @@ Asistente BE</description>
         <layout>Account_Renewals__c-Account Renewals Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>BE_SingleRelatedList_QuickAction__mdt-BE_SingleRelatedList_QuickAction Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>BE_SingleRelatedList_Setting__mdt-Single Related List Setting Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>BE_SingleRetatedListView__mdt-BE_SingleRetatedListView Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>BE_Stockholder__c-Stockholder Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -9446,6 +9908,13 @@ Asistente BE</description>
         <recordType>Calce__c.BE_Calce_RecordType</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Campaign-Campaign Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Campaign-Campaign Layout</layout>
+        <recordType>Campaign.BE_Campaign</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
 		<layout>Case-acpl__Account Plan Validation</layout>
 	    <recordType>Case.acpl__Account_Plan_Validation</recordType>
 	</layoutAssignments>
@@ -9458,6 +9927,9 @@ Asistente BE</description>
         <recordType>Case.Sanction_Price</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Commercial_Alert_Visit_Relation__c-Commercial Alert Task Relationship Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Global-Global Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -9466,6 +9938,17 @@ Asistente BE</description>
     <layoutAssignments>
         <layout>acpl__Account_Planning__c-acpl__Account Planning Question Catalog Layout</layout>
         <recordType>acpl__Account_Planning__c.acpl__Question_Catalog</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>altm__Commercial_Alert__c-BE_CommercialAlert</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>altm__Commercial_Alert__c-BE_CommercialAlert</layout>
+        <recordType>altm__Commercial_Alert__c.BE_CommercialAlert</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ctcp__Custom_Team__c-BE_CommercialAlert</layout>
+        <recordType>ctcp__Custom_Team__c.BE_Commercial_Alert</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>dwp_frct__management_plan__c-Management Plan Layout</layout>
@@ -9699,6 +10182,15 @@ Asistente BE</description>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Commercial_Alert_Visit_Relation__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
@@ -9878,6 +10370,15 @@ Asistente BE</description>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>altm__Commercial_Alert__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
@@ -9929,6 +10430,15 @@ Asistente BE</description>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>bupl__BusinessPlan__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ctcp__Custom_Team__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -10285,6 +10795,11 @@ Asistente BE</description>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Campaign.BE_Campaign</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
         <default>false</default>
         <recordType>Case.Formalization</recordType>
         <visible>false</visible>
@@ -10333,6 +10848,21 @@ Asistente BE</description>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>acpl__Account_Planning__c.acpl__Question_Catalog</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>altm__Commercial_Alert__c.BE_CommercialAlert</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>ctcp__Custom_Team__c.BE_Commercial_Alert</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>ctcp__Custom_Team__c.ctcp__Opportunity</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
 	<recordTypeVisibilities>
@@ -10629,6 +11159,10 @@ Asistente BE</description>
 	<tabVisibilities>
         <tab>iaso__Integration_Test</tab>
         <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Campaign</tab>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>
     <userPermissions>

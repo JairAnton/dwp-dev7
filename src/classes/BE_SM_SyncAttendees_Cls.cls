@@ -26,7 +26,7 @@ public with sharing class BE_SM_SyncAttendees_Cls {
         final String hour = String.valueOf(dtSchedule.hour());
         final String min = String.valueOf(dtSchedule.minute()); 
         final String second = String.valueOf(dtSchedule.second());
-        final String nextFireTime = second + ' ' + min + ' ' + hour + ' * * ?';
+        final String nextFireTime = second + ' ' + min + ' ' + hour + ' ' + dtSchedule.day() + ' ' + dtSchedule.month() + ' ? ' + dtSchedule.year();
         
         final BE_SyncEventAttendees_BS sch = new BE_SyncEventAttendees_BS(evtIds);
         System.schedule('Sync attendees started at ' + Math.random() + '-' + Datetime.now(), nextFireTime, sch);
