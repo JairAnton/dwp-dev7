@@ -86,12 +86,17 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
-        <type>Default</type>
+        <content>OverrideStandardButtonMessage_cmp</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>true</skipRecordTypeSelect>
+        <type>LightningComponent</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
+        <content>OverrideStandardButtonMessage_cmp</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>true</skipRecordTypeSelect>
+        <type>LightningComponent</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
@@ -1688,6 +1693,14 @@ $Profile.Name = &apos;Especialista&apos;,$Profile.Name = &apos;Operativo&apos;),
 ISCHANGED(altm__participant_id__c))</errorConditionFormula>
         <errorDisplayField>altm__participant_id__c</errorDisplayField>
         <errorMessage>No se puede editar el cliente.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>BE_CA_NotCreateCommAlertWithCampaing</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND (ISBLANK(altm__campaign_id__c) ,$Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+$Profile.Name &lt;&gt; &apos;Administrador del sistema&apos;,$Profile.Name &lt;&gt; &apos;Migracion&apos;)</errorConditionFormula>
+        <errorDisplayField>altm__campaign_id__c</errorDisplayField>
+        <errorMessage>funcionalidad no disponible de crear una alerta comercial individual</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>BE_ValidateComments</fullName>

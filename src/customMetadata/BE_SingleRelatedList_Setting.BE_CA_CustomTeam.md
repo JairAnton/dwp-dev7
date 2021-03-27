@@ -64,7 +64,7 @@
     </values>
     <values>
         <field>FieldsQuery__c</field>
-        <value xsi:type="xsd:string">AccessLevel,UserOrGroup.Name,ParentId,RowCause,UserOrGroup.UserRole.Name,LastModifiedDate</value>
+        <value xsi:type="xsd:string">toLabel(AccessLevel),UserOrGroup.Name,ParentId,toLabel(RowCause),UserOrGroup.UserRole.Name,LastModifiedDate</value>
     </values>
     <values>
         <field>Filter__c</field>

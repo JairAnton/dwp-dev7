@@ -47,7 +47,7 @@
     </values>
     <values>
         <field>Title__c</field>
-        <value xsi:type="xsd:string">{&quot;es&quot;: &quot;Crear Visit&quot;,&quot;en_US&quot;: &quot;Create Visit&quot;}</value>
+        <value xsi:type="xsd:string">{&quot;es&quot;: &quot;Crear visita&quot;,&quot;en_US&quot;: &quot;Create visit&quot;}</value>
     </values>
     <values>
         <field>redirect__c</field>

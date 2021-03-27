@@ -290,6 +290,22 @@
         <value>No puede crear registros mediante esta vista. Por favor siga el manual indicado.</value>
     </labels>
     <labels>
+        <fullName>BE_CA_ExistVisitRelation</fullName>
+        <categories>BE_CA</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_CA_ExistVisitRelation</shortDescription>
+        <value>El registro ya existe</value>
+    </labels>
+    <labels>
+        <fullName>BE_CA_NewCommercialAlert</fullName>
+        <categories>BE_CA</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_CA_NewCommercialAlert</shortDescription>
+        <value>No cuenta con los permisos suficientes para realizar esta acción.</value>
+    </labels>
+    <labels>
         <fullName>BE_DynamicModalRecordForm</fullName>
         <language>en_US</language>
         <protected>false</protected>
