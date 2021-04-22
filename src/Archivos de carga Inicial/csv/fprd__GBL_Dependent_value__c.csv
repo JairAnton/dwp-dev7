@@ -1,267 +1,331 @@
-"fprd__LoV_labels__c","fprd__LoV_values__c","fprd__Opportunity__c","fprd__Product_configuration__r.fprd__DeveloperName__c","fprd__Values_control_value__c","Unique_id__c"
-"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,"gipr_Garantia_PC00005","No dineraria","DE_GA_PC0005_01"
-"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,"gipr_Garantia_PC00005","Dineraria","DE_GA_PC0005_02"
-"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,"gipr_Garantia_PC00018","Dineraria","DE_GA_PC0018_01"
-"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,"gipr_Garantia_PC00018","No dineraria","DE_GA_PC0018_02"
-"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,"Garantia_PC00029","No dineraria","DE_GA_PC0029_01"
-"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,"Garantia_PC00029","Dineraria","DE_GA_PC0029_02"
-"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,"gipr_Garantia_PC00007","Dineraria","DE_GA_PC0007_01"
-"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,"gipr_Garantia_PC00007","No dineraria","DE_GA_PC0007_02"
-"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,"Garantia_PC00001","No dineraria","DE_GA_PC0001_01"
-"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,"Garantia_PC00001","Dineraria","DE_GA_PC0001_02"
-"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,"gipr_Garantia_PC00024","No dineraria","DE_GA_PC0024_01"
-"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,"gipr_Garantia_PC00024","Dineraria","DE_GA_PC0024_02"
-"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,"Garantia_PC00014","Dineraria","DE_GA_PC0014_01"
-"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,"Ca_Garantia_PC00029","Dineraria","DE_CGA_PC0029_01"
-"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,"Ca_Garantia_PC00029","No dineraria","DE_CGA_PC0029_02"
-"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,"Garantia_PC00014","No dineraria","DE_GA_PC0014_02"
-"Meses,Años","02,03",,"Periodicidad_Gracia_PC00018_2",,"LA_GA_PC0018_01"
-"Meses,Años","02,03",,"Periodicidad_PC00018_2",,"LA_GA_PC0018_02"
-"Al vencimiento,En cuotas,A medida","01,02,03",,"Tipo_amortizacion_PC00018_2",,"LA_GA_PC0018_03"
-"Días,Meses","01,02",,"PeriodicidadIG_PC00001_2",,"LA_GA_PC0001_01"
-"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,"Tipo_garantia_PC00001_2",,"LA_GA_PC0001_02"
-"Días,Meses","01,02",,"Periodicidad_Gracia_PC00001_2",,"LA_GA_PC0001_03"
-"Al vencimiento,En cuotas,A medida","01,02,03",,"Tipo_amortizacion_PC00001_2",,"LA_GA_PC0001_04"
-"Campañas,Capital de trabajo,Pago de impuestos,Pago haberes,Pago proveedores,Prórroga,Subrrogación","01,02,03,04,05,06,07",,"Destino_PC00001_2",,"LA_GA_PC0001_05"
-"Mensual,Trimestral,Semestral,Anual","01,02,03,04",,"Amortizacion_PC00001_2",,"LA_GA_PC0001_06"
-"Días,Meses","01,02",,"Periodicidad_PC00001_2",,"LA_GA_PC0001_07"
-"Regular,Crédito líquido,Crédito puntual,Refinanciado,Reprogramado","01,03,09,14,02",,"Modalidad_PC00001_2",,"LA_GA_PC0001_08"
-"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,"gipr_Tipo_garantia_PC00024_2",,"LA_GA_PC0024_01"
-"(%),Monto","01,02",,"gipr_Opcioncompra_Tipo_PC00024_2",,"LA_GA_PC0024_02"
-"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,"Tipo_garantia_PC00029_2",,"LA_GA_PC0029_01"
-"Días,Meses,Años","01,02,03",,"PeriodicidadIG_PC00029_2",,"LA_GA_PC0029_02"
-"Pública,Privada","01,02",,"tcf_type_beneficiary_PC00029_2",,"LA_GA_PC0029_03"
-"SI,NO","01,02",,"tcf_Legal_VB_text_PC00029_2",,"LA_GA_PC0029_04"
-"Bimestral,Trismestral,Cuatrimestral,Semestral,Anual","01,02,05,03,04",,"Periodicity_commission_PC00029_2",,"LA_GA_PC0029_05"
-"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,"Ca_Tipo_garantia_PC00029_2",,"LA_GA_PC0029_06"
-"BCP,Scotiabank,Interbank,BIF,Banco Financiero,Otros","01,02,03,04,05,06",,"gipr_Origin_bank_PC00033",,"LA_GA_PC0033_01"
-"Nuevo flujo,Otros bancos","01,02",,"gipr_Origin_PC00033",,"LA_GA_PC0033_02"
-"Si,No","01,02",,"gipr_Physical_token_PC00050",,"LA_GA_PC0050_01"
-"Contratación,Upgrade,Downgrade,Uso,T-Cambio","01,02,03,04,05",,"gipr_Request_PC00050",,"LA_GA_PC0050_02"
-"Gratuita,Negocios,Empresas,Premium","01,02,03,04",,"gipr_Version_PC00050",,"LA_GA_PC0050_03"
-"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,"Tipo_garantia_PC00029",,"LA_GA_PC0029_07"
-"Días,Meses","01,02",,"PeriodicidadIG_PC00029",,"LA_GA_PC0029_08"
-"Pública,Privada","01,02",,"tcf_type_beneficiary_PC00029",,"LA_GA_PC0029_09"
-"SI,NO","01,02",,"tcf_Legal_VB_text_PC00029",,"LA_GA_PC0029_10"
-"Bimestral,Trismestral,Semestral,Anual","01,02,03,04",,"Periodicity_commission_PC00029",,"LA_GA_PC0029_11"
-"Si,No","01,02",,"gipr_Comex_Bag_PC00007",,"LA_GA_PC0007_01"
-"Mensual,Trimestral,Semestral,Anual","01,02,03,04",,"Amortizacion_PC00007",,"LA_GA_PC0007_02"
-"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,"gipr_Tipo_garantia_PC00007",,"LA_GA_PC0007_03"
-"Sin medio de pago,Carta de crédito,Cobranza documentaria,Transferencia","01,02,03,04",,"gipr_PaymentM_PC00007",,"LA_GA_PC0007_04"
-"Días,Meses","01,02",,"Periodicidad_PC00007",,"LA_GA_PC0007_05"
-"Días,Meses","01,02",,"Periodicidad_Gracia_PC00007",,"LA_GA_PC0007_06"
-"Campañas,Capital de trabajo,Pago proveedores,Prórroga,Subrrogación","01,02,05,06,07",,"Destino_PC00007",,"LA_GA_PC0007_07"
-"Pre embarque,Post embarque,Sepymex","01,02,03",,"ModalidadP_PC00007",,"LA_GA_PC0007_08"
-"Si,No","01,02",,"gipr_Comex_Bag_PC00005",,"LA_GA_PC0005_01"
-"Al vencimiento,En cuotas,Manual","01,02,04",,"Tipo_amortizacion_PC00005",,"LA_GA_PC0005_02"
-"Meses,Años","02,03",,"Periodicidad_Gracia_PC00018",,"LA_GA_PC0018_04"
-"Meses,Años","02,03",,"Periodicidad_PC00018",,"LA_GA_PC0018_05"
-"Edificio y terreno,Maquinaria amarilla,Otras maquinarias; equipos y mobiliario,Transporte","21,22,23,24",,"PE_Modality_PC00024_2",,"LA_GA_PC0024_03"
-"Días,Meses,Años","01,02,03",,"Ca_PeriodicidadIG_PC00029_2",,"LA_GA_PC0029_12"
-"Pública,Privada","01,02",,"Ca_tcf_type_beneficiary_PC00029_2",,"LA_GA_PC0029_13"
-"SI,NO","01,02",,"Ca_tcf_Legal_VB_text_PC00029_2",,"LA_GA_PC0029_14"
-"BCP,Scotiabank,Interbank,BIF,Banco Financiero,Otros","01,02,03,04,05,06",,"gipr_Origin_bank_PC00047",,"LA_GA_PC0047_01"
-"Nuevo flujo,Otros bancos","01,02",,"gipr_Origin_PC00047",,"LA_GA_PC0047_02"
-"BCP,Scotiabank,Interbank,BIF,Banco Financiero,Otros","01,02,03,04,05,06",,"gipr_Origin_bank_PC00048",,"LA_GA_PC0048_01"
-"Incremento,Migración","03,04",,"gipr_Origin_PC00048",,"LA_GA_PC0048_02"
-"Decisores,Calificados,No calificados","01,02,03",,"gipr_Type_of_assets_PC00048",,"LA_GA_PC0048_03"
-"Nuevo,Renovación con incremento,Renovación con reducción,Renovación mismo importe","01,02,03,04",,"gipr_Type_PC00058",,"LA_GA_PC0058_01"
-"Nuevo,Renovación con incremento,Renovación con reducción,Renovación mismo importe","01,02,03,04",,"gipr_Type_PC00059",,"LA_GA_PC0059_01"
-"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,"Tipo_garantia_PC00014",,"LA_GA_PC0014_01"
-"Días,Meses","01,02",,"Periodicidad_Gracia_PC00005",,"LA_GA_PC0005_03"
-"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,"gipr_Tipo_garantia_PC00005",,"LA_GA_PC0005_04"
-"Días,Meses","01,02",,"Periodicidad_PC00005",,"LA_GA_PC0005_05"
-"Sin medio de pago,Carta de crédito,Cobranza documentaria,Transferencia","01,02,03,04",,"gipr_PaymentM_PC00005",,"LA_GA_PC0005_06"
-"Días,Meses","01,02",,"gipr_Periodicidad_PC00005",,"LA_GA_PC0005_07"
-"Mensual,Trimestral,Semestral,Anual","01,02,03,04",,"Amortizacion_PC00005",,"LA_GA_PC0005_08"
-"Campañas,Capital de trabajo,Pago proveedores,Prórroga,Subrrogación","01,02,05,06,07",,"Destino_PC00005",,"LA_GA_PC0005_09"
-"Mensual,Trimestral,Semestral,Anual","01,02,03,04",,"Amortizacion_PC00024",,"LA_GA_PC0024_04"
-"Meses,Años","02,03",,"Periodicidad_Gracia_PC00024",,"LA_GA_PC0024_05"
-"Meses,Años","02,03",,"Periodicidad_PC00024",,"LA_GA_PC0024_06"
-"Al vencimiento,En cuotas,A medida","01,02,03",,"Tipo_amortizacion_PC00024",,"LA_GA_PC0024_07"
-"Meses,Años","02,03",,"gipr_Periodicidad_PC00024",,"LA_GA_PC0024_08"
-"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,"gipr_Tipo_garantia_PC00024",,"LA_GA_PC0024_09"
-"Edificio y terreno,Maquinaria amarilla,Otras maquinarias; equipos y mobiliario,Transporte","21,22,23,24",,"PE_Modality_PC00024",,"LA_GA_PC0024_10"
-"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,"Ca_Tipo_garantia_PC00029",,"LA_GA_PC0029_20"
-"Días,Meses","01,02",,"Ca_PeriodicidadIG_PC00029",,"LA_GA_PC0029_15"
-"Pública,Privada","01,02",,"Ca_tcf_type_beneficiary_PC00029",,"LA_GA_PC0029_16"
-"SI,NO","01,02",,"Ca_tcf_Legal_VB_text_PC00029",,"LA_GA_PC0029_17"
-"Al vencimiento,En cuotas,A medida","01,02,03",,"Tipo_amortizacion_PC00007",,"LA_GA_PC0007_09"
-"Días,Meses","01,02",,"gipr_Periodicidad_PC00007",,"LA_GA_PC0007_10"
-"Bimestral,Trismestral,Semestral,Anual","01,02,03,04",,"Ca_Periodicity_commission_PC00029",,"LA_GA_PC0029_18"
-"Al vencimiento,En cuotas,A medida","01,02,03",,"Tipo_amortizacion_PC00018",,"LA_GA_PC0018_06"
-"Inversión inmueble,Inversión maquinaria/equipos,Construcción,Prórroga,Reestructuración,Subrrogación","08,09,10,06,11,07",,"Destino_PC00018",,"LA_GA_PC0018_07"
-"Regular,Reprogramado,Refinanciado,Promotor,Compra de deuda,Plan a medida","01,02,14,04,10,15",,"PE_Modality_PC00018",,"LA_GA_PC0018_08"
-"Meses,Años","02,03",,"gipr_Periodicidad_PC00018",,"LA_GA_PC0018_09"
-"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,"gipr_Tipo_garantia_PC00018",,"LA_GA_PC0018_10"
-"Nuevo,Renovación con incremento,Renovación con reducción,Renovación mismo importe","01,02,03,04",,"gipr_Type_PC00060",,"LA_GA_PC0060_01"
-"Días,Meses","01,02",,"PeriodicidadIG_PC00001",,"LA_GA_PC0001_09"
-"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,"Tipo_garantia_PC00001",,"LA_GA_PC0001_10"
-"Días,Meses","01,02",,"Periodicidad_Gracia_PC00001",,"LA_GA_PC0001_11"
-"Al vencimiento,En cuotas,A medida","01,02,03",,"Tipo_amortizacion_PC00001",,"LA_GA_PC0001_12"
-"Campañas,Capital de trabajo,Pago de impuestos,Pago haberes,Pago proveedores,Prórroga,Subrrogación","01,02,03,04,05,06,07",,"Destino_PC00001",,"LA_GA_PC0001_13"
-"Mensual,Trimestral,Semestral,Anual","01,02,03,04",,"Amortizacion_PC00001",,"LA_GA_PC0001_14"
-"Días,Meses","01,02",,"Periodicidad_PC00001",,"LA_GA_PC0001_15"
-"Regular,Crédito líquido,Crédito puntual,Reprogramado","01,03,09,02",,"Modalidad_PC00001",,"LA_GA_PC0001_16"
-"Mensual,Trimestral,Semestral,Anual","01,02,03,04",,"Amortizacion_PC00018",,"LA_GA_PC0018_11"
-"Días,Meses","01,02",,"PeriodicidadIG_PC00014",,"LA_GA_PC0014_02"
-"15 días,30 dias,60 dias,90 dias,120 dias,150 dias,180 dias,210 dias,240 dias,270 dias,300 dias,330 dias,360 dias","01,02,03,04,05,06,07,08,09,10,11,12,13",,"Plazo_s_Operaci_n_PC00014",,"LA_GA_PC0014_03"
-"(%),Monto","01,02",,"gipr_Opcioncompra_Tipo_PC00024",,"LA_GA_PC0024_11"
-"Inversión inmueble,Inversión maquinaria/equipos,Construcción,Prórroga,Reestructuración,Subrrogación","08,09,10,06,11,07",,"Destino_PC00018_2",,"LA_GA_PC0018_12"
-"Regular,Reprogramado,Refinanciado,Promotor,Compra de deuda,Plan a medida","01,02,14,04,10,15",,"PE_Modality_PC00018_2",,"LA_GA_PC0018_13"
-"Meses,Años","02,03",,"gipr_Periodicidad_PC00018_2",,"LA_GA_PC0018_14"
-"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,"gipr_Tipo_garantia_PC00018_2",,"LA_GA_PC0018_15"
-"Mensual,Trimestral,Semestral,Anual","01,02,03,04",,"Amortizacion_PC00018_2",,"LA_GA_PC0018_16"
-"Mensual,Trimestral,Semestral,Anual","01,02,03,04",,"Amortizacion_PC00024_2",,"LA_GA_PC0024_12"
-"Meses,Años","02,03",,"Periodicidad_Gracia_PC00024_2",,"LA_GA_PC0024_13"
-"Meses,Años","02,03",,"Periodicidad_PC00024_2",,"LA_GA_PC0024_14"
-"Al vencimiento,En cuotas,A medida","01,02,03",,"Tipo_amortizacion_PC00024_2",,"LA_GA_PC0024_15"
-"Meses,Años","02,03",,"gipr_Periodicidad_PC00024_2",,"LA_GA_PC0024_16"
-"Bimestral,Trismestral,Cuatrimestral,Semestral,Anual","01,02,05,03,04",,"Ca_Periodicity_commission_PC00029_2",,"LA_GA_PC0029_19"
-"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,"gipr_Garantia_PC00018_2","Dineraria","DE_GA_PC0018_01_2"
-"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,"gipr_Garantia_PC00018_2","No dineraria","DE_GA_PC0018_02_2"
-"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,"gipr_Garantia_PC00024_2","No dineraria","DE_GA_PC0024_01_2"
-"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,"gipr_Garantia_PC00024_2","Dineraria","DE_GA_PC0024_02_2"
-"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,"Ca_Garantia_PC00029_2","Dineraria","DE_CGA_PC0029_01_2"
-"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,"Ca_Garantia_PC00029_2","No dineraria","DE_CGA_PC0029_02_2"
-"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,"Garantia_PC00029_2","No dineraria","DE_GA_PC0029_01_2"
-"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,"Garantia_PC00029_2","Dineraria","DE_GA_PC0029_02_2"
-"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,"Garantia_PC00001_2","No dineraria","DE_GA_PC0001_01_2"
-"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,"Garantia_PC00001_2","Dineraria","DE_GA_PC0001_02_2"
-"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17","","Garantia_ig_PC00006","No dineraria","LV_GA_PC00006_1"
-"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03","","Garantia_ig_PC00006","Dineraria","LV_GA_PC00006_2"
-"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03","","Tipo_garantia_ig_PC00006","","LV_TG_PC00006_1"
-"15 días,30 dias,60 dias,90 dias,120 dias,150 dias,180 dias,210 dias,240 dias,270 dias,300 dias,330 dias,360 dias","01,02,03,04,05,06,07,08,09,10,11,12,13","","Plazo_Operaci_cpliq_PC00006","","LV_PO_PC00006_1"
-"Días,Meses","01,02","","Periodicidad_ig_PC00006","","LV_PE_PC00006_1"
-"Banco compra,Banco vende","01,02","","Operativa_PC00036","","LV_OP_PC00036_1"
-"USD,PEN,EUR,GBP,CHF,JPY,SEK","01,02,03,04,05,06,07","","Moneda_Origen_PC00036","","LV_MO_PC00036_1"
-"USD,PEN,EUR,GBP,CHF,JPY,SEK","01,02,03,04,05,06,07","","Moneda_Destino_PC00036","","LV_MD_PC00036_1"
-"Regular,Bonificado","01,02","","Modalidad_PC00036","","LV_MOD_PC00036_1"
-"Días,Meses,Años","01,02,03","","Periodicidad_ig_PC00036","","LV_PE_PC00036_1"
-"USD,PEN,EUR,GBP,CHF,JPY,SEK","01,02,03,04,05,06,07","","Moneda_Origen_PC00035","","LV_PE_MO00035_1"
-"USD,PEN,EUR,GBP,CHF,JPY,SEK","01,02,03,04,05,06,07","","Moneda_Destino_PC00035","","LV_PE_MD00035_1"
-"Banco compra,Banco vende","01,02","","Operativa_PC00035","","LV_PE_OP00035_1"
-"Abono en cuenta,Capitalización","01,02","","Liquidacion_cpliq_0241041","","LV_PE_LQ00018_1"
-"Días,Meses","01,02","","Periodicidad_ig_0241041","","LV_PE_PE0018_1"
-"Usual,Ingresada,Puntual,Flat,All in","01,02,03,04,05","","cpliq_Comision_PC00014","","DV_CI_PC00014_01"
-"Días","01","","cpliq_Periodicidad_PC00014","02,03","DV_CI_PC00014_02"
-"Vista,Plazo,Mixta","01,02,03","","cpliq_Way_to_Pay_PC00014","","DV_CI_PC00014_03"
-"Standard,Leasing","01,02","","gipr_Class_PC00014","","DV_CI_PC00014_04"
-"Dias,Meses","01,02","","gipr_Periodicidad_PC00014","","DV_CI_PC00014_05"
-"Usual,Ingresada,Puntual,Flat,All in","01,02,03,04,05","","cpliq_Comision_PC00015","","DV_CI_PC00015_01"
-"Días","01","","cpliq_Periodicidad_PC00015","02,03","DV_CI_PC00015_02"
-"Vista,Plazo,Mixta","01,02,03","","cpliq_Way_to_Pay_PC00015","","DV_CI_PC00015_03"
-"Standard,Leasing","01,02","","gipr_Class_PC00015","","DV_CI_PC00015_04"
-"Dias,Meses","01,02","","gipr_Periodicidad_PC00015","","DV_CI_PC00015_05"
-"Usual,Ingresada,Puntual,Flat,All in","01,02,03,04,05","","cpliq_Comision_PC00013","","DV_CI_PC00013_01"
-"Días","01","","cpliq_Periodicidad_PC00013","02,03","DV_CI_PC00013_02"
-"Vista,Plazo,Mixta","01,02,03","","cpliq_Way_to_Pay_PC00013","","DV_CI_PC00013_03"
-"Dias,Meses","01,02","","gipr_Periodicidad_PC00013","","DV_CI_PC00013_05"
-"Meses,Años","02,03",,"Periodicidad_Gracia_PC00009_NEW",,"DV_PCLP_PC0009_NEW_01"
-"Meses,Años","02,03",,"Periodicidad_PC00009_NEW",,"DV_PCLP_PC0009_NEW_02"
-"Al vencimiento,En cuotas,A medida","01,02,03",,"Tipo_amortizacion_PC00009_NEW",,"DV_PCLP_PC0009_NEW_03"
-"Inversión inmueble,Inversión maquinaria/equipos,Construcción,Prórroga,Reestructuración,Subrrogación","08,09,10,06,11,07",,"Destino_PC00009_NEW",,"DV_PCLP_PC0009_NEW_04"
-"Regular,Reprogramado,Refinanciado,Promotor,Compra de deuda,Plan a medida","01,02,14,04,10,15",,"PE_Modality_PC00009_NEW",,"DV_PCLP_PC0009_NEW_05"
-"Meses,Años","02,03",,"gipr_Periodicidad_PC00009_NEW",,"DV_PCLP_PC0009_NEW_06"
-"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,"gipr_Tipo_garantia_PC00009_NEW",,"DV_PCLP_PC0009_NEW_07"
-"Mensual,Trimestral,Semestral,Anual","01,02,03,04",,"Amortizacion_PC00009_NEW",,"DV_PCLP_PC0009_NEW_08"
-"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,"gipr_Garantia_PC00009_NEW","Dineraria","DV_PCLP_PC0009_NEW_09"
-"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,"gipr_Garantia_PC00009_NEW","No dineraria","DV_PCLP_PC0009_NEW_10"
-"Hipoteca","10",,"gipr_Garantia_PC00009_NEW","Hipotecaria","DV_PCLP_PC0009_NEW_11"
-"Hipoteca","10",,"gipr_Garantia_PC00005","Hipotecaria","DE_GA_PC0005_03"
-"Hipoteca","10",,"gipr_Garantia_PC00018","Hipotecaria","DE_GA_PC0018_03"
-"Hipoteca","10",,"Garantia_PC00029","Hipotecaria","DE_GA_PC0029_03"
-"Hipoteca","10",,"gipr_Garantia_PC00007","Hipotecaria","DE_GA_PC0007_03"
-"Hipoteca","10",,"Garantia_PC00001","Hipotecaria","DE_GA_PC0001_03"
-"Hipoteca","10",,"gipr_Garantia_PC00024","Hipotecaria","DE_GA_PC0024_03"
-"Hipoteca","10",,"Ca_Garantia_PC00029","Hipotecaria","DE_CGA_PC0029_03"
-"Hipoteca","10",,"Garantia_PC00014","Hipotecaria","DE_GA_PC0014_03"
-"Hipoteca","10",,"gipr_Garantia_PC00018_2","Hipotecaria","DE_GA_PC0018_03_2"
-"Hipoteca","10",,"gipr_Garantia_PC00024_2","Hipotecaria","DE_GA_PC0024_03_2"
-"Hipoteca","10",,"Ca_Garantia_PC00029_2","Hipotecaria","DE_CGA_PC0029_03_2"
-"Hipoteca","10",,"Garantia_PC00029_2","Hipotecaria","DE_GA_PC0029_03_2"
-"Hipoteca","10",,"Garantia_PC00001_2","Hipotecaria","DE_GA_PC0001_03_2"
-"Hipoteca","10","","Garantia_ig_PC00006","Hipotecaria","LV_GA_PC00006_3"
-"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,"gipr_Garantia_PC00002_NEW","No dineraria","DE_GA_PC00002_NEW_01"
-"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,"gipr_Garantia_PC00003_NEW","No dineraria","DE_GA_PC00003_NEW_02"
-"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,"gipr_Garantia_PC00002_NEW","Dineraria","DE_GA_PC00002_NEW_02"
-"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,"gipr_Garantia_PC00003_NEW","Dineraria","DE_GA_PC00003_NEW_01"
-"Si,No","01,02",,"gipr_Comex_Bag_PC00003_NEW",,"LA_GA_PC00003_NEW_01"
-"Si,No","01,02",,"gipr_Comex_Bag_PC00002_NEW",,"LA_GA_PC00002_NEW_01"
-"Mensual,Trimestral,Semestral,Anual","01,02,03,04",,"Amortizacion_PC00003_NEW",,"LA_GA_PC00003_NEW_02"
-"Mensual,Trimestral,Semestral,Anual","01,02,03,04",,"Amortizacion_PC00002_NEW",,"LA_GA_PC00002_NEW_08"
-"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,"gipr_Tipo_garantia_PC00003_NEW",,"LA_GA_PC00003_NEW_03"
-"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,"gipr_Tipo_garantia_PC00002_NEW",,"LA_GA_PC00002_NEW_04"
-"Sin medio de pago,Carta de crédito,Cobranza documentaria,Transferencia","01,02,03,04",,"gipr_PaymentM_PC00003_NEW",,"LA_GA_PC00003_NEW_04"
-"Sin medio de pago,Carta de crédito,Cobranza documentaria,Transferencia","01,02,03,04",,"gipr_PaymentM_PC00002_NEW",,"LA_GA_PC00002_NEW_06"
-"Días,Meses","01,02",,"Periodicidad_PC00003_NEW",,"LA_GA_PC00003_NEW_05"
-"Días,Meses","01,02",,"Periodicidad_PC00002_NEW",,"LA_GA_PC00002_NEW_05"
-"Días,Meses","01,02",,"Periodicidad_Gracia_PC00003_NEW",,"LA_GA_PC00003_NEW_06"
-"Días,Meses","01,02",,"Periodicidad_Gracia_PC00002_NEW",,"LA_GA_PC00002_NEW_03"
-"Pre embarque,Post embarque,Sepymex","01,02,03",,"ModalidadP_PC00003_NEW",,"LA_GA_PC00003_NEW_08"
-"Al vencimiento,En cuotas,Manual","01,02,04",,"Tipo_amortizacion_PC00002_NEW",,"LA_GA_PC00002_NEW_02"
-"Al vencimiento,En cuotas,A medida","01,02,03",,"Tipo_amortizacion_PC00003_NEW",,"LA_GA_PC00003_NEW_09"
-"Días,Meses","01,02",,"gipr_Periodicidad_PC00002_NEW",,"LA_GA_PC00002_NEW_07"
-"Días,Meses","01,02",,"gipr_Periodicidad_PC00003_NEW",,"LA_GA_PC00003_NEW_10"
-"Hipoteca","10",,"gipr_Garantia_PC00002_NEW","Hipotecaria","DE_GA_PC00002_NEW_03"
-"Hipoteca","10",,"gipr_Garantia_PC00003_NEW","Hipotecaria","DE_GA_PC00003_NEW_03"
-"Regular,Canal Internet,Credito Puntual,Prorroga,Subrogado","01,18,09,16,17",,"PE_Modality_PC00002_NEW",,"LA_GA__PC0002_NEW_10"
-"Regular,Canal Internet,Credito Puntual,Prorroga,Subrogado","01,18,09,16,17",,"PE_Modality_PC00003_NEW",,"LA_GA__PC0003_NEW_11"
-"Credito Puntual,Regular,Prorroga,Subrogado,Canal Internet","09,01,16,17,18",,"PE_Modality_PC00007",,"LA_GA_PC0007_11"
-"Credito Puntual,Regular,Prorroga,Subrogado,Canal Internet","09,01,16,17,18",,"PE_Modality_PC00005",,"LA_GA_PC0005_10"
-"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,"gipr_Tipo_garantia_PC00010_NEW",,"LA_GA_PC00010_NEW_01"
-"(%),Monto","01,02",,"gipr_Opcioncompra_Tipo_PC00010_NEW",,"LA_GA_PC00010_NEW_02"
-"Edificio y terreno,Maquinaria amarilla,Otras maquinarias; equipos y mobiliario,Transporte","21,22,23,24",,"PE_Modality_PC00010_NEW",,"LA_GA_PC00010_NEW_03"
-"Mensual,Trimestral,Semestral,Anual","01,02,03,04",,"Amortizacion_PC00010_NEW",,"LA_GA_PC00010_NEW_04"
-"Meses,Años","02,03",,"Periodicidad_Gracia_PC00010_NEW",,"LA_GA_PC00010_NEW_05"
-"Meses,Años","02,03",,"Periodicidad_PC00010_NEW",,"LA_GA_PC00010_NEW_06"
-"Al vencimiento,En cuotas,A medida","01,02,03",,"Tipo_amortizacion_PC00010_NEW",,"LA_GA_PC00010_NEW_07"
-"Meses,Años","02,03",,"gipr_Periodicidad_PC00010_NEW",,"LA_GA_PC00010_NEW_08"
-"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,"gipr_Garantia_PC00010_NEW","No dineraria","DE_GA_PC00010_NEW_01"
-"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,"gipr_Garantia_PC00010_NEW","Dineraria","DE_GA_PC00010_NEW_02"
-"Hipoteca","10",,"gipr_Garantia_PC00010_NEW","Hipotecaria","DE_GA_PC00010_NEW_03"
-"Sin medio de pago,Carta de crédito,Cobranza documentaria,Transferencia","01,02,03,04",,"gipr_PaymentM_PC00010_NEW",,"LA_GA_PC00010_NEW_09"
-"Sin medio de pago,Carta de crédito,Cobranza documentaria,Transferencia","01,02,03,04",,"gipr_PaymentM_PC00024",,"LA_GA_PC00024_NEW_09"
-"Sin medio de pago,Carta de crédito,Cobranza documentaria,Transferencia","01,02,03,04",,"gipr_PaymentM_PC00024_2",,"LA_GA_PC00024_2_NEW_09"
-"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,"Garantia_PC00005_NEW","Dineraria","DE_GA_PC00005_NEW_01"
-"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,"Garantia_PC00005_NEW","No dineraria","DE_GA_PC00005_NEW_02"
-"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,"Tipo_garantia_PC00005_NEW",,"LA_GA_PC00005_NEW_01"
-"Días,Meses","01,02",,"PeriodicidadIG_PC00005_NEW",,"LA_GA_PC00005_NEW_02"
-"15 días,30 dias,60 dias,90 dias,120 dias,150 dias,180 dias,210 dias,240 dias,270 dias,300 dias,330 dias,360 dias","01,02,03,04,05,06,07,08,09,10,11,12,13",,"Plazo_s_Operaci_n_PC00005_NEW",,"LA_GA_PC00005_NEW_03"
-"Hipoteca","10",,"Garantia_PC00005_NEW","Hipotecaria","DE_GA_PC00005_NEW_03"
-"Regular,Crédito líquido,Credito Puntual,Reprogramado,Refinanciado","01,03,09,02,14",,"PE_Modality_PC00005_NEW",,"DE_GA_PC00005_NEW_04"
-"Regular,Crédito líquido,Credito Puntual,Reprogramado,Refinanciado","01,03,09,02,14",,"PE_Modality_PC00014",,"DE_GA_PC00014_04"
-"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,"gipr_Garantia_PC00004","No dineraria","DE_GA_PC00004_02"
-"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,"gipr_Garantia_PC00004","Dineraria","DE_GA_PC00004_01"
-"Si,No","01,02",,"gipr_Comex_Bag_PC00004",,"LA_GA_PC00004_01"
-"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,"gipr_Tipo_garantia_PC00004",,"LA_GA_PC00004_03"
-"Sin medio de pago,Carta de crédito,Cobranza documentaria,Transferencia","01,02,03,04",,"gipr_PaymentM_PC00004",,"LA_GA_PC00004_04"
-"Días,Meses","01,02",,"Periodicidad_PC00004",,"LA_GA_PC00004_05"
-"Al vencimiento,En cuotas,Manual","01,02,04",,"Tipo_amortizacion_PC00004",,"LA_GA_PC00004_09"
-"Días,Meses","01,02",,"gipr_Periodicidad_PC00004",,"LA_GA_PC00004_10"
-"Hipoteca","10",,"gipr_Garantia_PC00004","Hipotecaria","DE_GA_PC00004_03"
-"Credito Puntual,Regular","09,01",,"PE_Modality_PC00004",,"LA_GA__PC00004_11"
-"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,"Tipo_garantia_PC00011_NEW",,"LA_GA_PC00011_NEW_01"
-"Días,Meses,Años","01,02,03",,"PeriodicidadIG_PC00011_NEW",,"LA_GA_PC00011_NEW_02"
-"Pública,Privada","01,02",,"tcf_type_beneficiary_PC00011_NEW",,"LA_GA_PC00011_NEW_03"
-"SI,NO","01,02",,"tcf_Legal_VB_text_PC00011_NEW",,"LA_GA_PC00011_NEW_04"
-"Bimestral,Trismestral,Cuatrimestral,Semestral,Anual","01,02,05,03,04",,"Periodicity_commission_PC00011_NEW",,"LA_GA_PC00011_NEW_05"
-"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,"Garantia_PC00011_NEW","No dineraria","DE_GA_PC00011_NEW_01"
-"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,"Garantia_PC00011_NEW","Dineraria","DE_GA_PC00011_NEW_02"
-"Hipoteca","10",,"Garantia_PC00011_NEW","Hipotecaria","DE_GA_PC00011_NEW_03"
-"Linea,Nuevo,Prórroga","19,20,16",,"PE_Modality_PC00011_NEW",,"DE_GA_PC00011_NEW_04"
-"Cierre minas,Devolución,Diferencial precio,Fiel cumplimiento,Premios sorteos,Promotores O/B,Seriedad oferta,Sunat - Devolución IGV,Otros","05,20,06,07,14,15,16,18,21",,"tcf_type_bail_letter_PC00011_NEW",,"DE_GA_PC00011_NEW_05"
-"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,"Tipo_garantia_PC00012_NEW",,"LA_GA_PC00012_NEW_01"
-"Días,Meses,Años","01,02,03",,"PeriodicidadIG_PC00012_NEW",,"LA_GA_PC00012_NEW_02"
-"Pública,Privada","01,02",,"tcf_type_beneficiary_PC00012_NEW",,"LA_GA_PC00012_NEW_03"
-"SI,NO","01,02",,"tcf_Legal_VB_text_PC00012_NEW",,"LA_GA_PC00012_NEW_04"
-"Bimestral,Trismestral,Cuatrimestral,Semestral,Anual","01,02,05,03,04",,"Periodicity_commission_PC00012_NEW",,"LA_GA_PC00012_NEW_05"
-"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,"Garantia_PC00012_NEW","No dineraria","DE_GA_PC00012_NEW_01"
-"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,"Garantia_PC00012_NEW","Dineraria","DE_GA_PC00012_NEW_02"
-"Hipoteca","10",,"Garantia_PC00012_NEW","Hipotecaria","DE_GA_PC00012_NEW_03"
-"Linea,Nuevo,Prórroga","19,20,16",,"PE_Modality_PC00012_NEW",,"DE_GA_PC00012_NEW_04"
-"Adelantos,Aduanas - Despacho almacen,Aduanas - Deuda adm.,AFP - Rentabilidad mínima,Deuda Tributaria,Fondos garantía,Jud. / Arb. / Indecopi,Ob. Laboral / Prev,Pago alquileres,Pago deudas,Pago deudas O/B,Pago Oblig. Gral.,Pago obligaciones,Pago tributos,Procesos judiciales,Rentabilidad mínima,Sunat Tri. Mult.,Otros","01,02,03,04,19,08,09,10,11,22,12,13,23,24,25,26,17,21",,"tcf_type_bail_letter_PC00012_NEW",,"DE_GA_PC00012_NEW_05"
-"Linea,Nuevo,Prórroga","19,20,16",,"Ca_PE_Modality_PC00029_2",,"DE_GA_PC0029_02_3"
-"Adelantos,Aduanas - Despacho almacen,Aduanas - Deuda adm.,AFP - Rentabilidad mínima,Deuda Tributaria,Fondos garantía,Jud. / Arb. / Indecopi,Ob. Laboral / Prev,Pago alquileres,Pago deudas,Pago deudas O/B,Pago Oblig. Gral.,Pago obligaciones,Pago tributos,Procesos judiciales,Rentabilidad mínima,Sunat Tri. Mult.,Otros","01,02,03,04,19,08,09,10,11,22,12,13,23,24,25,26,17,21",,"Ca_tcf_type_bail_letter_PC00029_2",,"DE_GA_PC0029_02_4"
-"Linea,Nuevo,Prórroga","19,20,16",,"PE_Modality_PC00029_2",,"DE_GA_PC00029_2_13"
-"Cierre minas,Devolución,Diferencial precio,Fiel cumplimiento,Premios sorteos,Promotores O/B,Seriedad oferta,Sunat - Devolución IGV,Otros","05,20,06,07,14,15,16,18,21",,"tcf_type_bail_letter_PC00029_2",,"DE_GA_PC00029_2_14"
+﻿fprd__LoV_labels__c,fprd__LoV_values__c,fprd__Opportunity__c,fprd__Product_configuration__r.fprd__DeveloperName__c,fprd__Values_control_value__c,Unique_id__c
+"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,gipr_Garantia_PC00005,No dineraria,DE_GA_PC0005_01
+"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,gipr_Garantia_PC00005,Dineraria,DE_GA_PC0005_02
+"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,gipr_Garantia_PC00018,Dineraria,DE_GA_PC0018_01
+"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,gipr_Garantia_PC00018,No dineraria,DE_GA_PC0018_02
+"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,Garantia_PC00029,No dineraria,DE_GA_PC0029_01
+"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,Garantia_PC00029,Dineraria,DE_GA_PC0029_02
+"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,gipr_Garantia_PC00007,Dineraria,DE_GA_PC0007_01
+"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,gipr_Garantia_PC00007,No dineraria,DE_GA_PC0007_02
+"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,Garantia_PC00001,No dineraria,DE_GA_PC0001_01
+"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,Garantia_PC00001,Dineraria,DE_GA_PC0001_02
+"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,gipr_Garantia_PC00024,No dineraria,DE_GA_PC0024_01
+"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,gipr_Garantia_PC00024,Dineraria,DE_GA_PC0024_02
+"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,Garantia_PC00014,Dineraria,DE_GA_PC0014_01
+"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,Ca_Garantia_PC00029,Dineraria,DE_CGA_PC0029_01
+"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,Ca_Garantia_PC00029,No dineraria,DE_CGA_PC0029_02
+"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,Garantia_PC00014,No dineraria,DE_GA_PC0014_02
+"Meses,Años","02,03",,Periodicidad_Gracia_PC00018_2,,LA_GA_PC0018_01
+"Meses,Años","02,03",,Periodicidad_PC00018_2,,LA_GA_PC0018_02
+"Al vencimiento,En cuotas,A medida","01,02,03",,Tipo_amortizacion_PC00018_2,,LA_GA_PC0018_03
+"Días,Meses","01,02",,PeriodicidadIG_PC00001_2,,LA_GA_PC0001_01
+"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,Tipo_garantia_PC00001_2,,LA_GA_PC0001_02
+"Días,Meses","01,02",,Periodicidad_Gracia_PC00001_2,,LA_GA_PC0001_03
+"Al vencimiento,En cuotas,A medida","01,02,03",,Tipo_amortizacion_PC00001_2,,LA_GA_PC0001_04
+"Campañas,Capital de trabajo,Pago de impuestos,Pago haberes,Pago proveedores,Prórroga,Subrrogación","01,02,03,04,05,06,07",,Destino_PC00001_2,,LA_GA_PC0001_05
+"Mensual,Trimestral,Semestral,Anual","01,02,03,04",,Amortizacion_PC00001_2,,LA_GA_PC0001_06
+"Días,Meses","01,02",,Periodicidad_PC00001_2,,LA_GA_PC0001_07
+"Regular,Crédito líquido,Crédito puntual,Refinanciado,Reprogramado","01,03,09,14,02",,Modalidad_PC00001_2,,LA_GA_PC0001_08
+"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,gipr_Tipo_garantia_PC00024_2,,LA_GA_PC0024_01
+"(%),Monto","01,02",,gipr_Opcioncompra_Tipo_PC00024_2,,LA_GA_PC0024_02
+"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,Tipo_garantia_PC00029_2,,LA_GA_PC0029_01
+"Días,Meses,Años","01,02,03",,PeriodicidadIG_PC00029_2,,LA_GA_PC0029_02
+"Pública,Privada","01,02",,tcf_type_beneficiary_PC00029_2,,LA_GA_PC0029_03
+"SI,NO","01,02",,tcf_Legal_VB_text_PC00029_2,,LA_GA_PC0029_04
+"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,Ca_Tipo_garantia_PC00029_2,,LA_GA_PC0029_06
+"BCP,Scotiabank,Interbank,BIF,Banco Financiero,Otros","01,02,03,04,05,06",,gipr_Origin_bank_PC00033,,LA_GA_PC0033_01
+"Nuevo flujo,Otros bancos","01,02",,gipr_Origin_PC00033,,LA_GA_PC0033_02
+"Si,No","01,02",,gipr_Physical_token_PC00050,,LA_GA_PC0050_01
+"Contratación,Upgrade,Downgrade,Uso,T-Cambio","01,02,03,04,05",,gipr_Request_PC00050,,LA_GA_PC0050_02
+"Gratuita,Negocios,Empresas,Premium","01,02,03,04",,gipr_Version_PC00050,,LA_GA_PC0050_03
+"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,Tipo_garantia_PC00029,,LA_GA_PC0029_07
+"Días,Meses","01,02",,PeriodicidadIG_PC00029,,LA_GA_PC0029_08
+"Pública,Privada","01,02",,tcf_type_beneficiary_PC00029,,LA_GA_PC0029_09
+"SI,NO","01,02",,tcf_Legal_VB_text_PC00029,,LA_GA_PC0029_10
+"Bimestral,Trismestral,Semestral,Anual","01,02,03,04",,Periodicity_commission_PC00029,,LA_GA_PC0029_11
+"Si,No","01,02",,gipr_Comex_Bag_PC00007,,LA_GA_PC0007_01
+"Mensual,Trimestral,Semestral,Anual","01,02,03,04",,Amortizacion_PC00007,,LA_GA_PC0007_02
+"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,gipr_Tipo_garantia_PC00007,,LA_GA_PC0007_03
+"Sin medio de pago,Carta de crédito,Cobranza documentaria,Transferencia","01,02,03,04",,gipr_PaymentM_PC00007,,LA_GA_PC0007_04
+"Días,Meses","01,02",,Periodicidad_PC00007,,LA_GA_PC0007_05
+"Días,Meses","01,02",,Periodicidad_Gracia_PC00007,,LA_GA_PC0007_06
+"Campañas,Capital de trabajo,Pago proveedores,Prórroga,Subrrogación","01,02,05,06,07",,Destino_PC00007,,LA_GA_PC0007_07
+"Pre embarque,Post embarque,Sepymex","01,02,03",,ModalidadP_PC00007,,LA_GA_PC0007_08
+"Si,No","01,02",,gipr_Comex_Bag_PC00005,,LA_GA_PC0005_01
+"Al vencimiento,En cuotas,Manual","01,02,04",,Tipo_amortizacion_PC00005,,LA_GA_PC0005_02
+"Meses,Años","02,03",,Periodicidad_Gracia_PC00018,,LA_GA_PC0018_04
+"Meses,Años","02,03",,Periodicidad_PC00018,,LA_GA_PC0018_05
+"Edificio y terreno,Maquinaria amarilla,Otras maquinarias; equipos y mobiliario,Transporte","21,22,23,24",,PE_Modality_PC00024_2,,LA_GA_PC0024_03
+"Días,Meses,Años","01,02,03",,Ca_PeriodicidadIG_PC00029_2,,LA_GA_PC0029_12
+"Pública,Privada","01,02",,Ca_tcf_type_beneficiary_PC00029_2,,LA_GA_PC0029_13
+"SI,NO","01,02",,Ca_tcf_Legal_VB_text_PC00029_2,,LA_GA_PC0029_14
+"BCP,Scotiabank,Interbank,BIF,Banco Financiero,Otros","01,02,03,04,05,06",,gipr_Origin_bank_PC00047,,LA_GA_PC0047_01
+"Nuevo flujo,Otros bancos","01,02",,gipr_Origin_PC00047,,LA_GA_PC0047_02
+"BCP,Scotiabank,Interbank,BIF,Banco Financiero,Otros","01,02,03,04,05,06",,gipr_Origin_bank_PC00048,,LA_GA_PC0048_01
+"Incremento,Migración","03,04",,gipr_Origin_PC00048,,LA_GA_PC0048_02
+"Decisores,Calificados,No calificados","01,02,03",,gipr_Type_of_assets_PC00048,,LA_GA_PC0048_03
+"Nuevo,Renovación con incremento,Renovación con reducción,Renovación mismo importe","01,02,03,04",,gipr_Type_PC00058,,LA_GA_PC0058_01
+"Nuevo,Renovación con incremento,Renovación con reducción,Renovación mismo importe","01,02,03,04",,gipr_Type_PC00059,,LA_GA_PC0059_01
+"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,Tipo_garantia_PC00014,,LA_GA_PC0014_01
+"Días,Meses","01,02",,Periodicidad_Gracia_PC00005,,LA_GA_PC0005_03
+"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,gipr_Tipo_garantia_PC00005,,LA_GA_PC0005_04
+"Días,Meses","01,02",,Periodicidad_PC00005,,LA_GA_PC0005_05
+"Sin medio de pago,Carta de crédito,Cobranza documentaria,Transferencia","01,02,03,04",,gipr_PaymentM_PC00005,,LA_GA_PC0005_06
+"Días,Meses","01,02",,gipr_Periodicidad_PC00005,,LA_GA_PC0005_07
+"Mensual,Trimestral,Semestral,Anual","01,02,03,04",,Amortizacion_PC00005,,LA_GA_PC0005_08
+"Campañas,Capital de trabajo,Pago proveedores,Prórroga,Subrrogación","01,02,05,06,07",,Destino_PC00005,,LA_GA_PC0005_09
+"Mensual,Trimestral,Semestral,Anual","01,02,03,04",,Amortizacion_PC00024,,LA_GA_PC0024_04
+"Meses,Años","02,03",,Periodicidad_Gracia_PC00024,,LA_GA_PC0024_05
+"Meses,Años","02,03",,Periodicidad_PC00024,,LA_GA_PC0024_06
+"Al vencimiento,En cuotas,A medida","01,02,03",,Tipo_amortizacion_PC00024,,LA_GA_PC0024_07
+"Meses,Años","02,03",,gipr_Periodicidad_PC00024,,LA_GA_PC0024_08
+"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,gipr_Tipo_garantia_PC00024,,LA_GA_PC0024_09
+"Edificio y terreno,Maquinaria amarilla,Otras maquinarias; equipos y mobiliario,Transporte","21,22,23,24",,PE_Modality_PC00024,,LA_GA_PC0024_10
+"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,Ca_Tipo_garantia_PC00029,,LA_GA_PC0029_20
+"Días,Meses","01,02",,Ca_PeriodicidadIG_PC00029,,LA_GA_PC0029_15
+"Pública,Privada","01,02",,Ca_tcf_type_beneficiary_PC00029,,LA_GA_PC0029_16
+"SI,NO","01,02",,Ca_tcf_Legal_VB_text_PC00029,,LA_GA_PC0029_17
+"Al vencimiento,En cuotas,A medida","01,02,03",,Tipo_amortizacion_PC00007,,LA_GA_PC0007_09
+"Días,Meses","01,02",,gipr_Periodicidad_PC00007,,LA_GA_PC0007_10
+"Bimestral,Trismestral,Semestral,Anual","01,02,03,04",,Ca_Periodicity_commission_PC00029,,LA_GA_PC0029_18
+"Al vencimiento,En cuotas,A medida","01,02,03",,Tipo_amortizacion_PC00018,,LA_GA_PC0018_06
+"Inversión inmueble,Inversión maquinaria/equipos,Construcción,Prórroga,Reestructuración,Subrrogación","08,09,10,06,11,07",,Destino_PC00018,,LA_GA_PC0018_07
+"Regular,Reprogramado,Refinanciado,Promotor,Compra de deuda,Plan a medida","01,02,14,04,10,15",,PE_Modality_PC00018,,LA_GA_PC0018_08
+"Meses,Años","02,03",,gipr_Periodicidad_PC00018,,LA_GA_PC0018_09
+"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,gipr_Tipo_garantia_PC00018,,LA_GA_PC0018_10
+"Nuevo,Renovación con incremento,Renovación con reducción,Renovación mismo importe","01,02,03,04",,gipr_Type_PC00060,,LA_GA_PC0060_01
+"Días,Meses","01,02",,PeriodicidadIG_PC00001,,LA_GA_PC0001_09
+"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,Tipo_garantia_PC00001,,LA_GA_PC0001_10
+"Días,Meses","01,02",,Periodicidad_Gracia_PC00001,,LA_GA_PC0001_11
+"Al vencimiento,En cuotas,A medida","01,02,03",,Tipo_amortizacion_PC00001,,LA_GA_PC0001_12
+"Campañas,Capital de trabajo,Pago de impuestos,Pago haberes,Pago proveedores,Prórroga,Subrrogación","01,02,03,04,05,06,07",,Destino_PC00001,,LA_GA_PC0001_13
+"Mensual,Trimestral,Semestral,Anual","01,02,03,04",,Amortizacion_PC00001,,LA_GA_PC0001_14
+"Días,Meses","01,02",,Periodicidad_PC00001,,LA_GA_PC0001_15
+"Regular,Crédito líquido,Crédito puntual,Refinanciado,Reprogramado","01,03,09,14,02",,Modalidad_PC00001,,LA_GA_PC0001_16
+"Mensual,Trimestral,Semestral,Anual","01,02,03,04",,Amortizacion_PC00018,,LA_GA_PC0018_11
+"Días,Meses","01,02",,PeriodicidadIG_PC00014,,LA_GA_PC0014_02
+"15 días,30 dias,60 dias,90 dias,120 dias,150 dias,180 dias,210 dias,240 dias,270 dias,300 dias,330 dias,360 dias","01,02,03,04,05,06,07,08,09,10,11,12,13",,Plazo_s_Operaci_n_PC00014,,LA_GA_PC0014_03
+"(%),Monto","01,02",,gipr_Opcioncompra_Tipo_PC00024,,LA_GA_PC0024_11
+"Inversión inmueble,Inversión maquinaria/equipos,Construcción,Prórroga,Reestructuración,Subrrogación","08,09,10,06,11,07",,Destino_PC00018_2,,LA_GA_PC0018_12
+"Regular,Reprogramado,Refinanciado,Promotor,Compra de deuda,Plan a medida","01,02,14,04,10,15",,PE_Modality_PC00018_2,,LA_GA_PC0018_13
+"Meses,Años","02,03",,gipr_Periodicidad_PC00018_2,,LA_GA_PC0018_14
+"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,gipr_Tipo_garantia_PC00018_2,,LA_GA_PC0018_15
+"Mensual,Trimestral,Semestral,Anual","01,02,03,04",,Amortizacion_PC00018_2,,LA_GA_PC0018_16
+"Mensual,Trimestral,Semestral,Anual","01,02,03,04",,Amortizacion_PC00024_2,,LA_GA_PC0024_12
+"Meses,Años","02,03",,Periodicidad_Gracia_PC00024_2,,LA_GA_PC0024_13
+"Meses,Años","02,03",,Periodicidad_PC00024_2,,LA_GA_PC0024_14
+"Al vencimiento,En cuotas,A medida","01,02,03",,Tipo_amortizacion_PC00024_2,,LA_GA_PC0024_15
+"Meses,Años","02,03",,gipr_Periodicidad_PC00024_2,,LA_GA_PC0024_16
+"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,gipr_Garantia_PC00018_2,Dineraria,DE_GA_PC0018_01_2
+"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,gipr_Garantia_PC00018_2,No dineraria,DE_GA_PC0018_02_2
+"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,gipr_Garantia_PC00024_2,No dineraria,DE_GA_PC0024_01_2
+"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,gipr_Garantia_PC00024_2,Dineraria,DE_GA_PC0024_02_2
+"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,Ca_Garantia_PC00029_2,Dineraria,DE_CGA_PC0029_01_2
+"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,Ca_Garantia_PC00029_2,No dineraria,DE_CGA_PC0029_02_2
+"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,Garantia_PC00029_2,No dineraria,DE_GA_PC0029_01_2
+"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,Garantia_PC00029_2,Dineraria,DE_GA_PC0029_02_2
+"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,Garantia_PC00001_2,No dineraria,DE_GA_PC0001_01_2
+"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,Garantia_PC00001_2,Dineraria,DE_GA_PC0001_02_2
+"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,Garantia_ig_PC00006,No dineraria,LV_GA_PC00006_1
+"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,Garantia_ig_PC00006,Dineraria,LV_GA_PC00006_2
+"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,Tipo_garantia_ig_PC00006,,LV_TG_PC00006_1
+"15 días,30 dias,60 dias,90 dias,120 dias,150 dias,180 dias,210 dias,240 dias,270 dias,300 dias,330 dias,360 dias","01,02,03,04,05,06,07,08,09,10,11,12,13",,Plazo_Operaci_cpliq_PC00006,,LV_PO_PC00006_1
+"Días,Meses","01,02",,Periodicidad_ig_PC00006,,LV_PE_PC00006_1
+"Banco compra,Banco vende","01,02",,Operativa_PC00036,,LV_OP_PC00036_1
+"USD,PEN,EUR,GBP,CHF,JPY,SEK","01,02,03,04,05,06,07",,Moneda_Origen_PC00036,,LV_MO_PC00036_1
+"USD,PEN,EUR,GBP,CHF,JPY,SEK","01,02,03,04,05,06,07",,Moneda_Destino_PC00036,,LV_MD_PC00036_1
+"Regular,Bonificado","01,02",,Modalidad_PC00036,,LV_MOD_PC00036_1
+"Días,Meses,Años","01,02,03",,Periodicidad_ig_PC00036,,LV_PE_PC00036_1
+"USD,PEN,EUR,GBP,CHF,JPY,SEK","01,02,03,04,05,06,07",,Moneda_Origen_PC00035,,LV_PE_MO00035_1
+"USD,PEN,EUR,GBP,CHF,JPY,SEK","01,02,03,04,05,06,07",,Moneda_Destino_PC00035,,LV_PE_MD00035_1
+"Banco compra,Banco vende","01,02",,Operativa_PC00035,,LV_PE_OP00035_1
+"Abono en cuenta,Capitalización","01,02",,Liquidacion_cpliq_0241041,,LV_PE_LQ00018_1
+"Días,Meses","01,02",,Periodicidad_ig_0241041,,LV_PE_PE0018_1
+"Usual,Ingresada,Puntual,Flat,All in","01,02,03,04,05",,cpliq_Comision_PC00014,,DV_CI_PC00014_01
+Días,01,,cpliq_Periodicidad_PC00014,"02,03",DV_CI_PC00014_02
+"Vista,Plazo,Mixta","01,02,03",,cpliq_Way_to_Pay_PC00014,,DV_CI_PC00014_03
+"Standard,Leasing","01,02",,gipr_Class_PC00014,,DV_CI_PC00014_04
+"Dias,Meses","01,02",,gipr_Periodicidad_PC00014,,DV_CI_PC00014_05
+"Usual,Ingresada,Puntual,Flat,All in","01,02,03,04,05",,cpliq_Comision_PC00015,,DV_CI_PC00015_01
+Días,01,,cpliq_Periodicidad_PC00015,"02,03",DV_CI_PC00015_02
+"Vista,Plazo,Mixta","01,02,03",,cpliq_Way_to_Pay_PC00015,,DV_CI_PC00015_03
+"Standard,Leasing","01,02",,gipr_Class_PC00015,,DV_CI_PC00015_04
+"Dias,Meses","01,02",,gipr_Periodicidad_PC00015,,DV_CI_PC00015_05
+"Usual,Ingresada,Puntual,Flat,All in","01,02,03,04,05",,cpliq_Comision_PC00013,,DV_CI_PC00013_01
+Días,01,,cpliq_Periodicidad_PC00013,"02,03",DV_CI_PC00013_02
+"Vista,Plazo,Mixta","01,02,03",,cpliq_Way_to_Pay_PC00013,,DV_CI_PC00013_03
+"Dias,Meses","01,02",,gipr_Periodicidad_PC00013,,DV_CI_PC00013_05
+"Meses,Años","02,03",,Periodicidad_Gracia_PC00009_NEW,,DV_PCLP_PC0009_NEW_01
+"Meses,Años","02,03",,Periodicidad_PC00009_NEW,,DV_PCLP_PC0009_NEW_02
+"Al vencimiento,En cuotas,A medida","01,02,03",,Tipo_amortizacion_PC00009_NEW,,DV_PCLP_PC0009_NEW_03
+"Inversión inmueble,Inversión maquinaria/equipos,Construcción,Prórroga,Reestructuración,Subrrogación","08,09,10,06,11,07",,Destino_PC00009_NEW,,DV_PCLP_PC0009_NEW_04
+"Regular,Reprogramado,Refinanciado,Promotor,Compra de deuda,Plan a medida","01,02,14,04,10,15",,PE_Modality_PC00009_NEW,,DV_PCLP_PC0009_NEW_05
+"Meses,Años","02,03",,gipr_Periodicidad_PC00009_NEW,,DV_PCLP_PC0009_NEW_06
+"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,gipr_Tipo_garantia_PC00009_NEW,,DV_PCLP_PC0009_NEW_07
+"Mensual,Trimestral,Semestral,Anual","01,02,03,04",,Amortizacion_PC00009_NEW,,DV_PCLP_PC0009_NEW_08
+"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,gipr_Garantia_PC00009_NEW,Dineraria,DV_PCLP_PC0009_NEW_09
+"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,gipr_Garantia_PC00009_NEW,No dineraria,DV_PCLP_PC0009_NEW_10
+Hipoteca,10,,gipr_Garantia_PC00009_NEW,Hipotecaria,DV_PCLP_PC0009_NEW_11
+Hipoteca,10,,gipr_Garantia_PC00005,Hipotecaria,DE_GA_PC0005_03
+Hipoteca,10,,gipr_Garantia_PC00018,Hipotecaria,DE_GA_PC0018_03
+Hipoteca,10,,Garantia_PC00029,Hipotecaria,DE_GA_PC0029_03
+Hipoteca,10,,gipr_Garantia_PC00007,Hipotecaria,DE_GA_PC0007_03
+Hipoteca,10,,Garantia_PC00001,Hipotecaria,DE_GA_PC0001_03
+Hipoteca,10,,gipr_Garantia_PC00024,Hipotecaria,DE_GA_PC0024_03
+Hipoteca,10,,Ca_Garantia_PC00029,Hipotecaria,DE_CGA_PC0029_03
+Hipoteca,10,,Garantia_PC00014,Hipotecaria,DE_GA_PC0014_03
+Hipoteca,10,,gipr_Garantia_PC00018_2,Hipotecaria,DE_GA_PC0018_03_2
+Hipoteca,10,,gipr_Garantia_PC00024_2,Hipotecaria,DE_GA_PC0024_03_2
+Hipoteca,10,,Ca_Garantia_PC00029_2,Hipotecaria,DE_CGA_PC0029_03_2
+Hipoteca,10,,Garantia_PC00029_2,Hipotecaria,DE_GA_PC0029_03_2
+Hipoteca,10,,Garantia_PC00001_2,Hipotecaria,DE_GA_PC0001_03_2
+Hipoteca,10,,Garantia_ig_PC00006,Hipotecaria,LV_GA_PC00006_3
+"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,gipr_Garantia_PC00002_NEW,No dineraria,DE_GA_PC00002_NEW_01
+"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,gipr_Garantia_PC00003_NEW,No dineraria,DE_GA_PC00003_NEW_02
+"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,gipr_Garantia_PC00002_NEW,Dineraria,DE_GA_PC00002_NEW_02
+"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,gipr_Garantia_PC00003_NEW,Dineraria,DE_GA_PC00003_NEW_01
+"Si,No","01,02",,gipr_Comex_Bag_PC00003_NEW,,LA_GA_PC00003_NEW_01
+"Si,No","01,02",,gipr_Comex_Bag_PC00002_NEW,,LA_GA_PC00002_NEW_01
+"Mensual,Trimestral,Semestral,Anual","01,02,03,04",,Amortizacion_PC00003_NEW,,LA_GA_PC00003_NEW_02
+"Mensual,Trimestral,Semestral,Anual","01,02,03,04",,Amortizacion_PC00002_NEW,,LA_GA_PC00002_NEW_08
+"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,gipr_Tipo_garantia_PC00003_NEW,,LA_GA_PC00003_NEW_03
+"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,gipr_Tipo_garantia_PC00002_NEW,,LA_GA_PC00002_NEW_04
+"Sin medio de pago,Carta de crédito,Cobranza documentaria,Transferencia","01,02,03,04",,gipr_PaymentM_PC00003_NEW,,LA_GA_PC00003_NEW_04
+"Sin medio de pago,Carta de crédito,Cobranza documentaria,Transferencia","01,02,03,04",,gipr_PaymentM_PC00002_NEW,,LA_GA_PC00002_NEW_06
+"Días,Meses","01,02",,Periodicidad_PC00003_NEW,,LA_GA_PC00003_NEW_05
+"Días,Meses","01,02",,Periodicidad_PC00002_NEW,,LA_GA_PC00002_NEW_05
+"Días,Meses","01,02",,Periodicidad_Gracia_PC00003_NEW,,LA_GA_PC00003_NEW_06
+"Días,Meses","01,02",,Periodicidad_Gracia_PC00002_NEW,,LA_GA_PC00002_NEW_03
+"Pre embarque,Post embarque,Sepymex","01,02,03",,ModalidadP_PC00003_NEW,,LA_GA_PC00003_NEW_08
+"Al vencimiento,En cuotas,Manual","01,02,04",,Tipo_amortizacion_PC00002_NEW,,LA_GA_PC00002_NEW_02
+"Al vencimiento,En cuotas,A medida","01,02,03",,Tipo_amortizacion_PC00003_NEW,,LA_GA_PC00003_NEW_09
+"Días,Meses","01,02",,gipr_Periodicidad_PC00002_NEW,,LA_GA_PC00002_NEW_07
+"Días,Meses","01,02",,gipr_Periodicidad_PC00003_NEW,,LA_GA_PC00003_NEW_10
+Hipoteca,10,,gipr_Garantia_PC00002_NEW,Hipotecaria,DE_GA_PC00002_NEW_03
+Hipoteca,10,,gipr_Garantia_PC00003_NEW,Hipotecaria,DE_GA_PC00003_NEW_03
+"Regular,Canal Internet,Credito Puntual,Prorroga,Subrogado","01,18,09,16,17",,PE_Modality_PC00002_NEW,,LA_GA__PC0002_NEW_10
+"Regular,Canal Internet,Credito Puntual,Prorroga,Subrogado","01,18,09,16,17",,PE_Modality_PC00003_NEW,,LA_GA__PC0003_NEW_11
+"Credito Puntual,Regular,Prorroga,Subrogado,Canal Internet","09,01,16,17,18",,PE_Modality_PC00007,,LA_GA_PC0007_11
+"Credito Puntual,Regular,Prorroga,Subrogado,Canal Internet","09,01,16,17,18",,PE_Modality_PC00005,,LA_GA_PC0005_10
+"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,gipr_Tipo_garantia_PC00010_NEW,,LA_GA_PC00010_NEW_01
+"(%),Monto","01,02",,gipr_Opcioncompra_Tipo_PC00010_NEW,,LA_GA_PC00010_NEW_02
+"Edificio y terreno,Maquinaria amarilla,Otras maquinarias; equipos y mobiliario,Transporte","21,22,23,24",,PE_Modality_PC00010_NEW,,LA_GA_PC00010_NEW_03
+"Mensual,Trimestral,Semestral,Anual","01,02,03,04",,Amortizacion_PC00010_NEW,,LA_GA_PC00010_NEW_04
+"Meses,Años","02,03",,Periodicidad_Gracia_PC00010_NEW,,LA_GA_PC00010_NEW_05
+"Meses,Años","02,03",,Periodicidad_PC00010_NEW,,LA_GA_PC00010_NEW_06
+"Al vencimiento,En cuotas,A medida","01,02,03",,Tipo_amortizacion_PC00010_NEW,,LA_GA_PC00010_NEW_07
+"Meses,Años","02,03",,gipr_Periodicidad_PC00010_NEW,,LA_GA_PC00010_NEW_08
+"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,gipr_Garantia_PC00010_NEW,No dineraria,DE_GA_PC00010_NEW_01
+"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,gipr_Garantia_PC00010_NEW,Dineraria,DE_GA_PC00010_NEW_02
+Hipoteca,10,,gipr_Garantia_PC00010_NEW,Hipotecaria,DE_GA_PC00010_NEW_03
+"Sin medio de pago,Carta de crédito,Cobranza documentaria,Transferencia","01,02,03,04",,gipr_PaymentM_PC00010_NEW,,LA_GA_PC00010_NEW_09
+"Sin medio de pago,Carta de crédito,Cobranza documentaria,Transferencia","01,02,03,04",,gipr_PaymentM_PC00024,,LA_GA_PC00024_NEW_09
+"Sin medio de pago,Carta de crédito,Cobranza documentaria,Transferencia","01,02,03,04",,gipr_PaymentM_PC00024_2,,LA_GA_PC00024_2_NEW_09
+"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,Garantia_PC00005_NEW,Dineraria,DE_GA_PC00005_NEW_01
+"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,Garantia_PC00005_NEW,No dineraria,DE_GA_PC00005_NEW_02
+"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,Tipo_garantia_PC00005_NEW,,LA_GA_PC00005_NEW_01
+"Días,Meses","01,02",,PeriodicidadIG_PC00005_NEW,,LA_GA_PC00005_NEW_02
+"15 días,30 dias,60 dias,90 dias,120 dias,150 dias,180 dias,210 dias,240 dias,270 dias,300 dias,330 dias,360 dias","01,02,03,04,05,06,07,08,09,10,11,12,13",,Plazo_s_Operaci_n_PC00005_NEW,,LA_GA_PC00005_NEW_03
+Hipoteca,10,,Garantia_PC00005_NEW,Hipotecaria,DE_GA_PC00005_NEW_03
+"Regular,Crédito líquido,Credito Puntual,Reprogramado,Refinanciado","01,03,09,02,14",,PE_Modality_PC00005_NEW,,DE_GA_PC00005_NEW_04
+"Regular,Crédito líquido,Credito Puntual,Reprogramado,Refinanciado","01,03,09,02,14",,PE_Modality_PC00014,,DE_GA_PC00014_04
+"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,gipr_Garantia_PC00004,No dineraria,DE_GA_PC00004_02
+"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,gipr_Garantia_PC00004,Dineraria,DE_GA_PC00004_01
+"Si,No","01,02",,gipr_Comex_Bag_PC00004,,LA_GA_PC00004_01
+"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,gipr_Tipo_garantia_PC00004,,LA_GA_PC00004_03
+"Sin medio de pago,Carta de crédito,Cobranza documentaria,Transferencia","01,02,03,04",,gipr_PaymentM_PC00004,,LA_GA_PC00004_04
+"Días,Meses","01,02",,Periodicidad_PC00004,,LA_GA_PC00004_05
+"Al vencimiento,En cuotas,Manual","01,02,04",,Tipo_amortizacion_PC00004,,LA_GA_PC00004_09
+"Días,Meses","01,02",,gipr_Periodicidad_PC00004,,LA_GA_PC00004_10
+Hipoteca,10,,gipr_Garantia_PC00004,Hipotecaria,DE_GA_PC00004_03
+"Credito Puntual,Regular","09,01",,PE_Modality_PC00004,,LA_GA__PC00004_11
+"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,Tipo_garantia_PC00011_NEW,,LA_GA_PC00011_NEW_01
+"Días,Meses,Años","01,02,03",,PeriodicidadIG_PC00011_NEW,,LA_GA_PC00011_NEW_02
+"Pública,Privada","01,02",,tcf_type_beneficiary_PC00011_NEW,,LA_GA_PC00011_NEW_03
+"SI,NO","01,02",,tcf_Legal_VB_text_PC00011_NEW,,LA_GA_PC00011_NEW_04
+"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,Garantia_PC00011_NEW,No dineraria,DE_GA_PC00011_NEW_01
+"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,Garantia_PC00011_NEW,Dineraria,DE_GA_PC00011_NEW_02
+Hipoteca,10,,Garantia_PC00011_NEW,Hipotecaria,DE_GA_PC00011_NEW_03
+"Linea,Nuevo,Prórroga","19,20,16",,PE_Modality_PC00011_NEW,,DE_GA_PC00011_NEW_04
+"Dineraria,Hipotecaria,No dineraria,Sin garantía","01,04,02,03",,Tipo_garantia_PC00012_NEW,,LA_GA_PC00012_NEW_01
+"Días,Meses,Años","01,02,03",,PeriodicidadIG_PC00012_NEW,,LA_GA_PC00012_NEW_02
+"Pública,Privada","01,02",,tcf_type_beneficiary_PC00012_NEW,,LA_GA_PC00012_NEW_03
+"SI,NO","01,02",,tcf_Legal_VB_text_PC00012_NEW,,LA_GA_PC00012_NEW_04
+"Prenda agrícola,Prenda industrial,Prenda minera,Prenda transporte,Prenda vehicular,Warrants","12,13,14,15,16,17",,Garantia_PC00012_NEW,No dineraria,DE_GA_PC00012_NEW_01
+"Cuenta en garantía,Depósito cuenta a plazo,Super depósitos","01,02,03",,Garantia_PC00012_NEW,Dineraria,DE_GA_PC00012_NEW_02
+Hipoteca,10,,Garantia_PC00012_NEW,Hipotecaria,DE_GA_PC00012_NEW_03
+"Linea,Nuevo,Prórroga","19,20,16",,PE_Modality_PC00012_NEW,,DE_GA_PC00012_NEW_04
+"Linea,Nuevo,Prórroga","19,20,16",,Ca_PE_Modality_PC00029_2,,DE_GA_PC0029_02_3
+"Linea,Nuevo,Prórroga","19,20,16",,PE_Modality_PC00029_2,,DE_GA_PC00029_2_13
+"Devolución,Diferencial precio,Fiel cumplimiento,Promotores O/B,Seriedad oferta","20,06,07,15,16",,PEN_PUB_tcf_type_bail_letter_PC00011_NEW,,DE_TBL_PEN_PUB_PC00011_NEW
+"Adelantos,Aduanas - Despacho almacen,Aduanas - Deuda adm.,Deuda Tributaria,Fondos garantía,Pago obligaciones,Procesos judiciales","01,02,03,19,08,23,25",,PEN_PUB_tcf_type_bail_letter_PC00012_NEW,,DE_TBL_PEN_PUB_PC00012_NEW
+"Adelantos,Aduanas - Despacho almacen,Aduanas - Deuda adm.,Deuda Tributaria,Fondos garantía,Pago obligaciones,Procesos judiciales","01,02,03,19,08,23,25",,PEN_PUB_Ca_tcf_type_bail_letter_PC00029_2,,DE_TBL_Ca_PEN_PUB_PC00029_2
+"Devolución,Diferencial precio,Fiel cumplimiento,Promotores O/B,Seriedad oferta","20,06,07,15,16",,PEN_PUB_tcf_type_bail_letter_PC00029_2,,DE_TBL_PEN_PUB_PC00029_2
+"Cierre minas,Devolución,Diferencial precio,Fiel cumplimiento,Premios sorteos,Promotores O/B,Seriedad oferta,Otros","05,20,06,07,14,15,16,21",,PEN_PRI_tcf_type_bail_letter_PC00011_NEW,,DE_TBL_PEN_PRI_PC00011_NEW
+"Adelantos,Aduanas - Despacho almacen,Aduanas - Deuda adm.,Fondos garantía,Pago alquileres,Pago deudas,Pago obligaciones,Pago tributos,Procesos judiciales,Rentabilidad mínima,Otros","01,02,03,08,11,22,23,24,25,26,21",,PEN_PRI_tcf_type_bail_letter_PC00012_NEW,,DE_TBL_PEN_PRI_PC00012_NEW
+"Adelantos,Aduanas - Despacho almacen,Aduanas - Deuda adm.,Fondos garantía,Pago alquileres,Pago deudas,Pago obligaciones,Pago tributos,Procesos judiciales,Rentabilidad mínima,Otros","01,02,03,08,11,22,23,24,25,26,21",,PEN_PRI_Ca_tcf_type_bail_letter_PC00029_2,,DE_TBL_Ca_PEN_PRI_PC00029_2
+"Cierre minas,Devolución,Diferencial precio,Fiel cumplimiento,Premios sorteos,Promotores O/B,Seriedad oferta,Otros","05,20,06,07,14,15,16,21",,PEN_PRI_tcf_type_bail_letter_PC00029_2,,DE_TBL_PEN_PRI_PC00029_2
+"Devolución,Diferencial precio,Fiel cumplimiento,Seriedad oferta","20,06,07,16",,USD_PUB_tcf_type_bail_letter_PC00011_NEW,,DE_TBL_USD_PUB_PC00011_NEW
+"Adelantos,Aduanas - Despacho almacen,Aduanas - Deuda adm.,Fondos garantía,Pago obligaciones","01,02,03,08,23",,USD_PUB_tcf_type_bail_letter_PC00012_NEW,,DE_TBL_USD_PUB_PC00012_NEW
+"Adelantos,Aduanas - Despacho almacen,Aduanas - Deuda adm.,Fondos garantía,Pago obligaciones","01,02,03,08,23",,USD_PUB_Ca_tcf_type_bail_letter_PC00029_2,,DE_TBL_Ca_USD_PUB_PC00029_2
+"Devolución,Diferencial precio,Fiel cumplimiento,Seriedad oferta","20,06,07,16",,USD_PUB_tcf_type_bail_letter_PC00029_2,,DE_TBL_USD_PUB_PC00029_2
+"Cierre minas,Devolución,Diferencial precio,Fiel cumplimiento,Premios sorteos,Promotores O/B,Seriedad oferta","05,20,06,07,14,15,16",,USD_PRI_tcf_type_bail_letter_PC00011_NEW,,DE_TBL_USD_PRI_PC00011_NEW
+"Adelantos,Aduanas - Despacho almacen,Aduanas - Deuda adm.,Fondos garantía,Pago alquileres,Pago deudas,Pago obligaciones,Pago tributos,Procesos judiciales,Rentabilidad mínima","01,02,03,08,11,22,23,24,25,26",,USD_PRI_tcf_type_bail_letter_PC00012_NEW,,DE_TBL_USD_PRI_PC00012_NEW
+"Adelantos,Aduanas - Despacho almacen,Aduanas - Deuda adm.,Fondos garantía,Pago alquileres,Pago deudas,Pago obligaciones,Pago tributos,Procesos judiciales,Rentabilidad mínima","01,02,03,08,11,22,23,24,25,26",,USD_PRI_Ca_tcf_type_bail_letter_PC00029_2,,DE_TBL_Ca_USD_PRI_PC00029_2
+"Cierre minas,Devolución,Diferencial precio,Fiel cumplimiento,Premios sorteos,Promotores O/B,Seriedad oferta","05,20,06,07,14,15,16",,USD_PRI_tcf_type_bail_letter_PC00029_2,,DE_TBL_USD_PRI_PC00029_2
+"PEN,USD","PEN,USD",,currency_PC00011_NEW,,DE_TBL_Currency_PC00011_NEW
+"PEN,USD","PEN,USD",,currency_PC00012_NEW,,DE_TBL_Currency_PC00012_NEW
+"PEN,USD","PEN,USD",,currency_PC00011,,DE_TBL_Currency_PC00011
+"PEN,USD","PEN,USD",,currency_PC00012,,DE_TBL_Currency_PC00012
+"Bimestral,Trismestral","01,02",,PEN_PUB_Periodicity_commission_PC00029_2,"Devolución,Diferencial precio",DV_PC_PEN_PUB_PC00029_2_01
+"Bimestral,Trismestral,Cuatrimestral,Anual","01,02,05,04",,PEN_PUB_Periodicity_commission_PC00029_2,Fiel cumplimiento,DV_PC_PEN_PUB_PC00029_2_02
+Bimestral,01,,PEN_PUB_Periodicity_commission_PC00029_2,Promotores O/B,DV_PC_PEN_PUB_PC00029_2_03
+"Bimestral,Trismestral,Cuatrimestral","01,02,05",,PEN_PUB_Periodicity_commission_PC00029_2,Seriedad oferta,DV_PC_PEN_PUB_PC00029_2_04
+"Bimestral,Trismestral","01,02",,PEN_PUB_Periodicity_commission_PC00011_NEW,"Devolución,Diferencial precio",DV_PC_PEN_PUB_PC00011_NEW_01
+"Bimestral,Trismestral,Cuatrimestral,Anual","01,02,05,04",,PEN_PUB_Periodicity_commission_PC00011_NEW,Fiel cumplimiento,DV_PC_PEN_PUB_PC00011_NEW_02
+Bimestral,01,,PEN_PUB_Periodicity_commission_PC00011_NEW,Promotores O/B,DV_PC_PEN_PUB_PC00011_NEW_03
+"Bimestral,Trismestral,Cuatrimestral","01,02,05",,PEN_PUB_Periodicity_commission_PC00011_NEW,Seriedad oferta,DV_PC_PEN_PUB_PC00011_NEW_04
+"Bimestral,Trismestral,Cuatrimestral,Anual","01,02,05,04",,PEN_PUB_Periodicity_commission_PC00012_NEW,Adelantos,DV_PC_PEN_PUB_PC00012_NEW_01
+"Bimestral,Trismestral","01,02",,PEN_PUB_Periodicity_commission_PC00012_NEW,"Aduanas - Despacho almacen,Aduanas - Deuda adm.,Fondos garantía,Pago obligaciones",DV_PC_PEN_PUB_PC00012_NEW_02
+"Trismestral,Cuatrimestral","02,05",,PEN_PUB_Periodicity_commission_PC00012_NEW,"Deuda Tributaria,Procesos judiciales",DV_PC_PEN_PUB_PC00012_NEW_03
+"Bimestral,Trismestral,Cuatrimestral,Anual","01,02,05,04",,PEN_PUB_Ca_Periodicity_commission_PC00029_2,Adelantos,DV_PC_PEN_PUB_Ca_PC00029_2_01
+"Bimestral,Trismestral","01,02",,PEN_PUB_Ca_Periodicity_commission_PC00029_2,"Aduanas - Despacho almacen,Aduanas - Deuda adm.,Fondos garantía,Pago obligaciones",DV_PC_PEN_PUB_Ca_PC00029_2_02
+"Trismestral,Cuatrimestral","02,05",,PEN_PUB_Ca_Periodicity_commission_PC00029_2,"Deuda Tributaria,Procesos judiciales",DV_PC_PEN_PUB_Ca_PC00029_2_03
+"Bimestral,Trismestral","01,02",,PEN_PRI_Periodicity_commission_PC00029_2,"Cierre minas,Devolución,Diferencial precio,Premios sorteos,Promotores O/B",DV_PC_PEN_PRI_PC00029_2_01
+"Bimestral,Trismestral,Cuatrimestral,Semestral","01,02,05,03",,PEN_PRI_Periodicity_commission_PC00029_2,Fiel cumplimiento,DV_PC_PEN_PRI_PC00029_2_02
+"Bimestral,Trismestral,Cuatrimestral","01,02,05",,PEN_PRI_Periodicity_commission_PC00029_2,Seriedad oferta,DV_PC_PEN_PRI_PC00029_2_03
+Bimestral,01,,PEN_PRI_Periodicity_commission_PC00029_2,Otros,DV_PC_PEN_PRI_PC00029_2_04
+"Bimestral,Trismestral","01,02",,PEN_PRI_Periodicity_commission_PC00011_NEW,"Cierre minas,Devolución,Diferencial precio,Premios sorteos,Promotores O/B",DV_PC_PEN_PRI_PC00011_NEW_01
+"Bimestral,Trismestral,Cuatrimestral,Semestral","01,02,05,03",,PEN_PRI_Periodicity_commission_PC00011_NEW,Fiel cumplimiento,DV_PC_PEN_PRI_PC00011_NEW_02
+"Bimestral,Trismestral,Cuatrimestral","01,02,05",,PEN_PRI_Periodicity_commission_PC00011_NEW,Seriedad oferta,DV_PC_PEN_PRI_PC00011_NEW_03
+Bimestral,01,,PEN_PRI_Periodicity_commission_PC00011_NEW,Otros,DV_PC_PEN_PRI_PC00011_NEW_04
+"Bimestral,Trismestral","01,02",,PEN_PRI_Periodicity_commission_PC00012_NEW,"Aduanas - Despacho almacen,Aduanas - Deuda adm.,Fondos garantía,Pago deudas,Pago obligaciones,Pago tributos,Procesos judiciales,Rentabilidad mínima",DV_PC_PEN_PRI_PC00012_NEW_01
+"Bimestral,Trismestral,Cuatrimestral","01,02,05",,PEN_PRI_Periodicity_commission_PC00012_NEW,Adelantos,DV_PC_PEN_PRI_PC00012_NEW_02
+"Bimestral,Trismestral,Anual","01,02,04",,PEN_PRI_Periodicity_commission_PC00012_NEW,Pago alquileres,DV_PC_PEN_PRI_PC00012_NEW_03
+Bimestral,01,,PEN_PRI_Periodicity_commission_PC00012_NEW,Otros,DV_PC_PEN_PRI_PC00012_NEW_04
+"Bimestral,Trismestral","01,02",,PEN_PRI_Ca_Periodicity_commission_PC00029_2,"Aduanas - Despacho almacen,Aduanas - Deuda adm.,Fondos garantía,Pago deudas,Pago obligaciones,Pago tributos,Procesos judiciales,Rentabilidad mínima",DV_PC_PEN_PRI_Ca_PC00029_2_01
+"Bimestral,Trismestral,Cuatrimestral","01,02,05",,PEN_PRI_Ca_Periodicity_commission_PC00029_2,Adelantos,DV_PC_PEN_PRI_Ca_PC00029_2_02
+"Bimestral,Trismestral,Anual","01,02,04",,PEN_PRI_Ca_Periodicity_commission_PC00029_2,Pago alquileres,DV_PC_PEN_PRI_Ca_PC00029_2_03
+Bimestral,01,,PEN_PRI_Ca_Periodicity_commission_PC00029_2,Otros,DV_PC_PEN_PRI_Ca_PC00029_2_04
+"Bimestral,Trismestral","01,02",,USD_PUB_Periodicity_commission_PC00029_2,"Devolución,Diferencial precio",DV_PC_USD_PUB_PC00029_2_01
+"Bimestral,Trismestral,Cuatrimestral","01,02,05",,USD_PUB_Periodicity_commission_PC00029_2,"Fiel cumplimiento,Seriedad oferta",DV_PC_USD_PUB_PC00029_2_02
+"Bimestral,Trismestral","01,02",,USD_PUB_Periodicity_commission_PC00011_NEW,"Devolución,Diferencial precio",DV_PC_USD_PUB_PC00011_NEW_01
+"Bimestral,Trismestral,Cuatrimestral","01,02,05",,USD_PUB_Periodicity_commission_PC00011_NEW,"Fiel cumplimiento,Seriedad oferta",DV_PC_USD_PUB_PC00011_NEW_02
+"Bimestral,Trismestral","01,02",,USD_PUB_Periodicity_commission_PC00012_NEW,"Aduanas - Despacho almacen,Aduanas - Deuda adm.,Fondos garantía,Pago obligaciones",DV_PC_USD_PUB_PC00012_NEW_01
+"Bimestral,Trismestral,Cuatrimestral","01,02,05",,USD_PUB_Periodicity_commission_PC00012_NEW,Adelantos,DV_PC_USD_PUB_PC00012_NEW_02
+"Bimestral,Trismestral","01,02",,USD_PUB_Ca_Periodicity_commission_PC00029_2,"Aduanas - Despacho almacen,Aduanas - Deuda adm.,Fondos garantía,Pago obligaciones",DV_PC_USD_PUB_Ca_PC00029_2_01
+"Bimestral,Trismestral,Cuatrimestral","01,02,05",,USD_PUB_Ca_Periodicity_commission_PC00029_2,Adelantos,DV_PC_USD_PUB_Ca_PC00029_2_02
+"Bimestral,Trismestral,Anual","01,02,04",,USD_PRI_Periodicity_commission_PC00029_2,Cierre minas,DV_PC_USD_PRI_PC00029_2_01
+"Bimestral,Trismestral","01,02",,USD_PRI_Periodicity_commission_PC00029_2,"Devolución,Diferencial precio,Premios sorteos,Promotores O/B",DV_PC_USD_PRI_PC00029_2_02
+"Bimestral,Trismestral,Cuatrimestral,Semestral","01,02,05,03",,USD_PRI_Periodicity_commission_PC00029_2,Fiel cumplimiento,DV_PC_USD_PRI_PC00029_2_03
+"Bimestral,Trismestral,Cuatrimestral","01,02,05",,USD_PRI_Periodicity_commission_PC00029_2,Seriedad oferta,DV_PC_USD_PRI_PC00029_2_04
+"Bimestral,Trismestral,Anual","01,02,04",,USD_PRI_Periodicity_commission_PC00011_NEW,Cierre minas,DV_PC_USD_PRI_PC00011_NEW_01
+"Bimestral,Trismestral","01,02",,USD_PRI_Periodicity_commission_PC00011_NEW,"Devolución,Diferencial precio,Premios sorteos,Promotores O/B",DV_PC_USD_PRI_PC00011_NEW_02
+"Bimestral,Trismestral,Cuatrimestral,Semestral","01,02,05,03",,USD_PRI_Periodicity_commission_PC00011_NEW,Fiel cumplimiento,DV_PC_USD_PRI_PC00011_NEW_03
+"Bimestral,Trismestral,Cuatrimestral","01,02,05",,USD_PRI_Periodicity_commission_PC00011_NEW,Seriedad oferta,DV_PC_USD_PRI_PC00011_NEW_04
+"Bimestral,Trismestral,Cuatrimestral","01,02,05",,USD_PRI_Periodicity_commission_PC00012_NEW,Adelantos,DV_PC_USD_PRI_PC00012_NEW_01
+"Bimestral,Trismestral","01,02",,USD_PRI_Periodicity_commission_PC00012_NEW,"Aduanas - Despacho almacen,Aduanas - Deuda adm.,Fondos garantía,Pago deudas,Pago obligaciones,Pago tributos,Procesos judiciales,Rentabilidad mínima",DV_PC_USD_PRI_PC00012_NEW_02
+"Bimestral,Trismestral,Cuatrimestral,Anual","01,02,05,04",,USD_PRI_Periodicity_commission_PC00012_NEW,Pago alquileres,DV_PC_USD_PRI_PC00012_NEW_03
+"Bimestral,Trismestral,Cuatrimestral","01,02,05",,USD_PRI_Ca_Periodicity_commission_PC00029_2,Adelantos,DV_PC_USD_PRI_Ca_PC00029_2_01
+"Bimestral,Trismestral","01,02",,USD_PRI_Ca_Periodicity_commission_PC00029_2,"Aduanas - Despacho almacen,Aduanas - Deuda adm.,Fondos garantía,Pago deudas,Pago obligaciones,Pago tributos,Procesos judiciales,Rentabilidad mínima",DV_PC_USD_PRI_Ca_PC00029_2_02
+"Bimestral,Trismestral,Cuatrimestral,Anual","01,02,05,04",,USD_PRI_Ca_Periodicity_commission_PC00029_2,Pago alquileres,DV_PC_USD_PRI_Ca_PC00029_2_03
