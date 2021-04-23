@@ -12,7 +12,7 @@
  */
 public with sharing class BE_CalceNewOppHeadAction_Ctr extends BE_SingleRelatedListCRUD_Cls {
 	/** Lang Code */
-	private static final List<String>LANG_CODE = new List<String> {'es','en_US'};
+	private static final List<String>LANG_CODE = new List<String> {'es','en_US'}; 
 	/**
 	   @Description createRecords
 	   @param  List<SObject> sObjs

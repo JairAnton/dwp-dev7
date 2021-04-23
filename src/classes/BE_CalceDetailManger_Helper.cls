@@ -32,13 +32,6 @@ public with sharing class BE_CalceDetailManger_Helper {
 			final List<Calce_Details__c>calceDetailUpsert = new List<Calce_Details__c>();
 			Map<Id,Calce_Details__c>calceDetailsMap = new Map<Id,Calce_Details__c>();
 
-			system.debug('/////////' + productTypes);
-			system.debug('/////////' + CLOSE_OPP);
-			system.debug('/////////' + calce.OwnerId);
-			system.debug('/////////' + calce.start_date__c);
-			system.debug('/////////' + calce.close_date__c);
-
-
 			for(Calce_Details__c cDetItem : [SELECT ID,calce_id__c,account_contract_id__c,opportunity_id__c,amount__c,amount_cancelled__c FROM Calce_Details__c WHERE calce_id__c=: calce.Id AND sub_type__c=:calceType]) {
 				calceDetailsMap.put(cDetItem.opportunity_id__c,cDetItem);
 			}
