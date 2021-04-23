@@ -11,7 +11,7 @@
  */
 public without sharing class BE_Calce_Create_Batch implements Database.Batchable<sObject>, Database.Stateful {
     /*date used to process*/
-    public final Date dateCalEnd; 
+    public final Date dateCalEnd;
     /*date used to process*/
     public final Date dateCalStart;
     /*date map of months*/
@@ -100,8 +100,9 @@ public without sharing class BE_Calce_Create_Batch implements Database.Batchable
             Final Calce__c calce = new Calce__c();
             calce.Name = nameMonth.get(dateCalEnd.month())+String.valueOf(dateCalEnd.day()).leftPad(2, '0')+'-'+dateCalEnd.year()+' - '+usr.Name;
             calce.OwnerId = usr.Id;
-            if(usr.prof_position_id__c == 'E01' || 'I21') {
-            calce.manager_id__c          = calce.ownerid; } else {calce.manager_id__c = usr.ManagerId;}
+            if(usr.prof_position_id__c == 'E01') { calce.manager_id__c = calce.ownerid; } 
+            else if (usr.prof_position_id__c == 'I21') { calce.manager_id__c = calce.ownerid;}
+            else {calce.manager_id__c = usr.ManagerId;}
             calce.close_date__c          = dateCalEnd;
             calce.start_date__c          = dateCalStart;
             calce.status__c              = 'Iniciado';

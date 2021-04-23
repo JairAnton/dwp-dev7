@@ -102,10 +102,10 @@ export default class BE_SummaryCalce_Lwc extends LightningElement {
         return this.calce['net_indirect_calce__c'] > 0 ? true : false; 
     }
     get conditionResource() {
-        return this.calce['net_resource_calce__c'] > 0 ? true : false;
+        return this.calce['net_resource_calce__c'] > 0 ? true : false;  
     }
-    get statusCale() {
-        return this.calce['status__c'] === 'Compartido' ? true : false;
+    get statusCale() { 
+        return this.calce['status__c'] === 'Compartido' ? true : false;  
     }
 
 

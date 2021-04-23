@@ -56,9 +56,9 @@ public with sharing class BE_CalceNewOppHeadAction_Ctr extends BE_SingleRelatedL
 				}
 			} else { 
 				messages.put(LANG_CODE[0], 'Solo puede crear oportunidades  para su cartera de clientes');
-				messages.put(LANG_CODE[1], 'Only can create opportunity for your portafolio of clients.');
+				messages.put(LANG_CODE[1], 'Only can create opportunity for your portafolio of clients.');  
 				res.isSuccess = false;
-				res.message = messages.get(UserInfo.getLanguage());
+				res.message = messages.get(UserInfo.getLanguage()); 
 			}
 		} catch (DMLException ex) {
 			res.isSuccess = false;

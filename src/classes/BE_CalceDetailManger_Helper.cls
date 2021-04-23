@@ -17,8 +17,8 @@ public with sharing class BE_CalceDetailManger_Helper {
 	final static Map<Integer,String>PRODUCTS_CODE=new Map<Integer,String> {1=>'PC00001',9=>'PC00009',20=>'PRESTAMOS EMPRESAS'};
 	/** private constructor */
     final static List<String> CLOSE_OPP=new List<String> {'07'};
-	/** Product C */
-	private BE_CalceDetailManger_Helper () { 
+	/** Product C */ 
+	private BE_CalceDetailManger_Helper () {  
 	}
 	/*
 	@Description updateCancellationsOfDay
@@ -27,10 +27,10 @@ public with sharing class BE_CalceDetailManger_Helper {
 	@param  calceType type CancellationsOfDay
 	@param  oppType type Renewal
 	 */
-	public static void updateCancellationsOfDay(Calce__c calce, List<String>productTypes,String calceType, String oppType) {
+	public static void updateCancellationsOfDay(Calce__c calce, List<String>productTypes,String calceType, String oppType) {  
 		try {
 			final List<Calce_Details__c>calceDetailUpsert = new List<Calce_Details__c>();
-			Map<Id,Calce_Details__c>calceDetailsMap = new Map<Id,Calce_Details__c>();
+			Map<Id,Calce_Details__c>calceDetailsMap = new Map<Id,Calce_Details__c>(); 
 
 			for(Calce_Details__c cDetItem : [SELECT ID,calce_id__c,account_contract_id__c,opportunity_id__c,amount__c,amount_cancelled__c FROM Calce_Details__c WHERE calce_id__c=: calce.Id AND sub_type__c=:calceType]) {
 				calceDetailsMap.put(cDetItem.opportunity_id__c,cDetItem);

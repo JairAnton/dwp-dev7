@@ -12,7 +12,7 @@
  */
 public with sharing class BE_CalceSummary_Ctr {
 /** Lang Code */
-private static final List<String> LANG_CODE = new List<String> {'es','en_US'};
+private static final List<String> LANG_CODE = new List<String> {'es','en_US'}; 
 /** private constructor */
     private BE_CalceSummary_Ctr() {}
     /**  
@@ -30,7 +30,7 @@ private static final List<String> LANG_CODE = new List<String> {'es','en_US'};
    @return 
     */
     @AuraEnabled(cacheable=false)
-    public static Response updateSummaryCalce(SObject calce) {
+    public static Response updateSummaryCalce(SObject calce) { 
         final Response res=new Response();
         final Map<String,String> messages = new Map<String,String>();
         try {
