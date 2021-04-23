@@ -12,7 +12,7 @@
  */
 public with sharing class BE_CalceSummary_Ctr {
 /** Lang Code */
-private static final List<String> LANG_CODE = new List<String> {'es','en_US'}; 
+private static final List<String> LANG_CODE = new List<String> {'es','en_US'};   
 /** private constructor */
     private BE_CalceSummary_Ctr() {}
     /**  

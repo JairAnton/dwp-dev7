@@ -12,13 +12,13 @@
  */
 public with sharing class BE_CalceNewOpportunities_Ctr extends BE_SingleRelatedListCRUD_Cls {
 	/** Lang Code */
-	final private static List<String>LANG_CODE = new List<String> {'es','en_US'};
+	final private static List<String>LANG_CODE = new List<String> {'es','en_US'}; 
 	/** Opportunity type Cancelation */
 	final static String OPP_TYPE='01';
 	/** Opportunity type Cancelation */
 	final static String CALCE_TYPE='02'; 
 	/** @Indirect Product */
-	final static List<String>PRODUCT_TYPES = new List<String> {'Direct','Indirect','Resource'};  
+	final static List<String>PRODUCT_TYPES = new List<String> {'Direct','Indirect','Resource'};   
 	/**
 	   @Description updateRecords
 	   @param  List<SObject> sObjs

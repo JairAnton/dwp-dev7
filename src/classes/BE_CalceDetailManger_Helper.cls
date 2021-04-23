@@ -27,7 +27,7 @@ public with sharing class BE_CalceDetailManger_Helper {
 	@param  calceType type CancellationsOfDay
 	@param  oppType type Renewal
 	 */
-	public static void updateCancellationsOfDay(Calce__c calce, List<String>productTypes,String calceType, String oppType) {  
+	public static void updateCancellationsOfDay(Calce__c calce, List<String>productTypes,String calceType, String oppType) {    
 		try {
 			final List<Calce_Details__c>calceDetailUpsert = new List<Calce_Details__c>();
 			Map<Id,Calce_Details__c>calceDetailsMap = new Map<Id,Calce_Details__c>(); 
