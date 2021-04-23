@@ -18,7 +18,7 @@ public with sharing class BE_CalceDetailManger_Helper {
 	/** private constructor */
     final static List<String> CLOSE_OPP=new List<String> {'07'};
 	/** Product C */
-	private BE_CalceDetailManger_Helper () {
+	private BE_CalceDetailManger_Helper () { 
 	}
 	/*
 	@Description updateCancellationsOfDay

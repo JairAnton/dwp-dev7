@@ -11,7 +11,7 @@
  */
 public without sharing class BE_Calce_Create_Batch implements Database.Batchable<sObject>, Database.Stateful {
     /*date used to process*/
-    public final Date dateCalEnd;
+    public final Date dateCalEnd; 
     /*date used to process*/
     public final Date dateCalStart;
     /*date map of months*/

@@ -16,7 +16,7 @@ public with sharing class BE_CalceNewOpportunities_Ctr extends BE_SingleRelatedL
 	/** Opportunity type Cancelation */
 	final static String OPP_TYPE='01';
 	/** Opportunity type Cancelation */
-	final static String CALCE_TYPE='02';
+	final static String CALCE_TYPE='02'; 
 	/** @Indirect Product */
 	final static List<String>PRODUCT_TYPES = new List<String> {'Direct','Indirect','Resource'}; 
 	/**
