@@ -37,6 +37,7 @@ export default class BE_SummaryCalce_Lwc extends LightningElement {
             "sobjectType": this.sobjectType,
             "Id": this.recordId,
             "portfolio_recovery__c": evt.target.value
+
         };
         updateSummary({
             calce: targetObj,
@@ -50,16 +51,64 @@ export default class BE_SummaryCalce_Lwc extends LightningElement {
                 }
             })
     }
+    handleUpdateSummary1(evt) {
+        let targetObj = {
+            "sobjectType": this.sobjectType,
+            "Id": this.recordId,
+            "income_input__c": evt.target.value
+
+        };
+        updateSummary({
+            calce: targetObj,
+        })
+            .then(result => {
+                if (result.isSuccess) {
+                    this.calce = result.data;
+                } else {
+                    this.error = result.message;
+                    this.showToastEvent("Error", this.error, "error");
+                }
+            })
+    }
+
+    handleUpdateSummary2(evt) {
+        let targetObj = {
+            "sobjectType": this.sobjectType,
+            "Id": this.recordId,
+            "expense_input__c": evt.target.value
+
+        };
+        updateSummary({
+            calce: targetObj,
+        })
+            .then(result => {
+                if (result.isSuccess) {
+                    this.calce = result.data;
+                } else {
+                    this.error = result.message;
+                    this.showToastEvent("Error", this.error, "error");
+                }
+            })
+    }
+    
+
+
+
     /** NET CALCE */
     get conditionDirecto() {
-        return this.calce['net_direct_calce__c'] > 0 ? true : false;
+        return this.calce['net_direct_calce__c'] > 0 ? true : false;    
     }
     get conditionIndirecto() {
-        return this.calce['net_indirect_calce__c'] > 0 ? true : false;
+        return this.calce['net_indirect_calce__c'] > 0 ? true : false;  
     }
-    get statusCale() {
-        return this.calce['status__c'] === 'Compartido' ? true : false;
+    get conditionResource() {
+        return this.calce['net_resource_calce__c'] > 0 ? true : false;  
     }
+    get statusCale() { 
+        return this.calce['status__c'] === 'Compartido' ? true : false;  
+    }
+
+
     /** SHOW TOAST MESSAJE */
     showToastEvent(title, message, variant) {
         const evt = new ShowToastEvent({

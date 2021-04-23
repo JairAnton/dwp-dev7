@@ -4,21 +4,21 @@
             class="slds-m-left_x-small" slot="actions" variant="brand" onclick={handleCalceSummary}></lightning-button>
         <p class="slds-p-horizontal_small">Actualizar el Calce para reflejar los cambios realizados</p>
         <template if:true={isload}>
-            <!--CALCE INDIRECTO-->
-            <lightning-card title="Calce Directo">
+            <!--CALCE DIRECTO-->
+            <lightning-card title="Calce Directo">  
                 <lightning-layout multiple-rows>
                     <!--PRODUCT ROW-->
                     <lightning-layout-item size="12" small-device-size="12" medium-device-size="4" large-device-size="3"
                         padding="around-small">
                         <div class="slds-col slds-text-align_left">
-                            <label class="slds-form-element__label"
-                                for="text-input-id-1">Descuento/Letras/Facturas</label>
+                            <label class="slds-form-element__label" 
+                                for="text-input-id-1">Descuento/Letras/Facturas</label>  
                             <div class="slds-form-element__control">
                                 <lightning-formatted-number value={calce.desc_letter_bill__c} format-style="currency"
                                     currency-code={calce.CurrencyIsoCode} currency-display-as="code"
                                     minimum-fraction-digits="2" maximum-fraction-digits="2">
-                                </lightning-formatted-number>
-                            </div>
+                                </lightning-formatted-number>    
+                            </div>  
                         </div>
                     </lightning-layout-item>
                     <lightning-layout-item size="12" small-device-size="12" medium-device-size="4"
@@ -175,6 +175,7 @@
                     </lightning-layout-item>
                 </lightning-layout>
             </lightning-card>
+            
             <hr>
             <!--CALCE INDIRECTO-->
             <lightning-card title="Calce Indirecto">
@@ -287,6 +288,149 @@
                     </lightning-layout-item>
                 </lightning-layout>
             </lightning-card>
+
+                        <lightning-card title="Calce Recursos 2.0">
+                            <lightning-layout multiple-rows>
+                                <!--PRODUCT ROW-->
+                                <lightning-layout-item size="12" small-device-size="12" medium-device-size="4" large-device-size="3"
+                                    padding="around-small">
+                                    <div class="slds-col slds-text-align_left">
+                                        <label class="slds-form-element__label" for="text-input-id-1">Depósito  a Plazo</label>
+                                        <div class="slds-form-element__control">
+                                            <lightning-formatted-number value={calce.term_deposit__c} format-style="currency"
+                                                currency-code={calce.CurrencyIsoCode} currency-display-as="code"
+                                                minimum-fraction-digits="2" maximum-fraction-digits="2">
+                                            </lightning-formatted-number>
+                                        </div>
+                                    </div>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="12" small-device-size="12" medium-device-size="4" large-device-size="3"
+                                    padding="around-small">
+                                    <div class="slds-col slds-text-align_left">
+                                        <label class="slds-form-element__label" for="text-input-id-1">Vista PJ</label>
+                                        <div class="slds-form-element__control">
+                                            <lightning-formatted-number value={calce.Vista_PJ__c} format-style="currency"
+                                                currency-code={calce.CurrencyIsoCode} currency-display-as="code"
+                                                minimum-fraction-digits="2" maximum-fraction-digits="2">
+                                            </lightning-formatted-number>
+                                        </div>
+                                    </div>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="12" small-device-size="12" medium-device-size="4" large-device-size="3"
+                                    padding="around-small">
+                                    <div class="slds-col slds-text-align_left">
+                                        <label class="slds-form-element__label" for="text-input-id-1">Sub Total Recursos</label>
+                                        <div class="slds-form-element__control">
+                                            <lightning-icon icon-name="utility:add" variant="success" size="x-small"
+                                    alternative-text="Approved" title="Approved"></lightning-icon>
+                                            <lightning-formatted-number value={calce.Sub_Total_Resource__c} format-style="currency"
+                                                currency-code={calce.CurrencyIsoCode} currency-display-as="code"
+                                                minimum-fraction-digits="2" maximum-fraction-digits="2">
+                                            </lightning-formatted-number>
+                                        </div>
+                                    </div>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="12" small-device-size="12" medium-device-size="4" large-device-size="3"
+                                    padding="around-small"></lightning-layout-item>
+                            
+                                <!--CALCE VALUES INDIRECT-->
+                                <lightning-layout-item size="12" small-device-size="12" medium-device-size="6" large-device-size="3"
+                                    padding="around-small">
+                                    <div class="slds-col slds-text-align_left">
+                                        <label class="slds-form-element__label" for="text-input-id-1">Cancelaciones Regulares
+                                            Recursos</label>
+                                        <div class="slds-form-element__control">
+                                            <lightning-icon icon-name="utility:erect_window" variant="error" size="x-small"
+                                                alternative-text="Approved" title="Approved"></lightning-icon>
+                                            <lightning-formatted-number value={calce.resource_regular_cancellations__c}
+                                                format-style="currency" currency-code={calce.CurrencyIsoCode}
+                                                currency-display-as="code" minimum-fraction-digits="2" maximum-fraction-digits="2">
+                                            </lightning-formatted-number>
+                                        </div>
+                                    </div>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="12" small-device-size="12" medium-device-size="4"
+                                large-device-size="3" padding="around-small">
+                                <div style="display:inline-block">
+                                    <div if:false={statusCale}
+                                    class="slds-align_absolute-center slds-input-has-icon slds-input-has-icon_left">
+                                    <lightning-icon icon-name="utility:erect_window" variant="error" size="x-small"
+                                        alternative-text="Approved" title="Approved"></lightning-icon>
+                                    <lightning-input type="number" name="expense_input" label="Salidas V+A" size="2"
+                                        value={calce.expense_input__c} formatter="currency"
+                                        currency-code={calce.CurrencyIsoCode} currency-display-as="code"
+                                        minimum-fraction-digits="2" maximum-fraction-digits="2" step="1"
+                                        onfocusout={handleUpdateSummary2}></lightning-input>
+                                </div>
+                                </div>
+
+                                <div if:true={statusCale} class="slds-col slds-text-align_left">
+                                    <div class="slds-col slds-text-align_left"></div>
+                                    <label class="slds-form-element__label" for="text-input-id-1">Salidas V+A</label>
+                                    <div class="slds-form-element__control">
+                                        <lightning-icon icon-name="utility:erect" variant="error" size="x-small"
+                                            alternative-text="Approved" title="Approved"></lightning-icon>
+                                        <lightning-formatted-number value={calce.expense_input__c} format-style="currency"
+                                            currency-code={calce.CurrencyIsoCode} currency-display-as="code"
+                                            minimum-fraction-digits="2" maximum-fraction-digits="2">
+                                        </lightning-formatted-number>
+                                    </div>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="4"
+                            large-device-size="3" padding="around-small">
+                            <div style="display:inline-block">
+                                <div if:false={statusCale}
+                                class="slds-align_absolute-center slds-input-has-icon slds-input-has-icon_left">
+                                <lightning-icon icon-name="utility:add" variant="success" size="x-small"
+                                    alternative-text="Approved" title="Approved"></lightning-icon>
+                                <lightning-input type="number" name="expense_input" label="Ingresos V+A" size="2"
+                                    value={calce.income_input__c} formatter="currency"
+                                    currency-code={calce.CurrencyIsoCode} currency-display-as="code"
+                                    minimum-fraction-digits="2" maximum-fraction-digits="2" step="1"
+                                    onfocusout={handleUpdateSummary1}></lightning-input>
+                            </div>
+                            </div>
+
+                            <div if:true={statusCale} class="slds-col slds-text-align_left">
+                                <label class="slds-form-element__label" for="text-input-id-1">Ingresos V+A</label>
+                                <div class="slds-form-element__control">
+                                    <lightning-icon icon-name="utility:add" variant="success" size="x-small"
+                                    alternative-text="Approved" title="Approved"></lightning-icon>
+                                    <lightning-formatted-number value={calce.income_input__c} format-style="currency"
+                                        currency-code={calce.CurrencyIsoCode} currency-display-as="code"
+                                        minimum-fraction-digits="2" maximum-fraction-digits="2">
+                                    </lightning-formatted-number>
+                                </div>
+                            </div>
+                        </lightning-layout-item>
+                        
+                                <lightning-layout-item size="12" small-device-size="12" medium-device-size="6" large-device-size="3"
+                                    padding="around-small">
+                            
+                                </lightning-layout-item>
+                                <!--NET INDIRECT-->
+                                <lightning-layout-item size="12" small-device-size="12" medium-device-size="6" large-device-size="3"
+                                    padding="around-small">
+                                    <div class="slds-box slds-theme_shade slds-col slds-text-align_left">
+                                        <label class="slds-form-element__label" for="text-input-id-1">Neto Calce
+                                            Recursos</label>
+                                        <div class="slds-form-element__control">
+                                            <lightning-icon if:true={conditionDirecto} icon-name="utility:success" variant="success"
+                                                size="x-small" alternative-text="Approved" title="Approved"></lightning-icon>
+                                            <lightning-icon if:false={conditionDirecto} icon-name="utility:warning" variant="error"
+                                                size="x-small" alternative-text="Approved" title="Approved">
+                                            </lightning-icon>
+                                            <lightning-formatted-number value={calce.net_resource_calce__c} format-style="currency"
+                                                currency-code={calce.CurrencyIsoCode} currency-display-as="code"
+                                                minimum-fraction-digits="2" maximum-fraction-digits="2">
+                                            </lightning-formatted-number>
+                                        </div>
+                                    </div>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                        </lightning-card>
+
         </template>
         <template if:false={isload}>
             <lightning-spinner alternative-text="Loading"></lightning-spinner>
