@@ -48,17 +48,17 @@ public without sharing class ProfitabilityController_cls extends Be_DTP_Response
 						COMMISION => 0, MARGIN_ORD => 0, 'URL__Id' => URL.getSalesforceBaseUrl().toExternalForm() + '/' + accId};
 			Decimal suma;
 			if(marFin.containsKey(accId)) {
-				suma = (Decimal) marFin.get(accId).get('suma');
+				suma = marFin.get(accId).get('suma') == null ? 0 : (Decimal) marFin.get(accId).get('suma');
 				mapValues.put(MARGIN_FIN, suma);
 				mapTotalValues.put(MARGIN_FIN, (Decimal) mapTotalValues.get(MARGIN_FIN) + suma);
 			}
 			if(comi.containsKey(accId)) {
-				suma = (Decimal) comi.get(accId).get('suma');
+				suma = comi.get(accId).get('suma') == null ? 0 : (Decimal) comi.get(accId).get('suma');
 				mapValues.put(COMMISION, suma);
 				mapTotalValues.put(COMMISION, (Decimal) mapTotalValues.get(COMMISION) + suma);
 			}
 			if(marOrd.containsKey(accId)) {
-				suma = (Decimal) marOrd.get(accId).get('suma');
+				suma = marOrd.get(accId).get('suma') == null ? 0 : (Decimal) marOrd.get(accId).get('suma');
 				mapValues.put(MARGIN_ORD, suma);
 				mapTotalValues.put(MARGIN_ORD, (Decimal) mapTotalValues.get(MARGIN_ORD) + suma);
 			}

@@ -29,7 +29,7 @@ public with sharing class BE_CreateCommercialPlantEvent_cls extends BE_SingleRel
             if(apSize > 0 && String.isNotBlank(lstAp[0].acpl__participant_id__c)) {
                 Final Map<String, String> mapAU = validateAU(lstAP[0], lstCPE[0]);
                 if(mapAU.get(V_SUCCESS) == V_TRUE) {
-                    lstCPE[0].Name = lstAp[0].Name + ' - ' + String.valueOf(lstCPE[0].acpl__gf_event_date__c).left(10);
+                    lstCPE[0].Name = lstAp[0].Name.length()>66?lstAp[0].Name.substring(0,66)+ ' - ' +String.valueOf(lstCPE[0].acpl__gf_event_date__c).left(10):lstAp[0].Name + ' - ' + String.valueOf(lstCPE[0].acpl__gf_event_date__c).left(10);
                     lstCPE[0].acpl__participant_id__c = lstAp[0].acpl__participant_id__c;
                     response = BE_SingleRelatedListModal_Ctr.returnResponse(lstCPE, 'insert');
                 } else {
@@ -55,7 +55,7 @@ public with sharing class BE_CreateCommercialPlantEvent_cls extends BE_SingleRel
             if(apSize > 0 && String.isNotBlank(lstAp[0].acpl__participant_id__c)) {
                 Final Map<String, String> mapAU = validateAU(lstAP[0], lstCPE[0]);
                 if(mapAU.get(V_SUCCESS) == V_TRUE) {
-                    lstCPE[0].Name = lstAp[0].Name + ' - ' + String.valueOf(lstCPE[0].acpl__gf_event_date__c).left(10);
+                    lstCPE[0].Name = lstAp[0].Name.length()>66? lstAp[0].Name.substring(0,66) + ' - ' + String.valueOf(lstCPE[0].acpl__gf_event_date__c).left(10) : lstAp[0].Name + ' - ' + String.valueOf(lstCPE[0].acpl__gf_event_date__c).left(10);
                     response = BE_SingleRelatedListModal_Ctr.returnResponse(lstCPE, 'update');
                     Final acpl__Commercial_Plan_Event__c[] lstCPEAux = [SELECT Id, ClientAssigned__c, acpl__gf_event_date__c, GrowthDriver__c 
                                                                         FROM acpl__Commercial_Plan_Event__c WHERE Id =: lstCPE[0].Id LIMIT 1];
