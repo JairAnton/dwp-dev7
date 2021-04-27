@@ -39,34 +39,45 @@ public without sharing class ProfitabilityController_cls extends Be_DTP_Response
 											SUM(current_ydt_amount__c) suma FROM Account_Profitability__c WHERE account_id__r.ParentID IN: replaceField 
 											AND is_type_3_last_date__c = true AND profitability_type__c = '03' AND profitability_category_type__c = 'Margen financiero' 
 											GROUP BY Account_id__c ORDER BY Account_id__c]);
-		Final List<Map<String, Object>> lstMapValues = new List<Map<String, Object>>();
+		
+		response.data = getMapValues(replaceField, mapClients, marFin, comi, marOrd);
+		return response;
+	}
+
+    private List<Map<String, Object>> getMapValues (List<String> replaceField, Map<Id, Account> mapClients, final Map<string, AggregateResult> marFin, final Map<string, AggregateResult> comi, final Map<string, AggregateResult> marOrd){
+        Final List<Map<String, Object>> lstMapValues = new List<Map<String, Object>>();
 		Final Map<String, Object> mapTotalValues = new Map<String, Object>{'Id' => 'TOTAL', 'CLIENT_NAME' =>'TOTAL', MARGIN_FIN => 0, 
 		COMMISION => 0, MARGIN_ORD => 0, 'URL__Id' => URL.getSalesforceBaseUrl().toExternalForm() + '/' + replaceField.get(0)};
 		Map<String, Object> mapValues;
+        final Object strMarfin;
+        final Object strComi;
+        final Object strOrd;
 		for(Id accId: mapClients.keySet()) {
 			mapValues = new Map<String, Object>{'Id' => accId, 'CLIENT_NAME' => mapClients.get(accId).Name, MARGIN_FIN => 0, 
 						COMMISION => 0, MARGIN_ORD => 0, 'URL__Id' => URL.getSalesforceBaseUrl().toExternalForm() + '/' + accId};
 			Decimal suma;
+            strMarfin = marFin.get(accId).get('suma');
+            strComi = comi.get(accId).get('suma');
+            strOrd = marOrd.get(accId).get('suma');
 			if(marFin.containsKey(accId)) {
-				suma = marFin.get(accId).get('suma') == null ? 0 : (Decimal) marFin.get(accId).get('suma');
+				suma = strMarfin == null ? 0 : (Decimal) strMarfin;
 				mapValues.put(MARGIN_FIN, suma);
 				mapTotalValues.put(MARGIN_FIN, (Decimal) mapTotalValues.get(MARGIN_FIN) + suma);
 			}
 			if(comi.containsKey(accId)) {
-				suma = comi.get(accId).get('suma') == null ? 0 : (Decimal) comi.get(accId).get('suma');
+				suma = strComi == null ? 0 : (Decimal) strComi;
 				mapValues.put(COMMISION, suma);
 				mapTotalValues.put(COMMISION, (Decimal) mapTotalValues.get(COMMISION) + suma);
 			}
 			if(marOrd.containsKey(accId)) {
-				suma = marOrd.get(accId).get('suma') == null ? 0 : (Decimal) marOrd.get(accId).get('suma');
+				suma = strOrd == null ? 0 : (Decimal) strOrd;
 				mapValues.put(MARGIN_ORD, suma);
 				mapTotalValues.put(MARGIN_ORD, (Decimal) mapTotalValues.get(MARGIN_ORD) + suma);
 			}
 			lstMapValues.add(mapValues);
 		}
 		lstMapValues.add(mapTotalValues);
-		response.data = lstMapValues;
-		return response;
-	}
-
+        
+        return lstMapValues;
+    }
 }
