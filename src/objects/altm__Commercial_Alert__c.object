@@ -1703,17 +1703,21 @@ $Profile.Name &lt;&gt; &apos;Administrador del sistema&apos;,$Profile.Name &lt;&
         <errorMessage>funcionalidad no disponible de crear una alerta comercial individual</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>BE_ValidateComments</fullName>
+        <fullName>BE_ValidateReasonAndSubReasonDiscared</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
 			OR($Profile.Name=&apos;Ejecutivo&apos;, $Profile.Name = &apos;Analista&apos;,
 			$Profile.Name = &apos;Especialista&apos;,$Profile.Name = &apos;Operativo&apos;),
-   OR(ISPICKVAL(altm__commercial_alert_record_type__c, &apos;02&apos;), 
+			OR(ISPICKVAL(altm__commercial_alert_record_type__c, &apos;02&apos;),
 			ISPICKVAL(altm__commercial_alert_record_type__c, &apos;01&apos;)),
 			ISPICKVAL(altm__alert_stage_type__c, &apos;04&apos;),
-   altm__Rejection_reason_desc__c	= null)</errorConditionFormula>
+			TEXT(altm__BBVA_rejection_reason_desc__c) &lt;&gt; &apos;No es mi cliente&apos;,
+			TEXT(altm__BBVA_rejection_reason_desc__c) &lt;&gt; &apos;No requiere financiamiento&apos;,
+			OR(ISPICKVAL(altm__BBVA_rejection_reason_desc__c,&apos;&apos;),
+			ISPICKVAL(BBVA_rejection_sub_reason_desc__c,&apos;&apos;))
+			)</errorConditionFormula>
         <errorDisplayField>altm__Rejection_reason_desc__c</errorDisplayField>
-        <errorMessage>Debe registrar un comentario.</errorMessage>
+        <errorMessage>Se debe seleccionar una razon y sub razon cuando se descarta una alerta.</errorMessage>
     </validationRules>
     <visibility>Public</visibility>
     <webLinks>
