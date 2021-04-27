@@ -49,35 +49,48 @@ public without sharing class ProfitabilityController_cls extends Be_DTP_Response
 		Final Map<String, Object> mapTotalValues = new Map<String, Object>{'Id' => 'TOTAL', 'CLIENT_NAME' =>'TOTAL', MARGIN_FIN => 0, 
 		COMMISION => 0, MARGIN_ORD => 0, 'URL__Id' => URL.getSalesforceBaseUrl().toExternalForm() + '/' + replaceField.get(0)};
 		Map<String, Object> mapValues;
-        final Object strMarfin;
-        final Object strComi;
-        final Object strOrd;
+        final Object strMarfin = null;
+        final Object strComi = null;
+        final Object strOrd = null;
+        Decimal suma = 0;
 		for(Id accId: mapClients.keySet()) {
 			mapValues = new Map<String, Object>{'Id' => accId, 'CLIENT_NAME' => mapClients.get(accId).Name, MARGIN_FIN => 0, 
 						COMMISION => 0, MARGIN_ORD => 0, 'URL__Id' => URL.getSalesforceBaseUrl().toExternalForm() + '/' + accId};
-			Decimal suma;
+			suma = 0;
             strMarfin = marFin.get(accId).get('suma');
             strComi = comi.get(accId).get('suma');
             strOrd = marOrd.get(accId).get('suma');
 			if(marFin.containsKey(accId)) {
-				suma = strMarfin == null ? 0 : (Decimal) strMarfin;
-				mapValues.put(MARGIN_FIN, suma);
-				mapTotalValues.put(MARGIN_FIN, (Decimal) mapTotalValues.get(MARGIN_FIN) + suma);
+                getSumValuesMarFin(suma, mapValues, mapTotalValues, strMarfin);				
 			}
 			if(comi.containsKey(accId)) {
-				suma = strComi == null ? 0 : (Decimal) strComi;
-				mapValues.put(COMMISION, suma);
-				mapTotalValues.put(COMMISION, (Decimal) mapTotalValues.get(COMMISION) + suma);
+				getSumValuesComi(suma, mapValues, mapTotalValues, strComi);
 			}
 			if(marOrd.containsKey(accId)) {
-				suma = strOrd == null ? 0 : (Decimal) strOrd;
-				mapValues.put(MARGIN_ORD, suma);
-				mapTotalValues.put(MARGIN_ORD, (Decimal) mapTotalValues.get(MARGIN_ORD) + suma);
+                getSumValuesOrd(suma, mapValues, mapTotalValues, strOrd);
 			}
 			lstMapValues.add(mapValues);
 		}
 		lstMapValues.add(mapTotalValues);
         
         return lstMapValues;
+    }
+    
+    private void getSumValuesMarFin(Decimal suma, Map<String, Object> mapValues, Final Map<String, Object> mapTotalValues, final Object strMarfin){
+        suma = strMarfin == null ? 0 : (Decimal) strMarfin;
+        mapValues.put(MARGIN_FIN, suma);
+        mapTotalValues.put(MARGIN_FIN, (Decimal) mapTotalValues.get(MARGIN_FIN) + suma);
+    }
+    
+    private void getSumValuesComi(Decimal suma, Map<String, Object> mapValues, Final Map<String, Object> mapTotalValues, final Object strComi){
+        suma = strComi == null ? 0 : (Decimal) strComi;
+        mapValues.put(COMMISION, suma);
+        mapTotalValues.put(COMMISION, (Decimal) mapTotalValues.get(COMMISION) + suma);
+    }
+    
+    private void getSumValuesOrd(Decimal suma, Map<String, Object> mapValues, Final Map<String, Object> mapTotalValues, final Object strOrd){
+        suma = strOrd == null ? 0 : (Decimal) strOrd;
+        mapValues.put(MARGIN_ORD, suma);
+        mapTotalValues.put(MARGIN_ORD, (Decimal) mapTotalValues.get(MARGIN_ORD) + suma);
     }
 }
