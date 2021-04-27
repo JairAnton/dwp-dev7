@@ -44,8 +44,8 @@ public without sharing class ProfitabilityController_cls extends Be_DTP_Response
 	}
 
     private List<Map<String, Object>> getMapValues (List<String> replaceField, Map<Id, Account> mapClients, final Map<string, AggregateResult> marFin, final Map<string, AggregateResult> comi, final Map<string, AggregateResult> marOrd) {
-        List<Map<String, Object>> lstMapValues = new List<Map<String, Object>>();
-		Map<String, Object> mapTotalValues = new Map<String, Object>{'Id' => 'TOTAL', 'CLIENT_NAME' =>'TOTAL', MARGIN_FIN => 0, 
+        final List<Map<String, Object>> lstMapValues = new List<Map<String, Object>>();
+		final Map<String, Object> mapTotalValues = new Map<String, Object>{'Id' => 'TOTAL', 'CLIENT_NAME' =>'TOTAL', MARGIN_FIN => 0, 
 		COMMISION => 0, MARGIN_ORD => 0, 'URL__Id' => URL.getSalesforceBaseUrl().toExternalForm() + '/' + replaceField.get(0)};
 		Map<String, Object> mapValues = null;
 		for(Id accId: mapClients.keySet()) {
