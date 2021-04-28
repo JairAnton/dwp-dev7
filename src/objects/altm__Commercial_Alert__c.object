@@ -1745,7 +1745,7 @@ $Profile.Name &lt;&gt; &apos;Administrador del sistema&apos;,$Profile.Name &lt;&
         <errorMessage>funcionalidad no disponible de crear una alerta comercial individual</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>BE_ValidateReasonAndSubReasonDiscared</fullName>
+        <fullName>BE_ValidateComments</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
 			OR($Profile.Name=&apos;Ejecutivo&apos;, $Profile.Name = &apos;Analista&apos;,
