@@ -210,11 +210,7 @@
     <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.altm__commercial_alert_desc__c</fieldItem>
+                <fieldItem>Record.altm__execution_indicator_type__c</fieldItem>
             </fieldInstance>
         </itemInstances>
         <name>Facet-f66f97b4-aedb-4d73-91b8-b4218f90a603</name>
