@@ -34,10 +34,23 @@ public class ProfitabilityController_cls_test {
 	 * @Description  Test getData FROM ProfitabilityController_cls
 	 */
     @isTest
-    public static void getValues() {
-        Final acpl__Account_Planning__c[] lstAP = [SELECT Id FROM acpl__Account_Planning__c LIMIT 1];
+    public static void getValues1() {
+        Final acpl__Account_Planning__c[] lstAP = [SELECT Id FROM acpl__Account_Planning__c LIMIT 2];
 		Test.startTest();
         Final Map<String, String> mapParams = new Map<String, String>{'config' => 'Economic_Group_Profitability', 'mode' => 'Basic', 'recordId' => lstAP[0].Id};
+		Final Be_DTP_ResponseModel_cls.Response response = Be_DynamicTablePresentation_ctr.getValues(mapParams, 'ClientsGroup_Profitability');
+		Test.stopTest();
+		System.assert(response.isSuccess, 'FAIL');
+    }
+    
+    /**
+	 * @Description  Test getData FROM ProfitabilityController_cls
+	 */
+    @isTest
+    public static void getValues2() {
+        Final acpl__Account_Planning__c[] lstAP = [SELECT Id FROM acpl__Account_Planning__c LIMIT 2];
+		Test.startTest();
+        Final Map<String, String> mapParams = new Map<String, String>{'config' => 'Economic_Group_Profitability', 'mode' => 'Basic', 'recordId' => lstAP[1].Id};
 		Final Be_DTP_ResponseModel_cls.Response response = Be_DynamicTablePresentation_ctr.getValues(mapParams, 'ClientsGroup_Profitability');
 		Test.stopTest();
 		System.assert(response.isSuccess, 'FAIL');
