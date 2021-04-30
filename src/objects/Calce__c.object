@@ -162,6 +162,37 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
+        <fullName>Early_Cancellations_Resource__c</fullName>
+        <externalId>false</externalId>
+        <label>Early Cancellations Resource</label>
+        <summarizedField>Calce_Details__c.amount_cancelled__c</summarizedField>
+        <summaryFilterItems>
+            <field>Calce_Details__c.type__c</field>
+            <operation>equals</operation>
+            <value>Resource</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.sub_type__c</field>
+            <operation>equals</operation>
+            <value>03</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Calce_Details__c.calce_id__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>My_Sessions__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF ( Owner:User.Username = $User.Username, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>My Sessions</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>																	  		
         <fullName>Resource__c</fullName>
         <externalId>false</externalId>
         <label>Resource</label>
@@ -884,7 +915,7 @@
             <value>YESTERDAY</value>
         </filters>
         <label>Calce de ayer</label>
-    </listViews>
+    </listViews>	
     <nameField>
         <encryptionScheme>None</encryptionScheme>
         <label>Name</label>

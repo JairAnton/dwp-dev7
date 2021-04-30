@@ -414,6 +414,11 @@
                     <default>false</default>
                     <label>Others</label>
                 </value>
+                <value>
+                    <fullName>Resource</fullName>
+                    <default>false</default>
+                    <label>Resource</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
