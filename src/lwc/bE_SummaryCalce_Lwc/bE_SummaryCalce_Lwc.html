@@ -5,20 +5,20 @@
         <p class="slds-p-horizontal_small">Actualizar el Calce para reflejar los cambios realizados</p>
         <template if:true={isload}>
             <!--CALCE DIRECTO-->
-            <lightning-card title="Calce Directo">  
+            <lightning-card title="Calce Directo">
                 <lightning-layout multiple-rows>
                     <!--PRODUCT ROW-->
                     <lightning-layout-item size="12" small-device-size="12" medium-device-size="4" large-device-size="3"
                         padding="around-small">
                         <div class="slds-col slds-text-align_left">
-                            <label class="slds-form-element__label" 
-                                for="text-input-id-1">Descuento/Letras/Facturas</label>  
+                            <label class="slds-form-element__label"
+                                for="text-input-id-1">Descuento/Letras/Facturas</label>
                             <div class="slds-form-element__control">
                                 <lightning-formatted-number value={calce.desc_letter_bill__c} format-style="currency"
                                     currency-code={calce.CurrencyIsoCode} currency-display-as="code"
                                     minimum-fraction-digits="2" maximum-fraction-digits="2">
-                                </lightning-formatted-number>    
-                            </div>  
+                                </lightning-formatted-number>
+                            </div>
                         </div>
                     </lightning-layout-item>
                     <lightning-layout-item size="12" small-device-size="12" medium-device-size="4"
@@ -288,8 +288,8 @@
                     </lightning-layout-item>
                 </lightning-layout>
             </lightning-card>
-
-                        <lightning-card title="Calce Recursos 2.0">
+                        <!--CALCE VALUES RESOURCE-->
+                        <lightning-card title="Calce Recursos ">
                             <lightning-layout multiple-rows>
                                 <!--PRODUCT ROW-->
                                 <lightning-layout-item size="12" small-device-size="12" medium-device-size="4" large-device-size="3"
@@ -316,6 +316,35 @@
                                         </div>
                                     </div>
                                 </lightning-layout-item>
+
+                                <lightning-layout-item size="12" small-device-size="12" medium-device-size="4"
+                                large-device-size="3" padding="around-small">
+                                <div style="display:inline-block">
+                                    <div if:false={statusCale}
+                                    class="slds-align_absolute-center slds-input-has-icon slds-input-has-icon_left">
+                                    <lightning-icon icon-name="utility:add" variant="success" size="x-small"
+                                        alternative-text="Approved" title="Approved"></lightning-icon>
+                                    <lightning-input type="number" name="expense_input" label="Ingreso Recursos" size="2"
+                                        value={calce.income_input__c} formatter="currency"
+                                        currency-code={calce.CurrencyIsoCode} currency-display-as="code"
+                                        minimum-fraction-digits="2" maximum-fraction-digits="2" step="1"
+                                        onfocusout={handleUpdateSummary1}></lightning-input>
+                                </div>
+                                </div>
+    
+                                <div if:true={statusCale} class="slds-col slds-text-align_left">
+                                    <label class="slds-form-element__label" for="text-input-id-1">Ingreso Recursos</label>
+                                    <div class="slds-form-element__control">
+                                        <lightning-icon icon-name="utility:add" variant="success" size="x-small"
+                                        alternative-text="Approved" title="Approved"></lightning-icon>
+                                        <lightning-formatted-number value={calce.income_input__c} format-style="currency"
+                                            currency-code={calce.CurrencyIsoCode} currency-display-as="code"
+                                            minimum-fraction-digits="2" maximum-fraction-digits="2">
+                                        </lightning-formatted-number>
+                                    </div>
+                                </div>
+                            </lightning-layout-item>
+
                                 <lightning-layout-item size="12" small-device-size="12" medium-device-size="4" large-device-size="3"
                                     padding="around-small">
                                     <div class="slds-col slds-text-align_left">
@@ -330,10 +359,8 @@
                                         </div>
                                     </div>
                                 </lightning-layout-item>
-                                <lightning-layout-item size="12" small-device-size="12" medium-device-size="4" large-device-size="3"
-                                    padding="around-small"></lightning-layout-item>
-                            
-                                <!--CALCE VALUES INDIRECT-->
+                               
+
                                 <lightning-layout-item size="12" small-device-size="12" medium-device-size="6" large-device-size="3"
                                     padding="around-small">
                                     <div class="slds-col slds-text-align_left">
@@ -349,6 +376,26 @@
                                         </div>
                                     </div>
                                 </lightning-layout-item>
+
+                                <lightning-layout-item size="12" small-device-size="12" medium-device-size="6" large-device-size="3"
+                                padding="around-small">
+                                <div class="slds-col slds-text-align_left">
+                                    <label class="slds-form-element__label" for="text-input-id-1">Cancelaciones Anticipadas
+                                        Recursos</label>
+                                    <div class="slds-form-element__control">
+                                        <lightning-icon icon-name="utility:erect_window" variant="error" size="x-small"
+                                            alternative-text="Approved" title="Approved"></lightning-icon>
+                                        <lightning-formatted-number value={calce.Early_Cancellations_Resource__c}
+                                            format-style="currency" currency-code={calce.CurrencyIsoCode}
+                                            currency-display-as="code" minimum-fraction-digits="2" maximum-fraction-digits="2">
+                                        </lightning-formatted-number>
+                                    </div>
+                                </div>
+                            </lightning-layout-item>
+
+
+                                
+
                                 <lightning-layout-item size="12" small-device-size="12" medium-device-size="4"
                                 large-device-size="3" padding="around-small">
                                 <div style="display:inline-block">
@@ -356,7 +403,7 @@
                                     class="slds-align_absolute-center slds-input-has-icon slds-input-has-icon_left">
                                     <lightning-icon icon-name="utility:erect_window" variant="error" size="x-small"
                                         alternative-text="Approved" title="Approved"></lightning-icon>
-                                    <lightning-input type="number" name="expense_input" label="Salidas V+A" size="2"
+                                    <lightning-input type="number" name="expense_input" label="Salida Recursos" size="2"
                                         value={calce.expense_input__c} formatter="currency"
                                         currency-code={calce.CurrencyIsoCode} currency-display-as="code"
                                         minimum-fraction-digits="2" maximum-fraction-digits="2" step="1"
@@ -366,7 +413,7 @@
 
                                 <div if:true={statusCale} class="slds-col slds-text-align_left">
                                     <div class="slds-col slds-text-align_left"></div>
-                                    <label class="slds-form-element__label" for="text-input-id-1">Salidas V+A</label>
+                                    <label class="slds-form-element__label" for="text-input-id-1">Salida Recursos</label>
                                     <div class="slds-form-element__control">
                                         <lightning-icon icon-name="utility:erect" variant="error" size="x-small"
                                             alternative-text="Approved" title="Approved"></lightning-icon>
@@ -377,33 +424,7 @@
                                     </div>
                                 </div>
                             </lightning-layout-item>
-                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="4"
-                            large-device-size="3" padding="around-small">
-                            <div style="display:inline-block">
-                                <div if:false={statusCale}
-                                class="slds-align_absolute-center slds-input-has-icon slds-input-has-icon_left">
-                                <lightning-icon icon-name="utility:add" variant="success" size="x-small"
-                                    alternative-text="Approved" title="Approved"></lightning-icon>
-                                <lightning-input type="number" name="expense_input" label="Ingresos V+A" size="2"
-                                    value={calce.income_input__c} formatter="currency"
-                                    currency-code={calce.CurrencyIsoCode} currency-display-as="code"
-                                    minimum-fraction-digits="2" maximum-fraction-digits="2" step="1"
-                                    onfocusout={handleUpdateSummary1}></lightning-input>
-                            </div>
-                            </div>
 
-                            <div if:true={statusCale} class="slds-col slds-text-align_left">
-                                <label class="slds-form-element__label" for="text-input-id-1">Ingresos V+A</label>
-                                <div class="slds-form-element__control">
-                                    <lightning-icon icon-name="utility:add" variant="success" size="x-small"
-                                    alternative-text="Approved" title="Approved"></lightning-icon>
-                                    <lightning-formatted-number value={calce.income_input__c} format-style="currency"
-                                        currency-code={calce.CurrencyIsoCode} currency-display-as="code"
-                                        minimum-fraction-digits="2" maximum-fraction-digits="2">
-                                    </lightning-formatted-number>
-                                </div>
-                            </div>
-                        </lightning-layout-item>
                         
                                 <lightning-layout-item size="12" small-device-size="12" medium-device-size="6" large-device-size="3"
                                     padding="around-small">

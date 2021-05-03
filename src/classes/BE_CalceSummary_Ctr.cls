@@ -12,17 +12,17 @@
  */
 public with sharing class BE_CalceSummary_Ctr {
 /** Lang Code */
-private static final List<String> LANG_CODE = new List<String> {'es','en_US'};   
+private static final List<String> LANG_CODE = new List<String> {'es','en_US'};
 /** private constructor */
     private BE_CalceSummary_Ctr() {}
-    /**  
+    /**
    @Description return sObject Calce
    @param recordId  of Sbject
    @return a SObject
     */
-    @AuraEnabled(cacheable=false) 
+    @AuraEnabled(cacheable=false)
     public static SObject getSummaryCalce(String recordId) {
-        return [SELECT Id,status__c, portfolio_loss__c,direct_early_cancellations__c,indirect_early_cancellations__c,direct_regular_cancellations__c,indirect_regular_cancellations__c,credit_letter__c,bond_letter__c,comex__c,desc_letter_bill__c,leasing__c,net_direct_calce__c,net_indirect_calce__c,short_term_loan__c,long_term_loan__c,sub_total_direct__c,sub_total_indirect__c,portfolio_recovery__c,CurrencyIsoCode,Stand_by__c,Vista_PJ__c,net_resource_calce__c,income_input__c,expense_input__c,resource_regular_cancellations__c,Sub_Total_Resource__c,term_deposit__c,Sub_total_Expense__c FROM Calce__c WHERE Id=: recordId];
+        return [SELECT Id,status__c, portfolio_loss__c,direct_early_cancellations__c,indirect_early_cancellations__c,direct_regular_cancellations__c,indirect_regular_cancellations__c,credit_letter__c,bond_letter__c,comex__c,desc_letter_bill__c,leasing__c,net_direct_calce__c,net_indirect_calce__c,short_term_loan__c,long_term_loan__c,sub_total_direct__c,sub_total_indirect__c,portfolio_recovery__c,CurrencyIsoCode,Stand_by__c,Vista_PJ__c,net_resource_calce__c,income_input__c,expense_input__c,resource_regular_cancellations__c,Sub_Total_Resource__c,term_deposit__c,Sub_total_Expense__c, Early_Cancellations_Resource__c FROM Calce__c WHERE Id=: recordId];
     }
     /**
    @Description update Calce
@@ -30,7 +30,7 @@ private static final List<String> LANG_CODE = new List<String> {'es','en_US'};
    @return 
     */
     @AuraEnabled(cacheable=false)
-    public static Response updateSummaryCalce(SObject calce) { 
+    public static Response updateSummaryCalce(SObject calce) {
         final Response res=new Response();
         final Map<String,String> messages = new Map<String,String>();
         try {
