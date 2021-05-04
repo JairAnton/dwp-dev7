@@ -91,6 +91,46 @@
             <interval>INTERVAL_CUSTOM</interval>
         </timeFrameFilter>
     </block>
+    <block>
+        <blockInfo>
+            <blockId>B2</blockId>
+            <joinTable>x</joinTable>
+        </blockInfo>
+        <columns>
+            <field>CHILD_NAME</field>
+        </columns>
+        <columns>
+            <aggregateTypes>Sum</aggregateTypes>
+            <field>Calce__c.Sub_Total_Resource__c</field>
+        </columns>
+        <columns>
+            <aggregateTypes>Sum</aggregateTypes>
+            <field>Calce__c.resource_regular_cancellations__c</field>
+        </columns>
+        <columns>
+            <aggregateTypes>Sum</aggregateTypes>
+            <field>Calce__c.Early_Cancellations_Resource__c</field>
+        </columns>
+        <columns>
+            <aggregateTypes>Sum</aggregateTypes>
+            <field>Calce__c.net_resource_calce__c</field>
+        </columns>
+        <currency>PEN</currency>
+        <format>Summary</format>
+        <name>Recursos</name>
+        <params>
+            <name>co</name>
+            <value>1</value>
+        </params>
+        <reportType>CustomEntityCustomEntity$Calce__c$Calce_Details__c</reportType>
+        <scope>organization</scope>
+        <showGrandTotal>true</showGrandTotal>
+        <showSubTotals>true</showSubTotals>
+        <timeFrameFilter>
+            <dateColumn>Calce__c.close_date__c</dateColumn>
+            <interval>INTERVAL_CUSTOM</interval>
+        </timeFrameFilter>
+    </block>
     <blockInfo>
         <blockId xsi:nil="true"/>
         <joinTable>x</joinTable>
