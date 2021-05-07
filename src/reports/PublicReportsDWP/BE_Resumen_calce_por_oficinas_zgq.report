@@ -38,6 +38,34 @@
                 <operator>equals</operator>
                 <value>Direct</value>
             </criteriaItems>
+            <criteriaItems>
+                <column>Calce__c.status__c</column>
+                <columnToColumn>false</columnToColumn>
+                <isUnlocked>true</isUnlocked>
+                <operator>equals</operator>
+                <value>,Iniciado,En progreso,Compartido</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Calce_Details__c.branch__c</column>
+                <columnToColumn>false</columnToColumn>
+                <isUnlocked>true</isUnlocked>
+                <operator>notEqual</operator>
+                <value></value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Calce__c.net_direct_calce__c</column>
+                <columnToColumn>false</columnToColumn>
+                <isUnlocked>true</isUnlocked>
+                <operator>greaterOrEqual</operator>
+                <value></value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Calce__c.reportcalce__c</column>
+                <columnToColumn>false</columnToColumn>
+                <isUnlocked>true</isUnlocked>
+                <operator>equals</operator>
+                <value>1</value>
+            </criteriaItems>
         </filter>
         <format>Summary</format>
         <name>Directo</name>
@@ -51,7 +79,7 @@
         <showSubTotals>true</showSubTotals>
         <timeFrameFilter>
             <dateColumn>Calce__c.close_date__c</dateColumn>
-            <interval>INTERVAL_CUSTOM</interval>
+            <interval>INTERVAL_TODAY</interval>
         </timeFrameFilter>
     </block>
     <block>
@@ -76,6 +104,43 @@
             <field>Calce__c.net_indirect_calce__c</field>
         </columns>
         <currency>PEN</currency>
+        <filter>
+            <criteriaItems>
+                <column>Calce_Details__c.type__c</column>
+                <columnToColumn>false</columnToColumn>
+                <isUnlocked>true</isUnlocked>
+                <operator>equals</operator>
+                <value>Indirect</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Calce__c.status__c</column>
+                <columnToColumn>false</columnToColumn>
+                <isUnlocked>true</isUnlocked>
+                <operator>equals</operator>
+                <value>,Iniciado,En progreso,Compartido</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Calce_Details__c.branch__c</column>
+                <columnToColumn>false</columnToColumn>
+                <isUnlocked>true</isUnlocked>
+                <operator>notEqual</operator>
+                <value></value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Calce__c.net_indirect_calce__c</column>
+                <columnToColumn>false</columnToColumn>
+                <isUnlocked>true</isUnlocked>
+                <operator>greaterOrEqual</operator>
+                <value></value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Calce__c.reportcalce__c</column>
+                <columnToColumn>false</columnToColumn>
+                <isUnlocked>true</isUnlocked>
+                <operator>equals</operator>
+                <value>1</value>
+            </criteriaItems>
+        </filter>
         <format>Summary</format>
         <name>Indireccto</name>
         <params>
@@ -88,7 +153,7 @@
         <showSubTotals>true</showSubTotals>
         <timeFrameFilter>
             <dateColumn>Calce__c.close_date__c</dateColumn>
-            <interval>INTERVAL_CUSTOM</interval>
+            <interval>INTERVAL_TODAY</interval>
         </timeFrameFilter>
     </block>
     <block>
@@ -116,6 +181,36 @@
             <field>Calce__c.net_resource_calce__c</field>
         </columns>
         <currency>PEN</currency>
+        <filter>
+            <criteriaItems>
+                <column>Calce_Details__c.type__c</column>
+                <columnToColumn>false</columnToColumn>
+                <isUnlocked>true</isUnlocked>
+                <operator>equals</operator>
+                <value>Resource</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Calce__c.status__c</column>
+                <columnToColumn>false</columnToColumn>
+                <isUnlocked>true</isUnlocked>
+                <operator>equals</operator>
+                <value>,Iniciado,En progreso,Compartido</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Calce_Details__c.branch__c</column>
+                <columnToColumn>false</columnToColumn>
+                <isUnlocked>true</isUnlocked>
+                <operator>notEqual</operator>
+                <value></value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Calce__c.reportcalce__c</column>
+                <columnToColumn>false</columnToColumn>
+                <isUnlocked>true</isUnlocked>
+                <operator>equals</operator>
+                <value>1</value>
+            </criteriaItems>
+        </filter>
         <format>Summary</format>
         <name>Recursos</name>
         <params>
@@ -128,7 +223,7 @@
         <showSubTotals>true</showSubTotals>
         <timeFrameFilter>
             <dateColumn>Calce__c.close_date__c</dateColumn>
-            <interval>INTERVAL_CUSTOM</interval>
+            <interval>INTERVAL_TODAY</interval>
         </timeFrameFilter>
     </block>
     <blockInfo>
