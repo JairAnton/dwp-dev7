@@ -192,7 +192,7 @@
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
-    <fields>																	  		
+    <fields>
         <fullName>Resource__c</fullName>
         <externalId>false</externalId>
         <label>Resource</label>
@@ -481,7 +481,7 @@
     <fields>
         <fullName>expense_input__c</fullName>
         <externalId>false</externalId>
-        <label>Expense input</label>
+        <label>expense input</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -492,7 +492,7 @@
     <fields>
         <fullName>income_input__c</fullName>
         <externalId>false</externalId>
-        <label>Income input</label>
+        <label>income input</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -665,7 +665,7 @@
     <fields>
         <fullName>net_resource_calce__c</fullName>
         <externalId>false</externalId>
-        <formula>+Sub_Total_Resource__c  - resource_regular_cancellations__c  -   Sub_total_Expense__c</formula>
+        <formula>+Sub_Total_Resource__c  - resource_regular_cancellations__c  - Early_Cancellations_Resource__c -  Sub_total_Expense__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Net Resource Calce</label>
         <precision>18</precision>
@@ -711,6 +711,15 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>reportcalce__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <label>reportcalce</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>resource_regular_cancellations__c</fullName>
@@ -871,11 +880,10 @@
     <listViews>
         <fullName>BE_CalceLastSevenDay</fullName>
         <columns>NAME</columns>
-        <columns>close_date__c</columns>
         <columns>status__c</columns>
-        <columns>portfolio_loss__c</columns>
         <columns>net_direct_calce__c</columns>
         <columns>net_indirect_calce__c</columns>
+        <columns>net_resource_calce__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>close_date__c</field>
@@ -887,11 +895,10 @@
     <listViews>
         <fullName>BE_CalceToday</fullName>
         <columns>NAME</columns>
-        <columns>close_date__c</columns>
         <columns>status__c</columns>
-        <columns>portfolio_loss__c</columns>
         <columns>net_direct_calce__c</columns>
         <columns>net_indirect_calce__c</columns>
+        <columns>net_resource_calce__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>close_date__c</field>
@@ -903,11 +910,10 @@
     <listViews>
         <fullName>BE_CalceYesterday</fullName>
         <columns>NAME</columns>
-        <columns>close_date__c</columns>
         <columns>status__c</columns>
-        <columns>portfolio_loss__c</columns>
         <columns>net_direct_calce__c</columns>
         <columns>net_indirect_calce__c</columns>
+        <columns>net_resource_calce__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>close_date__c</field>
@@ -915,7 +921,16 @@
             <value>YESTERDAY</value>
         </filters>
         <label>Calce de ayer</label>
-    </listViews>	
+    </listViews>
+    <listViews>
+        <fullName>Mis_clientes</fullName>
+        <columns>NAME</columns>
+        <filterScope>Mine</filterScope>
+        <label>Mis clientes</label>
+        <sharedTo>
+            <group>Gerentes_de_Oficina</group>
+        </sharedTo>
+    </listViews>
     <nameField>
         <encryptionScheme>None</encryptionScheme>
         <label>Name</label>
