@@ -162,6 +162,32 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
+        <fullName>Calce_Neto_Directo__c</fullName>
+        <externalId>false</externalId>
+        <formula>net_direct_calce__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Calce Neto Directo</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Calcee_Neto_Indirecto__c</fullName>
+        <externalId>false</externalId>
+        <formula>net_indirect_calce__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Calce Neto Indirecto</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>Early_Cancellations_Resource__c</fullName>
         <externalId>false</externalId>
         <label>Early Cancellations Resource</label>
@@ -641,7 +667,7 @@
         <externalId>false</externalId>
         <formula>sub_total_direct__c + portfolio_recovery__c - (direct_regular_cancellations__c+ direct_early_cancellations__c )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Net Direct Calce</label>
+        <label>Calce Neto Directo</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -654,7 +680,7 @@
         <externalId>false</externalId>
         <formula>sub_total_indirect__c -( indirect_early_cancellations__c + indirect_regular_cancellations__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Net Indirect Calce</label>
+        <label>Calce Neto Indirecto</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -667,7 +693,7 @@
         <externalId>false</externalId>
         <formula>+Sub_Total_Resource__c  - resource_regular_cancellations__c  - Early_Cancellations_Resource__c -  Sub_total_Expense__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Net Resource Calce</label>
+        <label>Calce Neto Recurso</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -881,8 +907,8 @@
         <fullName>BE_CalceLastSevenDay</fullName>
         <columns>NAME</columns>
         <columns>status__c</columns>
-        <columns>net_direct_calce__c</columns>
-        <columns>net_indirect_calce__c</columns>
+        <columns>Calcee_Neto_Indirecto__c</columns>
+        <columns>Calce_Neto_Directo__c</columns>
         <columns>net_resource_calce__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
@@ -896,8 +922,8 @@
         <fullName>BE_CalceToday</fullName>
         <columns>NAME</columns>
         <columns>status__c</columns>
-        <columns>net_direct_calce__c</columns>
-        <columns>net_indirect_calce__c</columns>
+        <columns>Calcee_Neto_Indirecto__c</columns>
+        <columns>Calce_Neto_Directo__c</columns>
         <columns>net_resource_calce__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
@@ -911,8 +937,8 @@
         <fullName>BE_CalceYesterday</fullName>
         <columns>NAME</columns>
         <columns>status__c</columns>
-        <columns>net_direct_calce__c</columns>
-        <columns>net_indirect_calce__c</columns>
+        <columns>Calcee_Neto_Indirecto__c</columns>
+        <columns>Calce_Neto_Directo__c</columns>
         <columns>net_resource_calce__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
