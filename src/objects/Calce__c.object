@@ -49,7 +49,7 @@
     <actionOverrides>
         <actionName>Delete</actionName>
         <formFactor>Large</formFactor>
-        <type>Default</type> 
+        <type>Default</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>Delete</actionName>

@@ -245,6 +245,16 @@
             <field>Early_Cancellations_Resource__c</field>
             <table>Calce__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Calce_Neto_Directo__c</field>
+            <table>Calce__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Calcee_Neto_Indirecto__c</field>
+            <table>Calce__c</table>
+        </columns>
         <masterLabel>Calce</masterLabel>
     </sections>
     <sections>
