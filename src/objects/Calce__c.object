@@ -190,7 +190,7 @@
     <fields>
         <fullName>Early_Cancellations_Resource__c</fullName>
         <externalId>false</externalId>
-        <label>Early Cancellations Resource</label>
+        <label>Cancelaciones Anticipadas Recurso</label>
         <summarizedField>Calce_Details__c.amount_cancelled__c</summarizedField>
         <summaryFilterItems>
             <field>Calce_Details__c.type__c</field>
@@ -265,7 +265,7 @@
         <externalId>false</externalId>
         <formula>term_deposit__c +  Vista_PJ__c +  income_input__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Sub Total Resource</label>
+        <label>Sub Total Recurso</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -460,7 +460,7 @@
     <fields>
         <fullName>direct_early_cancellations__c</fullName>
         <externalId>false</externalId>
-        <label>Early Cancellations Direct</label>
+        <label>Cancelaciones Anticipadas Directas</label>
         <summarizedField>Calce_Details__c.amount_cancelled__c</summarizedField>
         <summaryFilterItems>
             <field>Calce_Details__c.type__c</field>
@@ -481,7 +481,7 @@
     <fields>
         <fullName>direct_regular_cancellations__c</fullName>
         <externalId>false</externalId>
-        <label>Normal Cancellation Direct</label>
+        <label>Cancelaciones Normales Directas</label>
         <summarizedField>Calce_Details__c.amount_cancelled__c</summarizedField>
         <summaryFilterItems>
             <field>Calce_Details__c.type__c</field>
@@ -540,7 +540,7 @@
     <fields>
         <fullName>indirect_early_cancellations__c</fullName>
         <externalId>false</externalId>
-        <label>Early Cancellations Indirect</label>
+        <label>Cancelaciones Anticipadas Indirectas</label>
         <summarizedField>Calce_Details__c.amount_cancelled__c</summarizedField>
         <summaryFilterItems>
             <field>Calce_Details__c.type__c</field>
@@ -566,7 +566,7 @@
     <fields>
         <fullName>indirect_regular_cancellations__c</fullName>
         <externalId>false</externalId>
-        <label>Normal Cancellation Indirect</label>
+        <label>Cancelaciones Normales Indirectas</label>
         <summarizedField>Calce_Details__c.amount_cancelled__c</summarizedField>
         <summaryFilterItems>
             <field>Calce_Details__c.type__c</field>
@@ -704,7 +704,7 @@
     <fields>
         <fullName>portfolio_loss__c</fullName>
         <externalId>false</externalId>
-        <label>Portafolio Fall</label>
+        <label>Caida de Cartera</label>
         <summarizedField>Calce_Details__c.portfolio_fall_balance__c</summarizedField>
         <summaryFilterItems>
             <field>Calce_Details__c.type__c</field>
@@ -730,7 +730,7 @@
     <fields>
         <fullName>portfolio_recovery__c</fullName>
         <externalId>false</externalId>
-        <label>Portfolio Recovery</label>
+        <label>Recuperación de Cartera</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -750,7 +750,7 @@
     <fields>
         <fullName>resource_regular_cancellations__c</fullName>
         <externalId>false</externalId>
-        <label>Normal Cancellation Resource</label>
+        <label>Cancelaciones Normales Recurso</label>
         <summarizedField>Calce_Details__c.amount_cancelled__c</summarizedField>
         <summaryFilterItems>
             <field>Calce_Details__c.type__c</field>
@@ -844,7 +844,7 @@
         <externalId>false</externalId>
         <formula>desc_letter_bill__c + short_term_loan__c + long_term_loan__c + comex__c + leasing__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Sub Total Direct</label>
+        <label>Sub Total Directo</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -857,7 +857,7 @@
         <externalId>false</externalId>
         <formula>credit_letter__c + bond_letter__c + Stand_by__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Sub Total Indirect</label>
+        <label>Sub Total Indirecto</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
