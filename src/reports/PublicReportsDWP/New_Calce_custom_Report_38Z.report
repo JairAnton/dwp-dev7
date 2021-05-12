@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Report xmlns="http://soap.sforce.com/2006/04/metadata">
     <columns>
-        <field>Calce__c.Calce_Details__r$Name</field>
-    </columns>
-    <columns>
         <aggregateTypes>Sum</aggregateTypes>
         <field>Calce__c$sub_total_direct__c</field>
     </columns>
@@ -63,7 +60,17 @@
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Calce__c$Owner</field>
+        <field>Calce__c.Calce_Details__r$regional__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Calce__c.Calce_Details__r$branch__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Calce__c$Name</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Reporte Calce Gerente de Oficina</name>
@@ -73,7 +80,7 @@
     </params>
     <reportType>Calce_custom__c</reportType>
     <scope>organization</scope>
-    <showDetails>false</showDetails>
+    <showDetails>true</showDetails>
     <showGrandTotal>true</showGrandTotal>
     <showSubTotals>false</showSubTotals>
     <timeFrameFilter>
