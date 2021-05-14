@@ -16,7 +16,7 @@ public with sharing class BE_CalceEarlyCancellations_Ctr extends BE_SingleRelate
 	/** Opportunity type Cancelation */
 	final static String CALCE_TYPE='03';
 	/** @Indirect Product */
-	final static List<String> PRODUCT_TYPES = new List<String> {'Direct','Indirect'};
+	final static List<String> PRODUCT_TYPES = new List<String> {'Direct','Indirect','Resource'};
 	/** Lang Code */
 	private static final List<String> LANG_CODE = new List<String> {'es','en_US'};
 	/**

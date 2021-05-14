@@ -22,7 +22,7 @@ private static final List<String> LANG_CODE = new List<String> {'es','en_US'};
     */
     @AuraEnabled(cacheable=false)
     public static SObject getSummaryCalce(String recordId) {
-        return [SELECT Id,status__c, portfolio_loss__c,direct_early_cancellations__c,indirect_early_cancellations__c,direct_regular_cancellations__c,indirect_regular_cancellations__c,credit_letter__c,bond_letter__c,comex__c,desc_letter_bill__c,leasing__c,net_direct_calce__c,net_indirect_calce__c,short_term_loan__c,long_term_loan__c,sub_total_direct__c,sub_total_indirect__c,portfolio_recovery__c,CurrencyIsoCode,Stand_by__c FROM Calce__c WHERE Id=: recordId];
+        return [SELECT Id,status__c, portfolio_loss__c,direct_early_cancellations__c,indirect_early_cancellations__c,direct_regular_cancellations__c,indirect_regular_cancellations__c,credit_letter__c,bond_letter__c,comex__c,desc_letter_bill__c,leasing__c,net_direct_calce__c,net_indirect_calce__c,short_term_loan__c,long_term_loan__c,sub_total_direct__c,sub_total_indirect__c,portfolio_recovery__c,CurrencyIsoCode,Stand_by__c,Vista_PJ__c,net_resource_calce__c,income_input__c,expense_input__c,resource_regular_cancellations__c,Sub_Total_Resource__c,term_deposit__c,Sub_total_Expense__c, Early_Cancellations_Resource__c FROM Calce__c WHERE Id=: recordId];
     }
     /**
    @Description update Calce

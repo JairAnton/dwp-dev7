@@ -12,7 +12,7 @@
  */
 public with sharing class BE_CalceNewOppHeadAction_Ctr extends BE_SingleRelatedListCRUD_Cls {
 	/** Lang Code */
-	private static final List<String>LANG_CODE = new List<String> {'es','en_US'};
+	private static final List<String>LANG_CODE = new List<String> {'es','en_US'}; 
 	/**
 	   @Description createRecords
 	   @param  List<SObject> sObjs
@@ -54,11 +54,11 @@ public with sharing class BE_CalceNewOppHeadAction_Ctr extends BE_SingleRelatedL
 					res.isSuccess = false;
 					res.message = messages.get(UserInfo.getLanguage());
 				}
-			} else {
+			} else { 
 				messages.put(LANG_CODE[0], 'Solo puede crear oportunidades  para su cartera de clientes');
-				messages.put(LANG_CODE[1], 'Only can create opportunity for your portafolio of clients.');
+				messages.put(LANG_CODE[1], 'Only can create opportunity for your portafolio of clients.');  
 				res.isSuccess = false;
-				res.message = messages.get(UserInfo.getLanguage());
+				res.message = messages.get(UserInfo.getLanguage()); 
 			}
 		} catch (DMLException ex) {
 			res.isSuccess = false;

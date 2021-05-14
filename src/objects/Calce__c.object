@@ -161,7 +161,75 @@
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-	<fields>
+    <fields>
+        <fullName>Calce_Neto_Directo__c</fullName>
+        <externalId>false</externalId>
+        <formula>net_direct_calce__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Calce Neto Directo</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Calcee_Neto_Indirecto__c</fullName>
+        <externalId>false</externalId>
+        <formula>net_indirect_calce__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Calce Neto Indirecto</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Early_Cancellations_Resource__c</fullName>
+        <externalId>false</externalId>
+        <label>Cancelaciones Anticipadas Recurso</label>
+        <summarizedField>Calce_Details__c.amount_cancelled__c</summarizedField>
+        <summaryFilterItems>
+            <field>Calce_Details__c.type__c</field>
+            <operation>equals</operation>
+            <value>Resource</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.sub_type__c</field>
+            <operation>equals</operation>
+            <value>03</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Calce_Details__c.calce_id__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>My_Sessions__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF ( Owner:User.Username = $User.Username, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>My Sessions</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Resource__c</fullName>
+        <externalId>false</externalId>
+        <label>Resource</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>Stand_by__c</fullName>
         <externalId>false</externalId>
         <label>Stand by</label>
@@ -175,6 +243,63 @@
             <field>Calce_Details__c.type__c</field>
             <operation>equals</operation>
             <value>Indirect</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.extension__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.return__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Calce_Details__c.calce_id__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Sub_Total_Resource__c</fullName>
+        <externalId>false</externalId>
+        <formula>term_deposit__c +  Vista_PJ__c +  income_input__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sub Total Recurso</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Sub_total_Expense__c</fullName>
+        <externalId>false</externalId>
+        <formula>expense_input__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sub total Expense</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Vista_PJ__c</fullName>
+        <externalId>false</externalId>
+        <label>Vista PJ</label>
+        <summarizedField>Calce_Details__c.amount_cancelled__c</summarizedField>
+        <summaryFilterItems>
+            <field>Calce_Details__c.product_code__c</field>
+            <operation>contains</operation>
+            <value>PC00016</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.type__c</field>
+            <operation>equals</operation>
+            <value>Resource</value>
         </summaryFilterItems>
         <summaryFilterItems>
             <field>Calce_Details__c.extension__c</field>
@@ -335,7 +460,7 @@
     <fields>
         <fullName>direct_early_cancellations__c</fullName>
         <externalId>false</externalId>
-        <label>Early Cancellations Direct</label>
+        <label>Cancelaciones Anticipadas Directas</label>
         <summarizedField>Calce_Details__c.amount_cancelled__c</summarizedField>
         <summaryFilterItems>
             <field>Calce_Details__c.type__c</field>
@@ -356,7 +481,7 @@
     <fields>
         <fullName>direct_regular_cancellations__c</fullName>
         <externalId>false</externalId>
-        <label>Normal Cancellation Direct</label>
+        <label>Cancelaciones Normales Directas</label>
         <summarizedField>Calce_Details__c.amount_cancelled__c</summarizedField>
         <summaryFilterItems>
             <field>Calce_Details__c.type__c</field>
@@ -380,6 +505,28 @@
         <type>Summary</type>
     </fields>
     <fields>
+        <fullName>expense_input__c</fullName>
+        <externalId>false</externalId>
+        <label>expense input</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>income_input__c</fullName>
+        <externalId>false</externalId>
+        <label>income input</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>indirect_commitment__c</fullName>
         <externalId>false</externalId>
         <label>Indirect commitment</label>
@@ -393,7 +540,7 @@
     <fields>
         <fullName>indirect_early_cancellations__c</fullName>
         <externalId>false</externalId>
-        <label>Early Cancellations Indirect</label>
+        <label>Cancelaciones Anticipadas Indirectas</label>
         <summarizedField>Calce_Details__c.amount_cancelled__c</summarizedField>
         <summaryFilterItems>
             <field>Calce_Details__c.type__c</field>
@@ -419,7 +566,7 @@
     <fields>
         <fullName>indirect_regular_cancellations__c</fullName>
         <externalId>false</externalId>
-        <label>Normal Cancellation Indirect</label>
+        <label>Cancelaciones Normales Indirectas</label>
         <summarizedField>Calce_Details__c.amount_cancelled__c</summarizedField>
         <summaryFilterItems>
             <field>Calce_Details__c.type__c</field>
@@ -520,7 +667,7 @@
         <externalId>false</externalId>
         <formula>sub_total_direct__c + portfolio_recovery__c - (direct_regular_cancellations__c+ direct_early_cancellations__c )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Net Direct Calce</label>
+        <label>Calce Neto Directo</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -533,7 +680,20 @@
         <externalId>false</externalId>
         <formula>sub_total_indirect__c -( indirect_early_cancellations__c + indirect_regular_cancellations__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Net Indirect Calce</label>
+        <label>Calce Neto Indirecto</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>net_resource_calce__c</fullName>
+        <externalId>false</externalId>
+        <formula>+Sub_Total_Resource__c  - resource_regular_cancellations__c  - Early_Cancellations_Resource__c -  Sub_total_Expense__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Calce Neto Recurso</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -544,7 +704,7 @@
     <fields>
         <fullName>portfolio_loss__c</fullName>
         <externalId>false</externalId>
-        <label>Portafolio Fall</label>
+        <label>Caida de Cartera</label>
         <summarizedField>Calce_Details__c.portfolio_fall_balance__c</summarizedField>
         <summaryFilterItems>
             <field>Calce_Details__c.type__c</field>
@@ -570,13 +730,48 @@
     <fields>
         <fullName>portfolio_recovery__c</fullName>
         <externalId>false</externalId>
-        <label>Portfolio Recovery</label>
+        <label>Recuperación de Cartera</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>reportcalce__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <label>reportcalce</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>resource_regular_cancellations__c</fullName>
+        <externalId>false</externalId>
+        <label>Cancelaciones Normales Recurso</label>
+        <summarizedField>Calce_Details__c.amount_cancelled__c</summarizedField>
+        <summaryFilterItems>
+            <field>Calce_Details__c.type__c</field>
+            <operation>equals</operation>
+            <value>Resource</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.sub_type__c</field>
+            <operation>contains</operation>
+            <value>cancelaciones del dia</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.extension__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Calce_Details__c.calce_id__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
     </fields>
     <fields>
         <fullName>short_term_loan__c</fullName>
@@ -649,7 +844,7 @@
         <externalId>false</externalId>
         <formula>desc_letter_bill__c + short_term_loan__c + long_term_loan__c + comex__c + leasing__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Sub Total Direct</label>
+        <label>Sub Total Directo</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -662,13 +857,44 @@
         <externalId>false</externalId>
         <formula>credit_letter__c + bond_letter__c + Stand_by__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Sub Total Indirect</label>
+        <label>Sub Total Indirecto</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>term_deposit__c</fullName>
+        <externalId>false</externalId>
+        <label>Deposito a Plazo</label>
+        <summarizedField>Calce_Details__c.amount_cancelled__c</summarizedField>
+        <summaryFilterItems>
+            <field>Calce_Details__c.product_code__c</field>
+            <operation>contains</operation>
+            <value>PC00018</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.type__c</field>
+            <operation>equals</operation>
+            <value>Resource</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.extension__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.return__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Calce_Details__c.calce_id__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
     </fields>
     <gender>Masculine</gender>
     <label>Calce</label>
@@ -680,11 +906,10 @@
     <listViews>
         <fullName>BE_CalceLastSevenDay</fullName>
         <columns>NAME</columns>
-        <columns>close_date__c</columns>
         <columns>status__c</columns>
-        <columns>portfolio_loss__c</columns>
-        <columns>net_direct_calce__c</columns>
-        <columns>net_indirect_calce__c</columns>
+        <columns>Calcee_Neto_Indirecto__c</columns>
+        <columns>Calce_Neto_Directo__c</columns>
+        <columns>net_resource_calce__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>close_date__c</field>
@@ -696,11 +921,10 @@
     <listViews>
         <fullName>BE_CalceToday</fullName>
         <columns>NAME</columns>
-        <columns>close_date__c</columns>
         <columns>status__c</columns>
-        <columns>portfolio_loss__c</columns>
-        <columns>net_direct_calce__c</columns>
-        <columns>net_indirect_calce__c</columns>
+        <columns>Calcee_Neto_Indirecto__c</columns>
+        <columns>Calce_Neto_Directo__c</columns>
+        <columns>net_resource_calce__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>close_date__c</field>
@@ -712,11 +936,10 @@
     <listViews>
         <fullName>BE_CalceYesterday</fullName>
         <columns>NAME</columns>
-        <columns>close_date__c</columns>
         <columns>status__c</columns>
-        <columns>portfolio_loss__c</columns>
-        <columns>net_direct_calce__c</columns>
-        <columns>net_indirect_calce__c</columns>
+        <columns>Calcee_Neto_Indirecto__c</columns>
+        <columns>Calce_Neto_Directo__c</columns>
+        <columns>net_resource_calce__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>close_date__c</field>
@@ -724,6 +947,15 @@
             <value>YESTERDAY</value>
         </filters>
         <label>Calce de ayer</label>
+    </listViews>
+    <listViews>
+        <fullName>Mis_clientes</fullName>
+        <columns>NAME</columns>
+        <filterScope>Mine</filterScope>
+        <label>Mis clientes</label>
+        <sharedTo>
+            <group>Gerentes_de_Oficina</group>
+        </sharedTo>
     </listViews>
     <nameField>
         <encryptionScheme>None</encryptionScheme>

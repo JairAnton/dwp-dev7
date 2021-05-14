@@ -27,23 +27,14 @@
         </columns>
         <columns>
             <aggregateTypes>Sum</aggregateTypes>
-            <field>Calce__c.net_direct_calce__c</field>
+            <field>Calce__c.Calce_Neto_Directo__c</field>
         </columns>
         <currency>PEN</currency>
-        <filter>
-            <criteriaItems>
-                <column>Calce_Details__c.type__c</column>
-                <columnToColumn>false</columnToColumn>
-                <isUnlocked>true</isUnlocked>
-                <operator>equals</operator>
-                <value>Direct</value>
-            </criteriaItems>
-        </filter>
         <format>Summary</format>
-        <name>Directo</name>
+        <name>Calce Directo</name>
         <params>
             <name>co</name>
-            <value>1</value>
+            <value>0</value>
         </params>
         <reportType>CustomEntityCustomEntity$Calce__c$Calce_Details__c</reportType>
         <scope>organization</scope>
@@ -51,7 +42,7 @@
         <showSubTotals>true</showSubTotals>
         <timeFrameFilter>
             <dateColumn>Calce__c.close_date__c</dateColumn>
-            <interval>INTERVAL_CUSTOM</interval>
+            <interval>INTERVAL_TODAY</interval>
         </timeFrameFilter>
     </block>
     <block>
@@ -77,10 +68,10 @@
         </columns>
         <currency>PEN</currency>
         <format>Summary</format>
-        <name>Indireccto</name>
+        <name>Calce Indirecto</name>
         <params>
             <name>co</name>
-            <value>1</value>
+            <value>0</value>
         </params>
         <reportType>CustomEntityCustomEntity$Calce__c$Calce_Details__c</reportType>
         <scope>organization</scope>
@@ -88,7 +79,44 @@
         <showSubTotals>true</showSubTotals>
         <timeFrameFilter>
             <dateColumn>Calce__c.close_date__c</dateColumn>
-            <interval>INTERVAL_CUSTOM</interval>
+            <interval>INTERVAL_TODAY</interval>
+        </timeFrameFilter>
+    </block>
+    <block>
+        <blockInfo>
+            <blockId>B2</blockId>
+            <joinTable>x</joinTable>
+        </blockInfo>
+        <columns>
+            <aggregateTypes>Sum</aggregateTypes>
+            <field>Calce__c.Sub_Total_Resource__c</field>
+        </columns>
+        <columns>
+            <aggregateTypes>Sum</aggregateTypes>
+            <field>Calce__c.resource_regular_cancellations__c</field>
+        </columns>
+        <columns>
+            <aggregateTypes>Sum</aggregateTypes>
+            <field>Calce__c.Early_Cancellations_Resource__c</field>
+        </columns>
+        <columns>
+            <aggregateTypes>Sum</aggregateTypes>
+            <field>Calce__c.net_resource_calce__c</field>
+        </columns>
+        <currency>PEN</currency>
+        <format>Summary</format>
+        <name>Calce Recurso</name>
+        <params>
+            <name>co</name>
+            <value>0</value>
+        </params>
+        <reportType>CustomEntityCustomEntity$Calce__c$Calce_Details__c</reportType>
+        <scope>organization</scope>
+        <showGrandTotal>true</showGrandTotal>
+        <showSubTotals>true</showSubTotals>
+        <timeFrameFilter>
+            <dateColumn>Calce__c.close_date__c</dateColumn>
+            <interval>INTERVAL_TODAY</interval>
         </timeFrameFilter>
     </block>
     <blockInfo>
@@ -96,16 +124,6 @@
         <joinTable>x</joinTable>
     </blockInfo>
     <format>MultiBlock</format>
-    <groupingsDown>
-        <dateGranularity>Day</dateGranularity>
-        <field>Calce_Details__c.regional__c</field>
-        <sortOrder>Asc</sortOrder>
-    </groupingsDown>
-    <groupingsDown>
-        <dateGranularity>Day</dateGranularity>
-        <field>Calce_Details__c.branch__c</field>
-        <sortOrder>Asc</sortOrder>
-    </groupingsDown>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
         <field>CUST_NAME</field>
@@ -117,5 +135,5 @@
         <value>1</value>
     </params>
     <reportType>CustomEntityCustomEntity$Calce__c$Calce_Details__c</reportType>
-    <showDetails>false</showDetails>
+    <showDetails>true</showDetails>
 </Report>
