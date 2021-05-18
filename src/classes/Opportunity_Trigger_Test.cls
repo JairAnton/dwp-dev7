@@ -355,7 +355,8 @@ public class Opportunity_Trigger_Test {
 		// Create opportunities assigned to the other users
 		List<Opportunity> testOppsList = new List<Opportunity>();
 		for(Integer i = 0; i < 202; i++) {
-			Opportunity testOpp = new Opportunity(OwnerId = testUsersList.get(1).Id, Name = 'TEST OPP - ' + i, AccountId = testAccount.Id, StageName = '02', Amount = 10000, CloseDate = System.Date.today());
+			Opportunity testOpp = new Opportunity(OwnerId = testUsersList.get(1).Id, Name = 'TEST OPP - ' + i, AccountId = testAccount.Id, StageName = '02', Amount = 10000, 
+                                                  CloseDate = System.Date.today(), opportunity_planning_date__c = System.Date.today(), Support_currency__c = '01', Field_Sup_Closing_Date__c = System.Date.today());
 			testOppsList.add(testOpp);
 		}
 		insert testOppsList;

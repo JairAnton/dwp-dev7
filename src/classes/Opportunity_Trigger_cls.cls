@@ -62,15 +62,22 @@ public without sharing class Opportunity_Trigger_cls {
 				}
 			}
 		}
+ 		Set<Id> searchBranchSet = new Set<Id>();
         
         /* Si el branch esta en blanco, agregará el branch del cliente*/
         for(Opportunity oppItem : oppsNew){
             if(oppItem.Branch_id__c == null){
-                Account acc = [SELECT branch_id__c FROM Account WHERE Id =: oppItem.AccountId LIMIT 1];
+                searchBranchSet.add(oppItem.AccountId);
+            }
+        }
+        
+        Map<Id, Account> accountMap = new Map<Id, Account>([SELECT Id, branch_id__c FROM Account WHERE Id IN : searchBranchSet]);
+        
+        for(Opportunity oppItem : oppsNew){
+            if(accountMap.containsKey(oppItem.AccountId)){
+                Account acc = accountMap.get(oppItem.AccountId);
                 
-                if(acc != null){
-                    oppItem.Branch_id__c = acc.branch_id__c;
-                }       
+                oppItem.Branch_id__c = acc.branch_id__c;
             }
         }
 	}
