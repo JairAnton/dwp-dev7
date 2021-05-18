@@ -9,6 +9,11 @@
  *****************************
     Updates:
     Martín Alejandro Mori Chávez  2020-03-11
+   @change history:
+    - add Branch_id__c if is null for Opportunity from Calce y AP
+ *****************************
+    Updates:
+    Jair Oswaldo Anton Atuncar  2021-05-18
  *
  */
 public without sharing class Opportunity_Trigger_cls {
@@ -57,6 +62,17 @@ public without sharing class Opportunity_Trigger_cls {
 				}
 			}
 		}
+        
+        /* Si el branch esta en blanco, agregará el branch del cliente*/
+        for(Opportunity oppItem : oppsNew){
+            if(oppItem.Branch_id__c == null){
+                Account acc = [SELECT branch_id__c FROM Account WHERE Id =: oppItem.AccountId LIMIT 1];
+                
+                if(acc != null){
+                    oppItem.Branch_id__c = acc.branch_id__c;
+                }       
+            }
+        }
 	}
 
 	/**
