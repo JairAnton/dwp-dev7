@@ -37,29 +37,10 @@ public without sharing class Opportunity_Trigger_cls {
 	 */
 	public static void asignBeforeInsert(list<Opportunity> oppsNew, Map<id, Opportunity> oppsNewMap) {
 		//date CDate;//Yuliño: correcion
-		Date pDate;
+		
 		if(!MIGRACION.equals([select Name from profile where Id = : Userinfo.getProfileId() limit 1].Name)) {
 			for(Opportunity opp:oppsNew) {
-				if(opp.Type == '01') {
-					if(opp.opportunity_planning_date__c != null) {
-						pDate = Date.valueOf(opp.opportunity_planning_date__c);
-						opp.opportunity_planning_date__c = pDate;
-						opp.opportunity_status_type__c = '02';
-					} else if(!Test.isRunningTest()) {
-						opp.opportunity_status_type__c = '03';
-					}
-					if(String.isNotBlank(opp.Support_currency__c)) {
-						opp.CurrencyIsoCode = opp.Support_currency__c == '01' ? 'PEN' : 'USD';
-					}
-					if(opp.opportunity_planning_date__c != null && opp.Field_Sup_Closing_Date__c == null) {
-						opp.CloseDate = pDate.addDays(45);
-					} else if(opp.opportunity_planning_date__c == null && opp.Field_Sup_Closing_Date__c == null) {
-						opp.CloseDate = Date.today().addDays(60);
-					}
-					if(opp.Field_Sup_Closing_Date__c != null) {
-						opp.CloseDate = opp.Field_Sup_Closing_Date__c;
-					}
-				}
+				verifyOpportunity(opp);
 			}
 		}
  		Final Set<Id> searchBranchSet = new Set<Id>();
@@ -81,6 +62,31 @@ public without sharing class Opportunity_Trigger_cls {
     private static void verifyAccount(Map<Id, Account> accountMap, Opportunity oppItem) {
         if(accountMap.containsKey(oppItem.AccountId)) {
             oppItem.Branch_id__c = accountMap.get(oppItem.AccountId).branch_id__c;
+        }
+    }
+    
+    private static void verifyOpportunity(Opportunity opp){
+        Date pDate;
+        
+        if(opp.Type == '01') {
+            if(opp.opportunity_planning_date__c != null) {
+                pDate = Date.valueOf(opp.opportunity_planning_date__c);
+                opp.opportunity_planning_date__c = pDate;
+                opp.opportunity_status_type__c = '02';
+            } else if(!Test.isRunningTest()) {
+                opp.opportunity_status_type__c = '03';
+            }
+            if(String.isNotBlank(opp.Support_currency__c)) {
+                opp.CurrencyIsoCode = opp.Support_currency__c == '01' ? 'PEN' : 'USD';
+            }
+            if(opp.opportunity_planning_date__c != null && opp.Field_Sup_Closing_Date__c == null) {
+                opp.CloseDate = pDate.addDays(45);
+            } else if(opp.opportunity_planning_date__c == null && opp.Field_Sup_Closing_Date__c == null) {
+                opp.CloseDate = Date.today().addDays(60);
+            }
+            if(opp.Field_Sup_Closing_Date__c != null) {
+                opp.CloseDate = opp.Field_Sup_Closing_Date__c;
+            }
         }
     }
 
