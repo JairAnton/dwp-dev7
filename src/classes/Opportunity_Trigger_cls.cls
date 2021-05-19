@@ -65,28 +65,44 @@ public without sharing class Opportunity_Trigger_cls {
         }
     }
     
-    private static void verifyOpportunity(Opportunity opp){
-        Date pDate;
+    private static void verifyOpportunity(Opportunity opp) {
+        Final Date pDate;
         
         if(opp.Type == '01') {
-            if(opp.opportunity_planning_date__c != null) {
-                pDate = Date.valueOf(opp.opportunity_planning_date__c);
-                opp.opportunity_planning_date__c = pDate;
-                opp.opportunity_status_type__c = '02';
-            } else if(!Test.isRunningTest()) {
-                opp.opportunity_status_type__c = '03';
-            }
-            if(String.isNotBlank(opp.Support_currency__c)) {
-                opp.CurrencyIsoCode = opp.Support_currency__c == '01' ? 'PEN' : 'USD';
-            }
-            if(opp.opportunity_planning_date__c != null && opp.Field_Sup_Closing_Date__c == null) {
-                opp.CloseDate = pDate.addDays(45);
-            } else if(opp.opportunity_planning_date__c == null && opp.Field_Sup_Closing_Date__c == null) {
-                opp.CloseDate = Date.today().addDays(60);
-            }
-            if(opp.Field_Sup_Closing_Date__c != null) {
-                opp.CloseDate = opp.Field_Sup_Closing_Date__c;
-            }
+            validatePanningDate(opp, pDate);
+            validateCurrency(opp);
+            validateClosingDate(opp, pDate);
+            validateSupClosingDate(opp);
+        }
+    }
+    
+    private static void validatePanningDate(Opportunity opp, Date pDate) {
+        if(opp.opportunity_planning_date__c != null) {
+            pDate = Date.valueOf(opp.opportunity_planning_date__c);
+            opp.opportunity_planning_date__c = pDate;
+            opp.opportunity_status_type__c = '02';
+		} else if(!Test.isRunningTest()) {
+			opp.opportunity_status_type__c = '03';
+		}
+    }
+    
+    private static void validateClosingDate(Opportunity opp, Date pDate) {
+        if(opp.opportunity_planning_date__c != null && opp.Field_Sup_Closing_Date__c == null) {
+            opp.CloseDate = pDate.addDays(45);
+        } else if(opp.opportunity_planning_date__c == null && opp.Field_Sup_Closing_Date__c == null) {
+            opp.CloseDate = Date.today().addDays(60);
+        }
+    }
+    
+    private static void validateCurrency(Opportunity opp) {
+        if(String.isNotBlank(opp.Support_currency__c)) {
+            opp.CurrencyIsoCode = opp.Support_currency__c == '01' ? 'PEN' : 'USD';
+        }
+    }
+    
+    private static void validateSupClosingDate(Opportunity opp) {
+        if(opp.Field_Sup_Closing_Date__c != null) {
+            opp.CloseDate = opp.Field_Sup_Closing_Date__c;
         }
     }
 
