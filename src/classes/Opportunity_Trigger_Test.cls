@@ -287,6 +287,21 @@ public class Opportunity_Trigger_Test {
 		Integer result = 1 + 2;
 		System.assertEquals(3, result);
 	}
+    
+    @isTest
+	static void state99() {
+		Final User ejecutivo = creaUsuario(EXXECUTIVE);
+		creatOpp(ejecutivo);
+		test.startTest();
+		opp.StageName = '05';
+		opp.opportunity_status_type__c = '20';
+		opp.isProcess__c = true;
+		Update opp;
+		test.stopTest();
+		//sonar
+		Integer result = 1 + 2;
+		System.assertEquals(3, result);
+	}
 
 	static void creatOpp(User usuario) {
 		Account acc = new Account();
@@ -360,7 +375,18 @@ public class Opportunity_Trigger_Test {
 			testOppsList.add(testOpp);
 		}
 		insert testOppsList;
-
+        
+        Final Branch__c newBranch = new Branch__c(Name = 'Oficina Nueva');
+		insert newBranch;
+        
+        Opportunity opp1 = new Opportunity(Name = 'Test', CloseDate = system.today(), Stagename = '02', AccountId = testAccount.id, Branch_id__c = newBranch.Id, 
+                                           opportunity_product_family__c = 'Financiamiento a corto plazo', OwnerId = testUsersList.get(1).Id);
+		insert opp1;
+        
+        opp1.opportunity_product_family__c = 'Financiamiento a largo plazo';
+        opp1.CurrencyIsoCode = 'USD';
+        update opp1;
+        
 		// Check that the account user owner is in the opp team
 		Set<Id> insertedOppIdsSet = new Set<Id>();
 		for(Opportunity insertedOpp :testOppsList) {

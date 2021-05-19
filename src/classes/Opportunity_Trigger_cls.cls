@@ -62,25 +62,30 @@ public without sharing class Opportunity_Trigger_cls {
 				}
 			}
 		}
- 		Set<Id> searchBranchSet = new Set<Id>();
+ 		Final Set<Id> searchBranchSet = new Set<Id>();
         
         /* Si el branch esta en blanco, agregará el branch del cliente*/
-        for(Opportunity oppItem : oppsNew){
-            if(oppItem.Branch_id__c == null){
+        for(Opportunity oppItem : oppsNew) {
+            if(oppItem.Branch_id__c == null) {
                 searchBranchSet.add(oppItem.AccountId);
             }
         }
         
-        Map<Id, Account> accountMap = new Map<Id, Account>([SELECT Id, branch_id__c FROM Account WHERE Id IN : searchBranchSet]);
+        Final Map<Id, Account> accountMap = new Map<Id, Account>([SELECT Id, branch_id__c FROM Account WHERE Id IN : searchBranchSet]);
         
-        for(Opportunity oppItem : oppsNew){
-            if(accountMap.containsKey(oppItem.AccountId)){
-                Account acc = accountMap.get(oppItem.AccountId);
-                
-                oppItem.Branch_id__c = acc.branch_id__c;
-            }
+        for(Opportunity oppItem : oppsNew) {
+            Id branchId = verifyAccount(accountMap, oppItem.AccountId);
+            oppItem.Branch_id__c = branchId != null ? branchId : oppItem.Branch_id__c;
         }
 	}
+    
+    private static Id verifyAccount(Map<Id, Account> accountMap, Id oppAccountId) {
+        if(accountMap.containsKey(oppAccountId)) {
+            return accountMap.get(oppAccountId).branch_id__c;
+        }
+        
+        return null;
+    }
 
 	/**
 	 * asignBeforeUpdate
