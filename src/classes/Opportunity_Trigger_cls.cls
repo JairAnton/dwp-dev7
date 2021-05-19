@@ -74,17 +74,14 @@ public without sharing class Opportunity_Trigger_cls {
         Final Map<Id, Account> accountMap = new Map<Id, Account>([SELECT Id, branch_id__c FROM Account WHERE Id IN : searchBranchSet]);
         
         for(Opportunity oppItem : oppsNew) {
-            Id branchId = verifyAccount(accountMap, oppItem.AccountId);
-            oppItem.Branch_id__c = branchId != null ? branchId : oppItem.Branch_id__c;
+            verifyAccount(accountMap, oppItem);
         }
 	}
     
-    private static Id verifyAccount(Map<Id, Account> accountMap, Id oppAccountId) {
-        if(accountMap.containsKey(oppAccountId)) {
-            return accountMap.get(oppAccountId).branch_id__c;
+    private static void verifyAccount(Map<Id, Account> accountMap, Opportunity oppItem) {
+        if(accountMap.containsKey(oppItem.AccountId)) {
+            oppItem.Branch_id__c = accountMap.get(oppItem.AccountId).branch_id__c;
         }
-        
-        return null;
     }
 
 	/**

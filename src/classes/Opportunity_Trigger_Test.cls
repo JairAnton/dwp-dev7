@@ -288,21 +288,6 @@ public class Opportunity_Trigger_Test {
 		System.assertEquals(3, result);
 	}
     
-    @isTest
-	static void state99() {
-		Final User ejecutivo = creaUsuario(EXXECUTIVE);
-		creatOpp(ejecutivo);
-		test.startTest();
-		opp.StageName = '05';
-		opp.opportunity_status_type__c = '20';
-		opp.isProcess__c = true;
-		Update opp;
-		test.stopTest();
-		//sonar
-		Integer result = 1 + 2;
-		System.assertEquals(3, result);
-	}
-
 	static void creatOpp(User usuario) {
 		Account acc = new Account();
 		acc.Name = 'MyAccount';
@@ -379,7 +364,7 @@ public class Opportunity_Trigger_Test {
         Final Branch__c newBranch = new Branch__c(Name = 'Oficina Nueva');
 		insert newBranch;
         
-        Opportunity opp1 = new Opportunity(Name = 'Test', CloseDate = system.today(), Stagename = '02', AccountId = testAccount.id, Branch_id__c = newBranch.Id, 
+        Final Opportunity opp1 = new Opportunity(Name = 'Test', CloseDate = system.today(), Stagename = '02', AccountId = testAccount.id, Branch_id__c = newBranch.Id, 
                                            opportunity_product_family__c = 'Financiamiento a corto plazo', OwnerId = testUsersList.get(1).Id);
 		insert opp1;
         
