@@ -40,6 +40,7 @@ public without sharing class Opportunity_Trigger_cls {
 		
 		if(!MIGRACION.equals([select Name from profile where Id = : Userinfo.getProfileId() limit 1].Name)) {
 			for(Opportunity opp:oppsNew) {
+				/* modificación por sonar */
 				verifyOpportunity(opp);
 			}
 		}
