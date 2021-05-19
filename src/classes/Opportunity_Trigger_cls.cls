@@ -65,14 +65,15 @@ public without sharing class Opportunity_Trigger_cls {
         Final Date pDate;
         
         if(opp.Type == '01') {
-            pDate = validatePlanningDate(opp, pDate);
+            pDate = validatePlanningDate(opp);
             validateCurrency(opp);
             validateClosingDate(opp, pDate);
             validateSupClosingDate(opp);
         }
     }
     
-    private static Date validatePlanningDate(Opportunity opp, Date pDate) {
+    private static Date validatePlanningDate(Opportunity opp) {
+        Final Date pDate;
         if(opp.opportunity_planning_date__c != null) {
             pDate = Date.valueOf(opp.opportunity_planning_date__c);
             opp.opportunity_planning_date__c = pDate;
