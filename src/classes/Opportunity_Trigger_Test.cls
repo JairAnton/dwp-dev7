@@ -355,7 +355,7 @@ public class Opportunity_Trigger_Test {
 		// Create opportunities assigned to the other users
 		List<Opportunity> testOppsList = new List<Opportunity>();
 		for(Integer i = 0; i < 202; i++) {
-			Opportunity testOpp = new Opportunity(OwnerId = testUsersList.get(1).Id, Name = 'TEST OPP - ' + i, AccountId = testAccount.Id, StageName = '02', Amount = 10000, 
+			Opportunity testOpp = new Opportunity(OwnerId = testUsersList.get(1).Id, Name = 'TEST OPP - ' + i, AccountId = testAccount.Id, StageName = '02', Amount = 10000,
                                                   CloseDate = System.Date.today(), opportunity_planning_date__c = System.Date.today(), Support_currency__c = '01', Field_Sup_Closing_Date__c = System.Date.today());
 			testOppsList.add(testOpp);
 		}
@@ -364,12 +364,20 @@ public class Opportunity_Trigger_Test {
         Final Branch__c newBranch = new Branch__c(Name = 'Oficina Nueva');
 		insert newBranch;
         
-        Final Opportunity opp1 = new Opportunity(Name = 'Test', CloseDate = system.today(), Stagename = '02', AccountId = testAccount.id, Branch_id__c = newBranch.Id, 
+        Final Opportunity opp2 = new Opportunity(Name = 'Test', CloseDate = system.today(), Stagename = '02', AccountId = testAccount.id, Branch_id__c = newBranch.Id, Field_Sup_Closing_Date__c = null, opportunity_planning_date__c = System.Date.today(),
+                                           opportunity_product_family__c = 'Financiamiento a corto plazo', OwnerId = testUsersList.get(1).Id);
+		insert opp2;
+        
+        Final Opportunity opp1 = new Opportunity(Name = 'Test final', CloseDate = system.today(), Stagename = '02', AccountId = testAccount.id, Branch_id__c = newBranch.Id, 
                                            opportunity_product_family__c = 'Financiamiento a corto plazo', OwnerId = testUsersList.get(1).Id);
 		insert opp1;
         
         opp1.opportunity_product_family__c = 'Financiamiento a largo plazo';
         opp1.CurrencyIsoCode = 'USD';
+        update opp1;
+        
+        opp1.StageName = '01';
+        opp1.OwnerId = testUsersList.get(0).Id;
         update opp1;
         
 		// Check that the account user owner is in the opp team

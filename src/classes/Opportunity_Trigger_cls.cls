@@ -25,7 +25,9 @@ public without sharing class Opportunity_Trigger_cls {
 	 *   @Variable: temporal
 	 */
 	private static Final String MIGRACION {get {return 'Migracion';} set;}
-
+	 /* Constructor Opportunity_Trigger_cls */
+    private Opportunity_Trigger_cls() {}
+        
 	/*
 	 * asignBeforeInsert
 	 */
@@ -63,26 +65,31 @@ public without sharing class Opportunity_Trigger_cls {
         Final Date pDate;
         
         if(opp.Type == '01') {
-            validatePanningDate(opp, pDate);
+            pDate = validatePlanningDate(opp, pDate);
             validateCurrency(opp);
             validateClosingDate(opp, pDate);
             validateSupClosingDate(opp);
         }
     }
     
-    private static void validatePanningDate(Opportunity opp, Date pDate) {
+    private static Date validatePlanningDate(Opportunity opp, Date pDate) {
         if(opp.opportunity_planning_date__c != null) {
             pDate = Date.valueOf(opp.opportunity_planning_date__c);
             opp.opportunity_planning_date__c = pDate;
             opp.opportunity_status_type__c = '02';
+            return pDate;
 		} else if(!Test.isRunningTest()) {
 			opp.opportunity_status_type__c = '03';
 		}
+        
+        return pDate;
     }
     
     private static void validateClosingDate(Opportunity opp, Date pDate) {
         if(opp.opportunity_planning_date__c != null && opp.Field_Sup_Closing_Date__c == null) {
-            opp.CloseDate = pDate.addDays(45);
+            if(pDate != null) {
+                opp.CloseDate = pDate.addDays(45);
+            }
         } else if(opp.opportunity_planning_date__c == null && opp.Field_Sup_Closing_Date__c == null) {
             opp.CloseDate = Date.today().addDays(60);
         }
@@ -155,7 +162,7 @@ public without sharing class Opportunity_Trigger_cls {
 			MapUser.put(us.Id, us);
 		}
 		for(Opportunity opp:oppsNew) {
-			if(opp.OwnerId != oppsOldMap.get(opp.Id).OwnerId && opp.StageName == '01' || opp.StageName == '02' && opp.StageName == '03') {
+			if(opp.OwnerId != oppsOldMap.get(opp.Id).OwnerId && opp.StageName == '01' || opp.StageName == '02' && opp.StageName == '03') {         
 				if(MapUser.get(oppsOldMap.get(opp.Id).OwnerID).Profile.Name == 'Ejecutivo' || MapUser.get(oppsOldMap.get(opp.Id).OwnerID).UserRole.Name == 'Ejecutivo') {
 					if(MapUser.get(opp.OwnerId).Profile.Name != 'Ejecutivo' && MapUser.get(opp.OwnerId).Profile.Name != ESPECIALISTA) {
 						Opp.addError('No es posible reasignar una Oportunidad a este tipo de gerente1');
