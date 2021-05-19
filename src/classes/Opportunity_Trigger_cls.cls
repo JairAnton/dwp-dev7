@@ -27,12 +27,6 @@ public without sharing class Opportunity_Trigger_cls {
 	private static Final String MIGRACION {get {return 'Migracion';} set;}
 
 	/*
-	 *   @Private Constructor
-	 */
-	private Opportunity_Trigger_cls() {
-	}
-
-	/*
 	 * asignBeforeInsert
 	 */
 	public static void asignBeforeInsert(list<Opportunity> oppsNew, Map<id, Opportunity> oppsNewMap) {
@@ -40,7 +34,6 @@ public without sharing class Opportunity_Trigger_cls {
 		
 		if(!MIGRACION.equals([select Name from profile where Id = : Userinfo.getProfileId() limit 1].Name)) {
 			for(Opportunity opp:oppsNew) {
-				/* modificación por sonar */
 				verifyOpportunity(opp);
 			}
 		}
