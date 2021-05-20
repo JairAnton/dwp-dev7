@@ -66,9 +66,17 @@ public without sharing class Opportunity_Trigger_cls {
         
         if(opp.Type == '01') {
             pDate = validatePlanningDate(opp);
-            validateCurrency(opp);
+            
+            
+            if(String.isNotBlank(opp.Support_currency__c)) {
+            	opp.CurrencyIsoCode = opp.Support_currency__c == '01' ? 'PEN' : 'USD';
+        	}
+            
             validateClosingDate(opp, pDate);
-            validateSupClosingDate(opp);
+            
+            if(opp.Field_Sup_Closing_Date__c != null) {
+                opp.CloseDate = opp.Field_Sup_Closing_Date__c;
+            }
         }
     }
     
@@ -78,7 +86,6 @@ public without sharing class Opportunity_Trigger_cls {
             pDate = Date.valueOf(opp.opportunity_planning_date__c);
             opp.opportunity_planning_date__c = pDate;
             opp.opportunity_status_type__c = '02';
-            return pDate;
 		} else if(!Test.isRunningTest()) {
 			opp.opportunity_status_type__c = '03';
 		}
@@ -95,19 +102,7 @@ public without sharing class Opportunity_Trigger_cls {
             opp.CloseDate = Date.today().addDays(60);
         }
     }
-    
-    private static void validateCurrency(Opportunity opp) {
-        if(String.isNotBlank(opp.Support_currency__c)) {
-            opp.CurrencyIsoCode = opp.Support_currency__c == '01' ? 'PEN' : 'USD';
-        }
-    }
-    
-    private static void validateSupClosingDate(Opportunity opp) {
-        if(opp.Field_Sup_Closing_Date__c != null) {
-            opp.CloseDate = opp.Field_Sup_Closing_Date__c;
-        }
-    }
-
+  	
 	/**
 	 * asignBeforeUpdate
 	 */
