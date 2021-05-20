@@ -67,14 +67,12 @@ public without sharing class Opportunity_Trigger_cls {
         if(opp.Type == '01') {
             pDate = validatePlanningDate(opp);
             
-            if(String.isNotBlank(opp.Support_currency__c)) {
-            	opp.CurrencyIsoCode = opp.Support_currency__c == '01' ? 'PEN' : 'USD';
-        	}
-            
-            validateClosingDate(opp, pDate);
-            
-            if(opp.Field_Sup_Closing_Date__c != null) {
-                opp.CloseDate = opp.Field_Sup_Closing_Date__c;
+            if(opp.opportunity_planning_date__c != null && opp.Field_Sup_Closing_Date__c == null) {
+                if(pDate != null) {
+                    opp.CloseDate = pDate.addDays(45);
+                }
+            } else if(opp.opportunity_planning_date__c == null && opp.Field_Sup_Closing_Date__c == null) {
+                opp.CloseDate = Date.today().addDays(60);
             }
         }
     }
@@ -89,50 +87,55 @@ public without sharing class Opportunity_Trigger_cls {
 			opp.opportunity_status_type__c = '03';
 		}
         
-        return pDate;
-    }
-    
-    private static void validateClosingDate(Opportunity opp, Date pDate) {
-        if(opp.opportunity_planning_date__c != null && opp.Field_Sup_Closing_Date__c == null) {
-            if(pDate != null) {
-                opp.CloseDate = pDate.addDays(45);
-            }
-        } else if(opp.opportunity_planning_date__c == null && opp.Field_Sup_Closing_Date__c == null) {
-            opp.CloseDate = Date.today().addDays(60);
+        if(String.isNotBlank(opp.Support_currency__c)) {
+            opp.CurrencyIsoCode = opp.Support_currency__c == '01' ? 'PEN' : 'USD';
         }
+        
+        if(opp.Field_Sup_Closing_Date__c != null) {
+            opp.CloseDate = opp.Field_Sup_Closing_Date__c;
+        }
+        
+        return pDate;
     }
   	
 	/**
 	 * asignBeforeUpdate and valida
 	 */
 	public static void asignBeforeUpdate(list<Opportunity> oppsNew, Map<id, Opportunity> oppsNewMap, list<Opportunity> oppsOld, Map<id, Opportunity> oppsOldMap) {
-        set<Id> IdOwners = new set<ID>();
-		for(Opportunity oppnew: oppsNew) {
-			IdOwners.add(oppnew.OwnerId);
-		}
-		for(Opportunity oppnold: oppsOldMap.values()) {
-			IdOwners.add(oppnold.OwnerId);
-		}
-		Map<Id, User> MapUser = new Map <Id, User>();
-		for(User us:[Select Id, Name, Profile.Name, UserRole.Name from User where Id IN: IdOwners]) {
-			MapUser.put(us.Id, us);
-		}
-		for(Opportunity opp:oppsNew) {
-			if(opp.OwnerId != oppsOldMap.get(opp.Id).OwnerId && opp.StageName == '01' || opp.StageName == '02' && opp.StageName == '03') {         
-				if(MapUser.get(oppsOldMap.get(opp.Id).OwnerID).Profile.Name == 'Ejecutivo' || MapUser.get(oppsOldMap.get(opp.Id).OwnerID).UserRole.Name == 'Ejecutivo') {
-					if(MapUser.get(opp.OwnerId).Profile.Name != 'Ejecutivo' && MapUser.get(opp.OwnerId).Profile.Name != ESPECIALISTA) {
-						Opp.addError('No es posible reasignar una Oportunidad a este tipo de gerente1');
-					}
-				} else if(MapUser.get(oppsOldMap.get(opp.Id).OwnerID).Profile.Name == ESPECIALISTA || MapUser.get(oppsOldMap.get(opp.Id).OwnerID).UserRole.Name == ESPECIALISTA) {
-					if(MapUser.get(opp.OwnerId).Profile.Name != ESPECIALISTA && MapUser.get(opp.OwnerId).Profile.Name != ESPECIALISTA) {
-						Opp.addError('No es posible reasignar una Oportunidad a este tipo de gerente2');
-					}
-				} else if(MapUser.get(opp.OwnerId).Profile.Name == 'Analista' || MapUser.get(opp.OwnerId).Profile.Name == 'Operativo') {
-					Opp.addError('No es posible reasignar una Oportunidad a este tipo de gerente');
-				}
-			}
-		}
+    	valida(oppsNew, oppsOldMap);
 	}
+    
+    /**
+	 * valida
+	 */
+	private static void valida(list<Opportunity> oppsNew, Map<id, Opportunity> oppsOldMap) {
+        set<Id> IdOwners = new set<ID>();
+        for(Opportunity oppnew: oppsNew) {
+            IdOwners.add(oppnew.OwnerId);
+        }
+        for(Opportunity oppnold: oppsOldMap.values()) {
+            IdOwners.add(oppnold.OwnerId);
+        }
+        Map<Id, User> MapUser = new Map <Id, User>();
+        for(User us:[Select Id, Name, Profile.Name, UserRole.Name from User where Id IN: IdOwners]) {
+            MapUser.put(us.Id, us);
+        }
+        for(Opportunity opp:oppsNew) {
+            if(opp.OwnerId != oppsOldMap.get(opp.Id).OwnerId && opp.StageName == '01' || opp.StageName == '02' && opp.StageName == '03') {         
+                if(MapUser.get(oppsOldMap.get(opp.Id).OwnerID).Profile.Name == 'Ejecutivo' || MapUser.get(oppsOldMap.get(opp.Id).OwnerID).UserRole.Name == 'Ejecutivo') {
+                    if(MapUser.get(opp.OwnerId).Profile.Name != 'Ejecutivo' && MapUser.get(opp.OwnerId).Profile.Name != ESPECIALISTA) {
+                        Opp.addError('No es posible reasignar una Oportunidad a este tipo de gerente1');
+                    }
+                } else if(MapUser.get(oppsOldMap.get(opp.Id).OwnerID).Profile.Name == ESPECIALISTA || MapUser.get(oppsOldMap.get(opp.Id).OwnerID).UserRole.Name == ESPECIALISTA) {
+                    if(MapUser.get(opp.OwnerId).Profile.Name != ESPECIALISTA && MapUser.get(opp.OwnerId).Profile.Name != ESPECIALISTA) {
+                        Opp.addError('No es posible reasignar una Oportunidad a este tipo de gerente2');
+                    }
+                } else if(MapUser.get(opp.OwnerId).Profile.Name == 'Analista' || MapUser.get(opp.OwnerId).Profile.Name == 'Operativo') {
+                    Opp.addError('No es posible reasignar una Oportunidad a este tipo de gerente');
+                }
+            }
+        }
+    }
 
 	/**
 	 * asignAfterUpdate
