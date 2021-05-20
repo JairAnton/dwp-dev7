@@ -67,7 +67,6 @@ public without sharing class Opportunity_Trigger_cls {
         if(opp.Type == '01') {
             pDate = validatePlanningDate(opp);
             
-            
             if(String.isNotBlank(opp.Support_currency__c)) {
             	opp.CurrencyIsoCode = opp.Support_currency__c == '01' ? 'PEN' : 'USD';
         	}
@@ -104,10 +103,35 @@ public without sharing class Opportunity_Trigger_cls {
     }
   	
 	/**
-	 * asignBeforeUpdate
+	 * asignBeforeUpdate and valida
 	 */
 	public static void asignBeforeUpdate(list<Opportunity> oppsNew, Map<id, Opportunity> oppsNewMap, list<Opportunity> oppsOld, Map<id, Opportunity> oppsOldMap) {
-		valida(oppsNew, oppsOldMap);
+        set<Id> IdOwners = new set<ID>();
+		for(Opportunity oppnew: oppsNew) {
+			IdOwners.add(oppnew.OwnerId);
+		}
+		for(Opportunity oppnold: oppsOldMap.values()) {
+			IdOwners.add(oppnold.OwnerId);
+		}
+		Map<Id, User> MapUser = new Map <Id, User>();
+		for(User us:[Select Id, Name, Profile.Name, UserRole.Name from User where Id IN: IdOwners]) {
+			MapUser.put(us.Id, us);
+		}
+		for(Opportunity opp:oppsNew) {
+			if(opp.OwnerId != oppsOldMap.get(opp.Id).OwnerId && opp.StageName == '01' || opp.StageName == '02' && opp.StageName == '03') {         
+				if(MapUser.get(oppsOldMap.get(opp.Id).OwnerID).Profile.Name == 'Ejecutivo' || MapUser.get(oppsOldMap.get(opp.Id).OwnerID).UserRole.Name == 'Ejecutivo') {
+					if(MapUser.get(opp.OwnerId).Profile.Name != 'Ejecutivo' && MapUser.get(opp.OwnerId).Profile.Name != ESPECIALISTA) {
+						Opp.addError('No es posible reasignar una Oportunidad a este tipo de gerente1');
+					}
+				} else if(MapUser.get(oppsOldMap.get(opp.Id).OwnerID).Profile.Name == ESPECIALISTA || MapUser.get(oppsOldMap.get(opp.Id).OwnerID).UserRole.Name == ESPECIALISTA) {
+					if(MapUser.get(opp.OwnerId).Profile.Name != ESPECIALISTA && MapUser.get(opp.OwnerId).Profile.Name != ESPECIALISTA) {
+						Opp.addError('No es posible reasignar una Oportunidad a este tipo de gerente2');
+					}
+				} else if(MapUser.get(opp.OwnerId).Profile.Name == 'Analista' || MapUser.get(opp.OwnerId).Profile.Name == 'Operativo') {
+					Opp.addError('No es posible reasignar una Oportunidad a este tipo de gerente');
+				}
+			}
+		}
 	}
 
 	/**
@@ -138,38 +162,6 @@ public without sharing class Opportunity_Trigger_cls {
 					osc.price_quote_date__c = Date.today();
 				}
 				update oscList;
-			}
-		}
-	}
-
-	/**
-	 * valida
-	 */
-	private static void valida(list<Opportunity> oppsNew, Map<id, Opportunity> oppsOldMap) {
-		set<Id> IdOwners = new set<ID>();
-		for(Opportunity oppnew: oppsNew) {
-			IdOwners.add(oppnew.OwnerId);
-		}
-		for(Opportunity oppnold: oppsOldMap.values()) {
-			IdOwners.add(oppnold.OwnerId);
-		}
-		Map<Id, User> MapUser = new Map <Id, User>();
-		for(User us:[Select Id, Name, Profile.Name, UserRole.Name from User where Id IN: IdOwners]) {
-			MapUser.put(us.Id, us);
-		}
-		for(Opportunity opp:oppsNew) {
-			if(opp.OwnerId != oppsOldMap.get(opp.Id).OwnerId && opp.StageName == '01' || opp.StageName == '02' && opp.StageName == '03') {         
-				if(MapUser.get(oppsOldMap.get(opp.Id).OwnerID).Profile.Name == 'Ejecutivo' || MapUser.get(oppsOldMap.get(opp.Id).OwnerID).UserRole.Name == 'Ejecutivo') {
-					if(MapUser.get(opp.OwnerId).Profile.Name != 'Ejecutivo' && MapUser.get(opp.OwnerId).Profile.Name != ESPECIALISTA) {
-						Opp.addError('No es posible reasignar una Oportunidad a este tipo de gerente1');
-					}
-				} else if(MapUser.get(oppsOldMap.get(opp.Id).OwnerID).Profile.Name == ESPECIALISTA || MapUser.get(oppsOldMap.get(opp.Id).OwnerID).UserRole.Name == ESPECIALISTA) {
-					if(MapUser.get(opp.OwnerId).Profile.Name != ESPECIALISTA && MapUser.get(opp.OwnerId).Profile.Name != ESPECIALISTA) {
-						Opp.addError('No es posible reasignar una Oportunidad a este tipo de gerente2');
-					}
-				} else if(MapUser.get(opp.OwnerId).Profile.Name == 'Analista' || MapUser.get(opp.OwnerId).Profile.Name == 'Operativo') {
-					Opp.addError('No es posible reasignar una Oportunidad a este tipo de gerente');
-				}
 			}
 		}
 	}
