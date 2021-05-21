@@ -12,7 +12,7 @@
 @SuppressWarnings('all')
 public with sharing class BE_SM_WonAlerts_cls extends BE_SingleRelatedListCRUD_Cls {
 	/*
-	 * @Description  method readRecords
+	 * @Description  method readRecords 
 	 */
 	public override BE_SingleRelatedListCRUD_Cls.Response readRecords(Map<String,Object> params) {
         return BE_SM_Alerts_helper.getSMAlerts(new Set<String>{'03'}, params);
