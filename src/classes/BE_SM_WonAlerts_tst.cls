@@ -31,11 +31,12 @@ public class BE_SM_WonAlerts_tst {
     @isTest
     static void getSMWonAlerts() {
         Final slmt__Sales_Meeting__c salesMeeting = [SELECT Id, slmt__management_plan_meeting_date__c, Collaborator__c FROM slmt__Sales_Meeting__c LIMIT 1];
-        Final BE_SingleRelatedList_Setting__mdt srl = [SELECT Id, FieldsQuery__c, sObjectApiName__c FROM BE_SingleRelatedList_Setting__mdt WHERE DeveloperName = 'BE_SM_WonAlerts'];
+        Final BE_SingleRelatedList_Setting__mdt srl = [SELECT Id, FieldsQuery__c, Filter__c, sObjectApiName__c FROM BE_SingleRelatedList_Setting__mdt WHERE DeveloperName = 'BE_SM_WonAlerts'];
         Test.startTest();
-        Final BE_SingleRelatedListCRUD_Cls.Response response = new BE_SM_WonAlerts_cls().readRecords(new Map<String, Object>{'recordId' => salesMeeting.Id, 'sObjName' => srl.sObjectApiName__c, 'sObjFields' => srl.FieldsQuery__c});
+        Final BE_SingleRelatedListCRUD_Cls.Response response = new BE_SM_WonAlerts_cls().readRecords(new Map<String, Object>{'recordId' => salesMeeting.Id, 'sObjName' => srl.sObjectApiName__c, 
+            'sObjFields' => srl.FieldsQuery__c, 'filterSQOL' =>srl.Filter__c});
         Test.stopTest();
-        System.assert(response.data.size()>0);
+        System.assertEquals(response.data.size()>0, true, 'Won Alertas!!!');
     }
     
 }

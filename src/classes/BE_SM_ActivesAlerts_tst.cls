@@ -17,7 +17,7 @@ public class BE_SM_ActivesAlerts_tst {
 	 */
     @TestSetup
     static void setUp() {
-        BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 2, 3, 3, 3), UserInfo.getUserId(), 'Planning', true);
+        BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(System.today().year(), System.today().month(), 1, 3, 3, 3), UserInfo.getUserId(), 'Planning', true);
 
         Final Account acc = new Account(Name='Test Account');
         insert acc;
@@ -31,11 +31,13 @@ public class BE_SM_ActivesAlerts_tst {
     @isTest
     static void getSMActiveAlerts() {
         Final slmt__Sales_Meeting__c salesMeeting = [SELECT Id, slmt__management_plan_meeting_date__c, Collaborator__c FROM slmt__Sales_Meeting__c LIMIT 1];
-        Final BE_SingleRelatedList_Setting__mdt srl = [SELECT Id, FieldsQuery__c, sObjectApiName__c FROM BE_SingleRelatedList_Setting__mdt WHERE DeveloperName = 'BE_SM_ActivesAlerts'];
+        Final BE_SingleRelatedList_Setting__mdt srl = [SELECT Id, FieldsQuery__c, Filter__c, sObjectApiName__c FROM BE_SingleRelatedList_Setting__mdt WHERE DeveloperName = 'BE_SM_ActivesAlerts'];
         Test.startTest();
-        Final BE_SingleRelatedListCRUD_Cls.Response response = new BE_SM_ActivesAlerts_cls().readRecords(new Map<String, Object>{'recordId' => salesMeeting.Id, 'sObjName' => srl.sObjectApiName__c, 'sObjFields' => srl.FieldsQuery__c});
+        Final BE_SingleRelatedListCRUD_Cls.Response response = new BE_SM_ActivesAlerts_cls().readRecords(new Map<String, Object>{'recordId' => salesMeeting.Id, 'sObjName' => srl.sObjectApiName__c, 
+            'sObjFields' => srl.FieldsQuery__c, 'filterSQOL' =>srl.Filter__c});
         Test.stopTest();
-        System.assert(response.data.size()>0);
+        System.assertEquals(response.data.size()>0, true, 'Active Alerts!!!');
+
     }
     
 }

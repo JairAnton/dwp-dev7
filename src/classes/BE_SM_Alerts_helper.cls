@@ -10,6 +10,26 @@
    -------------------------------------------------------------------------------------------------
  */
 public without sharing class BE_SM_Alerts_helper {
+            
+    /** @Description  today*/
+    private static final Date today = Date.today();
+    /** @Description  StartDate1T*/
+    private static final Date StartDate1T = date.valueOf(today.year()+ '-01-01');
+    /** @Description  EndDate1T*/
+    private static final Date EndDate1T = date.valueOf(today.year()+ '-03-31');
+    /** @Description  StartDate2T*/
+    private static final Date StartDate2T = date.valueOf(today.year()+ '-04-01');
+    /** @Description  EndDate2T*/
+    private static final Date EndDate2T = date.valueOf(today.year()+ '-06-30');
+    /** @Description  StartDate3T*/
+    private static final Date StartDate3T = date.valueOf(today.year()+ '-07-01');
+    /** @Description  EndDate3T*/
+    private static final Date EndDate3T = date.valueOf(today.year()+ '-09-30');
+    /** @Description  StartDate4T*/
+    private static final Date StartDate4T = date.valueOf(today.year()+ '-10-01');
+    /** @Description  EndDate4T*/
+    private static final Date EndDate4T = date.valueOf(today.year()+ '-12-31');
+    
     /*
 	 * @Description method BE_SM_Alerts_helper
 	 */
@@ -20,31 +40,18 @@ public without sharing class BE_SM_Alerts_helper {
 	 */
     public static BE_SingleRelatedListCRUD_Cls.Response getSMAlerts(Set<String> setStatus, Map<String,Object> params) {
         BE_SingleRelatedListCRUD_Cls.Response response = new BE_SingleRelatedListCRUD_Cls.Response(true, '');
+    	final Date startDate, endDate;
         
-        final Date today = Date.today();
-        final Date startDate, endDate;
-        final Date StartDate1T = date.valueOf(String.valueOf(today.year())+ '-01-01');
-        final Date EndDate1T = date.valueOf(String.valueOf(today.year())+ '-03-31');
-        final Date StartDate2T = date.valueOf(String.valueOf(today.year())+ '-04-01');
-        final Date EndDate2T = date.valueOf(String.valueOf(today.year())+ '-06-30');
-        final Date StartDate3T = date.valueOf(String.valueOf(today.year())+ '-07-01');
-        final Date EndDate3T = date.valueOf(String.valueOf(today.year())+ '-09-30');
-        final Date StartDate4T = date.valueOf(String.valueOf(today.year())+ '-10-01');
-        final Date EndDate4T = date.valueOf(String.valueOf(today.year())+ '-12-31');
-        
-        if(today >= StartDate1T  && today <= EndDate1T){
+        if(today >= StartDate1T  && today <= EndDate1T) {
             startDate= StartDate1T;
             endDate= EndDate1T;
-        }
-        else if(today >= StartDate2T && today <= EndDate2T){
+        } else if(today >= StartDate2T && today <= EndDate2T) {
             startDate= StartDate2T;
             endDate= EndDate2T;
-        }
-        else if(today >= StartDate3T && today <= EndDate3T){
+        } else if(today >= StartDate3T && today <= EndDate3T) {
             startDate= StartDate3T;
             endDate= EndDate3T;
-        }
-        else{
+        } else {
             startDate= StartDate4T;
             endDate= EndDate4T;
         }
@@ -78,7 +85,7 @@ public without sharing class BE_SM_Alerts_helper {
 	 */
     public static BE_SingleRelatedListCRUD_Cls.Response getAlerts(Set<Id> setIds, Map<String, Object> params) {
         Final BE_SingleRelatedListCRUD_Cls.Response response = new BE_SingleRelatedListCRUD_Cls.Response();
-        Final String query = 'SELECT Id, '+ String.escapeSingleQuotes((String)params.get('sObjFields'))+ ' FROM '+ String.escapeSingleQuotes((String)params.get('sObjName')) + ' WHERE Id IN:setIds ORDER BY altm__commercial_alert_end_date__c DESC';
+        Final String query = 'SELECT Id, '+ String.escapeSingleQuotes((String)params.get('sObjFields'))+ ' FROM '+ String.escapeSingleQuotes((String)params.get('sObjName')) + ' WHERE Id IN:setIds '+ String.escapeSingleQuotes((String)params.get('filterSQOL'));
         response.data = Database.query(query);
         response.isSuccess = true;
         return response;

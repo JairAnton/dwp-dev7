@@ -17,11 +17,11 @@ public class BE_SM_AlertasQVC_tst {
 	 */
     @TestSetup
     static void setUp() {
-        BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(System.today().addMonths(1).year(), System.today().addMonths(1).month(), 2, 3, 3, 3), UserInfo.getUserId(), 'Planning', true);
+        BE_SM_Factory_tst.createSalesMeeting(DateTime.newInstance(System.today().year(), System.today().month(), 1, 3, 3, 3), UserInfo.getUserId(), 'Planning', true);
 
-        Final Account acc = new Account(Name='TEST Account');
+        Final Account acc = new Account(Name='Test Account');
         insert acc;
-        Final altm__Commercial_Alert__c commAlert = new altm__Commercial_Alert__c(Name='TEST CommAlert',altm__participant_id__c=acc.Id, altm__alert_stage_type__c = '01', OwnerId = UserInfo.getUserId(), altm__commercial_alert_end_date__c = system.today());
+        Final altm__Commercial_Alert__c commAlert = new altm__Commercial_Alert__c(Name='Test CommAlert',altm__participant_id__c=acc.Id, altm__alert_stage_type__c = '01', OwnerId = UserInfo.getUserId(), altm__commercial_alert_end_date__c = system.today());
         insert commAlert;
     }
     
@@ -34,7 +34,7 @@ public class BE_SM_AlertasQVC_tst {
         Test.startTest();
         Final List<Map<String,String>> lstCard = new BE_SM_AlertasQVC_Cls().getCardDetails(salesMeeting, 'cardId');
         Test.stopTest();
-        System.assert(lstCard.size()>0);
+        System.assertEquals(!lstCard.isEmpty(), true, 'get Card Details Success!!!');
     }
     
 }
