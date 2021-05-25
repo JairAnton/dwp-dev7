@@ -11,32 +11,28 @@
  */
 public without sharing class BE_SM_AlertasQVC_Cls implements slmt.Sales_Meeting_Item_Details_Itf {
     
-    /** @Description  today*/
-    private static final Date today = Date.today();
-    /** @Description  StartDate1T*/
-    private static final Date StartDate1T = date.valueOf(today.year()+ '-01-01');
-    /** @Description  EndDate1T*/
-    private static final Date EndDate1T = date.valueOf(today.year()+ '-03-31');
-    /** @Description  StartDate2T*/
-    private static final Date StartDate2T = date.valueOf(today.year()+ '-04-01');
-    /** @Description  EndDate2T*/
-    private static final Date EndDate2T = date.valueOf(today.year()+ '-06-30');
-    /** @Description  StartDate3T*/
-    private static final Date StartDate3T = date.valueOf(today.year()+ '-07-01');
-    /** @Description  EndDate3T*/
-    private static final Date EndDate3T = date.valueOf(today.year()+ '-09-30');
-    /** @Description  StartDate4T*/
-    private static final Date StartDate4T = date.valueOf(today.year()+ '-10-01');
-    /** @Description  EndDate4T*/
-    private static final Date EndDate4T = date.valueOf(today.year()+ '-12-31');
-    /** @Description  status_01*/
-    private static final String status_01 = '01';
-    /** @Description  status_02*/
-    private static final String status_02 = '02';
-    /** @Description  status_03*/
-    private static final String status_03 = '03';
-    /** @Description  status_04*/
-    private static final String status_04 = '04';
+    /** @Description  TODAY*/
+    private static final Date TODAY = Date.today();
+    /** @Description  STARTDATE1T*/
+    private static final Date STARTDATE1T = date.valueOf(today.year()+ '-01-01');
+    /** @Description  ENDDATE1T*/
+    private static final Date ENDDATE1T = date.valueOf(today.year()+ '-03-31');
+    /** @Description  STARTDATE2T*/
+    private static final Date STARTDATE2T = date.valueOf(today.year()+ '-04-01');
+    /** @Description  ENDDATE2T*/
+    private static final Date ENDDATE2T = date.valueOf(today.year()+ '-06-30');
+    /** @Description  STARTDATE3T*/
+    private static final Date STARTDATE3T = date.valueOf(today.year()+ '-07-01');
+    /** @Description  ENDDATE3T*/
+    private static final Date ENDDATE3T = date.valueOf(today.year()+ '-09-30');
+    /** @Description  STARTDATE4T*/
+    private static final Date STARTDATE4T = date.valueOf(today.year()+ '-10-01');
+    /** @Description  ENDDATE4T*/
+    private static final Date ENDDATE4T = date.valueOf(today.year()+ '-12-31');
+    /** @Description  STATUS_01*/
+    private static final String STATUS_01 = '01';
+    /** @Description  STATUS_02*/
+    private static final String STATUS_02 = '02';
     
     /*
 	 * @Description method getCardDetails
@@ -45,20 +41,20 @@ public without sharing class BE_SM_AlertasQVC_Cls implements slmt.Sales_Meeting_
         Integer totalAlerts = 0;
         Integer pendingAlerts = 0;
         Integer managmentAlerts = 0;
-        final Date startDate, endDate;
+        Date startDate, endDate;
         
-        if(today >= StartDate1T  && today <= EndDate1T) {
-            startDate= StartDate1T;
-            endDate= EndDate1T;
-        } else if(today >= StartDate2T && today <= EndDate2T) {
-            startDate= StartDate2T;
-            endDate= EndDate2T;
-        } else if(today >= StartDate3T && today <= EndDate3T) {
-            startDate= StartDate3T;
-            endDate= EndDate3T;
+        if(TODAY >= STARTDATE1T  && TODAY <= ENDDATE1T) {
+            startDate= STARTDATE1T;
+            endDate= ENDDATE1T;
+        } else if(TODAY >= STARTDATE2T && TODAY <= ENDDATE2T) {
+            startDate= STARTDATE2T;
+            endDate= ENDDATE2T;
+        } else if(TODAY >= STARTDATE3T && TODAY <= ENDDATE3T) {
+            startDate= STARTDATE3T;
+            endDate= ENDDATE3T;
         } else {
-            startDate= StartDate4T;
-            endDate= EndDate4T;
+            startDate= STARTDATE4T;
+            endDate= ENDDATE4T;
         }
         
         Final Set<Id> userIds = BE_SM_Utils.getColaborators(String.valueOf(contextRecord.get('Collaborator__c')));
@@ -87,7 +83,7 @@ public without sharing class BE_SM_AlertasQVC_Cls implements slmt.Sales_Meeting_
 	 */
     private Integer getPendingAlerts(altm__Commercial_Alert__c commercialAlert, Integer pendingAlerts) {
         Integer returnVal = pendingAlerts;
-        if(commercialAlert.altm__alert_stage_type__c == status_01) {
+        if(commercialAlert.altm__alert_stage_type__c == STATUS_01) {
             returnVal++;
         }
         return returnVal;
@@ -98,7 +94,7 @@ public without sharing class BE_SM_AlertasQVC_Cls implements slmt.Sales_Meeting_
 	 */
     private Integer getManagmentAlerts(altm__Commercial_Alert__c commercialAlert, Integer managmentAlerts) {
         Integer returnVal = managmentAlerts;
-        if(commercialAlert.altm__alert_stage_type__c == status_02) {
+        if(commercialAlert.altm__alert_stage_type__c == STATUS_02) {
             returnVal++;
         }
         return returnVal;

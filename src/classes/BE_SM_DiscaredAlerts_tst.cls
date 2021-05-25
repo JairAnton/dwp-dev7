@@ -36,7 +36,7 @@ public class BE_SM_DiscaredAlerts_tst {
         Final BE_SingleRelatedListCRUD_Cls.Response response = new BE_SM_DiscaredAlerts_cls().readRecords(new Map<String, Object>{'recordId' => salesMeeting.Id, 'sObjName' => srl.sObjectApiName__c, 
             'sObjFields' => srl.FieldsQuery__c, 'filterSQOL' =>srl.Filter__c});
         Test.stopTest();
-        System.assertEquals(response.data.size()>0, true, 'Discared Alertas!!!');
+        System.assert(response.data.size()>0, 'Discared Alertas!!!');
     }
     
 }

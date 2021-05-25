@@ -11,24 +11,24 @@
  */
 public without sharing class BE_SM_Alerts_helper {
             
-    /** @Description  today*/
-    private static final Date today = Date.today();
-    /** @Description  StartDate1T*/
-    private static final Date StartDate1T = date.valueOf(today.year()+ '-01-01');
-    /** @Description  EndDate1T*/
-    private static final Date EndDate1T = date.valueOf(today.year()+ '-03-31');
-    /** @Description  StartDate2T*/
-    private static final Date StartDate2T = date.valueOf(today.year()+ '-04-01');
-    /** @Description  EndDate2T*/
-    private static final Date EndDate2T = date.valueOf(today.year()+ '-06-30');
-    /** @Description  StartDate3T*/
-    private static final Date StartDate3T = date.valueOf(today.year()+ '-07-01');
-    /** @Description  EndDate3T*/
-    private static final Date EndDate3T = date.valueOf(today.year()+ '-09-30');
-    /** @Description  StartDate4T*/
-    private static final Date StartDate4T = date.valueOf(today.year()+ '-10-01');
-    /** @Description  EndDate4T*/
-    private static final Date EndDate4T = date.valueOf(today.year()+ '-12-31');
+    /** @Description  TODAY*/
+    private static final Date TODAY = Date.today();
+    /** @Description  STARTDATE1T*/
+    private static final Date STARTDATE1T = date.valueOf(today.year()+ '-01-01');
+    /** @Description  ENDDATE1T*/
+    private static final Date ENDDATE1T = date.valueOf(today.year()+ '-03-31');
+    /** @Description  STARTDATE2T*/
+    private static final Date STARTDATE2T = date.valueOf(today.year()+ '-04-01');
+    /** @Description  ENDDATE2T*/
+    private static final Date ENDDATE2T = date.valueOf(today.year()+ '-06-30');
+    /** @Description  STARTDATE3T*/
+    private static final Date STARTDATE3T = date.valueOf(today.year()+ '-07-01');
+    /** @Description  ENDDATE3T*/
+    private static final Date ENDDATE3T = date.valueOf(today.year()+ '-09-30');
+    /** @Description  STARTDATE4T*/
+    private static final Date STARTDATE4T = date.valueOf(today.year()+ '-10-01');
+    /** @Description  ENDDATE4T*/
+    private static final Date ENDDATE4T = date.valueOf(today.year()+ '-12-31');
     
     /*
 	 * @Description method BE_SM_Alerts_helper
@@ -40,21 +40,22 @@ public without sharing class BE_SM_Alerts_helper {
 	 */
     public static BE_SingleRelatedListCRUD_Cls.Response getSMAlerts(Set<String> setStatus, Map<String,Object> params) {
         BE_SingleRelatedListCRUD_Cls.Response response = new BE_SingleRelatedListCRUD_Cls.Response(true, '');
-    	final Date startDate, endDate;
+    	Date startDate, endDate;
         
-        if(today >= StartDate1T  && today <= EndDate1T) {
-            startDate= StartDate1T;
-            endDate= EndDate1T;
-        } else if(today >= StartDate2T && today <= EndDate2T) {
-            startDate= StartDate2T;
-            endDate= EndDate2T;
-        } else if(today >= StartDate3T && today <= EndDate3T) {
-            startDate= StartDate3T;
-            endDate= EndDate3T;
+        if(TODAY >= STARTDATE1T  && TODAY <= ENDDATE1T) {
+            startDate= STARTDATE1T;
+            endDate= ENDDATE1T;
+        } else if(TODAY >= STARTDATE2T && TODAY <= ENDDATE2T) {
+            startDate= STARTDATE2T;
+            endDate= ENDDATE2T;
+        } else if(TODAY >= STARTDATE3T && TODAY <= ENDDATE3T) {
+            startDate= STARTDATE3T;
+            endDate= ENDDATE3T;
         } else {
-            startDate= StartDate4T;
-            endDate= EndDate4T;
+            startDate= STARTDATE4T;
+            endDate= ENDDATE4T;
         }
+        
         
         Final slmt__Sales_Meeting__c salesMeeting = [SELECT slmt__management_plan_meeting_date__c, Collaborator__c 
                                                     FROM slmt__Sales_Meeting__c WHERE Id=:(String)params.get('recordId')];

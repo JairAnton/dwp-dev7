@@ -34,7 +34,7 @@ public class BE_SM_AlertasQVC_tst {
         Test.startTest();
         Final List<Map<String,String>> lstCard = new BE_SM_AlertasQVC_Cls().getCardDetails(salesMeeting, 'cardId');
         Test.stopTest();
-        System.assertEquals(!lstCard.isEmpty(), true, 'get Card Details Success!!!');
+        System.assert(!lstCard.isEmpty(), 'get Card Details Success!!!');
     }
     
 }
