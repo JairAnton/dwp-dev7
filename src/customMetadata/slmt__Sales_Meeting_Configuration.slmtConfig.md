@@ -8,7 +8,7 @@
     </values>
     <values>
         <field>slmt__card_carousel_slides_number__c</field>
-        <value xsi:type="xsd:double">4.0</value>
+        <value xsi:type="xsd:double">5.0</value>
     </values>
     <values>
         <field>slmt__default_selected_card_id__c</field>
