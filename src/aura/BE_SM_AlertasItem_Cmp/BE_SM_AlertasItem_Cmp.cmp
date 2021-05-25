@@ -1,0 +1,19 @@
+<aura:component implements="slmt:Item_Detail_Component_itf,flexipage:availableForAllPageTypes,force:hasRecordId" access="global">
+    <aura:attribute name="activeSections" type="List" default="['A','B','C']" />
+    <lightning:card variant="Narrow" title="Alertas" iconName="standard:service_appointment">
+        <lightning:accordion aura:id="accordion" allowMultipleSectionsOpen="true" activeSectionName="{! v.activeSections }">
+            <lightning:accordionSection name="A" label="Campañas activas">
+                <c:bE_SingleRelatedList_Lwc recordId="{!v.inputAttributes.recordId}" title=''
+                                            relListSet="BE_SM_ActivesAlerts" relListType="Basic"  iconName=""/>
+            </lightning:accordionSection>
+            <lightning:accordionSection name="B" label="Campañas Ganadas">
+                <c:bE_SingleRelatedList_Lwc recordId="{!v.inputAttributes.recordId}" title=''
+                                            relListSet="BE_SM_WonAlerts" relListType="Basic" iconName="" />
+            </lightning:accordionSection>
+            <lightning:accordionSection name="C" label="Campañas Descartadas">
+                <c:bE_SingleRelatedList_Lwc recordId="{!v.inputAttributes.recordId}" title=''
+                                            relListSet="BE_SM_DiscaredAlerts" relListType="Basic" iconName="" />
+            </lightning:accordionSection>
+        </lightning:accordion>
+    </lightning:card>
+</aura:component>
