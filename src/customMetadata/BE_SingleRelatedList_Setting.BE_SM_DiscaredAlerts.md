@@ -65,7 +65,7 @@
     </values>
     <values>
         <field>Filter__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">ORDER BY altm__commercial_alert_end_date__c DESC</value>
     </values>
     <values>
         <field>HeadActions__c</field>
@@ -83,7 +83,7 @@
         <field>Settings__c</field>
         <value xsi:type="xsd:string">{
 &quot;readClassName&quot;: &quot;BE_SM_DiscaredAlerts_cls&quot;,
-&quot;hideViewAll&quot;: true
+&quot;hideViewAll&quot;: false
 }</value>
     </values>
     <values>
