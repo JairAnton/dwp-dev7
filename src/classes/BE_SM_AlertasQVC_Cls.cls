@@ -9,7 +9,7 @@
    2021-05-07  GRDA 	gerson.diaz@bbva.com		    	Creation
    -------------------------------------------------------------------------------------------------
  */
-public without sharing class BE_SM_AlertasQVC_Cls implements slmt.Sales_Meeting_Item_Details_Itf {
+global without sharing class BE_SM_AlertasQVC_Cls implements slmt.Sales_Meeting_Item_Details_Itf {
     
     /** @Description  TODAY*/
     private static final Date TODAY = Date.today();
