@@ -15,6 +15,6 @@ public with sharing class BE_SM_ActivesAlerts_cls extends BE_SingleRelatedListCR
 	 * @Description  method readRecords
 	 */
 	public override BE_SingleRelatedListCRUD_Cls.Response readRecords(Map<String,Object> params) {
-        return BE_SM_Alerts_helper.getSMAlerts(new Set<String>{'01','02','03', '04'}, params);
+        return BE_SM_Alerts_helper.getSMAlerts(new Set<String>{'01','02'}, params);
     }
 }

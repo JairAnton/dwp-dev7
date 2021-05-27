@@ -73,7 +73,7 @@ global without sharing class BE_SM_AlertasQVC_Cls implements slmt.Sales_Meeting_
         Final List<Map<String,String>> lstReturn = new List<Map<String,String>>();
         lstReturn.add(createItem(new List<String>{'', 'Alertas', '08', cardId}));
         lstReturn.add(createItem(new List<String>{'Del Trimestre', String.valueOf(totalAlerts), '08', cardId}));
-        lstReturn.add(createItem(new List<String>{'Pendiente de Iniciar', String.valueOf(managmentAlerts), '06', cardId}));
+        lstReturn.add(createItem(new List<String>{'Pendiente de Iniciar', String.valueOf(pendingAlerts), '06', cardId}));
         lstReturn.add(createItem(new List<String>{'En Gestión', String.valueOf(managmentAlerts), '06', cardId}));
         return lstReturn;
     }
