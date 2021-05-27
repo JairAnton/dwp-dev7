@@ -5,6 +5,14 @@
  * @group global_hub
  *
  * @description This class contains the methods for the Validations logic of the main button panel 
+ * 
+ * 
+ * * *  * Modification condición 2 para validación de acceso a botonera de oportunidades :<p />
+ * -------------------------------------------------------------------
+ * Developer                    Date                Description<p />
+ * -------------------------------------------------------------------
+ * Jair Anton    			27/05/2021         Modification condición 2 para validación de acceso a botonera de oportunidades <p />
+ * @description PrincipalValidationHub
  **/
 global class PrincipalValidationHub {
 	static final String admin = 'Administrador del sistema';
@@ -32,20 +40,28 @@ global class PrincipalValidationHub {
 	/* User with administrator or opportunity owner profile or user with Executive profile
 	 * and assistant position who is in the same office as the opportunity office.*/
 	global static Boolean Condition2(String recordId) {
-		Final List<Opportunity> opps = [Select Id, OwnerId, Owner.Name, Branch_id__c from Opportunity where Id =:recordId];
-		Final List<User> users = [select Id, prof_position_id__c, prof_position_type__c, Profile.Name, (Select branch_name__c from Users_Branches__r ) from user where Id =:UserInfo.getUserId()];
-		Final List<User_Position_Mapping__mdt> codigos = [select prof_position_id__c, dwp_role__c, profile__c from User_Position_Mapping__mdt where prof_position_id__c =:users[0].prof_position_id__c];
-		if((users[0].profile.Name == admin) || (users[0].profile.Name == sysAdmin) || (opps[0].OwnerId == UserInfo.getUserId())) {
-			return false;
-		} else if(!codigos.isEmpty()) {
-			if((codigos[0].profile__c == executive) && (codigos[0].dwp_role__c == assistant)) {
-				for(User_Branch__c ub : users[0].Users_Branches__r) {
-					if(ub.branch_name__c == opps[0].Branch_id__c) {
-						return false;
-					}
-				}
-			}
+		Final Id currentUser = UserInfo.getUserId();
+		Final List<Opportunity> opps = [SELECT Id, OwnerId, Owner.Name, Account.OwnerId, Account.Owner.ManagerId FROM Opportunity WHERE Id =:recordId];
+		Final List<User_Assistant_Team__c> assistanList = [SELECT Id, assistant_id__c FROM User_Assistant_Team__c WHERE user_id__c =: opps[0].Account.OwnerId];
+		Final List<User> users = [SELECT Id, Profile.Name FROM User WHERE Id =: currentUser];
+		Final List<OpportunityTeamMember> oppTMList = [SELECT UserId FROM OpportunityTeamMember WHERE OpportunityId =: recordId AND OpportunityAccessLevel = 'Edit'];
+
+		Final Set<Id> assistantSet = new Set<Id>();
+		Final Set<Id> oppTMSet = new Set<Id>();
+		
+		for(OpportunityTeamMember oppTM : oppTMList) {
+			oppTMSet.add(oppTM.UserId);
 		}
+
+		for(User_Assistant_Team__c assistant : assistanList){
+			assistantSet.add(assistant.assistant_id__c);
+		}
+
+		if((users[0].Profile.Name == admin) || (users[0].Profile.Name == sysAdmin) || (opps[0].OwnerId == currentUser) || (opps[0].Account.OwnerId == currentUser) ||
+				(opps[0].Account.Owner.ManagerId == currentUser) || oppTMSet.contains(currentUser) || assistantSet.contains(currentUser)) {
+			return false;
+		}
+		
 		return true;
 	}
 
