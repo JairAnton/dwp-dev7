@@ -80,7 +80,7 @@ global class PrincipalValidationHub {
 	global static List<String> Condition3(String recordId) {
 		List<String> lstErrorMessage = new List<String>();
 		Boolean error = false;
-		String tempLabel = '';
+		Map<String, String> tempLabel = new Map<String, String>();
 		Final List<OpportunityLineItem> oli = [SELECT Id, ProductCode, product2id, gipr_Tipo_Garantia__c FROM OpportunityLineItem WHERE OpportunityId = :recordId];
 		Final List<fprd__GBL_Product_Configuration__c> mdtList = [select Id, fprd__Values_control_field__c, fprd__LoV_labels__c, fprd__LoV_values__c, fprd__Visibility_control_field__c,
 		                                                          fprd__map_field__c, fprd__Visibility_control_value__c, fprd__product__c, fprd__DeveloperName__c, fprd__Label__c
@@ -113,7 +113,7 @@ global class PrincipalValidationHub {
 	}
     
     /* Condition3: Valida condición de 1er nivel (corrección por Sonar) */
-    global static void condition3Validation(Map<String, fprd__GBL_Product_Configuration__c> mapProductConfig, fprd__GBL_Product_Configuration__c mdt, List<OpportunityLineItem> oliInfo, String tempLabel, List<String> lstErrorMessage) {
+    global static void condition3Validation(Map<String, fprd__GBL_Product_Configuration__c> mapProductConfig, fprd__GBL_Product_Configuration__c mdt, List<OpportunityLineItem> oliInfo, Map<String, String> tempLabel, List<String> lstErrorMessage) {
         if(mapProductConfig.get(mdt.fprd__Visibility_control_field__c) != null && oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c) != null &&
            oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c) != '') {
                List<String> childParentValues = mapProductConfig.get(mdt.fprd__DeveloperName__c).fprd__Visibility_control_value__c.split(',');
@@ -121,7 +121,7 @@ global class PrincipalValidationHub {
                List<String> labels = mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__LoV_labels__c.split(',');
                for(Integer i = 0; i < values.size(); i++) {
                    if(values[i] == oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c)) {
-                       tempLabel = labels.get(i);
+                       tempLabel.put(labels.get(i), labels.get(i));
                    }
                }
                for(String s : childParentValues) {
@@ -131,8 +131,8 @@ global class PrincipalValidationHub {
     }
     
     /* Condition3: Valida una condicional de 3er nivel (corrección por Sonar) */
-    global static void condition3ValidationChildParent(fprd__GBL_Product_Configuration__c mdt, List<OpportunityLineItem> oliInfo, String s, String tempLabel, List<String> lstErrorMessage) {
-        if(s == tempLabel) {
+    global static void condition3ValidationChildParent(fprd__GBL_Product_Configuration__c mdt, List<OpportunityLineItem> oliInfo, String s, Map<String, String> tempLabel, List<String> lstErrorMessage) {
+        if(s == tempLabel.get(s)) {
             if(oliInfo[0].get(mdt.fprd__map_field__c) == null) {
                 lstErrorMessage.add(Label.Error_validation_031 + ' ' + mdt.fprd__Label__c);
             }
@@ -144,7 +144,7 @@ global class PrincipalValidationHub {
 	global static list<String> Condition4(String recordId) {
 		List<String> lstErrorMessage = new List<String>();
 		Boolean error = false;
-		String tempLabel = '';
+		Map<String, String> tempLabel = new Map<String, String> ();
 		Final List<OpportunityLineItem> oli = [SELECT Id, ProductCode, product2id, gipr_Tipo_Garantia__c FROM OpportunityLineItem WHERE OpportunityId = :recordId];
 		Final List<fprd__GBL_Product_Configuration__c> mdtList = [select Id, fprd__Values_control_field__c, fprd__LoV_labels__c, fprd__LoV_values__c, fprd__Visibility_control_field__c,
 		                                                          fprd__map_field__c, fprd__Visibility_control_value__c, fprd__product__c, fprd__DeveloperName__c, fprd__Label__c,
@@ -173,7 +173,7 @@ global class PrincipalValidationHub {
 	}
     
     /* Condition4: Valida condición de 1er nivel (corrección por Sonar) */
-    global static void condition4Validation(Map<String, fprd__GBL_Product_Configuration__c> mapProductConfig, fprd__GBL_Product_Configuration__c mdt, List<OpportunityLineItem> oliInfo, String tempLabel, List<String> lstErrorMessage) {
+    global static void condition4Validation(Map<String, fprd__GBL_Product_Configuration__c> mapProductConfig, fprd__GBL_Product_Configuration__c mdt, List<OpportunityLineItem> oliInfo, Map<String, String> tempLabel, List<String> lstErrorMessage) {
     	if(mapProductConfig.get(mdt.fprd__Visibility_control_field__c) != null && oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c) != null &&
            oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c) != '') {
                List<String> childParentValues = mapProductConfig.get(mdt.fprd__DeveloperName__c).fprd__Visibility_control_value__c.split(',');
@@ -181,7 +181,7 @@ global class PrincipalValidationHub {
                List<String> labels = mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__LoV_labels__c.split(',');
                for(Integer i = 0; i < values.size(); i++) {
                    if(values[i] == oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c)) {
-                       tempLabel = labels.get(i);
+                       tempLabel.put(labels.get(i), labels.get(i));
                    }
                }
                for(String s : childParentValues) {
@@ -191,8 +191,8 @@ global class PrincipalValidationHub {
     }
     
     /* Condition4: Valida una condicional de 3er nivel (corrección por Sonar) */
-    global static void condition4ValidationChildParent(fprd__GBL_Product_Configuration__c mdt, List<OpportunityLineItem> oliInfo, String s, String tempLabel, List<String> lstErrorMessage) {
-        if(s == tempLabel) {
+    global static void condition4ValidationChildParent(fprd__GBL_Product_Configuration__c mdt, List<OpportunityLineItem> oliInfo, String s, Map<String, String> tempLabel, List<String> lstErrorMessage) {
+        if(s == tempLabel.get(s)) {
             if((oliInfo[0].get(mdt.fprd__map_field__c) == null) && (mdt.fprd__Section_order__c == 1)) {
                 lstErrorMessage.add(Label.Error_validation_031 + ' ' + mdt.fprd__Label__c);
             }
