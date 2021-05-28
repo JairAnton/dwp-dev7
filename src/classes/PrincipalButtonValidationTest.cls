@@ -479,7 +479,7 @@ private class PrincipalButtonValidationTest {
     /*
 	 * @Description  Test Condition1
 	 */
-	@isTest
+	/*@isTest
     static void testCondition1() {
 		methodForTesting();
 		oli1.gipr_Tipo_Garantia__c = '01';//dineraria
@@ -494,7 +494,7 @@ private class PrincipalButtonValidationTest {
 		}
         Test.stopTest();
         System.assertEquals(false, response, 'Correcto');
-	}
+	}*/
     
     /*
 	 * @Description  Test Condition3

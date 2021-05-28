@@ -22,7 +22,7 @@ global class PrincipalValidationHub {
 	static final String operative = 'Operativo';
 
 	// User with administrator profile or opportunity owner user
-	global static Boolean Condition1(String recordId) {
+	/*global static Boolean Condition1(String recordId) {
 		Final List<Opportunity> opps = [Select Id, OwnerId, Owner.Name, Branch_id__c, Account.OwnerId from Opportunity where Id =:recordId];
 		Final Set<Id> idsValid = new Set<Id>();
         idsValid.add(opps[0].Account.OwnerId);
@@ -35,7 +35,7 @@ global class PrincipalValidationHub {
 			result = false;
 		}
 		return result;
-	}
+	}*/
 
 	/* system admin, opp owner, account owner, user assistant team,  opp team member with access level read/write, client manager */
 	global static Boolean Condition2(String recordId) {
@@ -57,21 +57,16 @@ global class PrincipalValidationHub {
 			assistantSet.add(assist.assistant_id__c);
 		}
 
-		if(assistantSet.contains(currentUser) || validatePermissionOpps(opps, currentUser) || validatePermissionUser(users, oppTMSet, currentUser)) {
+        if(users[0].Profile.Name == admin || users[0].Profile.Name == sysAdmin || assistantSet.contains(currentUser) || validatePermissionOpps(opps, currentUser, oppTMSet)) {
             result = false;
 		}
 		
 		return result;
 	}
 	
-    /* Valida usuarios que acceden a las oportunidades */
-	global static Boolean validatePermissionOpps(List<Opportunity> opps, Id currentUser) {
-		return opps[0].OwnerId == currentUser || opps[0].Account.OwnerId == currentUser || opps[0].Account.Owner.ManagerId == currentUser;
-	}
-
-    /* Valida usuarios que coinciden a perfiles de System Admin y que pertenecezcan al equipo de oportunidades */
-	global static Boolean validatePermissionUser(List<User> users, Set<Id> oppTMSet, Id currentUser) {
-		return users[0].Profile.Name == admin || users[0].Profile.Name == sysAdmin || oppTMSet.contains(currentUser);
+    /* Valida usuarios que acceden a las oportunidades y que pertenecezcan al equipo de oportunidades */
+	global static Boolean validatePermissionOpps(List<Opportunity> opps, Id currentUser, Set<Id> oppTMSet) {
+		return opps[0].OwnerId == currentUser || opps[0].Account.OwnerId == currentUser || opps[0].Account.Owner.ManagerId == currentUser || oppTMSet.contains(currentUser);
 	}
     
 	/* All the fields of the product filled in (dynamic according to the configuration of the product's
@@ -97,7 +92,9 @@ global class PrincipalValidationHub {
 		List<OpportunityLineItem> oliInfo = Database.query('Select Id, ' + String.join(lstFields, ',') + ' FROM OpportunityLineItem WHERE OpportunityId = \'' + recordId + '\'');
 		for(fprd__GBL_Product_Configuration__c mdt : mdtList) {
 			if(mdt.fprd__Visibility_control_field__c != null && mdt.fprd__Visibility_control_field__c != '' && mdt.fprd__map_field__c != null) {
-				condition3Validation(mapProductConfig, mdt, oliInfo, tempLabel, lstErrorMessage);
+                List<String> childParentValues = new List<String>();
+				conditionValidation(mapProductConfig, mdt, oliInfo, tempLabel, lstErrorMessage, childParentValues);
+                condition3ValidationChildParent(mdt, oliInfo, tempLabel, lstErrorMessage, childParentValues);
 			} else if(mdt.fprd__map_field__c != null && mdt.fprd__map_field__c != '') {
 				if(oliInfo[0].get(mdt.fprd__map_field__c) == null) {
 					lstErrorMessage.add(Label.Error_validation_031 + ' ' + mdt.fprd__Label__c);
@@ -112,29 +109,13 @@ global class PrincipalValidationHub {
 		return lstErrorMessage;
 	}
     
-    /* Condition3: Valida condición de 1er nivel (corrección por Sonar) */
-    global static void condition3Validation(Map<String, fprd__GBL_Product_Configuration__c> mapProductConfig, fprd__GBL_Product_Configuration__c mdt, List<OpportunityLineItem> oliInfo, Map<String, String> tempLabel, List<String> lstErrorMessage) {
-        if(mapProductConfig.get(mdt.fprd__Visibility_control_field__c) != null && oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c) != null &&
-           oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c) != '') {
-               List<String> childParentValues = mapProductConfig.get(mdt.fprd__DeveloperName__c).fprd__Visibility_control_value__c.split(',');
-               List<String> values = mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__LoV_values__c.split(',');
-               List<String> labels = mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__LoV_labels__c.split(',');
-               for(Integer i = 0; i < values.size(); i++) {
-                   if(values[i] == oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c)) {
-                       tempLabel.put(labels.get(i), labels.get(i));
-                   }
-               }
-               for(String s : childParentValues) {
-                   condition3ValidationChildParent(mdt, oliInfo, s, tempLabel, lstErrorMessage);
-               }
-           }
-    }
-    
     /* Condition3: Valida una condicional de 3er nivel (corrección por Sonar) */
-    global static void condition3ValidationChildParent(fprd__GBL_Product_Configuration__c mdt, List<OpportunityLineItem> oliInfo, String s, Map<String, String> tempLabel, List<String> lstErrorMessage) {
-        if(s == tempLabel.get(s)) {
-            if(oliInfo[0].get(mdt.fprd__map_field__c) == null) {
-                lstErrorMessage.add(Label.Error_validation_031 + ' ' + mdt.fprd__Label__c);
+    global static void condition3ValidationChildParent(fprd__GBL_Product_Configuration__c mdt, List<OpportunityLineItem> oliInfo, Map<String, String> tempLabel, List<String> lstErrorMessage, List<String> childParentValues) {
+        for(String s : childParentValues) {
+            if(s == tempLabel.get(s)) {
+                if(oliInfo[0].get(mdt.fprd__map_field__c) == null) {
+                    lstErrorMessage.add(Label.Error_validation_031 + ' ' + mdt.fprd__Label__c);
+                }
             }
         }
     }
@@ -162,7 +143,9 @@ global class PrincipalValidationHub {
 		final List<OpportunityLineItem> oliInfo = Database.query('Select Id, Product2.ProductCode, ' + String.escapeSingleQuotes(String.join(lstFields, ',')) + ' FROM OpportunityLineItem WHERE OpportunityId = :recordId');
 		for(fprd__GBL_Product_Configuration__c mdt : mdtList) {
 			if(mdt.fprd__Visibility_control_field__c != null && mdt.fprd__Visibility_control_field__c != '' && mdt.fprd__map_field__c != null) {
-				condition4Validation(mapProductConfig, mdt, oliInfo, tempLabel, lstErrorMessage);
+                List<String> childParentValues = new List<String>();
+				conditionValidation(mapProductConfig, mdt, oliInfo, tempLabel, lstErrorMessage, childParentValues);
+                condition4ValidationChildParent(mdt, oliInfo, tempLabel, lstErrorMessage, childParentValues);
 			} else if((mdt.fprd__map_field__c != null && mdt.fprd__map_field__c != '') && (mdt.fprd__Section_order__c == 1)) {
 				if(oliInfo[0].get(mdt.fprd__map_field__c) == null && !((oliInfo[0].Product2.ProductCode == 'PC00011' || oliInfo[0].Product2.ProductCode == 'PC00012') && (mdt.fprd__map_field__c == 'tcf_beneficiary__c' || mdt.fprd__map_field__c == 'tcf_Legal_VB_text__c'))) {
 					lstErrorMessage.add(Label.Error_validation_031 + ' ' + mdt.fprd__Label__c);
@@ -172,11 +155,11 @@ global class PrincipalValidationHub {
 		return lstErrorMessage;
 	}
     
-    /* Condition4: Valida condición de 1er nivel (corrección por Sonar) */
-    global static void condition4Validation(Map<String, fprd__GBL_Product_Configuration__c> mapProductConfig, fprd__GBL_Product_Configuration__c mdt, List<OpportunityLineItem> oliInfo, Map<String, String> tempLabel, List<String> lstErrorMessage) {
+    /* Condition 3 y 4: Valida condición de 1er nivel (corrección por Sonar) */
+    global static void conditionValidation(Map<String, fprd__GBL_Product_Configuration__c> mapProductConfig, fprd__GBL_Product_Configuration__c mdt, List<OpportunityLineItem> oliInfo, Map<String, String> tempLabel, List<String> lstErrorMessage, List<String> childParentValues) {
     	if(mapProductConfig.get(mdt.fprd__Visibility_control_field__c) != null && oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c) != null &&
            oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c) != '') {
-               List<String> childParentValues = mapProductConfig.get(mdt.fprd__DeveloperName__c).fprd__Visibility_control_value__c.split(',');
+               childParentValues = mapProductConfig.get(mdt.fprd__DeveloperName__c).fprd__Visibility_control_value__c.split(',');
                List<String> values = mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__LoV_values__c.split(',');
                List<String> labels = mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__LoV_labels__c.split(',');
                for(Integer i = 0; i < values.size(); i++) {
@@ -184,17 +167,16 @@ global class PrincipalValidationHub {
                        tempLabel.put(labels.get(i), labels.get(i));
                    }
                }
-               for(String s : childParentValues) {
-                   condition4ValidationChildParent(mdt, oliInfo, s, tempLabel, lstErrorMessage);
-               }
            }
     }
     
     /* Condition4: Valida una condicional de 3er nivel (corrección por Sonar) */
-    global static void condition4ValidationChildParent(fprd__GBL_Product_Configuration__c mdt, List<OpportunityLineItem> oliInfo, String s, Map<String, String> tempLabel, List<String> lstErrorMessage) {
-        if(s == tempLabel.get(s)) {
-            if((oliInfo[0].get(mdt.fprd__map_field__c) == null) && (mdt.fprd__Section_order__c == 1)) {
-                lstErrorMessage.add(Label.Error_validation_031 + ' ' + mdt.fprd__Label__c);
+    global static void condition4ValidationChildParent(fprd__GBL_Product_Configuration__c mdt, List<OpportunityLineItem> oliInfo, Map<String, String> tempLabel, List<String> lstErrorMessage, List<String> childParentValues) {
+        for(String s : childParentValues) {
+            if(s == tempLabel.get(s)) {
+                if((oliInfo[0].get(mdt.fprd__map_field__c) == null) && (mdt.fprd__Section_order__c == 1)) {
+                    lstErrorMessage.add(Label.Error_validation_031 + ' ' + mdt.fprd__Label__c);
+                }
             }
         }
     }
