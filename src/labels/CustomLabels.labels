@@ -276,13 +276,6 @@
         <value>Elevar</value>
     </labels>
     <labels>
-        <fullName>Ask_for_validationTactico</fullName>
-        <language>en_US</language>
-        <protected>true</protected>
-        <shortDescription>Ask for validation</shortDescription>
-        <value>Ask for validation</value>
-    </labels>
-    <labels>
         <fullName>BE_AP_NewButton</fullName>
         <language>en_US</language>
         <protected>false</protected>
