@@ -16,7 +16,9 @@ global class PrincipalValidationHub {
 	static final String executive = 'Ejecutivo';
 	static final String assistant = 'Assistant';
 	static final String operative = 'Operativo';
+    /* variable para validar el método3 que debe ingresar */
     public static final Integer CONDITION_3 = 3;
+    /* variable para validar el método4 que debe ingresar */
     public static final Integer CONDITION_4 = 4;
 
 	/* system admin, opp owner, account owner, user assistant team,  opp team member with access level read/write, client manager */
@@ -105,7 +107,7 @@ global class PrincipalValidationHub {
 	global static list<String> Condition4(String recordId) {
 		List<String> lstErrorMessage = new List<String>();
 		Boolean error = false;
-		Map<String, String> tempLabel = new Map<String, String> ();
+		Final Map<String, String> tempLabel = new Map<String, String> ();
 		Final List<OpportunityLineItem> oli = [SELECT Id, ProductCode, product2id, gipr_Tipo_Garantia__c FROM OpportunityLineItem WHERE OpportunityId = :recordId];
 		Final List<fprd__GBL_Product_Configuration__c> mdtList = [select Id, fprd__Values_control_field__c, fprd__LoV_labels__c, fprd__LoV_values__c, fprd__Visibility_control_field__c,
 		                                                          fprd__map_field__c, fprd__Visibility_control_value__c, fprd__product__c, fprd__DeveloperName__c, fprd__Label__c,
