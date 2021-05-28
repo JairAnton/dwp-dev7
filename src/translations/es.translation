@@ -145,8 +145,12 @@
         <name>AccountRankingClassification3</name>
     </customLabels>
     <customLabels>
-        <label>Elevar</label>
+        <label><!-- Ask_for_validation --></label>
         <name>Ask_for_validation</name>
+    </customLabels>
+    <customLabels>
+        <label>Elevar</label>
+        <name>Ask_for_validationTactico</name>
     </customLabels>
     <customLabels>
         <label>Por favor ingresar valores correctos.</label>
