@@ -92,9 +92,7 @@ global class PrincipalValidationHub {
 		List<OpportunityLineItem> oliInfo = Database.query('Select Id, ' + String.join(lstFields, ',') + ' FROM OpportunityLineItem WHERE OpportunityId = \'' + recordId + '\'');
 		for(fprd__GBL_Product_Configuration__c mdt : mdtList) {
 			if(mdt.fprd__Visibility_control_field__c != null && mdt.fprd__Visibility_control_field__c != '' && mdt.fprd__map_field__c != null) {
-                List<String> childParentValues = new List<String>();
-				conditionValidation(mapProductConfig, mdt, oliInfo, tempLabel, lstErrorMessage, childParentValues);
-                condition3ValidationChildParent(mdt, oliInfo, tempLabel, lstErrorMessage, childParentValues);
+				conditionValidation(mapProductConfig, mdt, oliInfo, tempLabel, lstErrorMessage, 3);
 			} else if(mdt.fprd__map_field__c != null && mdt.fprd__map_field__c != '') {
 				if(oliInfo[0].get(mdt.fprd__map_field__c) == null) {
 					lstErrorMessage.add(Label.Error_validation_031 + ' ' + mdt.fprd__Label__c);
@@ -143,9 +141,7 @@ global class PrincipalValidationHub {
 		final List<OpportunityLineItem> oliInfo = Database.query('Select Id, Product2.ProductCode, ' + String.escapeSingleQuotes(String.join(lstFields, ',')) + ' FROM OpportunityLineItem WHERE OpportunityId = :recordId');
 		for(fprd__GBL_Product_Configuration__c mdt : mdtList) {
 			if(mdt.fprd__Visibility_control_field__c != null && mdt.fprd__Visibility_control_field__c != '' && mdt.fprd__map_field__c != null) {
-                List<String> childParentValues = new List<String>();
-				conditionValidation(mapProductConfig, mdt, oliInfo, tempLabel, lstErrorMessage, childParentValues);
-                condition4ValidationChildParent(mdt, oliInfo, tempLabel, lstErrorMessage, childParentValues);
+				conditionValidation(mapProductConfig, mdt, oliInfo, tempLabel, lstErrorMessage, 4);
 			} else if((mdt.fprd__map_field__c != null && mdt.fprd__map_field__c != '') && (mdt.fprd__Section_order__c == 1)) {
 				if(oliInfo[0].get(mdt.fprd__map_field__c) == null && !((oliInfo[0].Product2.ProductCode == 'PC00011' || oliInfo[0].Product2.ProductCode == 'PC00012') && (mdt.fprd__map_field__c == 'tcf_beneficiary__c' || mdt.fprd__map_field__c == 'tcf_Legal_VB_text__c'))) {
 					lstErrorMessage.add(Label.Error_validation_031 + ' ' + mdt.fprd__Label__c);
@@ -156,16 +152,23 @@ global class PrincipalValidationHub {
 	}
     
     /* Condition 3 y 4: Valida condición de 1er nivel (corrección por Sonar) */
-    global static void conditionValidation(Map<String, fprd__GBL_Product_Configuration__c> mapProductConfig, fprd__GBL_Product_Configuration__c mdt, List<OpportunityLineItem> oliInfo, Map<String, String> tempLabel, List<String> lstErrorMessage, List<String> childParentValues) {
+    global static void conditionValidation(Map<String, fprd__GBL_Product_Configuration__c> mapProductConfig, fprd__GBL_Product_Configuration__c mdt, List<OpportunityLineItem> oliInfo, Map<String, String> tempLabel, List<String> lstErrorMessage, Integer conditionNumber) {
     	if(mapProductConfig.get(mdt.fprd__Visibility_control_field__c) != null && oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c) != null &&
            oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c) != '') {
-               childParentValues = mapProductConfig.get(mdt.fprd__DeveloperName__c).fprd__Visibility_control_value__c.split(',');
+               List<String> childParentValues = mapProductConfig.get(mdt.fprd__DeveloperName__c).fprd__Visibility_control_value__c.split(',');
                List<String> values = mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__LoV_values__c.split(',');
                List<String> labels = mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__LoV_labels__c.split(',');
                for(Integer i = 0; i < values.size(); i++) {
                    if(values[i] == oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c)) {
                        tempLabel.put(labels.get(i), labels.get(i));
                    }
+               }
+               
+               if(conditionNumber == 4) {
+                   condition4ValidationChildParent(mdt, oliInfo, tempLabel, lstErrorMessage, childParentValues);
+               }
+               else if(conditionNumber == 3) {
+                   condition3ValidationChildParent(mdt, oliInfo, tempLabel, lstErrorMessage, childParentValues);
                }
            }
     }
