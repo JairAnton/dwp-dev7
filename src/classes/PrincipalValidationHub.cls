@@ -63,13 +63,15 @@ global class PrincipalValidationHub {
 		
 		return result;
 	}
-
+	
+    /* Valida usuarios que acceden a las oportunidades */
 	global static Boolean validatePermissionOpps(List<Opportunity> opps, Id currentUser) {
-		return (opps[0].OwnerId == currentUser || opps[0].Account.OwnerId == currentUser || opps[0].Account.Owner.ManagerId == currentUser);
+		return opps[0].OwnerId == currentUser || opps[0].Account.OwnerId == currentUser || opps[0].Account.Owner.ManagerId == currentUser;
 	}
 
+    /* Valida usuarios que coinciden a perfiles de System Admin y que pertenecezcan al equipo de oportunidades */
 	global static Boolean validatePermissionUser(List<User> users, Set<Id> oppTMSet, Id currentUser) {
-		return (users[0].Profile.Name == admin || users[0].Profile.Name == sysAdmin || oppTMSet.contains(currentUser));
+		return users[0].Profile.Name == admin || users[0].Profile.Name == sysAdmin || oppTMSet.contains(currentUser);
 	}
     
 	/* All the fields of the product filled in (dynamic according to the configuration of the product's
@@ -95,24 +97,7 @@ global class PrincipalValidationHub {
 		List<OpportunityLineItem> oliInfo = Database.query('Select Id, ' + String.join(lstFields, ',') + ' FROM OpportunityLineItem WHERE OpportunityId = \'' + recordId + '\'');
 		for(fprd__GBL_Product_Configuration__c mdt : mdtList) {
 			if(mdt.fprd__Visibility_control_field__c != null && mdt.fprd__Visibility_control_field__c != '' && mdt.fprd__map_field__c != null) {
-				if(mapProductConfig.get(mdt.fprd__Visibility_control_field__c) != null && oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c) != null &&
-				   oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c) != '') {
-					List<String> childParentValues = mapProductConfig.get(mdt.fprd__DeveloperName__c).fprd__Visibility_control_value__c.split(',');
-					List<String> values = mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__LoV_values__c.split(',');
-					List<String> labels = mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__LoV_labels__c.split(',');
-					for(Integer i = 0; i < values.size(); i++) {
-						if(values[i] == oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c)) {
-							tempLabel = labels.get(i);
-						}
-					}
-					for(String s : childParentValues) {
-						if(s == tempLabel) {
-							if(oliInfo[0].get(mdt.fprd__map_field__c) == null) {
-								lstErrorMessage.add(Label.Error_validation_031 + ' ' + mdt.fprd__Label__c);
-							}
-						}
-					}
-				}
+				condition3Validation(mapProductConfig, mdt, oliInfo, tempLabel, lstErrorMessage);
 			} else if(mdt.fprd__map_field__c != null && mdt.fprd__map_field__c != '') {
 				if(oliInfo[0].get(mdt.fprd__map_field__c) == null) {
 					lstErrorMessage.add(Label.Error_validation_031 + ' ' + mdt.fprd__Label__c);
@@ -126,6 +111,33 @@ global class PrincipalValidationHub {
 		if((oli[0].gipr_Tipo_Garantia__c == '01' || oli[0].gipr_Tipo_Garantia__c == '02') && (guaranteeList.size() == 0)) lstErrorMessage.add(Label.Error_validation_033);
 		return lstErrorMessage;
 	}
+    
+    /* Condition3: Valida condición de 1er nivel (corrección por Sonar) */
+    global static void condition3Validation(Map<String, fprd__GBL_Product_Configuration__c> mapProductConfig, fprd__GBL_Product_Configuration__c mdt, List<OpportunityLineItem> oliInfo, String tempLabel, List<String> lstErrorMessage) {
+        if(mapProductConfig.get(mdt.fprd__Visibility_control_field__c) != null && oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c) != null &&
+           oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c) != '') {
+               List<String> childParentValues = mapProductConfig.get(mdt.fprd__DeveloperName__c).fprd__Visibility_control_value__c.split(',');
+               List<String> values = mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__LoV_values__c.split(',');
+               List<String> labels = mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__LoV_labels__c.split(',');
+               for(Integer i = 0; i < values.size(); i++) {
+                   if(values[i] == oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c)) {
+                       tempLabel = labels.get(i);
+                   }
+               }
+               for(String s : childParentValues) {
+                   condition3ValidationChildParent(mdt, oliInfo, s, tempLabel, lstErrorMessage);
+               }
+           }
+    }
+    
+    /* Condition3: Valida una condicional de 3er nivel (corrección por Sonar) */
+    global static void condition3ValidationChildParent(fprd__GBL_Product_Configuration__c mdt, List<OpportunityLineItem> oliInfo, String s, String tempLabel, List<String> lstErrorMessage) {
+        if(s == tempLabel) {
+            if(oliInfo[0].get(mdt.fprd__map_field__c) == null) {
+                lstErrorMessage.add(Label.Error_validation_031 + ' ' + mdt.fprd__Label__c);
+            }
+        }
+    }
 
 	/* All fields in the'General product information' section filled in (dynamic according to the configuration of the product
 	 *  fields - indicate in the error message which fields are still to be filled in). */
@@ -150,24 +162,7 @@ global class PrincipalValidationHub {
 		final List<OpportunityLineItem> oliInfo = Database.query('Select Id, Product2.ProductCode, ' + String.escapeSingleQuotes(String.join(lstFields, ',')) + ' FROM OpportunityLineItem WHERE OpportunityId = :recordId');
 		for(fprd__GBL_Product_Configuration__c mdt : mdtList) {
 			if(mdt.fprd__Visibility_control_field__c != null && mdt.fprd__Visibility_control_field__c != '' && mdt.fprd__map_field__c != null) {
-				if(mapProductConfig.get(mdt.fprd__Visibility_control_field__c) != null && oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c) != null &&
-				   oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c) != '') {
-					List<String> childParentValues = mapProductConfig.get(mdt.fprd__DeveloperName__c).fprd__Visibility_control_value__c.split(',');
-					List<String> values = mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__LoV_values__c.split(',');
-					List<String> labels = mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__LoV_labels__c.split(',');
-					for(Integer i = 0; i < values.size(); i++) {
-						if(values[i] == oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c)) {
-							tempLabel = labels.get(i);
-						}
-					}
-					for(String s : childParentValues) {
-						if(s == tempLabel) {
-							if((oliInfo[0].get(mdt.fprd__map_field__c) == null) && (mdt.fprd__Section_order__c == 1)) {
-								lstErrorMessage.add(Label.Error_validation_031 + ' ' + mdt.fprd__Label__c);
-							}
-						}
-					}
-				}
+				condition4Validation(mapProductConfig, mdt, oliInfo, tempLabel, lstErrorMessage);
 			} else if((mdt.fprd__map_field__c != null && mdt.fprd__map_field__c != '') && (mdt.fprd__Section_order__c == 1)) {
 				if(oliInfo[0].get(mdt.fprd__map_field__c) == null && !((oliInfo[0].Product2.ProductCode == 'PC00011' || oliInfo[0].Product2.ProductCode == 'PC00012') && (mdt.fprd__map_field__c == 'tcf_beneficiary__c' || mdt.fprd__map_field__c == 'tcf_Legal_VB_text__c'))) {
 					lstErrorMessage.add(Label.Error_validation_031 + ' ' + mdt.fprd__Label__c);
@@ -176,6 +171,33 @@ global class PrincipalValidationHub {
 		}
 		return lstErrorMessage;
 	}
+    
+    /* Condition4: Valida condición de 1er nivel (corrección por Sonar) */
+    global static void condition4Validation(Map<String, fprd__GBL_Product_Configuration__c> mapProductConfig, fprd__GBL_Product_Configuration__c mdt, List<OpportunityLineItem> oliInfo, String tempLabel, List<String> lstErrorMessage) {
+    	if(mapProductConfig.get(mdt.fprd__Visibility_control_field__c) != null && oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c) != null &&
+           oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c) != '') {
+               List<String> childParentValues = mapProductConfig.get(mdt.fprd__DeveloperName__c).fprd__Visibility_control_value__c.split(',');
+               List<String> values = mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__LoV_values__c.split(',');
+               List<String> labels = mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__LoV_labels__c.split(',');
+               for(Integer i = 0; i < values.size(); i++) {
+                   if(values[i] == oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c)) {
+                       tempLabel = labels.get(i);
+                   }
+               }
+               for(String s : childParentValues) {
+                   condition4ValidationChildParent(mdt, oliInfo, s, tempLabel, lstErrorMessage);
+               }
+           }
+    }
+    
+    /* Condition4: Valida una condicional de 3er nivel (corrección por Sonar) */
+    global static void condition4ValidationChildParent(fprd__GBL_Product_Configuration__c mdt, List<OpportunityLineItem> oliInfo, String s, String tempLabel, List<String> lstErrorMessage) {
+        if(s == tempLabel) {
+            if((oliInfo[0].get(mdt.fprd__map_field__c) == null) && (mdt.fprd__Section_order__c == 1)) {
+                lstErrorMessage.add(Label.Error_validation_031 + ' ' + mdt.fprd__Label__c);
+            }
+        }
+    }
 
 	// User with administrator profile or with operational profile in the same office as the office of the opportunity.
 	global static Boolean Condition5(String recordId) {

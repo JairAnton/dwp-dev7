@@ -519,8 +519,6 @@ private class PrincipalButtonValidationTest {
         testInterview.fprd__GBL_Opportunity_product__c = opp1.Id;
         insert testInterview;
         
-        Final List<fprd__GBL_Guarantee__c> guaranteeList = [select id from fprd__GBL_Guarantee__c where fprd__GBL_Opportunity_product__c = :opp1.Id];
-        
         List<String> response;
         Test.startTest();
 		System.runAs(executive) {
