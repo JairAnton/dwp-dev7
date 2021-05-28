@@ -279,7 +279,7 @@
         <fullName>Ask_for_validationTactico</fullName>
         <language>en_US</language>
         <protected>true</protected>
-        <shortDescription>Ask for validation2</shortDescription>
+        <shortDescription>Ask for validation.</shortDescription>
         <value>Ask for validation</value>
     </labels>
     <labels>
@@ -452,7 +452,7 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <fullName>Button_Collection_No_ActionsTactico</fullName>
         <language>en_US</language>
         <protected>true</protected>
-        <shortDescription>Button_Collection_No_Actions</shortDescription>
+        <shortDescription>Button_Collection_No_Actions.</shortDescription>
         <value>No actions to apply.</value>
     </labels>
     <labels>
@@ -1329,14 +1329,14 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <fullName>New_Growth_DriverTactico</fullName>
         <language>en_US</language>
         <protected>true</protected>
-        <shortDescription>New_Growth_Driver</shortDescription>
+        <shortDescription>New_Growth_Driver.</shortDescription>
         <value>New Growth Driver</value>
     </labels>
     <labels>
         <fullName>New_NeedTactico</fullName>
         <language>en_US</language>
         <protected>true</protected>
-        <shortDescription>New_Need</shortDescription>
+        <shortDescription>New_Need.</shortDescription>
         <value>New Need</value>
     </labels>
     <labels>
@@ -2752,7 +2752,7 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <fullName>Validation_error_for_fields_not_completed_tactico</fullName>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>Validation error for fields not completed</shortDescription>
+        <shortDescription>Validation error for fields not completed.</shortDescription>
         <value>You must answer the question</value>
     </labels>
 </CustomLabels>
