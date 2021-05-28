@@ -1,18 +1,14 @@
 /**
  * @author bbva.com developers
  * @date 2018
- *
  * @group global_hub
- *
  * @description This class contains the methods for the Validations logic of the main button panel 
- * 
- * 
  * * *  * Modification condición 2 para validación de acceso a botonera de oportunidades :<p />
  * -------------------------------------------------------------------
  * Developer                    Date                Description<p />
  * -------------------------------------------------------------------
- * Jair Anton    			27/05/2021         Modification condición 2 para validación de acceso a botonera de oportunidades, remove condition1 (tiene casi la misma lógica que el condition2) <p />
- * @description PrincipalValidationHub
+ * Jair Anton    			27/05/2021         Modification condición 2 para validación de acceso a botonera de oportunidades
+ * 											   Remove condition1 (tiene casi la misma lógica que el condition2) <p />
  **/
 global class PrincipalValidationHub {
 	static final String admin = 'Administrador del sistema';
@@ -20,8 +16,8 @@ global class PrincipalValidationHub {
 	static final String executive = 'Ejecutivo';
 	static final String assistant = 'Assistant';
 	static final String operative = 'Operativo';
-    static final Integer condition3 = 3;
-    static final Integer condition4 = 4;
+    public static final Integer CONDITION_3 = 3;
+    public static final Integer CONDITION_4 = 4;
 
 	/* system admin, opp owner, account owner, user assistant team,  opp team member with access level read/write, client manager */
 	global static Boolean Condition2(String recordId) {
@@ -150,9 +146,9 @@ global class PrincipalValidationHub {
                    }
                }
                
-               if(conditionNumber == condition4) {
+               if(conditionNumber == CONDITION_4) {
                    condition4ValidationChildParent(mdt, oliInfo, tempLabel, lstErrorMessage, childParentValues);
-               } else if(conditionNumber == condition3) {
+               } else if(conditionNumber == CONDITION_3) {
                    condition3ValidationChildParent(mdt, oliInfo, tempLabel, lstErrorMessage, childParentValues);
                }
            }
