@@ -16,6 +16,7 @@
  * -------------------------------------------------------------------
  * Jair Anton    			27/05/2021         modificación para alcance de cobertura de test<p />
  * @description PrincipalButtonValidationTest
+ 
  **/
 @istest
 private class PrincipalButtonValidationTest {
