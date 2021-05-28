@@ -16,9 +16,9 @@ global class PrincipalValidationHub {
 	static final String executive = 'Ejecutivo';
 	static final String assistant = 'Assistant';
 	static final String operative = 'Operativo';
-    /* variable para validar el método3 que debe ingresar */
+    /* @variable para validar el método3 que debe ingresar */
     public static final Integer CONDITION_3 = 3;
-    /* variable para validar el método4 que debe ingresar */
+    /* @variable para validar el método4 que debe ingresar */
     public static final Integer CONDITION_4 = 4;
 
 	/* system admin, opp owner, account owner, user assistant team,  opp team member with access level read/write, client manager */
