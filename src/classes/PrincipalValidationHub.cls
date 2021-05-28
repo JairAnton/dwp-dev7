@@ -37,8 +37,7 @@ global class PrincipalValidationHub {
 		return result;
 	}
 
-	/* User with administrator or opportunity owner profile or user with Executive profile
-	 * and assistant position who is in the same office as the opportunity office.*/
+	/* system admin, opp owner, account owner, user assistant team,  opp team member with access level read/write, client manager */
 	global static Boolean Condition2(String recordId) {
 		Final Id currentUser = UserInfo.getUserId();
 		Final List<Opportunity> opps = [SELECT Id, OwnerId, Owner.Name, Account.OwnerId, Account.Owner.ManagerId FROM Opportunity WHERE Id =:recordId];
@@ -48,23 +47,31 @@ global class PrincipalValidationHub {
 
 		Final Set<Id> assistantSet = new Set<Id>();
 		Final Set<Id> oppTMSet = new Set<Id>();
+		Boolean result = true;
 		
 		for(OpportunityTeamMember oppTM : oppTMList) {
 			oppTMSet.add(oppTM.UserId);
 		}
 
-		for(User_Assistant_Team__c assistant : assistanList){
-			assistantSet.add(assistant.assistant_id__c);
+		for(User_Assistant_Team__c assist : assistanList) {
+			assistantSet.add(assist.assistant_id__c);
 		}
 
-		if((users[0].Profile.Name == admin) || (users[0].Profile.Name == sysAdmin) || (opps[0].OwnerId == currentUser) || (opps[0].Account.OwnerId == currentUser) ||
-				(opps[0].Account.Owner.ManagerId == currentUser) || oppTMSet.contains(currentUser) || assistantSet.contains(currentUser)) {
-			return false;
+		if(assistantSet.contains(currentUser) || validatePermissionOpps(opps, currentUser) || validatePermissionUser(users, oppTMSet, currentUser)) {
+            result = false;
 		}
 		
-		return true;
+		return result;
 	}
 
+	global static Boolean validatePermissionOpps(List<Opportunity> opps, Id currentUser) {
+		return (opps[0].OwnerId == currentUser || opps[0].Account.OwnerId == currentUser || opps[0].Account.Owner.ManagerId == currentUser);
+	}
+
+	global static Boolean validatePermissionUser(List<User> users, Set<Id> oppTMSet, Id currentUser) {
+		return (users[0].Profile.Name == admin || users[0].Profile.Name == sysAdmin || oppTMSet.contains(currentUser));
+	}
+    
 	/* All the fields of the product filled in (dynamic according to the configuration of the product's
 	 * fields - indicate in the error message which are still to be filled in), at least one participant
 	 *  and if the product has guarantees (type garnatía != No guarantees), at least one guarantee. */

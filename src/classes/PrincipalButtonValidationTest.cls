@@ -16,7 +16,6 @@
  * -------------------------------------------------------------------
  * Jair Anton    			27/05/2021         modificación para alcance de cobertura de test<p />
  * @description PrincipalButtonValidationTest
- 
  **/
 @istest
 private class PrincipalButtonValidationTest {
@@ -92,7 +91,9 @@ private class PrincipalButtonValidationTest {
             fprd__Product__c = product.id, fprd__Section_name__c = 'Criterios de pago y liquidación', fprd__Type__c = LISTA, fprd__LoV_labels__c = 'Al vencimiento,En cuotas,Manual', fprd__LoV_values__c = '01,02,04');
     }
     
-    
+     /*
+	 * @Description  initData like started
+	 */
     public static void initData() {
 		Final Dwp_FormalizationProducts_AAC__c[] prdAssistForm = new Dwp_FormalizationProducts_AAC__c[] {};
 		Final Set<String> prdToForm = new Set<String> {'PC00012', 'PC00011', 'PC00001_Depre', 'PC00005', 'PC00009', 'PC00001'};
@@ -104,10 +105,10 @@ private class PrincipalButtonValidationTest {
 		/*Crea Asistente Operativo*/
 		Final String perfil = [SELECT Id FROM Profile WHERE name = 'Operativo'].Id;
 		Map<Schema.SObjectField, Object> mapFields = new Map<Schema.SObjectField, Object> {User.ProfileId => perfil, User.prof_position_type__c => 'ASISTENTE BEC', User.prof_position_id__c => 'E06'};
-		User userAsistant = TestFactory.getUser(true, mapFields);
+		createUser(true, mapFields);
 		mapFields.put(User.prof_position_type__c, 'SUBGERENTE BEC');
 		mapFields.put(User.prof_position_id__c, 'E04');
-		User userSgof = TestFactory.getUser(true, mapFields);
+		createUser(true, mapFields);
 		Final String perfilExecutive = [SELECT Id FROM Profile WHERE name = 'Ejecutivo'].Id;
 		mapFields = new Map<Schema.SObjectField, Object> {User.ProfileId => perfilExecutive, User.prof_position_type__c => 'EJECUTIVO BEC'};
 		Final User userExecutive = TestFactory.getUser(true, mapFields);
@@ -149,6 +150,22 @@ private class PrincipalButtonValidationTest {
 			insert testLOPP2;
 		}
 	}
+    
+    /* Create User with Dynamic Fields*/
+	public static void createUser(Boolean doInsert, Map<Schema.SObjectField, Object> mapFields) {
+        Final Double random = Math.random();
+		Final User obj = new User(LastName = 'User' + random, Username = 'User' + random + '@user.com.u', Email = 'User' + random + 'user@u.com.u', EmailEncodingKey = 'ISO-8859-1', 
+                                  Alias = String.valueOf(random).substring(0, 3) + 'uAas2', TimeZoneSidKey = 'America/Mexico_City', IsActive = true, LocaleSidKey = 'en_US', LanguageLocaleKey = 'es');
+        
+		for(Schema.SObjectField sfield : mapFields.keySet()) {
+			obj.put(sfield, mapFields.get(sfield));
+		}
+        
+		if(doInsert) {
+			insert obj;
+		}
+	}
+    
     /*
 	 * @Description  rejectOwner
 	 */
@@ -476,7 +493,7 @@ private class PrincipalButtonValidationTest {
 			response = PrincipalValidationHub.condition1(opp1.Id);
 		}
         Test.stopTest();
-        System.assertEquals(false, response);
+        System.assertEquals(false, response, 'Correcto');
 	}
     
     /*
@@ -503,7 +520,6 @@ private class PrincipalButtonValidationTest {
         insert testInterview;
         
         Final List<fprd__GBL_Guarantee__c> guaranteeList = [select id from fprd__GBL_Guarantee__c where fprd__GBL_Opportunity_product__c = :opp1.Id];
-        System.assertEquals(1, guaranteeList.size());
         
         List<String> response;
         Test.startTest();
@@ -511,9 +527,7 @@ private class PrincipalButtonValidationTest {
 			response = PrincipalValidationHub.condition3(opp1.Id);
 		}
         Test.stopTest();
-        system.debug('condition3');
-        System.debug(response);
-        System.assertEquals(0, response.size());
+        System.assertEquals(0, response.size(), 'Correcto');
 	}
     
      /*
@@ -533,7 +547,7 @@ private class PrincipalButtonValidationTest {
 			response = PrincipalValidationHub.condition6(opp1.Id);
 		}
         Test.stopTest();
-        System.assertEquals(true, response);
+        System.assertEquals(true, response, 'Correcto');
 	}
     
      /*
