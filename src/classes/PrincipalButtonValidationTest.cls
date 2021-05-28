@@ -477,26 +477,6 @@ private class PrincipalButtonValidationTest {
 	}
     
     /*
-	 * @Description  Test Condition1
-	 */
-	/*@isTest
-    static void testCondition1() {
-		methodForTesting();
-		oli1.gipr_Tipo_Garantia__c = '01';//dineraria
-		oli1.gipr_Garantia__c = '01';//cuenta en garantia
-		oli1.cpliq_Tipo_amortizacion__c = '02';//En cuotas
-		oli1.cpliq_Amortizacion__c = '01';//Mensual
-		update oli1;
-        Boolean response;
-        Test.startTest();
-		System.runAs(executive) {
-			response = PrincipalValidationHub.condition1(opp1.Id);
-		}
-        Test.stopTest();
-        System.assertEquals(false, response, 'Correcto');
-	}*/
-    
-    /*
 	 * @Description  Test Condition3
 	 */
 	@isTest
@@ -545,7 +525,7 @@ private class PrincipalButtonValidationTest {
 			response = PrincipalValidationHub.condition6(opp1.Id);
 		}
         Test.stopTest();
-        System.assertEquals(true, response, 'Correcto');
+        System.assert(response, 'Correcto');
 	}
     
      /*

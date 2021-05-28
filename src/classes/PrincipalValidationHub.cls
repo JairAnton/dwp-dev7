@@ -11,7 +11,7 @@
  * -------------------------------------------------------------------
  * Developer                    Date                Description<p />
  * -------------------------------------------------------------------
- * Jair Anton    			27/05/2021         Modification condición 2 para validación de acceso a botonera de oportunidades <p />
+ * Jair Anton    			27/05/2021         Modification condición 2 para validación de acceso a botonera de oportunidades, remove condition1 (tiene casi la misma lógica que el condition2) <p />
  * @description PrincipalValidationHub
  **/
 global class PrincipalValidationHub {
@@ -20,22 +20,8 @@ global class PrincipalValidationHub {
 	static final String executive = 'Ejecutivo';
 	static final String assistant = 'Assistant';
 	static final String operative = 'Operativo';
-
-	// User with administrator profile or opportunity owner user
-	/*global static Boolean Condition1(String recordId) {
-		Final List<Opportunity> opps = [Select Id, OwnerId, Owner.Name, Branch_id__c, Account.OwnerId from Opportunity where Id =:recordId];
-		Final Set<Id> idsValid = new Set<Id>();
-        idsValid.add(opps[0].Account.OwnerId);
-        for(User_Assistant_Team__c userAssis : [SELECT Id, assistant_id__c FROM User_Assistant_Team__c WHERE user_id__c =:opps[0].Account.OwnerId]) {
-            idsValid.add(userAssis.assistant_id__c);
-        }
-        Final List<Profile> profiles = [Select Id, Name from profile where Id =:UserInfo.getProfileId()];
-		Boolean result = true;
-		if(profiles[0].Name == admin || profiles[0].Name == sysAdmin || opps[0].OwnerId == UserInfo.getUserId() || idsValid.contains(UserInfo.getUserId())) {
-			result = false;
-		}
-		return result;
-	}*/
+    static final Integer condition3 = 3;
+    static final Integer condition4 = 4;
 
 	/* system admin, opp owner, account owner, user assistant team,  opp team member with access level read/write, client manager */
 	global static Boolean Condition2(String recordId) {
@@ -75,7 +61,7 @@ global class PrincipalValidationHub {
 	global static List<String> Condition3(String recordId) {
 		List<String> lstErrorMessage = new List<String>();
 		Boolean error = false;
-		Map<String, String> tempLabel = new Map<String, String>();
+		Final Map<String, String> tempLabel = new Map<String, String>();
 		Final List<OpportunityLineItem> oli = [SELECT Id, ProductCode, product2id, gipr_Tipo_Garantia__c FROM OpportunityLineItem WHERE OpportunityId = :recordId];
 		Final List<fprd__GBL_Product_Configuration__c> mdtList = [select Id, fprd__Values_control_field__c, fprd__LoV_labels__c, fprd__LoV_values__c, fprd__Visibility_control_field__c,
 		                                                          fprd__map_field__c, fprd__Visibility_control_value__c, fprd__product__c, fprd__DeveloperName__c, fprd__Label__c
@@ -164,10 +150,9 @@ global class PrincipalValidationHub {
                    }
                }
                
-               if(conditionNumber == 4) {
+               if(conditionNumber == condition4) {
                    condition4ValidationChildParent(mdt, oliInfo, tempLabel, lstErrorMessage, childParentValues);
-               }
-               else if(conditionNumber == 3) {
+               } else if(conditionNumber == condition3) {
                    condition3ValidationChildParent(mdt, oliInfo, tempLabel, lstErrorMessage, childParentValues);
                }
            }
