@@ -9,6 +9,13 @@
  * -------------------------------------------------------------------
  * Diego Carbajal    		06/08/2020          modified version.<p />
  * @description PrincipalButtonValidationTest
+ * 
+ * *  * Modification cobertura de condiciones:<p />
+ * -------------------------------------------------------------------
+ * Developer                    Date                Description<p />
+ * -------------------------------------------------------------------
+ * Jair Anton    			27/05/2021         modificación para alcance de cobertura de test<p />
+ * @description PrincipalButtonValidationTest
  **/
 @istest
 private class PrincipalButtonValidationTest {
@@ -83,6 +90,81 @@ private class PrincipalButtonValidationTest {
             fprd__Label__c = 'Tipo amortización', fprd__DeveloperName__c = 'Tipo_amortizacion_PC00005', fprd__Default_value__c = '01', fprd__Map_field__c = 'cpliq_Tipo_amortizacion__c', 
             fprd__Product__c = product.id, fprd__Section_name__c = 'Criterios de pago y liquidación', fprd__Type__c = LISTA, fprd__LoV_labels__c = 'Al vencimiento,En cuotas,Manual', fprd__LoV_values__c = '01,02,04');
     }
+    
+     /*
+	 * @Description  initData like started
+	 */
+    public static void initData() {
+		Final Dwp_FormalizationProducts_AAC__c[] prdAssistForm = new Dwp_FormalizationProducts_AAC__c[] {};
+		Final Set<String> prdToForm = new Set<String> {'PC00012', 'PC00011', 'PC00001_Depre', 'PC00005', 'PC00009', 'PC00001'};
+		for(String prd:prdToForm) {
+			prdAssistForm.add(new Dwp_FormalizationProducts_AAC__c(Name = prd, Product_Code__c = prd));
+		}
+		insert prdAssistForm;
+		Final User admin = [SELECT Id FROM User WHERE Id =: UserInfo.getUserId()];
+		/*Crea Asistente Operativo*/
+		Final String perfil = [SELECT Id FROM Profile WHERE name = 'Operativo'].Id;
+		Map<Schema.SObjectField, Object> mapFields = new Map<Schema.SObjectField, Object> {User.ProfileId => perfil, User.prof_position_type__c => 'ASISTENTE BEC', User.prof_position_id__c => 'E06'};
+		createUser(true, mapFields);
+		mapFields.put(User.prof_position_type__c, 'SUBGERENTE BEC');
+		mapFields.put(User.prof_position_id__c, 'E04');
+		createUser(true, mapFields);
+		Final String perfilExecutive = [SELECT Id FROM Profile WHERE name = 'Ejecutivo'].Id;
+		mapFields = new Map<Schema.SObjectField, Object> {User.ProfileId => perfilExecutive, User.prof_position_type__c => 'EJECUTIVO BEC'};
+		Final User userExecutive = TestFactory.getUser(true, mapFields);
+		//Create Account's
+		Account acc;
+		System.runAs(admin) {
+			mapFields = new Map<Schema.SObjectField, Object> {Account.OwnerId => userExecutive.Id, Account.Name => 'CLIENTE OPORTUNIDAD'};
+			acc = TestFactory.getAccount(true, mapFields);
+
+			//Crear Oportunidad con Producto - 1
+			Final Opportunity testOP = new Opportunity(Name = 'TEST Formalization', stageName = '02', AccountId = acc.Id, CloseDate = Date.today(), Amount = 10000, OwnerId = userExecutive.Id);
+			insert testOP;
+			//Opp 2
+			Final Opportunity testOP2 = new Opportunity(Name = 'TEST Formalization 2', stageName = '02', AccountId = acc.Id, CloseDate = Date.today(), Amount = 10000, OwnerId = userExecutive.Id);
+			insert testOP2;
+
+			Final Product2 testPr = new Product2(Name = 'TestProd', type_of_quote__c = 'COTIZADOR', ProductCode = 'PC00012');
+			insert testPr;
+			//product 2
+			Final Product2 testPr2 = new Product2(Name = 'TestProd', type_of_quote__c = 'COTIZADOR');
+			insert testPr2;
+
+			Final Pricebook2 testPB = new Pricebook2(CurrencyIsoCode = 'PEN', Name = 'MyPrice');
+			insert testPB;
+			Final Id pricebookId = Test.getStandardPricebookId();
+
+			Final PricebookEntry testPE = new PricebookEntry(UnitPrice = 120, CurrencyIsoCode = 'PEN', Pricebook2Id = pricebookId, Product2Id = testPr.Id, IsActive = true);
+			insert testPE;
+
+			Final PricebookEntry testPE2 = new PricebookEntry(UnitPrice = 120, CurrencyIsoCode = 'PEN', Pricebook2Id = pricebookId, Product2Id = testPr2.Id, IsActive = true);
+			insert testPE2;
+
+			Final OpportunityLineItem testLOPP = new OpportunityLineItem(TotalPrice = 120, OpportunityId = testOP.Id, PricebookEntryId = testPE.Id, Quantity = 1, gipr_Tipo_Garantia__c = '03',
+			                                                             Product2Id = testPr.Id);
+			insert testLOPP;
+
+			Final OpportunityLineItem testLOPP2 = new OpportunityLineItem(TotalPrice = 120, OpportunityId = testOP2.Id, PricebookEntryId = testPE2.Id, Quantity = 1, gipr_Tipo_Garantia__c = '03',
+			                                                              Product2Id = testPr2.Id);
+			insert testLOPP2;
+		}
+	}
+    
+    /* Create User with Dynamic Fields*/
+	public static void createUser(Boolean doInsert, Map<Schema.SObjectField, Object> mapFields) {
+        Final Double random = Math.random();
+		Final User obj = new User(LastName = 'User' + random, Username = 'User' + random + '@user.com.u', Email = 'User' + random + 'user@u.com.u', EmailEncodingKey = 'ISO-8859-1', 
+                                  Alias = String.valueOf(random).substring(0, 3) + 'uAas2', TimeZoneSidKey = 'America/Mexico_City', IsActive = true, LocaleSidKey = 'en_US', LanguageLocaleKey = 'es');
+        
+		for(Schema.SObjectField sfield : mapFields.keySet()) {
+			obj.put(sfield, mapFields.get(sfield));
+		}
+        
+		if(doInsert) {
+			insert obj;
+		}
+	}
     
     /*
 	 * @Description  rejectOwner
@@ -392,5 +474,80 @@ private class PrincipalButtonValidationTest {
 		}
         Test.stopTest();
         System.assertEquals(0, response.size());
+	}
+    
+    /*
+	 * @Description  Test Condition3
+	 */
+	@isTest
+    static void testCondition3() {
+		methodForTesting();
+        oli1.gipr_Tipo_Garantia__c = '03';//dineraria
+		oli1.gipr_Garantia__c = '03';//cuenta en garantia
+		oli1.cpliq_Tipo_amortizacion__c = '02';//En cuotas
+		oli1.cpliq_Amortizacion__c = '01';//Mensual
+		update oli1;
+        
+        Final fprd__GBL_Guarantee__c nRow = new fprd__GBL_Guarantee__c();
+        nRow.fprd__GBL_Opportunity_product__c = oli1.OpportunityId;
+        nRow.guarantee_type__c = oli1.gipr_Tipo_Garantia__c;
+        nRow.guarantee_desc__c = oli1.gipr_Garantia__c;
+        nRow.isMaster__c = true;
+        insert nRow;
+        
+        Final fprd__GBL_Intervener__c testInterview = new fprd__GBL_Intervener__c();
+        testInterview.fprd__GBL_Opportunity_product__c = opp1.Id;
+        insert testInterview;
+        
+        List<String> response;
+        Test.startTest();
+		System.runAs(executive) {
+			response = PrincipalValidationHub.condition3(opp1.Id);
+		}
+        Test.stopTest();
+        System.assertEquals(0, response.size(), 'Correcto');
+	}
+    
+     /*
+	 * @Description  Test Condition6
+	 */
+	@isTest
+    static void testCondition6() {
+		methodForTesting();
+		oli1.gipr_Tipo_Garantia__c = '01';//dineraria
+		oli1.gipr_Garantia__c = '01';//cuenta en garantia
+		oli1.cpliq_Tipo_amortizacion__c = '02';//En cuotas
+		oli1.cpliq_Amortizacion__c = '01';//Mensual
+		update oli1;
+        Boolean response;
+        Test.startTest();
+		System.runAs(executive) {
+			response = PrincipalValidationHub.condition6(opp1.Id);
+		}
+        Test.stopTest();
+        System.assert(response, 'Correcto');
+	}
+    
+     /*
+	 * @Description  Test Condition7
+	 */
+    @isTest
+	public static void testCondition7() {
+        initData();
+		Final User ejecutivo = [SELECT ID, isActive FROM User WHERE prof_position_type__c = 'EJECUTIVO BEC' AND isActive = True limit 1];
+		Final User asistente = [SELECT ID, isActive, Name FROM User WHERE prof_position_type__c = 'ASISTENTE BEC' AND isActive = True limit 1];
+		Final Opportunity opp = [SELECT ID FROM Opportunity WHERE Name = 'TEST Formalization' limit 1];
+		System.runAs(ejecutivo) {
+			Product_cls.setFormalization_2(opp.Id, 'btnApprove', 'Comentarios', '');
+		}
+		delete [SELECT Id, Group.DeveloperName FROM GroupMember WHERE UserOrGroupId = : asistente.id];
+		Final Case caso = [SELECT Id FROM Case WHERE RecordType.DeveloperName = 'Formalization'];
+		Boolean validate;
+		Test.startTest();
+		System.runAs(asistente) {
+			validate = PrincipalValidationHub.condition7(caso.id);
+		}
+		Test.stopTest();
+		System.assert(validate, 'Fail');
 	}
 }

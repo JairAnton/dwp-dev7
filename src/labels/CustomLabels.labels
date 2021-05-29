@@ -1904,7 +1904,7 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Error_validation_02</shortDescription>
-        <value>Must be the owner of the opportunity or have an Executive profile, Assistant position and be in the same office as the opportunity</value>
+        <value>You must be a client manager, owner of the opportunity, belong to the Opportunity Management Team (read and write) or be declared as Assistant to the manager.</value>
     </labels>
     <labels>
         <fullName>Error_validation_031</fullName>

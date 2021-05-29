@@ -1,10 +1,14 @@
 /**
  * @author bbva.com developers
  * @date 2018
- *
  * @group global_hub
- *
  * @description This class contains the methods for the Validations logic of the main button panel 
+ * * *  * Modification condición 2 para validación de acceso a botonera de oportunidades :<p />
+ * -------------------------------------------------------------------
+ * Developer                    Date                Description<p />
+ * -------------------------------------------------------------------
+ * Jair Anton    			27/05/2021         Modification condición 2 para validación de acceso a botonera de oportunidades
+ * 											   Remove condition1 (tiene casi la misma lógica que el condition2) <p />
  **/
 global class PrincipalValidationHub {
 	static final String admin = 'Administrador del sistema';
@@ -12,50 +16,50 @@ global class PrincipalValidationHub {
 	static final String executive = 'Ejecutivo';
 	static final String assistant = 'Assistant';
 	static final String operative = 'Operativo';
+    /* @variable para validar el método3 que debe ingresar */
+    public static final Integer CONDITION_3 = 3;
+    /* @variable para validar el método4 que debe ingresar */
+    public static final Integer CONDITION_4 = 4;
 
-	// User with administrator profile or opportunity owner user
-	global static Boolean Condition1(String recordId) {
-		Final List<Opportunity> opps = [Select Id, OwnerId, Owner.Name, Branch_id__c, Account.OwnerId from Opportunity where Id =:recordId];
-		Final Set<Id> idsValid = new Set<Id>();
-        idsValid.add(opps[0].Account.OwnerId);
-        for(User_Assistant_Team__c userAssis : [SELECT Id, assistant_id__c FROM User_Assistant_Team__c WHERE user_id__c =:opps[0].Account.OwnerId]) {
-            idsValid.add(userAssis.assistant_id__c);
-        }
-        Final List<Profile> profiles = [Select Id, Name from profile where Id =:UserInfo.getProfileId()];
+	/* system admin, opp owner, account owner, user assistant team,  opp team member with access level read/write, client manager */
+	global static Boolean Condition2(String recordId) {
+		Final Id currentUser = UserInfo.getUserId();
+		Final List<Opportunity> opps = [SELECT Id, OwnerId, Owner.Name, Account.OwnerId, Account.Owner.ManagerId FROM Opportunity WHERE Id =:recordId];
+		Final List<User_Assistant_Team__c> assistanList = [SELECT Id, assistant_id__c FROM User_Assistant_Team__c WHERE user_id__c =: opps[0].Account.OwnerId];
+		Final List<User> users = [SELECT Id, Profile.Name FROM User WHERE Id =: currentUser];
+		Final List<OpportunityTeamMember> oppTMList = [SELECT UserId FROM OpportunityTeamMember WHERE OpportunityId =: recordId AND OpportunityAccessLevel = 'Edit'];
+
+		Final Set<Id> assistantSet = new Set<Id>();
+		Final Set<Id> oppTMSet = new Set<Id>();
 		Boolean result = true;
-		if(profiles[0].Name == admin || profiles[0].Name == sysAdmin || opps[0].OwnerId == UserInfo.getUserId() || idsValid.contains(UserInfo.getUserId())) {
-			result = false;
+		
+		for(OpportunityTeamMember oppTM : oppTMList) {
+			oppTMSet.add(oppTM.UserId);
 		}
+
+		for(User_Assistant_Team__c assist : assistanList) {
+			assistantSet.add(assist.assistant_id__c);
+		}
+
+        if(users[0].Profile.Name == admin || users[0].Profile.Name == sysAdmin || assistantSet.contains(currentUser) || validatePermissionOpps(opps, currentUser, oppTMSet)) {
+            result = false;
+		}
+		
 		return result;
 	}
-
-	/* User with administrator or opportunity owner profile or user with Executive profile
-	 * and assistant position who is in the same office as the opportunity office.*/
-	global static Boolean Condition2(String recordId) {
-		Final List<Opportunity> opps = [Select Id, OwnerId, Owner.Name, Branch_id__c from Opportunity where Id =:recordId];
-		Final List<User> users = [select Id, prof_position_id__c, prof_position_type__c, Profile.Name, (Select branch_name__c from Users_Branches__r ) from user where Id =:UserInfo.getUserId()];
-		Final List<User_Position_Mapping__mdt> codigos = [select prof_position_id__c, dwp_role__c, profile__c from User_Position_Mapping__mdt where prof_position_id__c =:users[0].prof_position_id__c];
-		if((users[0].profile.Name == admin) || (users[0].profile.Name == sysAdmin) || (opps[0].OwnerId == UserInfo.getUserId())) {
-			return false;
-		} else if(!codigos.isEmpty()) {
-			if((codigos[0].profile__c == executive) && (codigos[0].dwp_role__c == assistant)) {
-				for(User_Branch__c ub : users[0].Users_Branches__r) {
-					if(ub.branch_name__c == opps[0].Branch_id__c) {
-						return false;
-					}
-				}
-			}
-		}
-		return true;
+	
+    /* Valida usuarios que acceden a las oportunidades y que pertenecezcan al equipo de oportunidades */
+	global static Boolean validatePermissionOpps(List<Opportunity> opps, Id currentUser, Set<Id> oppTMSet) {
+		return opps[0].OwnerId == currentUser || opps[0].Account.OwnerId == currentUser || opps[0].Account.Owner.ManagerId == currentUser || oppTMSet.contains(currentUser);
 	}
-
+    
 	/* All the fields of the product filled in (dynamic according to the configuration of the product's
 	 * fields - indicate in the error message which are still to be filled in), at least one participant
 	 *  and if the product has guarantees (type garnatía != No guarantees), at least one guarantee. */
 	global static List<String> Condition3(String recordId) {
 		List<String> lstErrorMessage = new List<String>();
 		Boolean error = false;
-		String tempLabel = '';
+		Final Map<String, String> tempLabel = new Map<String, String>();
 		Final List<OpportunityLineItem> oli = [SELECT Id, ProductCode, product2id, gipr_Tipo_Garantia__c FROM OpportunityLineItem WHERE OpportunityId = :recordId];
 		Final List<fprd__GBL_Product_Configuration__c> mdtList = [select Id, fprd__Values_control_field__c, fprd__LoV_labels__c, fprd__LoV_values__c, fprd__Visibility_control_field__c,
 		                                                          fprd__map_field__c, fprd__Visibility_control_value__c, fprd__product__c, fprd__DeveloperName__c, fprd__Label__c
@@ -72,24 +76,7 @@ global class PrincipalValidationHub {
 		List<OpportunityLineItem> oliInfo = Database.query('Select Id, ' + String.join(lstFields, ',') + ' FROM OpportunityLineItem WHERE OpportunityId = \'' + recordId + '\'');
 		for(fprd__GBL_Product_Configuration__c mdt : mdtList) {
 			if(mdt.fprd__Visibility_control_field__c != null && mdt.fprd__Visibility_control_field__c != '' && mdt.fprd__map_field__c != null) {
-				if(mapProductConfig.get(mdt.fprd__Visibility_control_field__c) != null && oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c) != null &&
-				   oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c) != '') {
-					List<String> childParentValues = mapProductConfig.get(mdt.fprd__DeveloperName__c).fprd__Visibility_control_value__c.split(',');
-					List<String> values = mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__LoV_values__c.split(',');
-					List<String> labels = mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__LoV_labels__c.split(',');
-					for(Integer i = 0; i < values.size(); i++) {
-						if(values[i] == oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c)) {
-							tempLabel = labels.get(i);
-						}
-					}
-					for(String s : childParentValues) {
-						if(s == tempLabel) {
-							if(oliInfo[0].get(mdt.fprd__map_field__c) == null) {
-								lstErrorMessage.add(Label.Error_validation_031 + ' ' + mdt.fprd__Label__c);
-							}
-						}
-					}
-				}
+				conditionValidation(mapProductConfig, mdt, oliInfo, tempLabel, lstErrorMessage, 3);
 			} else if(mdt.fprd__map_field__c != null && mdt.fprd__map_field__c != '') {
 				if(oliInfo[0].get(mdt.fprd__map_field__c) == null) {
 					lstErrorMessage.add(Label.Error_validation_031 + ' ' + mdt.fprd__Label__c);
@@ -103,13 +90,24 @@ global class PrincipalValidationHub {
 		if((oli[0].gipr_Tipo_Garantia__c == '01' || oli[0].gipr_Tipo_Garantia__c == '02') && (guaranteeList.size() == 0)) lstErrorMessage.add(Label.Error_validation_033);
 		return lstErrorMessage;
 	}
+    
+    /* Condition3: Valida una condicional de 3er nivel (corrección por Sonar) */
+    global static void condition3ValidationChildParent(fprd__GBL_Product_Configuration__c mdt, List<OpportunityLineItem> oliInfo, Map<String, String> tempLabel, List<String> lstErrorMessage, List<String> childParentValues) {
+        for(String s : childParentValues) {
+            if(s == tempLabel.get(s)) {
+                if(oliInfo[0].get(mdt.fprd__map_field__c) == null) {
+                    lstErrorMessage.add(Label.Error_validation_031 + ' ' + mdt.fprd__Label__c);
+                }
+            }
+        }
+    }
 
 	/* All fields in the'General product information' section filled in (dynamic according to the configuration of the product
 	 *  fields - indicate in the error message which fields are still to be filled in). */
 	global static list<String> Condition4(String recordId) {
 		List<String> lstErrorMessage = new List<String>();
 		Boolean error = false;
-		String tempLabel = '';
+		Final Map<String, String> tempLabel = new Map<String, String> ();
 		Final List<OpportunityLineItem> oli = [SELECT Id, ProductCode, product2id, gipr_Tipo_Garantia__c FROM OpportunityLineItem WHERE OpportunityId = :recordId];
 		Final List<fprd__GBL_Product_Configuration__c> mdtList = [select Id, fprd__Values_control_field__c, fprd__LoV_labels__c, fprd__LoV_values__c, fprd__Visibility_control_field__c,
 		                                                          fprd__map_field__c, fprd__Visibility_control_value__c, fprd__product__c, fprd__DeveloperName__c, fprd__Label__c,
@@ -127,24 +125,7 @@ global class PrincipalValidationHub {
 		final List<OpportunityLineItem> oliInfo = Database.query('Select Id, Product2.ProductCode, ' + String.escapeSingleQuotes(String.join(lstFields, ',')) + ' FROM OpportunityLineItem WHERE OpportunityId = :recordId');
 		for(fprd__GBL_Product_Configuration__c mdt : mdtList) {
 			if(mdt.fprd__Visibility_control_field__c != null && mdt.fprd__Visibility_control_field__c != '' && mdt.fprd__map_field__c != null) {
-				if(mapProductConfig.get(mdt.fprd__Visibility_control_field__c) != null && oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c) != null &&
-				   oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c) != '') {
-					List<String> childParentValues = mapProductConfig.get(mdt.fprd__DeveloperName__c).fprd__Visibility_control_value__c.split(',');
-					List<String> values = mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__LoV_values__c.split(',');
-					List<String> labels = mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__LoV_labels__c.split(',');
-					for(Integer i = 0; i < values.size(); i++) {
-						if(values[i] == oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c)) {
-							tempLabel = labels.get(i);
-						}
-					}
-					for(String s : childParentValues) {
-						if(s == tempLabel) {
-							if((oliInfo[0].get(mdt.fprd__map_field__c) == null) && (mdt.fprd__Section_order__c == 1)) {
-								lstErrorMessage.add(Label.Error_validation_031 + ' ' + mdt.fprd__Label__c);
-							}
-						}
-					}
-				}
+				conditionValidation(mapProductConfig, mdt, oliInfo, tempLabel, lstErrorMessage, 4);
 			} else if((mdt.fprd__map_field__c != null && mdt.fprd__map_field__c != '') && (mdt.fprd__Section_order__c == 1)) {
 				if(oliInfo[0].get(mdt.fprd__map_field__c) == null && !((oliInfo[0].Product2.ProductCode == 'PC00011' || oliInfo[0].Product2.ProductCode == 'PC00012') && (mdt.fprd__map_field__c == 'tcf_beneficiary__c' || mdt.fprd__map_field__c == 'tcf_Legal_VB_text__c'))) {
 					lstErrorMessage.add(Label.Error_validation_031 + ' ' + mdt.fprd__Label__c);
@@ -153,6 +134,38 @@ global class PrincipalValidationHub {
 		}
 		return lstErrorMessage;
 	}
+    
+    /* Condition 3 y 4: Valida condición de 1er nivel (corrección por Sonar) */
+    global static void conditionValidation(Map<String, fprd__GBL_Product_Configuration__c> mapProductConfig, fprd__GBL_Product_Configuration__c mdt, List<OpportunityLineItem> oliInfo, Map<String, String> tempLabel, List<String> lstErrorMessage, Integer conditionNumber) {
+    	if(mapProductConfig.get(mdt.fprd__Visibility_control_field__c) != null && oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c) != null &&
+           oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c) != '') {
+               List<String> childParentValues = mapProductConfig.get(mdt.fprd__DeveloperName__c).fprd__Visibility_control_value__c.split(',');
+               List<String> values = mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__LoV_values__c.split(',');
+               List<String> labels = mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__LoV_labels__c.split(',');
+               for(Integer i = 0; i < values.size(); i++) {
+                   if(values[i] == oliInfo[0].get(mapProductConfig.get(mdt.fprd__Visibility_control_field__c).fprd__map_field__c)) {
+                       tempLabel.put(labels.get(i), labels.get(i));
+                   }
+               }
+               
+               if(conditionNumber == CONDITION_4) {
+                   condition4ValidationChildParent(mdt, oliInfo, tempLabel, lstErrorMessage, childParentValues);
+               } else if(conditionNumber == CONDITION_3) {
+                   condition3ValidationChildParent(mdt, oliInfo, tempLabel, lstErrorMessage, childParentValues);
+               }
+           }
+    }
+    
+    /* Condition4: Valida una condicional de 3er nivel (corrección por Sonar) */
+    global static void condition4ValidationChildParent(fprd__GBL_Product_Configuration__c mdt, List<OpportunityLineItem> oliInfo, Map<String, String> tempLabel, List<String> lstErrorMessage, List<String> childParentValues) {
+        for(String s : childParentValues) {
+            if(s == tempLabel.get(s)) {
+                if((oliInfo[0].get(mdt.fprd__map_field__c) == null) && (mdt.fprd__Section_order__c == 1)) {
+                    lstErrorMessage.add(Label.Error_validation_031 + ' ' + mdt.fprd__Label__c);
+                }
+            }
+        }
+    }
 
 	// User with administrator profile or with operational profile in the same office as the office of the opportunity.
 	global static Boolean Condition5(String recordId) {
