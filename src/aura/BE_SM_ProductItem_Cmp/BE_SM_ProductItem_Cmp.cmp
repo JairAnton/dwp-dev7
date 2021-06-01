@@ -1,0 +1,4 @@
+<aura:component implements="slmt:Item_Detail_Component_itf,flexipage:availableForAllPageTypes,force:hasRecordId"
+  access="global">
+  <iframe width="100%" height="920" src="https://datastudio.google.com/embed/u/2/reporting/67e6b574-0a3c-45c7-9df0-9934acdee653/page/HemdB" allowfullscreen=""></iframe>
+</aura:component>
