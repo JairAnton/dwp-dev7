@@ -15,12 +15,13 @@ global without sharing class BE_SM_ProductQVC_Cls implements slmt.Sales_Meeting_
 	 */
     public List<Map<String,String>> getCardDetails(sObject contextRecord, String cardId) {
         Final List<Map<String,String>> lstReturn = new List<Map<String,String>>();
-        lstReturn.add(createItem(new List<String>{'', 'Competitividad', '08', cardId}));
-        lstReturn.add(createItem(new List<String>{'', ' ', '06', cardId}));
-        lstReturn.add(createItem(new List<String>{'', ' ', '06', cardId}));
-        lstReturn.add(createItem(new List<String>{'', ' ', '06', cardId}));
-        lstReturn.add(createItem(new List<String>{'', ' ', '06', cardId}));
-        lstReturn.add(createItem(new List<String>{'', ' ', '06', cardId}));
+        lstReturn.add(createItem(new List<String>{'', 'Productividad', '08', cardId}));
+        lstReturn.add(createItem(new List<String>{'Competitividad BEC', ' ', '08', cardId}));
+        lstReturn.add(createItem(new List<String>{' ', ' ', '06', cardId}));
+        lstReturn.add(createItem(new List<String>{' ', ' ', '06', cardId}));
+        lstReturn.add(createItem(new List<String>{' ', ' ', '06', cardId}));
+        lstReturn.add(createItem(new List<String>{' ', ' ', '06', cardId}));
+        lstReturn.add(createItem(new List<String>{' ', ' ', '06', cardId}));
         return lstReturn;
     }
     
