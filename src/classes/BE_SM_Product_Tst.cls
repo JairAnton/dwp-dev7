@@ -44,7 +44,7 @@ public with sharing class BE_SM_Product_Tst {
         Test.startTest();
         Final List<Map<String,String>> lstCard = new BE_SM_ProductQVC_Cls().getCardDetails(salesMeeting, 'cardId');
         Test.stopTest();
-        System.assert(lstCard.size() > 0, 'success getCardDetails!!!');
+        System.assert(!lstCard.isEmpty(), 'success getCardDetails!!!');
     }
     
     /*
