@@ -18,7 +18,7 @@ public class PE_OpportunityLITTriggerHandler extends TriggerHandler {
 		new OpportunityLineItem_Trigger_cls().AsignBeforeInsert(Opps_New);
 		new OpportunityLineItem_Trigger_cls().updateDateLine(Opps_New);
 		new OpportunityLineItem_Trigger_cls().addProductVersion(Opps_New);
-        new OpportunityLineItemHelper_Trigger_cls().validateOppCancellation(Opps_New);
+        OpportunityLineItemHelper_Trigger_cls.validateOppCancellation(Opps_New);
 	}
 
 	public Override void beforeUpdate() {

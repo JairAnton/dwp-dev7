@@ -16,7 +16,7 @@ public without sharing class OpportunityLineItemHelper_Trigger_cls {
 	/**
 	 * Valida las oportunidades de tipo cancelación para ingresar productos de tipo de cotización 'web'
 	 */
-    public void validateOppCancellation(List<OpportunityLineItem> newList) {
+    public static void validateOppCancellation(List<OpportunityLineItem> newList) {
         Final Map<Id, Id> prdBookSet = new Map<Id, Id>();
         Final Map<String, Id> prodNewMap = new Map<String, Id>();
         Final Map<String, Map<Id, Id>> pbookNewMap = new Map<String, Map<Id, Id>>();
@@ -36,7 +36,23 @@ public without sharing class OpportunityLineItemHelper_Trigger_cls {
         /* Obtiene el pricebook y productos de tipo 'web' */ 
         Final List<PricebookEntry> genList = [SELECT Id, Product2Id, Product2.Unique_Id__c, CurrencyIsoCode FROM PricebookEntry WHERE Product2.Type_of_quote__c = 'Web'];
         
-        /* Mapea los uniqueId de los productos con sus ID y filtra por tipo de moneda los pricebooks para obtener un map de productos con el id de los pricebook */
+        getProductPriceBook(genList, prodNewMap, pbookNewMap);
+        
+        Final List<PricebookEntry> pBookList = [SELECT Id, Product2Id, Product2.Unique_Id__c, CurrencyIsoCode FROM PricebookEntry WHERE Product2Id IN : prdBookSet.keySet() AND Id IN : prdBookSet.values()];
+        matchProdPriceBook(pBookList, prodNewMap, pbookNewMap, pBookReplaceMap, prodReplaceMap);
+        
+        /* Reemplaza en caso la oportunidad sea tipo cancelación*/
+        for(OpportunityLineItem oli : newList) {
+            if(oppMap.containsKey(oli.OpportunityId) && prodReplaceMap.containsKey(oli.Product2Id) && pBookReplaceMap.containsKey(oli.PricebookEntryId)) {
+                oli.Product2Id = prodReplaceMap.get(oli.Product2Id);
+                oli.PricebookEntryId = pBookReplaceMap.get(oli.PricebookEntryId);
+            }
+        }
+    }
+    
+    /* Mapea los uniqueId de los productos con sus ID */
+	/* filtra por tipo de moneda los pricebooks para obtener un map de productos con el id de los pricebook */
+    static void getProductPriceBook(List<PricebookEntry> genList, Map<String, Id> prodNewMap, Map<String, Map<Id, Id>> pbookNewMap) {
         for(PricebookEntry item : genList) {
             if(item.Product2.Unique_Id__c != null) {
                 prodNewMap.put(item.Product2.Unique_Id__c.replace('_NEW', ''), item.Product2Id);
@@ -53,29 +69,20 @@ public without sharing class OpportunityLineItemHelper_Trigger_cls {
             
             pbookNewMap.put(item.CurrencyIsoCode, itemMap);
         }
-        
-        Final List<PricebookEntry> pBookList = [SELECT Id, Product2Id, Product2.Unique_Id__c, CurrencyIsoCode FROM PricebookEntry WHERE Product2Id IN : prdBookSet.keySet() AND Id IN : prdBookSet.values()];
-        
-        /* Mapea y guarda los id anteriores con los nuevos id del producto y pricebookEntry*/
+    }
+    
+    /* Mapea y guarda los id anteriores con los nuevos id del producto y pricebookEntry*/
+    static void matchProdPriceBook(List<PricebookEntry> pBookList, Map<String, Id> prodNewMap, Map<String, Map<Id, Id>> pbookNewMap, Map<Id, Id> pBookReplaceMap, Map<Id, Id> prodReplaceMap) {
         for(PricebookEntry pBook : pBookList) {
-            if(prodNewMap.containsKey(pBook.Product2.Unique_Id__c)){
-                Id productNewId = prodNewMap.get(pBook.Product2.Unique_Id__c);
-                Map<Id, Id> currencyMap = pbookNewMap.get(pBook.CurrencyIsoCode);
-                Id priceBookNewId = currencyMap.get(productNewId);
+            if(prodNewMap.containsKey(pBook.Product2.Unique_Id__c)) {
+                Final Id productNewId = prodNewMap.get(pBook.Product2.Unique_Id__c);
+                Final Map<Id, Id> currencyMap = pbookNewMap.get(pBook.CurrencyIsoCode);
+                Final Id priceBookNewId = currencyMap.get(productNewId);
                 
                 prodReplaceMap.put(pBook.Product2Id, productNewId);
                 pBookReplaceMap.put(pBook.Id, priceBookNewId);   
             }
         }
-        
-        /* Reemplaza en caso la oportunidad sea tipo cancelación*/
-        for(OpportunityLineItem oli : newList) {
-            if(oppMap.containsKey(oli.OpportunityId)){
-                if(prodReplaceMap.containsKey(oli.Product2Id) && pBookReplaceMap.containsKey(oli.PricebookEntryId)) {
-                    oli.Product2Id = prodReplaceMap.get(oli.Product2Id);
-                    oli.PricebookEntryId = pBookReplaceMap.get(oli.PricebookEntryId);
-                }
-            }
-        }
     }
+    
 }
