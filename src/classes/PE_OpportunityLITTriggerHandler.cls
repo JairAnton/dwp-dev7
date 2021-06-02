@@ -6,6 +6,7 @@
    Date        Author   Email                  				Type		Description
             ISV												Creation
    2020-07-14  MAMC     martin.mori.contractor@bbva.com    	Modify		add call to method setProductVersion
+   2021-06-02  JOAA		jair.anton.contractor@bbva.com		Modify		add call to method validateOppCancellation
  */
 public class PE_OpportunityLITTriggerHandler extends TriggerHandler {
 	list<OpportunityLineItem> Opps_New = Trigger.new;
@@ -17,6 +18,7 @@ public class PE_OpportunityLITTriggerHandler extends TriggerHandler {
 		new OpportunityLineItem_Trigger_cls().AsignBeforeInsert(Opps_New);
 		new OpportunityLineItem_Trigger_cls().updateDateLine(Opps_New);
 		new OpportunityLineItem_Trigger_cls().addProductVersion(Opps_New);
+        new OpportunityLineItemHelper_Trigger_cls().validateOppCancellation(Opps_New);
 	}
 
 	public Override void beforeUpdate() {
