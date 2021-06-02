@@ -1,5 +1,4 @@
 /**
-   -------------------------------------------------------------------------------------------------
    @Name <OpportunityLineItemHelper_Trigger_cls>
    @Author Jair Anton Atuncar (jair.anton.contractor@bbva.com)
    @Date 2021-06-01
@@ -9,10 +8,11 @@
    2021-06-01  JOAA     jair.anton.contractor@bbva.com    	Creation	Validación de productos para 
 																		carga de oportunidades de tipo cancelación
 	Extensión de la clase (OpportunityLineItem_Trigger_cls), debido a que el sonar admite solo 10 métodos. 
-   -------------------------------------------------------------------------------------------------
  */
 
 public without sharing class OpportunityLineItemHelper_Trigger_cls {
+    
+    private OpportunityLineItemHelper_Trigger_cls() {}
 	/**
 	 * Valida las oportunidades de tipo cancelación para ingresar productos de tipo de cotización 'web'
 	 */
