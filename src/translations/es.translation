@@ -1129,7 +1129,7 @@
         <name>Error_validation_01</name>
     </customLabels>
     <customLabels>
-        <label>Debe ser el propietario de la oportunidad o tener perfil Ejecutivo, cargo Asistente y estar en la misma oficina que la oportunidad</label>
+        <label>Debe ser gestor del cliente, propietario de la oportunidad, pertenecer al Equipo de gestión de la oportunidad (lectura y escritura) o estar declarado como Asistente del gestor.</label>
         <name>Error_validation_02</name>
     </customLabels>
     <customLabels>
