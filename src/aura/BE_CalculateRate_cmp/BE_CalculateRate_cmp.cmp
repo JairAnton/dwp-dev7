@@ -1,105 +1,126 @@
 <aura:component controller="BE_AnalyzeRate_ctrl">
-    <aura:attribute name="recordId" type="String"/>
-    <aura:attribute name="tea" type="String"/>
-    <aura:attribute name="data" type="Object"/>
-    <aura:attribute name="finMarLost" type="double"/>
-    <aura:attribute name="finMarRecover" type="double"/>
-    <aura:attribute name="finMarLostCur" type="String"/>
-    <aura:attribute name="finMarRecoverCur" type="String"/>
-    <aura:attribute name="sugCommitments" type="Object"/>
-    <aura:attribute name="isErrorCal" type="Boolean" default="false" />
-    <aura:attribute name="errorlstCal" type="String" default=""/>
-    <aura:attribute name="disabled" type="String" default="false" />
-    <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
-    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
-    <aura:attribute name="spinner" type="boolean" default="FALSE"/>
-    <aura:attribute name="classHide" type="boolean" default="slds-hide"/>
-     
-    <aura:if isTrue="{!v.spinner}">
-        <div aura:id="spinnerId" class="slds-spinner_container">
-            <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
-                <span class="slds-assistive-text">Loading...</span>
-                <div class="slds-spinner__dot-a"></div>
-                <div class="slds-spinner__dot-b"></div>
-            </div>
+  <aura:attribute name="recordId" type="String" />
+  <aura:attribute name="tea" type="String" />
+  <aura:attribute name="data" type="Object" />
+  <aura:attribute name="finMarLost" type="double" />
+  <aura:attribute name="finMarRecover" type="double" />
+  <aura:attribute name="finMarLostCur" type="String" />
+  <aura:attribute name="finMarRecoverCur" type="String" />
+  <aura:attribute name="sugCommitments" type="Object" />
+  <aura:attribute name="isErrorCal" type="Boolean" default="false" />
+  <aura:attribute name="errorlstCal" type="String" default="" />
+  <aura:attribute name="disabled" type="String" default="false" />
+  <aura:handler event="aura:waiting" action="{!c.showSpinner}" />
+  <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}" />
+  <aura:attribute name="spinner" type="boolean" default="FALSE" />
+  <aura:attribute name="useCommissionsCheckbox" type="boolean" default="false" />
+  <aura:attribute name="classHide" type="boolean" default="slds-hide" />
+  <aura:attribute name="fireEvent" type="boolean" default="false" />
+
+  <aura:if isTrue="{!v.spinner}">
+    <div aura:id="spinnerId" class="slds-spinner_container">
+      <div class="slds-spinner--brand slds-spinner slds-spinner--large slds-is-relative" role="alert">
+        <span class="slds-assistive-text">Loading...</span>
+        <div class="slds-spinner__dot-a"></div>
+        <div class="slds-spinner__dot-b"></div>
+      </div>
+    </div>
+  </aura:if>
+
+  <aura:if isTrue="{!v.isErrorCal}">
+    <div
+      id="idAlertCal"
+      class="{!v.isErrorCal == true ? 'slds-notify slds-notify_error slds-theme_alert-texture slds-theme_warning slds-show' : 'slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning slds-hide'}"
+      role="alert"
+    >
+      <span class="slds-assistive-text">warning</span>
+      <h2>
+        <b><center>Error: {!v.errorlstCal}</center></b>
+      </h2>
+    </div>
+    <aura:set attribute="else">
+      <div id="idAlertInd" class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning" role="alert">
+        <lightning:icon iconName="utility:warning" size="small" variant="bare-inverse" alternativeText="Warning!" title="Warning" />
+        <!--<h2>Actualiza la TEA Propuesta para obtener el Spread y RORC final antes de continuar</h2>-->
+        <h2>Actualiza la TEA Propuesta para obtener el Spread, RORC y las comisiones finales (en caso se hayan solicitado) antes de continuar</h2>
+        <div class="slds-notify__close">
+          <lightning:buttonIcon iconName="utility:close" variant="bare-inverse" onclick="{!c.closeAlertInd}" title="close" alternativeText="Close window" />
         </div>
-    </aura:if>
-    
-    <lightning:layout multipleRows="true" verticalAlign="end">
-        <lightning:layoutItem padding="horizontal-small" size="6">
-            <div class="slds-p-bottom_xx-small"><lightning:input type="number" aura:id="inputTEA" label="TEA Propuesta %" value="{!v.tea}" step="0.01" /></div>
-        </lightning:layoutItem>
-        <lightning:layoutItem padding="horizontal-small" size="6">
-            <div class="slds-p-bottom_xx-small"><lightning:button variant="brand" onclick="{!c.getCal}" aura:id="idUpdateRORC" disabled="{!disabled}">Actualizar</lightning:button></div>
-        </lightning:layoutItem>
-    </lightning:layout>
-    <lightning:layout multipleRows="true" verticalAlign="end">
-        <aura:iteration items="{!v.data}" var="item">
-            <lightning:layoutItem padding="horizontal-small" size="6">
-                <div class="slds-form-element slds-p-bottom_xx-small">
-                    <span class="slds-form-element__label">{!item.labelField}</span>
-                    <div class="slds-form-element__control">
-                        <span class="slds-form-element__static">
-                            <aura:if isTrue="{!(item.typeField == 'PERCENT' || item.typeField == 'DOUBLE')}">
-                                <lightning:formattedNumber value="{!item.valueField}" class="{!item.valueField lt 0 ? 'redColor' : ''}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2"/>
-                                <aura:set attribute="else">
-                                    <aura:if isTrue="{!v.fieldObject.type == 'BOOLEAN'}">
-                                        <ui:outputCheckbox value="{!v.fieldObject.value}"/>
-                                        <aura:set attribute="else">
-                                            <aura:if isTrue="{!v.fieldObject.type == 'DATE'}"> 
-                                                <ui:outputDate value="{!v.fieldObject.value}" />
-                                                <aura:set attribute="else">
-                                                    <aura:if isTrue="{!v.fieldObject.type == 'STRING'}"> 
-                                                        <ui:outputText value="{!v.fieldObject.value}" />
-                                                    </aura:if>
-                                                </aura:set>
-                                            </aura:if>
-                                        </aura:set>
-                                    </aura:if>
-                                </aura:set>
-                            </aura:if>
-                        </span>
-                    </div>
-                </div>
-            </lightning:layoutItem>
-        </aura:iteration>
-    </lightning:layout>
-    <br/>
-    <aura:if isTrue="{!v.isErrorCal}">
-        <div id="idAlertCal" class="{!v.isErrorCal == true ? 'slds-notify slds-notify_error slds-theme_alert-texture slds-theme_warning slds-show' : 'slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning slds-hide'}" role="alert">
-            <span class="slds-assistive-text">warning</span>
-            <h2><b><center>Error: {!v.errorlstCal}</center></b></h2>
+      </div>
+      <br />
+      <br />
+      <div id="idAlertMar" class="{!'slds-notify slds-notify_alert slds-theme_information-texture slds-theme_info '+v.classHide}" role="alert">
+        <div style="width: 100%; display: flex">
+          <div style="text-align: left">
+            <lightning:icon iconName="utility:info" variant="inverse" size="small" alternativeText="Information!" title="Information" />
+          </div>
+          <div style="width: 100%; text-align: center">
+            <div>
+              <h2><b>El margen financiero de esta operación está en pérdida.</b></h2>
+              <h2>Deberás registrar compromisos para captar nuevos recursos.</h2>
+            </div>
+          </div>
         </div>
-        <aura:set attribute="else">
-            <div id="idAlertInd" class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning" role="alert">
-                <!--<span class="slds-assistive-text">warning</span>
-                <span class="slds-icon_container slds-icon-utility-warning slds-m-right_x-small" title="Description of icon when needed">
-                <img class="slds-icon slds-icon_x-small" aria-hidden="true" src="/assets/icons/utility-sprite/svg/symbols.svg#warning"/>
-                </span>-->
-                <lightning:icon iconName="utility:warning" size="small" variant="bare-inverse" alternativeText="Warning!" title="Warning" />
-                <h2>Actualiza la TEA Propuesta para obtener el Spread y RORC final antes de continuar</h2>
-                <div class="slds-notify__close">
-                    <lightning:buttonIcon iconName="utility:close" variant="bare-inverse" onclick="{!c.closeAlertInd}" title="close" alternativeText="Close window"/>
-                </div>
-            </div>
-            <br/>
-            <br/>
-            <div id="idAlertMar" class="{!'slds-notify slds-notify_alert slds-theme_information-texture slds-theme_info '+v.classHide}" role="alert">
-                <div style="width:100%; display:flex;">
-                    <div style="text-align:left;">
-                        <lightning:icon iconName="utility:info" variant="inverse" size="small" alternativeText="Information!" title="Information" />
-                    </div>
-                    <div style="width:100%; text-align:center;">
-                        <div>
-                            <h2><b>El margen financiero de esta operación está en pérdida.</b></h2>
-                            <h2>Deberás registrar compromisos para captar nuevos recursos.</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="slds-notify__close">
-                    <lightning:buttonIcon iconName="utility:close" variant="bare-inverse" onclick="{!c.closeAlertMar}" title="close" alternativeText="Close window"/>
-                </div>
-            </div>
-        </aura:set>
-    </aura:if>
+        <div class="slds-notify__close">
+          <lightning:buttonIcon iconName="utility:close" variant="bare-inverse" onclick="{!c.closeAlertMar}" title="close" alternativeText="Close window" />
+        </div>
+      </div>
+    </aura:set>
+  </aura:if>
+
+  <lightning:layout multipleRows="true" verticalAlign="end">
+    <lightning:layoutItem padding="horizontal-small" size="6">
+      <div class="slds-p-bottom_xx-small"><lightning:input type="number" aura:id="inputTEA" label="TEA Propuesta %" value="{!v.tea}" step="0.01" /></div>
+    </lightning:layoutItem>
+    <lightning:layoutItem padding="horizontal-small" size="6">
+      <div class="slds-p-bottom_xx-small"><lightning:button variant="brand" onclick="{!c.emitCommissionEvent}" aura:id="idUpdateRORC" disabled="{!disabled}">Actualizar</lightning:button></div>
+      <!--onclick="{!c.getCal}"-->
+    </lightning:layoutItem>
+  </lightning:layout>
+  <lightning:layout multipleRows="true" verticalAlign="end">
+    <aura:iteration items="{!v.data}" var="item">
+      <lightning:layoutItem padding="horizontal-small" size="6">
+        <div class="slds-form-element slds-p-bottom_xx-small">
+          <span class="slds-form-element__label">{!item.labelField}</span>
+          <div class="slds-form-element__control">
+            <span class="slds-form-element__static">
+              <aura:if isTrue="{!(item.typeField == 'PERCENT' || item.typeField == 'DOUBLE')}">
+                <lightning:formattedNumber value="{!item.valueField}" class="{!item.valueField lt 0 ? 'redColor' : ''}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2" />
+                <aura:set attribute="else">
+                  <aura:if isTrue="{!v.fieldObject.type == 'BOOLEAN'}">
+                    <ui:outputCheckbox value="{!v.fieldObject.value}" />
+                    <aura:set attribute="else">
+                      <aura:if isTrue="{!v.fieldObject.type == 'DATE'}">
+                        <ui:outputDate value="{!v.fieldObject.value}" />
+                        <aura:set attribute="else">
+                          <aura:if isTrue="{!v.fieldObject.type == 'STRING'}">
+                            <ui:outputText value="{!v.fieldObject.value}" />
+                          </aura:if>
+                        </aura:set>
+                      </aura:if>
+                    </aura:set>
+                  </aura:if>
+                </aura:set>
+              </aura:if>
+            </span>
+          </div>
+        </div>
+      </lightning:layoutItem>
+    </aura:iteration>
+
+    <lightning:layoutItem padding="horizontal-small" size="6">
+      <div class="slds-form-element slds-p-bottom_xx-small">
+        <span class="slds-form-element__label">¿Usar Comisiones?</span>
+
+        <div class="slds-form-element__control">
+          <span class="slds-form-element__static">
+            <ui:inputCheckbox aura:id="useCommissionsCheckbox" change="{!c.onCheckUseCommissions}" />
+          </span>
+        </div>
+      </div>
+    </lightning:layoutItem>
+  </lightning:layout>
+  <aura:if isTrue="{!v.useCommissionsCheckbox}">
+    <c:bE_ProdCommissionSection_Lwc aura:id="prodCommissionSectionId" oncmsEvent="{!c.handlerCommissionCall}" oncalculateEvent="{!c.handleCalculateCommission}" recordId="{!v.recordId}" isEditable="true" requestNegotiables="true" />
+  </aura:if>
 </aura:component>

@@ -1,6 +1,178 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-	<fields>
+    <fields>
+        <label>Analista asignado</label>
+        <name>Assigned_analyst__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plazo --></label>
+        <name>BE_Periodicity__c</name>
+    </fields>
+    <fields>
+        <label><!-- FinancingType --></label>
+        <name>FinancingType__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Pre embarque</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Post embarque</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Sepymex</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Margen financiero de pérdida</label>
+        <name>Liquidity_Margin_Lost__c</name>
+    </fields>
+    <fields>
+        <label><!-- Liquidity Margin Recovered Currency --></label>
+        <name>Liquidity_Margin_Recovered_Currency__c</name>
+    </fields>
+    <fields>
+        <label>Margen financiero recuperado</label>
+        <name>Liquidity_Margin_Recovered__c</name>
+    </fields>
+    <fields>
+        <label><!-- PE_List_Mejorado --></label>
+        <name>PE_List_Mejorado__c</name>
+    </fields>
+    <fields>
+        <label>Modalidad Producto</label>
+        <name>PE_List_Product_mode__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Regular</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Reprogramado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Crédito líquido</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation>Promotor</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05</masterLabel>
+            <translation>Sindicado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06</masterLabel>
+            <translation>Construcción</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>07</masterLabel>
+            <translation>Mobiliario</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>08</masterLabel>
+            <translation>Inmobiliario</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>09</masterLabel>
+            <translation>Credito Puntual</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10</masterLabel>
+            <translation>Compra de deuda</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11</masterLabel>
+            <translation>Pre embarque</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12</masterLabel>
+            <translation>Post embarque</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>13</masterLabel>
+            <translation>Sepymex</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>14</masterLabel>
+            <translation>Refinanciado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>15</masterLabel>
+            <translation>Plan a medida</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>16</masterLabel>
+            <translation>Prorroga</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>17</masterLabel>
+            <translation>Subrogado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>18</masterLabel>
+            <translation>Canal internet</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>19</masterLabel>
+            <translation>Linea</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20</masterLabel>
+            <translation>Nuevo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>21</masterLabel>
+            <translation>Edificio y terreno</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>22</masterLabel>
+            <translation>Maquinaria amarilla</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>23</masterLabel>
+            <translation>Otras maquinarias; equipos y mobiliario</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>24</masterLabel>
+            <translation>Transporte</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Price rates create analyze Id --></label>
+        <name>Price_rates_create_analyze_Id__c</name>
+    </fields>
+    <fields>
+        <label>RAROEC operación (%)</label>
+        <name>RAROEC_Operation__c</name>
+    </fields>
+    <fields>
+        <label>RORC aprobado (%)</label>
+        <name>RORC_Approved__c</name>
+    </fields>
+    <fields>
+        <label>RORC cliente (%)</label>
+        <name>RORC_Client__c</name>
+    </fields>
+    <fields>
+        <label>RORC modelo (%)</label>
+        <name>RORC_Model__c</name>
+    </fields>
+    <fields>
+        <label>RORC de operación (%)</label>
+        <name>RORC_Operation__c</name>
+    </fields>
+    <fields>
+        <label>RORC cliente con TEA propuesta (%)</label>
+        <name>RORC_Updated__c</name>
+    </fields>
+    <fields>
+        <label>Variación del RORC (%)</label>
+        <name>RORC_Variation__c</name>
+    </fields>
+    <fields>
         <label><!-- Siocode --></label>
         <name>Siocode__c</name>
     </fields>
@@ -25,8 +197,33 @@
         </picklistValues>
     </fields>
     <fields>
+        <help><!-- Unique Id --></help>
+        <label><!-- Unique_id --></label>
+        <name>Unique_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Additional spread (%) --></label>
+        <name>additional_apread_per__c</name>
+    </fields>
+    <fields>
+        <label><!-- Additional capital (%) --></label>
+        <name>additional_capital_per__c</name>
+    </fields>
+    <fields>
         <label>Spread (%)</label>
         <name>calculated_spread__c</name>
+    </fields>
+    <fields>
+        <label>Comisión liquidación anticipada (%)</label>
+        <name>cancellation_fee_per__c</name>
+    </fields>
+    <fields>
+        <label><!-- Capital amount --></label>
+        <name>capital_amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Capital currency --></label>
+        <name>capital_currency_id__c</name>
     </fields>
     <fields>
         <label>Amortización</label>
@@ -49,20 +246,80 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- BBVA --></label>
+        <name>cpliq_BBVA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bco. Correponsal --></label>
+        <name>cpliq_Bco_Correspondent__c</name>
+    </fields>
+    <fields>
         <label>Código de simulación</label>
         <name>cpliq_Codigo_Simulacion__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comisión --></label>
+        <name>cpliq_Commission__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Usual</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Ingresada</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Puntual</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation>Flat</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05</masterLabel>
+            <translation>All in</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Cuenta Abono --></label>
+        <name>cpliq_Cuenta_Abono__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cuenta cargo --></label>
+        <name>cpliq_Cuenta_Cargo__c</name>
     </fields>
     <fields>
         <label>Cuenta vinculada</label>
         <name>cpliq_Cuenta_vinculada__c</name>
     </fields>
     <fields>
+        <label><!-- Emisión --></label>
+        <name>cpliq_Emission__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prórroga --></label>
+        <name>cpliq_Extension__c</name>
+    </fields>
+    <fields>
         <label>Fecha de vencimiento</label>
         <name>cpliq_Fecha_Vencimiento__c</name>
     </fields>
     <fields>
+        <label><!-- Incremento --></label>
+        <name>cpliq_Increase__c</name>
+    </fields>
+    <fields>
         <label>Manual</label>
         <name>cpliq_Manual__c</name>
+    </fields>
+    <fields>
+        <label><!-- Negociación --></label>
+        <name>cpliq_Negotiation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pago Dif --></label>
+        <name>cpliq_Payment_Dif__c</name>
     </fields>
     <fields>
         <label>Periodicidad</label>
@@ -97,6 +354,10 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- ROF --></label>
+        <name>cpliq_Rof__c</name>
+    </fields>
+    <fields>
         <label>Tipo de amortización</label>
         <name>cpliq_Tipo_amortizacion__c</name>
         <picklistValues>
@@ -114,6 +375,42 @@
         <picklistValues>
             <masterLabel>04</masterLabel>
             <translation>Manual</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Total --></label>
+        <name>cpliq_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- cpliq_Vcto_tarifa --></label>
+        <name>cpliq_Vcto_tarifa__c</name>
+    </fields>
+    <fields>
+        <label><!-- Forma de Pago --></label>
+        <name>cpliq_Way_to_Pay__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Vista</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Plazo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>Mixta</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- cpliq_liquidacion --></label>
+        <name>cpliq_liquidacion__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Abono en cuenta</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Capitalización</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -749,6 +1046,99 @@
         <name>da_nOperation__c</name>
     </fields>
     <fields>
+        <label>Plazo(s) Operación</label>
+        <name>dlf_Operation_Deadlines__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>15 días</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>30 dias</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation>60 dias</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation>90 dias</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05</masterLabel>
+            <translation>120 dias</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06</masterLabel>
+            <translation>150 dias</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>07</masterLabel>
+            <translation>180 dias</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>08</masterLabel>
+            <translation>210 dias</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>09</masterLabel>
+            <translation>240 dias</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10</masterLabel>
+            <translation>270 dias</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11</masterLabel>
+            <translation>300 dias</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12</masterLabel>
+            <translation>330 dias</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>13</masterLabel>
+            <translation>360 dias</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Efectividad cartera</label>
+        <name>dlf_Portfolio_effectiveness__c</name>
+    </fields>
+    <fields>
+        <label><!-- Efficiency cost (%) --></label>
+        <name>efficiency_cost__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expected loss (%) --></label>
+        <name>expected_loss_per__c</name>
+    </fields>
+    <fields>
+        <label><!-- Financing cost stockholder (%) --></label>
+        <name>financing_cost_stockholder_per__c</name>
+    </fields>
+    <fields>
+        <label><!-- All fields informed --></label>
+        <name>fprd__GBL_All_fields_informed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cloned from ID --></label>
+        <name>fprd__GBL_ClonedFromId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cloned --></label>
+        <name>fprd__GBL_Cloned__c</name>
+    </fields>
+    <fields>
+        <label><!-- Empty visible fields --></label>
+        <name>fprd__GBL_Empty_visible_fields__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product version --></label>
+        <name>fprd__GBL_Product_version__c</name>
+        <relationshipLabel><!-- Opportunity Product --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Sample Checkbox --></label>
         <name>fprd__GBL_Sample_Checkbox__c</name>
     </fields>
@@ -759,6 +1149,14 @@
     <fields>
         <label>Número de contrato</label>
         <name>frm_ContractNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Funding cost adjusted (%) --></label>
+        <name>funding_cost_adjusted_per__c</name>
+    </fields>
+    <fields>
+        <label><!-- Funding cost (%) --></label>
+        <name>funding_cost_per__c</name>
     </fields>
     <fields>
         <label>Opción de compra (Monto)</label>
@@ -774,6 +1172,18 @@
         <picklistValues>
             <masterLabel>02</masterLabel>
             <translation>Monto</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Clase --></label>
+        <name>gipr_Class__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation>Standard</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation>Leasing</translation>
         </picklistValues>
     </fields>
     <fields>
@@ -799,6 +1209,70 @@
     <fields>
         <label>Cuota inicial</label>
         <name>gipr_CuotaInicial__c</name>
+    </fields>
+    <fields>
+        <label><!-- Moneda Destino --></label>
+        <name>gipr_Currency_Destiny__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation><!-- 01 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation><!-- 02 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation><!-- 03 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation><!-- 04 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05</masterLabel>
+            <translation><!-- 05 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06</masterLabel>
+            <translation><!-- 06 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>07</masterLabel>
+            <translation><!-- 07 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Moneda Origen --></label>
+        <name>gipr_Currency_Origin__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation><!-- 01 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation><!-- 02 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation><!-- 03 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation><!-- 04 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05</masterLabel>
+            <translation><!-- 05 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06</masterLabel>
+            <translation><!-- 06 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>07</masterLabel>
+            <translation><!-- 07 --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label>Destino</label>
@@ -1265,6 +1739,107 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- hasCommissions --></label>
+        <name>hasCommissions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Minimum spread (%) --></label>
+        <name>minimum_spread_per__c</name>
+    </fields>
+    <fields>
+        <label>TEA mínima (%)</label>
+        <name>minimun_apr_per__c</name>
+    </fields>
+    <fields>
+        <label>Comisión mínima (%)</label>
+        <name>minimun_fee_per__c</name>
+    </fields>
+    <fields>
+        <label>Error disponibilidad cotización</label>
+        <name>price_availability_check_error__c</name>
+    </fields>
+    <fields>
+        <label>Id operación cotiza</label>
+        <name>price_operation_id__c</name>
+    </fields>
+    <fields>
+        <label>Disponibilidad cotización consultada?</label>
+        <name>price_quote_availability_check__c</name>
+    </fields>
+    <fields>
+        <label>Cotización disponible?</label>
+        <name>price_quote_available__c</name>
+    </fields>
+    <fields>
+        <label>Fecha de sanción</label>
+        <name>price_quote_date__c</name>
+    </fields>
+    <fields>
+        <label>Id Cotiza</label>
+        <name>price_quote_id__c</name>
+    </fields>
+    <fields>
+        <label>Propietario cotización</label>
+        <name>price_quote_owner_id__c</name>
+        <relationshipLabel><!-- Opportunity Product --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Estado cotización</label>
+        <name>price_quote_status_id__c</name>
+    </fields>
+    <fields>
+        <label>Id cálculo tasas</label>
+        <name>price_rates_calculation_Id__c</name>
+    </fields>
+    <fields>
+        <label>Id modelo precios</label>
+        <name>pricing_model_id__c</name>
+    </fields>
+    <fields>
+        <label><!-- product_formalization_indicator --></label>
+        <name>product_formalization_indicator__c</name>
+    </fields>
+    <fields>
+        <label><!-- product_pdf_indicator --></label>
+        <name>product_pdf_indicator__c</name>
+    </fields>
+    <fields>
+        <label><!-- product_price_approval_indicator --></label>
+        <name>product_price_approval_indicator__c</name>
+    </fields>
+    <fields>
+        <label><!-- product_price_approval_method --></label>
+        <name>product_price_approval_method__c</name>
+    </fields>
+    <fields>
+        <label><!-- product_risk_approval_indicator --></label>
+        <name>product_risk_approval_indicator__c</name>
+    </fields>
+    <fields>
+        <label>TEA propuesta (%)</label>
+        <name>proposed_apr_per__c</name>
+    </fields>
+    <fields>
+        <label>Comisión propuesta (%)</label>
+        <name>proposed_fee_per__c</name>
+    </fields>
+    <fields>
+        <label><!-- Regulatory capital (%) --></label>
+        <name>regulatory_capital_per__c</name>
+    </fields>
+    <fields>
+        <label>Comisión estructuración (%)</label>
+        <name>restructuring_fee_per__c</name>
+    </fields>
+    <fields>
+        <label>Spread (%)</label>
+        <name>spread_per__c</name>
+    </fields>
+    <fields>
+        <label>TEA sugerida (%)</label>
+        <name>suggested_apr_per__c</name>
+    </fields>
+    <fields>
         <label>Texto VB° Legal</label>
         <name>tcf_Legal_VB_text__c</name>
         <picklistValues>
@@ -1685,12 +2260,24 @@
         <name>ContractNo_Validation</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- El formato de la cuenta de abono no es correcta, correcto: 0000-0000-000000000 --></errorMessage>
+        <name>Cuenta_Abono_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- El formato de cuenta cargo no es correcta, correcto: 0000-0000-000000000 --></errorMessage>
+        <name>Cuenta_Cargo_Validation</name>
+    </validationRules>
+    <validationRules>
         <errorMessage>Cuenta Vinculada no valida, el formato correcto: 0000-0000-000000000</errorMessage>
         <name>LinkedAccount_Validation</name>
     </validationRules>
     <validationRules>
         <errorMessage>No. de Operación no válido, el formato correcto: 0000-0000-000000000</errorMessage>
         <name>NOperation_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- El plazo debe tener un número no mayor a 3 cifras. --></errorMessage>
+        <name>Plazo_validation_lengh</name>
     </validationRules>
     <validationRules>
         <errorMessage>El valor de la cantidad debe ser positivo y entero.</errorMessage>

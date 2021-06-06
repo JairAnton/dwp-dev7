@@ -1,0 +1,34 @@
+<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf" extends="dwp_mdal:ModalTemplate_cmp" access="GLOBAL" controller="BE_CalculateCommission_Ctr">
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <aura:attribute name="isLoad" type="Boolean" default="false" />
+  <aura:attribute name="hasHeader" type="Boolean" default="false" access="global" description="Allow show header section" />
+  <aura:attribute name="title" type="String" default="{!$Label.c.lblBtnCalculateCommission}" access="global" description="Specify the modal" />
+  <aura:attribute name="isError" type="Boolean" default="false" />
+  <aura:attribute name="closeButton" type="Boolean" default="false" access="global" description="Allow show close icon button" />
+  <aura:attribute name="errorlst" type="String[]" default="" description="List of error messages to be displayed" />
+  <aura:attribute name="modalWidthCustom" type="String" default="70%" />
+  <aura:attribute name="opportunityProducts" type="OpportunityLineItem[]" />
+
+  <aura:if isTrue="{!v.isLoad}">
+    <aura:if isTrue="{!v.isError}">
+      <c:ErrorMessageWS_cmp errorMessagesList="{!v.errorlst}" />
+      <aura:set attribute="else">
+        <div class="slds-modal__content slds-p-around_medium">
+          <lightning:tabset>
+            <aura:iteration items="{!v.opportunityProducts}" var="item">
+              <lightning:tab label="{!item.Product2.Name}" id="{!item.Id}">
+                <c:bE_ProdCommissionSection_Lwc recordId="{!item.Id}" isEditable="true" showCalculateButton="true" />
+              </lightning:tab>
+            </aura:iteration>
+          </lightning:tabset>
+        </div>
+        <footer class="slds-modal__footer slds-theme_default">
+          <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Close}</lightning:button>
+        </footer>
+      </aura:set>
+    </aura:if>
+    <aura:set attribute="else">
+      <lightning:spinner variant="brand" class="slds-is-relative" />
+    </aura:set>
+  </aura:if>
+</aura:component>

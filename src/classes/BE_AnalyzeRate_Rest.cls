@@ -79,6 +79,7 @@ public with sharing class BE_AnalyzeRate_Rest {
                     mapIndicators.put(lstIndicators[x].Id, valueInd.setScale(2));
                 }
             }
+            olis[0].Price_rates_create_analyze_Id__c = jbody.data.id;
             olis[0].RORC_Client__c = mapIndicators.get(Label.PriceWSLabel16);
             olis[0].RORC_Model__c = mapIndicators.get(Label.PriceWSLabel17);
             olis[0].RORC_Variation__c = mapIndicators.get(Label.PriceWSLabel17);

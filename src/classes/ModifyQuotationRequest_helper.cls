@@ -1,7 +1,18 @@
+/**
+ * @author Global_HUB developers
+ * @date 01-08-2018
+ *
+ * @group Global_HUB
+ *
+ * @description Controller class from SanctionPriceDecision_ctrl
+ * @Changes
+ *  Date        Author   Email                  			Type		Description
+ *  2020-11-06  MAMC     martin.mori.contractor@bbva.com	Modify		add method to create quote pdf
+ **/
 public class ModifyQuotationRequest_helper {
 	public ModifyQuotationRequest_Wrapper inputDataMapping;
 	public ModifyQuotationRequest_helper(String oppRecordId, String phaseId, Decimal proposed, String param01, String userCode) {
-		List<OpportunityLineItem> lstOli = [SELECT Id, proposed_apr_per__c, price_quote_id__c, price_operation_id__c, price_rates_calculation_Id__c, Opportunity.Loss_Reason__c,
+		List<OpportunityLineItem> lstOli = [SELECT Id, proposed_apr_per__c, price_quote_id__c, price_operation_id__c, Price_rates_create_analyze_Id__c, Opportunity.Loss_Reason__c,
 		                                    Opportunity.rejection_winner_entity_name__c, Opportunity.frm_ContractNumber__c, PE_List_Product_mode__c
 		                                    FROM OpportunityLineItem WHERE OpportunityId = :oppRecordId];
 		if(!lstOli.isEmpty()) {
@@ -96,7 +107,8 @@ public class ModifyQuotationRequest_helper {
 		lstEffectiveRates.add(effRate);
 
 		Request_rate rate = new Request_rate();
-		rate.id = lstOli[0].price_rates_calculation_Id__c;
+		//rate.id = lstOli[0].price_rates_calculation_Id__c;
+		rate.id = lstOli[0].Price_rates_create_analyze_Id__c;
 
 		interestRates.effectiveRates = lstEffectiveRates;
 		mapInterestRates.put('interestRates', interestRates);

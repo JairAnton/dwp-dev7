@@ -14,6 +14,7 @@
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
                 cmp.set('v.AccId', ret.AccId);
+                cmp.set('v.oliId', ret.IdOppLineItem);
                 $A.createComponent(
                     "c:AccountResumeInfo_comp",
                     {

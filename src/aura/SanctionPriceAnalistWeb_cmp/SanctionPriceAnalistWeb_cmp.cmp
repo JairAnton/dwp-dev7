@@ -1,18 +1,19 @@
 <aura:component controller="SanctionPriceAnalistWeb_ctrl" access="GLOBAL" extensible="true">
     <aura:attribute name="data" type="Object"/>
     <aura:attribute name="headers" type="List"/>
+    <aura:attribute name="oliId" type="String"/>
     <aura:attribute name="recordId" type="String"/>
     <aura:attribute name="checkError" type="Boolean" default="false"/>
     <aura:attribute name="strErrorMessage" type="String"/>
     <aura:attribute name="isLoad" type="Boolean" default="false"/>
     <aura:attribute name="teainput" type="decimal"/>
     <aura:attribute name="spreadinput" type="decimal"/>
-    
     <aura:attribute name="StringPE" type="String" default="0"/>
     <aura:attribute name="StringCE" type="String" default="0"/>
     <aura:attribute name="StringCR" type="String" default="0"/>
     <aura:attribute name="StringDI_FC" type="String" default="0"/>
     <aura:attribute name="StringSPREAD" type="String" default="0"/>
+	<aura:attribute name="hasCommissions" type="Boolean" default="false"/>
 	<aura:attribute name="StringRORC_Client" type="String" default="0"/>
 	<aura:attribute name="StringRAROEC" type="String" default="0"/>
 	<aura:attribute name="validityDate" type="Date"/>
@@ -27,10 +28,14 @@
             <aura:set attribute="else">
                 <div class="slds-m-bottom_medium slds-m-right_small" >
                     <div class="slds-m-bottom_medium">
-                        <lightning:input aura:id="TEAtemporal_V1" type="number" name="inputtea" label="{!$Label.c.AuthorizedTea}" formatter="percent-fixed" step="0.01" value="{!v.teainput}"/>
+                        <div class="custom-title" style="margin-top: 15px">
+                            <lightning:icon iconName="utility:money" alternativeText="Comisiones" title="Comisiones"></lightning:icon>
+                            <h2 style="font-size: 1.25rem; font-weight: 400; margin: 10px 10px">{!$Label.c.AuthorizedTea}</h2>
+                          </div>
+                        <lightning:input aura:id="TEAtemporal_V1" type="number" name="inputtea"  formatter="percent-fixed" step="0.01" value="{!v.teainput}"/> <!--label="{!$Label.c.AuthorizedTea}"-->
                     </div>
                     <div class="slds-align_absolute-center slds-m-bottom_medium">
-                        <lightning:button aura:id="BtnCalculaProfitability" label="{!$Label.c.CalculateProfitability}" onclick="{!c.calculateJS}"/>
+                        <lightning:button class="slds-button_brand" aura:id="BtnCalculaProfitability" label="{!$Label.c.CalculateProfitability}" onclick="{!c.emitCommissionEvent}"/>
                     </div>
                     <div class="slds-p-top_small slds-scrollable">
                         <c:DataTable_cmp data="{!v.data}" headers="{!v.headers}"/>
@@ -100,7 +105,7 @@
                         	</lightning:layoutItem>
 							<lightning:layoutItem padding="horizontal-small" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4">
                             	<div class="slds-form-element slds-p-bottom_xx-small">
-                                    <span class="slds-form-element__label">RAROEC Operación (%)</span>
+                                    <span class="slds-form-element__label">RAROEC Operación 1 (%)</span>
                                     <div class="slds-form-element__control">
                                         <span class="slds-form-element__static">
                                             <lightning:formattedNumber value="{!v.StringRAROEC}" class="{!v.StringRAROEC lt 0 ? 'redColor' : ''}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2"/>
@@ -108,9 +113,16 @@
                                     </div>
                                 </div>
                         	</lightning:layoutItem>
-							<lightning:layoutItem padding="horizontal-small" size="12">
+                            
+                            <lightning:layoutItem padding="horizontal/snall" size="12">
+                            <div class="custom-title pull_left" style="margin-top: 15px">
+                                <lightning:icon iconName="utility:date_input" alternativeText="Comisiones" title="Comisiones"></lightning:icon>
+                                <h2 style="font-size: 1.25rem; font-weight: 400; margin: 10px 10px">Validez TEA</h2>
+                            </div>
+                        </lightning:layoutItem>
+                            <lightning:layoutItem padding="horizontal-small" size="12">
                                 <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-3">
-                                    <lightning:input type="date" class="slds-m-right_small" name="output_ValidityDate" label="Validez TEA" value="{! v.validityDate }" isLoading="true" onchange="{!c.dateChange}"/>
+                                    <lightning:input type="date" name="output_ValidityDate" value="{! v.validityDate }" isLoading="true" onchange="{!c.dateChange}"/>
                                 </div>
                             </lightning:layoutItem>
                         </lightning:layout>
@@ -123,5 +135,8 @@
                 <lightning:spinner variant="brand" class="slds-is-relative slds-align--absolute-center"/>
             </div>
         </aura:set>
+    </aura:if>
+    <aura:if isTrue="{!v.hasCommissions}">
+        <c:bE_ProdCommissionSection_Lwc aura:id="prodCommissionSectionId" oncmsEvent="{!c.handlerCommissionCall}" oncalculateEvent="{!c.handleCalculateCommission}" recordId="{!v.oliId}" isEditable="true" requestNegotiables="true" />
     </aura:if>
 </aura:component>

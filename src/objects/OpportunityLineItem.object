@@ -1,6 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
-	<fields>
+    <actionOverrides>
+        <actionName>AddProduct</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>AddProduct</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>AddProduct</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ChoosePricebook</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ChoosePricebook</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ChoosePricebook</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EditAllProduct</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EditAllProduct</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EditAllProduct</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Assigned_analyst__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Assigned_analyst</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>BE_Periodicity__c</fullName>
         <externalId>false</externalId>
         <formula>TEXT(gipr_Plazo__c) &amp; &apos; &apos; &amp; CASE(TEXT(gipr_Periodicidad__c), &apos;01&apos;, &apos;Días&apos;, &apos;02&apos;, &apos;Meses&apos;, &apos;03&apos;, &apos;Años&apos;, &apos;Desconocido&apos;)</formula>
@@ -8,6 +132,305 @@
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+    </fields>
+    <fields>
+        <fullName>Discount</fullName>
+    </fields>
+    <fields>
+        <fullName>FinancingType__c</fullName>
+        <description>This field is used to store the types of financing available, for example: &quot;Pre embarque&quot;, &quot;Post embarque&quot;, &quot;Sepymex&quot;, ...</description>
+        <externalId>false</externalId>
+        <label>FinancingType</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>01</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>02</label>
+                </value>
+                <value>
+                    <fullName>03</fullName>
+                    <default>false</default>
+                    <label>03</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Liquidity_Margin_Lost__c</fullName>
+        <externalId>false</externalId>
+        <label>Liquidity Margin Lost</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Liquidity_Margin_Recovered_Currency__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Liquidity Margin Recovered Currency</label>
+        <length>3</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Liquidity_Margin_Recovered__c</fullName>
+        <externalId>false</externalId>
+        <label>Liquidity Margin Recovered</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>ListPrice</fullName>
+    </fields>
+    <fields>
+        <fullName>Name</fullName>
+    </fields>
+    <fields>
+        <fullName>OpportunityId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PE_List_Mejorado__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>PE_List_Mejorado</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>PE_List_Product_mode__c</fullName>
+        <externalId>false</externalId>
+        <label>PE_List_Product_mode</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>01</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>02</label>
+                </value>
+                <value>
+                    <fullName>03</fullName>
+                    <default>false</default>
+                    <label>03</label>
+                </value>
+                <value>
+                    <fullName>04</fullName>
+                    <default>false</default>
+                    <label>04</label>
+                </value>
+                <value>
+                    <fullName>05</fullName>
+                    <default>false</default>
+                    <label>05</label>
+                </value>
+                <value>
+                    <fullName>06</fullName>
+                    <default>false</default>
+                    <label>06</label>
+                </value>
+                <value>
+                    <fullName>07</fullName>
+                    <default>false</default>
+                    <label>07</label>
+                </value>
+                <value>
+                    <fullName>08</fullName>
+                    <default>false</default>
+                    <label>08</label>
+                </value>
+                <value>
+                    <fullName>09</fullName>
+                    <default>false</default>
+                    <label>09</label>
+                </value>
+                <value>
+                    <fullName>10</fullName>
+                    <default>false</default>
+                    <label>10</label>
+                </value>
+                <value>
+                    <fullName>11</fullName>
+                    <default>false</default>
+                    <label>11</label>
+                </value>
+                <value>
+                    <fullName>12</fullName>
+                    <default>false</default>
+                    <label>12</label>
+                </value>
+                <value>
+                    <fullName>13</fullName>
+                    <default>false</default>
+                    <label>13</label>
+                </value>
+                <value>
+                    <fullName>14</fullName>
+                    <default>false</default>
+                    <label>14</label>
+                </value>
+                <value>
+                    <fullName>15</fullName>
+                    <default>false</default>
+                    <label>15</label>
+                </value>
+                <value>
+                    <fullName>16</fullName>
+                    <default>false</default>
+                    <label>16</label>
+                </value>
+                <value>
+                    <fullName>17</fullName>
+                    <default>false</default>
+                    <label>17</label>
+                </value>
+                <value>
+                    <fullName>18</fullName>
+                    <default>false</default>
+                    <label>18</label>
+                </value>
+                <value>
+                    <fullName>19</fullName>
+                    <default>false</default>
+                    <label>19</label>
+                </value>
+                <value>
+                    <fullName>20</fullName>
+                    <default>false</default>
+                    <label>20</label>
+                </value>
+                <value>
+                    <fullName>21</fullName>
+                    <default>false</default>
+                    <label>21</label>
+                </value>
+                <value>
+                    <fullName>22</fullName>
+                    <default>false</default>
+                    <label>22</label>
+                </value>
+                <value>
+                    <fullName>23</fullName>
+                    <default>false</default>
+                    <label>23</label>
+                </value>
+                <value>
+                    <fullName>24</fullName>
+                    <default>false</default>
+                    <label>24</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Price_rates_create_analyze_Id__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Price rates create analyze Id</label>
+        <length>10</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product2Id</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProductCode</fullName>
+    </fields>
+    <fields>
+        <fullName>Quantity</fullName>
+    </fields>
+    <fields>
+        <fullName>RAROEC_Operation__c</fullName>
+        <externalId>false</externalId>
+        <label>RAROEC Operation (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>RORC_Approved__c</fullName>
+        <externalId>false</externalId>
+        <label>RORC Approved (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>RORC_Client__c</fullName>
+        <externalId>false</externalId>
+        <label>RORC Client (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>RORC_Model__c</fullName>
+        <externalId>false</externalId>
+        <label>RORC Model (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>RORC_Operation__c</fullName>
+        <externalId>false</externalId>
+        <label>RORC Operation (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>RORC_Updated__c</fullName>
+        <externalId>false</externalId>
+        <label>RORC Updated (%)</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>RORC_Variation__c</fullName>
+        <externalId>false</externalId>
+        <label>RORC Variation (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>ServiceDate</fullName>
     </fields>
     <fields>
         <fullName>Siocode__c</fullName>
@@ -39,29 +462,63 @@
         <required>false</required>
         <type>Picklist</type>
         <valueSet>
-        <restricted>true</restricted>
-        <valueSetDefinition>
-        <sorted>false</sorted>
-            <value>
-                <fullName>Al vencimiento</fullName>
-                <default>false</default>
-            </value>
-            <value>
-                <fullName>En cuotas</fullName>
-                <default>false</default>
-            </value>
-            <value>
-                <fullName>A medida</fullName>
-                <default>false</default>
-            </value>
-           </valueSetDefinition>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Al vencimiento</fullName>
+                    <default>false</default>
+                    <label>Al vencimiento</label>
+                </value>
+                <value>
+                    <fullName>En cuotas</fullName>
+                    <default>false</default>
+                    <label>En cuotas</label>
+                </value>
+                <value>
+                    <fullName>A medida</fullName>
+                    <default>false</default>
+                    <label>A medida</label>
+                </value>
+            </valueSetDefinition>
         </valueSet>
     </fields>
     <fields>
         <fullName>TotalPrice</fullName>
     </fields>
     <fields>
+        <fullName>Unique_id__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Unique Id</description>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <inlineHelpText>Unique Id</inlineHelpText>
+        <label>Unique_id</label>
+        <length>50</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
         <fullName>UnitPrice</fullName>
+    </fields>
+    <fields>
+        <fullName>additional_apread_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Additional spread (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>additional_capital_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Additional capital (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
     </fields>
     <fields>
         <fullName>calculated_spread__c</fullName>
@@ -73,6 +530,35 @@
         <required>false</required>
         <scale>2</scale>
         <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>cancellation_fee_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Cancellation fee (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>capital_amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Capital amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>capital_currency_id__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Capital currency</label>
+        <length>10</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>cpliq_Amortizacion__c</fullName>
@@ -1554,6 +2040,33 @@
         <scale>2</scale>
         <type>Percent</type>
     </fields>
+    <fields>
+        <fullName>efficiency_cost__c</fullName>
+        <externalId>false</externalId>
+        <label>Efficiency cost (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>expected_loss_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Expected loss (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>financing_cost_stockholder_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Financing cost stockholder (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
 	<fields>
         <fullName>tcf_Legal_VB_text__c</fullName>
         <externalId>false</externalId>
@@ -1922,7 +2435,253 @@
             </valueSetDefinition>
         </valueSet>
     </fields>
-	<fields>
+    <fields>
+        <fullName>hasCommissions__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>hasCommissions</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>minimum_spread_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Minimum spread (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>minimun_apr_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Minimun APR (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>minimun_fee_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Minimun fee (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>price_availability_check_error__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Price availability error</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>price_operation_id__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Price operation Id</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>price_quote_availability_check__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is price quote available checked?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>price_quote_available__c</fullName>
+        <externalId>false</externalId>
+        <formula>AND( price_quote_availability_check__c ,NOT(ISBLANK( pricing_model_id__c )))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Is price quote available?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>price_quote_date__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Last price quote date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>price_quote_id__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Cotiza Id</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>price_quote_owner_id__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Price quote owner</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Opportunity_Product</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>price_quote_status_id__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Price quote status</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>price_rates_calculation_Id__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Price rates calculation Id</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>pricing_model_id__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Pricing model</label>
+        <length>10</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>product_formalization_indicator__c</fullName>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.formalization__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>product_formalization_indicator</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>product_pdf_indicator__c</fullName>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.pdf__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>product_pdf_indicator</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>product_price_approval_indicator__c</fullName>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.price_penalty__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>product_price_approval_indicator</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>product_price_approval_method__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(PricebookEntry.Product2.Type_of_quote__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>product_price_approval_method</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>product_risk_approval_indicator__c</fullName>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.risk_sanction__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>product_risk_approval_indicator</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>proposed_apr_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Proposed APR (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>proposed_fee_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Proposed fee (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>regulatory_capital_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Regulatory capital (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>restructuring_fee_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Restructuring fee (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>spread_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Spread (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>suggested_apr_per__c</fullName>
+        <externalId>false</externalId>
+        <label>Suggested APR (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>tcf_Legal_VB_text__c</fullName>
+        <externalId>false</externalId>
+        <label>tcf_Legal_VB_text</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>01</fullName>
+                    <default>false</default>
+                    <label>01</label>
+                </value>
+                <value>
+                    <fullName>02</fullName>
+                    <default>false</default>
+                    <label>02</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>tcf_Periodicity_commission__c</fullName>
         <externalId>false</externalId>
         <label>tcf_Periodicity_commission</label>
@@ -3081,6 +3840,28 @@ REGEX( gipr_Contract_Number__c , &quot;[0-9]{4}-[0-9]{4}-[0-9]{10}&quot;)
         <errorMessage>Contract No format not valid, correct: 0000-0000-000000000</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Cuenta_Abono_Validation</fullName>
+        <active>true</active>
+        <errorConditionFormula>NOT( 
+OR( 
+ISBLANK( cpliq_Cuenta_Abono__c),
+REGEX( cpliq_Cuenta_Abono__c, &quot;[0-9]{4}-[0-9]{4}-[0-9]{10}&quot;)
+) 
+)</errorConditionFormula>
+        <errorMessage>El formato de la cuenta de abono no es correcta, correcto: 0000-0000-000000000</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Cuenta_Cargo_Validation</fullName>
+        <active>true</active>
+        <errorConditionFormula>NOT( 
+OR( 
+ISBLANK( cpliq_Cuenta_Cargo__c),
+REGEX( cpliq_Cuenta_Cargo__c, &quot;[0-9]{4}-[0-9]{4}-[0-9]{10}&quot;)
+) 
+)</errorConditionFormula>
+        <errorMessage>El formato de cuenta cargo no es correcta, correcto: 0000-0000-000000000</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>LinkedAccount_Validation</fullName>
         <active>true</active>
         <errorConditionFormula>NOT(
@@ -3101,6 +3882,12 @@ REGEX(da_nOperation__c, &quot;[0-9]{4}-[0-9]{4}-[0-9]{10}&quot;)
 ) 
 )</errorConditionFormula>
         <errorMessage>Operation No format not valid, correct: 0000-0000-000000000</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Plazo_validation_lengh</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF( gipr_Plazo__c &gt;999,true,false)</errorConditionFormula>
+        <errorMessage>El plazo debe tener un número no mayor a 3 cifras.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Quantity_ValidationRule</fullName>

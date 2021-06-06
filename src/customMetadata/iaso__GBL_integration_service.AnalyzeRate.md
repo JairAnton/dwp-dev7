@@ -45,14 +45,15 @@
     <values>
         <field>iaso__Json_Input_Template_LTA__c</field>
         <value xsi:type="xsd:string">{
-    &quot;interestRates&quot;: {
-        &quot;effectiveRates&quot;: #ltsEffectiveRates#
-    },
-    &quot;rate&quot;: {
-        &quot;id&quot;: &quot;#calculationRatesId#&quot;
-    },
-    &quot;fees&quot;: #lstFees#,
-    &quot;products&quot;: #lstProducts#
+	#lstCalculatedFees#
+	&quot;interestRates&quot;: {
+		&quot;effectiveRates&quot;: #ltsEffectiveRates#
+	},
+	&quot;rate&quot;: {
+		&quot;id&quot;: &quot;#calculationRatesId#&quot;
+	},
+	&quot;fees&quot;: #lstFees#,
+	&quot;products&quot;: #lstProducts#
 }</value>
     </values>
     <values>

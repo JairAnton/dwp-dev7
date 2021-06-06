@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Product Commission</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Product Commissions</value>
+    </caseValues>
+    <fields>
+        <label><!-- Authorized Rate Value --></label>
+        <name>Authorized_Rate_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calculation Type --></label>
+        <name>Calculation_Type__c</name>
+        <picklistValues>
+            <masterLabel>AMOUNT</masterLabel>
+            <translation><!-- AMOUNT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FACTOR</masterLabel>
+            <translation><!-- FACTOR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MULTIPLICATION</masterLabel>
+            <translation><!-- MULTIPLICATION --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PERCENTAGE</masterLabel>
+            <translation><!-- PERCENTAGE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RANGE</masterLabel>
+            <translation><!-- RANGE --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Code --></label>
+        <name>Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commission Calculation Amount --></label>
+        <name>Commission_Calculation_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commission Calculation Code --></label>
+        <name>Commission_Calculation_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commission Calculation Id --></label>
+        <name>Commission_Calculation_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commission Calculation Version --></label>
+        <name>Commission_Calculation_Version__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commission Maximum Amount --></label>
+        <name>Commission_Maximum_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commission Minimum Amount --></label>
+        <name>Commission_Minimum_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- External Id --></label>
+        <name>External_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Final Rate --></label>
+        <name>Final_Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Negotiable --></label>
+        <name>Is_Negotiable__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Product --></label>
+        <name>Opportunity_Product__c</name>
+        <relationshipLabel><!-- Product Commissions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Product Commission Name --></label>
+        <name>Product_Commission_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Questionnaire Code --></label>
+        <name>Questionnaire_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Requested Rate Value --></label>
+        <name>Requested_Rate_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Requested Rate --></label>
+        <name>Requested_Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sugested Rate Percentage --></label>
+        <name>Sugested_Rate_Percentage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Suggested Rate Type --></label>
+        <name>Suggested_Rate_Type__c</name>
+        <picklistValues>
+            <masterLabel>amount</masterLabel>
+            <translation><!-- amount --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>currency</masterLabel>
+            <translation><!-- currency --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>percentage</masterLabel>
+            <translation><!-- percentage --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Suggested Rate Value --></label>
+        <name>Suggested_Rate_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Suggested Rate --></label>
+        <name>Suggested_Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Term Frequency Id --></label>
+        <name>Term_Frequency_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Term Number --></label>
+        <name>Term_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- isEnabled --></label>
+        <name>isEnabled__c</name>
+    </fields>
+    <fields>
+        <label><!-- Count of Questions --></label>
+        <name>numberOfQuestions__c</name>
+    </fields>
+    <gender>Feminine</gender>
+</CustomObjectTranslation>

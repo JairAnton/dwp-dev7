@@ -1,0 +1,43 @@
+<aura:component  implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="GLOBAL" controller="Product_cls">	
+<aura:attribute name="rows" type="Object[]" />   
+<aura:attribute name="recordId" type="Id" />
+<aura:handler name="init" value="{!this}" action="{!c.init}" />
+ <table class="slds-table slds-table_bordered slds-table_resizable-cols slds-table_fixed-layout slds-border_left slds-border_right slds-border_top slds-border_bottom" role="grid">
+            <thead>
+                <tr >
+                    <th scope="col" class="slds-is-sortable slds-is-resizable">
+                        <div class="slds-truncate" title="Cliente">Cliente</div>
+                    </th>      
+                    <th scope="col" class="slds-is-sortable slds-is-resizable">
+                        <div class="slds-truncate" title="Volumen de Negocio">Volumen de Negocio</div>
+                    </th>       
+                    <th scope="col" class="slds-is-sortable slds-is-resizable">
+                        <div class="slds-truncate" title="Deuda Directa">Deuda Directa</div>
+                    </th>       
+                    <th scope="col" class="slds-is-sortable slds-is-resizable">
+                        <div class="slds-truncate" title="Deuda Indirecta">Deuda Indirecta</div>
+                    </th>                                    
+                    <th scope="col" class="slds-is-sortable slds-is-resizable">
+                        <div class="slds-truncate" title="Recursos">Recursos</div>
+                    </th>                
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.rows}" var="row" indexVar="rowIndex">
+                        <tr class="slds-is-sortable slds-is-resizable" style="overflow-x:auto;">                          
+                            <th role="gridcell" class="slds-is-sortable slds-is-resizable"> 
+                                <div class="slds-truncate" title="{!row.Acc}"><a href="{!'/'+row.IdAcc}">{!row.Acc}</a></div>
+                            </th>
+                            <th><div class="slds-truncate" title="{!row.BusinessVolume}"><ui:outputNumber value="{!row.BusinessVolume}" format="###,###,##0.00"/>
+</div></th>
+                            <th><div class="slds-truncate" title="{!row.DirectDebt}"><ui:outputNumber value="{!row.DirectDebt}" format="###,###,##0.00"/>
+</div></th>
+                            <th><div class="slds-truncate" title="{!row.IndirectDebt}"><ui:outputNumber value="{!row.IndirectDebt}" format="###,###,##0.00"/>
+</div></th>
+                            <th><div class="slds-truncate" title="{!row.Resources}"><ui:outputNumber value="{!row.Resources}" format="###,###,##0.00"/>
+</div></th> 
+                        </tr>                  
+                </aura:iteration>
+            </tbody>
+        </table>  
+</aura:component>

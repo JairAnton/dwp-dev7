@@ -7,70 +7,73 @@
 * @Description Modificación  se agrega diseño en los botones del modal acorde a lo especificado por UX SA 20190343.
 -->
 <aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf" controller="SanctionPrice_ctrl" extends="dwp_mdal:ModalTemplate_cmp" access="GLOBAL">
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
-    <aura:attribute name="objectInput" type="Object" />
-    <aura:attribute name="isLoad" type="Boolean" default="false"/>
-    <aura:attribute name="checkError" type="Boolean" default="false"/>
-    <aura:attribute name="errorMessage" type="String" default=""/>
-    <aura:attribute name="title" type="String" default="{!$Label.c.lblTitleSanctionPrice}" access="global" description="Specify the modal"/>
-    <aura:attribute name="AccId" type="String"/>
-    <aura:attribute name="commercial_strategy" type="String"/>
-    <aura:attribute name="isnotWeb" type="Boolean" default="true"/>
-    <aura:attribute name="type_of_quote" type="String"/>
-    <aura:attribute name="widthcot" type="String"/>
-    <aura:attribute name="modalWidthCustom" type="String" access="global" description="Specify the modal" default="95%" />
-    <aura:attribute type="Aura.Component[]" name="AccResInf" />
-	<aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
-    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
-    <aura:attribute name="spinner" type="boolean" default="FALSE"/>
-    
-    <aura:if isTrue="{!v.spinner}">
-        <div aura:id="spinnerId" class="slds-spinner_container">
-            <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
-                <span class="slds-assistive-text">Loading...</span>
-                <div class="slds-spinner__dot-a"></div>
-                <div class="slds-spinner__dot-b"></div>
-            </div>
-        </div>
-    </aura:if>
-	
-    <div class="slds-modal__content slds-p-around_medium" >
-        <div class="slds-grid">
-            <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_6-of-12">
-                <aura:if isTrue="{!v.isnotWeb}">
-                    <aura:if isTrue="{!v.isLoad}">
-                        <aura:if isTrue="{!v.checkError}">
-                            <ui:message title="Error" severity="error" >
-                                {!v.errorMessage}
-                            </ui:message>
-                        </aura:if> 
-                        <c:FieldsForm_cmp aura:id="fieldsFormInput" recordId="{!v.objectInput.IdOppLineItem}" isInput="true" valueDynamic="{!v.objectInput.dinamicInput}" developerNameTable="{!v.objectInput.approvalMethod + '_Proposal_Authorization'}"/> 
-                        <div class="slds-m-bottom_medium" >
-                            <c:PriceSection_cmp isCollapsed="false" sectionTitle="{!$Label.c.PriceProposalSectionTitle}" recordId="{!v.recordId}" objectInput="{!v.objectInput}" typeView="_Proposal" hasDivider="false" />
-                        </div>
-                    </aura:if>
-                    <aura:set attribute="else">
-                        <c:SanctionPriceAnalistWeb_cmp aura:id="analistWeb" recordId="{!v.inputAttributes.recordId}"/>
-                    </aura:set>
-                </aura:if>
-                <div class="slds-m-bottom_medium slds-m-right_small" >
-                    <c:CommitmentsSection_cmp isCollapsed="false" sectionTitle="{!$Label.c.CommitmentProposalSectionTitle}" recordId="{!v.inputAttributes.recordId}" /> 
-                </div>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-            </div>
-            <aura:if isTrue="{!and(v.type_of_quote!='COTIZA Beta', $Browser.formFactor=='DESKTOP')}">
-                <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-12 slds-large-size_6-of-12">
-                     {! v.AccResInf }
-                </div>
-            </aura:if>
-        </div> 
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <aura:attribute name="objectInput" type="Object" />
+  <aura:attribute name="isLoad" type="Boolean" default="false" />
+  <aura:attribute name="checkError" type="Boolean" default="false" />
+  <aura:attribute name="errorMessage" type="String" default="" />
+  <aura:attribute name="title" type="String" default="{!$Label.c.lblTitleSanctionPrice}" access="global" description="Specify the modal" />
+  <aura:attribute name="AccId" type="String" />
+  <aura:attribute name="oliId" type="String" />
+  <aura:attribute name="commercial_strategy" type="String" />
+  <aura:attribute name="isnotWeb" type="Boolean" default="true" />
+  <aura:attribute name="type_of_quote" type="String" />
+  <aura:attribute name="widthcot" type="String" />
+  <aura:attribute name="modalWidthCustom" type="String" access="global" description="Specify the modal" default="95%" />
+  <aura:attribute type="Aura.Component[]" name="AccResInf" />
+  <aura:handler event="aura:waiting" action="{!c.showSpinner}" />
+  <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}" />
+  <aura:attribute name="spinner" type="boolean" default="FALSE" />
+
+  <aura:if isTrue="{!v.spinner}">
+    <div aura:id="spinnerId" class="slds-spinner_container">
+      <div class="slds-spinner--brand slds-spinner slds-spinner--large slds-is-relative" role="alert">
+        <span class="slds-assistive-text">Loading...</span>
+        <div class="slds-spinner__dot-a"></div>
+        <div class="slds-spinner__dot-b"></div>
+      </div>
     </div>
-    <footer class="slds-modal__footer slds-modal__footer_directional">
-        <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
-        <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPA"/>
-     </footer>
+  </aura:if>
+
+  <div class="slds-modal__content slds-p-around_medium">
+    <div class="slds-grid">
+      <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12 slds-large-size_6-of-12">
+        <aura:if isTrue="{!v.isnotWeb}">
+          <aura:if isTrue="{!v.isLoad}">
+            <aura:if isTrue="{!v.checkError}">
+              <ui:message title="Error" severity="error"> {!v.errorMessage} </ui:message>
+            </aura:if>
+            <c:FieldsForm_cmp
+              aura:id="fieldsFormInput"
+              recordId="{!v.objectInput.IdOppLineItem}"
+              isInput="true"
+              valueDynamic="{!v.objectInput.dinamicInput}"
+              developerNameTable="{!v.objectInput.approvalMethod + '_Proposal_Authorization'}"
+            />
+            <div class="slds-m-bottom_medium">
+              <c:PriceSection_cmp isCollapsed="false" sectionTitle="{!$Label.c.PriceProposalSectionTitle}" recordId="{!v.recordId}" objectInput="{!v.objectInput}" typeView="_Proposal" hasDivider="false" />
+            </div>
+          </aura:if>
+          <aura:set attribute="else">
+            <c:SanctionPriceAnalistWeb_cmp aura:id="analistWeb" recordId="{!v.inputAttributes.recordId}" />
+          </aura:set>
+        </aura:if>
+        <div class="slds-m-bottom_medium slds-m-right_small">
+          <c:CommitmentsSection_cmp isCollapsed="false" sectionTitle="{!$Label.c.CommitmentProposalSectionTitle}" recordId="{!v.inputAttributes.recordId}" />
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+      </div>
+      <aura:if isTrue="{!and(v.type_of_quote!='COTIZA Beta', $Browser.formFactor=='DESKTOP')}">
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_8-of-12 slds-large-size_6-of-12">{! v.AccResInf }</div>
+      </aura:if>
+    </div>
+  </div>
+  <footer class="slds-modal__footer slds-modal__footer_directional">
+    <lightning:button variant="neutral" onclick="{!c.close}">{!$Label.c.Cancel}</lightning:button>
+    <c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doContinue}" label="{!$Label.c.btnContinue}" id="idContinueSPA" />
+  </footer>
 </aura:component>

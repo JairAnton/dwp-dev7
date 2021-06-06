@@ -15,19 +15,38 @@
         action.setParams({
             "oliId": inputObject.opportunityLineItem,
             "uniqueNameTable": uniqueNameTable
+
         });
         action.setCallback(this, function (response) {
             var state = response.getState();
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
+
                 var objSetup = {
                     'nameProd': ret.lstOppLineItem[0].Product2.Name,
                     'validityDate': ret.lstOppLineItem[0].validityDate__c,
                     'statusType': ret.lstOppLineItem[0].Opportunity.opportunity_status_type__c,
-                    'lstTile': JSON.parse(ret.lstSummarize)
+                    'lstTile': JSON.parse(ret.lstSummarize),
+                    'headers': [
+                        { label: 'Importe comisión', fieldName: 'Commission_Calculation_Amount__c', type: 'text' },
+                        { label: 'Nombre de producto', fieldName: 'Product_Commission_Name__c', type: 'text' },
+                        { label: 'Tasa sugerida', fieldName: 'Suggested_Rate_Type__c', type: 'text' },
+                        { label: 'Comisión final', fieldName: 'Final_Rate__c	', type: 'text' }],
+                    'data': ret.comissions
                 };
+                var lstRows = [];
+                for (var x in objSetup.data) {
+                    var lstCells = [];
+                    for (var i in objSetup.headers) {
+                        lstCells.push(objSetup.data[x][objSetup.headers[i].fieldName]);
+                    }
+                    lstRows.push(lstCells);
+                }
+
                 objSetup['getInfoButtons'] = helper.getInfoButtons(inputObject.approvalMethod, ret.lstOppLineItem[0]);
                 component.set('v.objSetup', objSetup);
+                component.set('v.dataComi', lstRows);
+                component.set('v.headersComi', objSetup.headers);
 
                 /**getSanctionPriceInfo**/
                 if (ret.sanctionPriceInfo != null) {
@@ -40,6 +59,8 @@
         });
         $A.enqueueAction(action);
         component.set("v.refreshComp", true);
+
+
     },
     getInfoButtons: function (strType, objOli) {
         var returnObj = {

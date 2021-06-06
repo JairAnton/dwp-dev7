@@ -4,7 +4,7 @@ public without sharing class CreateQuotationRequest_helper {
 	//Method use to get input information
 	public CreateQuotationRequest_helper(String oppRecordId) {
 		//Retrieve product´s conditions and price rates information
-		List<OpportunityLineItem> oppProductList = [SELECT price_rates_calculation_Id__c, proposed_apr_per__c, gipr_Garantia__c
+		List<OpportunityLineItem> oppProductList = [SELECT Price_rates_create_analyze_Id__c, price_rates_calculation_Id__c, proposed_apr_per__c, gipr_Garantia__c
 		                                            FROM OpportunityLineItem
 		                                            WHERE OpportunityId = :oppRecordId];
 
@@ -14,10 +14,11 @@ public without sharing class CreateQuotationRequest_helper {
 		if(!oppProductList.isEmpty()) {
 			// Map the imput information
 			String calculationRatesId = oppProductList[0].price_rates_calculation_Id__c;
+			String analizeRateId = oppProductList[0].Price_rates_create_analyze_Id__c;
 			String proposedAPR = String.valueOf((oppProductList[0].proposed_apr_per__c != null ? oppProductList[0].proposed_apr_per__c / 100 : oppProductList[0].proposed_apr_per__c));
 			String requestComment = Label.PriceCreateQuotationRequestDefaultComment;
 			String guaranteeType = (mapWsVal.get('GUARANTEE_TYPE' + String.valueOf(oppProductList[0].gipr_Garantia__c)) != null ? mapWsVal.get('GUARANTEE_TYPE' + String.valueOf(oppProductList[0].gipr_Garantia__c)).web_service_value__c : null);
-			CreateQuotationRequest_Wrapper imputDataMappingRequest = new CreateQuotationRequest_Wrapper(calculationRatesId, proposedAPR, requestComment, guaranteeType);
+			CreateQuotationRequest_Wrapper imputDataMappingRequest = new CreateQuotationRequest_Wrapper(calculationRatesId, proposedAPR, requestComment, guaranteeType, analizeRateId);
 			this.inputDataMapping = imputDataMappingRequest;
 		}
 	}
@@ -35,16 +36,18 @@ public without sharing class CreateQuotationRequest_helper {
 	// Yulino 30/11/2018 : SE AGREGÓ EL GET Y SET EN TODAS LA CLASES
 	// Wrapper class to map the input values with the input attributes of the webservice
 	public class CreateQuotationRequest_Wrapper {
+		public String analizeRateId {get; set;}
 		public String calculationRatesId {get; set;}
 		public String proposedAPRpercent {get; set;}
 		public String requestComment {get; set;}
 		public String guaranteeType {get; set;}
 
-		public CreateQuotationRequest_Wrapper(String calculationRatesId, String proposedAPR, String requestComment, String guaranteeType) {
+		public CreateQuotationRequest_Wrapper(String calculationRatesId, String proposedAPR, String requestComment, String guaranteeType, String analizeRateId) {
 			this.calculationRatesId = (calculationRatesId != null ? calculationRatesId : '');
 			this.proposedAPRpercent = (proposedAPR != null ? proposedAPR : '""');
 			this.requestComment = (requestComment != null ? requestComment : '');
 			this.guaranteeType = (guaranteeType != null ? ',"product": {"guarantee": {"id": "' + guaranteeType + '"}}' : '');
+			this.analizeRateId = (analizeRateId != null ? analizeRateId : '');
 		}
 	}
 

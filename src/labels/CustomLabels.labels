@@ -170,11 +170,25 @@
         <value>Active</value>
     </labels>
     <labels>
+        <fullName>AccountAccountingType1TotalLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountAccountingType1TotalLabel</shortDescription>
+        <value>Total Active</value>
+    </labels>
+    <labels>
         <fullName>AccountAccountingType2</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>AccountAccountingType2</shortDescription>
         <value>Pasive</value>
+    </labels>
+    <labels>
+        <fullName>AccountAccountingType2TotalLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountAccountingType2TotalLabel</shortDescription>
+        <value>Total Pasive</value>
     </labels>
     <labels>
         <fullName>AccountAccountingType3</fullName>
@@ -196,6 +210,13 @@
         <protected>false</protected>
         <shortDescription>AccountBBVAResourcesTotalLabel</shortDescription>
         <value>Recursos gestionados</value>
+    </labels>
+    <labels>
+        <fullName>AccountName</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Account_Name</shortDescription>
+        <value>Account  Name</value>
     </labels>
     <labels>
         <fullName>AccountNoData</fullName>
@@ -240,6 +261,41 @@
         <value>Bxl</value>
     </labels>
     <labels>
+        <fullName>AccountProductClassificationTable1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountProductClassificationTable1</shortDescription>
+        <value>ACTIVO</value>
+    </labels>
+    <labels>
+        <fullName>AccountProductClassificationTable2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountProductClassificationTable2</shortDescription>
+        <value>PASIVO</value>
+    </labels>
+    <labels>
+        <fullName>AccountProductClassificationTable3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountProductClassificationTable3</shortDescription>
+        <value>Cobros</value>
+    </labels>
+    <labels>
+        <fullName>AccountProductClassificationTable4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountProductClassificationTable4</shortDescription>
+        <value>Pagos</value>
+    </labels>
+    <labels>
+        <fullName>AccountProductClassificationTable5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountProductClassificationTable5</shortDescription>
+        <value>Bxl</value>
+    </labels>
+    <labels>
         <fullName>AccountProfitabilityTotalLabel</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -269,6 +325,62 @@
         <value>Total</value>
     </labels>
     <labels>
+        <fullName>AccountRankingClassificationTable1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountRankingClassificationTable1</shortDescription>
+        <value>Directa</value>
+    </labels>
+    <labels>
+        <fullName>AccountRankingClassificationTable2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountRankingClassificationTable2</shortDescription>
+        <value>Indirecta</value>
+    </labels>
+    <labels>
+        <fullName>Account_No_Data</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Account_No_Data</shortDescription>
+        <value>No data Account</value>
+    </labels>
+    <labels>
+        <fullName>AddCommitment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AddCommitment</shortDescription>
+        <value>Add commitment</value>
+    </labels>
+    <labels>
+        <fullName>Agree</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Agree</shortDescription>
+        <value>OK</value>
+    </labels>
+    <labels>
+        <fullName>Amount</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Amount</shortDescription>
+        <value>Amount</value>
+    </labels>
+    <labels>
+        <fullName>ApiNameAccount</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ApiNameAccount</shortDescription>
+        <value>Account</value>
+    </labels>
+    <labels>
+        <fullName>ApiNameOpp</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ApiNameOpp</shortDescription>
+        <value>Opportunity</value>
+    </labels>
+    <labels>
         <fullName>Ask_for_validation</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -281,6 +393,62 @@
         <protected>true</protected>
         <shortDescription>Ask for validation</shortDescription>
         <value>Ask for validation</value>
+    </labels>
+        <labels>
+        <fullName>AuditPriceApproval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AuditPriceApproval</shortDescription>
+        <value>Price Approval</value>
+    </labels>
+    <labels>
+        <fullName>AuditRiskApproval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AuditRiskApproval</shortDescription>
+        <value>Risk Approval</value>
+    </labels>
+    <labels>
+        <fullName>AuditStyleApprove</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AuditStyleApprove</shortDescription>
+        <value>approve</value>
+    </labels>
+    <labels>
+        <fullName>AuditStyleApproveTop</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AuditStyleApproveTop</shortDescription>
+        <value>approveTop</value>
+    </labels>
+    <labels>
+        <fullName>AuditStyleDeny</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AuditStyleDeny</shortDescription>
+        <value>deny</value>
+    </labels>
+    <labels>
+        <fullName>AuditStyleElevate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AuditStyleElevate</shortDescription>
+        <value>elevate</value>
+    </labels>
+    <labels>
+        <fullName>Authorized</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Authorized</shortDescription>
+        <value>Authorized</value>
+    </labels>
+    <labels>
+        <fullName>AuthorizedTea</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AuthorizedTea</shortDescription>
+        <value>Authorized TEA (%)</value>
     </labels>
     <labels>
         <fullName>BE_AP_NewButton</fullName>
@@ -312,6 +480,20 @@
         <shortDescription>Error DynamicModalRecordForm</shortDescription>
         <value>Se ha producido un error en la configuración.
 Por favor verifique la estructura de acuerdo a la guía en la documentación.</value>
+    </labels>
+    <labels>
+        <fullName>BE_ExpiredContracts</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_ExpiredContracts</shortDescription>
+        <value>Current contracts</value>
+    </labels>
+    <labels>
+        <fullName>BE_FlowNotAvailable</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_FlowNotAvailable</shortDescription>
+        <value>You cannot sanction price of an opportunity on a mobile device, try again from your desktop or laptop.</value>
     </labels>
     <labels>
         <fullName>BE_ImportRecord_Desc</fullName>
@@ -442,6 +624,35 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>View All</value>
     </labels>
     <labels>
+        <fullName>BE_UnpaidContracts</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_UnpaidContracts</shortDescription>
+        <value>Current and unpaid contracts</value>
+    </labels>
+    <labels>
+        <fullName>BE_ViewReport</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_ViewReport</shortDescription>
+        <value>View Report</value>
+    </labels>
+    <labels>
+        <fullName>BE_VisitErrorDescField</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_VisitErrorDescField</shortDescription>
+        <value>Description is required</value>
+    </labels>
+    <labels>
+        <fullName>BE_WelcomeTabCteImg</fullName>
+        <categories>Imagen</categories>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Imagen Modal de bienvenida WL</shortDescription>
+        <value>/resource/BE_WelcomeTabCte</value>
+    </labels>
+    <labels>
         <fullName>Button_Collection_No_Actions</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -449,7 +660,91 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>No existen acciones disponibles.</value>
     </labels>
     <labels>
-        <fullName>Button_Collection_No_ActionsTactico</fullName>
+        <fullName>CalculateProfitability</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CalculateProfitability</shortDescription>
+        <value>Calculate Profitability</value>
+    </labels>
+    <labels>
+        <fullName>Cancel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>Close</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Close</shortDescription>
+        <value>Close</value>
+    </labels>
+    <labels>
+        <fullName>CloseDate</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>CloseDate</shortDescription>
+        <value>CloseDate</value>
+    </labels>
+    <labels>
+        <fullName>Comments</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Comments</shortDescription>
+        <value>Comments</value>
+    </labels>
+    <labels>
+        <fullName>CommitmentProposalSectionTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CommitmentProposalSectionTitle</shortDescription>
+        <value>Proposed commitments</value>
+    </labels>
+    <labels>
+        <fullName>Commitments</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Commitments</shortDescription>
+        <value>Commitments</value>
+    </labels>
+    <labels>
+        <fullName>Currency</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Currency</shortDescription>
+        <value>Currency</value>
+    </labels>
+    <labels>
+        <fullName>DateHigherThan</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>DateHigherThan</shortDescription>
+        <value>DateHigherThan</value>
+    </labels>
+    <labels>
+        <fullName>DecisionPriceActionError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DecisionPriceActionError</shortDescription>
+        <value>The action over the quotation could not be performed due to the following error:</value>
+    </labels>
+    <labels>
+        <fullName>Delete</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Delete</shortDescription>
+        <value>Delete</value>
+    </labels>
+    <labels>
+        <fullName>Denied</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Denied</shortDescription>
+        <value>Denied</value>
+    </labels>
+    <labels>
+        <fullName>Details</fullName>
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>Button_Collection_No_Actions</shortDescription>
@@ -477,6 +772,20 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>pdf,doc,docx,xls,csv,ppt,pptx,txt,xlsx,png,jpg,jpeg</value>
     </labels>
     <labels>
+        <fullName>ErrorReevaluate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ErrorReevaluate</shortDescription>
+        <value>It is not possible to reevaluate an opportunity with a quote id used on another opportunity</value>
+    </labels>
+    <labels>
+        <fullName>ErrorVisitManagementTeam</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>ErrorVisitManagementTeam</shortDescription>
+        <value>No se puede eliminar datos a una visita finalizada</value>
+    </labels>
+    <labels>
         <fullName>Error_InvalidExtensionType</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -484,11 +793,111 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>No puede agregar este tipo de archivo.</value>
     </labels>
     <labels>
+        <fullName>Error_TEA_no_calculada</fullName>
+        <categories>Error</categories>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Error TEA no calculada</shortDescription>
+        <value>Para continuar, calcula la rentabilidad de la TEA Autorizada.</value>
+    </labels>
+    <labels>
+        <fullName>Error_letter_of_credit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error letter of credit</shortDescription>
+        <value>The status of the opportunity could not be updated to the &quot;Approved Price&quot; status.</value>
+    </labels>
+    <labels>
+        <fullName>Error_validation_01</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error_validation_01</shortDescription>
+        <value>You must be the owner of the opportunity</value>
+    </labels>
+    <labels>
+        <fullName>Error_validation_02</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error_validation_02</shortDescription>
+        <value>Must be the owner of the opportunity or have an Executive profile, Assistant position and be in the same office as the opportunity</value>
+    </labels>
+    <labels>
+        <fullName>Error_validation_031</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error_validation_031</shortDescription>
+        <value>You need to fill the field:</value>
+    </labels>
+    <labels>
+        <fullName>Error_validation_032</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error_validation_032</shortDescription>
+        <value>At least one Intervener is required</value>
+    </labels>
+    <labels>
+        <fullName>Error_validation_033</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error_validation_033</shortDescription>
+        <value>At least one warranty is required</value>
+    </labels>
+    <labels>
+        <fullName>Error_validation_05</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error_validation_05</shortDescription>
+        <value>Must have an operational profile and be in the same office as the opportunity</value>
+    </labels>
+    <labels>
+        <fullName>Error_validation_06</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error_validation_06</shortDescription>
+        <value>Debe tener el rol de asistente, perfil operativo y pertenecer al equipo de asistentes de formalización</value>
+    </labels>
+    <labels>
+        <fullName>Error_validation_07</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error_validation_07</shortDescription>
+        <value>Debe pertenecer al equipo de Formalización, perfil operativo y rol de Asistente o Subgerente.</value>
+    </labels>
+    <labels>
+        <fullName>ExceptionListCamp</fullName>
+        <categories>Opportunity</categories>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Lista_campa_a</shortDescription>
+        <value>Este cliente no cuenta con campañas disponibles en este trimestre. Vuelve a revisar el próximo.</value>
+    </labels>
+    <labels>
+        <fullName>Extensions_Allowed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Extensions_Allowed</shortDescription>
+        <value>pdf,doc,docx,xls,csv,ppt,pptx,txt,xlsx,png,jpg,jpeg</value>
+    </labels>
+    <labels>
         <fullName>GenericCustomLabel</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>GenericCustomLabel</shortDescription>
         <value>{0}</value>
+    </labels>
+    <labels>
+        <fullName>GenericError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>GenericError</shortDescription>
+        <value>The services are not available at this time. Contact your administrator.</value>
+    </labels>
+    <labels>
+        <fullName>Hangout</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Hangout</shortDescription>
+        <value>Start a Hangout</value>
     </labels>
     <labels>
         <fullName>LblDirectDebt</fullName>
@@ -510,6 +919,34 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <protected>false</protected>
         <shortDescription>LblResources</shortDescription>
         <value>RECURSOS GESTIONADOS</value>
+    </labels>
+    <labels>
+        <fullName>LblStatusResultbtnSanctionPrice</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblMsgFormalization</shortDescription>
+        <value>12</value>
+    </labels>
+    <labels>
+        <fullName>LblStatusResultbtnSanctionRisk</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblMsgFormalization</shortDescription>
+        <value>24</value>
+    </labels>
+    <labels>
+        <fullName>Lista_campa_a</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Lista campaña</shortDescription>
+        <value>Lista Campañas</value>
+    </labels>
+    <labels>
+        <fullName>MinTEA</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MinTEA</shortDescription>
+        <value>MINIMUM_TEA</value>
     </labels>
     <labels>
         <fullName>Month10ShortName</fullName>
@@ -595,8 +1032,15 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <shortDescription>Month9ShortName</shortDescription>
         <value>Sep</value>
     </labels>
-	<labels>
-        <fullName>AccountAccountingType1TotalLabel</fullName>
+    <labels>
+        <fullName>Msg_DeleteOwner_VMT</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Mensaje de Eliminación de Owner en VMT</shortDescription>
+        <value>No puede eliminar al propietario de la visita en el Equipo BBVA.</value>
+    </labels>
+    <labels>
+        <fullName>New</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>AccountAccountingType1TotalLabel</shortDescription>
@@ -608,6 +1052,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <protected>false</protected>
         <shortDescription>AccountAccountingType2TotalLabel</shortDescription>
         <value>Total Pasive</value>
+    </labels>
+    <labels>
+        <fullName>NewOpportunityWarning</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>NewOpportunityWarning</shortDescription>
+        <value>To create an Opportunity you must go to the client&apos;s detail page and click on the &quot;New Opportunity&quot; button</value>
     </labels>
     <labels>
         <fullName>AccountProductClassificationTable1</fullName>
@@ -1361,7 +1812,14 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>Changes histories</value>
     </labels>
     <labels>
-        <fullName>lblComplete</fullName>
+        <fullName>OppId</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>OppId</shortDescription>
+        <value>006</value>
+    </labels>
+    <labels>
+        <fullName>OppModalityDL</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>lblComplete</shortDescription>
@@ -1739,6 +2197,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>Escalate</value>
     </labels>
     <labels>
+        <fullName>OppPriceDecision02_long</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OppPriceDecision02_long</shortDescription>
+        <value>Escalate request</value>
+    </labels>
+    <labels>
         <fullName>OppPriceDecision03</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1751,6 +2216,20 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <protected>false</protected>
         <shortDescription>OppPriceDecision04</shortDescription>
         <value>Authorized by price</value>
+    </labels>
+    <labels>
+        <fullName>OppPriceDecision05</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OppPriceDecision05</shortDescription>
+        <value>Authorize</value>
+    </labels>
+    <labels>
+        <fullName>OppPriceDecision06</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OppPriceDecision06</shortDescription>
+        <value>Deny</value>
     </labels>
     <labels>
         <fullName>OppStatusLabel08</fullName>
@@ -1865,6 +2344,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>Price authorized</value>
     </labels>
     <labels>
+        <fullName>OppStatusLabel11</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OppStatusLabel11</shortDescription>
+        <value>Price approved</value>
+    </labels>
+    <labels>
         <fullName>OppStatusLabel13</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1879,7 +2365,14 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>PC00009,PC00009_NEW,0159601,0159601_NEW</value>
     </labels>
     <labels>
-        <fullName>PriceProposalSectionTitle</fullName>
+        <fullName>OpportunityName</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>OpportunityName</shortDescription>
+        <value>Opportunity Name</value>
+    </labels>
+    <labels>
+        <fullName>OpportunityObjectName</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>PriceProposalSectionTitle</shortDescription>
@@ -1991,7 +2484,14 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>'Product General Information',' Criteria for payment'</value>
     </labels>
     <labels>
-        <fullName>lblNoAuthDate</fullName>
+        <fullName>PlannigDate</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>PlannigDate</shortDescription>
+        <value>PlannigDate</value>
+    </labels>
+    <labels>
+        <fullName>Price</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>lblNoAuthDate</shortDescription>
@@ -2146,6 +2646,62 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>Quotation request has not been created due to an error. Please, contact your administration for further details.</value>
     </labels>
     <labels>
+        <fullName>PriceDisburseQuotationDefaultComment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Disburse Quotation Default Comment</shortDescription>
+        <value>Disburse quotation request from DWP</value>
+    </labels>
+    <labels>
+        <fullName>PriceDisburseQuotationKnowError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Disburse Quotation Know Error</shortDescription>
+        <value>Quotation has not been disbursed due to the following error:</value>
+    </labels>
+    <labels>
+        <fullName>PriceDisburseQuotationUnknowError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Disburse Quotation Unknown Error</shortDescription>
+        <value>Quotation has not been disbursed due to an error. Please, contact your administration for further details.</value>
+    </labels>
+    <labels>
+        <fullName>PriceGenerateQuotationSheetDefaultComment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Generate Quotation Sheet Default Comment</shortDescription>
+        <value>Generate quotation sheet request from DWP</value>
+    </labels>
+    <labels>
+        <fullName>PriceGenericError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PriceGenericError</shortDescription>
+        <value>The action over the quotation could not be performed due to an error. Please, contact your administrator.</value>
+    </labels>
+    <labels>
+        <fullName>PriceGetQuotationRequestKnownError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Get Quotation Request Known Error</shortDescription>
+        <value>The quotation details have not been obtained due to the following error:</value>
+    </labels>
+    <labels>
+        <fullName>PriceGetQuotationRequestUnknownError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Get Quotation Request Unknown Error</shortDescription>
+        <value>The quotation details have not been obtained due to an error. Please, contact your administration for further details.</value>
+    </labels>
+    <labels>
+        <fullName>PriceProposalSectionTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PriceProposalSectionTitle</shortDescription>
+        <value>Proposed price</value>
+    </labels>
+    <labels>
         <fullName>PriceQuotationAvailabilityErrorMessage</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2165,6 +2721,83 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <protected>false</protected>
         <shortDescription>Web Price Quotation Request Status 02</shortDescription>
         <value>REQUESTED</value>
+    </labels>
+    <labels>
+        <fullName>PriceReassignQuotationDefaultComment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Reassign Quotation Default Comment</shortDescription>
+        <value>Reassign quotation request from DWP</value>
+    </labels>
+    <labels>
+        <fullName>PriceRecoverQuotationDefaultComment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Recover Quotation Default Comment</shortDescription>
+        <value>Recover quotation request from DWP</value>
+    </labels>
+    <labels>
+        <fullName>PriceRecoverRequestKnownError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Recover Request Known Error</shortDescription>
+        <value>Quotation has not been recovered due to the following error:</value>
+    </labels>
+    <labels>
+        <fullName>PriceRecoverRequestUnknownError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Recover Request Unknown Error</shortDescription>
+        <value>The quotation has not been recovered due to an error. Please, contact your administration for further details.</value>
+    </labels>
+    <labels>
+        <fullName>PriceRegisterLossKnownError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Register Loss Known Error</shortDescription>
+        <value>The quotation loss has not been registered due to the following error:</value>
+    </labels>
+    <labels>
+        <fullName>PriceRegisterLossUnknownError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Register Loss Unknown Error</shortDescription>
+        <value>The quotation loss has not been registered due to an error. Please, contact your administration for further details.</value>
+    </labels>
+    <labels>
+        <fullName>PriceRegisterQuotationLossDefaultComment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Register Quotation Loss Default Comment</shortDescription>
+        <value>Register quotation loss from DWP</value>
+    </labels>
+    <labels>
+        <fullName>PriceRequestApprovalQuotationDefaultComment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Request Approval Quotation Default Comment</shortDescription>
+        <value>Request approval quotation from DWP</value>
+    </labels>
+    <labels>
+        <fullName>PriceRequestQuotationApprovalKnownError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Request Quotation Approval Known Error</shortDescription>
+        <value>Quotation request has not been sent for approval due to the following error:</value>
+    </labels>
+    <labels>
+        <fullName>PriceRequestQuotationApprovalUnknownError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Request Quotation Approval Unknown Error</shortDescription>
+        <value>Quotation request has not been sent for approval due to an error. Please, contact your administration for further details.</value>
+    </labels>
+    <labels>
+        <fullName>PriceReturnQuotationDefaultComment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price Return Quotation Default Comment</shortDescription>
+        <value>Return quotation request from DWP</value>
     </labels>
     <labels>
         <fullName>PriceWSLabel01</fullName>
@@ -2236,7 +2869,42 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <shortDescription>Price WS Label 10</shortDescription>
         <value>EXPECTED_LOSS</value>
     </labels>
-	<labels>
+    <labels>
+        <fullName>PriceWSLabel11</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 11</shortDescription>
+        <value>MINIMUM_LIQUIDITY_MARGIN</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel12</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 12</shortDescription>
+        <value>COMMERCIAL_LIQUIDITY_MARGIN</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel13</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 13</shortDescription>
+        <value>ADDITIONAL_LIQUIDITY_MARGIN</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel14</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 14</shortDescription>
+        <value>STOCKHOLDER_FINANCING_COST</value>
+    </labels>
+    <labels>
+        <fullName>PriceWSLabel15</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Price WS Label 15</shortDescription>
+        <value>ADJUSTED_FUNDING_COST</value>
+    </labels>
+    <labels>
         <fullName>PriceWSLabel16</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2291,6 +2959,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <protected>false</protected>
         <shortDescription>Price WS Label 23</shortDescription>
         <value>CURRENCY_FINANCIAL_RECOVERY</value>
+    </labels>
+    <labels>
+        <fullName>Prioridad_de_la_campa</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>Prioridad de la campaña</shortDescription>
+        <value>Prioridad de la campaña</value>
     </labels>
     <labels>
         <fullName>PriceQuotationAvailabilityErrorMessageWrongUser</fullName>
@@ -2419,6 +3094,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>Register quotation loss from DWP</value>
     </labels>
     <labels>
+        <fullName>SuggTEA</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SuggTEA</shortDescription>
+        <value>SUGGESTED_TEA</value>
+    </labels>
+    <labels>
         <fullName>PriceRequestApprovalQuotationDefaultComment</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2489,6 +3171,14 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>Rates have not been recalculated due to the following error:</value>
     </labels>
     <labels>
+        <fullName>assignationApproval</fullName>
+        <categories>Account</categories>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>assignationApproval</shortDescription>
+        <value>Si</value>
+    </labels>
+    <labels>
         <fullName>PriceAnalyzeRateUnknowError</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2538,11 +3228,32 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>STOCKHOLDER_FINANCING_COST</value>
     </labels>
     <labels>
-        <fullName>PriceWSLabel15</fullName>
+        <fullName>lbFormalization</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lbFormalization</shortDescription>
+        <value>Formalization</value>
+    </labels>
+    <labels>
+        <fullName>lblAlertCurrentPriceSanction</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblAlertCurrentPriceSanction</shortDescription>
+        <value>Select the sanction price to use in this opportunity</value>
+    </labels>
+    <labels>
+        <fullName>lblAnalistaProf</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Price WS Label 15</shortDescription>
         <value>ADJUSTED_FUNDING_COST</value>
+    </labels>
+    <labels>
+        <fullName>lblApprove</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblApprove</shortDescription>
+        <value>Approve Sanction</value>
     </labels>
     <labels>
         <fullName>lblAssignedAssistant_1</fullName>
@@ -2587,11 +3298,46 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>AUTHORIZED</value>
     </labels>
     <labels>
+        <fullName>lblBtnCalculateCommission</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblBtnCalculateCommission</shortDescription>
+        <value>Calculate commission</value>
+    </labels>
+    <labels>
         <fullName>lblBtnProductUnit</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>lblBtnProductUnit</shortDescription>
         <value>Enviar a unidad de producto</value>
+    </labels>
+    <labels>
+        <fullName>lblCREATE_CASE</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblCREATE_CASE</shortDescription>
+        <value>CREATE_CASE</value>
+    </labels>
+    <labels>
+        <fullName>lblCommentQuote</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblCommentQuote</shortDescription>
+        <value>Quote Comments:</value>
+    </labels>
+    <labels>
+        <fullName>lblComplete</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblComplete</shortDescription>
+        <value>Complete</value>
+    </labels>
+    <labels>
+        <fullName>lblEjecutivoCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblEjecutivoCode</shortDescription>
+        <value>E03,I32</value>
     </labels>
     <labels>
         <fullName>lblEmptyAssistant_1</fullName>
@@ -2622,11 +3368,123 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>¿Deseas asignártela para poder completar la formalización ?</value>
     </labels>
     <labels>
+        <fullName>lblErrorReevaluateBtn</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Erro on Reevaluate Button</shortDescription>
+        <value>Error in reevaluate the opportunity</value>
+    </labels>
+    <labels>
+        <fullName>lblErrorRetrievingVisit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblErrorRetrievingVisit</shortDescription>
+        <value>Error retrieving the visit</value>
+    </labels>
+    <labels>
+        <fullName>lblEtapa01</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblEtapa01</shortDescription>
+        <value>Commercial actions</value>
+    </labels>
+    <labels>
+        <fullName>lblEtapa02</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblEtapa02</shortDescription>
+        <value>Pending to start</value>
+    </labels>
+    <labels>
+        <fullName>lblEtapa03</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblEtapa03</shortDescription>
+        <value>In Management</value>
+    </labels>
+    <labels>
+        <fullName>lblEtapa04</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblEtapa04</shortDescription>
+        <value>In Sanction</value>
+    </labels>
+    <labels>
+        <fullName>lblEtapa05</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblEtapa05</shortDescription>
+        <value>Formalization</value>
+    </labels>
+    <labels>
+        <fullName>lblEtapa06</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblEtapa06</shortDescription>
+        <value>Formalizate</value>
+    </labels>
+    <labels>
+        <fullName>lblEtapa07</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblEtapa07</shortDescription>
+        <value>Rejected</value>
+    </labels>
+    <labels>
+        <fullName>lblEtapaNoEncontrada</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblEtapaNoEncontrada</shortDescription>
+        <value>There is no stage in this opportunity</value>
+    </labels>
+    <labels>
+        <fullName>lblFieldsFormRequired</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblFieldsFormRequired</shortDescription>
+        <value>Please complete this field.</value>
+    </labels>
+    <labels>
+        <fullName>lblFieldsFormValidateDecimal</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblFieldsFormValidateDecimal</shortDescription>
+        <value>Please, specify a number without decimals.</value>
+    </labels>
+    <labels>
+        <fullName>lblFormalizarEtapa</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblFormalizarEtapa</shortDescription>
+        <value>05</value>
+    </labels>
+    <labels>
+        <fullName>lblFormalizarStatus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblFormalizarStatus</shortDescription>
+        <value>19</value>
+    </labels>
+    <labels>
         <fullName>lblFormalizationAssistant</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>lblFormalizationAssistant</shortDescription>
         <value>Definir estado de oportunidad</value>
+    </labels>
+    <labels>
+        <fullName>lblFormalize</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblFormalize</shortDescription>
+        <value>Formalizar</value>
+    </labels>
+    <labels>
+        <fullName>lblGOFCode</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblGOFCode</shortDescription>
+        <value>E01,I21</value>
     </labels>
     <labels>
         <fullName>lblMini</fullName>
@@ -2643,11 +3501,263 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>MODEL</value>
     </labels>
     <labels>
+        <fullName>lblMsgFormalization</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblMsgFormalization</shortDescription>
+        <value>Are you sure that you want formalizate the Opportunity?</value>
+    </labels>
+    <labels>
+        <fullName>lblMsgPDF</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblMsgFormalization</shortDescription>
+        <value>Are you sure that you want to create PDF of the Opportunity?</value>
+    </labels>
+    <labels>
+        <fullName>lblMsgReevaluate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblMsgReevaluate</shortDescription>
+        <value>Are you sure that you want reevaluate the Opportunity?</value>
+    </labels>
+    <labels>
+        <fullName>lblNoAuthDate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblNoAuthDate</shortDescription>
+        <value>No defined</value>
+    </labels>
+    <labels>
+        <fullName>lblNoCommentsFormalization</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblNoCommentsFormalization</shortDescription>
+        <value>comments can not be empty</value>
+    </labels>
+    <labels>
+        <fullName>lblOpportunityApproval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblOpportunityApproval</shortDescription>
+        <value>Approval</value>
+    </labels>
+    <labels>
+        <fullName>lblOpportunityLink</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblOpportunityLink</shortDescription>
+        <value>Link</value>
+    </labels>
+    <labels>
+        <fullName>lblOpportunitySioCodeIs</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblOpportunitySioCodeIs</shortDescription>
+        <value>The current SIO Code is:</value>
+    </labels>
+    <labels>
+        <fullName>lblOpportunityStatusApprovedInsideLine</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblOpportunityStatusApprovedInsideLine</shortDescription>
+        <value>18</value>
+    </labels>
+    <labels>
+        <fullName>lblOpportunityStatusRiskAuth</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblOpportunityStatusRiskAuth</shortDescription>
+        <value>15</value>
+    </labels>
+    <labels>
+        <fullName>lblOpportunityStatusRiskDenied</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblOpportunityStatusRiskDenied</shortDescription>
+        <value>16</value>
+    </labels>
+    <labels>
+        <fullName>lblOpportunityStatusSentRisk</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblOpportunityStatusSentRisk</shortDescription>
+        <value>14</value>
+    </labels>
+    <labels>
+        <fullName>lblPDFLeasingForniture</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFLeasingForniture</shortDescription>
+        <value>PC00029</value>
+    </labels>
+    <labels>
+        <fullName>lblPDFLeasingRealState</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFLeasingRealState</shortDescription>
+        <value>PC00014</value>
+    </labels>
+    <labels>
+        <fullName>lblPDFMsgError</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFMsgError</shortDescription>
+        <value>Datos incompletos en oportunidad,Datos incompletos en producto oportunidad,Datos incompletos en producto,Datos incompletos en cliente,Datos incompletos en clasificación BBVA-Cliente,Datos incompletos en SBS,Datos incompletos en contacto,Datos incompletos en usuario oficina,Datos incompletos en Oficina,Datos incompletos en calificación cliente,Datos incompletos en intervieniente,Datos incompletos en garantias,Datos de usuario Incorrectos, SUCCESS</value>
+    </labels>
+    <labels>
+        <fullName>lblPDFProductCartaTecnicaEconomica</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFProductCartaTecnicaEconomica</shortDescription>
+        <value>PC00011</value>
+    </labels>
+    <labels>
+        <fullName>lblPDFProductCartaTecnicaImport</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFProductCartaTecnicaImport</shortDescription>
+        <value>PC00012</value>
+    </labels>
+    <labels>
+        <fullName>lblPDFProductCommercialLoanCP</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFProductCommercialLoanCP</shortDescription>
+        <value>PC00001</value>
+    </labels>
+    <labels>
+        <fullName>lblPDFProductCommercialLoanCP2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFProductCommercialLoanCP</shortDescription>
+        <value>PC00001_2</value>
+    </labels>
+    <labels>
+        <fullName>lblPDFProductCommercialLoanLP</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFProductCommercialLoanLP</shortDescription>
+        <value>PC00018</value>
+    </labels>
+    <labels>
+        <fullName>lblPDFProductExport</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFProductExport</shortDescription>
+        <value>PC00007</value>
+    </labels>
+    <labels>
+        <fullName>lblPDFProductExportComex</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFProductExportComex</shortDescription>
+        <value>PC00003</value>
+    </labels>
+    <labels>
+        <fullName>lblPDFProductForfaitingImport</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFProductForfaitingImport</shortDescription>
+        <value>PC00012</value>
+    </labels>
+    <labels>
+        <fullName>lblPDFProductFurnitureLeasing</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFProductFurnitureLeasing</shortDescription>
+        <value>PC00024</value>
+    </labels>
+    <labels>
+        <fullName>lblPDFProductImport</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFProductImport</shortDescription>
+        <value>PC00005</value>
+    </labels>
+    <labels>
+        <fullName>lblPDFProductImportComex</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFProductImportComex</shortDescription>
+        <value>PC00002</value>
+    </labels>
+    <labels>
+        <fullName>lblPDFProductLeasing</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFProductLeasing</shortDescription>
+        <value>PC00010</value>
+    </labels>
+    <labels>
+        <fullName>lblPDFProductPrestamoLP</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPDFProductPrestamoLP</shortDescription>
+        <value>PC00009</value>
+    </labels>
+    <labels>
+        <fullName>lblPenalizeRisk</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblPenalizeRisk</shortDescription>
+        <value>Sanction risk</value>
+    </labels>
+    <labels>
+        <fullName>lblQuote</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblQuote</shortDescription>
+        <value>Quote</value>
+    </labels>
+    <labels>
+        <fullName>lblQuoteError</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblQuoteError</shortDescription>
+        <value>you can not make a quote on this opportunity</value>
+    </labels>
+    <labels>
+        <fullName>lblQuoteGeneralError</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblQuoteGeneralError</shortDescription>
+        <value>Unable to load the quote window</value>
+    </labels>
+    <labels>
+        <fullName>lblREASIGN_CASE</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblREASIGN_CASE</shortDescription>
+        <value>REASIGN_CASE</value>
+    </labels>
+    <labels>
+        <fullName>lblReasign</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblReasign</shortDescription>
+        <value>Reasign Owner</value>
+    </labels>
+    <labels>
         <fullName>lblReasignOwnerFormalization</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>lblReasignOwnerFormalization</shortDescription>
         <value>Assignme case</value>
+    </labels>
+    <labels>
+        <fullName>lblReevaluate</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblReevaluate</shortDescription>
+        <value>Re-evaluate</value>
+    </labels>
+    <labels>
+        <fullName>lblReject</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblReject</shortDescription>
+        <value>Reject</value>
     </labels>
     <labels>
         <fullName>lblReq</fullName>
@@ -2663,8 +3773,29 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <shortDescription>Error letter of credit</shortDescription>
         <value>The status of the opportunity could not be updated to the &quot;Approved Price&quot; status.</value>
     </labels>
-	<labels>
-        <fullName>PriceApprovalLetterCredit</fullName>
+    <labels>
+        <fullName>lblRiskEnterSio</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblRiskEnterSio</shortDescription>
+        <value>Enter a SIO Code...</value>
+    </labels>
+    <labels>
+        <fullName>lblRiskSearchSio</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblRiskSearchSio</shortDescription>
+        <value>Search SIO Code</value>
+    </labels>
+    <labels>
+        <fullName>lblRiskSioCodeIs</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblRiskSioCodeIs</shortDescription>
+        <value>The selected SIO code is:</value>
+    </labels>
+    <labels>
+        <fullName>lblSanctionPrice</fullName>
         <language>es</language>
         <protected>false</protected>
         <shortDescription>PriceApprovalLetterCredit</shortDescription>
@@ -2677,12 +3808,117 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <shortDescription>Mensaje de Eliminación de Owner en VMT</shortDescription>
         <value>No puede eliminar al propietario de la visita en el Equipo BBVA.</value>
     </labels>
-	<labels>
-        <fullName>ErrorVisitManagementTeam</fullName>
+    <labels>
+        <fullName>lblSanctionStage</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblSanctionStage</shortDescription>
+        <value>04</value>
+    </labels>
+    <labels>
+        <fullName>lblSearch</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblSearch</shortDescription>
+        <value>Search...</value>
+    </labels>
+    <labels>
+        <fullName>lblSetupAssistant</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblSetupAssistant</shortDescription>
+        <value>Setup Assistant</value>
+    </labels>
+    <labels>
+        <fullName>lblTitleCurrentPriceSanction</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblTitleCurrentPriceSanction</shortDescription>
+        <value>Sanction with current price</value>
+    </labels>
+    <labels>
+        <fullName>lblTitleFormalization</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblTitleFormalization</shortDescription>
+        <value>formalizate Opportunity</value>
+    </labels>
+    <labels>
+        <fullName>lblTitleNewSalesMeeting</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblTitleNewSalesMeeting</shortDescription>
+        <value>New Sales Meeting</value>
+    </labels>
+    <labels>
+        <fullName>lblTitlePDF</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblTitleReevaluate</shortDescription>
+        <value>Create PDF on Opportunity</value>
+    </labels>
+    <labels>
+        <fullName>lblTitlePriceSanction</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblTitlePriceSanction</shortDescription>
+        <value>Price Sanction</value>
+    </labels>
+    <labels>
+        <fullName>lblTitleReevaluate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblTitleReevaluate</shortDescription>
+        <value>Reevaluate opportunity</value>
+    </labels>
+    <labels>
+        <fullName>lblTitleRiskSanction</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblTitleRiskSanction</shortDescription>
+        <value>Risk Sanction</value>
+    </labels>
+    <labels>
+        <fullName>lblTitleSanctionPrice</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblTitleSanctionPrice</shortDescription>
+        <value>Price Approval</value>
+    </labels>
+    <labels>
+        <fullName>lblUnlink</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lblUnlink</shortDescription>
+        <value>Unlink SIO</value>
+    </labels>
+    <labels>
+        <fullName>lblUseCurrentPrice</fullName>
         <language>es</language>
         <protected>false</protected>
         <shortDescription>ErrorVisitManagementTeam</shortDescription>
         <value>No se puede eliminar datos a una visita finalizada</value>
+    </labels>
+    <labels>
+        <fullName>lblUserNotAuth</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblUserNotAuth</shortDescription>
+        <value>User not Authorized</value>
+    </labels>
+    <labels>
+        <fullName>lblbtnApprove_cfg</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>lblbtnApprove_cfg</shortDescription>
+        <value>Approve</value>
+    </labels>
+    <labels>
+        <fullName>lblbtnPDF_cfg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PDF</shortDescription>
+        <value>PDF</value>
     </labels>
     <labels>
         <fullName>lblbtnSanctionGOF_cfg</fullName>
@@ -2741,6 +3977,20 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <shortDescription>BE_ViewReport</shortDescription>
         <value>View Report</value>
     </labels>
+    <labels>
+        <fullName>quickText</fullName>
+        <language>es</language>
+        <protected>false</protected>
+        <shortDescription>quickText</shortDescription>
+        <value>quickText</value>
+    </labels>
+    <labels>
+        <fullName>reasignSuccess</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>reasignSuccess</shortDescription>
+        <value>The case has been reasigned succesfully,</value>
+    </labels>
 	<labels>
         <fullName>BE_VisitErrorDescField</fullName>
         <language>en_US</language>
@@ -2749,10 +3999,46 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>Description is required</value>
     </labels>
     <labels>
+        <fullName>reevalRisk</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>reevalRisk</shortDescription>
+        <value>Sent for reevaluation at risk</value>
+    </labels>
+    <labels>
+        <fullName>reevalSuccess</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>reevalSuccess</shortDescription>
+        <value>The Opportunity has been successfully sent to reevaluate.</value>
+    </labels>
+    <labels>
+        <fullName>reevaluateBtnLabel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>creates the label for button</shortDescription>
+        <value>Reevaluate</value>
+    </labels>
+    <labels>
         <fullName>Validation_error_for_fields_not_completed_tactico</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Validation error for fields not completed</shortDescription>
         <value>You must answer the question</value>
+    </labels>
+    <labels>
+        <fullName>stageIncorrectToPDF</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>stageIncorrectToPDF</shortDescription>
+        <value>You can not create a PDF on this stage</value>
+    </labels>
+    <labels>
+        <fullName>taskFilter</fullName>
+        <categories>task label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>taskStatusFilter</shortDescription>
+        <value>Inbound Email</value>
     </labels>
 </CustomLabels>

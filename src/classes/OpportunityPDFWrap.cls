@@ -2,6 +2,7 @@ public without sharing virtual class OpportunityPDFWrap {
 	public static OpportunityLineItem OLI {get; set;}
 	public static OpportunityLineItem OLI2 {get; set;}
 	public static OpportunityLineItem OLI3 {get; set;}
+	public  static List<Product_Commission__c> commissions1 {get; set;}
 	Public Static Account_BBVA_Classification__c ABBVAC {get; set;}
 	Public static Product2 Product {get; set;}
 	Public static Account Client {get; set;}
@@ -170,6 +171,11 @@ public without sharing virtual class OpportunityPDFWrap {
 			totalGarantiasNoFormalizadas = [SELECT COUNT_DISTINCT(Id) total FROM fprd__GBL_Guarantee__c WHERE fprd__GBL_Opportunity_product__c =:Opp.Id AND guarantee_status_type__c = '02'];
 			numGnF = Integer.valueOf(totalGarantiasNoFormalizadas[0].get('total'));
 			title = 'PDF Formalización ' + Opportunity.Name;
+
+			commissions1 =  [SELECT Calculation_Type__c , Commission_Calculation_Amount__c, Product_Commission_Name__c, Suggested_Rate__c, Suggested_Rate_Type__c, Final_Rate__c FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id  ];
+ 
+
+
 		} catch(System.Exception e) {
 			system.debug('Exception : ' + e.getMessage());
 		}
