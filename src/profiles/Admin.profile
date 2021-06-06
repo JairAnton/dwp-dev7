@@ -713,10 +713,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>BE_NonClient_ReadContact_Helper</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>BE_NonClient_ReadContact_REST</apexClass>
         <enabled>true</enabled>
     </classAccesses>

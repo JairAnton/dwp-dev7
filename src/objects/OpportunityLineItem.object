@@ -115,16 +115,6 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <fields>
-        <fullName>Assigned_analyst__c</fullName>
-        <encryptionScheme>None</encryptionScheme>
-        <externalId>false</externalId>
-        <label>Assigned_analyst</label>
-        <length>255</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>BE_Periodicity__c</fullName>
         <externalId>false</externalId>
         <formula>TEXT(gipr_Plazo__c) &amp; &apos; &apos; &amp; CASE(TEXT(gipr_Periodicidad__c), &apos;01&apos;, &apos;Días&apos;, &apos;02&apos;, &apos;Meses&apos;, &apos;03&apos;, &apos;Años&apos;, &apos;Desconocido&apos;)</formula>
@@ -138,35 +128,6 @@
     </fields>
     <fields>
         <fullName>Discount</fullName>
-    </fields>
-    <fields>
-        <fullName>FinancingType__c</fullName>
-        <description>This field is used to store the types of financing available, for example: &quot;Pre embarque&quot;, &quot;Post embarque&quot;, &quot;Sepymex&quot;, ...</description>
-        <externalId>false</externalId>
-        <label>FinancingType</label>
-        <required>false</required>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>01</fullName>
-                    <default>false</default>
-                    <label>01</label>
-                </value>
-                <value>
-                    <fullName>02</fullName>
-                    <default>false</default>
-                    <label>02</label>
-                </value>
-                <value>
-                    <fullName>03</fullName>
-                    <default>false</default>
-                    <label>03</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
     </fields>
     <fields>
         <fullName>Liquidity_Margin_Lost__c</fullName>
@@ -188,15 +149,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Liquidity_Margin_Recovered__c</fullName>
-        <externalId>false</externalId>
-        <label>Liquidity Margin Recovered</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <type>Currency</type>
-    </fields>
-    <fields>
         <fullName>ListPrice</fullName>
     </fields>
     <fields>
@@ -205,13 +157,6 @@
     <fields>
         <fullName>OpportunityId</fullName>
         <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>PE_List_Mejorado__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>PE_List_Mejorado</label>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>PE_List_Product_mode__c</fullName>
@@ -365,69 +310,6 @@
     </fields>
     <fields>
         <fullName>Quantity</fullName>
-    </fields>
-    <fields>
-        <fullName>RAROEC_Operation__c</fullName>
-        <externalId>false</externalId>
-        <label>RAROEC Operation (%)</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <type>Percent</type>
-    </fields>
-    <fields>
-        <fullName>RORC_Approved__c</fullName>
-        <externalId>false</externalId>
-        <label>RORC Approved (%)</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <type>Percent</type>
-    </fields>
-    <fields>
-        <fullName>RORC_Client__c</fullName>
-        <externalId>false</externalId>
-        <label>RORC Client (%)</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <type>Percent</type>
-    </fields>
-    <fields>
-        <fullName>RORC_Model__c</fullName>
-        <externalId>false</externalId>
-        <label>RORC Model (%)</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <type>Percent</type>
-    </fields>
-    <fields>
-        <fullName>RORC_Operation__c</fullName>
-        <externalId>false</externalId>
-        <label>RORC Operation (%)</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <type>Percent</type>
-    </fields>
-    <fields>
-        <fullName>RORC_Updated__c</fullName>
-        <externalId>false</externalId>
-        <label>RORC Updated (%)</label>
-        <precision>16</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Percent</type>
-    </fields>
-    <fields>
-        <fullName>RORC_Variation__c</fullName>
-        <externalId>false</externalId>
-        <label>RORC Variation (%)</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <type>Percent</type>
     </fields>
     <fields>
         <fullName>ServiceDate</fullName>
@@ -2576,139 +2458,6 @@
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>PE_List_Product_mode__c</fullName>
-        <externalId>false</externalId>
-        <label>PE_List_Product_mode</label>
-        <required>false</required>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>01</fullName>
-                    <default>false</default>
-                    <label>01</label>
-                </value>
-                <value>
-                    <fullName>02</fullName>
-                    <default>false</default>
-                    <label>02</label>
-                </value>
-                <value>
-                    <fullName>03</fullName>
-                    <default>false</default>
-                    <label>03</label>
-                </value>
-                <value>
-                    <fullName>04</fullName>
-                    <default>false</default>
-                    <label>04</label>
-                </value>
-                <value>
-                    <fullName>05</fullName>
-                    <default>false</default>
-                    <label>05</label>
-                </value>
-                <value>
-                    <fullName>06</fullName>
-                    <default>false</default>
-                    <label>06</label>
-                </value>
-                <value>
-                    <fullName>07</fullName>
-                    <default>false</default>
-                    <label>07</label>
-                </value>
-                <value>
-                    <fullName>08</fullName>
-                    <default>false</default>
-                    <label>08</label>
-                </value>
-                <value>
-                    <fullName>09</fullName>
-                    <default>false</default>
-                    <label>09</label>
-                </value>
-                <value>
-                    <fullName>10</fullName>
-                    <default>false</default>
-                    <label>10</label>
-                </value>
-                <value>
-                    <fullName>11</fullName>
-                    <default>false</default>
-                    <label>11</label>
-                </value>
-                <value>
-                    <fullName>12</fullName>
-                    <default>false</default>
-                    <label>12</label>
-                </value>
-                <value>
-                    <fullName>13</fullName>
-                    <default>false</default>
-                    <label>13</label>
-                </value>
-                <value>
-                    <fullName>14</fullName>
-                    <default>false</default>
-                    <label>14</label>
-                </value>
-                <value>
-                    <fullName>15</fullName>
-                    <default>false</default>
-                    <label>15</label>
-                </value>
-                <value>
-                    <fullName>16</fullName>
-                    <default>false</default>
-                    <label>16</label>
-                </value>
-                <value>
-                    <fullName>17</fullName>
-                    <default>false</default>
-                    <label>17</label>
-                </value>
-                <value>
-                    <fullName>18</fullName>
-                    <default>false</default>
-                    <label>18</label>
-                </value>
-                <value>
-                    <fullName>19</fullName>
-                    <default>false</default>
-                    <label>19</label>
-                </value>
-                <value>
-                    <fullName>20</fullName>
-                    <default>false</default>
-                    <label>20</label>
-                </value>
-                <value>
-                    <fullName>21</fullName>
-                    <default>false</default>
-                    <label>21</label>
-                </value>
-                <value>
-                    <fullName>22</fullName>
-                    <default>false</default>
-                    <label>22</label>
-                </value>
-                <value>
-                    <fullName>23</fullName>
-                    <default>false</default>
-                    <label>23</label>
-                </value>
-                <value>
-                    <fullName>24</fullName>
-                    <default>false</default>
-                    <label>24</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>gipr_CuotaInicial__c</fullName>
         <externalId>false</externalId>
         <label>gipr_CuotaInicial</label>
@@ -2725,15 +2474,6 @@
         <required>false</required>
         <scale>2</scale>
         <type>Percent</type>
-    </fields>
-	<fields>
-        <fullName>Liquidity_Margin_Lost__c</fullName>
-        <externalId>false</externalId>
-        <label>Liquidity Margin Lost</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <type>Currency</type>
     </fields>
 	<fields>
         <fullName>Liquidity_Margin_Recovered_Currency__c</fullName>
