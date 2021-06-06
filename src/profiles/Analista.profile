@@ -714,10 +714,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>BE_ProdCommissionSection_Ctr_Test</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>BE_Quotation_Ctr</apexClass>
         <enabled>true</enabled>
     </classAccesses>
