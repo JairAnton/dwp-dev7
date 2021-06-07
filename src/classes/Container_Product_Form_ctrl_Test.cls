@@ -274,7 +274,7 @@ public class Container_Product_Form_ctrl_Test {
 		prod.Type_of_quote__c = 'Web';
 		update prod;
 		TestFactory.createOLI(opp.Id, prod.Id);
-        Final Map<String, Object> mapCW = new Map<String, Object>{SHOW_WARNING => true, ERROR_MSG => Label.PriceQuotationProductNotAvailableErrorMessage};
+        //Final Map<String, Object> mapCW = new Map<String, Object>{SHOW_WARNING => true, ERROR_MSG => Label.PriceQuotationProductNotAvailableErrorMessage};
         //Final Map<String, Object> expected = new Map<String, Object>{KEY => true, KEY_2=> true, KEY_3 => true, DATA_CW => mapCW};
         //Map<String, Object> actual;
 		Test.startTest();

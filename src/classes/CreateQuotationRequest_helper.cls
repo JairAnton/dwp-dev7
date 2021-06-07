@@ -26,8 +26,11 @@ public without sharing class CreateQuotationRequest_helper {
 			Final String analizeRateId = oppProductList[0].Price_rates_create_analyze_Id__c;
 			Final String proposedAPR = String.valueOf((oppProductList[0].proposed_apr_per__c != null ? oppProductList[0].proposed_apr_per__c / 100 : oppProductList[0].proposed_apr_per__c));
 			Final String requestComment = Label.PriceCreateQuotationRequestDefaultComment;
-			Final String guaranteeType = (mapWsVal.get('GUARANTEE_TYPE' + String.valueOf(oppProductList[0].gipr_Garantia__c)) != null ? mapWsVal.get('GUARANTEE_TYPE' + String.valueOf(oppProductList[0].gipr_Garantia__c)).web_service_value__c : null);
-			Final CreateQuotationRequest_Wrapper inDtMppReq = new CreateQuotationRequest_Wrapper(calculationRatesId, proposedAPR, requestComment, guaranteeType, analizeRateId);
+            String guaranteeType = '';
+            if(mapWsVal.get('GUARANTEE_TYPE' + String.valueOf(oppProductList[0].gipr_Garantia__c)) != null) {
+                guaranteeType = mapWsVal.get('GUARANTEE_TYPE' + String.valueOf(oppProductList[0].gipr_Garantia__c)).web_service_value__c;
+            }
+            Final CreateQuotationRequest_Wrapper inDtMppReq = new CreateQuotationRequest_Wrapper(calculationRatesId, proposedAPR, requestComment, guaranteeType, analizeRateId);
 			this.inputDataMapping = inDtMppReq;
 		}
 	}

@@ -59,7 +59,7 @@ public class RegisterQuotationLoss_Test {
 	@isTest
     static void rejectOppWithPriceQuotationTest() {
         Final Opportunity opptest = [SELECT Id FROM Opportunity LIMIT 1];
-        Final OpportunityLineItem olitest = [SELECT Id FROM OpportunityLineItem LIMIT 1];
+        //Final OpportunityLineItem olitest = [SELECT Id FROM OpportunityLineItem LIMIT 1];
 		// Prepare ws mocks
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'GrantingTickets', iaso__Url__c = 'https://validation/ok', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'ModifyQuotationRequest', iaso__Url__c = 'https://ModifyQuotationRequestRejection/OK', iaso__Cache_Partition__c = 'local.CredentialsPeru');
@@ -89,7 +89,7 @@ public class RegisterQuotationLoss_Test {
 		insert new iaso__GBL_Rest_Services_Url__c(Name = 'ModifyQuotationRequest', iaso__Url__c = 'https://ModifyQuotationRequestDisburse/KO_409', iaso__Cache_Partition__c = 'local.CredentialsPeru');
 		Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
-		Final Map<String, Object> resultMap;
+		//Final Map<String, Object> resultMap;
 		Test.startTest();
 		//resultMap = Product_cls.registerQuotationLoss(opptest.Id, '02', '01');
 		Product_cls.registerQuotationLoss(opptest.Id, '02', '01');

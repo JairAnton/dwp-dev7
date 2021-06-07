@@ -44,10 +44,12 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
 
     @wire(getRecord, { recordId: '$recordId', fields: OPP_LINE_FIELDS })
     wiredopportunity(value) {
+        const rateReqEdArr = ['12', '02', '18', '14', '15', '16', '17', '24', '13', '03'];
+        const showRateReqArr = ['03', '02', '12', '18', '14', '15', '16', '17', '24', '13', '09', '12', '11', '08', '10'];
         if (value.data) {
             this.status = value.data.fields.Opportunity.value.fields.opportunity_status_type__c.value;
-            this.isRateRequestedEditable = this.isEditable && this.editRateRequest && (this.status === '12' || this.status === '02' || this.status === '18' || this.status === '14' || this.status === '15' || this.status === '16' || this.status === '17' || this.status === '24' || this.status === '13' || this.status === '03');
-            this.showRateRequested = this.status === '03' || this.status === '02' || this.status === '12' || this.status === '18' || this.status === '14' || this.status === '15' || this.status === '16' || this.status === '17' || this.status === '24' || this.status === '13' || this.status === '09' || this.status === '12' || this.status === '11' || this.status === '08' || this.status === '10';
+            this.isRateRequestedEditable = this.isEditable && this.editRateRequest && rateReqEdArr.includes(this.status);
+            this.showRateRequested = showRateReqArr.includes(this.status);
             this.isRateAuthorizedEditable = this.isEditable && this.editRateAuthorized && (this.status === '09');
             this.showRateAuthorized = this.status === '09' || this.status === '11' || this.status === '08' || this.status === '10';
             console.log('read stage status', this.status);
@@ -94,7 +96,7 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
         let currentQuestion = currentCommission.Commission_Questions__r[questionIndex];
 
         let value;
-        if (event.currentTarget.checked !== null && event.currentTarget.checked !== null) {
+        if (!event.currentTarget.checked) {
             value = event.currentTarget.checked;
         } else {
             value = event.currentTarget.value;
@@ -259,7 +261,7 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
         return commissions.map((c) => {
             let { Commission_Questions__r, ...cData } = c;
             let questions = [];
-            if (Commission_Questions__r !== null && Commission_Questions__r !== null) {
+            if (!Commission_Questions__r) {
                 questions = Commission_Questions__r.map((q) => {
                     let { Answer__c, ...qData } = q;
                     let answer = (Answer__c === 'true' ? true : (Answer__c === 'false' ? false : Answer__c));
