@@ -53,6 +53,7 @@ public class BE_AnalyzeRate_Tst {
 		Final OpportunityLineItem oli = TestFactory.createOLI(opp.Id, prod.Id);
 		oli.price_quote_id__c = '11111';
         oli.price_rates_calculation_Id__c = '123466';
+		oli.hasCommissions__c = false;
         update oli;
         
 		insert new iaso__GBL_Rest_Services_Url__c(Name = STRAR, iaso__Url__c = URLOK, iaso__Cache_Partition__c = STRCACHE);
@@ -86,10 +87,10 @@ public class BE_AnalyzeRate_Tst {
 		insert new iaso__GBL_Rest_Services_Url__c(Name = STRAR, iaso__Url__c = URLOK, iaso__Cache_Partition__c = STRCACHE);
 		Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
-		Final List<OpportunityLineItem> olis = [SELECT Id, OpportunityId, price_quote_id__c, price_rates_calculation_Id__c FROM OpportunityLineItem LIMIT 1];
+		Final List<OpportunityLineItem> olis = [SELECT Id, OpportunityId, hasCommissions__c, price_quote_id__c, price_rates_calculation_Id__c FROM OpportunityLineItem LIMIT 1];
         Test.startTest();
         Final Map<String, Object> mapReturnSP = SanctionPrice_Ctrl.getInfo(olis[0].OpportunityId);
-		Final Map<String, Object> mapReturnAR = BE_AnalyzeRate_Ctrl.getInfoRORC(olis[0].Id, '0.05', (String)mapReturnSP.get('fields'));
+		Final Map<String, Object> mapReturnAR = BE_AnalyzeRate_Ctrl.getInfoRORC(olis[0].Id, '0.05', (String)mapReturnSP.get('fields'),olis[0].hasCommissions__c);
 		System.assert((Boolean)mapReturnAR.get(STROK), 'correct!!!');
 		Test.stopTest();
 	}
@@ -101,10 +102,10 @@ public class BE_AnalyzeRate_Tst {
 		insert new iaso__GBL_Rest_Services_Url__c(Name = STRAR, iaso__Url__c = URLKO, iaso__Cache_Partition__c = STRCACHE);
 		Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
-		Final List<OpportunityLineItem> olis = [SELECT Id, OpportunityId, price_quote_id__c, price_rates_calculation_Id__c FROM OpportunityLineItem LIMIT 1];
+		Final List<OpportunityLineItem> olis = [SELECT Id, OpportunityId, hasCommissions__c, price_quote_id__c, price_rates_calculation_Id__c FROM OpportunityLineItem LIMIT 1];
         Test.startTest();
         Final Map<String, Object> mapReturnSP = SanctionPrice_Ctrl.getInfo(olis[0].OpportunityId);
-		Final Map<String, Object> mapReturnAR = BE_AnalyzeRate_Ctrl.getInfoRORC(olis[0].Id, '0.06', (String)mapReturnSP.get('fields'));
+		Final Map<String, Object> mapReturnAR = BE_AnalyzeRate_Ctrl.getInfoRORC(olis[0].Id, '0.06', (String)mapReturnSP.get('fields'), olis[0].hasCommissions__c);
 		System.assert(!(Boolean)mapReturnAR.get(STROK), STRERROR);
 		Test.stopTest();
 	}
@@ -116,9 +117,9 @@ public class BE_AnalyzeRate_Tst {
 		insert new iaso__GBL_Rest_Services_Url__c(Name = STRAR, iaso__Url__c = URLKO, iaso__Cache_Partition__c = STRCACHE);
 		Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
-        Final List<OpportunityLineItem> olis = [SELECT Id, OpportunityId, price_quote_id__c, price_rates_calculation_Id__c FROM OpportunityLineItem LIMIT 1];
+        Final List<OpportunityLineItem> olis = [SELECT Id, OpportunityId, price_quote_id__c, hasCommissions__c, price_rates_calculation_Id__c FROM OpportunityLineItem LIMIT 1];
         Test.startTest();
-        Final Map<String, Object> mapReturnAR = BE_AnalyzeRate_Ctrl.getInfoRORC(olis[0].Id, null, null);
+        Final Map<String, Object> mapReturnAR = BE_AnalyzeRate_Ctrl.getInfoRORC(olis[0].Id, null, null, olis[0].hasCommissions__c);
 		System.assert(!(Boolean)mapReturnAR.get(STROK), STRERROR);
 		Test.stopTest();
 	}
@@ -132,7 +133,7 @@ public class BE_AnalyzeRate_Tst {
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 		
         Test.startTest();
-        Final Map<String, Object> mapReturnAR = BE_AnalyzeRate_Ctrl.getInfoRORC(null, '0.065', null);
+        Final Map<String, Object> mapReturnAR = BE_AnalyzeRate_Ctrl.getInfoRORC(null, '0.065', null, false);
 		System.assert(!(Boolean)mapReturnAR.get(STROK), STRERROR);
 		Test.stopTest();
 	}

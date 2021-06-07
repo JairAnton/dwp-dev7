@@ -31,7 +31,7 @@ public with sharing class BE_AnalyzeRate_ctrl {
      * Method used to calculate indicators of RORC
 	*/
     @AuraEnabled
-    public static Map<String,Object> getInfoRORC(String recordId, String tea, String vdata) {
+    public static Map<String,Object> getInfoRORC(String recordId, String tea, String vdata, Boolean hasCommissions) {
         if(String.isNotBlank(vdata)) {
             fields = (List<BE_OutputField_Wrapper>)JSON.deserialize(vdata, List<BE_OutputField_Wrapper>.class);
         }
@@ -52,6 +52,7 @@ public with sharing class BE_AnalyzeRate_ctrl {
                 if(invoke.getStatusCode() == OKCODE) {
                     mapReturn.put(STROK, true);
                     final AnalyzeRate_helper.ResponseAnalyzeRate_Wrapper jbody = prate.parse(invoke.getBody());
+                    olis[0].hasCommissions__c = hasCommissions;
                     //olis = BE_AnalyzeRate_Rest.readFees(jbody, olis);
                     olis = BE_AnalyzeRate_Rest.readIndicators(jbody, olis);
                     //olis = BE_AnalyzeRate_Rest.readLiqIndicator(jbody, olis);

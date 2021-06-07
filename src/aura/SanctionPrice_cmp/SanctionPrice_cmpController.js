@@ -63,5 +63,12 @@
                 break;
             default:
         }
+    },
+    handleCalculateCommission : function(cmp, evt, helper) {
+        console.log('Detected calculate from Sanction Price!!!');
+        var appEvent = $A.get("e.c:BE_CommissionRateEvent");
+        appEvent.setParams({
+            "message" : "" });
+        appEvent.fire();
     }
 })

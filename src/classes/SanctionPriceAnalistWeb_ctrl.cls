@@ -6,8 +6,10 @@ public class SanctionPriceAnalistWeb_ctrl {
 		List<OpportunityLineItem> lstOLI;
 		try {
 			lstOLI = [Select Id, price_quote_id__c, product_price_approval_method__c, proposed_apr_per__c, validityDate__c, RORC_Client__c,
-                      RORC_Operation__c, RORC_Model__c, RORC_Approved__c, RAROEC_Operation__c from OpportunityLineItem where OpportunityId =:oppId];
+                      RORC_Operation__c, RORC_Model__c, RORC_Approved__c, RAROEC_Operation__c, hasCommissions__c from OpportunityLineItem where OpportunityId =:oppId];
 			if(!lstOLI.isEmpty()) {
+				mpReturn.put('oliId', lstOLI[0].Id);
+				mpReturn.put('hasCommissions', lstOLI[0].hasCommissions__c);
 				mpReturn.put('proposed', lstOli[0].proposed_apr_per__c);
 				mpReturn.put('RORC_Client',lstOli[0].RORC_Client__c);
                 mpReturn.put('RAROEC',lstOli[0].RAROEC_Operation__c);

@@ -12,12 +12,17 @@
 public with sharing class BE_Quotation_Ctr {
 	/** list of commintments */
 	public final List<Opportunity_Solution_Commitment__c> commitments {get; set;}
+    /** list of commissions */
+	public final List<Product_Commission__c> commissionsx {get; set;}
     /** string with comments */
 	public String comments {get; set;}
     /** string with modality */
 	public final String modality {get; set;}
     /** string with userCode */
 	public final String userCode {get; set;}
+    /** string with commissions */
+	/*public String commissions {get; set;} */
+
     
     /**
 	   @Description Constructor of class
@@ -35,5 +40,14 @@ public with sharing class BE_Quotation_Ctr {
         Final OpportunityLineItem oli = [SELECT Id, Product2Id, toLabel(PE_List_Product_mode__c), Opportunity.Owner.user_id__c FROM OpportunityLineItem WHERE OpportunityId = :opp.Id LIMIT 1];
         modality = oli.PE_List_Product_mode__c;
         userCode = oli.Opportunity.Owner.user_id__c;
+
+
+        commissionsx =  [SELECT Id,Calculation_Type__c,Commission_Calculation_Amount__c,
+        Product_Commission_Name__c,Suggested_Rate__c,Suggested_Rate_Type__c, Final_Rate__c,
+        Requested_Rate_Value__c,Authorized_Rate_Value__c FROM Product_Commission__c 
+        WHERE Is_Negotiable__c = TRUE AND Opportunity_Product__c  =:oli.Id];
+ 
+       
+
     }
 }

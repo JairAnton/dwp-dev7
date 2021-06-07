@@ -1,18 +1,19 @@
 ({
-	calRate : function(cmp, evt, helper) {
-        cmp.set('v.disabled','true');
+    calRate: function (cmp, evt, helper) {
+        cmp.set('v.disabled', 'true');
         var action = cmp.get("c.getInfoRORC");
         action.setParams({
-            "recordId" : cmp.get('v.recordId'),
-            "tea" : cmp.find("inputTEA").get("v.value"),
-            "vdata" : JSON.stringify(cmp.get('v.data'))
+            "recordId": cmp.get('v.recordId'),
+            "tea": cmp.find("inputTEA").get("v.value"),
+            "vdata": JSON.stringify(cmp.get('v.data')),
+            "hasCommissions": cmp.get('v.useCommissionsCheckbox')
         });
-        action.setCallback(this, function(response) {
+        action.setCallback(this, function (response) {
             var state = response.getState();
-            if(state === "SUCCESS") {
+            if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
                 var generr = ret.errorCal;
-                if(generr !== undefined) {
+                if (generr !== undefined) {
                     cmp.set('v.isErrorCal', true);
                     cmp.set('v.errorlstCal', generr);
                 } else {
@@ -24,7 +25,7 @@
                     cmp.set("v.finMarLostCur", ret.finMarLostCur);
                     cmp.set("v.finMarRecoverCur", ret.finMarRecoverCur);
                     var sugCommitments = '';
-                    if(ret.sugCommitments!==undefined) {
+                    if (ret.sugCommitments !== undefined) {
                         sugCommitments = helper.setCommitments(sugCommitments, ret);
                     }
                     cmp.set("v.sugCommitments", sugCommitments);
@@ -32,7 +33,7 @@
                     alertInd.classList.remove("slds-hide");
                     var alertMar = document.getElementById("idAlertMar");
                     alertMar.classList.add("slds-hide");
-                    if(ret.finMarLost > 0) {
+                    if (ret.finMarLost > 0) {
                         alertMar.classList.remove("slds-hide");
                     }
                 }
@@ -40,9 +41,9 @@
         });
         $A.enqueueAction(action);
     },
-    setCommitments: function(sugCommitments, ret) {
+    setCommitments: function (sugCommitments, ret) {
         sugCommitments = JSON.parse(ret.sugCommitments);
-        for(var i in sugCommitments) {
+        for (var i in sugCommitments) {
             var indexVal = sugCommitments[i].id;
             indexVal += sugCommitments[i].committedData.unitValue.currencyType;
             indexVal += sugCommitments[i].committedData.effectiveTime.numberValue;
@@ -58,5 +59,16 @@
             }
         }
         return sugCommitments;
+    },
+    emitEventHelper: function (cmp, evt, helper) {
+        var checkCmp = cmp.find("useCommissionsCheckbox");
+        if (checkCmp.get("v.value")) {
+            cmp.find('prodCommissionSectionId').updateCommissions();
+        } else {
+            this.calRate(cmp, evt, helper);
+        }
+    },
+    handlerCommissionCallHelper: function (cmp, evt, helper) {
+        this.calRate(cmp, evt, helper);
     }
 })
