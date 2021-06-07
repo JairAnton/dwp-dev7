@@ -10,13 +10,9 @@
    -------------------------------------------------------------------------------------------------
  */
  global class BE_CalCommissionValidation_Cls implements dwp_dbpn.DynamicFlowValidationInterface {
-     
-     /*constructor*/
-     public BE_CalCommissionValidation_Cls() {
-     }
-         
+              
 	/**method used to validate the action**/
-    global static List<String> getErrorMessagesList(String recordId, String source, String validationClass) {
+    global List<String> getErrorMessagesList(String recordId, String source, String validationClass) {
 		list<String> lstErrorMessage = new List<String>();
 		if(PrincipalValidationHub.Condition2(recordId)) {
 			lstErrorMessage.add(Label.Error_validation_02);

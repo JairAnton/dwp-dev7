@@ -101,6 +101,12 @@ public with sharing class BE_CalculateCommission_Ctr {
             Product_Commission__c newCommission = new Product_Commission__c();
             Final Map<String, Object> itemMap = (Map<String, Object>) item;
             newCommission = newProductCommission(itemMap, oli, respQuestions, respCommissions);
+            
+            if(itemMap.containsKey('questionnaire')) {
+                Final Map<String, Object> questionnaireMap =  (Map<String, Object>) itemMap.get('questionnaire');
+                newCommission.Questionnaire_Code__c = String.valueOf(questionnaireMap.get('id'));
+                respQuestions.putAll(readQuestions(newCommission.External_Id__c, questionnaireMap.get('questions')));
+        	}
         }
         //Compare commissions and questions from API with stored in Salesforce 
         List<Product_Commission__c> commissions = [SELECT Id, Product_Commission_Name__c, Opportunity_Product__c, Code__c, Calculation_Type__c, Suggested_Rate_Type__c, CurrencyIsoCode, Suggested_Rate__c, Commission_Calculation_Amount__c, Suggested_Rate_Value__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, Commission_Maximum_Amount__c, Commission_Minimum_Amount__c, (SELECT Id, Product_Commission__c, Parent_Question__c, Input_Value__c, Input_Type__c, isBoolean__c, BooleanValue__c, isCurrency__c, CurrencyIsoCode, Description__c, Code__c, output_Type__c, isParent__c, Answer__c FROM Commission_Questions__r ORDER BY Code__c ASC) FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id ORDER BY Code__c ASC];
@@ -160,12 +166,6 @@ public with sharing class BE_CalculateCommission_Ctr {
                 Final Map<String, Object> frequencyMap =  (Map<String, Object>) termMap.get('frequency');
                 newCommission.Term_Frequency_Id__c = String.valueOf(frequencyMap.get('id'));
             }
-        }
-        
-        if(itemMap.containsKey('questionnaire')) {
-            Final Map<String, Object> questionnaireMap =  (Map<String, Object>) itemMap.get('questionnaire');
-            newCommission.Questionnaire_Code__c = String.valueOf(questionnaireMap.get('id'));
-            respQuestions.putAll(readQuestions(newCommission.External_Id__c, questionnaireMap.get('questions')));
         }
         
         return newCommission;

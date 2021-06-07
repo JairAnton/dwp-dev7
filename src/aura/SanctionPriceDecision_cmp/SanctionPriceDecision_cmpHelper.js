@@ -1,9 +1,4 @@
 ({
-    closeMe: function (component, event) {
-        $A.get('e.force:refreshView').fire();
-        var cancelEvent = component.getEvent('dynamicFlowWizardCancel');
-        cancelEvent.fire();
-    },
     getInfo: function (component, event, helper) {
         var inputObject = component.get('v.inputAttributes');
         var uniqueNameTable = 'Manual_Proposal_Summarize';
@@ -61,8 +56,6 @@
         });
         $A.enqueueAction(action);
         component.set("v.refreshComp", true);
-
-
     },
     getInfoButtons: function (strType, objOli) {
         var returnObj = {
