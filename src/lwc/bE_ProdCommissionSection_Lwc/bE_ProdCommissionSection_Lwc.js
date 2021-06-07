@@ -69,6 +69,7 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
                 if (!this.isEditable) {
                     this.activeSections = result.map((c) => c.Id);
                 }
+
                 this.error = null;
                 this.loaded = true;
             })
@@ -260,7 +261,7 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
         return commissions.map((c) => {
             let { Commission_Questions__r, ...cData } = c;
             let questions = [];
-            if (!Commission_Questions__r) {
+            if (Commission_Questions__r) {
                 questions = Commission_Questions__r.map((q) => {
                     let { Answer__c, ...qData } = q;
                     let answer = true;
