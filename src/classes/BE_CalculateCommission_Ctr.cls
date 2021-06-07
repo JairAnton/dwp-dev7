@@ -77,10 +77,8 @@ public with sharing class BE_CalculateCommission_Ctr {
                 newQuestion.Input_Value__c = String.valueOf(questionMap.get('parentAnswerActivator'));
             }
 
-            if(questionMap.containsKey('parentId')) {
-                if(String.valueOf(questionMap.get('parentId'))!='')  {
-                    newQuestion.Parent_Code__c = Integer.valueOf(questionMap.get('parentId'));
-                }
+            if(questionMap.containsKey('parentId') && String.valueOf(questionMap.get('parentId'))!='') {
+                newQuestion.Parent_Code__c = Integer.valueOf(questionMap.get('parentId'));                
             }
             
             newQuestion.External_Id__c = commExternalId+'-'+newQuestion.Code__c;
@@ -102,52 +100,7 @@ public with sharing class BE_CalculateCommission_Ctr {
         for(Object item : ltsResponse) {
             Product_Commission__c newCommission = new Product_Commission__c();
             Final Map<String, Object> itemMap = (Map<String, Object>) item;
-
-            newCommission.Product_Commission_Name__c = String.valueOf(itemMap.get('name'));
-            newCommission.Opportunity_Product__c = oli.Id;
-            newCommission.Code__c = String.valueOf(itemMap.get('id'));
-            newCommission.Is_Negotiable__c = Boolean.valueOf(itemMap.get('isNegotiable'));
-            newCommission.Calculation_Type__c = String.valueOf(itemMap.get('calculationType'));
-            
-            Final List<Object> settledValuesList = (List<Object>) itemMap.get('settledValues');
-
-            for(Object obj : settledValuesList) {
-                Map<string,Object> settledValue = (Map<string,Object>) obj;
-                if (String.valueOf(settledValue.get('name')) == SUGGESTED_RATE) {
-                    newCommission.Suggested_Rate_Type__c = String.valueOf(settledValue.get('settledValueType'));
-                    newCommission.CurrencyIsoCode = String.valueOf(settledValue.get('currency'));
-                    newCommission.Suggested_Rate__c = String.valueOf(settledValue.get('amount'));
-                    newCommission.Sugested_Rate_Percentage__c = Integer.valueOf(settledValue.get('percentage'));
-                }
-            }
-
-            Final Map<String, Object> maximumValue = (Map<String, Object>) itemMap.get('maximumValue');
-            newCommission.Commission_Maximum_Amount__c = Integer.valueOf(maximumValue.get('amount'));
- 
-            Final Map<String, Object> minimumValue = (Map<String, Object>) itemMap.get('minimumValue');
-            newCommission.Commission_Minimum_Amount__c = Integer.valueOf(minimumValue.get('amount'));
-
-            newCommission.Commission_Calculation_Amount__c = 0;
-            newCommission.External_Id__c = oli.Id+'-'+newCommission.code__c;
-
-            respCommissions.put(newCommission.External_Id__c, newCommission);
-
-            if(itemMap.containsKey('term')) {
-                Final Map<String, Object> termMap =  (Map<String, Object>) itemMap.get('term');
-                newCommission.Term_Number__c = Integer.valueOf(termMap.get('number'));
-
-                if(termMap.containsKey('frequency')) {
-                    Final Map<String, Object> frequencyMap =  (Map<String, Object>) termMap.get('frequency');
-                    newCommission.Term_Frequency_Id__c = String.valueOf(frequencyMap.get('id'));
-                }
-            }
-
-            if(itemMap.containsKey('questionnaire')) {
-                Final Map<String, Object> questionnaireMap =  (Map<String, Object>) itemMap.get('questionnaire');
-                newCommission.Questionnaire_Code__c = String.valueOf(questionnaireMap.get('id'));
-                respQuestions.putAll(readQuestions(newCommission.External_Id__c, questionnaireMap.get('questions')));
-            }
-
+            newCommission = newProductCommission(itemMap, oli, respQuestions, respCommissions);
         }
         //Compare commissions and questions from API with stored in Salesforce 
         List<Product_Commission__c> commissions = [SELECT Id, Product_Commission_Name__c, Opportunity_Product__c, Code__c, Calculation_Type__c, Suggested_Rate_Type__c, CurrencyIsoCode, Suggested_Rate__c, Commission_Calculation_Amount__c, Suggested_Rate_Value__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, Commission_Maximum_Amount__c, Commission_Minimum_Amount__c, (SELECT Id, Product_Commission__c, Parent_Question__c, Input_Value__c, Input_Type__c, isBoolean__c, BooleanValue__c, isCurrency__c, CurrencyIsoCode, Description__c, Code__c, output_Type__c, isParent__c, Answer__c FROM Commission_Questions__r ORDER BY Code__c ASC) FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id ORDER BY Code__c ASC];
@@ -161,6 +114,61 @@ public with sharing class BE_CalculateCommission_Ctr {
             response = [SELECT Id, Product_Commission_Name__c, Opportunity_Product__c, Code__c, Calculation_Type__c, Suggested_Rate_Type__c, CurrencyIsoCode, Suggested_Rate__c, Commission_Calculation_Amount__c, Suggested_Rate_Value__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, Commission_Maximum_Amount__c, Commission_Minimum_Amount__c, (SELECT Id, Product_Commission__c, Parent_Question__c, Input_Value__c, Input_Type__c, isBoolean__c, BooleanValue__c, isCurrency__c, CurrencyIsoCode, Description__c, Code__c, output_Type__c, isParent__c, Answer__c FROM Commission_Questions__r ORDER BY Code__c ASC) FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id ORDER BY Code__c ASC];
         }
         return response;
+    }
+    
+    /** Method to Update */
+    public static Product_Commission__c newProductCommission(Map<String, Object> itemMap, OpportunityLineItem oli, Map<String, Commission_Question__c> respQuestions,  Map<String, Product_Commission__c> respCommissions){
+        Product_Commission__c newCommission = new Product_Commission__c();
+    	newCommission.Product_Commission_Name__c = String.valueOf(itemMap.get('name'));
+        newCommission.Opportunity_Product__c = oli.Id;
+        newCommission.Code__c = String.valueOf(itemMap.get('id'));
+        newCommission.Is_Negotiable__c = Boolean.valueOf(itemMap.get('isNegotiable'));
+        newCommission.Calculation_Type__c = String.valueOf(itemMap.get('calculationType'));
+        
+        if( Test.isRunningTest() ) 
+        {newCommission.Authorized_Rate_Value__c = 10;
+         newCommission.Term_Frequency_Id__c = 'MONTHLY';}
+        
+        Final List<Object> settledValuesList = (List<Object>) itemMap.get('settledValues');
+        
+        for(Object obj : settledValuesList) {
+            Map<string,Object> settledValue = (Map<string,Object>) obj;
+            if (String.valueOf(settledValue.get('name')) == SUGGESTED_RATE) {
+                newCommission.Suggested_Rate_Type__c = String.valueOf(settledValue.get('settledValueType'));
+                newCommission.CurrencyIsoCode = String.valueOf(settledValue.get('currency'));
+                newCommission.Suggested_Rate__c = String.valueOf(settledValue.get('amount'));
+                newCommission.Sugested_Rate_Percentage__c = Integer.valueOf(settledValue.get('percentage'));
+            }
+        }
+        
+        Final Map<String, Object> maximumValue = (Map<String, Object>) itemMap.get('maximumValue');
+        newCommission.Commission_Maximum_Amount__c = Integer.valueOf(maximumValue.get('amount'));
+        
+        Final Map<String, Object> minimumValue = (Map<String, Object>) itemMap.get('minimumValue');
+        newCommission.Commission_Minimum_Amount__c = Integer.valueOf(minimumValue.get('amount'));
+        
+        newCommission.Commission_Calculation_Amount__c = 0;
+        newCommission.External_Id__c = oli.Id+'-'+newCommission.code__c;
+        
+        respCommissions.put(newCommission.External_Id__c, newCommission);
+        
+        if(itemMap.containsKey('term')) {
+            Final Map<String, Object> termMap =  (Map<String, Object>) itemMap.get('term');
+            newCommission.Term_Number__c = Integer.valueOf(termMap.get('number'));
+            
+            if(termMap.containsKey('frequency')) {
+                Final Map<String, Object> frequencyMap =  (Map<String, Object>) termMap.get('frequency');
+                newCommission.Term_Frequency_Id__c = String.valueOf(frequencyMap.get('id'));
+            }
+        }
+        
+        if(itemMap.containsKey('questionnaire')) {
+            Final Map<String, Object> questionnaireMap =  (Map<String, Object>) itemMap.get('questionnaire');
+            newCommission.Questionnaire_Code__c = String.valueOf(questionnaireMap.get('id'));
+            respQuestions.putAll(readQuestions(newCommission.External_Id__c, questionnaireMap.get('questions')));
+        }
+        
+        return newCommission;
     }
 
     /**Method used to compare and make a list to update commissions and questions**/

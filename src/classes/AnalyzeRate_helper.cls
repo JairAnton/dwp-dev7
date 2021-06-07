@@ -38,22 +38,19 @@ public without sharing class AnalyzeRate_helper {
         final List<Request_fees> ltsFees = new List<Request_fees>();
         inputDataMapping.lstFees = JSON.serialize(ltsFees);
 
-        List<OpportunityLineItem> oli = [SELECT Id, hasCommissions__c FROM OpportunityLineItem WHERE Opportunity.Id = :recordId];
+        OpportunityLineItem oli = [SELECT Id, hasCommissions__c FROM OpportunityLineItem WHERE Opportunity.Id = :recordId];
         inputDataMapping.lstCalculatedFees = '';
-        System.debug('CALCULATE FEES:'+oli.size());
-        if(oli.size() > 0 ) {
-            if(oli[0].hasCommissions__c) {
-                inputDataMapping.lstCalculatedFees = '"calculatedFees":[';
-                for(Product_Commission__c commission : [SELECT Id, Commission_Calculation_Id__c, Commission_Calculation_Version__c FROM Product_Commission__c WHERE Opportunity_Product__c = :oli[0].Id ])
-                {
-                    System.debug('CALCULATE FEES (commissions):'+commission);
-    
-                    inputDataMapping.lstCalculatedFees = inputDataMapping.lstCalculatedFees + '{"id":"'+commission.Commission_Calculation_Id__c+'","version":'+commission.Commission_Calculation_Version__c+'}';
-                    inputDataMapping.lstCalculatedFees = inputDataMapping.lstCalculatedFees + ',';
-                }
-                inputDataMapping.lstCalculatedFees = inputDataMapping.lstCalculatedFees + ']';
-                inputDataMapping.lstCalculatedFees = inputDataMapping.lstCalculatedFees.replaceAll('},]', '}],');   
+        if(oli.hasCommissions__c != null) {
+            inputDataMapping.lstCalculatedFees = '"calculatedFees":[';
+            for(Product_Commission__c commission : [SELECT Id, Commission_Calculation_Id__c, Commission_Calculation_Version__c FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id ])
+            {
+                System.debug('CALCULATE FEES (commissions):'+commission);
+                
+                inputDataMapping.lstCalculatedFees = inputDataMapping.lstCalculatedFees + '{"id":"'+commission.Commission_Calculation_Id__c+'","version":'+commission.Commission_Calculation_Version__c+'}';
+                inputDataMapping.lstCalculatedFees = inputDataMapping.lstCalculatedFees + ',';
             }
+            inputDataMapping.lstCalculatedFees = inputDataMapping.lstCalculatedFees + ']';
+            inputDataMapping.lstCalculatedFees = inputDataMapping.lstCalculatedFees.replaceAll('},]', '}],');   
         }
 
         

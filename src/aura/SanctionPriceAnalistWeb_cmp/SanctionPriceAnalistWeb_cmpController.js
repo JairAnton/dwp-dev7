@@ -8,9 +8,6 @@
     dateChange: function (cmp, evt, helper) {
         cmp.set('v.changeDate', true);
     },
-    dateChange: function (cmp, evt, helper) {
-        cmp.set('v.changeDate', true);
-    },
     emitCommissionEvent: function (cmp, evt, helper) {
         helper.emitEventHelper(cmp, evt, helper);
     },

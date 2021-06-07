@@ -18,7 +18,7 @@
             if (state === "SUCCESS") {
                 ret = response.getReturnValue();
                 var generr = ret.genericError;
-                if (generr != undefined) {
+                if (generr !== undefined) {
                     cmp.set('v.isError', true);
                     cmp.set('v.errorlst', generr);
                     cmp.set('v.hasHeader', false);

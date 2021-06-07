@@ -28,13 +28,15 @@
                     'statusType': ret.lstOppLineItem[0].Opportunity.opportunity_status_type__c,
                     'lstTile': JSON.parse(ret.lstSummarize),
                     'headers': [
-                        { label: 'Importe comisión', fieldName: 'Commission_Calculation_Amount__c', type: 'text' },
-                        { label: 'Nombre de producto', fieldName: 'Product_Commission_Name__c', type: 'text' },
-                        { label: 'Tasa sugerida', fieldName: 'Suggested_Rate_Type__c', type: 'text' },
-                        { label: 'Comisión final', fieldName: 'Final_Rate__c	', type: 'text' }],
+                        { label: 'COMISIÓN', fieldName: 'Product_Commission_Name__c', type: 'text' },
+                        { label: 'SOLICITADO (%)', fieldName: 'Requested_Rate_Value__c', type: 'text' },
+                        { label: 'AUTORIZADO (%)', fieldName: 'Authorized_Rate_Value__c', type: 'text' },
+                        { label: 'COMISIÓN FINAL', fieldName: 'Final_Rate__c	', type: 'text' }],
                     'data': ret.comissions
                 };
+
                 var lstRows = [];
+
                 for (var x in objSetup.data) {
                     var lstCells = [];
                     for (var i in objSetup.headers) {
@@ -219,16 +221,27 @@
         var today = new Date();
         var originalHtml = inputObject.htmlInput;
         inputObject.htmlInput = '';
-        if ((inputObject.label === 'Last price quote date' || inputObject.label === 'Fecha de sanción') && (evt.target.id !== '2')) {
+        if (this.optionOneHtml(inputObject, evt)) {
             inputObject.htmlInput = String(today.getDate()).padStart(2, '0') + '/' + String(today.getMonth() + 1).padStart(2, '0') + '/' + today.getFullYear();
-        } else if ((inputObject.label === 'validityDate' || inputObject.label === 'Validez TEA') && (evt.target.id === '1')) {
+        } else if (this.optionTwoHTML(inputObject, evt)) {
             inputObject.htmlInput = '#validityDate#';
-        } else if (inputObject.label === 'Assigned_analyst' || inputObject.label === 'Analista asignado') {
+        } else if (this.optionThreeHTML(inputObject, evt)) {
             inputObject.htmlInput = '#Assigned_analyst#';
-        } else if (inputObject.label !== 'validityDate' && inputObject.label !== 'Validez TEA' &&
-            inputObject.label !== 'Assigned_analyst' && inputObject.label !== 'Analista asignado') {
+        } else if (this.optionFourHTML(inputObject, evt)) {
             inputObject.htmlInput = originalHtml;
         }
         return inputObject;
     },
+    optionOneHtml: function (inputObject, evt) {
+        return (inputObject.label === 'Last price quote date' || inputObject.label === 'Fecha de sanción') && (evt.target.id !== '2');
+    },
+    optionTwoHTML: function (inputObject, evt) {
+        return (inputObject.label === 'validityDate' || inputObject.label === 'Validez TEA') && (evt.target.id === '1');
+    },
+    optionThreeHTML: function (inputObject, evt) {
+        return inputObject.label === 'Assigned_analyst' || inputObject.label === 'Analista asignado';
+    },
+    optionFourHTML: function (inputObject, evt) {
+        return inputObject.label !== 'validityDate' && inputObject.label !== 'Validez TEA' && inputObject.label !== 'Assigned_analyst' && inputObject.label !== 'Analista asignado';
+    }
 })

@@ -53,19 +53,10 @@
             if(commission.Term_Frequency_Id__c != null) {
                 this.termFrequencyId = '"term":{"frequency":{"id":"'+commission.Term_Frequency_Id__c+'"}, "number":' + termNumber + '},';
             }
-
-
+            
             /**Calculate Rate */
-            Decimal rate = 0;
-            if(requestStages.contains(status)) {
-                rate =commission.Requested_Rate_Value__c;
-            } else if (authorizedStages.contains(status)) {
-                rate = commission.Authorized_Rate_Value__c;
-            } else {
-                rate = commission.Sugested_Rate_Percentage__c;
-            }
-
-            System.debug('## commission data debug:'+commission);
+            Decimal rate = calculateRate(commission, status, requestStages, authorizedStages);
+           
             if(commission.Suggested_Rate_Type__c == 'PERCENTAGE') {
                 this.ratesItemizeRatesRateUnit = '{"unitRateType":"'+commission.Suggested_Rate_Type__c.toUppercase()+'","percentage":'+rate/100+'}';
             } else {
@@ -74,17 +65,35 @@
 
             /**Calculate */
             if(commission.Commission_Questions__r.size() >= 1) {
-                this.questions = ',"questions":[';
-                for(Commission_Question__c question : commission.Commission_Questions__r) {
-                    this.questions = this.questions + '{"id":'+question.Code__c+',"answer":"'+(question.Answer__c == 'true' ? 'SI' : (question.Answer__c == 'false' ? 'NO' : question.Answer__c))+'"},';
-                }
-                this.questions = this.questions + ']';
-                this.questions = this.questions.replace('},]', '}]');
+                this.questions = calculateQuestionnaires(commission, status, requestStages, authorizedStages);
             } else {
                 this.questions = '';
             }
 		}
 	}
+     
+     public static String calculateQuestionnaires(Product_Commission__c commission, String status, List<String> requestStages, List<String> authorizedStages) {
+         string questions = ',"questions":[';
+         questions = ',"questions":[';
+         for(Commission_Question__c question : commission.Commission_Questions__r) {
+             questions = questions + '{"id":'+question.Code__c+',"answer":"'+(question.Answer__c == 'true' ? 'SI' : (question.Answer__c == 'false' ? 'NO' : question.Answer__c))+'"},';
+         }
+         questions = questions + ']';
+         questions = questions.replace('},]', '}]');
+         return questions;
+     }
+     
+     public static Decimal calculateRate(Product_Commission__c commission, String status, List<String> requestStages, List<String> authorizedStages) {
+         Decimal rate = 0;
+         if(requestStages.contains(status)) {
+             rate =commission.Requested_Rate_Value__c;
+         } else if (authorizedStages.contains(status)) {
+             rate = commission.Authorized_Rate_Value__c;
+         } else {
+             rate = commission.Sugested_Rate_Percentage__c;
+         }
+         return rate;
+     }
 
 	/* method to convert the input data mapping to a JSON structure */
 	public String generateJSONRequest() {
