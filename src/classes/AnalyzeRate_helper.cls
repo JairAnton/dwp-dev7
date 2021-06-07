@@ -38,12 +38,11 @@ public without sharing class AnalyzeRate_helper {
         final List<Request_fees> ltsFees = new List<Request_fees>();
         inputDataMapping.lstFees = JSON.serialize(ltsFees);
 
-        OpportunityLineItem oli = [SELECT Id, hasCommissions__c FROM OpportunityLineItem WHERE Opportunity.Id = :recordId];
+        Final OpportunityLineItem oli = [SELECT Id, hasCommissions__c FROM OpportunityLineItem WHERE Opportunity.Id = :recordId];
         inputDataMapping.lstCalculatedFees = '';
         if(oli.hasCommissions__c != null) {
             inputDataMapping.lstCalculatedFees = '"calculatedFees":[';
-            for(Product_Commission__c commission : [SELECT Id, Commission_Calculation_Id__c, Commission_Calculation_Version__c FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id ])
-            {
+            for(Product_Commission__c commission : [SELECT Id, Commission_Calculation_Id__c, Commission_Calculation_Version__c FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id ]) {
                 System.debug('CALCULATE FEES (commissions):'+commission);
                 
                 inputDataMapping.lstCalculatedFees = inputDataMapping.lstCalculatedFees + '{"id":"'+commission.Commission_Calculation_Id__c+'","version":'+commission.Commission_Calculation_Version__c+'}';
@@ -193,7 +192,7 @@ public without sharing class AnalyzeRate_helper {
     /**
      * Calculated_fees class to the request
      */
-    public class Calculated_fees  {
+    public class Calculated_fees {
         /* Variable request */
         public String id {get; set; }
         /* Variable request */

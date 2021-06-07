@@ -72,21 +72,23 @@
 		}
 	}
      
+     /*method calculateQuestionnaires*/
      public static String calculateQuestionnaires(Product_Commission__c commission, String status, List<String> requestStages, List<String> authorizedStages) {
          string questions = ',"questions":[';
          questions = ',"questions":[';
          for(Commission_Question__c question : commission.Commission_Questions__r) {
-             questions = questions + '{"id":'+question.Code__c+',"answer":"'+(question.Answer__c == 'true' ? 'SI' : (question.Answer__c == 'false' ? 'NO' : question.Answer__c))+'"},';
+             questions = questions + '{"id":'+question.Code__c+',"answer":"'+ question.Answer__c == 'true' ? 'SI' : (question.Answer__c == 'false' ? 'NO' : question.Answer__c)+'"},';
          }
          questions = questions + ']';
          questions = questions.replace('},]', '}]');
          return questions;
      }
      
+     /*method calculateRate*/
      public static Decimal calculateRate(Product_Commission__c commission, String status, List<String> requestStages, List<String> authorizedStages) {
          Decimal rate = 0;
          if(requestStages.contains(status)) {
-             rate =commission.Requested_Rate_Value__c;
+             rate = commission.Requested_Rate_Value__c;
          } else if (authorizedStages.contains(status)) {
              rate = commission.Authorized_Rate_Value__c;
          } else {

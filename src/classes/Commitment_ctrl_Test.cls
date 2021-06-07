@@ -192,7 +192,8 @@ public class Commitment_ctrl_Test {
 		Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 		Test.startTest();
-		Final Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(oppTest.Id);
+		//Final Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(oppTest.Id);
+        Commitment_ctrl.requestQuote(oppTest.Id);
 		Test.stopTest();
         System.assert (true);
         //System.assert (String.valueOf(mapResultReturn.get('errorMessage')).contains(Label.PriceRequestQuotationApprovalKnownError));
@@ -237,7 +238,8 @@ public class Commitment_ctrl_Test {
 		Test.setMock(HttpCalloutMock.class, new Integration_MockGenerator());
 		iaso.GBL_Mock.setMock(new Integration_MockGenerator());
 		Test.startTest();
-		Final Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(oppTest.Id);
+		Commitment_ctrl.requestQuote(oppTest.Id);
+        //Final Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(oppTest.Id);
 		Test.stopTest();
         //System.assert(String.valueOf(mapResultReturn.get('errorMessage')).contains(Label.PriceRecoverRequestKnownError));
         System.assert(true);

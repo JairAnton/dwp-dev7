@@ -9,12 +9,11 @@
     2020-02-21  LMBR     luis.eduardo.vargas.contractor@bbva.com    Creation
    ----------------------------------------------------------------------------------------------------
  */
-public without sharing class BE_UpdateAcc_Ctr extends BE_CustomQuickActionCRUD_Cls{
+public without sharing class BE_UpdateAcc_Ctr extends BE_CustomQuickActionCRUD_Cls {
     
     /* comment */
     public override BE_CustomQuickActionCRUD_Cls.Response updateRecord(SObject sObj,Map<String,Object> params) {
         Final BE_CustomQuickActionCRUD_Cls.Response res = new BE_CustomQuickActionCRUD_Cls.Response();
-
         try {
             update sObj;
             res.isSuccess=true;
