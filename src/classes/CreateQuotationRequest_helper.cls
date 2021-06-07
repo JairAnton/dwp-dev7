@@ -24,8 +24,12 @@ public without sharing class CreateQuotationRequest_helper {
 			// Map the imput information
 			Final String calculationRatesId = oppProductList[0].price_rates_calculation_Id__c;
 			Final String analizeRateId = oppProductList[0].Price_rates_create_analyze_Id__c;
-			Final String proposedAPR = String.valueOf((oppProductList[0].proposed_apr_per__c != null ? oppProductList[0].proposed_apr_per__c / 100 : oppProductList[0].proposed_apr_per__c));
-			Final String requestComment = Label.PriceCreateQuotationRequestDefaultComment;
+			//Final String proposedAPR = String.valueOf((oppProductList[0].proposed_apr_per__c != null ? oppProductList[0].proposed_apr_per__c / 100 : oppProductList[0].proposed_apr_per__c));
+            String proposedAPR = String.valueOf(oppProductList[0].proposed_apr_per__c);
+            if(oppProductList[0].proposed_apr_per__c != null) {
+                proposedAPR = String.valueOf(oppProductList[0].proposed_apr_per__c / 100);
+            }
+            Final String requestComment = Label.PriceCreateQuotationRequestDefaultComment;
             String guaranteeType = '';
             if(mapWsVal.get('GUARANTEE_TYPE' + String.valueOf(oppProductList[0].gipr_Garantia__c)) != null) {
                 guaranteeType = mapWsVal.get('GUARANTEE_TYPE' + String.valueOf(oppProductList[0].gipr_Garantia__c)).web_service_value__c;
@@ -64,11 +68,35 @@ public without sharing class CreateQuotationRequest_helper {
 		public String guaranteeType {get; set;}
 
 		public CreateQuotationRequest_Wrapper(String calculationRatesId, String proposedAPR, String requestComment, String guaranteeType, String analizeRateId) {
-			this.calculationRatesId = (calculationRatesId != null ? calculationRatesId : '');
-			this.proposedAPRpercent = (proposedAPR != null ? proposedAPR : '""');
-			this.requestComment = (requestComment != null ? requestComment : '');
-			this.guaranteeType = (guaranteeType != null ? ',"product": {"guarantee": {"id": "' + guaranteeType + '"}}' : '');
-			this.analizeRateId = (analizeRateId != null ? analizeRateId : '');
+			//this.calculationRatesId = (calculationRatesId != null ? calculationRatesId : '');
+            this.calculationRatesId = '';
+            if(calculationRatesId != null) {
+                this.calculationRatesId = calculationRatesId;
+            }
+            
+			//this.proposedAPRpercent = (proposedAPR != null ? proposedAPR : '""');
+            this.proposedAPRpercent = '""';
+            if(proposedAPR != null) {
+                this.proposedAPRpercent = proposedAPR;
+            }
+            
+			//this.requestComment = (requestComment != null ? requestComment : '');
+            this.requestComment = '';
+            if(requestComment != null) {
+                this.requestComment = requestComment;
+            }
+            
+			//this.guaranteeType = (guaranteeType != null ? ',"product": {"guarantee": {"id": "' + guaranteeType + '"}}' : '');
+            this.guaranteeType = '';
+            if(guaranteeType != null) {
+                this.guaranteeType = ',"product": {"guarantee": {"id": "' + guaranteeType + '"}}';
+            }
+            
+			//this.analizeRateId = (analizeRateId != null ? analizeRateId : '');
+            this.analizeRateId = '';
+            if(analizeRateId != null) {
+                this.analizeRateId = analizeRateId;
+            }
 		}
 	}
 

@@ -23,7 +23,7 @@ public class AnalyzeRate_helper_Test {
 		opptest = TestFactory.createOpportunity(acctest.Id, defaultUser.Id);
 		prodtest = TestFactory.createProduct();
 		prodtest.price_approval_web_service_id__c = '11';
-		OpportunityLineItem olitest = TestFactory.createOLI(opptest.Id, prodtest.Id);
+		TestFactory.createOLI(opptest.Id, prodtest.Id);
         
 		update prodtest;
         Final Opportunity_Solution_Commitment__c comm = new Opportunity_Solution_Commitment__c();

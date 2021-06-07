@@ -219,7 +219,6 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
     /*             Utilities Functions               */
     /*                                               */
     /*-----------------------------------------------*/
-    //#region 
     addRecordToList(sourceArray, newValue) {
         let index = sourceArray.findIndex((i) => i.Id === newValue.Id);
         if (index >= 0) {
@@ -264,7 +263,10 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
             if (!Commission_Questions__r) {
                 questions = Commission_Questions__r.map((q) => {
                     let { Answer__c, ...qData } = q;
-                    let answer = (Answer__c === 'true' ? true : (Answer__c === 'false' ? false : Answer__c));
+                    let answer = true;
+                    if (Answer__c === 'false') {
+                        answer = false;
+                    }
                     return { Answer__c: answer, ...qData };
                 });
                 return { Commission_Questions__r: questions, ...cData };
@@ -272,5 +274,4 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
             return { ...cData, isModified: false };
         });
     }
-    //#endregion
 }
