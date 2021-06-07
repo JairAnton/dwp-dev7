@@ -64,36 +64,11 @@ public without sharing class CreateQuotationRequest_helper {
 		public String guaranteeType {get; set;}
 
 		public CreateQuotationRequest_Wrapper(String calculationRatesId, String proposedAPR, String requestComment, String guaranteeType, String analizeRateId) {
-            this.calculationRatesId = '';
-            this.proposedAPRpercent = '""';
-            this.requestComment = '';
-            this.guaranteeType = '';
-            this.analizeRateId = '';
-            
-            if(calculationRatesId != null) {
-                this.calculationRatesId = calculationRatesId;
-            }
-            
-            if(proposedAPRpercent != null) {
-                this.proposedAPRpercent = proposedAPR;
-            }
-            
-            if(requestComment != null) {
-                this.requestComment = requestComment;
-            }
-            
-            if(guaranteeType != null) {
-                this.guaranteeType = ',"product": {"guarantee": {"id": "' + guaranteeType + '"}}';
-            }
-            
-            if(analizeRateId != null) {
-                this.analizeRateId = analizeRateId;
-            }
-			//this.calculationRatesId = (calculationRatesId != null ? calculationRatesId : '');
-			//this.proposedAPRpercent = (proposedAPR != null ? proposedAPR : '""');
-			//this.requestComment = (requestComment != null ? requestComment : '');
-			//this.guaranteeType = (guaranteeType != null ? ',"product": {"guarantee": {"id": "' + guaranteeType + '"}}' : '');
-			//this.analizeRateId = (analizeRateId != null ? analizeRateId : '');
+			this.calculationRatesId = (calculationRatesId != null ? calculationRatesId : '');
+			this.proposedAPRpercent = (proposedAPR != null ? proposedAPR : '""');
+			this.requestComment = (requestComment != null ? requestComment : '');
+			this.guaranteeType = (guaranteeType != null ? ',"product": {"guarantee": {"id": "' + guaranteeType + '"}}' : '');
+			this.analizeRateId = (analizeRateId != null ? analizeRateId : '');
 		}
 	}
 

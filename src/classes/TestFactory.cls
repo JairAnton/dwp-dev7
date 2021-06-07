@@ -76,7 +76,7 @@ public class TestFactory {
 		Final PricebookEntry customPrice = new PricebookEntry(Pricebook2Id = customPB.Id, Product2Id = prodId, UnitPrice = 12000, IsActive = true);
 		insert customPrice;
 
-		Final OpportunityLineItem oli = new OpportunityLineItem(OpportunityId = oppId, Quantity = 1, TotalPrice = 10.00, PricebookEntryId = customPrice.Id, Product2Id = prodId);
+		Final OpportunityLineItem oli = new OpportunityLineItem(OpportunityId = oppId, Quantity = 1, hasCommissions__c = false, TotalPrice = 10.00, PricebookEntryId = customPrice.Id, Product2Id = prodId);
 		insert oli;
 		return oli;
 	}
@@ -275,4 +275,7 @@ public class TestFactory {
 		}
 		return obj;
 	}
+    
+    
+    
 }

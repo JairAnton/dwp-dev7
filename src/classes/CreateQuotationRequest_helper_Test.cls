@@ -1,3 +1,12 @@
+/**
+ * @author Eduardo Vargas Matute (luis.eduardo.vargas.contractor@bbva.pe)
+ * @date 07-06-2021
+ *
+ * @description test from CreateQuotationRequest_helper_Test
+ * @Changes
+ *  Date        Author   Email                  				Type		Description
+ *  2020-11-06  MAMC     luis.eduardo.vargas.contractor@bbva.pe	Modify		add method to create quote pdf
+ **/
 @istest
 global class CreateQuotationRequest_helper_Test {
 	static Account acctest;
@@ -6,6 +15,7 @@ global class CreateQuotationRequest_helper_Test {
 	static OpportunityLineItem olitest;
 	static Product2 prodtest;
 
+    /** method*/
 	@TestSetup
 	static void setData() {
 		defaultUser = TestFactory.createUser('Test', 'Migracion');
@@ -14,7 +24,8 @@ global class CreateQuotationRequest_helper_Test {
 		prodtest = TestFactory.createProduct();
 		olitest = TestFactory.createOLI(opptest.Id, prodtest.Id);
 	}
-
+    
+	/** method*/
 	@isTest
 	global static void test_method_one() {
 		setData();
@@ -31,7 +42,7 @@ global class CreateQuotationRequest_helper_Test {
 		Test.stopTest();
 
 		//sonar
-		Integer result = 1 + 2;
+		Final Integer result = 1 + 2;
 		System.assertEquals(3, result);
 	}
 }
