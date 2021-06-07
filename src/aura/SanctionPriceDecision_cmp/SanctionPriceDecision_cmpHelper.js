@@ -57,60 +57,66 @@
         $A.enqueueAction(action);
         component.set("v.refreshComp", true);
     },
+    setCotizaBeta: function () {
+        return {
+            'lstButtons': [
+                {
+                    'label': $A.get('$Label.c.OppPriceDecision03'),
+                    'style': 'salem',
+                    'icon': 'utility:check',
+                    'id': '0',
+                    'StageName': '04',
+                    'opportunity_status_type': '08',
+                    'styleAudit': $A.get('$Label.c.AuditStyleApproveTop'),
+                    'nameAudit': $A.get('$Label.c.OppStatusLabel08'),
+                    'createCase': false
+                },
+                {
+                    'label': $A.get('$Label.c.OppPriceDecision04'),
+                    'style': 'salem',
+                    'icon': 'utility:check',
+                    'id': '1',
+                    'StageName': '04',
+                    'opportunity_status_type': '11',
+                    'styleAudit': $A.get('$Label.c.AuditStyleApproveTop'),
+                    'nameAudit': $A.get('$Label.c.OppStatusLabel11'),
+                    'createCase': false
+                }
+            ]
+        }
+    },
+    setCotizador: function () {
+        return {
+            'lstButtons': [
+                {
+                    'label': $A.get('$Label.c.OppPriceDecision01'),
+                    'style': 'salem',
+                    'icon': 'utility:check',
+                    'id': '0',
+                    'StageName': '04',
+                    'opportunity_status_type': '08',
+                    'styleAudit': $A.get('$Label.c.AuditStyleApproveTop'),
+                    'nameAudit': $A.get('$Label.c.OppStatusLabel08'),
+                    'createCase': false
+                },
+                {
+                    'label': $A.get('$Label.c.OppPriceDecision02_long'),
+                    'style': 'science-blue',
+                    'icon': 'utility:share',
+                    'id': '1',
+                    'StageName': '04',
+                    'opportunity_status_type': '09',
+                    'styleAudit': $A.get('$Label.c.AuditStyleApproveTop'),
+                    'nameAudit': $A.get('$Label.c.OppStatusLabel09'),
+                    'createCase': true
+                }
+            ]
+        };
+    },
     getInfoButtons: function (strType, objOli) {
         var returnObj = {
-            'COTIZA Beta': {
-                'lstButtons': [
-                    {
-                        'label': $A.get('$Label.c.OppPriceDecision03'),
-                        'style': 'salem',
-                        'icon': 'utility:check',
-                        'id': '0',
-                        'StageName': '04',
-                        'opportunity_status_type': '08',
-                        'styleAudit': $A.get('$Label.c.AuditStyleApproveTop'),
-                        'nameAudit': $A.get('$Label.c.OppStatusLabel08'),
-                        'createCase': false
-                    },
-                    {
-                        'label': $A.get('$Label.c.OppPriceDecision04'),
-                        'style': 'salem',
-                        'icon': 'utility:check',
-                        'id': '1',
-                        'StageName': '04',
-                        'opportunity_status_type': '11',
-                        'styleAudit': $A.get('$Label.c.AuditStyleApproveTop'),
-                        'nameAudit': $A.get('$Label.c.OppStatusLabel11'),
-                        'createCase': false
-                    }
-                ]
-            },
-            'COTIZADOR': {
-                'lstButtons': [
-                    {
-                        'label': $A.get('$Label.c.OppPriceDecision01'),
-                        'style': 'salem',
-                        'icon': 'utility:check',
-                        'id': '0',
-                        'StageName': '04',
-                        'opportunity_status_type': '08',
-                        'styleAudit': $A.get('$Label.c.AuditStyleApproveTop'),
-                        'nameAudit': $A.get('$Label.c.OppStatusLabel08'),
-                        'createCase': false
-                    },
-                    {
-                        'label': $A.get('$Label.c.OppPriceDecision02_long'),
-                        'style': 'science-blue',
-                        'icon': 'utility:share',
-                        'id': '1',
-                        'StageName': '04',
-                        'opportunity_status_type': '09',
-                        'styleAudit': $A.get('$Label.c.AuditStyleApproveTop'),
-                        'nameAudit': $A.get('$Label.c.OppStatusLabel09'),
-                        'createCase': true
-                    }
-                ]
-            }
+            'COTIZA Beta': this.setCotizaBeta(),
+            'COTIZADOR': this.setCotizador()
         };
 
         if (strType == 'Tarifario') {

@@ -84,7 +84,7 @@ public with sharing class SanctionPriceDecision_ctrl {
 		}
 
 		/**get information of commissions **/
-		List<Product_Commission__c> comissions = [SELECT Id,Calculation_Type__c ,
+		Final List<Product_Commission__c> comissions = [SELECT Id,Calculation_Type__c ,
 													Commission_Calculation_Amount__c,
 													Product_Commission_Name__c, 
 													Suggested_Rate__c,
@@ -247,7 +247,7 @@ public with sharing class SanctionPriceDecision_ctrl {
 		                                                                AND Status = '01'];
 		mapReturn.put('caseOpen', !lstCases.isEmpty());
 
-		List<Product_Commission__c> comissions = [SELECT Id,Calculation_Type__c ,
+		Final List<Product_Commission__c> comissions = [SELECT Id,Calculation_Type__c ,
 												Commission_Calculation_Amount__c,
 												Product_Commission_Name__c, Final_Rate__c,
 												Suggested_Rate__c,Suggested_Rate_Type__c,

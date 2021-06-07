@@ -67,13 +67,13 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
                 if (!this.isEditable) {
                     this.activeSections = result.map((c) => c.Id);
                 }
-                this.error = undefined;
+                this.error = null;
                 this.loaded = true;
             })
             .catch(error => {
                 console.log('ERROR', error);
                 this.error = error;
-                this.commisions = undefined;
+                this.commisions = null;
                 this.loaded = true;
             });
 
@@ -94,7 +94,7 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
         let currentQuestion = currentCommission.Commission_Questions__r[questionIndex];
 
         let value;
-        if (event.currentTarget.checked !== null && event.currentTarget.checked !== undefined) {
+        if (event.currentTarget.checked !== null && event.currentTarget.checked !== null) {
             value = event.currentTarget.checked;
         } else {
             value = event.currentTarget.value;
@@ -172,7 +172,7 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
                             this.connectedCallback();
                             /** Emit calculate is done! */
                             this.emitCalculate();
-                            this.error = undefined;
+                            this.error = null;
                             this.loaded = true;
                             this.showNoCommissionMessage = false;
                             this.commisionHasBeenModified = true;
@@ -244,7 +244,7 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
     }
 
     rewriteSubquery(array) {
-        if (array && !array.records !== undefined) {
+        if (array && !array.records) {
             let tempArray = array;
             array = {
                 totalSize: tempArray.length,
@@ -259,7 +259,7 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
         return commissions.map((c) => {
             let { Commission_Questions__r, ...cData } = c;
             let questions = [];
-            if (Commission_Questions__r !== null && Commission_Questions__r !== undefined) {
+            if (Commission_Questions__r !== null && Commission_Questions__r !== null) {
                 questions = Commission_Questions__r.map((q) => {
                     let { Answer__c, ...qData } = q;
                     let answer = (Answer__c === 'true' ? true : (Answer__c === 'false' ? false : Answer__c));

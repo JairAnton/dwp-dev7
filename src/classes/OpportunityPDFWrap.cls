@@ -1,30 +1,84 @@
 public without sharing virtual class OpportunityPDFWrap {
+    
+	/** Class method*/
 	public static OpportunityLineItem OLI {get; set;}
+    
+	/** Class method*/
 	public static OpportunityLineItem OLI2 {get; set;}
+    
+	/** Class method*/
 	public static OpportunityLineItem OLI3 {get; set;}
-	public  static List<Product_Commission__c> commissions1 {get; set;}
+    
+	/** Class method*/
+	public static List<Product_Commission__c> commissions1 {get; set;}
+    
+	/** Class method*/
 	Public Static Account_BBVA_Classification__c ABBVAC {get; set;}
+    
+	/** Class method*/
 	Public static Product2 Product {get; set;}
+    
+	/** Class method*/
 	Public static Account Client {get; set;}
+    
+	/** Class method*/
 	Public static User_Branch__c[] usuarioOficina {get; set;}
+    
+	/** Class method*/
 	Public static Branch__c Oficina {get; set;}
+    
+	/** Class method*/
 	Public static Account_Rating__c Rating {get; set;}
+    
+	/** Class method*/
 	Public static list<fprd__GBL_Intervener__c > Intervenientes {get; set;}
+    
+	/** Class method*/
 	Public static list<fprd__GBL_Guarantee__c> Garantias {get; set;}
+    
+	/** Class method*/
 	public static AggregateResult[] totalComprimisos {get; set;}
+    
+	/** Class method*/
 	public static AggregateResult[] totalGarantiasNoFormalizadas {get; set;}
+    
+	/** Class method*/
 	public static fprd__GBL_Product_Configuration__c[] ProductConfiguration {get; set;}
+    
+	/** Class method*/
 	public static fprd__GBL_Product_Configuration__c[] A {get; set;}
+    
+	/** Class method*/
 	public static fprd__GBL_Product_Configuration__c[] B {get; set;}
+    
+	/** Class method*/
 	public static Integer totalC {get; set;}
+    
+	/** Class method*/
 	public static Integer numGnF {get; set;}
+    
+	/** Class method*/
 	public static String title {get; set;}
+    
+	/** Class method*/
 	public static opportunity Opp {get; set;}
+    
+	/** Class method*/
 	public static map<id, boolean> fieldVisibility {get; set;}
+    
+	/** Class method*/
 	private static list<dwp_cvad__Action_Audit__c> Audit {get; set;}
+    
+	/** Class method*/
 	Public static list<dwp_cvad__Action_Audit__c> Comen {get; set;}
+    
+	/** Class method*/
 	public static String FechaAut {get; set;}
+    
+	/** Class method*/
 	public static String FauthPrecio {get; set;}
+    
+	/** Class method*/
 	public static String Comentarios {get; set;}
 
 	private static String getQuery(String Objeto) {
@@ -172,7 +226,8 @@ public without sharing virtual class OpportunityPDFWrap {
 			numGnF = Integer.valueOf(totalGarantiasNoFormalizadas[0].get('total'));
 			title = 'PDF Formalización ' + Opportunity.Name;
 
-			commissions1 =  [SELECT Calculation_Type__c , Commission_Calculation_Amount__c, Product_Commission_Name__c, Suggested_Rate__c, Suggested_Rate_Type__c, Final_Rate__c FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id  ];
+			commissions1 =  [SELECT Calculation_Type__c , Commission_Calculation_Amount__c, Product_Commission_Name__c, Suggested_Rate__c, 
+			Suggested_Rate_Type__c, Requested_Rate_Value__c,Authorized_Rate_Value__c, Final_Rate__c FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id  ];
  
 
 

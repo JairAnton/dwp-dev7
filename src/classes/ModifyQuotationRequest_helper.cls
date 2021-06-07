@@ -12,7 +12,7 @@
 public class ModifyQuotationRequest_helper {
 	public ModifyQuotationRequest_Wrapper inputDataMapping;
 	public ModifyQuotationRequest_helper(String oppRecordId, String phaseId, Decimal proposed, String param01, String userCode) {
-		List<OpportunityLineItem> lstOli = [SELECT Id, proposed_apr_per__c, price_quote_id__c, price_operation_id__c, Price_rates_create_analyze_Id__c, Opportunity.Loss_Reason__c,
+		Final List<OpportunityLineItem> lstOli = [SELECT Id, proposed_apr_per__c, price_quote_id__c, price_operation_id__c, Price_rates_create_analyze_Id__c, Opportunity.Loss_Reason__c,
 		                                    Opportunity.rejection_winner_entity_name__c, Opportunity.frm_ContractNumber__c, PE_List_Product_mode__c
 		                                    FROM OpportunityLineItem WHERE OpportunityId = :oppRecordId];
 		if(!lstOli.isEmpty()) {
