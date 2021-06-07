@@ -1,4 +1,30 @@
 ({
+    infoSetupObj: function () {
+        return {
+            'nameProd': ret.lstOppLineItem[0].Product2.Name,
+            'validityDate': ret.lstOppLineItem[0].validityDate__c,
+            'statusType': ret.lstOppLineItem[0].Opportunity.opportunity_status_type__c,
+            'lstTile': JSON.parse(ret.lstSummarize),
+            'headers': [
+                { label: 'COMISIÓN', fieldName: 'Product_Commission_Name__c', type: 'text' },
+                { label: 'SOLICITADO (%)', fieldName: 'Requested_Rate_Value__c', type: 'text' },
+                { label: 'AUTORIZADO (%)', fieldName: 'Authorized_Rate_Value__c', type: 'text' },
+                { label: 'COMISIÓN FINAL', fieldName: 'Final_Rate__c	', type: 'text' }],
+            'data': ret.comissions
+        };
+    },
+    infoRows: function (objSetup) {
+        var lstRows = [];
+
+        for (var x in objSetup.data) {
+            var lstCells = [];
+            for (var i in objSetup.headers) {
+                lstCells.push(objSetup.data[x][objSetup.headers[i].fieldName]);
+            }
+            lstRows.push(lstCells);
+        }
+        return lstRows;
+    },
     getInfo: function (component, event, helper) {
         var inputObject = component.get('v.inputAttributes');
         var uniqueNameTable = 'Manual_Proposal_Summarize';
@@ -16,30 +42,8 @@
             var state = response.getState();
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
-
-                var objSetup = {
-                    'nameProd': ret.lstOppLineItem[0].Product2.Name,
-                    'validityDate': ret.lstOppLineItem[0].validityDate__c,
-                    'statusType': ret.lstOppLineItem[0].Opportunity.opportunity_status_type__c,
-                    'lstTile': JSON.parse(ret.lstSummarize),
-                    'headers': [
-                        { label: 'COMISIÓN', fieldName: 'Product_Commission_Name__c', type: 'text' },
-                        { label: 'SOLICITADO (%)', fieldName: 'Requested_Rate_Value__c', type: 'text' },
-                        { label: 'AUTORIZADO (%)', fieldName: 'Authorized_Rate_Value__c', type: 'text' },
-                        { label: 'COMISIÓN FINAL', fieldName: 'Final_Rate__c	', type: 'text' }],
-                    'data': ret.comissions
-                };
-
-                var lstRows = [];
-
-                for (var x in objSetup.data) {
-                    var lstCells = [];
-                    for (var i in objSetup.headers) {
-                        lstCells.push(objSetup.data[x][objSetup.headers[i].fieldName]);
-                    }
-                    lstRows.push(lstCells);
-                }
-
+                var objSetup = this.infoSetupObj();
+                var lstRows = this.infoRows(objSetup);
                 objSetup['getInfoButtons'] = helper.getInfoButtons(inputObject.approvalMethod, ret.lstOppLineItem[0]);
                 component.set('v.objSetup', objSetup);
                 component.set('v.dataComi', lstRows);
