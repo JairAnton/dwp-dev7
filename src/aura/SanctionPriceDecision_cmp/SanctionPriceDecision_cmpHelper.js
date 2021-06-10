@@ -1,15 +1,20 @@
 ({
-    infoSetupObj: function () {
+    closeMe: function (component, event) {
+        $A.get('e.force:refreshView').fire();
+        var cancelEvent = component.getEvent('dynamicFlowWizardCancel');
+        cancelEvent.fire();
+    },
+    infoSetupObj: function (ret) {
         return {
             'nameProd': ret.lstOppLineItem[0].Product2.Name,
             'validityDate': ret.lstOppLineItem[0].validityDate__c,
             'statusType': ret.lstOppLineItem[0].Opportunity.opportunity_status_type__c,
             'lstTile': JSON.parse(ret.lstSummarize),
             'headers': [
-                { label: 'COMISIÃ“N', fieldName: 'Product_Commission_Name__c', type: 'text' },
+                { label: 'COMISIÓN', fieldName: 'Product_Commission_Name__c', type: 'text' },
                 { label: 'SOLICITADO (%)', fieldName: 'Requested_Rate_Value__c', type: 'text' },
                 { label: 'AUTORIZADO (%)', fieldName: 'Authorized_Rate_Value__c', type: 'text' },
-                { label: 'COMISIÃ“N FINAL', fieldName: 'Final_Rate__c	', type: 'text' }],
+                { label: 'COMISIÓN FINAL', fieldName: 'Final_Rate__c	', type: 'text' }],
             'data': ret.comissions
         };
     },
@@ -42,7 +47,7 @@
             var state = response.getState();
             if (state === "SUCCESS") {
                 var ret = response.getReturnValue();
-                var objSetup = this.infoSetupObj();
+                var objSetup = this.infoSetupObj(ret);
                 var lstRows = this.infoRows(objSetup);
                 objSetup['getInfoButtons'] = helper.getInfoButtons(inputObject.approvalMethod, ret.lstOppLineItem[0]);
                 component.set('v.objSetup', objSetup);
@@ -191,6 +196,7 @@
         var storeHTML = document.getElementById('storeHTML');
         var inputObject = cmp.get('v.inputAttributes');
         var action = cmp.get("c.saveAuditWeb");
+        console.log('-----------auditRecordId------------', inputObject.auditRecordId);
         action.setParams({
             "auditRecordId": inputObject.auditRecordId,
             "storeHtml": storeHTML.innerHTML
@@ -236,7 +242,7 @@
         return inputObject;
     },
     optionOneHtml: function (inputObject, evt) {
-        return (inputObject.label === 'Last price quote date' || inputObject.label === 'Fecha de sanciÃ³n') && (evt.target.id !== '2');
+        return (inputObject.label === 'Last price quote date' || inputObject.label === 'Fecha de sanción') && (evt.target.id !== '2');
     },
     optionTwoHTML: function (inputObject, evt) {
         return (inputObject.label === 'validityDate' || inputObject.label === 'Validez TEA') && (evt.target.id === '1');
