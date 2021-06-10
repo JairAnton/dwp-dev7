@@ -19,7 +19,7 @@
                                                             <b>Oportunidad</b>&nbsp;&nbsp;&nbsp;
                                                         </td>
                                                         <td>
-                                                            <div><a href="/{!relatedTo.OpportunityId}" style="text-decoration:none;color:#015ba7" target="_blank">{!relatedTo.Opportunity.Name}</a></div>
+                                                            <div><a href="{!LEFT($Api.Partner_Server_URL_280, FIND(".com/",$Api.Partner_Server_URL_280)+3)}/{!relatedTo.OpportunityId}" style="text-decoration:none;color:#015ba7" target="_blank">{!relatedTo.Opportunity.Name}</a></div>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -27,7 +27,7 @@
                                                             <b>Cliente</b>&nbsp;&nbsp;&nbsp;
                                                         </td>
                                                         <td>
-                                                            <div><a href="/{!relatedTo.Opportunity.AccountId}" target="_blank">{!relatedTo.Opportunity.Account.Name}</a></div>
+                                                            <div><a href="{!LEFT($Api.Partner_Server_URL_280, FIND(".com/",$Api.Partner_Server_URL_280)+3)}/{!relatedTo.Opportunity.AccountId}" target="_blank">{!relatedTo.Opportunity.Account.Name}</a></div>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -71,7 +71,7 @@
                                                             <b>Gestor de la oportunidad</b>&nbsp;&nbsp;&nbsp;
                                                         </td>
                                                         <td>
-                                                            <div><a href="/{!relatedTo.Opportunity.OwnerId}" target="_blank">{!relatedTo.Opportunity.Owner.Name}</a></div>
+                                                            <div><a href="{!LEFT($Api.Partner_Server_URL_280, FIND(".com/",$Api.Partner_Server_URL_280)+3)}/{!relatedTo.Opportunity.OwnerId}" target="_blank">{!relatedTo.Opportunity.Owner.Name}</a></div>
                                                         </td>
                                                     </tr>
                                                 </tbody>
