@@ -156,8 +156,8 @@ public class Commitment_ctrl_Test {
 		Test.startTest();
 		Final Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(oppTest.Id);
 		Test.stopTest();
-        //System.assertEquals(Label.PriceCreateQuotationRequestApprovedMessage, mapResultReturn.get('quotationStatusMessage'));
-        System.assertEquals(Label.PriceCreateQuotationRequestSentForApprovalMessage, mapResultReturn.get('quotationStatusMessage'));
+        System.assertEquals(Label.PriceCreateQuotationRequestApprovedMessage, mapResultReturn.get('quotationStatusMessage'));
+        //System.assertEquals(Label.PriceCreateQuotationRequestSentForApprovalMessage, mapResultReturn.get('quotationStatusMessage'));
 	}
 
     /** @Description  testRequetQuotationApprovalDifferentUserSuccess*/
@@ -270,7 +270,7 @@ public class Commitment_ctrl_Test {
 		Test.startTest();
 		Final Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(oppTest.Id);
 		Test.stopTest();
-        //System.assertEquals(Label.PriceRecoverRequestUnknownError, mapResultReturn.get('errorMessage'));
-        System.assertEquals(null, mapResultReturn.get('errorMessage'));
+        System.assertEquals(Label.PriceRecoverRequestUnknownError, mapResultReturn.get('errorMessage'));
+        //System.assertEquals(null, mapResultReturn.get('errorMessage'));
 	}
 }
