@@ -39,18 +39,7 @@ public without sharing class AnalyzeRate_helper {
         inputDataMapping.lstFees = JSON.serialize(ltsFees);
 
         Final OpportunityLineItem oli = [SELECT Id, hasCommissions__c FROM OpportunityLineItem WHERE Opportunity.Id = :recordId];
-        inputDataMapping.lstCalculatedFees = '';
-        if(oli.hasCommissions__c != null) {
-            inputDataMapping.lstCalculatedFees = '"calculatedFees":[';
-            for(Product_Commission__c commission : [SELECT Id, Commission_Calculation_Id__c, Commission_Calculation_Version__c FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id ]) {
-                System.debug('CALCULATE FEES (commissions):'+commission);
-                
-                inputDataMapping.lstCalculatedFees = inputDataMapping.lstCalculatedFees + '{"id":"'+commission.Commission_Calculation_Id__c+'","version":'+commission.Commission_Calculation_Version__c+'}';
-                inputDataMapping.lstCalculatedFees = inputDataMapping.lstCalculatedFees + ',';
-            }
-            inputDataMapping.lstCalculatedFees = inputDataMapping.lstCalculatedFees + ']';
-            inputDataMapping.lstCalculatedFees = inputDataMapping.lstCalculatedFees.replaceAll('},]', '}],');   
-        }
+        inputDataMapping.lstCalculatedFees = calculateFeesArray(oli);
 
         
         final List<Request_products> ltsReqProd = new List<Request_products>();
@@ -79,6 +68,25 @@ public without sharing class AnalyzeRate_helper {
         }
         inputDataMapping.lstProducts = JSON.serialize(ltsReqProd);
     }
+
+    /**
+     * Calulate Fees
+     */
+     public static String calculateFeesArray(OpportunityLineItem oli) {
+        String lstCalculatedFees = '';
+        if(oli.hasCommissions__c != null && oli.hasCommissions__c ) {
+            lstCalculatedFees = '"calculatedFees":[';
+            for(Product_Commission__c commission : [SELECT Id, Commission_Calculation_Id__c, Commission_Calculation_Version__c FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id ]) {                
+                if(commission.Commission_Calculation_Id__c != null && commission.Commission_Calculation_Version__c != null ) {
+                    lstCalculatedFees = lstCalculatedFees + '{"id":"'+commission.Commission_Calculation_Id__c+'","version":'+commission.Commission_Calculation_Version__c+'}';
+                    lstCalculatedFees = lstCalculatedFees + ',';
+                }
+            }
+            lstCalculatedFees = lstCalculatedFees + '],';
+            lstCalculatedFees = lstCalculatedFees.replaceAll('},]', '}]');   
+        }
+        return lstCalculatedFees;
+     }
 
     /**
      * method used to create json request

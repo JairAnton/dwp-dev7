@@ -12,8 +12,8 @@
 public class ModifyQuotationRequest_helper {
 	public ModifyQuotationRequest_Wrapper inputDataMapping;
 	public ModifyQuotationRequest_helper(String oppRecordId, String phaseId, Decimal proposed, String param01, String userCode) {
-		Final List<OpportunityLineItem> lstOli = [SELECT Id, proposed_apr_per__c, price_quote_id__c, price_operation_id__c, Price_rates_create_analyze_Id__c, Opportunity.Loss_Reason__c,
-		                                    Opportunity.rejection_winner_entity_name__c, Opportunity.frm_ContractNumber__c, PE_List_Product_mode__c
+		List<OpportunityLineItem> lstOli = [SELECT Id, proposed_apr_per__c, price_quote_id__c, price_operation_id__c, Price_rates_create_analyze_Id__c, Opportunity.Loss_Reason__c,
+		                                    Opportunity.rejection_winner_entity_name__c, Opportunity.frm_ContractNumber__c, PE_List_Product_mode__c, price_rates_calculation_Id__c
 		                                    FROM OpportunityLineItem WHERE OpportunityId = :oppRecordId];
 		if(!lstOli.isEmpty()) {
 			switch on phaseId {
@@ -75,9 +75,13 @@ public class ModifyQuotationRequest_helper {
 		effRate.percentage = (proposed == null ? (lstOli[0].proposed_apr_per__c == null ? null : lstOli[0].proposed_apr_per__c / 100) : proposed / 100);
 		lstEffectiveRates.add(effRate);
 
+		Request_alanyzeRate analyzeRate = new Request_alanyzeRate();
+		analyzeRate.id = lstOli[0].Price_rates_create_analyze_Id__c;
+
 		interestRates.effectiveRates = lstEffectiveRates;
 		mapInterestRates.put('interestRates', interestRates);
 		mapInterestRates.put('comment', comment);
+		mapInterestRates.put('analyzeRate', analyzeRate);
 
 		String jsonSubstr = parse(mapInterestRates);
 		jsonSubstr = jsonSubstr.removeEnd('}');
@@ -106,14 +110,17 @@ public class ModifyQuotationRequest_helper {
 		effRate.percentage = (proposed == null ? (lstOli[0].proposed_apr_per__c == null ? null : lstOli[0].proposed_apr_per__c / 100) : proposed / 100);
 		lstEffectiveRates.add(effRate);
 
+		Request_alanyzeRate analyzeRate = new Request_alanyzeRate();
+		analyzeRate.id = lstOli[0].Price_rates_create_analyze_Id__c;
+
 		Request_rate rate = new Request_rate();
-		//rate.id = lstOli[0].price_rates_calculation_Id__c;
-		rate.id = lstOli[0].Price_rates_create_analyze_Id__c;
+		rate.id = lstOli[0].price_rates_calculation_Id__c;
 
 		interestRates.effectiveRates = lstEffectiveRates;
 		mapInterestRates.put('interestRates', interestRates);
 		mapInterestRates.put('rate', rate);
 		mapInterestRates.put('comment', comment);
+		mapInterestRates.put('analyzeRate', analyzeRate);
 
 		String jsonSubstr = parse(mapInterestRates);
 		jsonSubstr = jsonSubstr.removeEnd('}');
@@ -245,6 +252,10 @@ public class ModifyQuotationRequest_helper {
 
 	public class Request_businessAgent_reasign {
 		public String id;   //P012170
+	}
+
+	public class Request_alanyzeRate {
+		public String id;
 	}
 
 	public static ResponseModifyQuotationRequest_Wrapper responseParse(String json) {
