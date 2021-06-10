@@ -10,9 +10,12 @@
  *  2020-11-06  MAMC     martin.mori.contractor@bbva.com	Modify		add method to create quote pdf
  **/
 public class ModifyQuotationRequest_helper {
+	/** Field */
 	public ModifyQuotationRequest_Wrapper inputDataMapping;
+	
+	/** method */
 	public ModifyQuotationRequest_helper(String oppRecordId, String phaseId, Decimal proposed, String param01, String userCode) {
-		List<OpportunityLineItem> lstOli = [SELECT Id, proposed_apr_per__c, price_quote_id__c, price_operation_id__c, Price_rates_create_analyze_Id__c, Opportunity.Loss_Reason__c,
+		Final List<OpportunityLineItem> lstOli = [SELECT Id, proposed_apr_per__c, price_quote_id__c, price_operation_id__c, Price_rates_create_analyze_Id__c, Opportunity.Loss_Reason__c,
 		                                    Opportunity.rejection_winner_entity_name__c, Opportunity.frm_ContractNumber__c, PE_List_Product_mode__c, price_rates_calculation_Id__c
 		                                    FROM OpportunityLineItem WHERE OpportunityId = :oppRecordId];
 		if(!lstOli.isEmpty()) {
@@ -62,7 +65,8 @@ public class ModifyQuotationRequest_helper {
 	public System.HttpResponse invoke() {
 		return iaso.GBL_Integration_GenericService.invoke('ModifyQuotationRequest', generateJSONRequest());
 	}
-
+	
+	/** method */
 	public static ModifyQuotationRequest_Wrapper generateJson01(List<OpportunityLineItem> lstOli, String phaseId, String rateId, String comment, Decimal proposed) {
 		ModifyQuotationRequest_Wrapper mwrap = new ModifyQuotationRequest_Wrapper();
 		mwrap.phaseId = phaseId;
@@ -75,7 +79,7 @@ public class ModifyQuotationRequest_helper {
 		effRate.percentage = (proposed == null ? (lstOli[0].proposed_apr_per__c == null ? null : lstOli[0].proposed_apr_per__c / 100) : proposed / 100);
 		lstEffectiveRates.add(effRate);
 
-		Request_alanyzeRate analyzeRate = new Request_alanyzeRate();
+		Final Request_alanyzeRate analyzeRate = new Request_alanyzeRate();
 		analyzeRate.id = lstOli[0].Price_rates_create_analyze_Id__c;
 
 		interestRates.effectiveRates = lstEffectiveRates;
@@ -90,7 +94,8 @@ public class ModifyQuotationRequest_helper {
 		mwrap.jsonStructure = jsonSubstr;
 		return mwrap;
 	}
-
+	
+	/** method */
 	public static ModifyQuotationRequest_Wrapper generateJson02(String phaseId) {
 		ModifyQuotationRequest_Wrapper mwrap = new ModifyQuotationRequest_Wrapper();
 		mwrap.phaseId = phaseId;
@@ -98,6 +103,7 @@ public class ModifyQuotationRequest_helper {
 		return mwrap;
 	}
 
+	/** method */
 	public static ModifyQuotationRequest_Wrapper generateJson03(List<OpportunityLineItem> lstOli, String phaseId, String rateId, String comment, Decimal proposed) {
 		ModifyQuotationRequest_Wrapper mwrap = new ModifyQuotationRequest_Wrapper();
 		mwrap.phaseId = phaseId;
@@ -110,7 +116,7 @@ public class ModifyQuotationRequest_helper {
 		effRate.percentage = (proposed == null ? (lstOli[0].proposed_apr_per__c == null ? null : lstOli[0].proposed_apr_per__c / 100) : proposed / 100);
 		lstEffectiveRates.add(effRate);
 
-		Request_alanyzeRate analyzeRate = new Request_alanyzeRate();
+		Final Request_alanyzeRate analyzeRate = new Request_alanyzeRate();
 		analyzeRate.id = lstOli[0].Price_rates_create_analyze_Id__c;
 
 		Request_rate rate = new Request_rate();
@@ -130,6 +136,7 @@ public class ModifyQuotationRequest_helper {
 		return mwrap;
 	}
 
+	/** method */
 	public static ModifyQuotationRequest_Wrapper generateJson04(List<OpportunityLineItem> lstOli, String phaseId, String rateId, String comment, Decimal proposed, String param01) {
 		ModifyQuotationRequest_Wrapper mwrap = new ModifyQuotationRequest_Wrapper();
 		mwrap.phaseId = phaseId;
@@ -159,6 +166,7 @@ public class ModifyQuotationRequest_helper {
 		return mwrap;
 	}
 
+	/** method */
 	public static ModifyQuotationRequest_Wrapper generateJson05(List<OpportunityLineItem> lstOli, String phaseId, String comment, String ContractNumber) {
 		ModifyQuotationRequest_Wrapper mwrap = new ModifyQuotationRequest_Wrapper();
 		mwrap.phaseId = phaseId;
@@ -181,6 +189,7 @@ public class ModifyQuotationRequest_helper {
 		return mwrap;
 	}
 
+	/** method */
 	public static ModifyQuotationRequest_Wrapper generateJson06(String phaseId, String newUserCode) {
 		ModifyQuotationRequest_Wrapper mwrap = new ModifyQuotationRequest_Wrapper();
 		mwrap.phaseId = phaseId;
@@ -200,119 +209,205 @@ public class ModifyQuotationRequest_helper {
 		return mwrap;
 	}
 
+	/** method */
 	public static String parse(Object obj_wrapper) {
 		String strJson = JSON.serialize(obj_wrapper);
 		strJson = strJson.replace('"numberId":', '"number":');
 		return strJson;
 	}
 
+	/** method */
 	public class ModifyQuotationRequest_Wrapper {
+	
+		/** field */
 		public String phaseId;
+		
+		/** field */
 		public String jsonStructure;
+		
+		/** field */
 		public String quotationId;
+		
+		/** field */
 		public String operationId;
+		
+		/** field */
 		public String userCode;
 	}
 
+	/** class */
 	public class Request_rate {
-		public String id;   //price_rates_calculation_Id__c
-	}
-
-	public class Request_interestRates {
-		public Request_effectiveRates[] effectiveRates;
-	}
-
-	public class Request_effectiveRates {
-		public String id;   //REQUESTED_TEA
-		public Decimal percentage;  //proposed_apr_per__c
-	}
-
-	public class Request_causeLoss {
-		public Integer id;  //1
-		public Request_chosenBank chosenBank;
-	}
-
-	public class Request_chosenBank {
-		public Integer id;  //1
-		public Request_effectiveRate effectiveRate;
-	}
-
-	public class Request_effectiveRate {
-		public String id;   //TEA_BMK
-		public Decimal percentage;  //proposed_apr_per__c
-	}
-
-	public class Request_disbursement {
-		public Request_relatedContract relatedContract;
-	}
-
-	public class Request_relatedContract {
-		public String numberId; //
-	}
-
-	public class Request_businessAgent_reasign {
-		public String id;   //P012170
-	}
-
-	public class Request_alanyzeRate {
+		/** field - price_rates_calculation_Id__c */
 		public String id;
 	}
 
+	/** class */
+	public class Request_interestRates {
+		/** field */
+		public Request_effectiveRates[] effectiveRates;
+	}
+
+	/** class */
+	public class Request_effectiveRates {
+		/** field - REQUESTED_TEA */
+		public String id;
+		
+		/** field - proposed_apr_per__c*/
+		public Decimal percentage;
+	}
+
+	/** class */
+	public class Request_causeLoss {
+		/** field - 1*/
+		public Integer id;
+		
+		/** field */
+		public Request_chosenBank chosenBank;
+	}
+
+	/** class */
+	public class Request_chosenBank {
+		/** field */
+		public Integer id;  //1
+		
+			/** field */
+		public Request_effectiveRate effectiveRate;
+	}
+
+	/** class */
+	public class Request_effectiveRate {
+		/** field */
+		public String id;   //TEA_BMK
+		
+		/** field */
+		public Decimal percentage;  //proposed_apr_per__c
+	}
+
+	/** class */
+	public class Request_disbursement {
+		/** field */
+		public Request_relatedContract relatedContract;
+	}
+
+	/** class */
+	public class Request_relatedContract {
+		/** field */
+		public String numberId; //
+	}
+
+	/** class */
+	public class Request_businessAgent_reasign {
+		/** field */
+		public String id;   //P012170
+	}
+
+	/** class */
+	public class Request_alanyzeRate {
+		/** field */
+		public String id;
+	}
+
+	/** class */
 	public static ResponseModifyQuotationRequest_Wrapper responseParse(String json) {
 		return (ResponseModifyQuotationRequest_Wrapper) System.JSON.deserialize(json, ResponseModifyQuotationRequest_Wrapper.class);
 	}
 
 	//Wrapper class to the response
 	public class ResponseModifyQuotationRequest_Wrapper {
+		/** field */
 		public Response_data data;
 	}
 
+	/** class */
 	public class Response_data {
+		/** field */
 		public Response_status status;
+		
+		/** field */
 		public String id;   //1469800
+		
+		/** field */
 		public String version;  //1
+		
+		/** field */
 		public Response_businessAgents[] businessAgents;
+		
+		/** field */
 		public Response_disbursement disbursement;
 	}
 
+	/** class */
 	public class Response_status {
+		/** field */
 		public String id;   //PENDING
+		
+		/** field */
 		public String description;  //PENDIENTE
 	}
 
+	/** class */
 	public class Response_businessAgents {
+		/** field */
 		public String id;   //P012170
+		
+		/** field */
 		public String firstName;    //CECILIA
+		
+		/** field */
 		public String lastName; //AGUIRRE
+		
+		/** field */
 		public String secondLastName;   //GONZALES
+		
+		/** field */
 		public Response_workTeam workTeam;
+		
+		/** field */
 		public Response_classification classification;
 	}
 
+	/** class */
 	public class Response_workTeam {
+		/** field */
 		public String id;   //EJE_BEC
+		
+		/** field */
 		public String name; //Ejecutivo BEC
 	}
 
+	/** class */
 	public class Response_classification {
+		/** field */
 		public Response_involvements[] involvements;
 	}
 
+	/** class */
 	public class Response_involvements {
+		/** field */
 		public Response_involvementType involvementType;
 	}
 
+	/** class */
 	public class Response_involvementType {
+		/** field */
 		public String id;   //ASSIGNED
+		
+		/** field */
 		public String description;  //Usuario asignado a la cotización
 	}
     
+	/** class */
 	public class Response_disbursement {
+		/** field */
 		public Response_status status;
 	}
 
+	/** class */
 	private static String getContextUserCode() {
+		/** field */
 		List<User> lstUser = [SELECT Id, user_id__c FROM User WHERE Id = :UserInfo.getUserId()];
+		
+		/** field */
 		return (lstUser[0].user_id__c == null || lstUser[0].user_id__c == '' ? '' : lstUser[0].user_id__c);
 	}
 }
