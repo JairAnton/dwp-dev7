@@ -176,7 +176,8 @@ public without sharing class PriceRate_helper {
 			this.contractingModality = resultValue(ltsValues.get(7), null);
 			this.currencyCode = resultValue(ltsValues.get(8), null);
 			this.productId = resultValue(ltsValues.get(9), null);
-			this.guaranteeCoverage = resultValue(ltsValues.get(10), null);//', "coverage":"');
+			//this.guaranteeCoverage = resultValue(ltsValues.get(10), null);//', "coverage":"');
+			this.guaranteeCoverage = resultValue(ltsValues.get(10), ', "coverage":"');
 			this.guaranteeType = resultValue(ltsValues.get(11), null);
 			this.paymentMethodCode = resultValue(ltsValues.get(12), null);
 			this.beneficiaryCode = resultValue(ltsValues.get(13), null);

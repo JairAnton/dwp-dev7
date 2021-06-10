@@ -28,10 +28,10 @@
                     'dinamicInput': '-',
                     'headercommission': 
                     [
-                       {label: 'Importe comisión', fieldName: 'Commission_Calculation_Amount__c', type: 'text'},
-                       {label: 'Nombre de producto', fieldName: 'Product_Commission_Name__c', type: 'text'},
-                       {label: 'Tasa sugerida', fieldName: 'Suggested_Rate_Type__c', type: 'text'},
-                       {label: 'Comisión final', fieldName: 'Final_Rate__c	', type: 'text'}
+                        {label: 'COMISIÓN', fieldName: 'Product_Commission_Name__c', type: 'text'},
+                        {label: 'SOLICITADO (%)', fieldName: 'Requested_Rate_Value__c', type: 'text'},
+                        {label: 'AUTORIZADO (%)', fieldName: 'Authorized_Rate_Value__c', type: 'text'},
+                        {label: 'COMISIÓN FINAL', fieldName: 'Final_Rate__c	', type: 'text'}
                     ],
                     'comissions': ret.comissions
  

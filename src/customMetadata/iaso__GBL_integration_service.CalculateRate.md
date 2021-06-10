@@ -77,8 +77,8 @@
         &quot;guarantee&quot;: {
             &quot;classification&quot;: {
                 &quot;id&quot;: &quot;#guaranteeId#&quot;
-            },
-            &quot;coverage&quot;: &quot;#guaranteeCoverage#&quot;
+            }
+                #guaranteeCoverage#
         },
         &quot;id&quot;: &quot;#productId#&quot;,
         &quot;requestedAmount&quot;: {

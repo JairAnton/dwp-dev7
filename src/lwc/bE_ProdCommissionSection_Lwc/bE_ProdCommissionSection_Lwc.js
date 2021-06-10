@@ -97,7 +97,10 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
         let currentQuestion = currentCommission.Commission_Questions__r[questionIndex];
 
         let value;
-        if (!event.currentTarget.checked) {
+        console.log('value 1: ', event.currentTarget.value);
+        console.log('value 2: ', event.currentTarget.checked);
+        if (typeof event.currentTarget.checked !== 'undefined') {
+            console.log('entro a checked');
             value = event.currentTarget.checked;
         } else {
             value = event.currentTarget.value;
@@ -230,6 +233,7 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
     }
 
     showNhideQuestions(parentQuestion, questions, value) {
+        console.log('question changed:', parentQuestion, questions, value);
         if (parentQuestion.isParent__c) {
             let childIndex = questions.findIndex((q => q.Parent_Question__c === parentQuestion.Id));
             if (childIndex >= 0) {
@@ -258,16 +262,17 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
     }
 
     parseInitialData(commissions) {
-        return commissions.map((c) => {
-            let { Commission_Questions__r, ...cData } = c;
+        return commissions.map((comm) => {
+            let { Commission_Questions__r, ...cData } = comm;
             let questions = [];
             if (Commission_Questions__r) {
-                questions = Commission_Questions__r.map((q) => {
-                    let { Answer__c, ...qData } = q;
-                    let answer = true;
-                    if (Answer__c === 'false') {
-                        answer = false;
+                questions = Commission_Questions__r.map((quest) => {
+                    let { Answer__c, ...qData } = quest;
+                    let answer = false;
+                    if (Answer__c === 'true') {
+                        answer = true;
                     }
+                    this.showNhideQuestions(quest, comm.Commission_Questions__r, answer);
                     return { Answer__c: answer, ...qData };
                 });
                 return { Commission_Questions__r: questions, ...cData };

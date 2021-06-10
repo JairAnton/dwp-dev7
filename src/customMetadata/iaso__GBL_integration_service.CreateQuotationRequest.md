@@ -59,7 +59,7 @@
 				&quot;percentage&quot;: #proposedAPRpercent#
 			}]
 		}
-		#guaranteeType#
+		
     }]  
 }</value>
     </values>
