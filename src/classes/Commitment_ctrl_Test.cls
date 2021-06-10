@@ -224,9 +224,7 @@ public class Commitment_ctrl_Test {
 		Test.startTest();
 		Final Map<String, Object> mapResultReturn = Commitment_ctrl.requestQuote(oppTest.Id);
 		Test.stopTest();
-        //System.assertEquals(Label.PriceRequestQuotationApprovalUnKnownError, mapResultReturn.get('errorMessage'));
-        System.assertEquals(null, mapResultReturn.get('errorMessage'));
-
+        System.assertEquals(Label.PriceRequestQuotationApprovalUnKnownError, mapResultReturn.get('errorMessage'));
 	}
 
     /** @Description  testRequetQuotationApprovalDifferentUserError1*/
