@@ -62,23 +62,19 @@ public with sharing class BE_ProdCommissionSection_Ctr {
     /** Save Commission rates and answers */
     @AuraEnabled
     public static void saveCommissions(String rawCommission, String recordId){
-        try {
-            ProductWrapper c = (ProductWrapper) JSON.deserializeStrict(rawCommission, ProductWrapper.class);
-            List<Commission_Question__c> questions = new List<Commission_Question__c>();
-            for(Product_Commission__c cm : c.rawCommission) {
-                for(Commission_Question__c question : cm.Commission_Questions__r) {
-                    questions.add(question);
-                }
-            }
-            OpportunityLineItem oli = [SELECT Id, hasCommissions__c FROM OpportunityLineItem WHERE Id = :recordId];
+		ProductWrapper c = (ProductWrapper) JSON.deserializeStrict(rawCommission, ProductWrapper.class);
+		List<Commission_Question__c> questions = new List<Commission_Question__c>();
+		for(Product_Commission__c cm : c.rawCommission) {
+			for(Commission_Question__c question : cm.Commission_Questions__r) {
+				questions.add(question);
+			}
+		}
+		OpportunityLineItem oli = [SELECT Id, hasCommissions__c FROM OpportunityLineItem WHERE Id = :recordId];
 
-            oli.hasCommissions__c = true;
-            update oli;
-            update c.rawCommission;
-            update questions;
-        } catch (Exception e) {
-            throw new AuraHandledException(e.getMessage());
-        }
+		oli.hasCommissions__c = true;
+		update oli;
+		update c.rawCommission;
+		update questions;
     }
 
     /** --------------------------------
