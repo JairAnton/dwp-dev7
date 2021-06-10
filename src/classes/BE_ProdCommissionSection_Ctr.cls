@@ -13,6 +13,9 @@
 public with sharing class BE_ProdCommissionSection_Ctr {
     /* constructor of class */
     private BE_ProdCommissionSection_Ctr() {}
+
+    /* exception of class */
+    public class ApplicationException extends Exception {}
     
     /**Method used to get quotes **/
 	@AuraEnabled
@@ -25,17 +28,13 @@ public with sharing class BE_ProdCommissionSection_Ctr {
     public static void calculateRate(String commissionId, String status) {
         
         Final Product_Commission__c currentCommission = [SELECT Opportunity_Product__r.unitprice, Opportunity_Product__r.gipr_Plazo__c, Opportunity_Product__r.gipr_Periodicidad__c, Opportunity_Product__r.CurrencyIsoCode, Code__c, Term_Frequency_Id__c, Term_Number__c, Suggested_Rate_Type__c, Sugested_Rate_Percentage__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, (SELECT Code__c, Input_Value__c, Answer__c FROM Commission_Questions__r) FROM Product_Commission__c WHERE Id = :commissionId];
-        List<Product_Commission__c> commissionsAsoRequest = new List<Product_Commission__c>();
-        system.debug('1: ');
-        Final BE_CalculateCommissionRequest_Helper listCommissionHelper = new BE_CalculateCommissionRequest_Helper(currentCommission,status);
-        system.debug('2: ');
-        Final System.HttpResponse invoke = listCommissionHelper.invoke();
-        system.debug('3: ');
+        Final List<Product_Commission__c> comAsoRequest = new List<Product_Commission__c>();
+        system.debug('currentCommission: '+ currentCommission);
+        Final BE_CalculateCommissionRequest_Helper listComHelper = new BE_CalculateCommissionRequest_Helper(currentCommission,status);
+        Final System.HttpResponse invoke = listComHelper.invoke();
         switch on invoke.getStatusCode() {
             when 200 {
-                system.debug('response: '+ invoke.getBody());
-                
-                Product_Commission__c commission = new Product_Commission__c();
+                Final Product_Commission__c commission = new Product_Commission__c();
                 Final Map<String, Object> response = (Map<String, Object>) JSON.deserializeUntyped(invoke.getBody());
                 Final Map<String, Object> commissionResp = (Map<String, Object>) response.get('data');
                 
@@ -51,30 +50,34 @@ public with sharing class BE_ProdCommissionSection_Ctr {
                 Final Map<String, Object> calculatedAmount = (Map<String, Object>) calculatedFee.get('calculatedAmount');
                 commission.Commission_Calculation_Amount__c = Double.valueOf(calculatedAmount.get('amount'));
                 commission.CurrencyIsoCode = String.valueOf(calculatedFee.get('currency'));
-                commissionsAsoRequest.add(commission);
+                comAsoRequest.add(commission);
+            }
+            when else {
+                ApplicationException exc = new ApplicationException();
+                exc.setMessage(invoke.getBody());
+                throw exc;
             }
         }
-        System.debug('REQUESTED DATA-----Result:'+commissionsAsoRequest);
-        update commissionsAsoRequest;
+        System.debug('REQUESTED DATA-----Result:'+comAsoRequest);
+        update comAsoRequest;
         System.debug('REQUESTED DATA-----saved!:');        
     }
 
     /** Save Commission rates and answers */
     @AuraEnabled
-    public static void saveCommissions(String rawCommission, String recordId){
-		ProductWrapper c = (ProductWrapper) JSON.deserializeStrict(rawCommission, ProductWrapper.class);
-		List<Commission_Question__c> questions = new List<Commission_Question__c>();
-		for(Product_Commission__c cm : c.rawCommission) {
-			for(Commission_Question__c question : cm.Commission_Questions__r) {
-				questions.add(question);
-			}
-		}
-		OpportunityLineItem oli = [SELECT Id, hasCommissions__c FROM OpportunityLineItem WHERE Id = :recordId];
-
-		oli.hasCommissions__c = true;
-		update oli;
-		update c.rawCommission;
-		update questions;
+    public static void saveCommissions(String rawCommission, String recordId) {
+        Final ProductWrapper comData = (ProductWrapper) JSON.deserializeStrict(rawCommission, ProductWrapper.class);
+        Final List<Commission_Question__c> questions = new List<Commission_Question__c>();
+        for(Product_Commission__c cm : comData.rawCommission) {
+            for(Commission_Question__c question : cm.Commission_Questions__r) {
+                questions.add(question);
+            }
+        }
+        Final OpportunityLineItem oli = [SELECT Id, hasCommissions__c FROM OpportunityLineItem WHERE Id = :recordId];
+        oli.hasCommissions__c = true;
+        update oli;
+        update comData.rawCommission;
+        update questions;
     }
 
     /** --------------------------------
@@ -87,6 +90,7 @@ public with sharing class BE_ProdCommissionSection_Ctr {
      **--------------------------------*/
     /** class wrapper */
     public class ProductWrapper {
-        List<Product_Commission__c> rawCommission {get; set;}
+        /* rawCommision Data */
+        List<Product_Commission__c> rawCommission {get; set; }
     }
 }

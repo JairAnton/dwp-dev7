@@ -97,10 +97,7 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
         let currentQuestion = currentCommission.Commission_Questions__r[questionIndex];
 
         let value;
-        console.log('value 1: ', event.currentTarget.value);
-        console.log('value 2: ', event.currentTarget.checked);
         if (typeof event.currentTarget.checked !== 'undefined') {
-            console.log('entro a checked');
             value = event.currentTarget.checked;
         } else {
             value = event.currentTarget.value;
@@ -233,7 +230,6 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
     }
 
     showNhideQuestions(parentQuestion, questions, value) {
-        console.log('question changed:', parentQuestion, questions, value);
         if (parentQuestion.isParent__c) {
             let childIndex = questions.findIndex((q => q.Parent_Question__c === parentQuestion.Id));
             if (childIndex >= 0) {

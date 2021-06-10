@@ -9,7 +9,7 @@
    2021-03-17  MAMC     martin.mori.contractor@bbva.com    	Creation
    -------------------------------------------------------------------------------------------------
  */
- public with sharing class BE_CalculateCommissionRequest_Helper {
+public with sharing class BE_CalculateCommissionRequest_Helper {
 	/* variable request wrapper */
 	public CalculateCommissionRequest_Wrapper inputDataMapping {get; set;}
     /* */
@@ -75,9 +75,16 @@
      /*method calculateQuestionnaires*/
      public static String calculateQuestionnaires(Product_Commission__c commission, String status, List<String> requestStages, List<String> authorizedStages) {
          string questions = ',"questions":[';
-         questions = ',"questions":[';
          for(Commission_Question__c question : commission.Commission_Questions__r) {
-             questions = questions + '{"id":'+question.Code__c+',"answer":"'+ question.Answer__c == 'true' ? 'SI' : (question.Answer__c == 'false' ? 'NO' : question.Answer__c)+'"},';
+             String answer = '';
+             if(question.Answer__c == 'true') {
+                answer = 'SI';
+             } else if(question.Answer__c == 'false') {
+                answer = 'NO';
+             } else {
+                answer = String.valueOf(question.Answer__c);
+             }
+             questions = questions + '{"id":'+ String.valueOf(question.Code__c) +',"answer":"'+answer+'"},';
          }
          questions = questions + ']';
          questions = questions.replace('},]', '}]');
