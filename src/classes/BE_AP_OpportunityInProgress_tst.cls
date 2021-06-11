@@ -6,11 +6,12 @@
  * Developer                    Date                Description<p />
  * -------------------------------------------------------------------
  * Diego Carbajal    		05/06/2020          Original version.<p />
- *
+ * Jair Antón				07/06/2021			Modificación cobertura de test AP
  * @author Diego Carbajal
  */
 @isTest
 public class BE_AP_OpportunityInProgress_tst {
+    
 	/*
 	 * @Description  method setUp
 	 */
@@ -36,8 +37,10 @@ public class BE_AP_OpportunityInProgress_tst {
             Final Account accGroup = TestFactory.getAccount(true, mapFields);
             Final Account accClient = TestFactory.createAccount(accGroup.Id);
             Final Id rtIdAP = [SELECT Id FROM RecordType WHERE DeveloperName = 'Account_Planning' LIMIT 1].Id;
-            insert AP_FactoryTest_tst.createAccountPlanning(accGroup.Id, ejecutivo.Id, rtIdAP, true);
-            insert AP_FactoryTest_tst.createAccountPlanning(accClient.Id, ejecutivo.Id, rtIdAP, true);
+            List<acpl__Account_Planning__c> apList = new List<acpl__Account_Planning__c>();
+            apList.add(AP_FactoryTest_tst.createAccountPlanning(accGroup.Id, ejecutivo.Id, rtIdAP, true));
+            apList.add(AP_FactoryTest_tst.createAccountPlanning(accClient.Id, ejecutivo.Id, rtIdAP, true));
+            insert apList;
         }
 	}
 

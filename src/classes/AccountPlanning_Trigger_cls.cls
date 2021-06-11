@@ -6,6 +6,8 @@
  * Developer                    Date                Description<p />
  * -------------------------------------------------------------------
  * Diego Carbajal    		15/05/2020          Original version.<p />
+ * Jair Anton				07/06/2021			Compartir AP con el JPN de cada región
+ * 
  * @SuppressWarnings("PMD.CyclomaticComplexity"): Se utiliza para excluir del sonar para el metodo relateAPQuestions
  * implementado por Global
  * @author Diego Carbajal
@@ -17,6 +19,97 @@ public without sharing class AccountPlanning_Trigger_cls {
 
     /* @Description AccountPlanning_Trigger_cls*/
     private AccountPlanning_Trigger_cls() {}
+    
+     /**
+	 * @Description Agrega a los JPN a cada Plan de cuentas dependiendo de la región que pertenezca el Global Bankers
+	 */
+    public static void sharingWithJPN(Map<Id, acpl__Account_Planning__c> apNewMap) {
+        Final Map<Id, Map<Id, UserRole>> rolesPerLevel = getRolesPerHierarchy();
+        
+        Final Map<Id, UserRole> jpnRole = new Map<Id, UserRole>([SELECT Id, Name, ParentRoleId FROM UserRole WHERE Name LIKE 'JEFE PROMOCION DE NEGOCIO%']);
+        Map<Id, Map<Id, Id>> usRoles = new Map<Id, Map<Id, Id>>();
+        
+        for(UserRole item : jpnRole.values()) {
+            /* Obtiene los roles que tienen el mismo nivel del JPN */
+            Final Map<Id, UserRole> currentRole = rolesPerLevel.get(item.ParentRoleId);
+            /* Guarda los primeros Id de los roles */
+            Final Set<Id> currentSet = currentRole.keySet();
+            Final List<Id> currentKeyList = new List<Id>();
+            /* Guarda en una lista */
+            currentKeyList.addAll(currentSet);
+            /* Almacena todos los Id de los roles cercanos por JPN */
+            Final Map<Id, Id> storageMap = new Map<Id, Id>();
+            
+            do {
+                /* Elimina y retorna el primer registro */
+                Id currentItem = currentKeyList.remove(0);
+                /* Almacena los id que pasan por el bucle */
+                storageMap.put(currentItem, currentItem);
+                
+                /* Verifica el Id */
+                if(rolesPerLevel.containsKey(currentItem)) {
+                    /* Obtiene los sub levels de los roles */
+                    Map<Id, UserRole> currentSubRole = rolesPerLevel.get(currentItem);
+                    /* Agrega los id de los roles para continuar con la búsqueda de sub level*/
+                    Set<Id> currentSubSet = currentSubRole.keySet();
+                    currentKeyList.addAll(currentSubSet);
+                }
+            } while (currentKeyList.size() > 0);
+            
+            /* Almacena los roles id que le pertenecen a cada JPN */
+            usRoles.put(item.Id, storageMap);
+        }
+        
+        sharingAP(jpnRole, apNewMap, usRoles); 
+        
+    }
+    
+    /**
+	 * @Description Filtra los roles por su jerarquía obteniendo levels and sub-levels 
+	 */
+    public static void sharingAP(Map<Id, UserRole> jpnRole, Map<Id, acpl__Account_Planning__c> apNewMap, Map<Id, Map<Id, Id>> usRoles) {
+        Final List<User> userList = [SELECT Id, Name, UserRoleId FROM User WHERE UserRoleId IN : jpnRole.keySet() AND isActive = TRUE];
+        Final List<acpl__Account_Planning__c> apList = [SELECT Id, acpl__proposal_manager_id__r.UserRoleId FROM acpl__Account_Planning__c WHERE Id IN : apNewMap.keySet()];
+        List<acpl__Account_Planning__Share> apShareList = new List<acpl__Account_Planning__Share>();
+        
+        for(User usItem : userList) {
+            Final Map<Id, Id> currentRole = usRoles.get(usItem.UserRoleId);
+            
+            for(acpl__Account_Planning__c apItem : apList) {
+                if(currentRole.containsKey(apItem.acpl__proposal_manager_id__r.UserRoleId)) {
+                    apShareList.add(new acpl__Account_Planning__Share(ParentId = apItem.Id, UserOrGroupId = usItem.Id, AccessLevel = 'Read', RowCause = 'Manual'));
+                }   
+            }
+        }
+        
+        insert apShareList;
+    }
+    
+    /**
+	 * @Description Filtra los roles por su jerarquía obteniendo levels and sub-levels 
+	 */
+    public static Map<Id, Map<Id, UserRole>> getRolesPerHierarchy() {
+        Final Map<Id, UserRole> firstLevel = new Map<Id, UserRole>([SELECT Id, Name, ParentRoleId FROM UserRole WHERE ParentRoleId = NULL LIMIT 1]);
+        Final List<UserRole> nextLevel = [SELECT Id, Name, ParentRoleId FROM UserRole WHERE ParentRoleId != NULL];
+        Map<Id, Map<Id, UserRole>> rolesPerLevel = new Map<Id, Map<Id, UserRole>>();
+        
+        Final UserRole roleItem = firstLevel.values();
+        rolesPerLevel.put(roleItem.Id, firstLevel);
+        
+        for(UserRole item : nextLevel) {
+            Map<Id, UserRole> current = new Map<Id, UserRole>();
+            
+            if(rolesPerLevel.containsKey(item.ParentRoleId)) {
+                current = rolesPerLevel.get(item.ParentRoleId);
+            }
+            
+            current.put(item.Id, item);
+            rolesPerLevel.put(item.ParentRoleId, current);
+        }
+        
+        return rolesPerLevel;
+    }
+    
 	/**
 	 * @Description Execute various methods according to different criteria
 	 */
@@ -116,6 +209,7 @@ public without sharing class AccountPlanning_Trigger_cls {
 	/*
 	 * @Description  Clona las preguntas del Catalogo y los asocia a cada AP insertado
 	 */
+	/*
 	public static void relateAPQuestions(List<acpl__Account_Planning__c> triggernew) {//NOSONAR
 		//Guardo las preguntas del AP Catalog
 		final List<acpl__AP_Question__c> apQuestionList = [SELECT Id, acpl__gf_account_planning_id__c, acpl__gf_account_planning_id__r.Name, acpl__gf_ap_question_form_desc__c, Name,
@@ -183,6 +277,6 @@ public without sharing class AccountPlanning_Trigger_cls {
 			insert tmpFieldsConfig;
 			AP_Trigger_Helper.relateListValues(lstFullFConfig, catalogCnfig);
 		}
-	}
+	}*/
 
 }

@@ -6,7 +6,7 @@
  * Developer                    Date                Description<p />
  * -------------------------------------------------------------------
  * Diego Carbajal    		05/06/2020          Original version.<p />
- *
+ * Jair Anton				07/06/2021			Modificación cobertura de test AP
  * @author Diego Carbajal
  */
 @isTest
@@ -113,11 +113,12 @@ public class AP_Team_Helper_tst {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
 		Final acpl__Account_Planning__c accPlan = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);
 		insert accPlan;
+        Test.startTest();
 		Final bupl__AP_Team__c apt = new bupl__AP_Team__c(acpl__gf_account_planning_id__c = accPlan.Id, Name = APT_MEMBER, bupl__gf_ap_team_role_user_name__c = Acompanante,
 		                                                  bupl__gf_ap_team_user_id__c = MAPUSERS.get(MANAGER).Id);
 		insert apt;
 		Final bupl__AP_Team__c aptAux = [SELECT Id FROM bupl__AP_Team__c WHERE acpl__gf_account_planning_id__c =: accPlan.Id LIMIT 1];
-		Test.startTest();
+		
 		System.runAs(MAPUSERS.get(MANAGER)) {
 			try {
 				delete aptAux;
@@ -138,11 +139,12 @@ public class AP_Team_Helper_tst {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
 		Final acpl__Account_Planning__c accPlan = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);
 		insert accPlan;
+        Test.startTest();
 		Final bupl__AP_Team__c apt = new bupl__AP_Team__c(acpl__gf_account_planning_id__c = accPlan.Id, Name = APT_MEMBER, bupl__gf_ap_team_role_user_name__c = GESTOR,
 		                                                  bupl__gf_ap_team_user_id__c = MAPUSERS.get(MANAGER).Id);
 		insert apt;
 		Final bupl__AP_Team__c aptAux = [SELECT Id FROM bupl__AP_Team__c WHERE acpl__gf_account_planning_id__c =: accPlan.Id LIMIT 1];
-		Test.startTest();
+		
 		System.runAs(MAPUSERS.get(MANAGER)) {
 			try {
 				delete aptAux;
@@ -163,10 +165,11 @@ public class AP_Team_Helper_tst {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
 		Final acpl__Account_Planning__c accPlan = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);
 		insert accPlan;
+        Test.startTest();
 		Final bupl__AP_Team__c apt = new bupl__AP_Team__c(acpl__gf_account_planning_id__c = accPlan.Id, Name = APT_MEMBER, bupl__gf_ap_team_role_user_name__c = Acompanante,
 		                                                  bupl__gf_ap_team_user_id__c = MAPUSERS.get(MANAGER).Id);
 		insert apt;
-		Test.startTest();
+		
 		System.runAs(MAPUSERS.get(EJECUTIVO)) {
 			try {
 				delete apt;
@@ -177,6 +180,6 @@ public class AP_Team_Helper_tst {
 		Test.stopTest();
 		Final acpl__Account_Planning__Share[] sharingAP = [SELECT Id, UserOrGroup.Name FROM acpl__Account_Planning__Share WHERE parentId =:accPlan.Id];
 		Final Integer sharingAPSize = sharingAP.size();
-        System.assertEquals(sharingAPSize, 2, FAIL);
+        System.assertEquals(sharingAPSize, 3, FAIL);
 	}
 }
