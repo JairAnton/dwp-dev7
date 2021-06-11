@@ -175,11 +175,15 @@ public class ModifyQuotationRequest_helper {
 		Request_relatedContract relatedContract = new Request_relatedContract();
 		relatedContract.numberId = (ContractNumber == null ? (lstOli[0].Opportunity.frm_ContractNumber__c == null ? '' : (lstOli[0].Opportunity.frm_ContractNumber__c).replaceAll('-', '')) : ContractNumber.replaceAll('-', ''));
 		disbursement.relatedContract = relatedContract;
+        
+		Final Request_alanyzeRate analyzeRate = new Request_alanyzeRate();
+		analyzeRate.id = lstOli[0].Price_rates_create_analyze_Id__c;
 
 		Map<String, Object> mapInterestRates = new Map<String, Object>();
 		mapInterestRates.put('comment', comment);
 		mapInterestRates.put('disbursement', disbursement);
 		mapInterestRates.put('relatedContract', relatedContract);
+		mapInterestRates.put('analyzeRate', analyzeRate);
 
 		String jsonSubstr = parse(mapInterestRates);
 		jsonSubstr = jsonSubstr.removeEnd('}');
