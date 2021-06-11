@@ -58,6 +58,8 @@ public with sharing class BE_CalculateCommissionRequest_Helper {
             Decimal rate = calculateRate(commission, status, requestStages, authorizedStages);
            
             if(commission.Suggested_Rate_Type__c == 'PERCENTAGE') {
+                System.debug('###### debugg error 1 ##########'+commission.Suggested_Rate_Type__c);
+                System.debug('###### debugg error 2 ##########'+rate);
                 this.ratesItemizeRatesRateUnit = '{"unitRateType":"'+commission.Suggested_Rate_Type__c.toUppercase()+'","percentage":'+rate/100+'}';
             } else {
                 this.ratesItemizeRatesRateUnit = '{"unitRateType":"'+commission.Suggested_Rate_Type__c.toUppercase()+'","amount":'+rate+',"currency":"'+commission.CurrencyIsoCode+'"}';
@@ -95,9 +97,9 @@ public with sharing class BE_CalculateCommissionRequest_Helper {
      public static Decimal calculateRate(Product_Commission__c commission, String status, List<String> requestStages, List<String> authorizedStages) {
          Decimal rate = 0;
          if(requestStages.contains(status)) {
-             rate = commission.Requested_Rate_Value__c;
+             rate = commission.Requested_Rate_Value__c != null ? commission.Requested_Rate_Value__c : commission.Sugested_Rate_Percentage__c ;
          } else if (authorizedStages.contains(status)) {
-             rate = commission.Authorized_Rate_Value__c;
+             rate = commission.Authorized_Rate_Value__c != null ? commission.Authorized_Rate_Value__c : commission.Sugested_Rate_Percentage__c ;
          } else {
              rate = commission.Sugested_Rate_Percentage__c;
          }
