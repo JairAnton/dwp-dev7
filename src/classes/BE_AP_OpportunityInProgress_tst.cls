@@ -37,7 +37,7 @@ public class BE_AP_OpportunityInProgress_tst {
             Final Account accGroup = TestFactory.getAccount(true, mapFields);
             Final Account accClient = TestFactory.createAccount(accGroup.Id);
             Final Id rtIdAP = [SELECT Id FROM RecordType WHERE DeveloperName = 'Account_Planning' LIMIT 1].Id;
-            List<acpl__Account_Planning__c> apList = new List<acpl__Account_Planning__c>();
+            Final List<acpl__Account_Planning__c> apList = new List<acpl__Account_Planning__c>();
             apList.add(AP_FactoryTest_tst.createAccountPlanning(accGroup.Id, ejecutivo.Id, rtIdAP, true));
             apList.add(AP_FactoryTest_tst.createAccountPlanning(accClient.Id, ejecutivo.Id, rtIdAP, true));
             insert apList;
