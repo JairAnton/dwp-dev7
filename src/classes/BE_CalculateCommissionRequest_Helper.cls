@@ -96,11 +96,13 @@ public with sharing class BE_CalculateCommissionRequest_Helper {
          Decimal rate = 0;
          if (commission.Authorized_Rate_Value__c != null) {
             rate = commission.Authorized_Rate_Value__c;
-         } else if(commission.Requested_Rate_Value__c != null) {
+         } 
+         if(commission.Requested_Rate_Value__c != null) {
             rate = commission.Requested_Rate_Value__c;
-        } else if(commission.Suggested_Rate_Value__c != null) {
+         } 
+         if(commission.Suggested_Rate_Value__c != null) {
             rate = commission.Suggested_Rate_Value__c;
-        }
+         }
 
          return rate;
      }
