@@ -37,7 +37,7 @@ public with sharing class BE_CalculateCommission_Ctr {
             //Map with values
             Final Map<String, Web_Service_Value_Mapping__c> mapWsVal = WebServiceUtils.getWebServiceValuesMapping(new List<String> {'TERM_PERIOCITY', 'GUARANTEE_CLASSIFICATION', 'CONTRACT_MODALITY'}, oli.pricing_model_id__c);
             Final Map<String, Web_Service_Value_Mapping__c> mapWsValParams = WebServiceUtils.getWebServiceValuesMapping(new List<String> {'GUARANTEE_TYPE', 'PAYMENT_METHOD_CODE', 'BENEFICIARY_CODE', 'PAYMENT_PERIOD_CODE', 'BAIL_OBJECT_CODE'}, '');            
-            Final BE_ListCommissionRequest_Helper listCHelper = new BE_ListCommissionRequest_Helper(oli.pricing_model_id__c, webServiceValue(mapWsVal, 'CONTRACT_MODALITY' + oli.PE_List_Product_mode__c), webServiceValue(mapWsValParams, 'GUARANTEE_TYPE' + oli.gipr_Garantia__c), oli.CurrencyIsoCode);
+            Final BE_ListCommissionRequest_Helper listCHelper = new BE_ListCommissionRequest_Helper(oli.pricing_model_id__c, webServiceValue(mapWsVal, 'CONTRACT_MODALITY' + oli.PE_List_Product_mode__c), webServiceValue(mapWsValParams, 'GUARANTEE_TYPE' + oli.gipr_Tipo_Garantia__c/*oli.gipr_Garantia__c*/), oli.CurrencyIsoCode);
             Final System.HttpResponse invoke = listCHelper.invoke();
             if (invoke.getStatusCode() == 200) {
                 Final Map<string,Object> data = (Map<String, Object>)JSON.deserializeUntyped(invoke.getBody());
