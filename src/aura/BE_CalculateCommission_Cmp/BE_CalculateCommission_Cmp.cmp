@@ -17,7 +17,7 @@
           <lightning:tabset>
             <aura:iteration items="{!v.opportunityProducts}" var="item">
               <lightning:tab label="{!item.Product2.Name}" id="{!item.Id}">
-                <c:bE_ProdCommissionSection_Lwc recordId="{!item.Id}" isEditable="true" showCalculateButton="true" />
+                <c:bE_ProdCommissionSection_Lwc recordId="{!item.Id}" isEditable="true" showCalculateButton="true" requestDataToAso="true" />
               </lightning:tab>
             </aura:iteration>
           </lightning:tabset>

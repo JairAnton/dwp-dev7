@@ -121,6 +121,6 @@
     </lightning:layoutItem>
   </lightning:layout>
   <aura:if isTrue="{!v.useCommissionsCheckbox}">
-    <c:bE_ProdCommissionSection_Lwc aura:id="prodCommissionSectionId" oncmsEvent="{!c.handlerCommissionCall}" oncalculateEvent="{!c.handleCalculateCommission}" recordId="{!v.recordId}" isEditable="true" requestNegotiables="true" />
+    <c:bE_ProdCommissionSection_Lwc aura:id="prodCommissionSectionId" oncmsEvent="{!c.handlerCommissionCall}" oncalculateEvent="{!c.handleCalculateCommission}" recordId="{!v.recordId}" isEditable="true" requestNegotiables="true" requestDataToAso="true" />
   </aura:if>
 </aura:component>

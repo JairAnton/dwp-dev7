@@ -89,14 +89,26 @@ public with sharing class BE_CalculateCommission_Ctr {
     
     /**Method used to get quotes **/
 	@AuraEnabled
-    public static List<Product_Commission__c> getCommissions(String recordId, Boolean negotiables) {
+    public static List<Product_Commission__c> getCommissions(String recordId, Boolean negotiables, Boolean requestDataToAso) {
         Final Map<String, Product_Commission__c> respCommissions = new Map<String, Product_Commission__c>();
         Final Map<String, Commission_Question__c> respQuestions = new Map<String, Commission_Question__c>();
         Final List<Product_Commission__c> deleteCommissions = new List<Product_Commission__c>();
         Final List<Commission_Question__c> deleteQuestions = new List<Commission_Question__c>();
         
         Final OpportunityLineItem oli = [SELECT Id, Name, Product2.Name, unitprice, gipr_Plazo__c, gipr_Periodicidad__c, gipr_Tipo_Garantia__c, pricing_model_id__c, PE_List_Product_mode__c, CurrencyIsoCode, gipr_Garantia__c FROM OpportunityLineItem WHERE Id = :recordId limit 1];
+
+        if(!requestDataToAso) {
+            List<Product_Commission__c> response = new List<Product_Commission__c>();
+            if(negotiables) {
+                response = [SELECT Id, Product_Commission_Name__c, Opportunity_Product__c, Code__c, Calculation_Type__c, Suggested_Rate_Type__c, CurrencyIsoCode, Suggested_Rate__c, Commission_Calculation_Amount__c, Suggested_Rate_Value__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, Commission_Maximum_Amount__c, Commission_Minimum_Amount__c,Is_Negotiable__c,  (SELECT Id, Product_Commission__c, Parent_Question__c, Input_Value__c, Input_Type__c, isBoolean__c, BooleanValue__c, isCurrency__c, CurrencyIsoCode, Description__c, Code__c, output_Type__c, isParent__c, Answer__c FROM Commission_Questions__r ORDER BY Code__c ASC) FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id AND Is_Negotiable__c = true ORDER BY Code__c ASC];
+            } else {
+                response = [SELECT Id, Product_Commission_Name__c, Opportunity_Product__c, Code__c, Calculation_Type__c, Suggested_Rate_Type__c, CurrencyIsoCode, Suggested_Rate__c, Commission_Calculation_Amount__c, Suggested_Rate_Value__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, Commission_Maximum_Amount__c, Commission_Minimum_Amount__c,Is_Negotiable__c,  (SELECT Id, Product_Commission__c, Parent_Question__c, Input_Value__c, Input_Type__c, isBoolean__c, BooleanValue__c, isCurrency__c, CurrencyIsoCode, Description__c, Code__c, output_Type__c, isParent__c, Answer__c FROM Commission_Questions__r ORDER BY Code__c ASC) FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id ORDER BY Code__c ASC];
+            } 
+            return response;
+        }
+
         Final List<Object> ltsResponse = callCommissionsApi(oli);
+
         for(Object item : ltsResponse) {
             Product_Commission__c newCommission = new Product_Commission__c();
             Final Map<String, Object> itemMap = (Map<String, Object>) item;
@@ -109,15 +121,15 @@ public with sharing class BE_CalculateCommission_Ctr {
         	}
         }
         //Compare commissions and questions from API with stored in Salesforce 
-        Final List<Product_Commission__c> commissions = [SELECT Id, Product_Commission_Name__c, Opportunity_Product__c, Code__c, Calculation_Type__c, Suggested_Rate_Type__c, CurrencyIsoCode, Suggested_Rate__c, Commission_Calculation_Amount__c, Suggested_Rate_Value__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, Commission_Maximum_Amount__c, Commission_Minimum_Amount__c, (SELECT Id, Product_Commission__c, Parent_Question__c, Input_Value__c, Input_Type__c, isBoolean__c, BooleanValue__c, isCurrency__c, CurrencyIsoCode, Description__c, Code__c, output_Type__c, isParent__c, Answer__c FROM Commission_Questions__r ORDER BY Code__c ASC) FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id ORDER BY Code__c ASC];
+        Final List<Product_Commission__c> commissions = [SELECT Id, Product_Commission_Name__c, Opportunity_Product__c, Code__c, Calculation_Type__c, Suggested_Rate_Type__c, CurrencyIsoCode, Suggested_Rate__c, Commission_Calculation_Amount__c, Suggested_Rate_Value__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, Commission_Maximum_Amount__c, Commission_Minimum_Amount__c,Is_Negotiable__c,  (SELECT Id, Product_Commission__c, Parent_Question__c, Input_Value__c, Input_Type__c, isBoolean__c, BooleanValue__c, isCurrency__c, CurrencyIsoCode, Description__c, Code__c, output_Type__c, isParent__c, Answer__c FROM Commission_Questions__r ORDER BY Code__c ASC) FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id ORDER BY Code__c ASC];
         updateCommissionsQuestions(commissions, respCommissions, deleteCommissions, respQuestions, deleteQuestions);
         commitCommissionsQuestions(respCommissions, deleteCommissions, respQuestions, deleteQuestions);
 
         List<Product_Commission__c> response = new List<Product_Commission__c>();
         if(negotiables) {
-            response = [SELECT Id, Product_Commission_Name__c, Opportunity_Product__c, Code__c, Calculation_Type__c, Suggested_Rate_Type__c, CurrencyIsoCode, Suggested_Rate__c, Commission_Calculation_Amount__c, Suggested_Rate_Value__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, Commission_Maximum_Amount__c, Commission_Minimum_Amount__c, (SELECT Id, Product_Commission__c, Parent_Question__c, Input_Value__c, Input_Type__c, isBoolean__c, BooleanValue__c, isCurrency__c, CurrencyIsoCode, Description__c, Code__c, output_Type__c, isParent__c, Answer__c FROM Commission_Questions__r ORDER BY Code__c ASC) FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id AND Is_Negotiable__c = true ORDER BY Code__c ASC];
+            response = [SELECT Id, Product_Commission_Name__c, Opportunity_Product__c, Code__c, Calculation_Type__c, Suggested_Rate_Type__c, CurrencyIsoCode, Suggested_Rate__c, Commission_Calculation_Amount__c, Suggested_Rate_Value__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, Commission_Maximum_Amount__c, Commission_Minimum_Amount__c,Is_Negotiable__c,  (SELECT Id, Product_Commission__c, Parent_Question__c, Input_Value__c, Input_Type__c, isBoolean__c, BooleanValue__c, isCurrency__c, CurrencyIsoCode, Description__c, Code__c, output_Type__c, isParent__c, Answer__c FROM Commission_Questions__r ORDER BY Code__c ASC) FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id AND Is_Negotiable__c = true ORDER BY Code__c ASC];
         } else {
-            response = [SELECT Id, Product_Commission_Name__c, Opportunity_Product__c, Code__c, Calculation_Type__c, Suggested_Rate_Type__c, CurrencyIsoCode, Suggested_Rate__c, Commission_Calculation_Amount__c, Suggested_Rate_Value__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, Commission_Maximum_Amount__c, Commission_Minimum_Amount__c, (SELECT Id, Product_Commission__c, Parent_Question__c, Input_Value__c, Input_Type__c, isBoolean__c, BooleanValue__c, isCurrency__c, CurrencyIsoCode, Description__c, Code__c, output_Type__c, isParent__c, Answer__c FROM Commission_Questions__r ORDER BY Code__c ASC) FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id ORDER BY Code__c ASC];
+            response = [SELECT Id, Product_Commission_Name__c, Opportunity_Product__c, Code__c, Calculation_Type__c, Suggested_Rate_Type__c, CurrencyIsoCode, Suggested_Rate__c, Commission_Calculation_Amount__c, Suggested_Rate_Value__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, Commission_Maximum_Amount__c, Commission_Minimum_Amount__c,Is_Negotiable__c,  (SELECT Id, Product_Commission__c, Parent_Question__c, Input_Value__c, Input_Type__c, isBoolean__c, BooleanValue__c, isCurrency__c, CurrencyIsoCode, Description__c, Code__c, output_Type__c, isParent__c, Answer__c FROM Commission_Questions__r ORDER BY Code__c ASC) FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id ORDER BY Code__c ASC];
         }
         return response;
     }
