@@ -16,6 +16,7 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
     @api isEditable = false;
     @api requestNegotiables = false;
     @api showCalculateButton = false;
+    @api requestDataToAso = false;
     @api
     updateCommissions() {
         console.log('HI FROM COMMISSION!');
@@ -60,7 +61,8 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
     }
 
     connectedCallback() {
-        getCommissions({ recordId: this.recordId, negotiables: this.requestNegotiables })
+        console.log('--------- hola ---------', this.requestDataToAso);
+        getCommissions({ recordId: this.recordId, negotiables: this.requestNegotiables, requestDataToAso: this.requestDataToAso })
             .then(result => {
                 console.log('RESULTADOS DE GET COMMISSIONS', result);
                 console.log('ID', this.recordId);
@@ -97,7 +99,7 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
         let currentQuestion = currentCommission.Commission_Questions__r[questionIndex];
 
         let value;
-        if (typeof event.currentTarget.checked !== 'undefined') {
+        if (!event.currentTarget.value) {
             value = event.currentTarget.checked;
         } else {
             value = event.currentTarget.value;
@@ -140,7 +142,8 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
             return { Commission_Questions__r: this.rewriteSubquery(Commission_Questions__r), ...additional };
         });
 
-        let commissionCalculatePromise = this.commisions.filter(f => f.isModified).map((m) => {
+        /**.filter(f => f.isModified) */
+        let commissionCalculatePromise = this.commisions.map((m) => {
             return calculateRate({ commissionId: m.Id, status: this.status });
         });
 
@@ -155,7 +158,8 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
                             console.log('result:...', result);
 
                             let rejectedIndex = result.findIndex(i => i.status === 'rejected');//status: "rejected" // status: "fulfilled"
-                            if (rejectedIndex > 0) {
+                            console.log('index of rejected ', rejectedIndex);
+                            if (rejectedIndex > -1) {
                                 const evt = new ShowToastEvent({
                                     title: 'Error',
                                     message: 'Vuelva a intentarlo en unos momentos.',
@@ -171,11 +175,11 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
                                     mode: 'dismissable'
                                 });
                                 this.dispatchEvent(evt);
+                                this.error = null;
+                                this.connectedCallback();
+                                /** Emit calculate is done! */
+                                this.emitCalculate();
                             }
-                            this.connectedCallback();
-                            /** Emit calculate is done! */
-                            this.emitCalculate();
-                            this.error = null;
                             this.loaded = true;
                             this.showNoCommissionMessage = false;
                             this.commisionHasBeenModified = true;
@@ -264,9 +268,12 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
             if (Commission_Questions__r) {
                 questions = Commission_Questions__r.map((quest) => {
                     let { Answer__c, ...qData } = quest;
-                    let answer = false;
+                    let answer = Answer__c;
                     if (Answer__c === 'true') {
                         answer = true;
+                    }
+                    if (Answer__c === 'false') {
+                        answer = false;
                     }
                     this.showNhideQuestions(quest, comm.Commission_Questions__r, answer);
                     return { Answer__c: answer, ...qData };

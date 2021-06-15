@@ -12,7 +12,8 @@
 
     <template for:each={commisions} for:item="commission">
       <lightning-accordion allow-multiple-sections-open key={commission.Id} active-section-name={activeSections} onsectiontoggle={handleSectionToggle}>
-        <lightning-accordion-section name={commission.Id} label={commission.Product_Commission_Name__c}>
+        <lightning-accordion-section name={commission.Id} label={commission.Product_Commission_Name__c} >
+          <!--<template if:false={commission.Is_Negotiable__c}><a>**</a></template>-->
           <div>
             <fieldset class="slds-form-element slds-form-element_compound slds-form-element_address">
               <legend></legend>
@@ -37,25 +38,30 @@
                     </div>
                   </div>
                   <div class="slds-size_2-of-8">
+                    <div  if:true={commission.Is_Negotiable__c}>
                     <div if:true={showRateRequested} class="slds-form-element">
                       <div class="slds-form-element__control">
                         <div class="slds-form-element__static">
                           <lightning-input
-                            if:true={isRateRequestedEditable}
+                           if:true={isRateRequestedEditable}
                             type="number"
                             value={commission.Requested_Rate_Value__c}
                             label="Valor solicitado"
+                            
                             data-rate="REQUESTED"
+                            maximum-fraction-digits="1"
+                            step="any"
                             data-cid={commission.Id}
                             onchange={changeRate}
                           ></lightning-input>
                           <lightning-input
-                            if:false={isRateRequestedEditable}
-                            readonly
-                            type="number"
+                          if:false={isRateRequestedEditable}
+                          type="number"
+                          maximum-fraction-digits="1"
                             value={commission.Requested_Rate_Value__c}
                             label="Valor solicitado"
                           ></lightning-input>
+                        </div>
                         </div>
                       </div>
                     </div>

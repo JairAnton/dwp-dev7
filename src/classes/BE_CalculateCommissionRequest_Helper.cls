@@ -92,22 +92,18 @@ public with sharing class BE_CalculateCommissionRequest_Helper {
      }
      
      /*method calculateRate*/
-     public static Decimal calculateRate(Product_Commission__c commission, String status, List<String> requestStages, List<String> authorizedStages) {
+     public static Decimal calculateRate(Product_Commission__c commission, String status, List<String> requestStages, List<String> authorizedStages) {         		 
          Decimal rate = 0;
-		 
-         if(requestStages.contains(status)) {
-			 rate = commission.Sugested_Rate_Percentage__c;
-			 if(commission.Requested_Rate_Value__c != null) {
-				rate = commission.Requested_Rate_Value__c;
-			 }
-         } else if (authorizedStages.contains(status)) {
-			 rate = commission.Sugested_Rate_Percentage__c;
-			 if(commission.Authorized_Rate_Value__c != null ) {
-				rate = commission.Authorized_Rate_Value__c;
-			 }
-         } else {
-             rate = commission.Sugested_Rate_Percentage__c;
+         if (commission.Authorized_Rate_Value__c != null) {
+            rate = commission.Authorized_Rate_Value__c;
+         } 
+         if(commission.Requested_Rate_Value__c != null) {
+            rate = commission.Requested_Rate_Value__c;
+         } 
+         if(commission.Suggested_Rate_Value__c != null) {
+            rate = commission.Suggested_Rate_Value__c;
          }
+
          return rate;
      }
 

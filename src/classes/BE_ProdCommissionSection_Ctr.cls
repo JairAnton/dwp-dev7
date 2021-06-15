@@ -19,17 +19,16 @@ public with sharing class BE_ProdCommissionSection_Ctr {
     
     /**Method used to get quotes **/
 	@AuraEnabled
-    public static List<Product_Commission__c> getCommissions(String recordId, Boolean negotiables) {
-        return BE_CalculateCommission_Ctr.getCommissions(recordId, negotiables);
+    public static List<Product_Commission__c> getCommissions(String recordId, Boolean negotiables, Boolean requestDataToAso) {
+        return BE_CalculateCommission_Ctr.getCommissions(recordId, negotiables, requestDataToAso);
     }
 
     /**Method used to save answers of questions **/
     @AuraEnabled
     public static void calculateRate(String commissionId, String status) {
         
-        Final Product_Commission__c currentCommission = [SELECT Opportunity_Product__r.unitprice, Opportunity_Product__r.gipr_Plazo__c, Opportunity_Product__r.gipr_Periodicidad__c, Opportunity_Product__r.CurrencyIsoCode, Code__c, Term_Frequency_Id__c, Term_Number__c, Suggested_Rate_Type__c, Sugested_Rate_Percentage__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, (SELECT Code__c, Input_Value__c, Answer__c FROM Commission_Questions__r) FROM Product_Commission__c WHERE Id = :commissionId];
+        Final Product_Commission__c currentCommission = [SELECT Opportunity_Product__r.unitprice, Opportunity_Product__r.gipr_Plazo__c, Opportunity_Product__r.gipr_Periodicidad__c, Opportunity_Product__r.CurrencyIsoCode, Code__c, Term_Frequency_Id__c, Term_Number__c, Suggested_Rate_Type__c, Sugested_Rate_Percentage__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, CurrencyIsoCode, Suggested_Rate_Value__c, (SELECT Code__c, Input_Value__c, Answer__c FROM Commission_Questions__r) FROM Product_Commission__c WHERE Id = :commissionId];
         Final List<Product_Commission__c> comAsoRequest = new List<Product_Commission__c>();
-        system.debug('currentCommission: '+ currentCommission);
         Final BE_CalculateCommissionRequest_Helper listComHelper = new BE_CalculateCommissionRequest_Helper(currentCommission,status);
         Final System.HttpResponse invoke = listComHelper.invoke();
         switch on invoke.getStatusCode() {
@@ -58,9 +57,7 @@ public with sharing class BE_ProdCommissionSection_Ctr {
                 throw exc;
             }
         }
-        System.debug('REQUESTED DATA-----Result:'+comAsoRequest);
         update comAsoRequest;
-        System.debug('REQUESTED DATA-----saved!:');        
     }
 
     /** Save Commission rates and answers */
