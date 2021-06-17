@@ -26,6 +26,6 @@
         }
     },
     closeModal: function (cmp, evt, helper) {
-        helper.closeModal(cmp, evt, helper);
+             helper.closeModal(cmp, evt, helper);
     }
 })

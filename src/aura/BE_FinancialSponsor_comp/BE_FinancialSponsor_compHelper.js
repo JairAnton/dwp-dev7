@@ -22,7 +22,7 @@
                 cmp.set("v.loaded", true);
                 this.showToast('Error', 'Comuniquese con su administrador', 'error');
             }
-        });
+          }); 
         $A.enqueueAction(action);
     },
     getsObjectFields: function (cmp, evt, sObjectType, fields) {

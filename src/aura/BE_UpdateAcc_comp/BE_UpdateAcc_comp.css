@@ -13,6 +13,6 @@
   margin-left: 1.5em;
   display: block;
   position: relative;
-  margin-top: -1.75em;  /* make this margin match whatever your line-height is */
+  margin-top: -1.75em;  /* make       this margin match whatever your line-height is */
   line-height: 3.0em;  /* can be set here, or elsewehere */
 }
