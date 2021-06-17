@@ -1,0 +1,89 @@
+<aura:component
+    implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId"
+    access="global" controller="BE_CustomQuickAction_Ctr">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="pageReference" type="Object"/>
+    <aura:attribute name="recordId" type="String" default="" />
+    <aura:attribute name="sObjectType" type="String" default="" />
+    <aura:attribute name="nameMetadata" type="String" default="" />
+    <aura:attribute name="settings" type="Object" />
+    <aura:attribute name="sObjData" type="Object" />
+    <aura:attribute name="title" type="String" />
+    <aura:attribute name="loaded" type="Boolean" default="false" />
+    <aura:attribute name="isNotQuickAction" type="Boolean" default="false" />
+    <lightning:navigation aura:id="navService"/>
+    <aura:attribute name="url" type="String"/>
+    <!--<a href="{!v.url}">Link</a>
+    <lightning:button name="cancelar" label="Cancelar" onclick="{!c.closeModal}" />-->
+    <!--HEADER-->
+    <header class="slds-modal__header">
+        <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{!v.title}</h2>
+    </header>
+    <!--CONTENT-->
+    <div class="slds-p-around_medium"> 
+        <aura:if isTrue="{! v.loaded }">
+            <aura:if isTrue="{! and(and(v.settings.isExcecutiveUser, v.settings.sObjectType != 'Opportunity'),v.settings.sObjectType != 'Account') }">
+                <ui:message title="Advertencia" severity="warning" closable="false">
+                    No cuentas con los permisos suficientes para realizar esta acción.
+                </ui:message>
+			</aura:if>
+            <aura:if isTrue="{! not(and(and(v.settings.isExcecutiveUser, v.settings.sObjectType != 'Opportunity'), v.settings.sObjectType != 'Account')) }">    
+            <lightning:navigation aura:id="navService_button"/>
+            <!--VIEW-->
+            <aura:if isTrue="{!v.settings.modeAction=='view'}">
+                <lightning:recordViewForm objectApiName="{!v.sObjData.sObjectType}" recordId="{!v.recordId}">
+                    <lightning:layout multipleRows="true">
+                        <aura:iteration items="{!v.sObjData.fields}" var="item">
+                            <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12"
+                                largeDeviceSize="6">
+                                <lightning:outputField fieldName="{!item.fieldName}" />
+                            </lightning:layoutItem>
+                        </aura:iteration>
+                    </lightning:layout>
+                    <div class="slds-m-top_medium slds-text-align_center">
+                        <lightning:button name="cancelar" label="Cancelar" onclick="{!c.closeModal}" />
+                    </div>
+                </lightning:recordViewForm>
+            </aura:if>
+            <!--CREATE AND EDIT-->
+            <aura:if isTrue="{!or(v.settings.modeAction=='create',v.settings.modeAction=='update')}">
+                <lightning:recordEditForm objectApiName="{!v.sObjData.sObjectType}" onsubmit="{!c.handleSubmitCustom}">
+                    <lightning:layout multipleRows="true">
+                        <aura:iteration items="{!v.sObjData.fields}" var="item">
+                            <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12"
+                                largeDeviceSize="6">
+                                <lightning:inputField fieldName="{!item.fieldName}" value="{!item.value}"
+                                    required="{!item.required}" readonly="{!item.readonly}"
+                                    disabled="{!item.disabled}" />
+                            </lightning:layoutItem>
+                        </aura:iteration>
+                    </lightning:layout>
+                    <div class="slds-m-top_medium slds-text-align_center">
+                        <lightning:button name="cancelar" label="Cancelar" onclick="{!c.closeModal}" />
+                        <lightning:button variant="brand" type="submit" name="save" label="Guardar" />
+                    </div>
+                </lightning:recordEditForm>
+            </aura:if>
+            <!--DELETE-->
+            <aura:if isTrue="{!v.settings.modeAction=='delete'}">
+                <lightning:layout multipleRows="true">
+                    <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="12">
+                        <div class="slds-text-align_center">
+                            <h5>Estas seguro de eliminar el registro</h5>
+                        </div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="12">
+                        <div class="slds-m-top_medium slds-text-align_center">
+                            <lightning:button name="cancelar" label="Cancelar" onclick="{!c.closeModal}" />
+                            <lightning:button variant="brand" name="delete" label="Eliminar" />
+                        </div>
+                    </lightning:layoutItem>
+                </lightning:layout>
+                </aura:if>
+            </aura:if>
+            <aura:set attribute="else">
+                <lightning:spinner alternativeText="Loading" class="slds-spinner" title="Loading" />
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>
