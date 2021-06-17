@@ -89,7 +89,7 @@ public class  BE_ProdCommissionSection_Ctr_Test {
         System.assertEquals(4, lstCommisions.size(),'El tamaño es de 4');
     }
     @isTest
-    static void testSaveCommissions() {
+    /*static void testSaveCommissions() {
         final OpportunityLineItem oppLineItem = [SELECT Id FROM OpportunityLineItem LIMIT 1];
         final List<Product_Commission__c> comiquestions = [SELECT Id, numberOfQuestions__c FROM Product_Commission__c LIMIT 1 ];
         Test.startTest();
@@ -97,5 +97,5 @@ public class  BE_ProdCommissionSection_Ctr_Test {
         Test.stopTest(); 
         System.assertEquals(0, comiquestions.size(),'El tamaño es de 0');
 
-    }
+    }*/
 } 
