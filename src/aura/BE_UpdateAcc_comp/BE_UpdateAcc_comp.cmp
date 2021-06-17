@@ -3,4 +3,4 @@
     <lightning:overlayLibrary aura:id="overlayLib"/>
     <aura:attribute name="recordId" type="String" default="" />
     <c:BE_FinancialSponsor_comp recordId="{!v.recordId}" nameMetadata="BE_UpdateAcc" />
-</aura:component>
+</aura:component> 
