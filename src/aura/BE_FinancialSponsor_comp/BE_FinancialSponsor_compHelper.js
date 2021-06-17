@@ -23,7 +23,7 @@
                 this.showToast('Error', 'Comuniquese con su administrador', 'error');
             }
         });
-        $A.enqueueAction(action); 
+        $A.enqueueAction(action);
     },
     getsObjectFields: function (cmp, evt, sObjectType, fields) {
         var action = cmp.get("c.getsObjFields");

@@ -24,7 +24,7 @@
                 helper.callApexMethod(cmp, evt, JSON.stringify(initialsObject), cmp.get("c.deleteRecord"));
                 break;
         }
-    }, 
+    },
     closeModal: function (cmp, evt, helper) {
         helper.closeModal(cmp, evt, helper);
     }
