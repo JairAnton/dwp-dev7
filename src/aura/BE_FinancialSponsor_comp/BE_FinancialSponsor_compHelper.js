@@ -14,7 +14,6 @@
                 var locale = $A.get("$Locale.langLocale");
                 cmp.set('v.title', JSON.parse(ret.title)[locale]);
                 cmp.set("v.settings", ret);
-                
                 console.log("#########Loading",ret.sObjectType);
         		console.log("#########Loading",ret.isExcecutiveUser, ret.sObjectType === 'Opportunity', !(!ret.isExcecutiveUser && ret.sObjectType !== 'Opportunity'));
                 this.getsObjectFields(cmp, evt, ret.sObjectType, ret.sObjectFields);
@@ -22,7 +21,7 @@
                 cmp.set("v.loaded", true);
                 this.showToast('Error', 'Comuniquese con su administrador', 'error');
             }
-          }); 
+          });
         $A.enqueueAction(action);
     },
     getsObjectFields: function (cmp, evt, sObjectType, fields) {
@@ -83,7 +82,6 @@
                 var res = response.getReturnValue();
                 if (res.isSuccess) {
                     this.showToast('Success', 'Se actualizó la información del Sponsor Financiero', 'success');
-                    /*this.showToast('Success', res.message, 'success');*/
                     this.closeModal(cmp, evt, res.data.Id);
                     console.log('Retorno de apex: '+ JSON.stringify(res));
                 } else {
@@ -99,7 +97,6 @@
     closeModal: function (cmp, evt, recordId) {
         var redirectsObj = this.isNotEmpty(cmp.get("v.settings").redirect) ? cmp.get("v.settings").redirect : cmp.get('v.sObjData').sObjectType;
         var currentObject = cmp.get("v.settings").sObjectType;
-        
         if (cmp.get("v.isNotQuickAction")) {
             if (recordId === null || recordId === "" || recordId === undefined) {
                 var homeEvent = $A.get("e.force:navigateToObjectHome");
@@ -120,8 +117,8 @@
                 	});
                     homeEvent.fire();
                     break;
-                }                                
-                
+                }                            
+
             } else {
                 var navEvt = $A.get("e.force:navigateToObjectHome");
                 navEvt.setParams({
