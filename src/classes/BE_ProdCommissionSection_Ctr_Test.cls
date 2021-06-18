@@ -1,8 +1,8 @@
 /**
    -------------------------------------------------------------------------------------------------
-   Clase Test BE_ProdCommissionSection_Ctr_Test
+   Clase Test BE_ProdCommissionSection_Ctr_Test x
    -------------------------------------------------------------------------------------------------
-last change**/
+**/
 
 @istest
 
@@ -99,4 +99,4 @@ public class  BE_ProdCommissionSection_Ctr_Test {
 
     }
 }*/
-  }  
+  }
