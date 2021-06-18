@@ -521,6 +521,10 @@
         <name>EBITDA_per__c</name>
     </fields>
     <fields>
+    <fields>
+        <label>¿Tiene sponsor financiero?</label>
+        <name>Has_financial_sponsor__c</name>
+    </fields>			 
         <label>Gestor principal</label>
         <name>Owner_calculated__c</name>
     </fields>
@@ -1055,6 +1059,11 @@
     <quickActions>
         <label><!-- New Opportunity --></label>
         <name>New_Opportununity_type</name>
+    </quickActions>
+	    <quickActions>
+        <aspect>Master</aspect>
+        <label>Agregar Sponsor Financiero</label>
+        <name>Update_Financial_Sponsor</name>
     </quickActions>
     <recordTypes>
         <description><!-- Account customer type --></description>
