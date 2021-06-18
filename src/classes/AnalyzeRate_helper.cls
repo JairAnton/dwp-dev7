@@ -27,7 +27,6 @@ public without sharing class AnalyzeRate_helper {
      * constructor of class
      */
     public AnalyzeRate_helper(String recordId, String calculationId, Decimal tea, Boolean isSimulate) {
-        Boolean hasCommissions = false;
         this.isSimulate = isSimulate;
         inputDataMapping = new RequestAnalyzeRate_Wrapper();
             
