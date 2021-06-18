@@ -98,7 +98,7 @@
                 <behavior>Edit</behavior>
                 <field>watchlist_calif_id__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>customer_excluded_type__c</field>
             </layoutItems>
@@ -152,6 +152,11 @@
             <actionType>QuickAction</actionType>
             <sortOrder>6</sortOrder>
         </platformActionListItems>
+        <platformActionListItems>
+            <actionName>Account.Update_Financial_Sponsor</actionName>
+            <actionType>QuickAction</actionType>
+            <sortOrder>7</sortOrder>
+        </platformActionListItems>
     </platformActionList>
     <quickActionList>
         <quickActionListItems>
@@ -181,9 +186,9 @@
         <quickActionListItems>
             <quickActionName>FeedItem.ContentNote</quickActionName>
         </quickActionListItems>
-	        <quickActionListItems>
+        <quickActionListItems>
             <quickActionName>Account.New_Opportununity_type</quickActionName>
-        </quickActionListItems>						  
+        </quickActionListItems>
     </quickActionList>
     <relatedContent>
         <relatedContentItems>
@@ -192,6 +197,14 @@
             </layoutItem>
         </relatedContentItems>
     </relatedContent>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>year_month_day_date__c</fields>
+        <fields>product_group_classification_id__c</fields>
+        <fields>product_desc__c</fields>
+        <fields>entity_name__c</fields>
+        <relatedList>Account_Banking_System_Debt__c.account_id__c</relatedList>
+    </relatedLists>
     <relatedLists>
         <excludeButtons>New</excludeButtons>
         <fields>OPPORTUNITY.NAME</fields>
@@ -230,9 +243,10 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h3B000000I0f8</masterLabel>
+        <masterLabel>00h1I000005AqYp</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
     </summaryLayout>
 </Layout>
+

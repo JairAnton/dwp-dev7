@@ -1,2 +1,18 @@
-.THIS {
+.THIS .slds-checkbox {
+       display: inline-block;
+     float: top;
+     float: right;
+   }
+
+.THIS .slds-form-element__label{
+    font-size: 1.2rem !important;
+}
+
+.THIS .slds-checkbox 
+{
+  margin-left: 1.5em;
+  display: block;
+  position: relative;
+  margin-top: -1.75em;  
+  line-height: 3.0em;  
 }

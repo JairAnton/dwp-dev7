@@ -1,5 +1,6 @@
 <aura:component implements="flexipage:availableForRecordHome,force:lightningQuickActionWithoutHeader,force:hasRecordId"
     access="global">
+    <lightning:overlayLibrary aura:id="overlayLib"/>    
     <aura:attribute name="recordId" type="String" default="" />
-    <c:BE_CustomQuickAction_Cmp recordId="{!v.recordId}" nameMetadata="BE_UpdateAcc" />
+    <c:BE_FinancialSponsor_comp recordId="{!v.recordId}" nameMetadata="BE_UpdateAcc" />
 </aura:component>

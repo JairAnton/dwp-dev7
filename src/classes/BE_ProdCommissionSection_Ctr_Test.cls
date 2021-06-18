@@ -1,6 +1,6 @@
 /**
    -------------------------------------------------------------------------------------------------
-   Clase Test BE_ProdCommissionSection_Ctr_Test
+   Clase Test BE_ProdCommissionSection_Ctr_Test x
    -------------------------------------------------------------------------------------------------
 **/
 
@@ -73,7 +73,7 @@ public class  BE_ProdCommissionSection_Ctr_Test {
         System.assertEquals(4, commisions.size(),'El tamaño es de 4');
     }
     
-   @isTest
+  /*  @isTest
     static void testcalculateRate() {
         final OpportunityLineItem oli = [SELECT Id FROM OpportunityLineItem LIMIT 1];
         // Set mock callout class 
@@ -84,18 +84,19 @@ public class  BE_ProdCommissionSection_Ctr_Test {
         final List<Product_Commission__c> lstCommisions = BE_ProdCommissionSection_Ctr.getCommissions(oli.Id,true,true);
         
         Test.startTest();
-        BE_ProdCommissionSection_Ctr.calculateRate(lstCommisions[0].Id, '09');
+        BE_ProdCommissionSection_Ctr.calculateRate('{"rawCommission":[{"Commission_Maximum_Amount__c":700,"Product_Commission_Name__c":"Gestión Operativa","Opportunity_Product__c":"00kq0000009S0UvAAK","Calculation_Type__c":"PERCENTAGE","Id":"a22q0000001XpR2AAK","Commission_Calculation_Amount__c":0,"Is_Negotiable__c":true,"CurrencyIsoCode":"PEN","Suggested_Rate_Value__c":20,"Commission_Minimum_Amount__c":120,"Code__c":"CO217","Suggested_Rate_Type__c":"percentage","Requested_Rate_Value__c":"15.98"},{"Product_Commission_Name__c":"Comisión de Estructuración","Opportunity_Product__c":"00kq0000009S0UvAAK","Calculation_Type__c":"PERCENTAGE","Id":"a22q0000001XpR1AAK","Commission_Calculation_Amount__c":0,"Is_Negotiable__c":true,"CurrencyIsoCode":"PEN","Suggested_Rate_Value__c":1,"Commission_Minimum_Amount__c":850,"Code__c":"CO229","Suggested_Rate_Type__c":"percentage","Requested_Rate_Value__c":"3.8899"},{"Commission_Questions__r":{"totalSize":2,"done":true,"records":[{"Answer__c":true,"Product_Commission__c":"a22q0000001XpR0AAK","output_Type__c":"YES_OR_NOT","isCurrency__c":false,"Description__c":"El tipo de prestamo es Cancelación Anticipada, Amortización Parcial o Prepago de cuotas?","BooleanValue__c":false,"Id":"a23q0000000GauRAAS","CurrencyIsoCode":"PEN","isParent__c":true,"Code__c":1,"isBoolean__c":true},{"Answer__c":true,"isCurrency__c":false,"Input_Value__c":"SI","CurrencyIsoCode":"PEN","isParent__c":true,"Code__c":2,"Product_Commission__c":"a22q0000001XpR0AAK","output_Type__c":"YES_OR_NOT","Description__c":"El Plazo es mayor a 12?","Input_Type__c":"YES_OR_NOT","BooleanValue__c":false,"Id":"a23q0000000GauQAAS","Parent_Question__c":"a23q0000000GauRAAS","isBoolean__c":true}]},"Product_Commission_Name__c":"Por Liquidación Anticipada","Opportunity_Product__c":"00kq0000009S0UvAAK","Calculation_Type__c":"PERCENTAGE","Id":"a22q0000001XpR0AAK","Commission_Calculation_Amount__c":0,"Is_Negotiable__c":false,"CurrencyIsoCode":"PEN","Suggested_Rate_Value__c":5,"Code__c":"CO235","Suggested_Rate_Type__c":"percentage"},{"Commission_Questions__r":{"totalSize":2,"done":true,"records":[{"Answer__c":true,"Product_Commission__c":"a22q0000001XpQzAAK","output_Type__c":"YES_OR_NOT","isCurrency__c":false,"Description__c":"El tipo de prestamo es Cancelación Anticipada, Amortización Parcial o Prepago de cuotas?","BooleanValue__c":false,"Id":"a23q0000000GauPAAS","CurrencyIsoCode":"PEN","isParent__c":true,"Code__c":1,"isBoolean__c":true},{"Answer__c":true,"isCurrency__c":false,"Input_Value__c":"SI","CurrencyIsoCode":"PEN","isParent__c":true,"Code__c":2,"Product_Commission__c":"a22q0000001XpQzAAK","output_Type__c":"YES_OR_NOT","Description__c":"El Plazo es mayor a 12?","Input_Type__c":"YES_OR_NOT","BooleanValue__c":false,"Id":"a23q0000000GauOAAS","Parent_Question__c":"a23q0000000GauPAAS","isBoolean__c":true}]},"Product_Commission_Name__c":"Por Liquidación Anticipada","Opportunity_Product__c":"00kq0000009S0UvAAK","Calculation_Type__c":"PERCENTAGE","Id":"a22q0000001XpQzAAK","Commission_Calculation_Amount__c":0,"Is_Negotiable__c":false,"CurrencyIsoCode":"PEN","Suggested_Rate_Value__c":5,"Code__c":"CO239","Suggested_Rate_Type__c":"percentage"}]}',lstCommisions[0].Id, '09');
 		Test.stopTest();
         System.assertEquals(4, lstCommisions.size(),'El tamaño es de 4');
     }
-    /*@isTest
+   @isTest
     static void testSaveCommissions() {
         final OpportunityLineItem oppLineItem = [SELECT Id FROM OpportunityLineItem LIMIT 1];
-        final List<Product_Commission__c> comiquestions = [SELECT Id, numberOfQuestions__c FROM Product_Commission__c ];
+        final List<Product_Commission__c> comiquestions = [SELECT Id, numberOfQuestions__c FROM Product_Commission__c LIMIT 1 ];
         Test.startTest();
         BE_ProdCommissionSection_Ctr.saveCommissions('{"rawCommission":[{"Commission_Maximum_Amount__c":700,"Product_Commission_Name__c":"Gestión Operativa","Opportunity_Product__c":"00kq0000009S0UvAAK","Calculation_Type__c":"PERCENTAGE","Id":"a22q0000001XpR2AAK","Commission_Calculation_Amount__c":0,"Is_Negotiable__c":true,"CurrencyIsoCode":"PEN","Suggested_Rate_Value__c":20,"Commission_Minimum_Amount__c":120,"Code__c":"CO217","Suggested_Rate_Type__c":"percentage","Requested_Rate_Value__c":"15.98"},{"Product_Commission_Name__c":"Comisión de Estructuración","Opportunity_Product__c":"00kq0000009S0UvAAK","Calculation_Type__c":"PERCENTAGE","Id":"a22q0000001XpR1AAK","Commission_Calculation_Amount__c":0,"Is_Negotiable__c":true,"CurrencyIsoCode":"PEN","Suggested_Rate_Value__c":1,"Commission_Minimum_Amount__c":850,"Code__c":"CO229","Suggested_Rate_Type__c":"percentage","Requested_Rate_Value__c":"3.8899"},{"Commission_Questions__r":{"totalSize":2,"done":true,"records":[{"Answer__c":true,"Product_Commission__c":"a22q0000001XpR0AAK","output_Type__c":"YES_OR_NOT","isCurrency__c":false,"Description__c":"El tipo de prestamo es Cancelación Anticipada, Amortización Parcial o Prepago de cuotas?","BooleanValue__c":false,"Id":"a23q0000000GauRAAS","CurrencyIsoCode":"PEN","isParent__c":true,"Code__c":1,"isBoolean__c":true},{"Answer__c":true,"isCurrency__c":false,"Input_Value__c":"SI","CurrencyIsoCode":"PEN","isParent__c":true,"Code__c":2,"Product_Commission__c":"a22q0000001XpR0AAK","output_Type__c":"YES_OR_NOT","Description__c":"El Plazo es mayor a 12?","Input_Type__c":"YES_OR_NOT","BooleanValue__c":false,"Id":"a23q0000000GauQAAS","Parent_Question__c":"a23q0000000GauRAAS","isBoolean__c":true}]},"Product_Commission_Name__c":"Por Liquidación Anticipada","Opportunity_Product__c":"00kq0000009S0UvAAK","Calculation_Type__c":"PERCENTAGE","Id":"a22q0000001XpR0AAK","Commission_Calculation_Amount__c":0,"Is_Negotiable__c":false,"CurrencyIsoCode":"PEN","Suggested_Rate_Value__c":5,"Code__c":"CO235","Suggested_Rate_Type__c":"percentage"},{"Commission_Questions__r":{"totalSize":2,"done":true,"records":[{"Answer__c":true,"Product_Commission__c":"a22q0000001XpQzAAK","output_Type__c":"YES_OR_NOT","isCurrency__c":false,"Description__c":"El tipo de prestamo es Cancelación Anticipada, Amortización Parcial o Prepago de cuotas?","BooleanValue__c":false,"Id":"a23q0000000GauPAAS","CurrencyIsoCode":"PEN","isParent__c":true,"Code__c":1,"isBoolean__c":true},{"Answer__c":true,"isCurrency__c":false,"Input_Value__c":"SI","CurrencyIsoCode":"PEN","isParent__c":true,"Code__c":2,"Product_Commission__c":"a22q0000001XpQzAAK","output_Type__c":"YES_OR_NOT","Description__c":"El Plazo es mayor a 12?","Input_Type__c":"YES_OR_NOT","BooleanValue__c":false,"Id":"a23q0000000GauOAAS","Parent_Question__c":"a23q0000000GauPAAS","isBoolean__c":true}]},"Product_Commission_Name__c":"Por Liquidación Anticipada","Opportunity_Product__c":"00kq0000009S0UvAAK","Calculation_Type__c":"PERCENTAGE","Id":"a22q0000001XpQzAAK","Commission_Calculation_Amount__c":0,"Is_Negotiable__c":false,"CurrencyIsoCode":"PEN","Suggested_Rate_Value__c":5,"Code__c":"CO239","Suggested_Rate_Type__c":"percentage"}]}',oppLineItem.Id);
         Test.stopTest(); 
         System.assertEquals(0, comiquestions.size(),'El tamaño es de 0');
 
-    }*/
-}
+    }
+}*/
+  }

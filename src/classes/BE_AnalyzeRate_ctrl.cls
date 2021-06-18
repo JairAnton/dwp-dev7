@@ -46,6 +46,7 @@ public with sharing class BE_AnalyzeRate_ctrl {
             try {
                 //helper to call the service
                 final AnalyzeRate_helper prate = new AnalyzeRate_helper(olis[0].OpportunityId, olis[0].price_rates_calculation_Id__c, Decimal.valueOf(tea), false);
+                prate.hasCommissions = hasCommissions;
                 //invoke the service
                 final HttpResponse invoke = prate.invoke();
                 //code = 200 OK
