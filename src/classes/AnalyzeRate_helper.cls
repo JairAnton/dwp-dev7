@@ -43,10 +43,9 @@ public without sharing class AnalyzeRate_helper {
         inputDataMapping.lstFees = JSON.serialize(ltsFees);
 
         inputDataMapping.lstCalculatedFees = '';
-        if(hasCommissions) {
-            Final OpportunityLineItem oli = [SELECT Id FROM OpportunityLineItem WHERE Opportunity.Id = :recordId];
-            inputDataMapping.lstCalculatedFees = calculateFeesArray(oli);
-        }
+        Final OpportunityLineItem oli = [SELECT Id FROM OpportunityLineItem WHERE Opportunity.Id = :recordId];
+        inputDataMapping.lstCalculatedFees = calculateFeesArray(oli);
+        
 
 
         
@@ -99,7 +98,7 @@ public without sharing class AnalyzeRate_helper {
      * method used to create json request
      */
     public String generateJSONRequest() {
-        if(this.hasCommissions) {
+        if(!this.hasCommissions) {
             this.inputDataMapping.lstCalculatedFees = '"calculatedFees":[],';
         }
         String json = JSON.serialize(this.inputDataMapping);
