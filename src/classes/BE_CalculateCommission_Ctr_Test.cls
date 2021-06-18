@@ -23,14 +23,14 @@ public class  BE_CalculateCommission_Ctr_Test {
     }
     
     /** testMethodGetCommissions method*/
-    @isTest
+    /*@isTest
     static void testMethodGetCommissions() {
         Final OpportunityLineItem oli = [select id from OpportunityLineItem limit 1];
 		Test.startTest();
         Final List<Product_Commission__c> commisions = BE_CalculateCommission_Ctr.getCommissions(oli.Id,true,true);
         Test.stopTest();
         System.assertEquals(4, commisions.size());
-    }
+    }*/
     
     /** testMethodGetOlis method*/
     @isTest

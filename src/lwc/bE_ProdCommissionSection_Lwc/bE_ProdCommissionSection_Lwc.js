@@ -165,7 +165,7 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
             Promise.allSettled(commissionCalculatePromise)
                 .then(result => {
                     console.log('result:...', result);
-                    let rejectedIndex = result.findIndex(i => i.status === 'rejected');//status: "rejected" // status: "fulfilled"
+                    let rejectedIndex = result.findIndex(i => i.status === 'rejected');
                     if (rejectedIndex > -1) {
                         const evt = new ShowToastEvent({
                             title: 'Error',
@@ -195,61 +195,6 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
             this.error = error;
             this.loaded = true;
         }
-
-        /*saveCommissions({ rawCommission: JSON.stringify({ rawCommission: commissionRequestBody }), recordId: this.recordId })
-            .then(() => {
-                try {
-
-                    Promise.allSettled(commissionCalculatePromise)
-                        .then(result => {
-                            console.log('result:...', result);
-
-                            let rejectedIndex = result.findIndex(i => i.status === 'rejected');//status: "rejected" // status: "fulfilled"
-                            console.log('index of rejected ', rejectedIndex);
-                            if (rejectedIndex > -1) {
-                                const evt = new ShowToastEvent({
-                                    title: 'Error',
-                                    message: 'Vuelva a intentarlo en unos momentos.',
-                                    variant: 'error',
-                                    mode: 'dismissable'
-                                });
-                                this.dispatchEvent(evt);
-                            } else {
-                                const evt = new ShowToastEvent({
-                                    title: 'Calculo de Comisiones',
-                                    message: 'Operación realizada con exito.',
-                                    variant: 'success',
-                                    mode: 'dismissable'
-                                });
-                                this.dispatchEvent(evt);
-                                this.error = null;
-                                this.emitCalculate();
-                            }
-                            this.updateCommission(result);
-                            this.loaded = true;
-                            this.showNoCommissionMessage = false;
-                            this.commisionHasBeenModified = true;
-
-                        });
-                } catch (err) {
-                    console.log('ERROR 1', err);
-                    this.error = err;
-                    this.loaded = true;
-                    const evt = new ShowToastEvent({
-                        title: 'Error',
-                        message: 'Vuelva a intentarlo en unos momentos.',
-                        variant: 'error',
-                        mode: 'dismissable'
-                    });
-                    this.dispatchEvent(evt);
-                }
-
-            })
-            .catch(error => {
-                console.log('ERROR 2', error);
-                this.error = error;
-                this.loaded = true;
-            });*/
 
     }
 
