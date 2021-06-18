@@ -2,7 +2,6 @@ import { LightningElement, wire, api, track } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import getCommissions from '@salesforce/apex/BE_ProdCommissionSection_Ctr.getCommissions';
 import calculateRate from '@salesforce/apex/BE_ProdCommissionSection_Ctr.calculateRate';
-import saveCommissions from '@salesforce/apex/BE_ProdCommissionSection_Ctr.saveCommissions';
 import { getRecord } from "lightning/uiRecordApi";
 import OPP_ID_FIELD from '@salesforce/schema/OpportunityLineItem.Opportunity.StageName';
 import STAGE_FIELD from '@salesforce/schema/OpportunityLineItem.Opportunity.StageName';
@@ -61,7 +60,6 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
     }
 
     connectedCallback() {
-        console.log('--------- hola ---------', this.requestDataToAso);
         getCommissions({ recordId: this.recordId, negotiables: this.requestNegotiables, requestDataToAso: this.requestDataToAso })
             .then(result => {
                 console.log('RESULTADOS DE GET COMMISSIONS', result);
@@ -76,6 +74,22 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
                 this.loaded = true;
             })
             .catch(error => {
+                let evt = ShowToastEvent({
+                    title: 'Error',
+                    message: 'Vuelta a intentarlo en unos minutos.',
+                    variant: 'error',
+                    mode: 'dismissable'
+                });
+                if (error.body.message === "204") {
+                    evt = ShowToastEvent({
+                        title: 'Atención',
+                        message: 'No hay comisiones para el presente producto.',
+                        variant: 'warning',
+                        mode: 'dismissable'
+                    });
+                }
+                this.dispatchEvent(evt);
+
                 console.log('ERROR', error);
                 this.error = error;
                 this.commisions = null;
@@ -99,11 +113,12 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
         let currentQuestion = currentCommission.Commission_Questions__r[questionIndex];
 
         let value;
-        if (!event.currentTarget.value) {
+        if (isNaN(event.currentTarget.value) || event.currentTarget.value === '') {
             value = event.currentTarget.checked;
         } else {
             value = event.currentTarget.value;
         }
+
         currentQuestion.Answer__c = value;
         currentCommission.isModified = true;
         this.commisionHasBeenModified = false;
@@ -142,16 +157,48 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
             return { Commission_Questions__r: this.rewriteSubquery(Commission_Questions__r), ...additional };
         });
 
-        /**.filter(f => f.isModified) */
-        let commissionCalculatePromise = this.commisions.map((m) => {
-            return calculateRate({ commissionId: m.Id, status: this.status });
+        let commissionCalculatePromise = commissionRequestBody.map((cm) => {
+            return calculateRate({ rawCommission: JSON.stringify({ rawCommission: cm }), recordId: cm.Id, status: this.status });
         });
 
-        console.log('saving...', { recordId: this.recordId });
-        saveCommissions({ rawCommission: JSON.stringify({ rawCommission: commissionRequestBody }), recordId: this.recordId })
+        try {
+            Promise.allSettled(commissionCalculatePromise)
+                .then(result => {
+                    console.log('result:...', result);
+                    let rejectedIndex = result.findIndex(i => i.status === 'rejected');//status: "rejected" // status: "fulfilled"
+                    if (rejectedIndex > -1) {
+                        const evt = new ShowToastEvent({
+                            title: 'Error',
+                            message: 'Vuelva a intentarlo en unos momentos.',
+                            variant: 'error',
+                            mode: 'dismissable'
+                        });
+                        this.dispatchEvent(evt);
+                    } else {
+                        const evt = new ShowToastEvent({
+                            title: 'Calculo de Comisiones',
+                            message: 'Operación realizada con exito.',
+                            variant: 'success',
+                            mode: 'dismissable'
+                        });
+                        this.dispatchEvent(evt);
+                        this.error = null;
+                        this.emitCalculate();
+                    }
+                    this.updateCommission(result);
+                    this.loaded = true;
+                    this.showNoCommissionMessage = false;
+                    this.commisionHasBeenModified = true;
+                })
+        } catch (error) {
+            console.log('ERROR 2', error);
+            this.error = error;
+            this.loaded = true;
+        }
+
+        /*saveCommissions({ rawCommission: JSON.stringify({ rawCommission: commissionRequestBody }), recordId: this.recordId })
             .then(() => {
                 try {
-                    console.log('calculating...', commissionCalculatePromise);
 
                     Promise.allSettled(commissionCalculatePromise)
                         .then(result => {
@@ -176,10 +223,9 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
                                 });
                                 this.dispatchEvent(evt);
                                 this.error = null;
-                                this.connectedCallback();
-                                /** Emit calculate is done! */
                                 this.emitCalculate();
                             }
+                            this.updateCommission(result);
                             this.loaded = true;
                             this.showNoCommissionMessage = false;
                             this.commisionHasBeenModified = true;
@@ -203,7 +249,7 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
                 console.log('ERROR 2', error);
                 this.error = error;
                 this.loaded = true;
-            });
+            });*/
 
     }
 
@@ -224,6 +270,16 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
     /*             Utilities Functions               */
     /*                                               */
     /*-----------------------------------------------*/
+    updateCommission(commissions) {
+        for (let cindx in commissions) {
+            if (commissions[cindx].value) {
+                let index = this.commisions.findIndex((i) => i.Id === commissions[cindx].value.Id);
+                if (index > -1) {
+                    this.commisions[index].Commission_Calculation_Amount__c = commissions[cindx].value.Commission_Calculation_Amount__c;
+                }
+            }
+        }
+    }
     addRecordToList(sourceArray, newValue) {
         let index = sourceArray.findIndex((i) => i.Id === newValue.Id);
         if (index >= 0) {
@@ -251,7 +307,18 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
 
     rewriteSubquery(array) {
         if (array && !array.records) {
-            let tempArray = array;
+            let tempArray = array.map((quest) => {
+                if (quest.output_Type__c === 'QUANTITY' && !quest.Answer__c) {
+                    quest.Answer__c = 0;
+                }
+                if (quest.output_Type__c === 'AMOUNT' && !quest.Answer__c) {
+                    quest.Answer__c = 0;
+                }
+                if (quest.output_Type__c === 'YES_OR_NOT' && !quest.Answer__c) {
+                    quest.Answer__c = 'NO';
+                }
+                return quest;
+            });
             array = {
                 totalSize: tempArray.length,
                 done: true,

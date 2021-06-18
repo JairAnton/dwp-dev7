@@ -25,19 +25,17 @@ public with sharing class BE_ProdCommissionSection_Ctr {
 
     /**Method used to save answers of questions **/
     @AuraEnabled
-    public static void calculateRate(String commissionId, String status) {
-        
-        Final Product_Commission__c currentCommission = [SELECT Opportunity_Product__r.unitprice, Opportunity_Product__r.gipr_Plazo__c, Opportunity_Product__r.gipr_Periodicidad__c, Opportunity_Product__r.CurrencyIsoCode, Code__c, Term_Frequency_Id__c, Term_Number__c, Suggested_Rate_Type__c, Sugested_Rate_Percentage__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, CurrencyIsoCode, Suggested_Rate_Value__c, (SELECT Code__c, Input_Value__c, Answer__c FROM Commission_Questions__r) FROM Product_Commission__c WHERE Id = :commissionId];
-        Final List<Product_Commission__c> comAsoRequest = new List<Product_Commission__c>();
-        Final BE_CalculateCommissionRequest_Helper listComHelper = new BE_CalculateCommissionRequest_Helper(currentCommission,status);
+    public static Product_Commission__c calculateRate(String rawCommission, String recordId, String status) {
+        //Final Product_Commission__c currentCommission = [SELECT Opportunity_Product__r.unitprice,Opportunity_Product__r.gipr_Plazo__c,Opportunity_Product__r.gipr_Periodicidad__c,Opportunity_Product__r.CurrencyIsoCode,Code__c,Term_Frequency_Id__c,Term_Number__c,Suggested_Rate_Type__c,Sugested_Rate_Percentage__c,Requested_Rate_Value__c,Authorized_Rate_Value__c,CurrencyIsoCode,Suggested_Rate_Value__c,Commission_Calculation_Amount__c,Id,Product_Commission_Name__c,Opportunity_Product__c,Calculation_Type__c,Suggested_Rate__c,Commission_Maximum_Amount__c,Commission_Minimum_Amount__c,Is_Negotiable__c, (SELECT Id, Product_Commission__c, Parent_Question__c, Input_Value__c, Input_Type__c, isBoolean__c, BooleanValue__c, isCurrency__c, CurrencyIsoCode, Description__c, Code__c, output_Type__c, isParent__c, Answer__c FROM Commission_Questions__r ORDER BY Code__c ASC) FROM Product_Commission__c WHERE Id = :commissionId];
+        Final Product_Commission__c currentdbComm = [SELECT Opportunity_Product__r.unitprice, Opportunity_Product__r.gipr_Plazo__c, Opportunity_Product__r.gipr_Periodicidad__c, Opportunity_Product__r.CurrencyIsoCode, Code__c, Term_Frequency_Id__c, Term_Number__c, Suggested_Rate_Type__c, Sugested_Rate_Percentage__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, CurrencyIsoCode, Suggested_Rate_Value__c, Commission_Calculation_Amount__c, (SELECT Code__c, Input_Value__c, Answer__c FROM Commission_Questions__r) FROM Product_Commission__c WHERE Id = :recordId];
+        Final Product_Commission__c commission = parseCommission(rawCommission, currentdbComm);
+        Final BE_CalculateCommissionRequest_Helper listComHelper = new BE_CalculateCommissionRequest_Helper(commission,status);
         Final System.HttpResponse invoke = listComHelper.invoke();
+
         switch on invoke.getStatusCode() {
             when 200 {
-                Final Product_Commission__c commission = new Product_Commission__c();
                 Final Map<String, Object> response = (Map<String, Object>) JSON.deserializeUntyped(invoke.getBody());
                 Final Map<String, Object> commissionResp = (Map<String, Object>) response.get('data');
-                
-                commission.Id = commissionId;
                 
                 Final Map<String, Object> fixedFee = (Map<String, Object>) commissionResp.get('fixedFee');
                 commission.Commission_Calculation_Code__c = String.valueOf(fixedFee.get('id'));
@@ -48,33 +46,36 @@ public with sharing class BE_ProdCommissionSection_Ctr {
                 
                 Final Map<String, Object> calculatedAmount = (Map<String, Object>) calculatedFee.get('calculatedAmount');
                 commission.Commission_Calculation_Amount__c = Double.valueOf(calculatedAmount.get('amount'));
-                commission.CurrencyIsoCode = String.valueOf(calculatedFee.get('currency'));
-                comAsoRequest.add(commission);
+                commission.CurrencyIsoCode = String.valueOf(calculatedAmount.get('currency'));
             }
-            when else {
+             /*when else {
                 ApplicationException exc = new ApplicationException();
                 exc.setMessage(invoke.getBody());
                 throw exc;
-            }
+            }*/
         }
-        update comAsoRequest;
+        update commission;
+        return commission;
     }
 
     /** Save Commission rates and answers */
-    @AuraEnabled
-    public static void saveCommissions(String rawCommission, String recordId) {
+    public static Product_Commission__c parseCommission(String rawCommission, Product_Commission__c currentDbComm) {
         Final ProductWrapper comData = (ProductWrapper) JSON.deserializeStrict(rawCommission, ProductWrapper.class);
-        Final List<Commission_Question__c> questions = new List<Commission_Question__c>();
-        for(Product_Commission__c cm : comData.rawCommission) {
-            for(Commission_Question__c question : cm.Commission_Questions__r) {
-                questions.add(question);
+        Product_Commission__c commission = new Product_Commission__c();
+        commission = currentDbComm;
+        commission.Authorized_Rate_Value__c = comData.rawCommission.Authorized_Rate_Value__c;
+        commission.Requested_Rate_Value__c = comData.rawCommission.Requested_Rate_Value__c;
+
+        for(Commission_Question__c currentQuestion : commission.Commission_Questions__r) {
+            for(Commission_Question__c receivedQuestion : comData.rawCommission.Commission_Questions__r) {
+                if(receivedQuestion.Id == currentQuestion.Id) {
+                    currentQuestion.Answer__c = receivedQuestion.Answer__c;
+                }
             }
         }
-        Final OpportunityLineItem oli = [SELECT Id, hasCommissions__c FROM OpportunityLineItem WHERE Id = :recordId];
-        oli.hasCommissions__c = true;
-        update oli;
-        update comData.rawCommission;
-        update questions;
+
+
+        return commission;
     }
 
     /** --------------------------------
@@ -88,6 +89,6 @@ public with sharing class BE_ProdCommissionSection_Ctr {
     /** class wrapper */
     public class ProductWrapper {
         /* rawCommision Data */
-        List<Product_Commission__c> rawCommission {get; set; }
+        Product_Commission__c rawCommission {get; set; }
     }
 }

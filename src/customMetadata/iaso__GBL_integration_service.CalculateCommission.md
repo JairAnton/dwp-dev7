@@ -45,18 +45,24 @@
     <values>
         <field>iaso__Json_Input_Template_LTA__c</field>
         <value xsi:type="xsd:string">{
-   &quot;initialAmount&quot;:{
-      &quot;amount&quot;:#initialAmountAmount#,
-      &quot;currency&quot;:&quot;#initialAmountCurrency#&quot;
+   "initialAmount":{
+      "amount":#initialAmountAmount#,
+      "currency":"#initialAmountCurrency#"
    },
    #termFrequencyId#
-   &quot;fixedFee&quot;:{
-      &quot;id&quot;:&quot;#fixedFeeId#&quot;
+   "fixedFee":{
+      "id":"#fixedFeeId#"
    },
-   &quot;rates&quot;:{
-      &quot;itemizeRates&quot;:[
+   "term":{
+      "frequency":{
+		"id":"#termFrequencyId#"
+      },
+	  "number":#termNumber#
+   },
+   "rates":{
+      "itemizeRates":[
          {
-            &quot;rateUnit&quot;:#ratesItemizeRatesRateUnit#
+            "rateUnit":#ratesItemizeRatesRateUnit#
          }
       ]
    }

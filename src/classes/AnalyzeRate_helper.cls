@@ -19,11 +19,15 @@ public without sharing class AnalyzeRate_helper {
     public RequestAnalyzeRate_Wrapper inputDataMapping { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
     /* variable boolean is simulate call*/
     public Boolean isSimulate { get; set; }
+    
+    /* variable boolean is simulate call*/
+    public Boolean hasCommissions = false;
 
     /**
      * constructor of class
      */
     public AnalyzeRate_helper(String recordId, String calculationId, Decimal tea, Boolean isSimulate) {
+        Boolean hasCommissions = false;
         this.isSimulate = isSimulate;
         inputDataMapping = new RequestAnalyzeRate_Wrapper();
             
@@ -38,8 +42,12 @@ public without sharing class AnalyzeRate_helper {
         final List<Request_fees> ltsFees = new List<Request_fees>();
         inputDataMapping.lstFees = JSON.serialize(ltsFees);
 
-        Final OpportunityLineItem oli = [SELECT Id, hasCommissions__c FROM OpportunityLineItem WHERE Opportunity.Id = :recordId];
-        inputDataMapping.lstCalculatedFees = calculateFeesArray(oli);
+        inputDataMapping.lstCalculatedFees = '';
+        if(hasCommissions) {
+            Final OpportunityLineItem oli = [SELECT Id FROM OpportunityLineItem WHERE Opportunity.Id = :recordId];
+            inputDataMapping.lstCalculatedFees = calculateFeesArray(oli);
+        }
+
 
         
         final List<Request_products> ltsReqProd = new List<Request_products>();
@@ -74,17 +82,16 @@ public without sharing class AnalyzeRate_helper {
      */
      public static String calculateFeesArray(OpportunityLineItem oli) {
         String lstCalculatedFees = '';
-        if(oli.hasCommissions__c != null && oli.hasCommissions__c ) {
-            lstCalculatedFees = '"calculatedFees":[';
-            for(Product_Commission__c commission : [SELECT Id, Commission_Calculation_Id__c, Commission_Calculation_Version__c FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id ]) {                
-                if(commission.Commission_Calculation_Id__c != null && commission.Commission_Calculation_Version__c != null ) {
-                    lstCalculatedFees = lstCalculatedFees + '{"id":"'+commission.Commission_Calculation_Id__c+'","version":'+commission.Commission_Calculation_Version__c+'}';
-                    lstCalculatedFees = lstCalculatedFees + ',';
-                }
+        lstCalculatedFees = '"calculatedFees":[';
+        for(Product_Commission__c commission : [SELECT Id, Commission_Calculation_Id__c, Commission_Calculation_Version__c FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id ]) {                
+            if(commission.Commission_Calculation_Id__c != null && commission.Commission_Calculation_Version__c != null ) {
+                lstCalculatedFees = lstCalculatedFees + '{"id":"'+commission.Commission_Calculation_Id__c+'","version":'+commission.Commission_Calculation_Version__c+'}';
+                lstCalculatedFees = lstCalculatedFees + ',';
             }
-            lstCalculatedFees = lstCalculatedFees + '],';
-            lstCalculatedFees = lstCalculatedFees.replaceAll('},]', '}]');   
         }
+        lstCalculatedFees = lstCalculatedFees + '],';
+        lstCalculatedFees = lstCalculatedFees.replaceAll('},]', '}]');   
+        
         return lstCalculatedFees;
      }
 
@@ -92,6 +99,9 @@ public without sharing class AnalyzeRate_helper {
      * method used to create json request
      */
     public String generateJSONRequest() {
+        if(this.hasCommissions) {
+            this.inputDataMapping.lstCalculatedFees = '"calculatedFees":[],';
+        }
         String json = JSON.serialize(this.inputDataMapping);
         json = json.replace('currencyType', 'currency');
         json = json.replace('numberValue', 'number');
