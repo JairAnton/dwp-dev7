@@ -74,14 +74,14 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
                 this.loaded = true;
             })
             .catch(error => {
-                let evt = ShowToastEvent({
+                let evt = new ShowToastEvent({
                     title: 'Error',
                     message: 'Vuelta a intentarlo en unos minutos.',
                     variant: 'error',
                     mode: 'dismissable'
                 });
                 if (error.body.message === "204") {
-                    evt = ShowToastEvent({
+                    evt = new ShowToastEvent({
                         title: 'Atención',
                         message: 'No hay comisiones para el presente producto.',
                         variant: 'warning',
