@@ -29,3 +29,4 @@
              helper.closeModal(cmp, evt, helper);
     }
 })
+
