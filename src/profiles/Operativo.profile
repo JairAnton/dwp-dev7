@@ -6081,7 +6081,8 @@ Sub Gerentes de oficina</description>
         <editable>false</editable>
         <field>Product_Commission__c.numberOfQuestions__c</field>
         <readable>true</readable>
-    </fieldPermissions>				  
+    </fieldPermissions>	
+	<fieldPermissions>	
         <editable>true</editable>
         <field>fprd__GBL_Guarantee__c.guarantee_periodicity_type__c</field>
         <readable>true</readable>
