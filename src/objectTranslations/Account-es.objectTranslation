@@ -9,6 +9,10 @@
         <value>Clientes</value>
     </caseValues>
     <fieldSets>
+        <label><!-- DuplicateSearchFieldSet --></label>
+        <name>nonc__DuplicateSearchFieldSet</name>
+    </fieldSets>
+    <fieldSets>
         <label><!-- Non Client --></label>
         <name>nonc__Non_Client</name>
     </fieldSets>
@@ -521,12 +525,40 @@
         <name>EBITDA_per__c</name>
     </fields>
     <fields>
+        <label><!-- Estado PE25 --></label>
+        <name>Estado_PE25__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group 01 --></label>
+        <name>Group_01__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group 02 --></label>
+        <name>Group_02__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group 03 --></label>
+        <name>Group_03__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group 04 --></label>
+        <name>Group_04__c</name>
+    </fields>
     <fields>
         <label>¿Tiene sponsor financiero?</label>
         <name>Has_financial_sponsor__c</name>
-    </fields>			 
+    </fields>
+    <fields>
+        <label><!-- Is Migration --></label>
+        <name>Is_Migration__c</name>
+    </fields>
+    <fields>
         <label>Gestor principal</label>
         <name>Owner_calculated__c</name>
+    </fields>
+    <fields>
+        <label><!-- Priority --></label>
+        <name>Priority__c</name>
     </fields>
     <fields>
         <label>ROA</label>
@@ -535,6 +567,18 @@
     <fields>
         <label>ROE</label>
         <name>ROE_per__c</name>
+    </fields>
+    <fields>
+        <label><!-- Record Count --></label>
+        <name>Record_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total campos obligatorios llenos --></label>
+        <name>Total_campos_obligatorios_llenos__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total campos obligatorios llenos inicio --></label>
+        <name>Total_campos_obligatorios_llenos_inicio__c</name>
     </fields>
     <fields>
         <label>Última fecha clasificación BBVA</label>
@@ -686,6 +730,10 @@
         <name>commercial_strategy_date__c</name>
     </fields>
     <fields>
+        <label>CIUU</label>
+        <name>company_economic_activity_id__c</name>
+    </fields>
+    <fields>
         <label>Fecha antigüedad empresa</label>
         <name>company_seniority_date__c</name>
     </fields>
@@ -704,6 +752,10 @@
     <fields>
         <label>Cantidad de retorno</label>
         <name>curr_company_turnover_amount__c</name>
+    </fields>
+    <fields>
+        <label>Estado PE25</label>
+        <name>customer_excluded_type__c</name>
     </fields>
     <fields>
         <label>Fecha antigüedad cliente</label>
@@ -866,56 +918,16 @@
         <name>unique_id__c</name>
     </fields>
     <fields>
+        <label><!-- Registro Gestor Principal --></label>
+        <name>user_code__c</name>
+    </fields>
+    <fields>
         <label>Watchlist</label>
         <name>watchlist_calif_id__c</name>
     </fields>
     <fields>
         <label>Capital de trabajo</label>
         <name>working_capital_number__c</name>
-    </fields>
-	<fields>
-        <label>Estado PE25</label>
-        <name>customer_excluded_type__c</name>
-    </fields>
-    <fields>
-        <label>CIUU</label>
-        <name>company_economic_activity_id__c</name>
-    </fields>
-	<fields>
-        <label><!-- Total campos obligatorios llenos --></label>
-        <name>Total_campos_obligatorios_llenos__c</name>
-    </fields>
-    <fields>
-        <label><!-- Total campos obligatorios llenos inicio --></label>
-        <name>Total_campos_obligatorios_llenos_inicio__c</name>
-    </fields>
-	<fields>
-        <label><!-- Group 01 --></label>
-        <name>Group_01__c</name>
-    </fields>
-    <fields>
-        <label><!-- Group 02 --></label>
-        <name>Group_02__c</name>
-    </fields>
-    <fields>
-        <label><!-- Group 03 --></label>
-        <name>Group_03__c</name>
-    </fields>
-    <fields>
-        <label><!-- Group 04 --></label>
-        <name>Group_04__c</name>
-    </fields>
-    <fields>
-        <label><!-- Priority --></label>
-        <name>Priority__c</name>
-    </fields>
-    <fields>
-        <label><!-- Is Migration --></label>
-        <name>Is_Migration__c</name>
-    </fields>
-	<fields>
-        <label><!-- Registro Gestor Principal --></label>
-        <name>user_code__c</name>
     </fields>
     <gender>Masculine</gender>
     <layouts>
@@ -1033,6 +1045,7 @@
         </sections>
     </layouts>
     <quickActions>
+        <aspect>Master</aspect>
         <label>Modificar</label>
         <name>BE_EditNonClient</name>
     </quickActions>
@@ -1041,6 +1054,7 @@
         <name>BE_Info_Ficha</name>
     </quickActions>
     <quickActions>
+        <aspect>Master</aspect>
         <label>Nuevo Contacto</label>
         <name>BE_NewContactNonClient</name>
     </quickActions>
@@ -1060,16 +1074,11 @@
         <label><!-- New Opportunity --></label>
         <name>New_Opportununity_type</name>
     </quickActions>
-	    <quickActions>
+    <quickActions>
         <aspect>Master</aspect>
         <label>Agregar Sponsor Financiero</label>
         <name>Update_Financial_Sponsor</name>
     </quickActions>
-    <recordTypes>
-        <description><!-- Account customer type --></description>
-        <label><!-- Customer --></label>
-        <name>Customer</name>
-    </recordTypes>
     <recordTypes>
         <label>Cliente</label>
         <name>Record_Type_Client</name>
@@ -1112,3 +1121,4 @@
         <name>dwp_kitv__Billing</name>
     </webLinks>
 </CustomObjectTranslation>
+
