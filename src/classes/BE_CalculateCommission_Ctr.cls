@@ -17,6 +17,9 @@ public with sharing class BE_CalculateCommission_Ctr {
     /* private constant */
     private static final string SUGGESTED_RATE = 'SUGGESTED_RATE';
 
+    /* private constant */
+    private static final string MINIMUM_RATE = 'MINIMUM_RATE';
+
     /* constructor of class */
     private BE_CalculateCommission_Ctr() {
     }
@@ -40,16 +43,16 @@ public with sharing class BE_CalculateCommission_Ctr {
             //Map with values
             Final Map<String, Web_Service_Value_Mapping__c> mapWsVal = WebServiceUtils.getWebServiceValuesMapping(new List<String> {'TERM_PERIOCITY', 'GUARANTEE_CLASSIFICATION', 'CONTRACT_MODALITY'}, oli.pricing_model_id__c);
             Final Map<String, Web_Service_Value_Mapping__c> mapWsValParams = WebServiceUtils.getWebServiceValuesMapping(new List<String> {'GUARANTEE_TYPE', 'PAYMENT_METHOD_CODE', 'BENEFICIARY_CODE', 'PAYMENT_PERIOD_CODE', 'BAIL_OBJECT_CODE'}, '');            
-            Final BE_ListCommissionRequest_Helper listCHelper = new BE_ListCommissionRequest_Helper(oli.pricing_model_id__c, webServiceValue(mapWsVal, 'CONTRACT_MODALITY' + oli.PE_List_Product_mode__c), webServiceValue(mapWsValParams, 'GUARANTEE_TYPE' + oli.gipr_Tipo_Garantia__c/*oli.gipr_Garantia__c*/), oli.CurrencyIsoCode);
+            Final BE_ListCommissionRequest_Helper listCHelper = new BE_ListCommissionRequest_Helper(oli.pricing_model_id__c, webServiceValue(mapWsVal, 'CONTRACT_MODALITY' + oli.PE_List_Product_mode__c), webServiceValue(mapWsValParams, 'GUARANTEE_TYPE' + oli.gipr_Tipo_Garantia__c/*oli.gipr_Garantia__c*/), oli.CurrencyIsoCode, oli.Opportunity.Account.main_code_id__c);
             Final System.HttpResponse invoke = listCHelper.invoke();
             if (invoke.getStatusCode() == 200) {
                 Final Map<string,Object> data = (Map<String, Object>)JSON.deserializeUntyped(invoke.getBody());
                 rtnList = (List<Object>) data.get('data') ;
-            } /*else {
-                ApplicationException exc = new ApplicationException();
-                exc.setMessage(String.valueOf(invoke.getStatusCode()));
-                throw exc;
-            } */
+            } else {
+                mapReturn.put('error',true);
+                mapReturn.put('responseCode',invoke.getStatusCode());
+                mapReturn.put('errorBody',invoke.getBody());
+            }
         } catch(Exception e) {
             system.debug('Error: '+e.getMessage());
             throw e;
@@ -97,13 +100,16 @@ public with sharing class BE_CalculateCommission_Ctr {
     
     /**Method used to get quotes **/
 	@AuraEnabled
-    public static List<Product_Commission__c> getCommissions(String recordId, Boolean negotiables, Boolean requestDataToAso) {
+    public static Map<String,Object> getCommissions(String recordId, Boolean negotiables, Boolean requestDataToAso) {
+    //public static List<Product_Commission__c> getCommissions(String recordId, Boolean negotiables, Boolean requestDataToAso) {
+        mapReturn = new Map<String,Object>();
+        mapReturn.put('error',false);
         Final Map<String, Product_Commission__c> respCommissions = new Map<String, Product_Commission__c>();
         Final Map<String, Commission_Question__c> respQuestions = new Map<String, Commission_Question__c>();
         Final List<Product_Commission__c> deleteCommissions = new List<Product_Commission__c>();
         Final List<Commission_Question__c> deleteQuestions = new List<Commission_Question__c>();
         
-        Final OpportunityLineItem oli = [SELECT Id, Name, Product2.Name, unitprice, gipr_Plazo__c, gipr_Periodicidad__c, gipr_Tipo_Garantia__c, pricing_model_id__c, PE_List_Product_mode__c, CurrencyIsoCode, gipr_Garantia__c FROM OpportunityLineItem WHERE Id = :recordId limit 1];
+        Final OpportunityLineItem oli = [SELECT Id, Name, Product2.Name, unitprice, gipr_Plazo__c, gipr_Periodicidad__c, gipr_Tipo_Garantia__c, pricing_model_id__c, PE_List_Product_mode__c, CurrencyIsoCode, gipr_Garantia__c,Opportunity.Account.main_code_id__c FROM OpportunityLineItem WHERE Id = :recordId limit 1];
 
         if(requestDataToAso) {
             Final List<Object> ltsResponse = callCommissionsApi(oli);
@@ -118,18 +124,20 @@ public with sharing class BE_CalculateCommission_Ctr {
                     respQuestions.putAll(readQuestions(newCommission.External_Id__c, questionnaireMap.get('questions')));
                 }
             }
-            Final List<Product_Commission__c> commissions = [SELECT Id, Product_Commission_Name__c, Opportunity_Product__c, Code__c, Calculation_Type__c, Suggested_Rate_Type__c, CurrencyIsoCode, Suggested_Rate__c, Commission_Calculation_Amount__c, Suggested_Rate_Value__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, Commission_Maximum_Amount__c, Commission_Minimum_Amount__c,Is_Negotiable__c,  (SELECT Id, Product_Commission__c, Parent_Question__c, Input_Value__c, Input_Type__c, isBoolean__c, BooleanValue__c, isCurrency__c, CurrencyIsoCode, Description__c, Code__c, output_Type__c, isParent__c, Answer__c FROM Commission_Questions__r ORDER BY Code__c ASC) FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id ORDER BY Code__c ASC];
+            Final List<Product_Commission__c> commissions = [SELECT Id, Product_Commission_Name__c, Opportunity_Product__c, Code__c, Calculation_Type__c, Suggested_Rate_Type__c, CurrencyIsoCode, Suggested_Rate__c, Commission_Calculation_Amount__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, Commission_Maximum_Amount__c, Commission_Minimum_Amount__c,Is_Negotiable__c,  (SELECT Id, Product_Commission__c, Parent_Question__c, Input_Value__c, Input_Type__c, isBoolean__c, BooleanValue__c, isCurrency__c, CurrencyIsoCode, Description__c, Code__c, output_Type__c, isParent__c, Answer__c FROM Commission_Questions__r ORDER BY Code__c ASC) FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id ORDER BY Code__c ASC];
             updateCommissionsQuestions(commissions, respCommissions, deleteCommissions, respQuestions, deleteQuestions);
             commitCommissionsQuestions(respCommissions, deleteCommissions, respQuestions, deleteQuestions);
         }
         
         List<Product_Commission__c> response = new List<Product_Commission__c>();
         if(negotiables) {
-            response = [SELECT Id, Product_Commission_Name__c, Opportunity_Product__c, Code__c, Calculation_Type__c, Suggested_Rate_Type__c, CurrencyIsoCode, Suggested_Rate__c, Commission_Calculation_Amount__c, Suggested_Rate_Value__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, Commission_Maximum_Amount__c, Commission_Minimum_Amount__c,Is_Negotiable__c,  (SELECT Id, Product_Commission__c, Parent_Question__c, Input_Value__c, Input_Type__c, isBoolean__c, BooleanValue__c, isCurrency__c, CurrencyIsoCode, Description__c, Code__c, output_Type__c, isParent__c, Answer__c FROM Commission_Questions__r ORDER BY Code__c ASC) FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id AND Is_Negotiable__c = true ORDER BY Code__c ASC];
+            response = [SELECT Id, Product_Commission_Name__c, Opportunity_Product__c, Code__c, Calculation_Type__c, Suggested_Rate_Type__c, CurrencyIsoCode, Suggested_Rate__c, Commission_Calculation_Amount__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, Commission_Maximum_Amount__c, Commission_Minimum_Amount__c,Is_Negotiable__c, Commission_Maximum_Iso_Code__c, Commission_Minimum_Iso_Code_c__c, Suggested_Rate_Iso_Code__c, Rate_Is_Amount__c, Rate_Is_Percent__c, Rate_Is_Range__c, Rate_Is_Number__c, Minimum_Rate_Type__c, Minimum_Rate_Iso_Code__c, Minimum_Rate__c, (SELECT Id, Product_Commission__c, Parent_Question__c, Input_Value__c, Input_Type__c, isBoolean__c, BooleanValue__c, isCurrency__c, CurrencyIsoCode, Description__c, Code__c, output_Type__c, isParent__c, Answer__c FROM Commission_Questions__r ORDER BY Code__c ASC) FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id AND Is_Negotiable__c = true ORDER BY Code__c ASC];
         } else {
-            response = [SELECT Id, Product_Commission_Name__c, Opportunity_Product__c, Code__c, Calculation_Type__c, Suggested_Rate_Type__c, CurrencyIsoCode, Suggested_Rate__c, Commission_Calculation_Amount__c, Suggested_Rate_Value__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, Commission_Maximum_Amount__c, Commission_Minimum_Amount__c,Is_Negotiable__c,  (SELECT Id, Product_Commission__c, Parent_Question__c, Input_Value__c, Input_Type__c, isBoolean__c, BooleanValue__c, isCurrency__c, CurrencyIsoCode, Description__c, Code__c, output_Type__c, isParent__c, Answer__c FROM Commission_Questions__r ORDER BY Code__c ASC) FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id ORDER BY Code__c ASC];
+            response = [SELECT Id, Product_Commission_Name__c, Opportunity_Product__c, Code__c, Calculation_Type__c, Suggested_Rate_Type__c, CurrencyIsoCode, Suggested_Rate__c, Commission_Calculation_Amount__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, Commission_Maximum_Amount__c, Commission_Minimum_Amount__c,Is_Negotiable__c, Commission_Maximum_Iso_Code__c, Commission_Minimum_Iso_Code_c__c, Suggested_Rate_Iso_Code__c, Rate_Is_Amount__c, Rate_Is_Percent__c, Rate_Is_Range__c, Rate_Is_Number__c, Minimum_Rate_Type__c, Minimum_Rate_Iso_Code__c, Minimum_Rate__c, (SELECT Id, Product_Commission__c, Parent_Question__c, Input_Value__c, Input_Type__c, isBoolean__c, BooleanValue__c, isCurrency__c, CurrencyIsoCode, Description__c, Code__c, output_Type__c, isParent__c, Answer__c FROM Commission_Questions__r ORDER BY Code__c ASC) FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id ORDER BY Code__c ASC];
         }
-        return response;
+        //return response;
+        mapReturn.put('commissions',response);
+        return mapReturn;
     }
     
     /** Method to Update */
@@ -140,6 +148,7 @@ public with sharing class BE_CalculateCommission_Ctr {
         newCommission.Code__c = String.valueOf(itemMap.get('id'));
         newCommission.Is_Negotiable__c = Boolean.valueOf(itemMap.get('isNegotiable'));
         newCommission.Calculation_Type__c = String.valueOf(itemMap.get('calculationType'));
+        newCommission.CurrencyIsoCode = String.valueOf(itemMap.get('currency'));
         
         if(Test.isRunningTest()) {
             newCommission.Authorized_Rate_Value__c = 10;
@@ -151,17 +160,29 @@ public with sharing class BE_CalculateCommission_Ctr {
             Final Map<string,Object> settledValue = (Map<string,Object>) obj;
             if (String.valueOf(settledValue.get('name')) == SUGGESTED_RATE) {
                 newCommission.Suggested_Rate_Type__c = String.valueOf(settledValue.get('settledValueType'));
-                newCommission.CurrencyIsoCode = String.valueOf(settledValue.get('currency'));
+                newCommission.Suggested_Rate_Iso_Code__c = String.valueOf(settledValue.get('currency'));
                 newCommission.Suggested_Rate__c = String.valueOf(settledValue.get('amount'));
-                newCommission.Sugested_Rate_Percentage__c = Integer.valueOf(settledValue.get('percentage'));
+                if(settledValue.containsKey('percentage')) {
+                    newCommission.Suggested_Rate__c = String.valueOf(Double.valueOf(settledValue.get('percentage'))/100);
+                }
+            }
+            if( String.valueOf(settledValue.get('name')) == MINIMUM_RATE) {
+                newCommission.Minimum_Rate_Type__c = String.valueOf(settledValue.get('settledValueType'));
+                newCommission.Minimum_Rate_Iso_Code__c = String.valueOf(settledValue.get('currency'));
+                newCommission.Minimum_Rate__c = String.valueOf(settledValue.get('amount'));
+                if(settledValue.containsKey('percentage')) {
+                    newCommission.Minimum_Rate__c = String.valueOf(Double.valueOf(settledValue.get('percentage'))/100);
+                }
             }
         }
         
         Final Map<String, Object> maximumValue = (Map<String, Object>) itemMap.get('maximumValue');
         newCommission.Commission_Maximum_Amount__c = Integer.valueOf(maximumValue.get('amount'));
+        newCommission.Commission_Maximum_Iso_Code__c = String.valueOf(maximumValue.get('currency'));
         
         Final Map<String, Object> minimumValue = (Map<String, Object>) itemMap.get('minimumValue');
         newCommission.Commission_Minimum_Amount__c = Integer.valueOf(minimumValue.get('amount'));
+        newCommission.Commission_Minimum_Iso_Code_c__c = String.valueOf(minimumValue.get('currency'));
         
         newCommission.Commission_Calculation_Amount__c = 0;
         newCommission.External_Id__c = oli.Id+'-'+newCommission.code__c;

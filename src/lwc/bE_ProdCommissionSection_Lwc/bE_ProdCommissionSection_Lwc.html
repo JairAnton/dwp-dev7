@@ -1,19 +1,12 @@
 <template>
   <template if:true={loaded}>
-    <!--<div if:true={showNoCommissionMessage} class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning">
-      <lightning-icon icon-name="utility:warning" alternative-text="Warning!" title="Warning"></lightning-icon>
-      <h2>Calcula las comisiones antes de obtener la <strong> Comisión Final</strong></h2>
-    </div>-->
-
     <div class="custom-title" style="margin-top: 15px">
       <lightning-icon icon-name="utility:puzzle" alternative-text="Comisiones" title="Comisiones"></lightning-icon>
       <h1 style="font-size: 1.25rem; font-weight: 400; margin: 10px 10px">Comisiones</h1>
     </div>
-
     <template for:each={commisions} for:item="commission">
       <lightning-accordion allow-multiple-sections-open key={commission.Id} active-section-name={activeSections} onsectiontoggle={handleSectionToggle}>
         <lightning-accordion-section name={commission.Id} label={commission.Product_Commission_Name__c} >
-          <!--<template if:false={commission.Is_Negotiable__c}><a>**</a></template>-->
           <div>
             <fieldset class="slds-form-element slds-form-element_compound slds-form-element_address">
               <legend></legend>
@@ -32,7 +25,34 @@
                     <div class="slds-form-element">
                       <div class="slds-form-element__control">
                         <div class="slds-form-element__static">
-                          <lightning-input readonly type="number" value={commission.Suggested_Rate_Value__c} label="Valor tarifario"></lightning-input>
+                          <lightning-input
+                                  if:true={commission.Rate_Is_Number__c}
+                                  label="Valor tarifario"
+                                  value={commission.Suggested_Rate__c}
+                                  maximum-fraction-digits="0"
+                                  readonly
+                          ></lightning-input>
+                          <lightning-input
+                                  if:true={commission.Rate_Is_Percent__c}
+                                  label="Valor tarifario"
+                                  formatter="percent"
+                                  value={commission.Suggested_Rate__c}
+                                  step="0.0001"
+                                  type="number"
+                                  readonly
+                          ></lightning-input>
+                          <lightning-input
+                                  if:true={commission.Rate_Is_Amount__c}
+                                  label="Valor tarifario"
+                                  type="number"
+                                  formatter="currency"
+                                  value={commission.Suggested_Rate__c}
+                                  format-style="currency"
+                                  currency-display-as="code"
+                                  step="0.01"
+                                  currency-code={commission.Suggested_Rate_Iso_Code__c}
+                                  readonly
+                          ></lightning-input>
                         </div>
                       </div>
                     </div>
@@ -42,25 +62,72 @@
                     <div if:true={showRateRequested} class="slds-form-element">
                       <div class="slds-form-element__control">
                         <div class="slds-form-element__static">
-                          <lightning-input
-                           if:true={isRateRequestedEditable}
-                            type="number"
-                            value={commission.Requested_Rate_Value__c}
-                            label="Valor solicitado"
-                            
-                            data-rate="REQUESTED"
-                            maximum-fraction-digits="1"
-                            step="any"
-                            data-cid={commission.Id}
-                            onchange={changeRate}
+                          <div if:true={isRateRequestedEditable}>
+                            <lightning-input
+                                  if:true={commission.Rate_Is_Number__c}
+                                  data-rate="REQUESTED"
+                                  data-cid={commission.Id}
+                                  label="Valor solicitado"
+                                  value={commission.Requested_Rate_Value__c}
+                                  onchange={changeRate}
+                                  maximum-fraction-digits="0"
                           ></lightning-input>
                           <lightning-input
-                          if:false={isRateRequestedEditable}
-                          type="number"
-                          maximum-fraction-digits="1"
-                            value={commission.Requested_Rate_Value__c}
-                            label="Valor solicitado"
+                                  if:true={commission.Rate_Is_Percent__c}
+                                  data-rate="REQUESTED"
+                                  data-cid={commission.Id}
+                                  label="Valor solicitado"
+                                  formatter="percent"
+                                  value={commission.Requested_Rate_Value__c}
+                                  onchange={changeRate}
+                                  step="0.0001"
+                                  type="number"
                           ></lightning-input>
+                          <lightning-input
+                                  if:true={commission.Rate_Is_Amount__c}
+                                  label="Valor solicitado"
+                                  data-rate="REQUESTED"
+                                  type="number"
+                                  onchange={changeRate}
+                                  data-cid={commission.Id}
+                                  formatter="currency"
+                                  value={commission.Requested_Rate_Value__c}
+                                  format-style="currency"
+                                  currency-display-as="code"
+                                  step="0.01"
+                                  currency-code={commission.Suggested_Rate_Iso_Code__c}
+                          ></lightning-input>
+                          </div>
+                          <div if:false={isRateRequestedEditable}>
+                            <lightning-input
+                                  if:true={commission.Rate_Is_Number__c}
+                                  label="Valor solicitado"
+                                  value={commission.Requested_Rate_Value__c}
+                                  maximum-fraction-digits="0"
+                                  readonly
+                          ></lightning-input>
+                          <lightning-input
+                                  if:true={commission.Rate_Is_Percent__c}
+                                  label="Valor solicitado"
+                                  formatter="percent"
+                                  value={commission.Requested_Rate_Value__c}
+                                  step="0.0001"
+                                  type="number"
+                                  readonly
+                          ></lightning-input>
+                          <lightning-input
+                                  if:true={commission.Rate_Is_Amount__c}
+                                  label="Valor solicitado"
+                                  type="number"
+                                  formatter="currency"
+                                  value={commission.Requested_Rate_Value__c}
+                                  format-style="currency"
+                                  currency-display-as="code"
+                                  step="0.01"
+                                  currency-code={commission.Suggested_Rate_Iso_Code__c}
+                                  readonly
+                          ></lightning-input>
+                          </div>
                         </div>
                         </div>
                       </div>
@@ -70,22 +137,72 @@
                     <div if:true={showRateAuthorized} class="slds-form-element">
                       <div class="slds-form-element__control">
                         <div class="slds-form-element__static">
-                          <lightning-input
-                            if:true={isRateAuthorizedEditable}
-                            type="number"
-                            value={commission.Authorized_Rate_Value__c}
+                          <div if:true={isRateAuthorizedEditable}>
+                            <lightning-input
+                            if:true={commission.Rate_Is_Number__c}
                             label="Valor autorizada"
                             data-rate="AUTHORIZED"
                             data-cid={commission.Id}
                             onchange={changeRate}
+                            value={commission.Authorized_Rate_Value__c}
+                            maximum-fraction-digits="0"
+                    ></lightning-input>
+                    <lightning-input
+                            if:true={commission.Rate_Is_Percent__c}
+                            label="Valor autorizada"
+                            data-rate="AUTHORIZED"
+                            data-cid={commission.Id}
+                            onchange={changeRate}
+                            formatter="percent"
+                            value={commission.Authorized_Rate_Value__c}
+                            step="0.0001"
+                            type="number"
+                    ></lightning-input>
+                    <lightning-input
+                            if:true={commission.Rate_Is_Amount__c}
+                            label="Valor autorizada"
+                            data-rate="AUTHORIZED"
+                            data-cid={commission.Id}
+                            onchange={changeRate}
+                            type="number"
+                            formatter="currency"
+                            value={commission.Authorized_Rate_Value__c}
+                            format-style="currency"
+                            currency-display-as="code"
+                            step="0.01"
+                            currency-code={commission.Suggested_Rate_Iso_Code__c}
+                    ></lightning-input>
+                          </div>
+                          <div if:false={isRateAuthorizedEditable}>
+                            <lightning-input
+                                  if:true={commission.Rate_Is_Number__c}
+                                  label="Tarifa autorizada"
+                                  value={commission.Authorized_Rate_Value__c}
+                                  maximum-fraction-digits="0"
+                                  readonly
                           ></lightning-input>
                           <lightning-input
-                            if:false={isRateAuthorizedEditable}
-                            readonly
-                            type="number"
-                            value={commission.Authorized_Rate_Value__c}
-                            label="Tarifa autorizada"
+                                  if:true={commission.Rate_Is_Percent__c}
+                                  label="Tarifa autorizada"
+                                  formatter="percent"
+                                  value={commission.Authorized_Rate_Value__c}
+                                  step="0.0001"
+                                  type="number"
+                                  readonly
                           ></lightning-input>
+                          <lightning-input
+                                  if:true={commission.Rate_Is_Amount__c}
+                                  label="Tarifa autorizada"
+                                  type="number"
+                                  formatter="currency"
+                                  value={commission.Authorized_Rate_Value__c}
+                                  format-style="currency"
+                                  currency-display-as="code"
+                                  step="0.01"
+                                  currency-code={commission.Suggested_Rate_Iso_Code__c}
+                                  readonly
+                          ></lightning-input>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -111,6 +228,7 @@
                                     type="toggle"
                                     data-qid={question.Id}
                                     data-cid={commission.Id}
+                                    data-type="boolean"
                                     name={question.Id}
                                     value={question.Answer__c}
                                     checked={question.Answer__c}
@@ -125,6 +243,7 @@
                                     type="toggle"
                                     data-qid={question.Id}
                                     data-cid={commission.Id}
+                                    data-type="boolean"
                                     name={question.Id}
                                     value={question.Answer__c}
                                     checked={question.Answer__c}
@@ -169,6 +288,7 @@
                                         <span
                                           ><lightning-combobox
                                             data-qid={question.Id}
+                                            data-type="boolean"
                                             data-iscurrency="true"
                                             name="CurrencyIsoCode"
                                             value={question.CurrencyIsoCode}
@@ -184,8 +304,9 @@
                                             type="number"
                                             data-qid={question.Id}
                                             data-cid={commission.Id}
+                                            data-type="number"
                                             value={question.question.Answer__c}
-                                            step="0.0001"
+                                            step="0.01"
                                             variant="label-hidden"
                                             onchange={changeQuestion}
                                           ></lightning-input
@@ -200,8 +321,9 @@
                                           type="number"
                                           data-qid={question.Id}
                                           data-cid={commission.Id}
+                                          data-type="number"
                                           value={question.Answer__c}
-                                          step="0.0001"
+                                          step="0.01"
                                           variant="label-hidden"
                                           onchange={changeQuestion}
                                         ></lightning-input
@@ -291,6 +413,10 @@
                       maximum-fraction-digits="2"
                     ></lightning-formatted-number>
                   </div>
+                </div>
+                <div if:true={commission.error}>
+                  <lightning-icon icon-name="utility:warning" alternative-text="Warning" variant="error" size="x-small" title="Warning"></lightning-icon>
+                  <small>Ha ocurrido un error</small>
                 </div>
               </div>
             </div>

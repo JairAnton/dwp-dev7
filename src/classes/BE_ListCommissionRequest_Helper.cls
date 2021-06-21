@@ -14,8 +14,8 @@
 	public ListCommissionRequest_Wrapper inputDataMapping {get; set;}
 
 	/* Method use to get input information */
-	public BE_ListCommissionRequest_Helper(String productModelCode, String modalityCode, String guarantyCode, String currencyCode) {
-        Final ListCommissionRequest_Wrapper requestWrapper = new ListCommissionRequest_Wrapper(productModelCode, modalityCode, guarantyCode, currencyCode);
+	public BE_ListCommissionRequest_Helper(String productModelCode, String modalityCode, String guarantyCode, String currencyCode, String customerId) {
+        Final ListCommissionRequest_Wrapper requestWrapper = new ListCommissionRequest_Wrapper(productModelCode, modalityCode, guarantyCode, currencyCode, customerId);
         this.inputDataMapping = requestWrapper;
     }
 
@@ -29,13 +29,16 @@
 		public String guarantyCode {get; set;}
         /* variable currency code of product */
 		public String currencyCode {get; set;}
+        /* variable currency code of product */
+		public String customerId {get; set;}
         
 		/* constructor method */
-		public ListCommissionRequest_Wrapper(String productModelCode, String modalityCode, String guarantyCode, String currencyCode) {
+		public ListCommissionRequest_Wrapper(String productModelCode, String modalityCode, String guarantyCode, String currencyCode, String customerId) {
 			this.productModelCode = (productModelCode == null ? '' : productModelCode);
             this.modalityCode = (modalityCode == null ? '' : modalityCode);
             this.guarantyCode = (guarantyCode == null ? '' : guarantyCode);
             this.currencyCode = (currencyCode == null ? '' : currencyCode);
+			this.customerId = (customerId == null ? '' : customerId);
 		}
 	}
 

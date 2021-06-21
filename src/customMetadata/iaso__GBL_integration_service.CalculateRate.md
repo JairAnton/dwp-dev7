@@ -54,12 +54,25 @@
         &quot;id&quot;: &quot;UNIQUE&quot;
     },
     &quot;indicators&quot;: [{
-            &quot;id&quot;: &quot;GUARANTEE_TYPE&quot;,
-            &quot;value&quot;: &quot;#guaranteeType#&quot;
-        }, {
-            &quot;id&quot;: &quot;PAYMENT_METHOD_CODE&quot;,
-            &quot;value&quot;: &quot;#paymentMethodCode#&quot;
-        }
+         &quot;id&quot;:&quot;GUARANTEE_TYPE&quot;,
+         &quot;value&quot;:&quot;#guaranteeType#&quot;
+      },
+      {
+         &quot;id&quot;:&quot;PAYMENT_METHOD_CODE&quot;,
+         &quot;value&quot;:&quot;#paymentMethodCode#&quot;
+      },
+      {
+         &quot;id&quot;:&quot;BENEFICIARY_CODE&quot;,
+         &quot;value&quot;:&quot;#beneficiaryCode#&quot;
+      },
+      {
+         &quot;id&quot;:&quot;PAYMENT_PERIOD_CODE&quot;,
+         &quot;value&quot;:&quot;#paymentPeriodCode#&quot;
+      },
+      {
+         &quot;id&quot;:&quot;BAIL_OBJECT_CODE&quot;,
+         &quot;value&quot;:&quot;#bailObjectCode#&quot;
+      }
     ],
     &quot;participant&quot;: {
         &quot;identityDocuments&quot;: [{

@@ -68,9 +68,9 @@ public class  BE_ProdCommissionSection_Ctr_Test {
         
         
         Test.startTest();
-        final List<Product_Commission__c> commisions = BE_ProdCommissionSection_Ctr.getCommissions(oli.Id, true, true);
+        final Map<String,Object> commisions = BE_ProdCommissionSection_Ctr.getCommissions(oli.Id, true, true);
         Test.stopTest();
-        System.assertEquals(4, commisions.size(),'El tamaño es de 4');
+        System.assert(commisions.size() > 0,'Se obtuvo la data');
     }
     
   /*  @isTest
