@@ -52,7 +52,487 @@
     </values>
     <values>
         <field>iaso__Mock_LTA__c</field>
-        <value xsi:type="xsd:string">{&quot;data&quot;:[{&quot;id&quot;:&quot;CO239&quot;,&quot;name&quot;:&quot;Por Liquidación Anticipada&quot;,&quot;product&quot;:{&quot;id&quot;:&quot;5&quot;,&quot;modality&quot;:{&quot;id&quot;:&quot;8&quot;}},&quot;currency&quot;:&quot;PEN&quot;,&quot;isNegotiable&quot;:true,&quot;isRORCApplicable&quot;:false,&quot;calculationType&quot;:&quot;PERCENTAGE&quot;,&quot;settledValues&quot;:[{&quot;settledValueType&quot;:&quot;PERCENTAGE&quot;,&quot;percentage&quot;:5,&quot;name&quot;:&quot;SUGGESTED_RATE&quot;}],&quot;maximumValue&quot;:{&quot;currency&quot;:&quot;PEN&quot;},&quot;minimumValue&quot;:{&quot;currency&quot;:&quot;PEN&quot;},&quot;isTermIncluded&quot;:true,&quot;paymenMethod&quot;:{&quot;frequency&quot;:{&quot;id&quot;:&quot;MONTHLY&quot;}},&quot;term&quot;:{&quot;frequency&quot;:{&quot;id&quot;:&quot;MONTHLY&quot;},&quot;number&quot;:12},&quot;additionalAmount&quot;:{},&quot;questionnaire&quot;:{&quot;id&quot;:&quot;CU0022&quot;,&quot;questions&quot;:[{&quot;id&quot;:&quot;2&quot;,&quot;outputType&quot;:&quot;YES_OR_NOT&quot;,&quot;description&quot;:&quot;El Plazo es mayor a 12?&quot;,&quot;parentId&quot;:&quot;1&quot;,&quot;parentOutputType&quot;:&quot;YES_OR_NOT&quot;,&quot;parentAnswerActivator&quot;:&quot;SI&quot;},{&quot;id&quot;:&quot;1&quot;,&quot;outputType&quot;:&quot;YES_OR_NOT&quot;,&quot;description&quot;:&quot;El tipo de prestamo es Cancelación Anticipada, Amortización Parcial o Prepago de cuotas?&quot;}]}},{&quot;id&quot;:&quot;CO235&quot;,&quot;name&quot;:&quot;Por Liquidación Anticipada&quot;,&quot;product&quot;:{&quot;id&quot;:&quot;5&quot;,&quot;modality&quot;:{&quot;id&quot;:&quot;8&quot;}},&quot;currency&quot;:&quot;PEN&quot;,&quot;isNegotiable&quot;:true,&quot;isRORCApplicable&quot;:false,&quot;calculationType&quot;:&quot;PERCENTAGE&quot;,&quot;settledValues&quot;:[{&quot;settledValueType&quot;:&quot;PERCENTAGE&quot;,&quot;percentage&quot;:5,&quot;name&quot;:&quot;SUGGESTED_RATE&quot;}],&quot;maximumValue&quot;:{&quot;currency&quot;:&quot;PEN&quot;},&quot;minimumValue&quot;:{&quot;currency&quot;:&quot;PEN&quot;},&quot;isTermIncluded&quot;:true,&quot;paymenMethod&quot;:{&quot;frequency&quot;:{&quot;id&quot;:&quot;MONTHLY&quot;}},&quot;term&quot;:{&quot;frequency&quot;:{&quot;id&quot;:&quot;MONTHLY&quot;},&quot;number&quot;:12},&quot;additionalAmount&quot;:{},&quot;questionnaire&quot;:{&quot;id&quot;:&quot;CU0022&quot;,&quot;questions&quot;:[{&quot;id&quot;:&quot;2&quot;,&quot;outputType&quot;:&quot;YES_OR_NOT&quot;,&quot;description&quot;:&quot;El Plazo es mayor a 12?&quot;,&quot;parentId&quot;:&quot;1&quot;,&quot;parentOutputType&quot;:&quot;YES_OR_NOT&quot;,&quot;parentAnswerActivator&quot;:&quot;SI&quot;},{&quot;id&quot;:&quot;1&quot;,&quot;outputType&quot;:&quot;YES_OR_NOT&quot;,&quot;description&quot;:&quot;El tipo de prestamo es Cancelación Anticipada, Amortización Parcial o Prepago de cuotas?&quot;}]}},{&quot;id&quot;:&quot;CO229&quot;,&quot;name&quot;:&quot;Comisión de Estructuración&quot;,&quot;product&quot;:{&quot;id&quot;:&quot;5&quot;,&quot;modality&quot;:{&quot;id&quot;:&quot;8&quot;}},&quot;currency&quot;:&quot;PEN&quot;,&quot;isNegotiable&quot;:true,&quot;isRORCApplicable&quot;:true,&quot;calculationType&quot;:&quot;PERCENTAGE&quot;,&quot;settledValues&quot;:[{&quot;settledValueType&quot;:&quot;PERCENTAGE&quot;,&quot;percentage&quot;:1,&quot;name&quot;:&quot;SUGGESTED_RATE&quot;}],&quot;maximumValue&quot;:{&quot;currency&quot;:&quot;PEN&quot;},&quot;minimumValue&quot;:{&quot;amount&quot;:850,&quot;currency&quot;:&quot;PEN&quot;},&quot;isTermIncluded&quot;:false,&quot;paymenMethod&quot;:{},&quot;term&quot;:{},&quot;additionalAmount&quot;:{}},{&quot;id&quot;:&quot;CO217&quot;,&quot;name&quot;:&quot;Gestión Operativa&quot;,&quot;product&quot;:{&quot;id&quot;:&quot;5&quot;,&quot;modality&quot;:{&quot;id&quot;:&quot;8&quot;}},&quot;currency&quot;:&quot;PEN&quot;,&quot;isNegotiable&quot;:true,&quot;isRORCApplicable&quot;:true,&quot;calculationType&quot;:&quot;PERCENTAGE&quot;,&quot;settledValues&quot;:[{&quot;settledValueType&quot;:&quot;PERCENTAGE&quot;,&quot;percentage&quot;:20,&quot;name&quot;:&quot;SUGGESTED_RATE&quot;}],&quot;maximumValue&quot;:{&quot;amount&quot;:700,&quot;currency&quot;:&quot;PEN&quot;},&quot;minimumValue&quot;:{&quot;amount&quot;:120,&quot;currency&quot;:&quot;PEN&quot;},&quot;isTermIncluded&quot;:false,&quot;paymenMethod&quot;:{},&quot;term&quot;:{},&quot;additionalAmount&quot;:{}}]}</value>
+        <value xsi:type="xsd:string">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: &quot;CO278&quot;,
+            &quot;name&quot;: &quot;Modificación de contrato&quot;,
+            &quot;product&quot;: {
+                &quot;id&quot;: &quot;4&quot;,
+                &quot;modality&quot;: {
+                    &quot;id&quot;: &quot;34&quot;
+                }
+            },
+            &quot;currency&quot;: &quot;USD&quot;,
+            &quot;isNegotiable&quot;: true,
+            &quot;isRORCApplicable&quot;: false,
+            &quot;calculationType&quot;: &quot;PERCENTAGE&quot;,
+            &quot;settledValues&quot;: [
+                {
+                    &quot;settledValueType&quot;: &quot;PERCENTAGE&quot;,
+                    &quot;percentage&quot;: 1,
+                    &quot;name&quot;: &quot;SUGGESTED_RATE&quot;
+                }
+            ],
+            &quot;maximumValue&quot;: {
+                &quot;currency&quot;: &quot;USD&quot;
+            },
+            &quot;minimumValue&quot;: {
+                &quot;amount&quot;: 150,
+                &quot;currency&quot;: &quot;USD&quot;
+            },
+            &quot;isTermIncluded&quot;: false,
+            &quot;paymenMethod&quot;: {},
+            &quot;term&quot;: {},
+            &quot;additionalAmount&quot;: {}
+        },
+        {
+            &quot;id&quot;: &quot;CO039&quot;,
+            &quot;name&quot;: &quot;Gestión de transferencia vehicular&quot;,
+            &quot;product&quot;: {
+                &quot;id&quot;: &quot;4&quot;,
+                &quot;modality&quot;: {
+                    &quot;id&quot;: &quot;34&quot;
+                }
+            },
+            &quot;currency&quot;: &quot;USD&quot;,
+            &quot;isNegotiable&quot;: false,
+            &quot;isRORCApplicable&quot;: true,
+            &quot;calculationType&quot;: &quot;RANGE&quot;,
+            &quot;settledValues&quot;: [
+                {
+                    &quot;settledValueType&quot;: &quot;AMOUNT&quot;,
+                    &quot;currency&quot;: &quot;USD&quot;,
+                    &quot;name&quot;: &quot;SUGGESTED_RATE&quot;
+                }
+            ],
+            &quot;maximumValue&quot;: {
+                &quot;currency&quot;: &quot;USD&quot;
+            },
+            &quot;minimumValue&quot;: {
+                &quot;currency&quot;: &quot;USD&quot;
+            },
+            &quot;isTermIncluded&quot;: false,
+            &quot;paymenMethod&quot;: {},
+            &quot;term&quot;: {},
+            &quot;additionalAmount&quot;: {},
+            &quot;range&quot;: {
+                &quot;id&quot;: &quot;R001&quot;,
+                &quot;intervals&quot;: [
+                    {
+                        &quot;id&quot;: &quot;3&quot;,
+                        &quot;settledValue&quot;: {
+                            &quot;settledValueType&quot;: &quot;AMOUNT&quot;,
+                            &quot;currency&quot;: &quot;USD&quot;,
+                            &quot;amount&quot;: 80
+                        },
+                        &quot;limits&quot;: {
+                            &quot;limitType&quot;: &quot;QUANTITY&quot;,
+                            &quot;minimumValue&quot;: 4,
+                            &quot;maximumValue&quot;: 99999
+                        },
+                        &quot;calculationType&quot;: &quot;MULTIPLICATION&quot;
+                    },
+                    {
+                        &quot;id&quot;: &quot;2&quot;,
+                        &quot;settledValue&quot;: {
+                            &quot;settledValueType&quot;: &quot;AMOUNT&quot;,
+                            &quot;currency&quot;: &quot;USD&quot;,
+                            &quot;amount&quot;: 100
+                        },
+                        &quot;limits&quot;: {
+                            &quot;limitType&quot;: &quot;QUANTITY&quot;,
+                            &quot;minimumValue&quot;: 2,
+                            &quot;maximumValue&quot;: 3
+                        },
+                        &quot;calculationType&quot;: &quot;MULTIPLICATION&quot;
+                    },
+                    {
+                        &quot;id&quot;: &quot;1&quot;,
+                        &quot;settledValue&quot;: {
+                            &quot;settledValueType&quot;: &quot;AMOUNT&quot;,
+                            &quot;currency&quot;: &quot;USD&quot;,
+                            &quot;amount&quot;: 120
+                        },
+                        &quot;limits&quot;: {
+                            &quot;limitType&quot;: &quot;QUANTITY&quot;,
+                            &quot;minimumValue&quot;: 0,
+                            &quot;maximumValue&quot;: 1
+                        },
+                        &quot;calculationType&quot;: &quot;MULTIPLICATION&quot;
+                    }
+                ]
+            },
+            &quot;questionnaire&quot;: {
+                &quot;id&quot;: &quot;CU0015&quot;,
+                &quot;questions&quot;: [
+                    {
+                        &quot;id&quot;: &quot;1&quot;,
+                        &quot;outputType&quot;: &quot;QUANTITY&quot;,
+                        &quot;description&quot;: &quot;Cuantos vehiculos se estan financiando?&quot;
+                    }
+                ]
+            }
+        },
+        {
+            &quot;id&quot;: &quot;CO035&quot;,
+            &quot;name&quot;: &quot;Tramite de inafectación del impuesto vehicular&quot;,
+            &quot;product&quot;: {
+                &quot;id&quot;: &quot;4&quot;,
+                &quot;modality&quot;: {
+                    &quot;id&quot;: &quot;34&quot;
+                }
+            },
+            &quot;currency&quot;: &quot;USD&quot;,
+            &quot;isNegotiable&quot;: false,
+            &quot;isRORCApplicable&quot;: true,
+            &quot;calculationType&quot;: &quot;MULTIPLICATION&quot;,
+            &quot;settledValues&quot;: [
+                {
+                    &quot;settledValueType&quot;: &quot;AMOUNT&quot;,
+                    &quot;currency&quot;: &quot;USD&quot;,
+                    &quot;amount&quot;: 100,
+                    &quot;name&quot;: &quot;SUGGESTED_RATE&quot;
+                }
+            ],
+            &quot;maximumValue&quot;: {
+                &quot;currency&quot;: &quot;USD&quot;
+            },
+            &quot;minimumValue&quot;: {
+                &quot;currency&quot;: &quot;USD&quot;
+            },
+            &quot;isTermIncluded&quot;: true,
+            &quot;paymenMethod&quot;: {
+                &quot;frequency&quot;: {
+                    &quot;id&quot;: &quot;YEARLY&quot;
+                }
+            },
+            &quot;term&quot;: {},
+            &quot;additionalAmount&quot;: {},
+            &quot;questionnaire&quot;: {
+                &quot;id&quot;: &quot;CU004&quot;,
+                &quot;questions&quot;: [
+                    {
+                        &quot;id&quot;: &quot;2&quot;,
+                        &quot;outputType&quot;: &quot;QUANTITY&quot;,
+                        &quot;description&quot;: &quot;Cuantos vehiculos son?&quot;,
+                        &quot;parentId&quot;: &quot;1&quot;,
+                        &quot;parentOutputType&quot;: &quot;YES_OR_NOT&quot;,
+                        &quot;parentAnswerActivator&quot;: &quot;SI&quot;
+                    },
+                    {
+                        &quot;id&quot;: &quot;1&quot;,
+                        &quot;outputType&quot;: &quot;YES_OR_NOT&quot;,
+                        &quot;description&quot;: &quot;El vehiculo a financiar es un Omnibus de servicio público?&quot;,
+                        &quot;expectedResponse&quot;: &quot;SI&quot;
+                    }
+                ]
+            }
+        },
+        {
+            &quot;id&quot;: &quot;CO034&quot;,
+            &quot;name&quot;: &quot;Tramite y gestión de pago del impuesto vehicular&quot;,
+            &quot;product&quot;: {
+                &quot;id&quot;: &quot;4&quot;,
+                &quot;modality&quot;: {
+                    &quot;id&quot;: &quot;34&quot;
+                }
+            },
+            &quot;currency&quot;: &quot;USD&quot;,
+            &quot;isNegotiable&quot;: true,
+            &quot;isRORCApplicable&quot;: true,
+            &quot;calculationType&quot;: &quot;AMOUNT&quot;,
+            &quot;settledValues&quot;: [
+                {
+                    &quot;settledValueType&quot;: &quot;AMOUNT&quot;,
+                    &quot;currency&quot;: &quot;PEN&quot;,
+                    &quot;amount&quot;: 85,
+                    &quot;name&quot;: &quot;SUGGESTED_RATE&quot;
+                }
+            ],
+            &quot;maximumValue&quot;: {
+                &quot;currency&quot;: &quot;PEN&quot;
+            },
+            &quot;minimumValue&quot;: {
+                &quot;currency&quot;: &quot;PEN&quot;
+            },
+            &quot;isTermIncluded&quot;: true,
+            &quot;paymenMethod&quot;: {
+                &quot;frequency&quot;: {
+                    &quot;id&quot;: &quot;YEARLY&quot;
+                }
+            },
+            &quot;term&quot;: {
+                &quot;frequency&quot;: {
+                    &quot;id&quot;: &quot;YEARLY&quot;
+                },
+                &quot;number&quot;: 3
+            },
+            &quot;additionalAmount&quot;: {},
+            &quot;questionnaire&quot;: {
+                &quot;id&quot;: &quot;CU003&quot;,
+                &quot;questions&quot;: [
+                    {
+                        &quot;id&quot;: &quot;1&quot;,
+                        &quot;outputType&quot;: &quot;YES_OR_NOT&quot;,
+                        &quot;description&quot;: &quot;El vehiculo esta afecto al impuesto vehicular?&quot;,
+                        &quot;expectedResponse&quot;: &quot;SI&quot;
+                    }
+                ]
+            }
+        },
+        {
+            &quot;id&quot;: &quot;CO028&quot;,
+            &quot;name&quot;: &quot;Pago de documentos&quot;,
+            &quot;product&quot;: {
+                &quot;id&quot;: &quot;4&quot;,
+                &quot;modality&quot;: {
+                    &quot;id&quot;: &quot;34&quot;
+                }
+            },
+            &quot;currency&quot;: &quot;USD&quot;,
+            &quot;isNegotiable&quot;: false,
+            &quot;isRORCApplicable&quot;: true,
+            &quot;calculationType&quot;: &quot;MULTIPLICATION&quot;,
+            &quot;settledValues&quot;: [
+                {
+                    &quot;settledValueType&quot;: &quot;AMOUNT&quot;,
+                    &quot;currency&quot;: &quot;USD&quot;,
+                    &quot;amount&quot;: 2.5,
+                    &quot;name&quot;: &quot;SUGGESTED_RATE&quot;
+                }
+            ],
+            &quot;maximumValue&quot;: {
+                &quot;currency&quot;: &quot;USD&quot;
+            },
+            &quot;minimumValue&quot;: {
+                &quot;currency&quot;: &quot;USD&quot;
+            },
+            &quot;isTermIncluded&quot;: false,
+            &quot;paymenMethod&quot;: {},
+            &quot;term&quot;: {},
+            &quot;additionalAmount&quot;: {},
+            &quot;questionnaire&quot;: {
+                &quot;id&quot;: &quot;CU002&quot;,
+                &quot;questions&quot;: [
+                    {
+                        &quot;id&quot;: &quot;2&quot;,
+                        &quot;outputType&quot;: &quot;QUANTITY&quot;,
+                        &quot;description&quot;: &quot;Cuantos documentos son los excedentes?&quot;,
+                        &quot;parentId&quot;: &quot;1&quot;,
+                        &quot;parentOutputType&quot;: &quot;YES_OR_NOT&quot;,
+                        &quot;parentAnswerActivator&quot;: &quot;SI&quot;
+                    },
+                    {
+                        &quot;id&quot;: &quot;1&quot;,
+                        &quot;outputType&quot;: &quot;YES_OR_NOT&quot;,
+                        &quot;description&quot;: &quot;Con este desembolso se van a pagar mas de 11 documento (facturas, declaraciones únicas de aduanas, documentos de embarque, notas de crédito, entre otros)?&quot;,
+                        &quot;expectedResponse&quot;: &quot;SI&quot;
+                    }
+                ]
+            }
+        },
+        {
+            &quot;id&quot;: &quot;CO018&quot;,
+            &quot;name&quot;: &quot;Liquidación Anticipada&quot;,
+            &quot;product&quot;: {
+                &quot;id&quot;: &quot;4&quot;,
+                &quot;modality&quot;: {
+                    &quot;id&quot;: &quot;34&quot;
+                }
+            },
+            &quot;currency&quot;: &quot;USD&quot;,
+            &quot;isNegotiable&quot;: true,
+            &quot;isRORCApplicable&quot;: false,
+            &quot;calculationType&quot;: &quot;PERCENTAGE&quot;,
+            &quot;settledValues&quot;: [
+                {
+                    &quot;settledValueType&quot;: &quot;PERCENTAGE&quot;,
+                    &quot;percentage&quot;: 5,
+                    &quot;name&quot;: &quot;SUGGESTED_RATE&quot;
+                }
+            ],
+            &quot;maximumValue&quot;: {
+                &quot;currency&quot;: &quot;USD&quot;
+            },
+            &quot;minimumValue&quot;: {
+                &quot;amount&quot;: 150,
+                &quot;currency&quot;: &quot;USD&quot;
+            },
+            &quot;isTermIncluded&quot;: false,
+            &quot;paymenMethod&quot;: {},
+            &quot;term&quot;: {},
+            &quot;additionalAmount&quot;: {},
+            &quot;questionnaire&quot;: {
+                &quot;id&quot;: &quot;CU001&quot;,
+                &quot;questions&quot;: [
+                    {
+                        &quot;id&quot;: &quot;2&quot;,
+                        &quot;outputType&quot;: &quot;AMOUNT&quot;,
+                        &quot;description&quot;: &quot;Cuál es el precio de venta sin IGV?&quot;,
+                        &quot;parentId&quot;: &quot;1&quot;,
+                        &quot;parentOutputType&quot;: &quot;YES_OR_NOT&quot;,
+                        &quot;parentAnswerActivator&quot;: &quot;NO&quot;
+                    },
+                    {
+                        &quot;id&quot;: &quot;1&quot;,
+                        &quot;outputType&quot;: &quot;YES_OR_NOT&quot;,
+                        &quot;description&quot;: &quot;Es PNN o PJ (Ventas menores a 150 UIT)?&quot;,
+                        &quot;expectedResponse&quot;: &quot;NO&quot;
+                    }
+                ]
+            }
+        },
+        {
+            &quot;id&quot;: &quot;CO012&quot;,
+            &quot;name&quot;: &quot;Opción de compra&quot;,
+            &quot;product&quot;: {
+                &quot;id&quot;: &quot;4&quot;,
+                &quot;modality&quot;: {
+                    &quot;id&quot;: &quot;34&quot;
+                }
+            },
+            &quot;currency&quot;: &quot;USD&quot;,
+            &quot;isNegotiable&quot;: true,
+            &quot;isRORCApplicable&quot;: true,
+            &quot;calculationType&quot;: &quot;PERCENTAGE&quot;,
+            &quot;settledValues&quot;: [
+                {
+                    &quot;settledValueType&quot;: &quot;PERCENTAGE&quot;,
+                    &quot;percentage&quot;: 1,
+                    &quot;name&quot;: &quot;SUGGESTED_RATE&quot;
+                }
+            ],
+            &quot;maximumValue&quot;: {
+                &quot;currency&quot;: &quot;USD&quot;
+            },
+            &quot;minimumValue&quot;: {
+                &quot;currency&quot;: &quot;USD&quot;
+            },
+            &quot;isTermIncluded&quot;: false,
+            &quot;paymenMethod&quot;: {},
+            &quot;term&quot;: {},
+            &quot;additionalAmount&quot;: {},
+            &quot;questionnaire&quot;: {
+                &quot;id&quot;: &quot;CU001&quot;,
+                &quot;questions&quot;: [
+                    {
+                        &quot;id&quot;: &quot;2&quot;,
+                        &quot;outputType&quot;: &quot;AMOUNT&quot;,
+                        &quot;description&quot;: &quot;Cuál es el precio de venta sin IGV?&quot;,
+                        &quot;parentId&quot;: &quot;1&quot;,
+                        &quot;parentOutputType&quot;: &quot;YES_OR_NOT&quot;,
+                        &quot;parentAnswerActivator&quot;: &quot;NO&quot;
+                    },
+                    {
+                        &quot;id&quot;: &quot;1&quot;,
+                        &quot;outputType&quot;: &quot;YES_OR_NOT&quot;,
+                        &quot;description&quot;: &quot;Es PNN o PJ (Ventas menores a 150 UIT)?&quot;,
+                        &quot;expectedResponse&quot;: &quot;NO&quot;
+                    }
+                ]
+            }
+        },
+        {
+            &quot;id&quot;: &quot;CO004&quot;,
+            &quot;name&quot;: &quot;Estructuración&quot;,
+            &quot;product&quot;: {
+                &quot;id&quot;: &quot;4&quot;,
+                &quot;modality&quot;: {
+                    &quot;id&quot;: &quot;34&quot;
+                }
+            },
+            &quot;currency&quot;: &quot;USD&quot;,
+            &quot;isNegotiable&quot;: true,
+            &quot;isRORCApplicable&quot;: true,
+            &quot;calculationType&quot;: &quot;PERCENTAGE&quot;,
+            &quot;settledValues&quot;: [
+                {
+                    &quot;settledValueType&quot;: &quot;PERCENTAGE&quot;,
+                    &quot;percentage&quot;: 1,
+                    &quot;name&quot;: &quot;SUGGESTED_RATE&quot;
+                }
+            ],
+            &quot;maximumValue&quot;: {
+                &quot;currency&quot;: &quot;USD&quot;
+            },
+            &quot;minimumValue&quot;: {
+                &quot;amount&quot;: 550,
+                &quot;currency&quot;: &quot;USD&quot;
+            },
+            &quot;isTermIncluded&quot;: false,
+            &quot;paymenMethod&quot;: {},
+            &quot;term&quot;: {},
+            &quot;additionalAmount&quot;: {},
+            &quot;questionnaire&quot;: {
+                &quot;id&quot;: &quot;CU001&quot;,
+                &quot;questions&quot;: [
+                    {
+                        &quot;id&quot;: &quot;2&quot;,
+                        &quot;outputType&quot;: &quot;AMOUNT&quot;,
+                        &quot;description&quot;: &quot;Cuál es el precio de venta sin IGV?&quot;,
+                        &quot;parentId&quot;: &quot;1&quot;,
+                        &quot;parentOutputType&quot;: &quot;YES_OR_NOT&quot;,
+                        &quot;parentAnswerActivator&quot;: &quot;NO&quot;
+                    },
+                    {
+                        &quot;id&quot;: &quot;1&quot;,
+                        &quot;outputType&quot;: &quot;YES_OR_NOT&quot;,
+                        &quot;description&quot;: &quot;Es PNN o PJ (Ventas menores a 150 UIT)?&quot;,
+                        &quot;expectedResponse&quot;: &quot;NO&quot;
+                    }
+                ]
+            }
+        },
+        {
+            &quot;id&quot;: &quot;CO044&quot;,
+            &quot;name&quot;: &quot;Evaluación de Poliza de seguro endosada&quot;,
+            &quot;product&quot;: {
+                &quot;id&quot;: &quot;4&quot;,
+                &quot;modality&quot;: {
+                    &quot;id&quot;: &quot;34&quot;
+                }
+            },
+            &quot;currency&quot;: &quot;USD&quot;,
+            &quot;isNegotiable&quot;: false,
+            &quot;isRORCApplicable&quot;: true,
+            &quot;calculationType&quot;: &quot;AMOUNT&quot;,
+            &quot;settledValues&quot;: [
+                {
+                    &quot;settledValueType&quot;: &quot;AMOUNT&quot;,
+                    &quot;currency&quot;: &quot;USD&quot;,
+                    &quot;amount&quot;: 63.56,
+                    &quot;name&quot;: &quot;SUGGESTED_RATE&quot;
+                }
+            ],
+            &quot;maximumValue&quot;: {
+                &quot;currency&quot;: &quot;USD&quot;
+            },
+            &quot;minimumValue&quot;: {
+                &quot;currency&quot;: &quot;USD&quot;
+            },
+            &quot;isTermIncluded&quot;: true,
+            &quot;paymenMethod&quot;: {
+                &quot;frequency&quot;: {
+                    &quot;id&quot;: &quot;YEARLY&quot;
+                }
+            },
+            &quot;term&quot;: {},
+            &quot;additionalAmount&quot;: {},
+            &quot;questionnaire&quot;: {
+                &quot;id&quot;: &quot;CU005&quot;,
+                &quot;questions&quot;: [
+                    {
+                        &quot;id&quot;: &quot;1&quot;,
+                        &quot;outputType&quot;: &quot;YES_OR_NOT&quot;,
+                        &quot;description&quot;: &quot;El cliente endosará la poliza?&quot;,
+                        &quot;expectedResponse&quot;: &quot;SI&quot;
+                    }
+                ]
+            }
+        }
+    ]
+}</value>
     </values>
     <values>
         <field>iaso__Querystring_Input_Template_LTA_TEMP__c</field>
@@ -60,7 +540,7 @@
     </values>
     <values>
         <field>iaso__Querystring_Input_Template_LTA__c</field>
-        <value xsi:type="xsd:string">?product.id=#productModelCode#&amp;product.modality.id=#modalityCode#&amp;product.guarantee.id=#guarantyCode#&amp;currency=#currencyCode#</value>
+        <value xsi:type="xsd:string">?product.id=#productModelCode#&amp;product.modality.id=#modalityCode#&amp;product.guarantee.id=#guarantyCode#&amp;currency=#currencyCode#&amp;customerId=#customerId#</value>
     </values>
     <values>
         <field>iaso__Retrieve_Mock_LTA_TEMP__c</field>

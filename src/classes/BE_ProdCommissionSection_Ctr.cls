@@ -11,6 +11,8 @@
    -------------------------------------------------------------------------------------------------
  */
 public with sharing class BE_ProdCommissionSection_Ctr {
+    /* Map that contains return values*/
+    static Map<String,Object> mapReturn = new Map<String,Object>();
     /* constructor of class */
     private BE_ProdCommissionSection_Ctr() {}
 
@@ -19,18 +21,20 @@ public with sharing class BE_ProdCommissionSection_Ctr {
     
     /**Method used to get quotes **/
 	@AuraEnabled
-    public static List<Product_Commission__c> getCommissions(String recordId, Boolean negotiables, Boolean requestDataToAso) {
+    public static Map<String,Object> getCommissions(String recordId, Boolean negotiables, Boolean requestDataToAso) {
         return BE_CalculateCommission_Ctr.getCommissions(recordId, negotiables, requestDataToAso);
     }
 
     /**Method used to save answers of questions **/
     @AuraEnabled
-    public static Product_Commission__c calculateRate(String rawCommission, String recordId, String status) {
-        //Final Product_Commission__c currentCommission = [SELECT Opportunity_Product__r.unitprice,Opportunity_Product__r.gipr_Plazo__c,Opportunity_Product__r.gipr_Periodicidad__c,Opportunity_Product__r.CurrencyIsoCode,Code__c,Term_Frequency_Id__c,Term_Number__c,Suggested_Rate_Type__c,Sugested_Rate_Percentage__c,Requested_Rate_Value__c,Authorized_Rate_Value__c,CurrencyIsoCode,Suggested_Rate_Value__c,Commission_Calculation_Amount__c,Id,Product_Commission_Name__c,Opportunity_Product__c,Calculation_Type__c,Suggested_Rate__c,Commission_Maximum_Amount__c,Commission_Minimum_Amount__c,Is_Negotiable__c, (SELECT Id, Product_Commission__c, Parent_Question__c, Input_Value__c, Input_Type__c, isBoolean__c, BooleanValue__c, isCurrency__c, CurrencyIsoCode, Description__c, Code__c, output_Type__c, isParent__c, Answer__c FROM Commission_Questions__r ORDER BY Code__c ASC) FROM Product_Commission__c WHERE Id = :commissionId];
-        Final Product_Commission__c currentdbComm = [SELECT Opportunity_Product__r.unitprice, Opportunity_Product__r.gipr_Plazo__c, Opportunity_Product__r.gipr_Periodicidad__c, Opportunity_Product__r.CurrencyIsoCode, Code__c, Term_Frequency_Id__c, Term_Number__c, Suggested_Rate_Type__c, Sugested_Rate_Percentage__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, CurrencyIsoCode, Suggested_Rate_Value__c, Commission_Calculation_Amount__c, (SELECT Code__c, Input_Value__c, Answer__c FROM Commission_Questions__r) FROM Product_Commission__c WHERE Id = :recordId];
+    public static Map<String,Object> calculateRate(String rawCommission, String recordId, String status) {
+        //public static Product_Commission__c calculateRate(String rawCommission, String recordId, String status) {
+        Final Product_Commission__c currentdbComm = [SELECT Opportunity_Product__r.unitprice, Opportunity_Product__r.gipr_Plazo__c, Opportunity_Product__r.gipr_Periodicidad__c, Opportunity_Product__r.CurrencyIsoCode, Code__c, Term_Frequency_Id__c, Term_Number__c, Suggested_Rate_Type__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, CurrencyIsoCode, Commission_Calculation_Amount__c, Suggested_Rate__c, (SELECT Code__c, Input_Value__c, Answer__c FROM Commission_Questions__r) FROM Product_Commission__c WHERE Id = :recordId];
         Final Product_Commission__c commission = parseCommission(rawCommission, currentdbComm);
         Final BE_CalculateCommissionRequest_Helper listComHelper = new BE_CalculateCommissionRequest_Helper(commission,status);
         Final System.HttpResponse invoke = listComHelper.invoke();
+        mapReturn = new Map<String,Object>();
+        mapReturn.put('error',false);
 
         switch on invoke.getStatusCode() {
             when 200 {
@@ -47,15 +51,15 @@ public with sharing class BE_ProdCommissionSection_Ctr {
                 Final Map<String, Object> calculatedAmount = (Map<String, Object>) calculatedFee.get('calculatedAmount');
                 commission.Commission_Calculation_Amount__c = Double.valueOf(calculatedAmount.get('amount'));
                 commission.CurrencyIsoCode = String.valueOf(calculatedAmount.get('currency'));
+            } when else {
+                mapReturn.put('error',true);
+                mapReturn.put('responseCode',invoke.getStatusCode());
+                mapReturn.put('errorBody',invoke.getBody());
             }
-             /*when else {
-                ApplicationException exc = new ApplicationException();
-                exc.setMessage(invoke.getBody());
-                throw exc;
-            }*/
         }
         update commission;
-        return commission;
+        mapReturn.put('commission',commission);
+        return mapReturn;
     }
 
     /** Save Commission rates and answers */

@@ -6293,7 +6293,17 @@ Analistas de riesgos</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Product_Commission__c.Commission_Maximum_Iso_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Product_Commission__c.Commission_Minimum_Amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Product_Commission__c.Commission_Minimum_Iso_Code_c__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6304,6 +6314,21 @@ Analistas de riesgos</description>
     <fieldPermissions>
         <editable>true</editable>
         <field>Product_Commission__c.Is_Negotiable__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Product_Commission__c.Minimum_Rate_Iso_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Product_Commission__c.Minimum_Rate_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Product_Commission__c.Minimum_Rate__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6319,6 +6344,26 @@ Analistas de riesgos</description>
     <fieldPermissions>
         <editable>true</editable>
         <field>Product_Commission__c.Questionnaire_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Product_Commission__c.Rate_Is_Amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Product_Commission__c.Rate_Is_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Product_Commission__c.Rate_Is_Percent__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Product_Commission__c.Rate_Is_Range__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

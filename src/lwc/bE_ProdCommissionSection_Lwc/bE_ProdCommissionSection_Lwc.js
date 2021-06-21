@@ -65,31 +65,34 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
                 console.log('RESULTADOS DE GET COMMISSIONS', result);
                 console.log('ID', this.recordId);
 
-                this.commisions = this.parseInitialData(result);
+                this.commisions = this.parseInitialData(result.commissions);
                 if (!this.isEditable) {
-                    this.activeSections = result.map((c) => c.Id);
+                    this.activeSections = result.commissions.map((c) => c.Id);
                 }
 
-                this.error = null;
+                if (result.error) {
+                    let evt = new ShowToastEvent({
+                        title: 'Error',
+                        message: 'Vuelta a intentarlo en unos minutos.',
+                        variant: 'error',
+                        mode: 'dismissable'
+                    });
+                    if (result.responseCode === 204) {
+                        evt = new ShowToastEvent({
+                            title: 'Atención',
+                            message: 'No hay comisiones para el presente producto.',
+                            variant: 'warning',
+                            mode: 'dismissable'
+                        });
+                    }
+                    this.dispatchEvent(evt);
+                    this.commisions = null;
+                    this.error = result.errorBody;
+                    console.log('ERROR', result);
+                }
                 this.loaded = true;
             })
             .catch(error => {
-                let evt = new ShowToastEvent({
-                    title: 'Error',
-                    message: 'Vuelta a intentarlo en unos minutos.',
-                    variant: 'error',
-                    mode: 'dismissable'
-                });
-                if (error.body.message === "204") {
-                    evt = new ShowToastEvent({
-                        title: 'Atención',
-                        message: 'No hay comisiones para el presente producto.',
-                        variant: 'warning',
-                        mode: 'dismissable'
-                    });
-                }
-                this.dispatchEvent(evt);
-
                 console.log('ERROR', error);
                 this.error = error;
                 this.commisions = null;
@@ -113,7 +116,7 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
         let currentQuestion = currentCommission.Commission_Questions__r[questionIndex];
 
         let value;
-        if (isNaN(event.currentTarget.value) || event.currentTarget.value === '') {
+        if (event.target.dataset.type === 'boolean') {
             value = event.currentTarget.checked;
         } else {
             value = event.currentTarget.value;
@@ -123,6 +126,7 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
         currentCommission.isModified = true;
         this.commisionHasBeenModified = false;
         this.showNhideQuestions(currentQuestion, currentCommission.Commission_Questions__r, value);
+
     }
 
     /* Updates only Rates */
@@ -153,7 +157,7 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
     saveCommission() {
         this.loaded = false;
         let commissionRequestBody = this.commisions.map((m) => {
-            let { Commission_Questions__r, isModified, ...additional } = m;
+            let { Commission_Questions__r, isModified, error, ...additional } = m;
             return { Commission_Questions__r: this.rewriteSubquery(Commission_Questions__r), ...additional };
         });
 
@@ -165,8 +169,9 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
             Promise.allSettled(commissionCalculatePromise)
                 .then(result => {
                     console.log('result:...', result);
-                    let rejectedIndex = result.findIndex(i => i.status === 'rejected');
-                    if (rejectedIndex > -1) {
+                    //let rejectedIndex = result.findIndex(i => i.status === 'rejected');
+                    let rejectedData = result.filter(f => f.status === 'rejected' || f.value?.error);
+                    if (rejectedData.length > 0) {
                         const evt = new ShowToastEvent({
                             title: 'Error',
                             message: 'Vuelva a intentarlo en unos momentos.',
@@ -216,11 +221,17 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
     /*                                               */
     /*-----------------------------------------------*/
     updateCommission(commissions) {
+        this.commisions = this.commisions.map(comm => {
+            return { ...comm, error: true }
+        });
         for (let cindx in commissions) {
-            if (commissions[cindx].value) {
-                let index = this.commisions.findIndex((i) => i.Id === commissions[cindx].value.Id);
-                if (index > -1) {
-                    this.commisions[index].Commission_Calculation_Amount__c = commissions[cindx].value.Commission_Calculation_Amount__c;
+            if (commissions[cindx].value && !commissions[cindx].value?.error) {
+                if (commissions[cindx].value?.commission) {
+                    let index = this.commisions.findIndex((i) => i.Id === commissions[cindx].value.commission.Id);
+                    if (index > -1) {
+                        this.commisions[index].Commission_Calculation_Amount__c = commissions[cindx].value.commission.Commission_Calculation_Amount__c;
+                        this.commisions[index].error = false;
+                    }
                 }
             }
         }
@@ -292,7 +303,7 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
                 });
                 return { Commission_Questions__r: questions, ...cData };
             }
-            return { ...cData, isModified: false };
+            return { ...cData, isModified: false, error: false };
         });
     }
 }

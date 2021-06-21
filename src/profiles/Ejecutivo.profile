@@ -7018,7 +7018,17 @@ Asistente BE</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Product_Commission__c.Commission_Maximum_Iso_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Product_Commission__c.Commission_Minimum_Amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Product_Commission__c.Commission_Minimum_Iso_Code_c__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7028,12 +7038,22 @@ Asistente BE</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>fprd__GBL_Intervener__c.taxpayer_id__c</field>
+        <field>Product_Commission__c.Is_Negotiable__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_Commission__c.Is_Negotiable__c</field>
+        <field>Product_Commission__c.Minimum_Rate_Iso_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Product_Commission__c.Minimum_Rate_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Product_Commission__c.Minimum_Rate__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7052,6 +7072,26 @@ Asistente BE</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Product_Commission__c.Rate_Is_Amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Product_Commission__c.Rate_Is_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Product_Commission__c.Rate_Is_Percent__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Product_Commission__c.Rate_Is_Range__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Product_Commission__c.Requested_Rate_Value__c</field>
         <readable>true</readable>
@@ -7063,20 +7103,10 @@ Asistente BE</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_Commission__c.Sugested_Rate_Percentage__c</field>
+        <field>Product_Commission__c.Suggested_Rate_Iso_Code__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>fprd__GBL_Intervener__c.participant_type__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>fprd__GBL_Intervener__c.main_intervener__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-        <fieldPermissions>
         <editable>true</editable>
         <field>Product_Commission__c.Suggested_Rate_Type__c</field>
         <readable>true</readable>
@@ -9971,7 +10001,22 @@ Asistente BE</description>
         <field>dwp_kitv__Visit__c.Account_Owner__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>fprd__GBL_Intervener__c.main_intervener__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
 	<fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>fprd__GBL_Intervener__c.participant_type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>fprd__GBL_Intervener__c.taxpayer_id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
         <editable>false</editable>
         <field>gfsc__Guidance_for_Success__c.gfsc__dismiss__c</field>
         <readable>true</readable>

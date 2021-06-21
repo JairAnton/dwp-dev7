@@ -54,7 +54,7 @@
                 Decimal rate = calculateRate(commission, status, requestStages, authorizedStages);
             
                 if(commission.Suggested_Rate_Type__c == 'PERCENTAGE') {
-                    this.ratesItemizeRatesRateUnit = '{"unitRateType":"'+commission.Suggested_Rate_Type__c.toUppercase()+'","percentage":'+rate/100+'}';
+                    this.ratesItemizeRatesRateUnit = '{"unitRateType":"'+commission.Suggested_Rate_Type__c.toUppercase()+'","percentage":'+rate+'}';
                 } else {
                     this.ratesItemizeRatesRateUnit = '{"unitRateType":"'+commission.Suggested_Rate_Type__c.toUppercase()+'","amount":'+rate+',"currency":"'+commission.CurrencyIsoCode+'"}';
                 }
@@ -72,7 +72,6 @@
         public static String calculateQuestionnaires(Product_Commission__c commission, String status, List<String> requestStages, List<String> authorizedStages) {
             string questions = ',"questions":[';
             for(Commission_Question__c question : commission.Commission_Questions__r) {
-                System.debug('$$$$$$$$$$ calculateQuestionnaires $$$$$$$$$$$$'+question.Answer__c);
                 String answer = '';
                 if(question.Answer__c == 'true') {
                     answer = 'SI';
@@ -91,8 +90,8 @@
         /*method calculateRate*/
         public static Decimal calculateRate(Product_Commission__c commission, String status, List<String> requestStages, List<String> authorizedStages) {         		 
             Decimal rate = 0;
-            if(commission.Suggested_Rate_Value__c != null) {
-                rate = commission.Suggested_Rate_Value__c;
+            if(commission.Suggested_Rate__c != null || commission.Suggested_Rate__c != '') {
+                rate = Decimal.valueOf(commission.Suggested_Rate__c);
             }
             if(commission.Requested_Rate_Value__c != null) {
                 rate = commission.Requested_Rate_Value__c;
