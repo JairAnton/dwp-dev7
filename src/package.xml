@@ -180,5 +180,5 @@
     <members>*</members>
     <name>StandardValueSetTranslation</name>
   </types>
-  <version>51.0</version>
+  <version>47.0</version>
 </Package>
