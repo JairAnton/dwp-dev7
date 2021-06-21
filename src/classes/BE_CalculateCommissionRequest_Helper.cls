@@ -25,6 +25,18 @@
             }
         }
 
+        /** method to check if value is null or empty */
+        private static Boolean StringIsNullOrEmpty(String text) {
+            Boolean result = false;
+            if(text == null) {
+                result = true;
+            } 
+            if(text == '') {
+                result = true;
+            }
+            return result;
+        }
+
         /* Wrapper class to map the input values with the input attributes of the webservice */
         public class CalculateCommissionRequest_Wrapper {
             /* variable initialAmount.Amount  */
@@ -90,8 +102,8 @@
         /*method calculateRate*/
         public static Decimal calculateRate(Product_Commission__c commission, String status, List<String> requestStages, List<String> authorizedStages) {         		 
             Decimal rate = 0;
-            if(commission.Suggested_Rate__c != null) {
-                rate = Decimal.valueOf(commission.Suggested_Rate__c != '' ? commission.Suggested_Rate__c  : 0);
+            if(!StringIsNullOrEmpty(commission.Suggested_Rate__c)) {
+                rate = Decimal.valueOf(commission.Suggested_Rate__c);
             }
             if(commission.Requested_Rate_Value__c != null) {
                 rate = commission.Requested_Rate_Value__c;
