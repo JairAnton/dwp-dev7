@@ -1,4 +1,4 @@
-({
+ï»¿({
     closeMe: function (component, event) {
         $A.get('e.force:refreshView').fire();
         var cancelEvent = component.getEvent('dynamicFlowWizardCancel');
@@ -10,13 +10,15 @@
             'validityDate': ret.lstOppLineItem[0].validityDate__c,
             'statusType': ret.lstOppLineItem[0].Opportunity.opportunity_status_type__c,
             'lstTile': JSON.parse(ret.lstSummarize),
-            'headers': [
-                { label: 'COMISIÓN', fieldName: 'Product_Commission_Name__c', type: 'text' },
-                { label: 'SOLICITADO (%)', fieldName: 'Requested_Rate_Value__c', type: 'text' },
-                { label: 'AUTORIZADO (%)', fieldName: 'Authorized_Rate_Value__c', type: 'text' },
-                { label: 'COMISIÓN FINAL', fieldName: 'Final_Rate__c	', type: 'text' }],
+            'headers': 
+                    [
+                        {label: 'COMISIÃ“N', fieldName: 'Product_Commission_Name__c', type: 'text'},
+                        {label: 'SOLICITADO (%)', fieldName: 'Requested_Rate_Value__c', type: 'text'},
+                        {label: 'AUTORIZADO (%)', fieldName: 'Authorized_Rate_Value__c', type: 'text'},
+                        {label: 'COMISIÃ“N FINAL', fieldName: 'Final_Rate__c	', type: 'text'} 
+                    ], 
             'data': ret.comissions
-        };
+        }; 
     },
     infoRows: function (objSetup) {
         var lstRows = [];
