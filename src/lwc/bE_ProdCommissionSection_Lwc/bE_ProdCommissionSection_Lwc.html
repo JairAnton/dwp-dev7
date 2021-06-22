@@ -21,7 +21,43 @@
                       </div>
                     </div>
                   </div>
-                  <div class="slds-size_2-of-8">
+                  <div if:true={commission.Minimum_Rate__c} class={commission.showMinimumRateClass}>
+                    <div class="slds-form-element">
+                      <div class="slds-form-element__control">
+                        <div class="slds-form-element__static">
+                          <lightning-input
+                                  if:true={commission.Rate_Is_Number__c}
+                                  label="Tarifa mínima"
+                                  value={commission.Minimum_Rate__c}
+                                  maximum-fraction-digits="0"
+                                  readonly
+                          ></lightning-input>
+                          <lightning-input
+                                  if:true={commission.Rate_Is_Percent__c}
+                                  label="Tarifa mínima"
+                                  formatter="percent"
+                                  value={commission.Minimum_Rate__c}
+                                  step="0.0001"
+                                  type="number"
+                                  readonly
+                          ></lightning-input>
+                          <lightning-input
+                                  if:true={commission.Rate_Is_Amount__c}
+                                  label="Tarifa mínima"
+                                  type="number"
+                                  formatter="currency"
+                                  value={commission.Minimum_Rate__c}
+                                  format-style="currency"
+                                  currency-display-as="code"
+                                  step="0.01"
+                                  currency-code={commission.Minimum_Rate_Iso_Code__c}
+                                  readonly
+                          ></lightning-input>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class={commission.showMinimumRateClass}>
                     <div class="slds-form-element">
                       <div class="slds-form-element__control">
                         <div class="slds-form-element__static">
@@ -222,7 +258,7 @@
                         <div class="slds-form-element__control">
                           <div class="slds-form-element__static">
                             <template if:true={question.isBoolean__c}>
-                              <template if:true={isEditable}>
+                              <template if:true={isEditableQuestionnaire}>
                                 <template if:true={question.BooleanValue__c}>
                                   <lightning-input
                                     type="toggle"
@@ -254,7 +290,7 @@
                                   </lightning-input>
                                 </template>
                               </template>
-                              <template if:false={isEditable}>
+                              <template if:false={isEditableQuestionnaire}>
                                 <template if:true={question.BooleanValue__c}>
                                   <lightning-input
                                     type="toggle"
@@ -280,7 +316,7 @@
                               </template>
                             </template>
                             <template if:false={question.isBoolean__c}>
-                              <template if:true={isEditable}>
+                              <template if:true={isEditableQuestionnaire}>
                                 <div class="slds-grid slds-wrap">
                                   <template if:true={question.isCurrency__c}>
                                     <div class="slds-col slds-grid slds-size_6-of-12 slds-large-size_6-of-12">
@@ -332,7 +368,7 @@
                                   </template>
                                 </div>
                               </template>
-                              <template if:false={isEditable}>
+                              <template if:false={isEditableQuestionnaire}>
                                 <lightning-formatted-number
                                   value={question.Input_Type__c}
                                   format-style={question.Input_Type__c}
