@@ -222,7 +222,7 @@
                     <td class="cd"><apex:outputField value="{!comi1.Product_Commission_Name__c}"/></td>
                     <td class="cd"><apex:outputField value="{!comi1.Requested_Rate_Value__c}"/></td>
                     <td class="cd"><apex:outputField value="{!comi1.Authorized_Rate_Value__c}"/></td>
-                    <td class="cd"><apex:outputField value="{!comi1.Final_Rate__c}"/></td>
+                    <td class="cd"><apex:outputField value="{!comi1.Commission_Calculation_Amount__c}"/></td>
                 </tr>
             </apex:repeat>
         </table>
@@ -326,6 +326,10 @@
         </table>
     </apex:outputPanel>
     <br/>
+
+
+
+
     <div class="subtitle">
         &nbsp;Garantias
     </div>
@@ -366,6 +370,8 @@
         </apex:repeat>
     </table>
     <br/>
+
+
     <div class="subtitle">
         &nbsp;Intervinientes
     </div>
@@ -390,4 +396,5 @@
     <div class="footer">
         <div>Página <span class="pagenumber"/> de <span class="pagecount"/></div>
     </div>
+    
 </apex:page>

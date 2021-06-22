@@ -70,6 +70,13 @@ public with sharing class BE_ProdCommissionSection_Ctr {
         commission.Authorized_Rate_Value__c = comData.rawCommission.Authorized_Rate_Value__c;
         commission.Requested_Rate_Value__c = comData.rawCommission.Requested_Rate_Value__c;
 
+        if(comData.rawCommission.Requested_Rate_Value__c == null) {
+            commission.Requested_Rate_Value__c = Decimal.valueOf(commission.Suggested_Rate__c);
+        }
+        if(comData.rawCommission.Authorized_Rate_Value__c == null) {
+            commission.Authorized_Rate_Value__c = commission.Requested_Rate_Value__c;
+        }
+
         for(Commission_Question__c currentQuestion : commission.Commission_Questions__r) {
             for(Commission_Question__c receivedQuestion : comData.rawCommission.Commission_Questions__r) {
                 if(receivedQuestion.Id == currentQuestion.Id) {

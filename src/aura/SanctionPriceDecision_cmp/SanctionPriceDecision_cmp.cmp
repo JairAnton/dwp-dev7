@@ -4,7 +4,7 @@
     <aura:attribute name="objSetup" type="Object" />
     <aura:attribute name="enableContinue" type="Boolean" default="false"/>
     <aura:attribute name="title" type="String" default="{!$Label.c.lblTitleSanctionPrice}" access="global" description="Specify the modal"/>
-    <aura:attribute name="strComments" type="String" default=""/>						   
+    <aura:attribute name="strComments" type="String"/>						   
     <aura:attribute name="closeButton" type="Boolean" default="false" access="global" description="Allow show close icon button"/>
     <aura:attribute name="positionSanctionPrice" type="List"/>
     <aura:attribute name="refreshComp" type="Boolean" default="false"/>

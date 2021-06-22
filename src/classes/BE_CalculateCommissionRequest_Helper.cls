@@ -108,7 +108,7 @@
             if(commission.Requested_Rate_Value__c != null) {
                 rate = commission.Requested_Rate_Value__c;
             } 
-            if (commission.Authorized_Rate_Value__c != null) {
+            if (commission.Authorized_Rate_Value__c != null && status !='24') {
                 rate = commission.Authorized_Rate_Value__c;
             } 
 

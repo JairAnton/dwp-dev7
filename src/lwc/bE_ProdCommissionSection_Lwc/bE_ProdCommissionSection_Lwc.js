@@ -23,6 +23,7 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
     }
     /*@api */ isPriceAuthorized = false;
     isEditableFees = false;
+    isEditableQuestionnaire = true;
     @track commisions;
     questions = [];
     commissionsAnswered = [];
@@ -46,12 +47,15 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
     wiredopportunity(value) {
         const rateReqEdArr = ['12', '02', '18', '14', '15', '16', '17', '24', '13', '03'];
         const showRateReqArr = ['03', '02', '12', '18', '14', '15', '16', '17', '24', '13', '09', '12', '11', '08', '10'];
+        const showRateAuthorizedArr = ['09', '11', '08', '10'];
         if (value.data) {
             this.status = value.data.fields.Opportunity.value.fields.opportunity_status_type__c.value;
             this.isRateRequestedEditable = this.isEditable && this.editRateRequest && rateReqEdArr.includes(this.status);
             this.showRateRequested = showRateReqArr.includes(this.status);
             this.isRateAuthorizedEditable = this.isEditable && this.editRateAuthorized && (this.status === '09');
-            this.showRateAuthorized = this.status === '09' || this.status === '11' || this.status === '08' || this.status === '10';
+            this.showRateAuthorized = showRateAuthorizedArr.includes(this.status);
+            this.isEditableQuestionnaire = this.status !== '09' && this.isEditable;
+
             console.log('read stage status', this.status);
             this.showNoCommissionMessage = this.isEditable && (this.status !== '09');
         } else if (value.error) {
@@ -169,7 +173,6 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
             Promise.allSettled(commissionCalculatePromise)
                 .then(result => {
                     console.log('result:...', result);
-                    //let rejectedIndex = result.findIndex(i => i.status === 'rejected');
                     let rejectedData = result.filter(f => f.status === 'rejected' || f.value?.error);
                     if (rejectedData.length > 0) {
                         const evt = new ShowToastEvent({
@@ -230,6 +233,8 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
                     let index = this.commisions.findIndex((i) => i.Id === commissions[cindx].value.commission.Id);
                     if (index > -1) {
                         this.commisions[index].Commission_Calculation_Amount__c = commissions[cindx].value.commission.Commission_Calculation_Amount__c;
+                        this.commisions[index].Requested_Rate_Value__c = commissions[cindx].value.commission.Requested_Rate_Value__c;
+                        this.commisions[index].Authorized_Rate_Value__c = commissions[cindx].value.commission.Authorized_Rate_Value__c;
                         this.commisions[index].error = false;
                     }
                 }
@@ -288,6 +293,10 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
         return commissions.map((comm) => {
             let { Commission_Questions__r, ...cData } = comm;
             let questions = [];
+            let showMinimumRateClass = 'slds-size_2-of-8';
+            if (comm.Minimum_Rate__c) {
+                showMinimumRateClass = 'slds-size_1-of-8';
+            }
             if (Commission_Questions__r) {
                 questions = Commission_Questions__r.map((quest) => {
                     let { Answer__c, ...qData } = quest;
@@ -303,7 +312,7 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
                 });
                 return { Commission_Questions__r: questions, ...cData };
             }
-            return { ...cData, isModified: false, error: false };
+            return { ...cData, isModified: false, error: false, showMinimumRateClass };
         });
     }
 }
