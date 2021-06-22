@@ -11,10 +11,10 @@
             'statusType': ret.lstOppLineItem[0].Opportunity.opportunity_status_type__c,
             'lstTile': JSON.parse(ret.lstSummarize),
             'headers': [
-                { label: 'COMISIÓN', fieldName: 'Product_Commission_Name__c', type: 'text' },
+                { label: 'COMISIÃ“N', fieldName: 'Product_Commission_Name__c', type: 'text' },
                 { label: 'SOLICITADO (%)', fieldName: 'Requested_Rate_Value__c', type: 'text' },
                 { label: 'AUTORIZADO (%)', fieldName: 'Authorized_Rate_Value__c', type: 'text' },
-                { label: 'COMISIÓN FINAL', fieldName: 'Final_Rate__c	', type: 'text' }],
+                { label: 'COMISIÃ“N FINAL', fieldName: 'Commission_Calculation_Amount__c', type: 'text' }],
             'data': ret.comissions
         };
     },
@@ -242,7 +242,7 @@
         return inputObject;
     },
     optionOneHtml: function (inputObject, evt) {
-        return (inputObject.label === 'Last price quote date' || inputObject.label === 'Fecha de sanción') && (evt.target.id !== '2');
+        return (inputObject.label === 'Last price quote date' || inputObject.label === 'Fecha de sanciÃ³n') && (evt.target.id !== '2');
     },
     optionTwoHTML: function (inputObject, evt) {
         return (inputObject.label === 'validityDate' || inputObject.label === 'Validez TEA') && (evt.target.id === '1');
