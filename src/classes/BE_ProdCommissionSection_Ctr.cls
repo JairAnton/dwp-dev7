@@ -69,7 +69,6 @@ public with sharing class BE_ProdCommissionSection_Ctr {
     public static Product_Commission__c parseCommission(String rawCommission, Product_Commission__c currentDbComm, String status) {
         Final ProductWrapper comData = (ProductWrapper) JSON.deserializeStrict(rawCommission, ProductWrapper.class);
         Product_Commission__c commission = new Product_Commission__c();
-        Commission_Question__c question = new Commission_Question__c ();
 
         Map<String,String> mpStatus = new Map<String,String>{'19'  => ' ', '09'  => ' ', '11'  => ' ', '08'  => ' ', '10' => ' '};
         commission = currentDbComm;
@@ -92,14 +91,8 @@ public with sharing class BE_ProdCommissionSection_Ctr {
                 commission.Requested_Rate_Value__c = Decimal.valueOf(commission.Suggested_Rate__c) * 100;
             }
         }
-        for(Commission_Question__c currentQuestion : commission.Commission_Questions__r) {
-            for(Commission_Question__c receivedQuestion : comData.rawCommission.Commission_Questions__r) {
-                if(receivedQuestion.Id == currentQuestion.Id) {
-                    currentQuestion.Answer__c = String.valueOf(receivedQuestion.Answer__c);
-                    question = receivedQuestion;
-                }
-            }
-        }
+        commission = parseQuestions(commission, comData);
+        
         return commission;
     }
 
@@ -107,6 +100,17 @@ public with sharing class BE_ProdCommissionSection_Ctr {
      *           Utilities Class
      **--------------------------------*/
 
+     /**Populte Value */
+     public static Product_Commission__c parseQuestions(Product_Commission__c commission, ProductWrapper comData) {
+        for(Commission_Question__c currentQuestion : commission.Commission_Questions__r) {
+            for(Commission_Question__c receivedQuestion : comData.rawCommission.Commission_Questions__r) {
+                if(receivedQuestion.Id == currentQuestion.Id) {
+                    currentQuestion.Answer__c = String.valueOf(receivedQuestion.Answer__c);
+                }
+            }
+        }
+        return commission;
+     } 
 
     /** --------------------------------
      *           Wrapper Class
