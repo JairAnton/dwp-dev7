@@ -160,14 +160,17 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
      */
     saveCommission() {
         this.loaded = false;
+        console.log('sending 0...:...', this.commisions);
         let commissionRequestBody = this.commisions.map((m) => {
+            // eslint-disable-next-line no-unused-vars
             let { Commission_Questions__r, isModified, error, showMinimumRateClass, Requested_Rate_Value__c, Authorized_Rate_Value__c, ...additional } = m;
-            if (m.Calculation_Type__c.toUpperCase() === 'PERCENTAGE') {
+            if (m.Suggested_Rate_Type__c.toUpperCase() === 'PERCENTAGE') {
                 Requested_Rate_Value__c = Requested_Rate_Value__c * 100;
                 Authorized_Rate_Value__c = Authorized_Rate_Value__c * 100;
             }
             return { Commission_Questions__r: this.rewriteSubquery(Commission_Questions__r), Requested_Rate_Value__c, Authorized_Rate_Value__c, ...additional };
         });
+        console.log('sending...:...', commissionRequestBody);
 
         let commissionCalculatePromise = commissionRequestBody.map((cm) => {
             return calculateRate({ rawCommission: JSON.stringify({ rawCommission: cm }), recordId: cm.Id, status: this.status });
@@ -302,7 +305,7 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
             if (comm.Minimum_Rate__c) {
                 showMinimumRateClass = 'slds-size_1-of-8';
             }
-            if (cData.Calculation_Type__c.toUpperCase() === 'PERCENTAGE') {
+            if (cData.Suggested_Rate_Type__c.toUpperCase() === 'PERCENTAGE') {
                 cData.Requested_Rate_Value__c = comm.Requested_Rate_Value__c / 100;
                 cData.Authorized_Rate_Value__c = comm.Authorized_Rate_Value__c / 100;
             }

@@ -40,10 +40,8 @@ public with sharing class BE_CalculateCommission_Ctr {
     public static List<Object> callCommissionsApi(OpportunityLineItem oli) {
         List<Object> rtnList = new List<Object>();
         try {
-            //Map with values
             Final Map<String, Web_Service_Value_Mapping__c> mapWsVal = WebServiceUtils.getWebServiceValuesMapping(new List<String> {'TERM_PERIOCITY', 'GUARANTEE_CLASSIFICATION', 'CONTRACT_MODALITY'}, oli.pricing_model_id__c);
-            Final Map<String, Web_Service_Value_Mapping__c> mapWsValParams = WebServiceUtils.getWebServiceValuesMapping(new List<String> {'GUARANTEE_TYPE', 'PAYMENT_METHOD_CODE', 'BENEFICIARY_CODE', 'PAYMENT_PERIOD_CODE', 'BAIL_OBJECT_CODE'}, '');            
-            Final BE_ListCommissionRequest_Helper listCHelper = new BE_ListCommissionRequest_Helper(oli.pricing_model_id__c, webServiceValue(mapWsVal, 'CONTRACT_MODALITY' + oli.PE_List_Product_mode__c), webServiceValue(mapWsValParams, 'GUARANTEE_TYPE' + /*oli.gipr_Tipo_Garantia__c*/oli.gipr_Garantia__c), oli.CurrencyIsoCode, oli.Opportunity.Account.main_code_id__c);
+            Final BE_ListCommissionRequest_Helper listCHelper = new BE_ListCommissionRequest_Helper(oli.pricing_model_id__c, webServiceValue(mapWsVal, 'CONTRACT_MODALITY' + oli.PE_List_Product_mode__c), webServiceValue(mapWsVal, 'GUARANTEE_CLASSIFICATION' + oli.gipr_Tipo_Garantia__c) , oli.CurrencyIsoCode, oli.Opportunity.Account.main_code_id__c);
             Final System.HttpResponse invoke = listCHelper.invoke();
             if (invoke.getStatusCode() == 200) {
                 Final Map<string,Object> data = (Map<String, Object>)JSON.deserializeUntyped(invoke.getBody());
@@ -175,7 +173,7 @@ public with sharing class BE_CalculateCommission_Ctr {
                 }
             }
         }
-        
+
         Final Map<String, Object> maximumValue = (Map<String, Object>) itemMap.get('maximumValue');
         newCommission.Commission_Maximum_Amount__c = Integer.valueOf(maximumValue.get('amount'));
         newCommission.Commission_Maximum_Iso_Code__c = String.valueOf(maximumValue.get('currency'));
