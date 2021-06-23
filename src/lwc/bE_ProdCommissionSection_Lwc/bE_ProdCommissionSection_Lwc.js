@@ -45,9 +45,9 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
 
     @wire(getRecord, { recordId: '$recordId', fields: OPP_LINE_FIELDS })
     wiredopportunity(value) {
-        const rateReqEdArr = ['12', '02', '18', '14', '15', '16', '17', '24', '13', '03'];
-        const showRateReqArr = ['03', '02', '12', '18', '14', '15', '16', '17', '24', '13', '09', '12', '11', '08', '10'];
-        const showRateAuthorizedArr = ['09', '11', '08', '10'];
+        const rateReqEdArr = ['19', '12', '02', '18', '14', '15', '16', '17', '24', '13', '03'];
+        const showRateReqArr = ['03', '02', '19', '12', '18', '14', '15', '16', '17', '24', '13', '09', '12', '11', '08', '10'];
+        const showRateAuthorizedArr = ['19', '09', '11', '08', '10'];
         if (value.data) {
             this.status = value.data.fields.Opportunity.value.fields.opportunity_status_type__c.value;
             this.isRateRequestedEditable = this.isEditable && this.editRateRequest && rateReqEdArr.includes(this.status);
@@ -160,10 +160,17 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
      */
     saveCommission() {
         this.loaded = false;
+        console.log('sending 0...:...', this.commisions);
         let commissionRequestBody = this.commisions.map((m) => {
-            let { Commission_Questions__r, isModified, error, ...additional } = m;
-            return { Commission_Questions__r: this.rewriteSubquery(Commission_Questions__r), ...additional };
+            // eslint-disable-next-line no-unused-vars
+            let { Commission_Questions__r, isModified, error, showMinimumRateClass, Requested_Rate_Value__c, Authorized_Rate_Value__c, ...additional } = m;
+            if (m.Suggested_Rate_Type__c.toUpperCase() === 'PERCENTAGE') {
+                Requested_Rate_Value__c = Requested_Rate_Value__c * 100;
+                Authorized_Rate_Value__c = Authorized_Rate_Value__c * 100;
+            }
+            return { Commission_Questions__r: this.rewriteSubquery(Commission_Questions__r), Requested_Rate_Value__c, Authorized_Rate_Value__c, ...additional };
         });
+        console.log('sending...:...', commissionRequestBody);
 
         let commissionCalculatePromise = commissionRequestBody.map((cm) => {
             return calculateRate({ rawCommission: JSON.stringify({ rawCommission: cm }), recordId: cm.Id, status: this.status });
@@ -194,6 +201,8 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
                         this.emitCalculate();
                     }
                     this.updateCommission(result);
+                    this.commisions = this.parseInitialData(this.commisions);
+                    console.log('result of commissions', this.commisions);
                     this.loaded = true;
                     this.showNoCommissionMessage = false;
                     this.commisionHasBeenModified = true;
@@ -224,10 +233,9 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
     /*                                               */
     /*-----------------------------------------------*/
     updateCommission(commissions) {
-        this.commisions = this.commisions.map(comm => {
-            return { ...comm, error: true }
-        });
+        // eslint-disable-next-line guard-for-in
         for (let cindx in commissions) {
+            this.commisions[cindx].error = true;
             if (commissions[cindx].value && !commissions[cindx].value?.error) {
                 if (commissions[cindx].value?.commission) {
                     let index = this.commisions.findIndex((i) => i.Id === commissions[cindx].value.commission.Id);
@@ -297,14 +305,18 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
             if (comm.Minimum_Rate__c) {
                 showMinimumRateClass = 'slds-size_1-of-8';
             }
+            if (cData.Suggested_Rate_Type__c.toUpperCase() === 'PERCENTAGE') {
+                cData.Requested_Rate_Value__c = comm.Requested_Rate_Value__c / 100;
+                cData.Authorized_Rate_Value__c = comm.Authorized_Rate_Value__c / 100;
+            }
             if (Commission_Questions__r) {
                 questions = Commission_Questions__r.map((quest) => {
                     let { Answer__c, ...qData } = quest;
                     let answer = Answer__c;
-                    if (Answer__c === 'true') {
+                    if (Answer__c === 'true' || Answer__c === 'YES') {
                         answer = true;
                     }
-                    if (Answer__c === 'false') {
+                    if (Answer__c === 'false' || Answer__c === 'NO') {
                         answer = false;
                     }
                     this.showNhideQuestions(quest, comm.Commission_Questions__r, answer);

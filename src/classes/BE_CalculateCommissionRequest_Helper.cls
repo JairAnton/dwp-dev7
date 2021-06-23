@@ -66,7 +66,7 @@
                 Decimal rate = calculateRate(commission, status, requestStages, authorizedStages);
             
                 if(commission.Suggested_Rate_Type__c == 'PERCENTAGE') {
-                    this.ratesItemizeRatesRateUnit = '{"unitRateType":"'+commission.Suggested_Rate_Type__c.toUppercase()+'","percentage":'+rate+'}';
+                    this.ratesItemizeRatesRateUnit = '{"unitRateType":"'+commission.Suggested_Rate_Type__c.toUppercase()+'","percentage":'+rate +'}';
                 } else {
                     this.ratesItemizeRatesRateUnit = '{"unitRateType":"'+commission.Suggested_Rate_Type__c.toUppercase()+'","amount":'+rate+',"currency":"'+commission.CurrencyIsoCode+'"}';
                 }
@@ -108,7 +108,7 @@
             if(commission.Requested_Rate_Value__c != null) {
                 rate = commission.Requested_Rate_Value__c;
             } 
-            if (commission.Authorized_Rate_Value__c != null && status !='24') {
+            if (commission.Authorized_Rate_Value__c != null && status !='24' && status != '03') {
                 rate = commission.Authorized_Rate_Value__c;
             } 
 

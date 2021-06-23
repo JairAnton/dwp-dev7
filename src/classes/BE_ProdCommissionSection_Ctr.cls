@@ -30,7 +30,7 @@ public with sharing class BE_ProdCommissionSection_Ctr {
     public static Map<String,Object> calculateRate(String rawCommission, String recordId, String status) {
         //public static Product_Commission__c calculateRate(String rawCommission, String recordId, String status) {
         Final Product_Commission__c currentdbComm = [SELECT Opportunity_Product__r.unitprice, Opportunity_Product__r.gipr_Plazo__c, Opportunity_Product__r.gipr_Periodicidad__c, Opportunity_Product__r.CurrencyIsoCode, Code__c, Term_Frequency_Id__c, Term_Number__c, Suggested_Rate_Type__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, CurrencyIsoCode, Commission_Calculation_Amount__c, Suggested_Rate__c, (SELECT Code__c, Input_Value__c, Answer__c FROM Commission_Questions__r) FROM Product_Commission__c WHERE Id = :recordId];
-        Final Product_Commission__c commission = parseCommission(rawCommission, currentdbComm);
+        Final Product_Commission__c commission = parseCommission(rawCommission, currentdbComm, status);
         Final BE_CalculateCommissionRequest_Helper listComHelper = new BE_CalculateCommissionRequest_Helper(commission,status);
         Final System.HttpResponse invoke = listComHelper.invoke();
         mapReturn = new Map<String,Object>();
@@ -58,34 +58,41 @@ public with sharing class BE_ProdCommissionSection_Ctr {
             }
         }
         update commission;
+        if(commission.Commission_Questions__r.size() > 0) {
+            update commission.Commission_Questions__r;
+        }
         mapReturn.put('commission',commission);
         return mapReturn;
     }
 
     /** Save Commission rates and answers */
-    public static Product_Commission__c parseCommission(String rawCommission, Product_Commission__c currentDbComm) {
+    public static Product_Commission__c parseCommission(String rawCommission, Product_Commission__c currentDbComm, String status) {
         Final ProductWrapper comData = (ProductWrapper) JSON.deserializeStrict(rawCommission, ProductWrapper.class);
         Product_Commission__c commission = new Product_Commission__c();
+
+        Map<String,String> mpStatus = new Map<String,String>{'19'  => ' ', '09'  => ' ', '11'  => ' ', '08'  => ' ', '10' => ' '};
         commission = currentDbComm;
         commission.Authorized_Rate_Value__c = comData.rawCommission.Authorized_Rate_Value__c;
         commission.Requested_Rate_Value__c = comData.rawCommission.Requested_Rate_Value__c;
 
-        if(comData.rawCommission.Requested_Rate_Value__c == null) {
-            commission.Requested_Rate_Value__c = Decimal.valueOf(commission.Suggested_Rate__c);
-        }
-        if(comData.rawCommission.Authorized_Rate_Value__c == null) {
+        if(comData.rawCommission.Authorized_Rate_Value__c == null && mpStatus.containsKey(status) ) {
             commission.Authorized_Rate_Value__c = commission.Requested_Rate_Value__c;
-        }
-
-        for(Commission_Question__c currentQuestion : commission.Commission_Questions__r) {
-            for(Commission_Question__c receivedQuestion : comData.rawCommission.Commission_Questions__r) {
-                if(receivedQuestion.Id == currentQuestion.Id) {
-                    currentQuestion.Answer__c = receivedQuestion.Answer__c;
-                }
+            if(currentDbComm.Suggested_Rate_Type__c.toUpperCase() == 'PERCENTAGE' ) {
+                commission.Authorized_Rate_Value__c = commission.Requested_Rate_Value__c * 100;
             }
         }
 
-
+        if(comData.rawCommission.Requested_Rate_Value__c == null) {
+            commission.Requested_Rate_Value__c = 0;
+            if(commission.Suggested_Rate__c != null) {
+                commission.Requested_Rate_Value__c = Decimal.valueOf(commission.Suggested_Rate__c);
+            }
+            if(currentDbComm.Suggested_Rate_Type__c.toUpperCase() == 'PERCENTAGE') {
+                commission.Requested_Rate_Value__c = Decimal.valueOf(commission.Suggested_Rate__c) * 100;
+            }
+        }
+        commission = parseQuestions(commission, comData);
+        
         return commission;
     }
 
@@ -93,6 +100,17 @@ public with sharing class BE_ProdCommissionSection_Ctr {
      *           Utilities Class
      **--------------------------------*/
 
+     /**Populte Value */
+     public static Product_Commission__c parseQuestions(Product_Commission__c commission, ProductWrapper comData) {
+        for(Commission_Question__c currentQuestion : commission.Commission_Questions__r) {
+            for(Commission_Question__c receivedQuestion : comData.rawCommission.Commission_Questions__r) {
+                if(receivedQuestion.Id == currentQuestion.Id) {
+                    currentQuestion.Answer__c = String.valueOf(receivedQuestion.Answer__c);
+                }
+            }
+        }
+        return commission;
+     } 
 
     /** --------------------------------
      *           Wrapper Class
