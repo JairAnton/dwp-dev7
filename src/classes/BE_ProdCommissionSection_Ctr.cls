@@ -68,7 +68,6 @@ public with sharing class BE_ProdCommissionSection_Ctr {
     /** Save Commission rates and answers */
     public static Product_Commission__c parseCommission(String rawCommission, Product_Commission__c currentDbComm, String status) {
         Final ProductWrapper comData = (ProductWrapper) JSON.deserializeStrict(rawCommission, ProductWrapper.class);
-        Final Map<String,SObject> result = new Map<String,SObject>();
         Product_Commission__c commission = new Product_Commission__c();
         Commission_Question__c question = new Commission_Question__c ();
 
@@ -101,9 +100,6 @@ public with sharing class BE_ProdCommissionSection_Ctr {
                 }
             }
         }
-        result.put('questions',question);
-        result.put('commission', commission);
-        System.debug('   Final Commission: '+commission.Commission_Questions__r);
         return commission;
     }
 
