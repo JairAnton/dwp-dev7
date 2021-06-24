@@ -66,13 +66,14 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
     connectedCallback() {
         getCommissions({ recordId: this.recordId, negotiables: this.requestNegotiables, requestDataToAso: this.requestDataToAso })
             .then(result => {
-                console.log('RESULTADOS DE GET COMMISSIONS', result);
-                console.log('ID', this.recordId);
 
                 this.commisions = this.parseInitialData(result.commissions);
                 if (!this.isEditable) {
                     this.activeSections = result.commissions.map((c) => c.Id);
                 }
+
+                console.log('RESULTADOS DE GET COMMISSIONS', result);
+                console.log('ID', this.recordId);
 
                 if (result.error) {
                     let evt = new ShowToastEvent({
@@ -163,7 +164,7 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
         console.log('sending 0...:...', this.commisions);
         let commissionRequestBody = this.commisions.map((m) => {
             // eslint-disable-next-line no-unused-vars
-            let { Commission_Questions__r, isModified, error, showMinimumRateClass, Requested_Rate_Value__c, Authorized_Rate_Value__c, ...additional } = m;
+            let { Commission_Questions__r, isModified, error, Requested_Rate_Value__c, Authorized_Rate_Value__c, ...additional } = m;
             if (m.Suggested_Rate_Type__c.toUpperCase() === 'PERCENTAGE') {
                 Requested_Rate_Value__c = Requested_Rate_Value__c * 100;
                 Authorized_Rate_Value__c = Authorized_Rate_Value__c * 100;
@@ -243,6 +244,7 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
                         this.commisions[index].Commission_Calculation_Amount__c = commissions[cindx].value.commission.Commission_Calculation_Amount__c;
                         this.commisions[index].Requested_Rate_Value__c = commissions[cindx].value.commission.Requested_Rate_Value__c;
                         this.commisions[index].Authorized_Rate_Value__c = commissions[cindx].value.commission.Authorized_Rate_Value__c;
+                        this.commisions[index].Commission_Calculation_Currency__c = commissions[cindx].value.commission.Commission_Calculation_Currency__c;
                         this.commisions[index].error = false;
                     }
                 }
@@ -300,11 +302,8 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
     parseInitialData(commissions) {
         return commissions.map((comm) => {
             let { Commission_Questions__r, ...cData } = comm;
-            let questions = [];
-            let showMinimumRateClass = 'slds-size_2-of-8';
-            if (comm.Minimum_Rate__c) {
-                showMinimumRateClass = 'slds-size_1-of-8';
-            }
+            let questions = []; //showMinimumRateClass__c
+
             if (cData.Suggested_Rate_Type__c.toUpperCase() === 'PERCENTAGE') {
                 cData.Requested_Rate_Value__c = comm.Requested_Rate_Value__c / 100;
                 cData.Authorized_Rate_Value__c = comm.Authorized_Rate_Value__c / 100;
@@ -324,7 +323,7 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
                 });
                 return { Commission_Questions__r: questions, ...cData };
             }
-            return { ...cData, isModified: false, error: false, showMinimumRateClass };
+            return { ...cData, isModified: false, error: false };
         });
     }
 }

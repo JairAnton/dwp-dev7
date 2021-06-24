@@ -173,6 +173,8 @@ public without sharing virtual class OpportunityPDFWrap {
 			Opp = database.query(String.escapeSingleQuotes(getQuery('Opportunity') + ' WHERE id =:Oppid LIMIT 1'));
 			final String idTempo = Opp.Id;
 			OLI = database.query(String.escapeSingleQuotes(getQuery('OpportunityLineItem') + ' WHERE  OpportunityID =:idTempo ORDER BY CreatedDate DESC LIMIT 1'));
+			commissions1 =  [SELECT Calculation_Type__c , Commission_Calculation_Amount__c, Product_Commission_Name__c, Suggested_Rate__c, Suggested_Rate_Type__c, Requested_Rate_Value__c,Authorized_Rate_Value__c, Final_Rate__c FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id  ];
+ 
 			final List<String> Litemp = new list<String> {'Autorizado por riesgos', 'Riesgo aprobado dentro de línea'};
 			Audit = database.query(String.escapeSingleQuotes(getQuery('dwp_cvad__Action_Audit__c') + ' WHERE  dwp_cvad__action_audit_name__c IN:Litemp  AND  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C =:idTempo  ORDER BY CreatedDate DESC'));
 			if(Audit.size() > 0) {
@@ -225,11 +227,6 @@ public without sharing virtual class OpportunityPDFWrap {
 			totalGarantiasNoFormalizadas = [SELECT COUNT_DISTINCT(Id) total FROM fprd__GBL_Guarantee__c WHERE fprd__GBL_Opportunity_product__c =:Opp.Id AND guarantee_status_type__c = '02'];
 			numGnF = Integer.valueOf(totalGarantiasNoFormalizadas[0].get('total'));
 			title = 'PDF Formalización ' + Opportunity.Name;
-
-			commissions1 =  [SELECT Calculation_Type__c , Commission_Calculation_Amount__c, Product_Commission_Name__c, Suggested_Rate__c, 
-			Suggested_Rate_Type__c, Requested_Rate_Value__c,Authorized_Rate_Value__c, Final_Rate__c FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id  ];
- 
-
 
 		} catch(System.Exception e) {
 			system.debug('Exception : ' + e.getMessage());
