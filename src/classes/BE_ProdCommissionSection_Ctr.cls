@@ -29,7 +29,7 @@ public with sharing class BE_ProdCommissionSection_Ctr {
     @AuraEnabled
     public static Map<String,Object> calculateRate(String rawCommission, String recordId, String status) {
         //public static Product_Commission__c calculateRate(String rawCommission, String recordId, String status) {
-        Final Product_Commission__c currentdbComm = [SELECT Opportunity_Product__r.unitprice, Opportunity_Product__r.gipr_Plazo__c, Opportunity_Product__r.gipr_Periodicidad__c, Opportunity_Product__r.CurrencyIsoCode, Code__c, Term_Frequency_Id__c, Term_Number__c, Suggested_Rate_Type__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, CurrencyIsoCode, Commission_Calculation_Amount__c, Suggested_Rate__c, (SELECT Code__c, Input_Value__c, Answer__c FROM Commission_Questions__r) FROM Product_Commission__c WHERE Id = :recordId];
+        Final Product_Commission__c currentdbComm = [SELECT Opportunity_Product__r.unitprice, Opportunity_Product__r.gipr_Plazo__c, Opportunity_Product__r.gipr_Periodicidad__c, Opportunity_Product__r.CurrencyIsoCode, Code__c, Term_Frequency_Id__c, Term_Number__c, Suggested_Rate_Type__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, CurrencyIsoCode, Commission_Calculation_Amount__c, Suggested_Rate__c, Suggested_Rate_Iso_Code__c, Commission_Calculation_Currency__c,(SELECT Code__c, Input_Value__c, Answer__c FROM Commission_Questions__r) FROM Product_Commission__c WHERE Id = :recordId];
         Final Product_Commission__c commission = parseCommission(rawCommission, currentdbComm, status);
         Final BE_CalculateCommissionRequest_Helper listComHelper = new BE_CalculateCommissionRequest_Helper(commission,status);
         Final System.HttpResponse invoke = listComHelper.invoke();
@@ -50,7 +50,7 @@ public with sharing class BE_ProdCommissionSection_Ctr {
                 
                 Final Map<String, Object> calculatedAmount = (Map<String, Object>) calculatedFee.get('calculatedAmount');
                 commission.Commission_Calculation_Amount__c = Double.valueOf(calculatedAmount.get('amount'));
-                commission.CurrencyIsoCode = String.valueOf(calculatedAmount.get('currency'));
+                commission.Commission_Calculation_Currency__c = String.valueOf(calculatedAmount.get('currency'));
             } when else {
                 mapReturn.put('error',true);
                 mapReturn.put('responseCode',invoke.getStatusCode());
@@ -72,23 +72,23 @@ public with sharing class BE_ProdCommissionSection_Ctr {
 
         Map<String,String> mpStatus = new Map<String,String>{'19'  => ' ', '09'  => ' ', '11'  => ' ', '08'  => ' ', '10' => ' '};
         commission = currentDbComm;
-        commission.Authorized_Rate_Value__c = comData.rawCommission.Authorized_Rate_Value__c;
-        commission.Requested_Rate_Value__c = comData.rawCommission.Requested_Rate_Value__c;
+        commission.Authorized_Rate_Value__c = obtainTwoDecimals(comData.rawCommission.Authorized_Rate_Value__c);
+        commission.Requested_Rate_Value__c = obtainTwoDecimals(comData.rawCommission.Requested_Rate_Value__c);
 
         if(comData.rawCommission.Authorized_Rate_Value__c == null && mpStatus.containsKey(status) ) {
             commission.Authorized_Rate_Value__c = commission.Requested_Rate_Value__c;
             if(currentDbComm.Suggested_Rate_Type__c.toUpperCase() == 'PERCENTAGE' ) {
-                commission.Authorized_Rate_Value__c = commission.Requested_Rate_Value__c * 100;
+                commission.Authorized_Rate_Value__c = (commission.Requested_Rate_Value__c).setScale(2);
             }
         }
 
         if(comData.rawCommission.Requested_Rate_Value__c == null) {
             commission.Requested_Rate_Value__c = 0;
             if(commission.Suggested_Rate__c != null) {
-                commission.Requested_Rate_Value__c = Decimal.valueOf(commission.Suggested_Rate__c);
+                commission.Requested_Rate_Value__c = (Decimal.valueOf(commission.Suggested_Rate__c)).setScale(2);
             }
             if(currentDbComm.Suggested_Rate_Type__c.toUpperCase() == 'PERCENTAGE') {
-                commission.Requested_Rate_Value__c = Decimal.valueOf(commission.Suggested_Rate__c) * 100;
+                commission.Requested_Rate_Value__c = (Decimal.valueOf(commission.Suggested_Rate__c) * 100).setScale(2);
             }
         }
         commission = parseQuestions(commission, comData);
@@ -111,6 +111,15 @@ public with sharing class BE_ProdCommissionSection_Ctr {
         }
         return commission;
      } 
+
+    /**Clase para ver si los decimales son nulos */
+    public static Decimal obtainTwoDecimals(Decimal numero) {
+        Decimal result = numero;
+        if(numero != null) {
+            result = numero.setScale(2);
+        }
+        return result;
+    }
 
     /** --------------------------------
      *           Wrapper Class

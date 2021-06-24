@@ -235,6 +235,30 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Commission_Calculation_Currency__c</fullName>
+        <externalId>false</externalId>
+        <label>Commission Calculation Currency</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>PEN</fullName>
+                    <default>false</default>
+                    <label>PEN</label>
+                </value>
+                <value>
+                    <fullName>USD</fullName>
+                    <default>false</default>
+                    <label>USD</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Commission_Calculation_Id__c</fullName>
         <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
@@ -615,6 +639,17 @@
         <summaryOperation>count</summaryOperation>
         <trackTrending>false</trackTrending>
         <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>showMinimumRateClass__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Minimum_Rate__c == &apos;&apos;, &apos;slds-size_2-of-8&apos;, &apos;slds-size_1-of-8&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>showMinimumRateClass</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <gender>Feminine</gender>
     <label>Product Commission</label>

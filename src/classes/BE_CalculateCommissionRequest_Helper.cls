@@ -64,11 +64,12 @@
                 
                 /**Calculate Rate */
                 Decimal rate = calculateRate(commission, status, requestStages, authorizedStages);
+                String isoCode = calculateIsoCode(commission);
             
                 if(commission.Suggested_Rate_Type__c == 'PERCENTAGE') {
                     this.ratesItemizeRatesRateUnit = '{"unitRateType":"'+commission.Suggested_Rate_Type__c.toUppercase()+'","percentage":'+rate +'}';
                 } else {
-                    this.ratesItemizeRatesRateUnit = '{"unitRateType":"'+commission.Suggested_Rate_Type__c.toUppercase()+'","amount":'+rate+',"currency":"'+commission.CurrencyIsoCode+'"}';
+                    this.ratesItemizeRatesRateUnit = '{"unitRateType":"'+commission.Suggested_Rate_Type__c.toUppercase()+'","amount":'+rate+',"currency":"'+isoCode+'"}';
                 }
 
                 /**Calculate */
@@ -118,6 +119,15 @@
         /* method to convert the input data mapping to a JSON structure */
         public String generateJSONRequest() {
             return JSON.serialize(this.inputDataMapping);
+        }
+
+        /**Calculate Iso Code */
+        public static string calculateIsoCode(Product_Commission__c commission) {
+            String isoCode = commission.CurrencyIsoCode;
+            if(commission.Suggested_Rate_Iso_Code__c != null) {
+                IsoCode = commission.Suggested_Rate_Iso_Code__c;
+            }
+            return isoCode;
         }
 
         /* Method to invoke the webservice */
