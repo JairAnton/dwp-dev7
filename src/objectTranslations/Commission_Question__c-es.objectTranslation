@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Commission Question</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Commission Questions</value>
+    </caseValues>
+    <fields>
+        <label><!-- Answer --></label>
+        <name>Answer__c</name>
+    </fields>
+    <fields>
+        <label><!-- BooleanValue --></label>
+        <name>BooleanValue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Code --></label>
+        <name>Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- External Id --></label>
+        <name>External_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Input Type --></label>
+        <name>Input_Type__c</name>
+        <picklistValues>
+            <masterLabel>YES OR NO</masterLabel>
+            <translation><!-- YES OR NO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>currency</masterLabel>
+            <translation><!-- currency --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>decimal</masterLabel>
+            <translation><!-- decimal --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Input Value --></label>
+        <name>Input_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent Code --></label>
+        <name>Parent_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent Question --></label>
+        <name>Parent_Question__c</name>
+        <relationshipLabel><!-- Commission Questions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Product Commission --></label>
+        <name>Product_Commission__c</name>
+        <relationshipLabel><!-- Commission Questions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- isBoolean --></label>
+        <name>isBoolean__c</name>
+    </fields>
+    <fields>
+        <label><!-- isCurrency --></label>
+        <name>isCurrency__c</name>
+    </fields>
+    <fields>
+        <label><!-- isParent --></label>
+        <name>isParent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Output Type --></label>
+        <name>output_Type__c</name>
+        <picklistValues>
+            <masterLabel>AMOUNT</masterLabel>
+            <translation><!-- AMOUNT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>QUANTITY</masterLabel>
+            <translation><!-- QUANTITY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>YES_OR_NOT</masterLabel>
+            <translation><!-- YES_OR_NOT --></translation>
+        </picklistValues>
+    </fields>
+    <gender>Feminine</gender>
+</CustomObjectTranslation>

@@ -1,6 +1,8 @@
 ({
     close: function (component, event, helper) {
-        helper.closeMe(component, event, helper);
+        $A.get('e.force:refreshView').fire();
+        var cancelEvent = component.getEvent('dynamicFlowWizardCancel');
+        cancelEvent.fire();
     },
     doInit: function (component, event, helper) {
         helper.getInfo(component, event, helper);

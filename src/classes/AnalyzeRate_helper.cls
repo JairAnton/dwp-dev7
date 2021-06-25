@@ -19,6 +19,9 @@ public without sharing class AnalyzeRate_helper {
     public RequestAnalyzeRate_Wrapper inputDataMapping { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
     /* variable boolean is simulate call*/
     public Boolean isSimulate { get; set; }
+    
+    /* variable boolean is simulate call*/
+    public Boolean hasCommissions = false;
 
     /**
      * constructor of class
@@ -37,6 +40,13 @@ public without sharing class AnalyzeRate_helper {
         
         final List<Request_fees> ltsFees = new List<Request_fees>();
         inputDataMapping.lstFees = JSON.serialize(ltsFees);
+
+        inputDataMapping.lstCalculatedFees = '';
+        Final OpportunityLineItem oli = [SELECT Id FROM OpportunityLineItem WHERE Opportunity.Id = :recordId];
+        inputDataMapping.lstCalculatedFees = calculateFeesArray(oli);
+        
+
+
         
         final List<Request_products> ltsReqProd = new List<Request_products>();
         final List<Opportunity_Solution_Commitment__c> lstCommitments = [SELECT Id, opp_solution_commitment_id__c,
@@ -66,9 +76,30 @@ public without sharing class AnalyzeRate_helper {
     }
 
     /**
+     * Calulate Fees
+     */
+     public static String calculateFeesArray(OpportunityLineItem oli) {
+        String lstCalculatedFees = '';
+        lstCalculatedFees = '"calculatedFees":[';
+        for(Product_Commission__c commission : [SELECT Id, Commission_Calculation_Id__c, Commission_Calculation_Version__c FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id ]) {                
+            if(commission.Commission_Calculation_Id__c != null && commission.Commission_Calculation_Version__c != null ) {
+                lstCalculatedFees = lstCalculatedFees + '{"id":"'+commission.Commission_Calculation_Id__c+'","version":'+commission.Commission_Calculation_Version__c+'}';
+                lstCalculatedFees = lstCalculatedFees + ',';
+            }
+        }
+        lstCalculatedFees = lstCalculatedFees + '],';
+        lstCalculatedFees = lstCalculatedFees.replaceAll('},]', '}]');   
+        
+        return lstCalculatedFees;
+     }
+
+    /**
      * method used to create json request
      */
     public String generateJSONRequest() {
+        if(!this.hasCommissions) {
+            this.inputDataMapping.lstCalculatedFees = '"calculatedFees":[],';
+        }
         String json = JSON.serialize(this.inputDataMapping);
         json = json.replace('currencyType', 'currency');
         json = json.replace('numberValue', 'number');
@@ -94,6 +125,8 @@ public without sharing class AnalyzeRate_helper {
         public String lstFees { get; set; }
         /* Variable request Wrapper */
         public String lstProducts { get; set; }
+        /* Variable request Wrapper */
+        public String lstCalculatedFees {get;set; }
     }
     
     /**
@@ -173,6 +206,17 @@ public without sharing class AnalyzeRate_helper {
 	}
     
     /**
+     * Calculated_fees class to the request
+     */
+    public class Calculated_fees {
+        /* Variable request */
+        public String id {get; set; }
+        /* Variable request */
+        public Integer version {get; set;}
+    }
+    
+    
+    /**
      * Method used of parse json to ResponseAnalyzeRate_Wrapper class
      * @param json This is string of response webservice
      */
@@ -181,7 +225,7 @@ public without sharing class AnalyzeRate_helper {
         vjson = vjson.replace('"number":', '"numberValue":');
         return (ResponseAnalyzeRate_Wrapper) System.JSON.deserialize(vjson, ResponseAnalyzeRate_Wrapper.class);
     }
-    
+
     /**
      * Wrapper class to the response
      */
@@ -194,6 +238,8 @@ public without sharing class AnalyzeRate_helper {
      * Data class to the response
      */
     public class Response_data {
+        /* Variable response */
+        public string id { get; set; }
         /* Variable response */
         public Response_InterestRates interestRates { get; set; }
         /* Variable response */

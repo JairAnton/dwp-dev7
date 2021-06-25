@@ -7,5 +7,11 @@
     },
     dateChange: function (cmp, evt, helper) {
         cmp.set('v.changeDate', true);
+    },
+    emitCommissionEvent: function (cmp, evt, helper) {
+        helper.emitEventHelper(cmp, evt, helper);
+    },
+    handlerCommissionCall: function (cmp, evt, helper) {
+        helper.handlerCommissionCallHelper(cmp, evt, helper);
     }
 })

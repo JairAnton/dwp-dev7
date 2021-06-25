@@ -1,6 +1,13 @@
 .THIS  .sizeSPRICE {
    width:43rem;
 }
+
+.THIS .custom-title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .THIS .custom-left-box {
     background-color: #ECEBEA;
     border-left: 1px solid #C0C0C0;

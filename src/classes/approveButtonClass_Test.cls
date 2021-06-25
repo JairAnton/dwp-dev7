@@ -93,7 +93,7 @@ public class approveButtonClass_Test {
 		Test.startTest();
 
 		Map<String, Object> mapReturnSave = approveButtonClass.approvePrice(opptest.Id);
-		System.assertEquals(false, (Boolean)mapReturnSave.get('isOk'));
+        System.assertEquals(false, (Boolean)mapReturnSave.get('isOk'));
 
 		Test.stopTest();
 	}
@@ -121,6 +121,7 @@ public class approveButtonClass_Test {
 		Test.startTest();
 
 		Map<String, Object> mapReturnSave = approveButtonClass.approvePrice(opptest.Id);
+        //System.assert((Boolean)mapReturnSave.get('isOk'),'assert succesfull');
 		System.assertEquals(false, (Boolean)mapReturnSave.get('isOk'));
 
 		Test.stopTest();

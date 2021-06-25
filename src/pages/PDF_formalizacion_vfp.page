@@ -191,6 +191,7 @@
                         <td>Bolsa comex:&nbsp;<apex:outputfield value="{!OLI.gipr_Comex_Bag__c}"/></td>
                     </tr>
                 </apex:outputPanel>
+              
                 <tr>
                     <td>Compromisos:&nbsp;{!totalC} </td>
                     <td>Comentarios:&nbsp;{!Comentarios}</td>
@@ -203,6 +204,29 @@
     </div>
     <div class="pageBreak"></div>
     <apex:outputPanel id="DatosOportunidad"  layout="block">
+        <br/>
+
+        <div class="subtitle">
+            <strong>&nbsp;Datos de Comisión</strong>
+        </div>
+        <table class="classTableBack">
+            <tr>
+                <th class="cb">COMISIÓN</th>
+                <th class="cb">SOLICITADO (%)</th>
+                <th class="cb">AUTORIZADO (%) </th>
+                <th class="cb">COMISIÓN FINAL</th>
+
+            </tr>
+            <apex:repeat value="{!commissions1}" var="comi1">
+                <tr>
+                    <td class="cd"><apex:outputField value="{!comi1.Product_Commission_Name__c}"/></td>
+                    <td class="cd"><apex:outputField value="{!comi1.Requested_Rate_Value__c}"/></td>
+                    <td class="cd"><apex:outputField value="{!comi1.Authorized_Rate_Value__c}"/></td>
+                    <td class="cd"><apex:outputField value="{!comi1.Commission_Calculation_Amount__c}"/></td>
+                </tr>
+            </apex:repeat>
+        </table>
+
         <br/>
         <div class="subtitle">
             <b>&nbsp;Datos de oportunidad</b>
@@ -302,6 +326,10 @@
         </table>
     </apex:outputPanel>
     <br/>
+
+
+
+
     <div class="subtitle">
         &nbsp;Garantias
     </div>
@@ -342,6 +370,8 @@
         </apex:repeat>
     </table>
     <br/>
+
+
     <div class="subtitle">
         &nbsp;Intervinientes
     </div>
@@ -366,4 +396,5 @@
     <div class="footer">
         <div>Página <span class="pagenumber"/> de <span class="pagecount"/></div>
     </div>
+    
 </apex:page>

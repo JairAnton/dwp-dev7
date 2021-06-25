@@ -49,6 +49,9 @@
 		&quot;rate&quot;:{
 			&quot;id&quot;: &quot;#calculationRatesId#&quot;
 		},
+		&quot;analyzeRate&quot;:{
+			&quot;id&quot;: &quot;#analizeRateId#&quot;
+		},
 		&quot;comment&quot;: &quot;#requestComment#&quot;,
 		&quot;interestRates&quot;: {
 			&quot;effectiveRates&quot;: [{
@@ -56,7 +59,7 @@
 				&quot;percentage&quot;: #proposedAPRpercent#
 			}]
 		}
-		#guaranteeType#
+		
     }]  
 }</value>
     </values>

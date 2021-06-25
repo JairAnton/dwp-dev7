@@ -145,7 +145,8 @@ public with sharing class Commitment_ctrl {
  	@AuraEnabled
     public static Map<String,Object> infoAnalyzeRate(String idOli, String tea) {
         Map<String,Object> mapReturn = new Map<String,Object>();
-        mapReturn = BE_AnalyzeRate_ctrl.getInfoRORC(idOli, tea, '');
+		Final OpportunityLineItem oli = [SELECT Id, hasCommissions__c From OpportunityLineItem WHERE Id = :idOli];
+        mapReturn = BE_AnalyzeRate_ctrl.getInfoRORC(idOli, tea, '', oli.hasCommissions__c);
         mapReturn.put(STRISOK, true);
         return mapReturn;
     }

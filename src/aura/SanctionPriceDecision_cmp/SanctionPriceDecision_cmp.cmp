@@ -4,13 +4,16 @@
     <aura:attribute name="objSetup" type="Object" />
     <aura:attribute name="enableContinue" type="Boolean" default="false"/>
     <aura:attribute name="title" type="String" default="{!$Label.c.lblTitleSanctionPrice}" access="global" description="Specify the modal"/>
-    <aura:attribute name="strComments" type="String" default=""/>
+    <aura:attribute name="strComments" type="String"/>						   
     <aura:attribute name="closeButton" type="Boolean" default="false" access="global" description="Allow show close icon button"/>
     <aura:attribute name="positionSanctionPrice" type="List"/>
     <aura:attribute name="refreshComp" type="Boolean" default="false"/>
     <!--<aura:attribute name="data" type="Object"/>-->
+    <aura:attribute name="headersComi" type="List"/>
+    <aura:attribute name="dataComi" type="Object"/>
     
    	<div id="storeHTML" class="slds-hide">
+																		
         <h3 class="slds-section__title">{!$Label.c.Comments}</h3>
         <div class="slds-form-element__control">
             <span class="slds-form-element__static">
@@ -19,12 +22,14 @@
         </div>
         <!--New Section-->
         <aura:if isTrue="{!v.inputAttributes.approvalMethod == 'Web'}">
-	        <h3 class="slds-section__title">Producto: {!v.objSetup.nameProd}</h3>
+		  
+	        <h3 class="slds-section__title">Producto: {!v.objSetup.nameProd}</h3>																	   
 	        <div class="slds-grid slds-wrap">
 	            <aura:iteration items="{!v.positionSanctionPrice}" var="positionSP">
 	                <div class="slds-size_1-of-2">
 	                    <div class="slds-form-element">
 	                        <span class="slds-form-element__label">{! positionSP.label}</span> 
+
 	                        <div class="slds-form-element__control">
 	                            <span class="slds-form-element__static">
 	                                {!positionSP.value}
@@ -35,14 +40,50 @@
 	            </aura:iteration>
 	        </div>
 	    </aura:if>
+
+		 
         <h3 class="slds-section__title">{!$Label.c.Price}</h3>
+  
+
         <aura:if isTrue="{!v.inputAttributes.approvalMethod == 'Web'}">
             <c:FieldsForm_cmp aura:id="table" recordId="{!v.inputAttributes.opportunityLineItem}" isInput="false" valueDynamic="-" developerNameTable="{!v.inputAttributes.approvalMethod + '_Audit'}" hasDivider="false" isHTML="true" refreshComp="{!v.refreshComp}"/>
         </aura:if>
         <aura:if isTrue="{!v.inputAttributes.approvalMethod != 'Web'}">
             <c:FieldsForm_cmp aura:id="table" recordId="{!v.inputAttributes.opportunityLineItem}" isInput="false" valueDynamic="-" developerNameTable="{!v.inputAttributes.approvalMethod + '_Proposal'}" hasDivider="false" isHTML="true"/>
         </aura:if>
+	 
         <h3 class="slds-section__title">{!$Label.c.Commitments}</h3>
+	 
+	          
+<div class="slds-m-top_medium">  
+    <h3 class="slds-section__title">Información de Comisiones: </h3>                                                                                  
+</div>
+<aura:if isTrue="{!v.inputAttributes.approvalMethod == 'Web'}">
+    <div class="slds-m-top_medium">
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer" role="grid">
+                <thead>
+                    <tr>
+                        <aura:iteration items="{!v.headersComi}" var="head" indexVar="i">
+                            <th scope="col" class="slds-is-sortable slds-is-resizable">
+                                {!head.label}
+                            </th>
+                        </aura:iteration>
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:iteration items="{!v.dataComi}" var="row">
+                        <tr class="slds-is-sortable slds-is-resizable" style="overflow-x:auto;">
+                            <aura:iteration items="{!row}" var="cell">
+                                <th>{!cell}</th>
+                            </aura:iteration>
+                        </tr>
+                    </aura:iteration> 
+                </tbody>
+            </table>
+    </div>
+</aura:if>
+ 	 
+
         <c:CommitmentsSection_cmp isCollapsed="false" sectionTitle="{!$Label.c.Commitments}" recordId="{!v.inputAttributes.recordId}" finMarRecover="{!v.inputAttributes.finMarRecover}" finMarRecoverCur="{!v.inputAttributes.finMarRecoverCur}"/>
     </div>
     
@@ -96,6 +137,7 @@
                                 </div>
                             </aura:iteration>
                         </div>
+
                         <aura:if isTrue="{!v.inputAttributes.approvalMethod == 'Web'}">
                             <div class="slds-text-align_left" role="alert">
                                 <span class="slds-assistive-text">warning</span>
@@ -119,7 +161,9 @@
                                 <aura:if isTrue="{!v.objSetup.statusType=='08'}">
                                     <p>Validez TEA: <ui:outputDate value="{!v.objSetup.validityDate}" format="dd/MM/YYYY"/></p>
                                 </aura:if>
+ 
                             </div>	  
+
                         </aura:if>
                     </lightning:layoutItem>
                 </lightning:layout>

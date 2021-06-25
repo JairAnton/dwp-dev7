@@ -1,29 +1,84 @@
 public without sharing virtual class OpportunityPDFWrap {
+    
+	/** Class method*/
 	public static OpportunityLineItem OLI {get; set;}
+    
+	/** Class method*/
 	public static OpportunityLineItem OLI2 {get; set;}
+    
+	/** Class method*/
 	public static OpportunityLineItem OLI3 {get; set;}
+    
+	/** Class method*/
+	public static List<Product_Commission__c> commissions1 {get; set;}
+    
+	/** Class method*/
 	Public Static Account_BBVA_Classification__c ABBVAC {get; set;}
+    
+	/** Class method*/
 	Public static Product2 Product {get; set;}
+    
+	/** Class method*/
 	Public static Account Client {get; set;}
+    
+	/** Class method*/
 	Public static User_Branch__c[] usuarioOficina {get; set;}
+    
+	/** Class method*/
 	Public static Branch__c Oficina {get; set;}
+    
+	/** Class method*/
 	Public static Account_Rating__c Rating {get; set;}
+    
+	/** Class method*/
 	Public static list<fprd__GBL_Intervener__c > Intervenientes {get; set;}
+    
+	/** Class method*/
 	Public static list<fprd__GBL_Guarantee__c> Garantias {get; set;}
+    
+	/** Class method*/
 	public static AggregateResult[] totalComprimisos {get; set;}
+    
+	/** Class method*/
 	public static AggregateResult[] totalGarantiasNoFormalizadas {get; set;}
+    
+	/** Class method*/
 	public static fprd__GBL_Product_Configuration__c[] ProductConfiguration {get; set;}
+    
+	/** Class method*/
 	public static fprd__GBL_Product_Configuration__c[] A {get; set;}
+    
+	/** Class method*/
 	public static fprd__GBL_Product_Configuration__c[] B {get; set;}
+    
+	/** Class method*/
 	public static Integer totalC {get; set;}
+    
+	/** Class method*/
 	public static Integer numGnF {get; set;}
+    
+	/** Class method*/
 	public static String title {get; set;}
+    
+	/** Class method*/
 	public static opportunity Opp {get; set;}
+    
+	/** Class method*/
 	public static map<id, boolean> fieldVisibility {get; set;}
+    
+	/** Class method*/
 	private static list<dwp_cvad__Action_Audit__c> Audit {get; set;}
+    
+	/** Class method*/
 	Public static list<dwp_cvad__Action_Audit__c> Comen {get; set;}
+    
+	/** Class method*/
 	public static String FechaAut {get; set;}
+    
+	/** Class method*/
 	public static String FauthPrecio {get; set;}
+    
+	/** Class method*/
 	public static String Comentarios {get; set;}
 
 	private static String getQuery(String Objeto) {
@@ -118,6 +173,8 @@ public without sharing virtual class OpportunityPDFWrap {
 			Opp = database.query(String.escapeSingleQuotes(getQuery('Opportunity') + ' WHERE id =:Oppid LIMIT 1'));
 			final String idTempo = Opp.Id;
 			OLI = database.query(String.escapeSingleQuotes(getQuery('OpportunityLineItem') + ' WHERE  OpportunityID =:idTempo ORDER BY CreatedDate DESC LIMIT 1'));
+			commissions1 =  [SELECT Calculation_Type__c , Commission_Calculation_Amount__c, Product_Commission_Name__c, Suggested_Rate__c, Suggested_Rate_Type__c, Requested_Rate_Value__c,Authorized_Rate_Value__c, Final_Rate__c FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id  ];
+ 
 			final List<String> Litemp = new list<String> {'Autorizado por riesgos', 'Riesgo aprobado dentro de línea'};
 			Audit = database.query(String.escapeSingleQuotes(getQuery('dwp_cvad__Action_Audit__c') + ' WHERE  dwp_cvad__action_audit_name__c IN:Litemp  AND  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C =:idTempo  ORDER BY CreatedDate DESC'));
 			if(Audit.size() > 0) {
@@ -170,6 +227,7 @@ public without sharing virtual class OpportunityPDFWrap {
 			totalGarantiasNoFormalizadas = [SELECT COUNT_DISTINCT(Id) total FROM fprd__GBL_Guarantee__c WHERE fprd__GBL_Opportunity_product__c =:Opp.Id AND guarantee_status_type__c = '02'];
 			numGnF = Integer.valueOf(totalGarantiasNoFormalizadas[0].get('total'));
 			title = 'PDF Formalización ' + Opportunity.Name;
+
 		} catch(System.Exception e) {
 			system.debug('Exception : ' + e.getMessage());
 		}

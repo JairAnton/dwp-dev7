@@ -6,13 +6,15 @@
     <aura:attribute name="title" type="String" default="{!$Label.c.lblTitleSanctionPrice}" access="global" description="Specify the modal"/>
     <aura:attribute name="strComments" type="String" default=""/>
     <aura:attribute name="objectInput" type="Object" />
+    <aura:attribute name="commissions" type="Object[]" default=""/>
+    <aura:attribute name="InputCommission" type="Object" />
     <aura:attribute name="isLoad" type="Boolean" default="false"/>
     <aura:attribute name="isOk" type="Boolean" default="true"/>
     <aura:attribute name="showSpinner" type="Boolean" default="true"/>
     <aura:attribute name="hasHeader" type="Boolean" default="false" access="global" description="Allow show header section"/>
     <aura:attribute name="lstError" type="String[]" />
     <aura:attribute name="lstHeadersHtml" type="List" />
-	<aura:attribute name="auditDetailId" type="String"/>
+	<aura:attribute name="auditDetailId" type="String"/> 
     <aura:attribute name="validityDate" type="Date"/>
     <aura:attribute name="getQuote" type="Boolean" default="true"/>
     <aura:attribute name="refreshComp" type="Boolean" default="false"/>
@@ -22,6 +24,7 @@
         <aura:if isTrue="{!v.isOk}">
             <div class="slds-modal__content slds-p-around_medium" >
                 <aura:if isTrue="{!v.isLoad}">
+                    
                     <div id="storeHTML" class="slds-hide">
                         <h3 class="slds-section__title">{!$Label.c.Comments}</h3>
                         <div class="slds-form-element__control">
@@ -38,7 +41,13 @@
                         </aura:if>
 						<br/>
                         <c:FieldsForm_cmp aura:id="table" recordId="{!v.inputAttributes.opportunityLineItem}" isInput="false" valueDynamic="-" developerNameTable="{!v.inputAttributes.approvalMethod + '_AuditAnalist'}" hasDivider="false" isHTML="true" refreshComp="{!v.refreshComp}"/>
+                        <aura:if isTrue="{!v.inputAttributes.approvalMethod == 'Web'}">
+                            <div class="slds-m-top_medium">                                                                                    
+                                <c:DataTable_cmp data="{!v.objectInput.comissions}" headers="{!v.objectInput.headercommission}" isHtml="true"/>
+                            </div>
+                        </aura:if>   
                     </div>
+        
                     <lightning:layout multipleRows="true">                        
                         <lightning:layoutItem padding="around-small" size="{!if($Browser.formFactor eq 'DESKTOP', 8, 12)}">
                             <lightning:tabset variant="scoped">
@@ -52,6 +61,19 @@
                                             <div class="slds-p-top_small slds-scrollable">                                                                                    
                                                 <c:DataTable_cmp data="{!v.inputAttributes.datainput}" headers="{!v.inputAttributes.headerinput}"/>
                                             </div>
+                                            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-3">
+                                                
+                                                <aura:iteration items="{!v.commissions}" var="comission">
+                                <lightning:layoutItem padding="horizontal-small" size="12">
+                
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_1-of-3">
+                                          <h1>{!comission.Product_Commission_Name__c}</h1>
+                                    </div>
+                                </lightning:layoutItem>
+                            </aura:iteration>
+                                          </div>
+
+
                                         </aura:set>
                                     </aura:if>
                                     <div class="slds-m-bottom_medium">

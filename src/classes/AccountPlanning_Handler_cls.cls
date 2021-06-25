@@ -7,7 +7,7 @@
  * -------------------------------------------------------------------------------------
  * Diego Carbajal    					15/05/2020          Original version.<p />
  * Martin Alejandro Mori Chávez    		20/01/2021          Update methods for package 3.3.<p />
- *
+ * Jair Anton							07/06/2021			Modificación para compartir AP con los JPN por región
  * @author Diego Carbajal
  */
 public class AccountPlanning_Handler_cls extends TriggerHandler {
@@ -96,6 +96,8 @@ public class AccountPlanning_Handler_cls extends TriggerHandler {
 		AccountPlanning_Trigger_cls.afterInsert(triggerNew);
 		//Clona preguntas desde el catalogo y los asocia a los AP's
 		//AccountPlanning_Trigger_cls.relateAPQuestions(triggerNew);  -- Deprecated
+		// After insert add JPN per Region
+		AccountPlanning_Trigger_cls.sharingWithJPN(triggerNewMap);
 	}
 
 	/*

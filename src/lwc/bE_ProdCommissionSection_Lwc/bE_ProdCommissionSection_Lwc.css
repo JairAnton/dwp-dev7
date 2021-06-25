@@ -1,0 +1,9 @@
+.slds-badge_inverse {
+  font-size: 0.55rem;
+}
+
+.custom-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

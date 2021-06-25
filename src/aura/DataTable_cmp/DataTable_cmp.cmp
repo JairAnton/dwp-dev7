@@ -27,7 +27,7 @@
             </tbody>
         </table>
         <aura:set attribute="else">
-            <div style="width:37rem;">
+            <div > <!--style="width:37rem;"-->
                 <lightning:datatable keyField="id"
                                      columns="{! v.headers }"
                                      data="{! v.data }"

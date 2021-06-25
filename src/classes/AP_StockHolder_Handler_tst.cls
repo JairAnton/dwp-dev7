@@ -6,7 +6,7 @@
  * Developer                    Date                Description<p />
  * -------------------------------------------------------------------
  * Diego Carbajal    		06/10/2020          Original version.<p />
- *
+ * Jair Anton				07/06/2021			Modificación cobertura de test AP
  * @author Diego Carbajal
  */
 @isTest
@@ -64,10 +64,11 @@ public class AP_StockHolder_Handler_tst {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
 		Final acpl__Account_Planning__c apRecord = AP_FactoryTest_tst.createAccountPlanning(acc.Id, mapUsers.get(EJECUTIVO).Id, null, true);
 		insert apRecord;
+        Test.startTest();
 		Final BE_Stockholder__c stockholder = new BE_Stockholder__c(account_planning__c = apRecord.Id, Name = ACCIONISTA, DocumentNumber__c = DOCUMENT_NUMBER, DocumentType__c = DNI);
 		insert stockholder;
         Boolean error = false;
-		Test.startTest();
+		
 		System.runAs(mapUsers.get(EJECUTIVO)) {
 			try {
 				apRecord.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = false;
@@ -90,10 +91,11 @@ public class AP_StockHolder_Handler_tst {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
 		Final acpl__Account_Planning__c apRecord = AP_FactoryTest_tst.createAccountPlanning(acc.Id, mapUsers.get(EJECUTIVO).Id, null, true);
 		insert apRecord;
+        Test.startTest();
 		Final BE_Stockholder__c stockholder = new BE_Stockholder__c(account_planning__c = apRecord.Id, Name = ACCIONISTA, DocumentNumber__c = DOCUMENT_NUMBER, DocumentType__c = DNI);
 		insert stockholder;
         Boolean error = false;
-		Test.startTest();
+		
 		System.runAs(mapUsers.get(EJECUTIVO)) {
 			try {
 				apRecord.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = false;

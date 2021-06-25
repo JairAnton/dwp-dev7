@@ -1,10 +1,19 @@
+/**
+ * @author Eduardo Vargas Matute (luis.eduardo.vargas.contractor@bbva.pe)
+ * @date 07-06-2021
+ *
+ * @description class from CreateQuotationRequest_helper
+ * @Changes
+ *  Date        Author   Email                  			Type		Description
+ *  2020-11-06  MAMC     martin.mori.contractor@bbva.com	Modify		add method to create quote pdf
+ **/
 public without sharing class CreateQuotationRequest_helper {
 	public CreateQuotationRequest_Wrapper inputDataMapping { get; set; } //Ernesto 04/12/2018 : se agregó el get y set
 
 	//Method use to get input information
 	public CreateQuotationRequest_helper(String oppRecordId) {
 		//Retrieve product´s conditions and price rates information
-		List<OpportunityLineItem> oppProductList = [SELECT price_rates_calculation_Id__c, proposed_apr_per__c, gipr_Garantia__c
+		List<OpportunityLineItem> oppProductList = [SELECT Price_rates_create_analyze_Id__c, price_rates_calculation_Id__c, proposed_apr_per__c, gipr_Garantia__c
 		                                            FROM OpportunityLineItem
 		                                            WHERE OpportunityId = :oppRecordId];
 
@@ -13,12 +22,20 @@ public without sharing class CreateQuotationRequest_helper {
 
 		if(!oppProductList.isEmpty()) {
 			// Map the imput information
-			String calculationRatesId = oppProductList[0].price_rates_calculation_Id__c;
-			String proposedAPR = String.valueOf((oppProductList[0].proposed_apr_per__c != null ? oppProductList[0].proposed_apr_per__c / 100 : oppProductList[0].proposed_apr_per__c));
-			String requestComment = Label.PriceCreateQuotationRequestDefaultComment;
-			String guaranteeType = (mapWsVal.get('GUARANTEE_TYPE' + String.valueOf(oppProductList[0].gipr_Garantia__c)) != null ? mapWsVal.get('GUARANTEE_TYPE' + String.valueOf(oppProductList[0].gipr_Garantia__c)).web_service_value__c : null);
-			CreateQuotationRequest_Wrapper imputDataMappingRequest = new CreateQuotationRequest_Wrapper(calculationRatesId, proposedAPR, requestComment, guaranteeType);
-			this.inputDataMapping = imputDataMappingRequest;
+			Final String calculationRatesId = oppProductList[0].price_rates_calculation_Id__c;
+			Final String analizeRateId = oppProductList[0].Price_rates_create_analyze_Id__c;
+			//Final String proposedAPR = String.valueOf((oppProductList[0].proposed_apr_per__c != null ? oppProductList[0].proposed_apr_per__c / 100 : oppProductList[0].proposed_apr_per__c));
+            String proposedAPR = String.valueOf(oppProductList[0].proposed_apr_per__c);
+            if(oppProductList[0].proposed_apr_per__c != null) {
+                proposedAPR = String.valueOf(oppProductList[0].proposed_apr_per__c / 100);
+            }
+            Final String requestComment = Label.PriceCreateQuotationRequestDefaultComment;
+            String guaranteeType = '';
+            if(mapWsVal.get('GUARANTEE_TYPE' + String.valueOf(oppProductList[0].gipr_Garantia__c)) != null) {
+                guaranteeType = mapWsVal.get('GUARANTEE_TYPE' + String.valueOf(oppProductList[0].gipr_Garantia__c)).web_service_value__c;
+            }
+            Final CreateQuotationRequest_Wrapper inDtMppReq = new CreateQuotationRequest_Wrapper(calculationRatesId, proposedAPR, requestComment, guaranteeType, analizeRateId);
+			this.inputDataMapping = inDtMppReq;
 		}
 	}
 
@@ -35,16 +52,51 @@ public without sharing class CreateQuotationRequest_helper {
 	// Yulino 30/11/2018 : SE AGREGÓ EL GET Y SET EN TODAS LA CLASES
 	// Wrapper class to map the input values with the input attributes of the webservice
 	public class CreateQuotationRequest_Wrapper {
+        /** class */
+		public String analizeRateId {get; set;}
+        
+        /** class */
 		public String calculationRatesId {get; set;}
+        
+        /** class */
 		public String proposedAPRpercent {get; set;}
+        
+        /** class */
 		public String requestComment {get; set;}
+        
+        /** class */
 		public String guaranteeType {get; set;}
 
-		public CreateQuotationRequest_Wrapper(String calculationRatesId, String proposedAPR, String requestComment, String guaranteeType) {
-			this.calculationRatesId = (calculationRatesId != null ? calculationRatesId : '');
-			this.proposedAPRpercent = (proposedAPR != null ? proposedAPR : '""');
-			this.requestComment = (requestComment != null ? requestComment : '');
-			this.guaranteeType = (guaranteeType != null ? ',"product": {"guarantee": {"id": "' + guaranteeType + '"}}' : '');
+		public CreateQuotationRequest_Wrapper(String calculationRatesId, String proposedAPR, String requestComment, String guaranteeType, String analizeRateId) {
+			//this.calculationRatesId = (calculationRatesId != null ? calculationRatesId : '');
+            this.calculationRatesId = '';
+            if(calculationRatesId != null) {
+                this.calculationRatesId = calculationRatesId;
+            }
+            
+			//this.proposedAPRpercent = (proposedAPR != null ? proposedAPR : '""');
+            this.proposedAPRpercent = '""';
+            if(proposedAPR != null) {
+                this.proposedAPRpercent = proposedAPR;
+            }
+            
+			//this.requestComment = (requestComment != null ? requestComment : '');
+            this.requestComment = '';
+            if(requestComment != null) {
+                this.requestComment = requestComment;
+            }
+            
+			//this.guaranteeType = (guaranteeType != null ? ',"product": {"guarantee": {"id": "' + guaranteeType + '"}}' : '');
+            this.guaranteeType = '';
+            if(guaranteeType != null) {
+                this.guaranteeType = ',"product": {"guarantee": {"id": "' + guaranteeType + '"}}';
+            }
+            
+			//this.analizeRateId = (analizeRateId != null ? analizeRateId : '');
+            this.analizeRateId = '';
+            if(analizeRateId != null) {
+                this.analizeRateId = analizeRateId;
+            }
 		}
 	}
 

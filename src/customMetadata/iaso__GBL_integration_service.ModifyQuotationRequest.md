@@ -7,8 +7,16 @@
         <value xsi:type="xsd:string">bbvaPeruGrantingTickets</value>
     </values>
     <values>
+        <field>iaso__Blocked_Service__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
         <field>iaso__Custom_Setting__c</field>
         <value xsi:type="xsd:string">ModifyQuotationRequest</value>
+    </values>
+    <values>
+        <field>iaso__Description__c</field>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>iaso__Headers_Class__c</field>
@@ -25,6 +33,10 @@
     <values>
         <field>iaso__Http_Method__c</field>
         <value xsi:type="xsd:string">POST</value>
+    </values>
+    <values>
+        <field>iaso__IsCacheable__c</field>
+        <value xsi:type="xsd:boolean">false</value>
     </values>
     <values>
         <field>iaso__Json_Input_Template_LTA_TEMP__c</field>

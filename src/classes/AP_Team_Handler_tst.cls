@@ -6,7 +6,7 @@
  * Developer                    Date                Description<p />
  * -------------------------------------------------------------------
  * Diego Carbajal    		05/06/2020          Original version.<p />
- *
+ * Jair Anton				07/06/2021			Modificación cobertura de test AP
  * @author Diego Carbajal
  */
 @isTest
@@ -40,7 +40,7 @@ public class AP_Team_Handler_tst {
 	 */
 	public static testmethod void valuesAndSharingAPT() {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
-		Final acpl__Account_Planning__c accPlan = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);
+		Final acpl__Account_Planning__c accPlan = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);        
 		insert accPlan;
 		Test.startTest();
 		System.runAs(MAPUSERS.get(EJECUTIVO)) {
@@ -55,7 +55,8 @@ public class AP_Team_Handler_tst {
         Final Integer sharingAPSize = sharingAP.size();
 		Final Integer aptSize = accPlanTeams.size();
 		Final Integer sharingBPSize = sharingBP.size();
-        Final Boolean result = sharingAPSize == 3 && aptSize == 1 && sharingBPSize == 3;
+        Final Boolean result = sharingAPSize == 4 && aptSize == 1 && sharingBPSize == 3;
+        System.debug(sharingAPSize);
 		System.assert(result, fail);
 	}
 
@@ -140,10 +141,11 @@ public class AP_Team_Handler_tst {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
 		Final acpl__Account_Planning__c accPlan = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);
 		insert accPlan;
+        Test.startTest();
 		Final bupl__AP_Team__c aptAux = new bupl__AP_Team__c(acpl__gf_account_planning_id__c = accPlan.Id, Name = APT_MEMBER, bupl__gf_ap_team_role_user_name__c = ACOMPANANTE,
 		                                                     bupl__gf_ap_team_user_id__c = MAPUSERS.get(MANAGER).Id);
 		insert aptAux;
-		Test.startTest();
+		
 		System.runAs(MAPUSERS.get(MANAGER)) {
 			try {
 				Final bupl__AP_Team__c apt = new bupl__AP_Team__c(acpl__gf_account_planning_id__c = accPlan.Id, Name = APT_MEMBER, bupl__gf_ap_team_role_user_name__c = GESTOR,
@@ -166,10 +168,11 @@ public class AP_Team_Handler_tst {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
 		Final acpl__Account_Planning__c accPlan = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAPUSERS.get(EJECUTIVO).Id, null, true);
 		insert accPlan;
+        Test.startTest();
 		Final bupl__AP_Team__c aptAux = new bupl__AP_Team__c(acpl__gf_account_planning_id__c = accPlan.Id, Name = APT_MEMBER, bupl__gf_ap_team_role_user_name__c = GESTOR,
 		                                                     bupl__gf_ap_team_user_id__c = MAPUSERS.get(MANAGER).Id);
 		insert aptAux;
-		Test.startTest();
+		
 		System.runAs(MAPUSERS.get(MANAGER)) {
 			try {
 				Final bupl__AP_Team__c apt = new bupl__AP_Team__c(acpl__gf_account_planning_id__c = accPlan.Id, Name = APT_MEMBER, bupl__gf_ap_team_role_user_name__c = GESTOR,

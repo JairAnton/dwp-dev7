@@ -7,7 +7,7 @@
  * Developer                    Date                Description<p />
  * -------------------------------------------------------------------
  * Diego Carbajal    		05/06/2020          Original version.<p />
- *
+ * Jair Anton				07/06/2021			Modificación cobertura de test AP
  * @author Diego Carbajal
  */
 @isTest
@@ -29,6 +29,7 @@ public class BE_AP_CheckEditionByPeriodSchdl_tst {
 	public static void setUp() {
 		AP_FactoryTest_tst.forSetUp();
 		Final User admin = [SELECT Id FROM User WHERE Id =:UserInfo.getUserId()];
+        Test.startTest();
 		System.runAs(admin) {
 			insert new acpl__Account_Plan_Settings__c(SetupOwnerId = UserInfo.getOrganizationId(), acpl__Edition_Schedulable_batch_size__c = 200,
 			                                          acpl__Member_Role__c = 'Gestor del Plan', acpl__NotificationSchedulable_batch_size__c = 200,
@@ -62,6 +63,7 @@ public class BE_AP_CheckEditionByPeriodSchdl_tst {
 			}
             update lstAP;
 		}
+        Test.stopTest();
 	}
 
 	/*
@@ -128,8 +130,8 @@ public class BE_AP_CheckEditionByPeriodSchdl_tst {
 	 * @Description  method setEventInitAPUnLock
 	 */
 	public static testmethod void setEventInitAPUnLock() {
-		setGeneral(System.today(), System.today() + 1, 2);
-		Test.startTest();
+        setGeneral(System.today(), System.today() + 1, 2);
+        Test.startTest();
 		Final BE_AP_CheckEditionByPeriodSchedulable batch = new BE_AP_CheckEditionByPeriodSchedulable();
 		batch.execute(null);
 		Test.stopTest();

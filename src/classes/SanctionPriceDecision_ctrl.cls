@@ -46,6 +46,7 @@ public with sharing class SanctionPriceDecision_ctrl {
 	/**Method for get information of price process **/
 	@AuraEnabled
 	public static Map<String, Object> getInfo(String oliId, String uniqueNameTable) {
+
 		Map<String, Object> mapReturn = new Map<String, Object>();
         List<OpportunityLineItem> lstOppLineItem = [SELECT Id,
 		                                            Product2.Name,
@@ -82,12 +83,26 @@ public with sharing class SanctionPriceDecision_ctrl {
 			System.debug('error: ' + e);
 		}
 
+		/**get information of commissions **/
+		Final List<Product_Commission__c> comissions = [SELECT Id,Calculation_Type__c ,
+													Commission_Calculation_Amount__c,
+													Product_Commission_Name__c, 
+													Suggested_Rate__c,
+													Final_Rate__c,
+													Suggested_Rate_Type__c,
+													Requested_Rate_Value__c,
+													Authorized_Rate_Value__c
+													FROM Product_Commission__c
+													WHERE Is_Negotiable__c = TRUE AND Opportunity_Product__c =:oliId ];
+
 		mapReturn.put('lstOppLineItem', lstOppLineItem);
 		mapReturn.put('lstSummarize', JSON.serialize(BE_CustomListField_Cls.createListField(oliId, uniqueNameTable)));
 		mapReturn.put('sanctionPriceInfo', getSanctionPriceInfo(oliId));
+		mapReturn.put('comissions', comissions);
 
 		return mapReturn;
 	}
+
 
 	/**Method for save decision of ejecutive **/
 	@AuraEnabled
@@ -231,6 +246,15 @@ public with sharing class SanctionPriceDecision_ctrl {
 		                                                 AND IsClosed = false
 		                                                                AND Status = '01'];
 		mapReturn.put('caseOpen', !lstCases.isEmpty());
+
+		Final List<Product_Commission__c> comissions = [SELECT Id,Calculation_Type__c ,
+												Commission_Calculation_Amount__c,
+												Product_Commission_Name__c, Final_Rate__c,
+												Suggested_Rate__c,Suggested_Rate_Type__c,
+												Requested_Rate_Value__c,Authorized_Rate_Value__c FROM Product_Commission__c
+												WHERE Is_Negotiable__c = TRUE AND Opportunity_Product__c =:oliId ];
+
+		mapReturn.put('comissions', comissions);
 
 		return mapReturn;
 	}

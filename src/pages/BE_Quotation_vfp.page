@@ -87,6 +87,33 @@
         </apex:repeat>
     </table>
     <br/>
+
+    
+
+
+    <div>
+        <strong>&nbsp;Datos de comisión</strong>
+    </div>
+    <br/>
+    <table cellpadding="6">
+        <tr class="commitment">
+            <th>COMISIÓN</th>
+            <th>SOLICITADO (%)</th>
+            <th>AUTORIZADO (%) </th>
+	    <th>COMISIÓN FINAL</th>
+        </tr>
+        <apex:repeat value="{!commissionsx}" var="comi">
+            <tr>
+                <td>{!comi.Product_Commission_Name__c}</td>
+                <td>{!comi.Requested_Rate_Value__c}</td>
+                <td>{!comi.Authorized_Rate_Value__c}</td>
+                <td>{!comi.Commission_Calculation_Amount__c}</td>
+            </tr>
+        </apex:repeat>
+    </table>
+
+    <br/>
+
     <div>
         <strong>&nbsp;Compromisos</strong>
     </div>

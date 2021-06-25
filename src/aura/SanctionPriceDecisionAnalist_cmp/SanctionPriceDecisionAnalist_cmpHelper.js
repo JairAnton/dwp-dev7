@@ -25,9 +25,19 @@
                 var objectInput = {
                     'IdOppLineItem': inputObject.opportunityLineItem,
                     'approvalMethod': inputObject.approvalMethod,
-                    'dinamicInput': '-'
+                    'dinamicInput': '-',
+                    'headercommission': 
+                    [
+                        {label: 'COMISIÓN', fieldName: 'Product_Commission_Name__c', type: 'text'},
+                        {label: 'SOLICITADO (%)', fieldName: 'Requested_Rate_Value__c', type: 'text'},
+                        {label: 'AUTORIZADO (%)', fieldName: 'Authorized_Rate_Value__c', type: 'text'},
+                        {label: 'COMISIÓN FINAL', fieldName: 'Commission_Calculation_Amount__c', type: 'text'}
+                    ],
+                    'comissions': ret.comissions
+ 
                 };
                 component.set('v.objectInput', objectInput);
+				component.set('v.commissions', ret.commilist);
             }
             if (inputObject.approvalMethod === 'Web') {
                 helper.removeColumns(component, event, helper);

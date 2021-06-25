@@ -1400,6 +1400,10 @@
         <label>Calcular Rentabilidad</label>
         <name>CalculateProfitability</name>
     </customLabels>
+	<customLabels>
+        <label>Calcular comisión</label>
+        <name>lblBtnCalculateCommission</name>
+    </customLabels>
     <customLabels>
         <label>No se ha podido recalcular la rentabilidad debido al siguiente error:</label>
         <name>PriceAnalyzeRateKnowError</name>
@@ -3036,4 +3040,5 @@
         <label>Email</label>
         <name>SendEmail</name>
     </quickActions>
-</Translations>
+</Translations> 
+
