@@ -422,6 +422,10 @@
         <apexClass>BE_Calce_Delete_Batch</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>BE_CalculateCommission_Ctr</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>BE_Calce_Maintenance_Tst</apexClass>
         <enabled>true</enabled>
@@ -740,6 +744,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>BE_PriceRate_Rest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>BE_ProdCommissionSection_Ctr</apexClass>
         <enabled>true</enabled>
     </classAccesses>
 	<classAccesses>
@@ -6859,11 +6867,6 @@ Asistente BE</description>
     <fieldPermissions>
         <editable>true</editable>
         <field>Product_Commission__c.Suggested_Rate_Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Product_Commission__c.Suggested_Rate_Value__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
