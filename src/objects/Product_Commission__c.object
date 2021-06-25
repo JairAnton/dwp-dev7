@@ -538,17 +538,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Sugested_Rate_Percentage__c</fullName>
-        <externalId>false</externalId>
-        <label>Sugested Rate Percentage</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Suggested_Rate_Iso_Code__c</fullName>
         <externalId>false</externalId>
         <label>Suggested Rate Iso Code</label>
@@ -600,19 +589,6 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
-    </fields>
-    <fields>
-        <fullName>Suggested_Rate_Value__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Suggested_Rate_Type__c, &apos;PERCENTAGE&apos;), Sugested_Rate_Percentage__c , VALUE(Suggested_Rate__c))</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Suggested Rate Value</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Suggested_Rate__c</fullName>
@@ -687,5 +663,3 @@
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>
-
- 

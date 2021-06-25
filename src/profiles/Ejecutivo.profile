@@ -6870,11 +6870,6 @@ Asistente BE</description>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Product_Commission__c.Suggested_Rate_Value__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Product_Commission__c.Suggested_Rate__c</field>
         <readable>true</readable>

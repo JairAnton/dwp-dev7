@@ -6382,17 +6382,7 @@ Analistas de riesgos</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product_Commission__c.Sugested_Rate_Percentage__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Product_Commission__c.Suggested_Rate_Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Product_Commission__c.Suggested_Rate_Value__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
