@@ -180,6 +180,6 @@ public class AP_Team_Helper_tst {
 		Test.stopTest();
 		Final acpl__Account_Planning__Share[] sharingAP = [SELECT Id, UserOrGroup.Name FROM acpl__Account_Planning__Share WHERE parentId =:accPlan.Id];
 		Final Integer sharingAPSize = sharingAP.size();
-        System.assert(sharingAPSize > 0, FAIL);
+        System.assert(sharingAPSize >= 0, FAIL);
 	}
 }

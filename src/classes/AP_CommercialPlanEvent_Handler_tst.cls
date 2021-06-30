@@ -6,7 +6,7 @@
  * Developer                    Date                Description<p />
  * -------------------------------------------------------------------
  * Diego Carbajal    		04/06/2020          Original version.<p />
- *
+ * Jair Anton				07/06/2021			Modificación cobertura de test AP
  * @author Diego Carbajal
  */
 @isTest
@@ -42,9 +42,9 @@ public class AP_CommercialPlanEvent_Handler_tst {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
 		Final acpl__Account_Planning__c apRecord = AP_FactoryTest_tst.createAccountPlanning(acc.Id, mapUsers.get(EJECUTIVO).Id, null, true);
 		insert apRecord;
+		Test.startTest();
         apRecord.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = false;
         update apRecord;
-		Test.startTest();
 		System.runAs(mapUsers.get(EJECUTIVO)) {
 			try {
 				Final acpl__Commercial_Plan_Event__c[] cpeAux = new acpl__Commercial_Plan_Event__c[] {};
@@ -70,11 +70,12 @@ public class AP_CommercialPlanEvent_Handler_tst {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
 		Final acpl__Account_Planning__c apRecord = AP_FactoryTest_tst.createAccountPlanning(acc.Id, mapUsers.get(EJECUTIVO).Id, null, true);
 		insert apRecord;
+        Test.startTest();
 		Final acpl__Commercial_Plan_Event__c cpe = new acpl__Commercial_Plan_Event__c(acpl__gf_account_planning_id__c = apRecord.Id, acpl__participant_id__c = acc.Id,
 		                                                                              acpl__gf_event_date__c = System.today() + 31, acpl__gf_comm_plan_event_type_name__c = VISIT);
 		insert cpe;
 		Final Date eventDate = cpe.acpl__gf_event_date__c;
-		Test.startTest();
+		
 		System.runAs(mapUsers.get(EJECUTIVO)) {
 			try {
                 apRecord.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = false;
@@ -97,10 +98,11 @@ public class AP_CommercialPlanEvent_Handler_tst {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
 		Final acpl__Account_Planning__c apRecord = AP_FactoryTest_tst.createAccountPlanning(acc.Id, mapUsers.get(EJECUTIVO).Id, null, true);
 		insert apRecord;
+        Test.startTest();
 		Final acpl__Commercial_Plan_Event__c cpe = new acpl__Commercial_Plan_Event__c(acpl__gf_account_planning_id__c = apRecord.Id, acpl__participant_id__c = acc.Id,
 		                                                                              acpl__gf_event_date__c = System.today() + 31, acpl__gf_comm_plan_event_type_name__c = VISIT);
 		insert cpe;
-		Test.startTest();
+		
 		System.runAs(mapUsers.get(EJECUTIVO)) {
 			try {
 				apRecord.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = false;

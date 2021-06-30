@@ -1,11 +1,10 @@
 /**
  * Logic class of Handler Trigger of the AccountPlanning object.
- * <p /><p />
- * Modification log:<p />
  * -------------------------------------------------------------------
  * Developer                    Date                Description<p />
  * -------------------------------------------------------------------
  * Diego Carbajal    		15/05/2020          Original version.<p />
+ * Jair Anton				07/06/2021			Compartir AP con el JPN de cada región
  * @SuppressWarnings("PMD.CyclomaticComplexity"): Se utiliza para excluir del sonar para el metodo relateAPQuestions
  * implementado por Global
  * @author Diego Carbajal
@@ -17,6 +16,100 @@ public without sharing class AccountPlanning_Trigger_cls {
 
     /* @Description AccountPlanning_Trigger_cls*/
     private AccountPlanning_Trigger_cls() {}
+    
+     /**
+	 * @Description Agrega a los JPN a cada Plan de cuentas dependiendo de la región que pertenezca el Global Bankers
+	 */
+    public static void sharingWithJPN(Map<Id, acpl__Account_Planning__c> apNewMap) {
+        Final Map<Id, Map<Id, UserRole>> rolesPerLevel = getRolesPerHierarchy();
+        
+        Final Map<Id, UserRole> jpnRole = new Map<Id, UserRole>([SELECT Id, Name, ParentRoleId FROM UserRole WHERE Name LIKE 'JEFE PROMOCION DE NEGOCIO%']);
+        Final Map<Id, Map<Id, Id>> usRoles = new Map<Id, Map<Id, Id>>();
+        
+        for(UserRole item : jpnRole.values()) {
+            /* Obtiene los roles que tienen el mismo nivel del JPN */
+            Final Map<Id, UserRole> currentRole = rolesPerLevel.get(item.ParentRoleId);
+            /* Guarda los primeros Id de los roles */
+            Final Set<Id> currentSet = currentRole.keySet();
+            Final List<Id> currentKeyList = new List<Id>();
+            /* Guarda en una lista */
+            currentKeyList.addAll(currentSet);
+            /* Almacena todos los Id de los roles cercanos por JPN */
+            Final Map<Id, Id> storageMap = new Map<Id, Id>();
+            
+            do {
+                /* Elimina y retorna el primer registro */
+                Final Id currentItem = currentKeyList.remove(0);
+                /* Almacena los id que pasan por el bucle */
+                storageMap.put(currentItem, currentItem);
+                
+                /* Verifica el Id */
+                if(rolesPerLevel.containsKey(currentItem)) {
+                    /* Obtiene los sub levels de los roles */
+                    Final Map<Id, UserRole> currentSubRole = rolesPerLevel.get(currentItem);
+                    /* Agrega los id de los roles para continuar con la búsqueda de sub level*/
+                    Final Set<Id> currentSubSet = currentSubRole.keySet();
+                    currentKeyList.addAll(currentSubSet);
+                }
+            } 
+            while (!currentKeyList.isEmpty());
+            
+            /* Almacena los roles id que le pertenecen a cada JPN */
+            usRoles.put(item.Id, storageMap);
+        }
+        
+        sharingAP(jpnRole, apNewMap, usRoles); 
+        
+    }
+    
+    /**
+	 * @Description Filtra los roles por su jerarquía obteniendo levels and sub-levels 
+	 */
+    public static void sharingAP(Map<Id, UserRole> jpnRole, Map<Id, acpl__Account_Planning__c> apNewMap, Map<Id, Map<Id, Id>> usRoles) {
+        Final List<User> userList = [SELECT Id, Name, UserRoleId FROM User WHERE UserRoleId IN : jpnRole.keySet() AND isActive = TRUE];
+        Final List<acpl__Account_Planning__c> apList = [SELECT Id, acpl__proposal_manager_id__r.UserRoleId FROM acpl__Account_Planning__c WHERE Id IN : apNewMap.keySet()];
+        Final List<acpl__Account_Planning__Share> apShareList = new List<acpl__Account_Planning__Share>();
+        
+        for(User usItem : userList) {
+            Final Map<Id, Id> currentRole = usRoles.get(usItem.UserRoleId);
+            
+            for(acpl__Account_Planning__c apItem : apList) {
+                if(currentRole.containsKey(apItem.acpl__proposal_manager_id__r.UserRoleId)) {
+                    apShareList.add(new acpl__Account_Planning__Share(ParentId = apItem.Id, UserOrGroupId = usItem.Id, AccessLevel = 'Read', RowCause = 'Manual'));
+                }   
+            }
+        }
+        
+        if(!apShareList.isEmpty()) {
+            insert apShareList;
+        }
+    }
+    
+    /**
+	 * @Description Filtra los roles por su jerarquía obteniendo levels and sub-levels 
+	 */
+    public static Map<Id, Map<Id, UserRole>> getRolesPerHierarchy() {
+        Final Map<Id, UserRole> firstLevel = new Map<Id, UserRole>([SELECT Id, Name, ParentRoleId FROM UserRole WHERE ParentRoleId = NULL LIMIT 1]);
+        Final List<UserRole> nextLevel = [SELECT Id, Name, ParentRoleId FROM UserRole WHERE ParentRoleId NOT IN : firstLevel.keySet()];
+        Final Map<Id, Map<Id, UserRole>> rolesPerLevel = new Map<Id, Map<Id, UserRole>>();
+        
+        Final UserRole roleItem = firstLevel.values();
+        rolesPerLevel.put(roleItem.Id, firstLevel);
+        
+        for(UserRole item : nextLevel) {
+            Map<Id, UserRole> current = new Map<Id, UserRole>();
+            
+            if(rolesPerLevel.containsKey(item.ParentRoleId)) {
+                current = rolesPerLevel.get(item.ParentRoleId);
+            }
+            
+            current.put(item.Id, item);
+            rolesPerLevel.put(item.ParentRoleId, current);
+        }
+        
+        return rolesPerLevel;
+    }
+    
 	/**
 	 * @Description Execute various methods according to different criteria
 	 */
@@ -112,77 +205,4 @@ public without sharing class AccountPlanning_Trigger_cls {
 		//Elimina los APT del AP
 		delete [Select id From bupl__AP_Team__c Where acpl__gf_account_planning_id__c in : triggerOldMap.keySet()];
 	}
-
-	/*
-	 * @Description  Clona las preguntas del Catalogo y los asocia a cada AP insertado
-	 */
-	public static void relateAPQuestions(List<acpl__Account_Planning__c> triggernew) {//NOSONAR
-		//Guardo las preguntas del AP Catalog
-		final List<acpl__AP_Question__c> apQuestionList = [SELECT Id, acpl__gf_account_planning_id__c, acpl__gf_account_planning_id__r.Name, acpl__gf_ap_question_form_desc__c, Name,
-		                                                   acpl__AA_answer_is_checkbox__c FROM acpl__AP_Question__c WHERE acpl__gf_account_planning_id__r.Name = 'Question Catalog'];
-		//Obtengo los fieldConfigs del AP Catalog
-		if(!apQuestionList.isEmpty()) {
-			Final List<acpl__AP_Question__c> apQuestionsInsrt = new List<acpl__AP_Question__c>();
-			final String catalogDevName = apQuestionList.get(0).acpl__gf_account_planning_id__c + '%';
-			final List<dyfr__Field_Config__c> fieldConfigList = [SELECT Id, dyfr__Tab__c, dyfr__Section_name__c, dyfr__Section_order__c,
-			                                                     dyfr__Subsection_name__c, dyfr__Subsection_order__c, dyfr__Order__c,
-			                                                     acpl__gf_counter_number__c, dyfr__Map_field__c, dyfr__Type__c, dyfr__Important__c,
-			                                                     dyfr__Visibility_control_field__c, dyfr__Visibility_control_value__c, dyfr__Values_control_field__c,
-			                                                     dyfr__Relationship_Object_Name__c, dyfr__Relationship_Dynamic_Label_Field__c,
-			                                                     dyfr__Relationship_Query_Field__c, dyfr__Relationship_Query_Content__c, dyfr__DeveloperName__c, dyfr__Mandatory__c
-			                                                     FROM dyfr__Field_Config__c WHERE dyfr__DeveloperName__c LIKE :catalogDevName];
-			List<dyfr__Field_Config__c> catalogCnfig = new List<dyfr__Field_Config__c>();
-			catalogCnfig = fieldConfigList.deepClone(true, true);
-			Final List<List<dyfr__Field_Config__c>> lstFullFConfig = new List<List<dyfr__Field_Config__c>>();
-			List<dyfr__Field_Config__c> tmpFieldsConfig;
-			for(acpl__Account_Planning__c apAux : triggernew) {
-				tmpFieldsConfig = new List<dyfr__Field_Config__c>();
-				for(acpl__AP_Question__c apQuestionAux : apQuestionList) {
-					final acpl__AP_Question__c newAPQuestion = new acpl__AP_Question__c();
-					newAPQuestion.acpl__gf_account_planning_id__c = apAux.Id;
-					newAPQuestion.acpl__gf_ap_question_form_desc__c = apQuestionAux.acpl__gf_ap_question_form_desc__c;
-					newAPQuestion.acpl__AA_answer_is_checkbox__c = apQuestionAux.acpl__AA_answer_is_checkbox__c;
-					final List<String> questionName = apQuestionAux.Name.split('_');
-					newAPQuestion.Name = apAux.Id + '_' + questionName.get(1);
-					apQuestionsInsrt.add(newAPQuestion);
-				}
-				dyfr__Field_Config__c tmpFieldConfig;
-				for(dyfr__Field_Config__c fieldConfigAux : fieldConfigList) {
-					tmpFieldConfig = new dyfr__Field_Config__c(dyfr__Tab__c = fieldConfigAux.dyfr__Tab__c, dyfr__Section_name__c = fieldConfigAux.dyfr__Section_name__c,
-					                                           dyfr__Section_order__c = fieldConfigAux.dyfr__Section_order__c, dyfr__Subsection_name__c = fieldConfigAux.dyfr__Subsection_name__c,
-					                                           dyfr__Subsection_order__c = fieldConfigAux.dyfr__Subsection_order__c, dyfr__Order__c = fieldConfigAux.dyfr__Order__c,
-					                                           acpl__gf_counter_number__c = fieldConfigAux.acpl__gf_counter_number__c, dyfr__Map_field__c = fieldConfigAux.dyfr__Map_field__c,
-					                                           dyfr__Type__c = fieldConfigAux.dyfr__Type__c,
-					                                           dyfr__Visibility_control_value__c = fieldConfigAux.dyfr__Visibility_control_value__c,
-					                                           dyfr__Relationship_Object_Name__c = fieldConfigAux.dyfr__Relationship_Object_Name__c,
-					                                           dyfr__Relationship_Dynamic_Label_Field__c = fieldConfigAux.dyfr__Relationship_Dynamic_Label_Field__c,
-					                                           dyfr__Relationship_Query_Field__c = fieldConfigAux.dyfr__Relationship_Query_Field__c,
-					                                           dyfr__Mandatory__c = fieldConfigAux.dyfr__Important__c, dyfr__Important__c = fieldConfigAux.dyfr__Important__c);
-					final List<String> developerName = fieldConfigAux.dyfr__DeveloperName__c.split('_');
-					tmpFieldConfig.dyfr__DeveloperName__c = apAux.Id + '_' + developerName.get(1);
-					tmpFieldConfig.dyfr__Relationship_Query_Content__c = tmpFieldConfig.dyfr__DeveloperName__c;
-					if(fieldConfigAux.dyfr__Visibility_control_field__c != '' && fieldConfigAux.dyfr__Visibility_control_field__c != null) {
-						final List<String> visibilitycf = fieldConfigAux.dyfr__Visibility_control_field__c.split('_');
-						tmpFieldConfig.dyfr__Visibility_control_field__c = apAux.Id + '_' + visibilitycf.get(1);
-					}
-					if(fieldConfigAux.dyfr__Values_control_field__c != '' && fieldConfigAux.dyfr__Values_control_field__c != null) {
-						final List<String> valuecf = fieldConfigAux.dyfr__Values_control_field__c.split('_');
-						tmpFieldConfig.dyfr__Values_control_field__c = apAux.Id + '_' + valuecf.get(1);
-					}
-					fieldConfigAux.Id = null; //NOSONAR
-					tmpFieldsConfig.add(tmpFieldConfig);
-				}
-				lstFullFConfig.add(tmpFieldsConfig);
-			}
-			tmpFieldsConfig = new List<dyfr__Field_Config__c>();
-			for(Integer i = 0; i < lstFullFConfig.size(); i++) {
-				tmpFieldsConfig.addAll(lstFullFConfig[i]);
-			}
-			//inserto las preguntas
-			insert apQuestionsInsrt;
-			insert tmpFieldsConfig;
-			AP_Trigger_Helper.relateListValues(lstFullFConfig, catalogCnfig);
-		}
-	}
-
 }
