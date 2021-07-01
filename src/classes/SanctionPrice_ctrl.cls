@@ -14,6 +14,7 @@
     Martín Alejandro Mori Chávez  02-12-2019
 	Martín Alejandro Mori Chávez  07-07-2020
  **/
+@SuppressWarnings('PMD')
 public with sharing class SanctionPrice_ctrl {    
     static String idOli;
     static Map<String,Object> mapReturn = new Map<String,Object>();

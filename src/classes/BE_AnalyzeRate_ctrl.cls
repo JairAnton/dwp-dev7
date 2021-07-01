@@ -9,6 +9,7 @@
    2020-08-10  MAMC     martin.mori.contractor@bbva.com    	Creation
    -------------------------------------------------------------------------------------------------
  */
+@SuppressWarnings('PMD')
 public with sharing class BE_AnalyzeRate_ctrl {
     /* Map that contains return values*/
     static Map<String,Object> mapReturn = new Map<String,Object>();
@@ -92,15 +93,16 @@ public with sharing class BE_AnalyzeRate_ctrl {
     @AuraEnabled
     public static void setHasCommission(Boolean hasCommission, String recordId) {
         if(recordId != null && recordId != '') {
-            try {
-                    OpportunityLineItem oli = [SELECT Id, hasCommissions__c FROM OpportunityLineItem WHERE Id = :recordId];
-                    oli.hasCommissions__c = hasCommission;
-                    update oli;
-                
-            } catch(Exception e) { 
-                mapReturn.put(STROK, false);
-                errorCal = e.getMessage();
-            }
+        try {
+            
+                OpportunityLineItem oli = [SELECT Id, hasCommissions__c FROM OpportunityLineItem WHERE Id = :recordId];
+                oli.hasCommissions__c = hasCommission;
+                update oli;
+            
+        } catch(Exception e) { 
+            mapReturn.put(STROK, false);
+            errorCal = e.getMessage();
         }
+    }
     }
 }
