@@ -64,6 +64,7 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
     }
 
     connectedCallback() {
+        console.log('FIRST LINE 11111111111111111111');
         getCommissions({ recordId: this.recordId, negotiables: this.requestNegotiables, requestDataToAso: this.requestDataToAso })
             .then(result => {
 
@@ -147,12 +148,11 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
         this.commisionHasBeenModified = false;
 
         if (event.target.dataset.rate === 'REQUESTED') {
-            currentCommission.Requested_Rate_Value__c = value;
+            currentCommission.Requested_Rate_Value__c = value === '' ? undefined : value;
         }
         if (event.target.dataset.rate === 'AUTHORIZED') {
-            currentCommission.Authorized_Rate_Value__c = value;
+            currentCommission.Authorized_Rate_Value__c = value === '' ? undefined : value;
         }
-
     }
 
     /*-----------------------------------------------*/
