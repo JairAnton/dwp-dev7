@@ -1,20 +1,18 @@
-// NOSONAR
-//NOSONAR
 ({
     getCal: function (cmp, evt, helper) {
         helper.calRate(cmp, evt, helper);
     },
-    showSpinner: function (component, event, helper) {
+    showSpinner: function (component) {
         component.set("v.spinner", true);
     },
-    hideSpinner: function (component, event, helper) {
+    hideSpinner: function (component) {
         component.set("v.spinner", false);
     },
-    closeAlertInd: function (cmp, evt, helper) {
+    closeAlertInd: function () {
         var alerta = document.getElementById("idAlertInd");
         alerta.classList.add("slds-hide");
     },
-    closeAlertMar: function (cmp, evt, helper) {
+    closeAlertMar: function () {
         var alerta = document.getElementById("idAlertMar");
         alerta.classList.add("slds-hide");
     },
