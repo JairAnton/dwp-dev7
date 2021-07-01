@@ -25,4 +25,4 @@
     handlerCommissionCall: function (cmp, evt, helper) {
         helper.handlerCommissionCallHelper(cmp, evt, helper);
     }
-})
+});
