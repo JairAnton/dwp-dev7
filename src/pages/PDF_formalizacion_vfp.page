@@ -208,16 +208,9 @@
 
         <apex:outputPanel rendered="{!OLI.hasCommissions__c}">
             <div class="subtitle">
-                <b>&nbsp;Datos de Comisión</b>
+                <strong>&nbsp;Datos de Comisión</strong>
             </div>
-            <table class="classTableBack" style="width: 100% !important">
-                <colgroup>
-                    <col span="1" style="width: 40%;">
-                    <col span="1" style="width: 20%;">
-                    <col span="1" style="width: 20%;">
-                    <col span="1" style="width: 20%;">
-                </colgroup>
-
+            <table class="classTableBack">
                 <thead>
                     <tr>
                         <th class="cb">COMISIÓN</th>
