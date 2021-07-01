@@ -47,6 +47,8 @@ public with sharing class BE_AnalyzeRate_ctrl {
                 //helper to call the service
                 final AnalyzeRate_helper prate = new AnalyzeRate_helper(olis[0].OpportunityId, olis[0].price_rates_calculation_Id__c, Decimal.valueOf(tea), false);
                 prate.hasCommissions = hasCommissions;
+                System.debug('COMISIONS RECEIVED'+hasCommissions);
+                System.debug('COMMISSOION SETTED'+prate.hasCommissions);
                 //invoke the service
                 final HttpResponse invoke = prate.invoke();
                 //code = 200 OK
@@ -89,16 +91,16 @@ public with sharing class BE_AnalyzeRate_ctrl {
 	*/
     @AuraEnabled
     public static void setHasCommission(Boolean hasCommission, String recordId) {
-		try {
-			if(recordId != null && recordId != '') {
-				OpportunityLineItem oli = [SELECT Id, hasCommissions__c FROM OpportunityLineItem WHERE Id = :recordId];
-				oli.hasCommissions__c = hasCommission;
-				update oli;
-			}
-		} catch(Exception e) {
+        if(recordId != null && recordId != '') {
+            try {
+                    OpportunityLineItem oli = [SELECT Id, hasCommissions__c FROM OpportunityLineItem WHERE Id = :recordId];
+                    oli.hasCommissions__c = hasCommission;
+                    update oli;
+                
+            } catch(Exception e) { 
                 mapReturn.put(STROK, false);
                 errorCal = e.getMessage();
-		}
-        
+            }
+        }
     }
 }
