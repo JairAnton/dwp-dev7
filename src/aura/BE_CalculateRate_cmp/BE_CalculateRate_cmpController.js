@@ -1,5 +1,5 @@
 ({
-    getCal: function (cmp, evt, helper) {
+    'getCal': function (cmp, evt, helper) {
         helper.calRate(cmp, evt, helper);
     }
 })
