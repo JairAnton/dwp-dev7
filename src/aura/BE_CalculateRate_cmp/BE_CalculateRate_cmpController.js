@@ -13,7 +13,8 @@
         alerta.classList.add("slds-hide");
     },
     closeAlertMar: function () {
-        var alerta = document.getElementById("idAlertMar").classList.add("slds-hide");
+        var alerta = document.getElementById("idAlertMar");
+        alerta.classList.add("slds-hide");
     },
     onCheckUseCommissions: function (cmp, evt, helper) {
         helper.updateUseCommissions(cmp, evt, helper);
