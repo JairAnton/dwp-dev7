@@ -1,4 +1,5 @@
 // NOSONAR
+//NOSONAR
 //CHECKSTYLE:OFF
 ({
     calRate: function (cmp, evt, helper) {

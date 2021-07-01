@@ -1,4 +1,5 @@
 // NOSONAR
+//NOSONAR
 //CHECKSTYLE:OFF
 ({
     closeMe: function (component, event) {
