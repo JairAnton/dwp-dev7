@@ -19,7 +19,6 @@
                 } else {
                     cmp.set('v.isErrorCal', false);
                     var resultData = JSON.parse(ret.fields);
-                    console.log('RATE----------', resultData);
                     cmp.set("v.data", resultData);
                     cmp.set("v.finMarLost", ret.finMarLost);
                     cmp.set("v.finMarRecover", ret.finMarRecover);
@@ -73,17 +72,14 @@
         this.calRate(cmp, evt, helper);
     },
     updateUseCommissions: function (cmp, evt, helper) {
+        var checkCmp = cmp.find("useCommissionsCheckbox");
+        cmp.set('v.useCommissionsCheckbox', checkCmp.get("v.value"));
         var action = cmp.get("c.setHasCommission");
         action.setParams({
             "recordId": cmp.get('v.recordId'),
             "hasCommission": cmp.get('v.useCommissionsCheckbox')
         });
-        action.setCallback(this, function (response) {
-            var state = response.getState();
-            if (state === "SUCCESS") {
-                console.log('Has Commission updated succesfully');
-            }
-        });
+        action.setCallback(this, function (response) { });
         $A.enqueueAction(action);
     }
 })

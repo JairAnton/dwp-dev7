@@ -17,8 +17,6 @@
         alerta.classList.add("slds-hide");
     },
     onCheckUseCommissions: function (cmp, evt, helper) {
-        var checkCmp = cmp.find("useCommissionsCheckbox");
-        cmp.set('v.useCommissionsCheckbox', checkCmp.get("v.value"));
         helper.updateUseCommissions(cmp, evt, helper);
     },
     emitCommissionEvent: function (cmp, evt, helper) {
