@@ -41,16 +41,17 @@ public with sharing class SanctionPrice_ctrl {
 	 */
     @AuraEnabled
     public static Map<String,Object> calculateRate(String recordId) {
-        List<Opportunity> lstOpp = [SELECT Id, AccountId, Account.commercial_strategy__c, Account.segment_desc__c,
-                                    (SELECT Id, OpportunityId, product_price_approval_method__c, product_price_approval_indicator__c, minimun_apr_per__c, 
-                                     suggested_apr_per__c, spread_per__c, price_rates_calculation_Id__c, proposed_apr_per__c, 
-                                     additional_capital_per__c, additional_apread_per__c, capital_amount__c, capital_currency_id__c, 
-                                     efficiency_cost__c, expected_loss_per__c, financing_cost_stockholder_per__c, funding_cost_per__c, 
-                                     funding_cost_adjusted_per__c, minimum_spread_per__c, regulatory_capital_per__c, Product2Id, 
-                                     product2.Type_of_quote__c, pricing_model_id__c, CurrencyIsoCode, tcf_type_beneficiary__c, 
-                                     tcf_Periodicity_commission__c, tcf_type_bail_letter__c, hasCommissions__c FROM OpportunityLineItems) 
-                                    FROM Opportunity WHERE Id = :recordId];
         try {
+            List<Opportunity> lstOpp = [SELECT Id, AccountId, Account.commercial_strategy__c, Account.segment_desc__c,
+                                        (SELECT Id, OpportunityId, product_price_approval_method__c, product_price_approval_indicator__c, minimun_apr_per__c, 
+                                        suggested_apr_per__c, spread_per__c, price_rates_calculation_Id__c, proposed_apr_per__c, 
+                                        additional_capital_per__c, additional_apread_per__c, capital_amount__c, capital_currency_id__c, 
+                                        efficiency_cost__c, expected_loss_per__c, financing_cost_stockholder_per__c, funding_cost_per__c, 
+                                        funding_cost_adjusted_per__c, minimum_spread_per__c, regulatory_capital_per__c, Product2Id, 
+                                        product2.Type_of_quote__c, pricing_model_id__c, CurrencyIsoCode, tcf_type_beneficiary__c, 
+                                        tcf_Periodicity_commission__c, tcf_type_bail_letter__c, hasCommissions__c FROM OpportunityLineItems) 
+                                        FROM Opportunity WHERE Id = :recordId];
+        
             //If opportunity has opportunityLineItems
             if(lstOpp[0].OpportunityLineItems.size()>0) {
                 mapReturn.put(STRIDOLI,lstOpp[0].OpportunityLineItems[0].Id);
@@ -108,28 +109,29 @@ public with sharing class SanctionPrice_ctrl {
     
     @AuraEnabled
     public static Map<String,Object> getInfoAnalist(String recordId) {
-        List<Opportunity> lstOpp = [SELECT  Id,
-                                    AccountId,
-                                    Account.commercial_strategy__c,
-                                    Account.segment_desc__c,
-                                    (SELECT     Id, 
-                                     product_price_approval_method__c, 
-                                     product_price_approval_indicator__c,
-                                     minimun_apr_per__c, 
-                                     suggested_apr_per__c, 
-                                     spread_per__c,
-                                     price_rates_calculation_Id__c,
-                                     proposed_apr_per__c,
-                                     additional_capital_per__c,additional_apread_per__c,
-                                     capital_amount__c,capital_currency_id__c, efficiency_cost__c,
-                                     expected_loss_per__c, financing_cost_stockholder_per__c, 
-                                     funding_cost_per__c, funding_cost_adjusted_per__c,
-                                     minimum_spread_per__c, regulatory_capital_per__c,
-                                     Product2Id,product2.Type_of_quote__c
-                                     FROM OpportunityLineItems) 
-                                    FROM Opportunity 
-                                    WHERE Id = :recordId];
         try {
+            List<Opportunity> lstOpp = [SELECT  Id,
+                                        AccountId,
+                                        Account.commercial_strategy__c,
+                                        Account.segment_desc__c,
+                                        (SELECT     Id, 
+                                        product_price_approval_method__c, 
+                                        product_price_approval_indicator__c,
+                                        minimun_apr_per__c, 
+                                        suggested_apr_per__c, 
+                                        spread_per__c,
+                                        price_rates_calculation_Id__c,
+                                        proposed_apr_per__c,
+                                        additional_capital_per__c,additional_apread_per__c,
+                                        capital_amount__c,capital_currency_id__c, efficiency_cost__c,
+                                        expected_loss_per__c, financing_cost_stockholder_per__c, 
+                                        funding_cost_per__c, funding_cost_adjusted_per__c,
+                                        minimum_spread_per__c, regulatory_capital_per__c,
+                                        Product2Id,product2.Type_of_quote__c
+                                        FROM OpportunityLineItems) 
+                                        FROM Opportunity 
+                                        WHERE Id = :recordId];
+            
             //If opportunity has opportunityLineItems
             if(lstOpp[0].OpportunityLineItems.size()>0) {
                 mapReturn.put(STRIDOLI,lstOpp[0].OpportunityLineItems[0].Id);
@@ -181,16 +183,17 @@ public with sharing class SanctionPrice_ctrl {
     
     @AuraEnabled
     public static Map<String,Object> getInfoWithoutDefaultValues(String recordId) {
-        List<Opportunity> lstOpp = [SELECT  Id,
-                                    AccountId,
-                                    Account.segment_desc__c,
-                                    (SELECT     Id, 
-                                     product_price_approval_method__c, 
-                                     product_price_approval_indicator__c
-                                     FROM OpportunityLineItems) 
-                                    FROM Opportunity 
-                                    WHERE Id = :recordId];
         try {
+            List<Opportunity> lstOpp = [SELECT  Id,
+                                        AccountId,
+                                        Account.segment_desc__c,
+                                        (SELECT     Id, 
+                                        product_price_approval_method__c, 
+                                        product_price_approval_indicator__c
+                                        FROM OpportunityLineItems) 
+                                        FROM Opportunity 
+                                        WHERE Id = :recordId];
+        
             //If opportunity has opportunityLineItems
             if(lstOpp[0].OpportunityLineItems.size()>0) {
                 mapReturn.put(STRIDOLI,lstOpp[0].OpportunityLineItems[0].Id);
@@ -211,13 +214,14 @@ public with sharing class SanctionPrice_ctrl {
     
     @AuraEnabled
     public static Map<String,Object> getInfo(String recordId) {
-        List<OpportunityLineItem> olis = [SELECT Id, product_price_approval_method__c, Opportunity.AccountId, Product2.Type_of_quote__c,
-                                          Opportunity.Account.commercial_strategy__c, suggested_apr_per__c, minimun_apr_per__c, calculated_spread__c,
-                                          price_rates_calculation_Id__c, proposed_apr_per__c, product_price_approval_indicator__c, pricing_model_id__c,
-                                          RORC_Client__c, RORC_Operation__c, RAROEC_Operation__c, RORC_Updated__c, RORC_Variation__c,
-                                          RORC_Model__c, RORC_Approved__c, Liquidity_Margin_Lost__c, CurrencyIsoCode, Liquidity_Margin_Recovered_Currency__c
-                                          FROM OpportunityLineItem WHERE OpportunityId = :recordId];
         try {
+            List<OpportunityLineItem> olis = [SELECT Id, product_price_approval_method__c, Opportunity.AccountId, Product2.Type_of_quote__c,
+                                            Opportunity.Account.commercial_strategy__c, suggested_apr_per__c, minimun_apr_per__c, calculated_spread__c,
+                                            price_rates_calculation_Id__c, proposed_apr_per__c, product_price_approval_indicator__c, pricing_model_id__c,
+                                            RORC_Client__c, RORC_Operation__c, RAROEC_Operation__c, RORC_Updated__c, RORC_Variation__c,
+                                            RORC_Model__c, RORC_Approved__c, Liquidity_Margin_Lost__c, CurrencyIsoCode, Liquidity_Margin_Recovered_Currency__c
+                                            FROM OpportunityLineItem WHERE OpportunityId = :recordId];
+        
             final Decimal teaProposed = (olis[0].proposed_apr_per__c == null ? olis[0].suggested_apr_per__c : olis[0].proposed_apr_per__c);
             mapReturn = BE_AnalyzeRate_Rest.invokeWS(recordId, olis, teaProposed, false);
             mapReturn.put(STRIDOLI, olis[0].Id);
@@ -250,29 +254,34 @@ public with sharing class SanctionPrice_ctrl {
      */
     @AuraEnabled
     public static Map<String,Object> requestQuote(String recordId) {
-        mapReturn.put('nextCallout',false);
-		final List<OpportunityLineItem> oliList = [SELECT price_quote_id__c, price_quote_owner_id__c, Liquidity_Margin_Lost__c
-											FROM OpportunityLineItem WHERE OpportunityId = :recordId];
-		if(oliList.isEmpty() == false) {
-            // Check if there is already a price quotation request for the oportunity
-			if(String.isNotBlank(oliList[0].price_quote_id__c)) {
-				// Check if the context user is the same user that owns the price quotation request
-				if(oliList[0].price_quote_owner_id__c == UserInfo.getUserId()) {
-					// Invoke web service to request quotation approval
-					mapReturn = BE_Quotation_Rest.invokeApprovalQuo(recordId);
-				} else {
-					// Invoke web service to recover quotation 
-					mapReturn = BE_Quotation_Rest.invokeRecoverQuo(recordId); 
-					mapReturn.put('nextCallout',true);
-				}
-			} else {
-                // Invoke web service to create quotation
-				mapReturn = BE_Quotation_Rest.invokeCreateQuo(recordId);
-			}
-            if(oliList[0].Liquidity_Margin_Lost__c<=0 || oliList[0].Liquidity_Margin_Lost__c==null) {
-                delete [SELECT Id FROM Opportunity_Solution_Commitment__c WHERE opportunity_id__c = :recordId];
+            try{
+            mapReturn.put('nextCallout',false);
+            final List<OpportunityLineItem> oliList = [SELECT price_quote_id__c, price_quote_owner_id__c, Liquidity_Margin_Lost__c
+                                                FROM OpportunityLineItem WHERE OpportunityId = :recordId];
+            if(oliList.isEmpty() == false) {
+                // Check if there is already a price quotation request for the oportunity
+                if(String.isNotBlank(oliList[0].price_quote_id__c)) {
+                    // Check if the context user is the same user that owns the price quotation request
+                    if(oliList[0].price_quote_owner_id__c == UserInfo.getUserId()) {
+                        // Invoke web service to request quotation approval
+                        mapReturn = BE_Quotation_Rest.invokeApprovalQuo(recordId);
+                    } else {
+                        // Invoke web service to recover quotation 
+                        mapReturn = BE_Quotation_Rest.invokeRecoverQuo(recordId); 
+                        mapReturn.put('nextCallout',true);
+                    }
+                } else {
+                    // Invoke web service to create quotation
+                    mapReturn = BE_Quotation_Rest.invokeCreateQuo(recordId);
+                }
+                if(oliList[0].Liquidity_Margin_Lost__c<=0 || oliList[0].Liquidity_Margin_Lost__c==null) {
+                    delete [SELECT Id FROM Opportunity_Solution_Commitment__c WHERE opportunity_id__c = :recordId];
+                }
             }
-		}
+        } catch(Exception e) {
+            genericError = e.getMessage();
+            mapReturn.put(STRINGERROR, genericError);
+        }
         return mapReturn; 
     }
 }

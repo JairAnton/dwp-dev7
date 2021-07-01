@@ -109,6 +109,7 @@ public with sharing class BE_CalculateCommission_Ctr {
         Final List<Commission_Question__c> deleteQuestions = new List<Commission_Question__c>();
         Final List<Commission_Range__c> deleteRange = new List<Commission_Range__c>();
         
+        try {
         Final OpportunityLineItem oli = [SELECT Id, Name, Product2.Name, unitprice, gipr_Plazo__c, gipr_Periodicidad__c, gipr_Tipo_Garantia__c, pricing_model_id__c, PE_List_Product_mode__c, CurrencyIsoCode, gipr_Garantia__c,Opportunity.Account.main_code_id__c FROM OpportunityLineItem WHERE Id = :recordId limit 1];
 
         if(requestDataToAso) {
@@ -138,6 +139,9 @@ public with sharing class BE_CalculateCommission_Ctr {
         response = [SELECT Id, Product_Commission_Name__c, Opportunity_Product__c, Code__c, Calculation_Type__c, Suggested_Rate_Type__c, CurrencyIsoCode, Suggested_Rate__c, Commission_Calculation_Amount__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, Commission_Maximum_Amount__c, Commission_Minimum_Amount__c,Is_Negotiable__c, Commission_Maximum_Iso_Code__c, Commission_Minimum_Iso_Code_c__c, Suggested_Rate_Iso_Code__c, Rate_Is_Amount__c, Rate_Is_Percent__c, Rate_Is_Range__c, Rate_Is_Number__c, Minimum_Rate_Type__c, Minimum_Rate_Iso_Code__c, Minimum_Rate__c, Commission_Calculation_Currency__c, showMinimumRateClass__c, numberOfQuestions__c,(SELECT Id, Product_Commission__c, Parent_Question__c, Input_Value__c, Input_Type__c, isBoolean__c, BooleanValue__c, isCurrency__c, CurrencyIsoCode, Description__c, Code__c, output_Type__c, isParent__c, Answer__c FROM Commission_Questions__r ORDER BY Code__c ASC), (SELECT Calculation_Type__c, Interval_Id__c, Limit_Maximum_Value__c, Limit_Minimum_Value__c, Limit_Type__c, Name, Settled_Value_Amount__c, Settled_Value_Iso_Code__c, Settled_Value_Type__c FROM Commissions_Ranges__r ORDER BY Interval_Id__c ASC) FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id ORDER BY Code__c ASC];
 
         mapReturn.put('commissions',response);
+        } catch(Exception e) {
+            mapReturn.put('error', e);
+        }
         return mapReturn;
     }
 

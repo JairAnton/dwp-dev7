@@ -29,68 +29,77 @@ public with sharing class BE_ProdCommissionSection_Ctr {
     @AuraEnabled
     public static Map<String,Object> calculateRate(String rawCommission, String recordId, String status) {
         //public static Product_Commission__c calculateRate(String rawCommission, String recordId, String status) {
-        Final Product_Commission__c currentdbComm = [SELECT Opportunity_Product__r.unitprice, Opportunity_Product__r.gipr_Plazo__c, Opportunity_Product__r.gipr_Periodicidad__c, Opportunity_Product__r.CurrencyIsoCode, Code__c, Term_Frequency_Id__c, Term_Number__c, Suggested_Rate_Type__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, CurrencyIsoCode, Commission_Calculation_Amount__c, Suggested_Rate__c, Suggested_Rate_Iso_Code__c, Commission_Calculation_Currency__c,(SELECT Code__c, Input_Value__c, Answer__c FROM Commission_Questions__r) FROM Product_Commission__c WHERE Id = :recordId];
-        Final Product_Commission__c commission = parseCommission(rawCommission, currentdbComm, status);
-        Final BE_CalculateCommissionRequest_Helper listComHelper = new BE_CalculateCommissionRequest_Helper(commission,status);
-        Final System.HttpResponse invoke = listComHelper.invoke();
-        mapReturn = new Map<String,Object>();
-        mapReturn.put('error',false);
+        try {
+            Final Product_Commission__c currentdbComm = [SELECT Opportunity_Product__r.unitprice, Opportunity_Product__r.gipr_Plazo__c, Opportunity_Product__r.gipr_Periodicidad__c, Opportunity_Product__r.CurrencyIsoCode, Code__c, Term_Frequency_Id__c, Term_Number__c, Suggested_Rate_Type__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, CurrencyIsoCode, Commission_Calculation_Amount__c, Suggested_Rate__c, Suggested_Rate_Iso_Code__c, Commission_Calculation_Currency__c,(SELECT Code__c, Input_Value__c, Answer__c FROM Commission_Questions__r) FROM Product_Commission__c WHERE Id = :recordId];
+            Final Product_Commission__c commission = parseCommission(rawCommission, currentdbComm, status);
+            Final BE_CalculateCommissionRequest_Helper listComHelper = new BE_CalculateCommissionRequest_Helper(commission,status);
+            Final System.HttpResponse invoke = listComHelper.invoke();
+            mapReturn = new Map<String,Object>();
+            mapReturn.put('error',false);
 
-        switch on invoke.getStatusCode() {
-            when 200 {
-                Final Map<String, Object> response = (Map<String, Object>) JSON.deserializeUntyped(invoke.getBody());
-                Final Map<String, Object> commissionResp = (Map<String, Object>) response.get('data');
+            switch on invoke.getStatusCode() {
+                when 200 {
+                    Final Map<String, Object> response = (Map<String, Object>) JSON.deserializeUntyped(invoke.getBody());
+                    Final Map<String, Object> commissionResp = (Map<String, Object>) response.get('data');
+                    
+                    Final Map<String, Object> fixedFee = (Map<String, Object>) commissionResp.get('fixedFee');
+                    commission.Commission_Calculation_Code__c = String.valueOf(fixedFee.get('id'));
+                    
+                    Final Map<String, Object> calculatedFee = (Map<String, Object>) commissionResp.get('calculatedFee');
+                    commission.Commission_Calculation_Id__c = String.valueOf(calculatedFee.get('id'));
+                    commission.Commission_Calculation_Version__c = Integer.valueOf(calculatedFee.get('version'));
+                    
+                    Final Map<String, Object> calculatedAmount = (Map<String, Object>) calculatedFee.get('calculatedAmount');
+                    commission.Commission_Calculation_Amount__c = Double.valueOf(calculatedAmount.get('amount'));
+                    commission.Commission_Calculation_Currency__c = String.valueOf(calculatedAmount.get('currency'));
                 
-                Final Map<String, Object> fixedFee = (Map<String, Object>) commissionResp.get('fixedFee');
-                commission.Commission_Calculation_Code__c = String.valueOf(fixedFee.get('id'));
-                
-                Final Map<String, Object> calculatedFee = (Map<String, Object>) commissionResp.get('calculatedFee');
-                commission.Commission_Calculation_Id__c = String.valueOf(calculatedFee.get('id'));
-                commission.Commission_Calculation_Version__c = Integer.valueOf(calculatedFee.get('version'));
-                
-                Final Map<String, Object> calculatedAmount = (Map<String, Object>) calculatedFee.get('calculatedAmount');
-                commission.Commission_Calculation_Amount__c = Double.valueOf(calculatedAmount.get('amount'));
-                commission.Commission_Calculation_Currency__c = String.valueOf(calculatedAmount.get('currency'));
-            
-            } when else {
-                mapReturn.put('error',true);
-                mapReturn.put('responseCode',invoke.getStatusCode());
-                mapReturn.put('errorBody',invoke.getBody());
+                } when else {
+                    mapReturn.put('error',true);
+                    mapReturn.put('responseCode',invoke.getStatusCode());
+                    mapReturn.put('errorBody',invoke.getBody());
+                }
             }
+            update commission;
+            if(commission.Commission_Questions__r.size() > 0) {
+                update commission.Commission_Questions__r;
+            }
+            mapReturn.put('commission',commission);
+        } catch(Exception e) {
+            mapReturn.put('error',true);
+            mapReturn.put('responseCode',e.getStackTraceString());
         }
-        update commission;
-        if(commission.Commission_Questions__r.size() > 0) {
-            update commission.Commission_Questions__r;
-        }
-        mapReturn.put('commission',commission);
         return mapReturn;
     }
 
     /** Save Commission rates and answers */
     public static Product_Commission__c parseCommission(String rawCommission, Product_Commission__c currentDbComm, String status) {
-        Final ProductWrapper comData = (ProductWrapper) JSON.deserializeStrict(rawCommission, ProductWrapper.class);
         Product_Commission__c commission = new Product_Commission__c();
+        try {
+            Final ProductWrapper comData = (ProductWrapper) JSON.deserializeStrict(rawCommission, ProductWrapper.class);
 
-        Map<String,String> mpStatus = new Map<String,String>{'19'  => ' ', '09'  => ' ', '11'  => ' ', '08'  => ' ', '10' => ' '};
-        commission = currentDbComm;
-        commission.Authorized_Rate_Value__c = obtainTwoDecimals(comData.rawCommission.Authorized_Rate_Value__c);
-        commission.Requested_Rate_Value__c = obtainTwoDecimals(comData.rawCommission.Requested_Rate_Value__c);
-        commission.Suggested_Rate__c = comData.rawCommission.Suggested_Rate__c;
+            Map<String,String> mpStatus = new Map<String,String>{'19'  => ' ', '09'  => ' ', '11'  => ' ', '08'  => ' ', '10' => ' '};
+            commission = currentDbComm;
+            commission.Authorized_Rate_Value__c = obtainTwoDecimals(comData.rawCommission.Authorized_Rate_Value__c);
+            commission.Requested_Rate_Value__c = obtainTwoDecimals(comData.rawCommission.Requested_Rate_Value__c);
+            commission.Suggested_Rate__c = comData.rawCommission.Suggested_Rate__c;
 
-        
-        if(comData.rawCommission.Authorized_Rate_Value__c == null && mpStatus.containsKey(status) ) {
-            commission.Authorized_Rate_Value__c = commission.Requested_Rate_Value__c.setScale(2);
-        }
-
-        if(comData.rawCommission.Requested_Rate_Value__c == null) {
-            commission.Requested_Rate_Value__c = obtainTwoDecimals(Decimal.valueOf(commission.Suggested_Rate__c));
-            if(commission.Suggested_Rate_Type__c.toUppercase() == 'PERCENTAGE') {
-                commission.Requested_Rate_Value__c = obtainTwoDecimals(Decimal.valueOf(commission.Suggested_Rate__c)*100);
-            }
             
+            if(comData.rawCommission.Authorized_Rate_Value__c == null && mpStatus.containsKey(status) ) {
+                commission.Authorized_Rate_Value__c = commission.Requested_Rate_Value__c.setScale(2);
+            }
+
+            if(comData.rawCommission.Requested_Rate_Value__c == null) {
+                commission.Requested_Rate_Value__c = obtainTwoDecimals(Decimal.valueOf(commission.Suggested_Rate__c));
+                if(commission.Suggested_Rate_Type__c.toUppercase() == 'PERCENTAGE') {
+                    commission.Requested_Rate_Value__c = obtainTwoDecimals(Decimal.valueOf(commission.Suggested_Rate__c)*100);
+                }
+                
+            }
+            commission = parseQuestions(commission, comData);
+        } catch(Exception e) {
+            mapReturn.put('error',true);
+            mapReturn.put('responseCode',e.getStackTraceString());
         }
-        commission = parseQuestions(commission, comData);
-        
         return commission;
     }
 
