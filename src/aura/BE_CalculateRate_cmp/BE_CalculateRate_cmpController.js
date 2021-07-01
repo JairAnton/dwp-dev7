@@ -9,12 +9,10 @@
         component.set("v.spinner", false);
     },
     closeAlertInd: function () {
-        var alerta = document.getElementById("idAlertInd");
-        alerta.classList.add("slds-hide");
+        document.getElementById("idAlertInd").classList.add("slds-hide");
     },
     closeAlertMar: function () {
-        var alerta = document.getElementById("idAlertMar");
-        alerta.classList.add("slds-hide");
+        document.getElementById("idAlertMar").classList.add("slds-hide");
     },
     onCheckUseCommissions: function (cmp, evt, helper) {
         helper.updateUseCommissions(cmp, evt, helper);
