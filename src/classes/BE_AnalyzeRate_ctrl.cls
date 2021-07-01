@@ -83,4 +83,16 @@ public with sharing class BE_AnalyzeRate_ctrl {
         mapReturn.put('fields', JSON.serialize(fields));
         return mapReturn; 
     }
+
+    /*
+     * Method used to calculate indicators of RORC
+	*/
+    @AuraEnabled
+    public static void setHasCommission(Boolean hasCommission, String recordId) {
+        if(recordId != null && recordId != '') {
+            OpportunityLineItem oli = [SELECT Id, hasCommissions__c FROM OpportunityLineItem WHERE Id = :recordId];
+            oli.hasCommissions__c = hasCommission;
+            update oli;
+        }
+    }
 }

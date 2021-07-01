@@ -1,4 +1,8 @@
 ({
+    doInit: function (cmp, evt, helper) {
+        var checkCmp = cmp.find("useCommissionsCheckbox");
+        console.log('hasCommissionValue', cmp.get('v.useCommissionsCheckbox'));
+    },
     getCal: function (cmp, evt, helper) {
         helper.calRate(cmp, evt, helper);
     },
@@ -19,6 +23,7 @@
     onCheckUseCommissions: function (cmp, evt, helper) {
         var checkCmp = cmp.find("useCommissionsCheckbox");
         cmp.set('v.useCommissionsCheckbox', checkCmp.get("v.value"));
+        helper.updateUseCommissions(cmp, evt, helper);
     },
     emitCommissionEvent: function (cmp, evt, helper) {
         helper.emitEventHelper(cmp, evt, helper);

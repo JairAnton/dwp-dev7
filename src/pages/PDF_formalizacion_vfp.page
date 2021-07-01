@@ -1,6 +1,6 @@
 <apex:page renderAs="pdf" language="es" applyBodyTag="false" standardController="Opportunity" extensions="PDF_formalizacion_ctrl">
-    <apex:stylesheet value="{!$Resource.stylePDF}"/>
-    <apex:image value="{!URLFOR($Resource.BBVALogo)}" width="350" height="100"/>
+    <apex:stylesheet value="{!$Resource.stylePDF}" />
+    <apex:image value="{!URLFOR($Resource.BBVALogo)}" width="350" height="100" />
     <div class="title">
         <b>&nbsp;PDF Formalización {!Opportunity.Name}</b>
     </div>
@@ -49,9 +49,11 @@
             <td>Estrategia: {!Client.risk_strategy_class_name__c} </td>
         </tr>
         <tr>
-            <td>Buró:&nbsp;<apex:outputText value="{0, number,0}">
-                <apex:param value="{!Client.bureau_classification_type__c}"></apex:param>
-                </apex:outputText></td>
+            <td>Buró:&nbsp;
+                <apex:outputText value="{0, number,0}">
+                    <apex:param value="{!Client.bureau_classification_type__c}"></apex:param>
+                </apex:outputText>
+            </td>
             <td>Rating: </td>
         </tr>
     </table>
@@ -63,16 +65,20 @@
         <br/>
         <table>
             <tr>
-                <td>Modalidad:&nbsp;<apex:outPutField value="{!opp.Risk_modality_type__c}"/></td>
+                <td>Modalidad:&nbsp;
+                    <apex:outPutField value="{!opp.Risk_modality_type__c}" />
+                </td>
                 <td></td>
             </tr>
             <tr>
                 <td>Condicionantes: {!numGnF}</td>
-                <td>Fecha autorización:&nbsp;<apex:outputPanel rendered="{!IF(FechaAut == $Label.lblNoAuthDate, true, false)}">
-                    	{!FechaAut}
+                <td>Fecha autorización:&nbsp;
+                    <apex:outputPanel rendered="{!IF(FechaAut == $Label.lblNoAuthDate, true, false)}">
+                        {!FechaAut}
                     </apex:outputPanel>
                     <apex:outputPanel rendered="{!IF(FechaAut != $Label.lblNoAuthDate, true, false)}">
-                    	<apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!datevalue(FechaAut)}" /> </apex:outputText>
+                        <apex:outputText value="{0,date,dd/MM/yyyy}">
+                            <apex:param value="{!datevalue(FechaAut)}" /> </apex:outputText>
                     </apex:outputPanel>
                 </td>
             </tr>
@@ -96,7 +102,7 @@
         <br/>
         <apex:outputPanel rendered="{!Product.Type_of_quote__c=='Carta de credito'}">
             <table>
-                <apex:variable value="{!0}" var="rowNum"/>
+                <apex:variable value="{!0}" var="rowNum" />
                 <apex:repeat value="{!B}" var="pc" id="InfoCartaCredito">
                     <apex:outputPanel rendered="{!IF(OR(pc.fprd__Map_field__c=='cpliq_Commission__c', 
                                                 pc.fprd__Map_field__c=='cpliq_Emission__c', 
@@ -108,21 +114,237 @@
                                                 pc.fprd__Map_field__c=='cpliq_Bco_Correspondent__c', 
                                                 pc.fprd__Map_field__c=='cpliq_Total__c', 
                                                 pc.fprd__Map_field__c=='cpliq_Vcto_tarifa__c'), true, false)}">
+                        <apex:panelGroup rendered="{!Mod(rowNum,2)= 0}">
+                            <tr>
+                                <td>
+                                    <apex:panelGroup rendered="{!rowNum < B.size}">
+                                        {!B[rowNum].fprd__Label__c} :&nbsp;
+                                        <apex:outputPanel rendered="{!IF(B[rowNum].fprd__Type__c=='date', true, false)}">
+                                            <apex:outputText value="{0,date,dd/MM/yyyy}">
+                                                <apex:param value="{!OLI[pc.fprd__Map_field__c]}" />
+                                            </apex:outputText>
+                                        </apex:outputPanel>
+                                        <apex:outputPanel rendered="{!IF(AND(B[rowNum].fprd__Type__c!='date', !contains(B[rowNum].fprd__Label__c,'(%)')), true, false)}">
+                                            <apex:outputField value="{!OLI[pc.fprd__Map_field__c]}" />
+                                        </apex:outputPanel>
+                                        <apex:outputPanel rendered="{!IF(AND(B[rowNum].fprd__Type__c!='date', contains(B[rowNum].fprd__Label__c,'(%)')), true, false)}">
+                                            <apex:outputText value="{!OLI[pc.fprd__Map_field__c]}" />
+                                        </apex:outputPanel>
+                                    </apex:panelGroup>
+                                </td>
+                                <td>
+                                    <apex:panelGroup rendered="{!rowNum+1 < B.size}">
+                                        {!B[rowNum+1].fprd__Label__c} :&nbsp;
+                                        <apex:outputPanel rendered="{!IF(B[rowNum+1].fprd__Type__c=='date', true, false)}">
+                                            <apex:outputText value="{0,date,dd/MM/yyyy}">
+                                                <apex:param value="{!OLI[B[rowNum+1].fprd__Map_field__c]}" />
+                                            </apex:outputText>
+                                        </apex:outputPanel>
+                                        <apex:outputPanel rendered="{!IF(AND(B[rowNum+1].fprd__Type__c!='date', !contains(B[rowNum+1].fprd__Label__c,'(%)')), true, false)}">
+                                            <apex:outputField value="{!OLI[B[rowNum+1].fprd__Map_field__c]}" />
+                                        </apex:outputPanel>
+                                        <apex:outputPanel rendered="{!IF(AND(B[rowNum+1].fprd__Type__c!='date', contains(B[rowNum+1].fprd__Label__c,'(%)')), true, false)}">
+                                            <apex:outputText value="{!OLI[B[rowNum+1].fprd__Map_field__c]}" />
+                                        </apex:outputPanel>
+                                    </apex:panelGroup>
+                                </td>
+                            </tr>
+                        </apex:panelGroup>
+                    </apex:outputPanel>
+                    <apex:variable var="rowNum" value="{!rowNum + 1}" />
+                </apex:repeat>
+            </table>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!Product.Type_of_quote__c!='Carta de credito'}">
+            <table>
+                <tr>
+                    <td>Nº cotización: {!Oli.price_quote_id__c} </td>
+                    <td>Fecha de sanción:&nbsp;
+                        <apex:outputText value="{0,date,dd/MM/yyyy}">
+                            <apex:param value="{!OLI.price_quote_date__c}" /> </apex:outputText>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <apex:outputPanel rendered="{!IF(product.ProductCode == $Label.lblPDFProductCartaTecnicaEconomica || product.ProductCode ==$Label.lblPDFProductCartaTecnicaImport,true,false)}">
+                            Comisión aprobada:
+                            <apex:outputText value=" {0, number,.00} %">
+                                <apex:param value="{!Oli.proposed_fee_per__c}" />
+                            </apex:outputText>
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!IF(product.ProductCode != $Label.lblPDFProductCartaTecnicaEconomica && product.ProductCode !=$Label.lblPDFProductCartaTecnicaImport,true,false)}">
+                            TEA aprobada:
+                            <apex:outputText value=" {0, number,.00} %">
+                                <apex:param value="{!Oli.proposed_apr_per__c}" />
+                            </apex:outputText>
+                        </apex:outputPanel>
+                    </td>
+                    <td>Vigencia:&nbsp;
+                        <apex:outputText value="{0,date,dd/MM/yyyy}">
+                            <apex:param value="{!OLI.validityDate__c}" /></apex:outputText>
+                    </td>
+                </tr>
+                <apex:outputPanel rendered="{!Product.Type_of_quote__c =='COTIZADOR'}">
+                    <tr>
+                        <td>Comisión estructuración:
+                            <apex:outputText value=" {0, number,.00} %">
+                                <apex:param value="{!Oli.restructuring_fee_per__c }" />
+                            </apex:outputText>
+                        </td>
+                        <td>Comisión liquidación anticipada:
+                            <apex:outputText value=" {0, number,.00} %">
+                                <apex:param value="{!Oli.cancellation_fee_per__c}" />
+                            </apex:outputText>
+                        </td>
+                    </tr>
+                </apex:outputPanel>
+                <tr>
+                    <td>Plazo:&nbsp;
+                        <apex:outputfield value="{!Oli.gipr_Plazo__c}" />&nbsp;
+                        <apex:outputfield value="{!Oli.gipr_Periodicidad__c}" />
+                    </td>
+                    <td>Tipo garantía:&nbsp;
+                        <apex:outputfield value="{!Oli.gipr_Tipo_Garantia__c}" />
+                    </td>
+                </tr>
+                <apex:outputPanel rendered="{!Product.ProductCode == $Label.lblPDFProductExportComex || Product.ProductCode == $Label.lblPDFProductImportComex}">
+                    <tr>
+                        <td>Medio de pago:&nbsp;
+                            <apex:outputfield value="{!OLI.gipr_Payment_Method__c}" />
+                        </td>
+                        <td>Bolsa comex:&nbsp;
+                            <apex:outputfield value="{!OLI.gipr_Comex_Bag__c}" />
+                        </td>
+                    </tr>
+                </apex:outputPanel>
+
+                <tr>
+                    <td>Compromisos:&nbsp;{!totalC} </td>
+                    <td>Comentarios:&nbsp;{!Comentarios}</td>
+                </tr>
+            </table>
+        </apex:outputPanel>
+    </apex:outputPanel>
+    <div class="footer">
+        <div>Página
+            <span class="pagenumber" /> de
+            <span class="pagecount" />
+        </div>
+    </div>
+    <div class="pageBreak"></div>
+    <apex:outputPanel id="DatosOportunidad" layout="block">
+        <br/>
+
+        <apex:outputPanel rendered="{!OLI.hasCommissions__c}">
+            <div class="subtitle">
+                <b>&nbsp;Datos de Comisión</b>
+            </div>
+            <table class="classTableBack">
+                <tr>
+                    <th class="cb">COMISIÓN</th>
+                    <th class="cb">SOLICITADO</th>
+                    <th class="cb">AUTORIZADO</th>
+                    <th class="cb">COMISIÓN FINAL</th>
+                </tr>
+                <apex:repeat value="{!commissions1}" var="comi1">
+                    <tr>
+                        <td>
+                            <apex:outputField value="{!comi1.Product_Commission_Name__c}" />
+                        </td>
+                        <td>
+                            <apex:outputPanel rendered="{!comi1.Rate_Is_Amount__c}">{!comi1.Suggested_Rate_Iso_Code__c}&nbsp;</apex:outputPanel>
+                            <apex:outputField value="{!comi1.Requested_Rate_Value__c}" />
+                            <apex:outputPanel rendered="{!comi1.Rate_Is_Percent__c}">&nbsp;%</apex:outputPanel>
+                        </td>
+                        <td>
+                            <apex:outputPanel rendered="{!comi1.Rate_Is_Amount__c}">{!comi1.Suggested_Rate_Iso_Code__c}&nbsp;</apex:outputPanel>
+                            <apex:outputField value="{!comi1.Authorized_Rate_Value__c}" />
+                            <apex:outputPanel rendered="{!comi1.Rate_Is_Percent__c}">&nbsp;%</apex:outputPanel>
+                        </td>
+                        <td>
+                            <apex:outputField value="{!comi1.Commission_Calculation_Amount__c}" />
+                        </td>
+                    </tr>
+                </apex:repeat>
+            </table>
+        </apex:outputPanel>
+        <br/>
+        <div class="subtitle">
+            <b>&nbsp;Datos de oportunidad</b>
+        </div>
+        <br/>
+        <table>
+            <tr>
+                <td>Nombre de la oportunidad: {!Opportunity.Name}</td>
+                <td>Familia producto: {!Product.Family}</td>
+            </tr>
+            <tr>
+                <td>Producto: {!Product.Name}</td>
+                <td/>
+            </tr>
+        </table>
+    </apex:outputPanel>
+    <apex:outputPanel id="pagoliquidación" layout="block">
+        <br/>
+        <div class="subtitle">
+            <b>&nbsp;Información general del producto</b>
+        </div>
+        <br/>
+        <table>
+            <apex:variable value="{!0}" var="rowNum" />
+            <apex:repeat value="{!A}" var="pc" id="Pagoliq">
+                <apex:panelGroup rendered="{!Mod(rowNum,2)= 0}">
+                    <tr>
+                        <td>
+                            {!A[rowNum].fprd__Label__c} :&nbsp;
+                            <apex:outputField value="{!OLI[pc.fprd__Map_field__c]}" />
+                        </td>
+                        <td>
+                            <apex:panelGroup rendered="{!rowNum+1 < A.size}">
+                                {!A[rowNum+1].fprd__Label__c} :&nbsp;
+                                <apex:outputField value="{!OLI[A[rowNum+1].fprd__Map_field__c]}" />
+                            </apex:panelGroup>
+                        </td>
+                    </tr>
+                </apex:panelGroup>
+                <apex:variable var="rowNum" value="{!rowNum + 1}" />
+            </apex:repeat>
+        </table>
+    </apex:outputPanel>
+    <apex:outputPanel id="InfoGral" layout="block">
+        <br/>
+        <div class="subtitle">
+            <b>&nbsp;Criterios de pago y liquidacíon</b>
+        </div>
+        <br/>
+        <table>
+            <apex:variable value="{!0}" var="rowNum" />
+            <apex:repeat value="{!B}" var="pc" id="InfoGral2">
+                <apex:outputPanel rendered="{!IF(AND(Product.Type_of_quote__c=='Carta de credito', OR(pc.fprd__Map_field__c=='cpliq_Commission__c', 
+                                                pc.fprd__Map_field__c=='cpliq_Emission__c', 
+                                                pc.fprd__Map_field__c=='cpliq_Negotiation__c', 
+                                                pc.fprd__Map_field__c=='cpliq_Payment_Dif__c', 
+                                                pc.fprd__Map_field__c=='cpliq_Increase__c', 
+                                                pc.fprd__Map_field__c=='cpliq_Extension__c', 
+                                                pc.fprd__Map_field__c=='cpliq_BBVA__c', 
+                                                pc.fprd__Map_field__c=='cpliq_Bco_Correspondent__c', 
+                                                pc.fprd__Map_field__c=='cpliq_Total__c', 
+                                                pc.fprd__Map_field__c=='cpliq_Vcto_tarifa__c')), false, true)}">
                     <apex:panelGroup rendered="{!Mod(rowNum,2)= 0}">
                         <tr>
                             <td>
                                 <apex:panelGroup rendered="{!rowNum < B.size}">
-                                    {!B[rowNum].fprd__Label__c} :&nbsp; 
+                                    {!B[rowNum].fprd__Label__c} :&nbsp;
                                     <apex:outputPanel rendered="{!IF(B[rowNum].fprd__Type__c=='date', true, false)}">
                                         <apex:outputText value="{0,date,dd/MM/yyyy}">
                                             <apex:param value="{!OLI[pc.fprd__Map_field__c]}" />
                                         </apex:outputText>
                                     </apex:outputPanel>
                                     <apex:outputPanel rendered="{!IF(AND(B[rowNum].fprd__Type__c!='date', !contains(B[rowNum].fprd__Label__c,'(%)')), true, false)}">
-                                        <apex:outputField value="{!OLI[pc.fprd__Map_field__c]}"/>
+                                        <apex:outputField value="{!OLI[pc.fprd__Map_field__c]}" />
                                     </apex:outputPanel>
                                     <apex:outputPanel rendered="{!IF(AND(B[rowNum].fprd__Type__c!='date', contains(B[rowNum].fprd__Label__c,'(%)')), true, false)}">
-                                        <apex:outputText value="{!OLI[pc.fprd__Map_field__c]}"/>
+                                        <apex:outputText value="{!OLI[pc.fprd__Map_field__c]}" />
                                     </apex:outputPanel>
                                 </apex:panelGroup>
                             </td>
@@ -135,192 +357,16 @@
                                         </apex:outputText>
                                     </apex:outputPanel>
                                     <apex:outputPanel rendered="{!IF(AND(B[rowNum+1].fprd__Type__c!='date', !contains(B[rowNum+1].fprd__Label__c,'(%)')), true, false)}">
-                                        <apex:outputField value="{!OLI[B[rowNum+1].fprd__Map_field__c]}"/>
+                                        <apex:outputField value="{!OLI[B[rowNum+1].fprd__Map_field__c]}" />
                                     </apex:outputPanel>
                                     <apex:outputPanel rendered="{!IF(AND(B[rowNum+1].fprd__Type__c!='date', contains(B[rowNum+1].fprd__Label__c,'(%)')), true, false)}">
-                                        <apex:outputText value="{!OLI[B[rowNum+1].fprd__Map_field__c]}"/>
+                                        <apex:outputText value="{!OLI[B[rowNum+1].fprd__Map_field__c]}" />
                                     </apex:outputPanel>
                                 </apex:panelGroup>
                             </td>
                         </tr>
                     </apex:panelGroup>
-                    </apex:outputPanel>
-                    <apex:variable var="rowNum" value="{!rowNum + 1}"/>
-                </apex:repeat>
-            </table>
-        </apex:outputPanel>
-        <apex:outputPanel rendered="{!Product.Type_of_quote__c!='Carta de credito'}">
-            <table>
-                <tr>
-                    <td>Nº cotización: {!Oli.price_quote_id__c} </td>
-                    <td>Fecha de sanción:&nbsp;<apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!OLI.price_quote_date__c}" /> </apex:outputText> </td>
-                </tr>
-                <tr>
-                    <td>
-                        <apex:outputPanel rendered="{!IF(product.ProductCode == $Label.lblPDFProductCartaTecnicaEconomica || product.ProductCode ==$Label.lblPDFProductCartaTecnicaImport,true,false)}" >
-                            Comisión aprobada:<apex:outputText value=" {0, number,.00} %">
-                            <apex:param value="{!Oli.proposed_fee_per__c}"/>
-                            </apex:outputText>
-                        </apex:outputPanel>
-                        <apex:outputPanel rendered="{!IF(product.ProductCode != $Label.lblPDFProductCartaTecnicaEconomica && product.ProductCode !=$Label.lblPDFProductCartaTecnicaImport,true,false)}" >
-                            TEA aprobada:<apex:outputText value=" {0, number,.00} %">
-                            <apex:param value="{!Oli.proposed_apr_per__c}"/>
-                            </apex:outputText>
-                        </apex:outputPanel>
-                    </td>
-                    <td>Vigencia:&nbsp;<apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!OLI.validityDate__c}" /></apex:outputText></td>
-                </tr>
-                <apex:outputPanel rendered="{!Product.Type_of_quote__c =='COTIZADOR'}">
-                    <tr>
-                        <td>Comisión estructuración:<apex:outputText value=" {0, number,.00} %">
-                            <apex:param value="{!Oli.restructuring_fee_per__c }"/>
-                            </apex:outputText> </td>
-                        <td>Comisión liquidación anticipada:<apex:outputText value=" {0, number,.00} %">
-                            <apex:param value="{!Oli.cancellation_fee_per__c}"/>
-                            </apex:outputText> </td>
-                    </tr>
-                </apex:outputPanel>
-                <tr>
-                    <td>Plazo:&nbsp;<apex:outputfield value="{!Oli.gipr_Plazo__c}"/>&nbsp;
-                        <apex:outputfield value="{!Oli.gipr_Periodicidad__c}"/></td>
-                    <td>Tipo garantía:&nbsp; <apex:outputfield value="{!Oli.gipr_Tipo_Garantia__c}"/></td>
-                </tr>
-                <apex:outputPanel rendered="{!Product.ProductCode == $Label.lblPDFProductExportComex || Product.ProductCode == $Label.lblPDFProductImportComex}">
-                    <tr>
-                        <td>Medio de pago:&nbsp;<apex:outputfield value="{!OLI.gipr_Payment_Method__c}"/></td>
-                        <td>Bolsa comex:&nbsp;<apex:outputfield value="{!OLI.gipr_Comex_Bag__c}"/></td>
-                    </tr>
-                </apex:outputPanel>
-              
-                <tr>
-                    <td>Compromisos:&nbsp;{!totalC} </td>
-                    <td>Comentarios:&nbsp;{!Comentarios}</td>
-                </tr>
-            </table>
-        </apex:outputPanel>
-    </apex:outputPanel>
-    <div class="footer">
-        <div>Página <span class="pagenumber"/> de <span class="pagecount"/></div>
-    </div>
-    <div class="pageBreak"></div>
-    <apex:outputPanel id="DatosOportunidad"  layout="block">
-        <br/>
-
-        <div class="subtitle">
-            <strong>&nbsp;Datos de Comisión</strong>
-        </div>
-        <table class="classTableBack">
-            <tr>
-                <th class="cb">COMISIÓN</th>
-                <th class="cb">SOLICITADO (%)</th>
-                <th class="cb">AUTORIZADO (%) </th>
-                <th class="cb">COMISIÓN FINAL</th>
-
-            </tr>
-            <apex:repeat value="{!commissions1}" var="comi1">
-                <tr>
-                    <td class="cd"><apex:outputField value="{!comi1.Product_Commission_Name__c}"/></td>
-                    <td class="cd"><apex:outputField value="{!comi1.Requested_Rate_Value__c}"/></td>
-                    <td class="cd"><apex:outputField value="{!comi1.Authorized_Rate_Value__c}"/></td>
-                    <td class="cd"><apex:outputField value="{!comi1.Commission_Calculation_Amount__c}"/></td>
-                </tr>
-            </apex:repeat>
-        </table>
-
-        <br/>
-        <div class="subtitle">
-            <b>&nbsp;Datos de oportunidad</b>
-        </div>
-        <br/>
-        <table>
-            <tr>
-                <td>Nombre de la oportunidad: {!Opportunity.Name}</td>
-                <td>Familia producto: {!Product.Family}</td>
-            </tr>
-            <tr><td>Producto: {!Product.Name}</td><td/></tr>
-        </table>
-    </apex:outputPanel>
-    <apex:outputPanel id="pagoliquidación"  layout="block">
-        <br/>
-        <div class="subtitle">
-            <b>&nbsp;Información general del producto</b>
-        </div>
-        <br/>
-        <table>
-            <apex:variable value="{!0}" var="rowNum"/>
-            <apex:repeat value="{!A}" var="pc" id="Pagoliq">
-                <apex:panelGroup rendered="{!Mod(rowNum,2)= 0}">
-                    <tr>
-                        <td>
-                            {!A[rowNum].fprd__Label__c} :&nbsp;<apex:outputField value="{!OLI[pc.fprd__Map_field__c]}"/>
-                        </td>
-                        <td>
-                            <apex:panelGroup rendered="{!rowNum+1 < A.size}">
-                                {!A[rowNum+1].fprd__Label__c} :&nbsp;<apex:outputField value="{!OLI[A[rowNum+1].fprd__Map_field__c]}"/>
-                            </apex:panelGroup>
-                        </td>
-                    </tr>
-                </apex:panelGroup>
-                <apex:variable var="rowNum" value="{!rowNum + 1}"/>
-            </apex:repeat>
-        </table>
-    </apex:outputPanel>
-    <apex:outputPanel id="InfoGral"  layout="block">
-        <br/>
-        <div class="subtitle">
-            <b>&nbsp;Criterios de pago y liquidacíon</b>
-        </div>
-        <br/>
-        <table>
-            <apex:variable value="{!0}" var="rowNum"/>
-            <apex:repeat value="{!B}" var="pc" id="InfoGral2">
-                <apex:outputPanel rendered="{!IF(AND(Product.Type_of_quote__c=='Carta de credito', OR(pc.fprd__Map_field__c=='cpliq_Commission__c', 
-                                                pc.fprd__Map_field__c=='cpliq_Emission__c', 
-                                                pc.fprd__Map_field__c=='cpliq_Negotiation__c', 
-                                                pc.fprd__Map_field__c=='cpliq_Payment_Dif__c', 
-                                                pc.fprd__Map_field__c=='cpliq_Increase__c', 
-                                                pc.fprd__Map_field__c=='cpliq_Extension__c', 
-                                                pc.fprd__Map_field__c=='cpliq_BBVA__c', 
-                                                pc.fprd__Map_field__c=='cpliq_Bco_Correspondent__c', 
-                                                pc.fprd__Map_field__c=='cpliq_Total__c', 
-                                                pc.fprd__Map_field__c=='cpliq_Vcto_tarifa__c')), false, true)}">
-                <apex:panelGroup rendered="{!Mod(rowNum,2)= 0}">
-                    <tr>
-                        <td>
-                            <apex:panelGroup rendered="{!rowNum < B.size}">
-                                {!B[rowNum].fprd__Label__c} :&nbsp; 
-                                <apex:outputPanel rendered="{!IF(B[rowNum].fprd__Type__c=='date', true, false)}">
-                                    <apex:outputText value="{0,date,dd/MM/yyyy}">
-                                        <apex:param value="{!OLI[pc.fprd__Map_field__c]}" />
-                                    </apex:outputText>
-                                </apex:outputPanel>
-                                <apex:outputPanel rendered="{!IF(AND(B[rowNum].fprd__Type__c!='date', !contains(B[rowNum].fprd__Label__c,'(%)')), true, false)}">
-                                    <apex:outputField value="{!OLI[pc.fprd__Map_field__c]}"/>
-                                </apex:outputPanel>
-                                <apex:outputPanel rendered="{!IF(AND(B[rowNum].fprd__Type__c!='date', contains(B[rowNum].fprd__Label__c,'(%)')), true, false)}">
-                                    <apex:outputText value="{!OLI[pc.fprd__Map_field__c]}"/>
-                                </apex:outputPanel>
-                            </apex:panelGroup>
-                        </td>
-                        <td>
-                            <apex:panelGroup rendered="{!rowNum+1 < B.size}">
-                                {!B[rowNum+1].fprd__Label__c} :&nbsp;
-                                <apex:outputPanel rendered="{!IF(B[rowNum+1].fprd__Type__c=='date', true, false)}">
-                                    <apex:outputText value="{0,date,dd/MM/yyyy}">
-                                        <apex:param value="{!OLI[B[rowNum+1].fprd__Map_field__c]}" />
-                                    </apex:outputText>
-                                </apex:outputPanel>
-                                <apex:outputPanel rendered="{!IF(AND(B[rowNum+1].fprd__Type__c!='date', !contains(B[rowNum+1].fprd__Label__c,'(%)')), true, false)}">
-                                    <apex:outputField value="{!OLI[B[rowNum+1].fprd__Map_field__c]}"/>
-                                </apex:outputPanel>
-                                <apex:outputPanel rendered="{!IF(AND(B[rowNum+1].fprd__Type__c!='date', contains(B[rowNum+1].fprd__Label__c,'(%)')), true, false)}">
-                                    <apex:outputText value="{!OLI[B[rowNum+1].fprd__Map_field__c]}"/>
-                                </apex:outputPanel>
-                            </apex:panelGroup>
-                        </td>
-                    </tr>
-                </apex:panelGroup>
-                <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+                    <apex:variable var="rowNum" value="{!rowNum + 1}" />
                 </apex:outputPanel>
             </apex:repeat>
         </table>
@@ -344,14 +390,21 @@
         </tr>
         <apex:repeat value="{!Garantias}" var="Garantia" id="Garantias">
             <tr>
-                <td class="cd"><apex:outputField value="{!Garantia.guarantee_desc__c}"/></td>
-                <td class="cd"><apex:outputField value="{!Garantia.guarantee_modality_type__c}"/></td>
-                <td class="cd"><apex:outputField value="{!Garantia.guarantee_status_type__c}"/></td>
+                <td class="cd">
+                    <apex:outputField value="{!Garantia.guarantee_desc__c}" />
+                </td>
+                <td class="cd">
+                    <apex:outputField value="{!Garantia.guarantee_modality_type__c}" />
+                </td>
+                <td class="cd">
+                    <apex:outputField value="{!Garantia.guarantee_status_type__c}" />
+                </td>
                 <td class="cd">
                     <apex:outputPanel rendered="{!Garantia.guarantee_status_type__c=='02'}">
                         <apex:outputText value="{0, number,0}">
                             <apex:param value="{!Garantia.guarantee_term_number__c}"></apex:param>
-                        </apex:outputText>&nbsp;<apex:outputField value="{!Garantia.guarantee_periodicity_type__c}"></apex:outputField>
+                        </apex:outputText>&nbsp;
+                        <apex:outputField value="{!Garantia.guarantee_periodicity_type__c}"></apex:outputField>
                     </apex:outputPanel>
                 </td>
                 <td>
@@ -362,8 +415,9 @@
                     </apex:outputPanel>
                 </td>
 
-                <td class="cd"><apex:outputText value="S/.{0,number,###,###.00}">
-                    <apex:param value="{!Garantia.guaranteed_amount__c}" />
+                <td class="cd">
+                    <apex:outputText value="S/.{0,number,###,###.00}">
+                        <apex:param value="{!Garantia.guaranteed_amount__c}" />
                     </apex:outputText>
                 </td>
             </tr>
@@ -385,16 +439,29 @@
         </tr>
         <apex:repeat value="{!Intervenientes}" var="Interveniente" id="Intervenientes">
             <tr>
-                <td class="cd"><apex:outputField value="{!Interveniente.Name}"/></td>
-                <td class="cd"><apex:outputField value="{!Interveniente.fiscal_identifier_type__c}"/></td>
-                <td class="cd"><apex:outputField value="{!Interveniente.taxpayer_id__c}"/></td>
-                <td class="cd"><apex:outputField value="{!Interveniente.participant_type__c}"/></td>
-                <td class="cd"><apex:outputField value="{!Interveniente.guarantor_marital_status_type__c}"/></td>
+                <td class="cd">
+                    <apex:outputField value="{!Interveniente.Name}" />
+                </td>
+                <td class="cd">
+                    <apex:outputField value="{!Interveniente.fiscal_identifier_type__c}" />
+                </td>
+                <td class="cd">
+                    <apex:outputField value="{!Interveniente.taxpayer_id__c}" />
+                </td>
+                <td class="cd">
+                    <apex:outputField value="{!Interveniente.participant_type__c}" />
+                </td>
+                <td class="cd">
+                    <apex:outputField value="{!Interveniente.guarantor_marital_status_type__c}" />
+                </td>
             </tr>
         </apex:repeat>
     </table>
     <div class="footer">
-        <div>Página <span class="pagenumber"/> de <span class="pagecount"/></div>
+        <div>Página
+            <span class="pagenumber" /> de
+            <span class="pagecount" />
+        </div>
     </div>
-    
+
 </apex:page>

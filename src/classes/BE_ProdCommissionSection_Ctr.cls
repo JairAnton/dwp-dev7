@@ -51,6 +51,7 @@ public with sharing class BE_ProdCommissionSection_Ctr {
                 Final Map<String, Object> calculatedAmount = (Map<String, Object>) calculatedFee.get('calculatedAmount');
                 commission.Commission_Calculation_Amount__c = Double.valueOf(calculatedAmount.get('amount'));
                 commission.Commission_Calculation_Currency__c = String.valueOf(calculatedAmount.get('currency'));
+            
             } when else {
                 mapReturn.put('error',true);
                 mapReturn.put('responseCode',invoke.getStatusCode());
@@ -74,22 +75,19 @@ public with sharing class BE_ProdCommissionSection_Ctr {
         commission = currentDbComm;
         commission.Authorized_Rate_Value__c = obtainTwoDecimals(comData.rawCommission.Authorized_Rate_Value__c);
         commission.Requested_Rate_Value__c = obtainTwoDecimals(comData.rawCommission.Requested_Rate_Value__c);
+        commission.Suggested_Rate__c = comData.rawCommission.Suggested_Rate__c;
 
+        
         if(comData.rawCommission.Authorized_Rate_Value__c == null && mpStatus.containsKey(status) ) {
-            commission.Authorized_Rate_Value__c = commission.Requested_Rate_Value__c;
-            if(currentDbComm.Suggested_Rate_Type__c.toUpperCase() == 'PERCENTAGE' ) {
-                commission.Authorized_Rate_Value__c = (commission.Requested_Rate_Value__c).setScale(2);
-            }
+            commission.Authorized_Rate_Value__c = commission.Requested_Rate_Value__c.setScale(2);
         }
 
         if(comData.rawCommission.Requested_Rate_Value__c == null) {
-            commission.Requested_Rate_Value__c = 0;
-            if(commission.Suggested_Rate__c != null) {
-                commission.Requested_Rate_Value__c = (Decimal.valueOf(commission.Suggested_Rate__c)).setScale(2);
+            commission.Requested_Rate_Value__c = obtainTwoDecimals(Decimal.valueOf(commission.Suggested_Rate__c));
+            if(commission.Suggested_Rate_Type__c.toUppercase() == 'PERCENTAGE') {
+                commission.Requested_Rate_Value__c = obtainTwoDecimals(Decimal.valueOf(commission.Suggested_Rate__c)*100);
             }
-            if(currentDbComm.Suggested_Rate_Type__c.toUpperCase() == 'PERCENTAGE') {
-                commission.Requested_Rate_Value__c = (Decimal.valueOf(commission.Suggested_Rate__c) * 100).setScale(2);
-            }
+            
         }
         commission = parseQuestions(commission, comData);
         

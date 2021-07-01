@@ -48,7 +48,7 @@ public with sharing class SanctionPrice_ctrl {
                                      efficiency_cost__c, expected_loss_per__c, financing_cost_stockholder_per__c, funding_cost_per__c, 
                                      funding_cost_adjusted_per__c, minimum_spread_per__c, regulatory_capital_per__c, Product2Id, 
                                      product2.Type_of_quote__c, pricing_model_id__c, CurrencyIsoCode, tcf_type_beneficiary__c, 
-                                     tcf_Periodicity_commission__c, tcf_type_bail_letter__c FROM OpportunityLineItems) 
+                                     tcf_Periodicity_commission__c, tcf_type_bail_letter__c, hasCommissions__c FROM OpportunityLineItems) 
                                     FROM Opportunity WHERE Id = :recordId];
         try {
             //If opportunity has opportunityLineItems
@@ -59,6 +59,7 @@ public with sharing class SanctionPrice_ctrl {
                 mapReturn.put('AccId',lstOpp[0].AccountId);
                 mapReturn.put('type_of_quote',lstOpp[0].OpportunityLineItems[0].product2.Type_of_quote__c);
                 mapReturn.put('commercial_strategy',lstOpp[0].Account.commercial_strategy__c);
+                mapReturn.put('hasCommission',lstOpp[0].OpportunityLineItems[0].hasCommissions__c);
                 //If product_price_approval_method__c == Tarifario and has a OLI
                 if(lstOpp[0].OpportunityLineItems[0].product_price_approval_method__c == 'Tarifario') {
                     String strSegment = (lstOpp[0].Account.segment_desc__c == null?'':lstOpp[0].Account.segment_desc__c);
