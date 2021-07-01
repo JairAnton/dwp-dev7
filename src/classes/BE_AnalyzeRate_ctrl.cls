@@ -89,10 +89,16 @@ public with sharing class BE_AnalyzeRate_ctrl {
 	*/
     @AuraEnabled
     public static void setHasCommission(Boolean hasCommission, String recordId) {
-        if(recordId != null && recordId != '') {
-            OpportunityLineItem oli = [SELECT Id, hasCommissions__c FROM OpportunityLineItem WHERE Id = :recordId];
-            oli.hasCommissions__c = hasCommission;
-            update oli;
-        }
+		try {
+			if(recordId != null && recordId != '') {
+				OpportunityLineItem oli = [SELECT Id, hasCommissions__c FROM OpportunityLineItem WHERE Id = :recordId];
+				oli.hasCommissions__c = hasCommission;
+				update oli;
+			}
+		} catch(Exception e) {
+                mapReturn.put(STROK, false);
+                errorCal = e.getMessage();
+		}
+        
     }
 }

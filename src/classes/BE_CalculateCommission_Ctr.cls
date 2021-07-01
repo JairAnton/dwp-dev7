@@ -303,18 +303,8 @@ public with sharing class BE_CalculateCommission_Ctr {
     /**Method used to delete, update or delete commissions and questions**/
     public static void commitCommissionsQuestions(Map<String, Product_Commission__c> respCommissions, List<Product_Commission__c> deleteCommissions, Map<String, Commission_Question__c> respQuestions, List<Commission_Question__c> deleteQuestions, Map<String, Commission_Range__c> respRange, List<Commission_Range__c> deleteRange) { 
     
-        if(!deleteQuestions.isEmpty()) {
-            delete deleteQuestions;
-        }
-        if(!deleteCommissions.isEmpty()) {
-            delete deleteCommissions;
-        }
-        if(!deleteRange.isEmpty()) {
-            delete deleteRange;
-        }
-        if(!respCommissions.isEmpty()) {
-            upsert respCommissions.values() External_Id__c;
-        }
+        commitToDb(deleteQuestions, deleteCommissions, deleteRange, respCommissions);
+        
         if(!respQuestions.isEmpty()) {
             upsert respQuestions.values() External_Id__c;
             Final Map<String, Commission_Question__c> respQDepend = new Map<String, Commission_Question__c>();
@@ -330,6 +320,22 @@ public with sharing class BE_CalculateCommission_Ctr {
             if(!respQDepend.isEmpty()) {
                 upsert respRange.values() External_Id__c;
             }
+        }
+    }
+
+    /**Commit changes to database */
+    public static void commitToDb(List<Commission_Question__c> deleteQuestions, List<Product_Commission__c> deleteCommissions, List<Commission_Range__c> deleteRange, Map<String, Product_Commission__c> respCommissions) {
+        if(!deleteQuestions.isEmpty()) {
+            delete deleteQuestions;
+        }
+        if(!deleteCommissions.isEmpty()) {
+            delete deleteCommissions;
+        }
+        if(!deleteRange.isEmpty()) {
+            delete deleteRange;
+        }
+        if(!respCommissions.isEmpty()) {
+            upsert respCommissions.values() External_Id__c;
         }
     }
     

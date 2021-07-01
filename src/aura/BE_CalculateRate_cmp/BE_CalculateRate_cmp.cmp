@@ -15,7 +15,6 @@
   <aura:attribute name="spinner" type="boolean" default="FALSE" />
   <aura:attribute name="useCommissionsCheckbox" type="boolean" default="false" />
   <aura:attribute name="classHide" type="boolean" default="slds-hide" />
-  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
   <aura:attribute name="fireEvent" type="boolean" default="false" />
 
   <aura:if isTrue="{!v.spinner}">
