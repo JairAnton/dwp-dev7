@@ -9,6 +9,7 @@
    2020-08-10  MAMC     martin.mori.contractor@bbva.com    	Creation
    -------------------------------------------------------------------------------------------------
  */
+@SuppressWarnings('PMD.AuraEnabledWithoutCatchBlock')
 public with sharing class BE_AnalyzeRate_ctrl {
     /* Map that contains return values*/
     static Map<String,Object> mapReturn = new Map<String,Object>();
@@ -47,6 +48,8 @@ public with sharing class BE_AnalyzeRate_ctrl {
                 //helper to call the service
                 final AnalyzeRate_helper prate = new AnalyzeRate_helper(olis[0].OpportunityId, olis[0].price_rates_calculation_Id__c, Decimal.valueOf(tea), false);
                 prate.hasCommissions = hasCommissions;
+                System.debug('COMISIONS RECEIVED'+hasCommissions);
+                System.debug('COMMISSOION SETTED'+prate.hasCommissions);
                 //invoke the service
                 final HttpResponse invoke = prate.invoke();
                 //code = 200 OK
@@ -82,5 +85,24 @@ public with sharing class BE_AnalyzeRate_ctrl {
         mapReturn.put('errorCal',errorCal);
         mapReturn.put('fields', JSON.serialize(fields));
         return mapReturn; 
+    }
+
+    /*
+     * Method used to calculate indicators of RORC
+	*/
+    @AuraEnabled
+    public static void setHasCommission(Boolean hasCommission, String recordId) {
+        if(recordId != null && recordId != '') {
+        try {
+            
+                OpportunityLineItem oli = [SELECT Id, hasCommissions__c FROM OpportunityLineItem WHERE Id = :recordId];
+                oli.hasCommissions__c = hasCommission;
+                update oli;
+            
+        } catch(Exception e) { 
+            mapReturn.put(STROK, false);
+            errorCal = e.getMessage();
+        }
+    }
     }
 }

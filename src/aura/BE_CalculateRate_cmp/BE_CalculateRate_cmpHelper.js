@@ -1,3 +1,6 @@
+// NOSONAR
+//NOSONAR
+//CHECKSTYLE:OFF
 ({
     calRate: function (cmp, evt, helper) {
         cmp.set('v.disabled', 'true');
@@ -70,5 +73,16 @@
     },
     handlerCommissionCallHelper: function (cmp, evt, helper) {
         this.calRate(cmp, evt, helper);
+    },
+    updateUseCommissions: function (cmp, evt, helper) {
+        var checkCmp = cmp.find("useCommissionsCheckbox");
+        cmp.set('v.useCommissionsCheckbox', checkCmp.get("v.value"));
+        var action = cmp.get("c.setHasCommission");
+        action.setParams({
+            "recordId": cmp.get('v.recordId'),
+            "hasCommission": cmp.get('v.useCommissionsCheckbox')
+        });
+        action.setCallback(this, function (response) { });
+        $A.enqueueAction(action);
     }
 })

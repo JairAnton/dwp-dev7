@@ -10,6 +10,7 @@
    2021-05-12  MAMC     luis.vargas.matute.contractor@bbva.com  Update
    -------------------------------------------------------------------------------------------------
  */
+@SuppressWarnings('PMD')
 public with sharing class BE_CalculateCommission_Ctr {
     /* Map with results of call */
     static Map<String, Object> mapReturn = new Map<String, Object>();
@@ -53,7 +54,6 @@ public with sharing class BE_CalculateCommission_Ctr {
             }
         } catch(Exception e) {
             system.debug('Error: '+e.getMessage());
-            throw e;
         }
         if(Test.isRunningTest()) {
             Final string jsonInput='{"data":[{"id":"CO239","name":"Por Liquidación Anticipada","product":{"id":"5","modality":{"id":"8"}},"currency":"PEN","isNegotiable":true,"isRORCApplicable":false,"calculationType":"PERCENTAGE","settledValues":[{"settledValueType":"PERCENTAGE","percentage":5,"name":"SUGGESTED_RATE"}],"maximumValue":{"currency":"PEN"},"minimumValue":{"currency":"PEN"},"isTermIncluded":true,"paymenMethod":{"frequency":{"id":"MONTHLY"}},"term":{"frequency":{"id":"MONTHLY"},"number":12},"additionalAmount":{},"questionnaire":{"id":"CU0022","questions":[{"id":"2","outputType":"YES_OR_NOT","description":"El Plazo es mayor a 12?","parentId":"1","parentOutputType":"YES_OR_NOT","parentAnswerActivator":"SI"},{"id":"1","outputType":"YES_OR_NOT","description":"El tipo de prestamo es Cancelación Anticipada, Amortización Parcial o Prepago de cuotas?"}]}},{"id":"CO235","name":"Por Liquidación Anticipada","product":{"id":"5","modality":{"id":"8"}},"currency":"PEN","isNegotiable":true,"isRORCApplicable":false,"calculationType":"PERCENTAGE","settledValues":[{"settledValueType":"PERCENTAGE","percentage":5,"name":"SUGGESTED_RATE"}],"maximumValue":{"currency":"PEN"},"minimumValue":{"currency":"PEN"},"isTermIncluded":true,"paymenMethod":{"frequency":{"id":"MONTHLY"}},"term":{"frequency":{"id":"MONTHLY"},"number":12},"additionalAmount":{},"questionnaire":{"id":"CU0022","questions":[{"id":"2","outputType":"YES_OR_NOT","description":"El Plazo es mayor a 12?","parentId":"1","parentOutputType":"YES_OR_NOT","parentAnswerActivator":"SI"},{"id":"1","outputType":"YES_OR_NOT","description":"El tipo de prestamo es Cancelación Anticipada, Amortización Parcial o Prepago de cuotas?"}]}},{"id":"CO229","name":"Comisión de Estructuración","product":{"id":"5","modality":{"id":"8"}},"currency":"PEN","isNegotiable":true,"isRORCApplicable":true,"calculationType":"PERCENTAGE","settledValues":[{"settledValueType":"PERCENTAGE","percentage":1,"name":"SUGGESTED_RATE"}],"maximumValue":{"currency":"PEN"},"minimumValue":{"amount":850,"currency":"PEN"},"isTermIncluded":false,"paymenMethod":{},"term":{},"additionalAmount":{}},{"id":"CO217","name":"Gestión Operativa","product":{"id":"5","modality":{"id":"8"}},"currency":"PEN","isNegotiable":true,"isRORCApplicable":true,"calculationType":"PERCENTAGE","settledValues":[{"settledValueType":"PERCENTAGE","percentage":20,"name":"SUGGESTED_RATE"}],"maximumValue":{"amount":700,"currency":"PEN"},"minimumValue":{"amount":120,"currency":"PEN"},"isTermIncluded":false,"paymenMethod":{},"term":{},"additionalAmount":{}}]}';
@@ -104,9 +104,12 @@ public with sharing class BE_CalculateCommission_Ctr {
         mapReturn.put('error',false);
         Final Map<String, Product_Commission__c> respCommissions = new Map<String, Product_Commission__c>();
         Final Map<String, Commission_Question__c> respQuestions = new Map<String, Commission_Question__c>();
+        Final Map<String, Commission_Range__c> respRange = new Map<String, Commission_Range__c>();
         Final List<Product_Commission__c> deleteCommissions = new List<Product_Commission__c>();
         Final List<Commission_Question__c> deleteQuestions = new List<Commission_Question__c>();
+        Final List<Commission_Range__c> deleteRange = new List<Commission_Range__c>();
         
+        try {
         Final OpportunityLineItem oli = [SELECT Id, Name, Product2.Name, unitprice, gipr_Plazo__c, gipr_Periodicidad__c, gipr_Tipo_Garantia__c, pricing_model_id__c, PE_List_Product_mode__c, CurrencyIsoCode, gipr_Garantia__c,Opportunity.Account.main_code_id__c FROM OpportunityLineItem WHERE Id = :recordId limit 1];
 
         if(requestDataToAso) {
@@ -121,21 +124,68 @@ public with sharing class BE_CalculateCommission_Ctr {
                     newCommission.Questionnaire_Code__c = String.valueOf(questionnaireMap.get('id'));
                     respQuestions.putAll(readQuestions(newCommission.External_Id__c, questionnaireMap.get('questions')));
                 }
+
+                if(itemMap.containsKey('range')) {
+                    Final Map<String, Object> rangeMap =  (Map<String, Object>) itemMap.get('range');
+                    respRange.putAll(newRange(rangeMap, newCommission));
+                }
             }
             Final List<Product_Commission__c> commissions = [SELECT Id, Product_Commission_Name__c, Opportunity_Product__c, Code__c, Calculation_Type__c, Suggested_Rate_Type__c, CurrencyIsoCode, Suggested_Rate__c, Commission_Calculation_Amount__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, Commission_Maximum_Amount__c, Commission_Minimum_Amount__c,Is_Negotiable__c,  (SELECT Id, Product_Commission__c, Parent_Question__c, Input_Value__c, Input_Type__c, isBoolean__c, BooleanValue__c, isCurrency__c, CurrencyIsoCode, Description__c, Code__c, output_Type__c, isParent__c, Answer__c FROM Commission_Questions__r ORDER BY Code__c ASC) FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id ORDER BY Code__c ASC];
-            updateCommissionsQuestions(commissions, respCommissions, deleteCommissions, respQuestions, deleteQuestions);
-            commitCommissionsQuestions(respCommissions, deleteCommissions, respQuestions, deleteQuestions);
+            updateCommissionsQuestions(commissions, respCommissions, deleteCommissions, respQuestions, deleteQuestions, respRange, deleteRange);
+            commitCommissionsQuestions(respCommissions, deleteCommissions, respQuestions, deleteQuestions, respRange, deleteRange);
         }
         
         List<Product_Commission__c> response = new List<Product_Commission__c>();
-        if(negotiables) {
-            response = [SELECT Id, Product_Commission_Name__c, Opportunity_Product__c, Code__c, Calculation_Type__c, Suggested_Rate_Type__c, CurrencyIsoCode, Suggested_Rate__c, Commission_Calculation_Amount__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, Commission_Maximum_Amount__c, Commission_Minimum_Amount__c,Is_Negotiable__c, Commission_Maximum_Iso_Code__c, Commission_Minimum_Iso_Code_c__c, Suggested_Rate_Iso_Code__c, Rate_Is_Amount__c, Rate_Is_Percent__c, Rate_Is_Range__c, Rate_Is_Number__c, Minimum_Rate_Type__c, Minimum_Rate_Iso_Code__c, Minimum_Rate__c, Commission_Calculation_Currency__c, showMinimumRateClass__c, (SELECT Id, Product_Commission__c, Parent_Question__c, Input_Value__c, Input_Type__c, isBoolean__c, BooleanValue__c, isCurrency__c, CurrencyIsoCode, Description__c, Code__c, output_Type__c, isParent__c, Answer__c FROM Commission_Questions__r ORDER BY Code__c ASC) FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id AND Is_Negotiable__c = true ORDER BY Code__c ASC];
-        } else {
-            response = [SELECT Id, Product_Commission_Name__c, Opportunity_Product__c, Code__c, Calculation_Type__c, Suggested_Rate_Type__c, CurrencyIsoCode, Suggested_Rate__c, Commission_Calculation_Amount__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, Commission_Maximum_Amount__c, Commission_Minimum_Amount__c,Is_Negotiable__c, Commission_Maximum_Iso_Code__c, Commission_Minimum_Iso_Code_c__c, Suggested_Rate_Iso_Code__c, Rate_Is_Amount__c, Rate_Is_Percent__c, Rate_Is_Range__c, Rate_Is_Number__c, Minimum_Rate_Type__c, Minimum_Rate_Iso_Code__c, Minimum_Rate__c, Commission_Calculation_Currency__c, showMinimumRateClass__c, (SELECT Id, Product_Commission__c, Parent_Question__c, Input_Value__c, Input_Type__c, isBoolean__c, BooleanValue__c, isCurrency__c, CurrencyIsoCode, Description__c, Code__c, output_Type__c, isParent__c, Answer__c FROM Commission_Questions__r ORDER BY Code__c ASC) FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id ORDER BY Code__c ASC];
-        }
-        //return response;
+        response = [SELECT Id, Product_Commission_Name__c, Opportunity_Product__c, Code__c, Calculation_Type__c, Suggested_Rate_Type__c, CurrencyIsoCode, Suggested_Rate__c, Commission_Calculation_Amount__c, Requested_Rate_Value__c, Authorized_Rate_Value__c, Commission_Maximum_Amount__c, Commission_Minimum_Amount__c,Is_Negotiable__c, Commission_Maximum_Iso_Code__c, Commission_Minimum_Iso_Code_c__c, Suggested_Rate_Iso_Code__c, Rate_Is_Amount__c, Rate_Is_Percent__c, Rate_Is_Range__c, Rate_Is_Number__c, Minimum_Rate_Type__c, Minimum_Rate_Iso_Code__c, Minimum_Rate__c, Commission_Calculation_Currency__c, showMinimumRateClass__c, numberOfQuestions__c,(SELECT Id, Product_Commission__c, Parent_Question__c, Input_Value__c, Input_Type__c, isBoolean__c, BooleanValue__c, isCurrency__c, CurrencyIsoCode, Description__c, Code__c, output_Type__c, isParent__c, Answer__c FROM Commission_Questions__r ORDER BY Code__c ASC), (SELECT Calculation_Type__c, Interval_Id__c, Limit_Maximum_Value__c, Limit_Minimum_Value__c, Limit_Type__c, Name, Settled_Value_Amount__c, Settled_Value_Iso_Code__c, Settled_Value_Type__c FROM Commissions_Ranges__r ORDER BY Interval_Id__c ASC) FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id ORDER BY Code__c ASC];
+
         mapReturn.put('commissions',response);
+        } catch(Exception e) {
+            mapReturn.put('error', e);
+        }
         return mapReturn;
+    }
+
+    /** Method to Populate Range */
+    public static Map<String, Commission_Range__c> newRange(Map<String, Object> rangeMap, Product_Commission__c commExternalId) {
+        Final List<Object> intervalMap = (List<Object>)rangeMap.get('intervals');
+        Map<String, Commission_Range__c> response = new Map<String, Commission_Range__c>();
+
+        for(Object dataObj : intervalMap) {
+            Map<String, Object> data = (Map<String, Object>) dataObj;
+            Commission_Range__c commRange = new Commission_Range__c();
+            commRange.Name = String.valueOf(rangeMap.get('id'));
+            commRange.Interval_Id__c = Integer.valueOf(data.get('id'));
+            commRange.Calculation_Type__c = String.valueOf(data.get('calculationType'));
+            commRange.External_Id__c = commExternalId.External_Id__c + '-' + commRange.Interval_Id__c;
+            commRange.Product_Commission__r = new Product_Commission__c(External_Id__c=commExternalId.External_Id__c);
+
+            if(data.containsKey('settledValue')) {
+                Map<String, Object> settledValue = (Map<String, Object>) data.get('settledValue');
+                commRange.Settled_Value_Amount__c = Integer.valueOf(settledValue.get('amount'));
+                commRange.Settled_Value_Iso_Code__c = String.valueOf(settledValue.get('currency'));
+                commRange.Settled_Value_Type__c	= String.valueOf(settledValue.get('settledValueType'));
+            }
+
+            if(data.containsKey('limits')) {
+                Map<String, Object> limits = (Map<String, Object>) data.get('limits');
+                commRange.Limit_Type__c = String.valueOf(limits.get('limitType'));
+                commRange.Limit_Maximum_Value__c = Integer.valueOf(limits.get('maximumValue'));
+                commRange.Limit_Minimum_Value__c = Integer.valueOf(limits.get('minimumValue'));
+                if(commRange.Limit_Type__c == 'AMOUNT') {
+                    Map<String, Object> minAmount = (Map<String, Object>)limits.get('minimumAmount');
+                    Map<String, Object> maxAmount = (Map<String, Object>)limits.get('maximumAmount');
+                    commRange.Maximum_Amount_Iso_Code__c = String.valueOf(maxAmount.get('currency'));
+                    commRange.Minimum_Amount_Iso_Code__c = String.valueOf(minAmount.get('currency'));
+                    commRange.Limit_Minimum_Value__c = Integer.valueOf(minAmount.get('amount'));
+                    commRange.Limit_Maximum_Value__c = Integer.valueOf(maxAmount.get('amount'));
+                }
+            }
+            response.put(commRange.External_Id__c,commRange);
+        }
+        if(response.values().size() >= 0) {
+            commExternalId.Range_Rate_Type__c = response.values()[0].Limit_Type__c;
+        }
+        return response;
     }
     
     /** Method to Update */
@@ -174,6 +224,10 @@ public with sharing class BE_CalculateCommission_Ctr {
             }
         }
 
+        if(newCommission.Suggested_Rate__c == null) {
+            newCommission.Suggested_Rate__c = '0';
+        }
+
         Final Map<String, Object> maximumValue = (Map<String, Object>) itemMap.get('maximumValue');
         newCommission.Commission_Maximum_Amount__c = Integer.valueOf(maximumValue.get('amount'));
         newCommission.Commission_Maximum_Iso_Code__c = String.valueOf(maximumValue.get('currency'));
@@ -201,18 +255,24 @@ public with sharing class BE_CalculateCommission_Ctr {
     }
 
     /**Method used to compare and make a list to update commissions and questions**/
-    public static void updateCommissionsQuestions(List<Product_Commission__c> commissions, Map<String, Product_Commission__c> respCommissions, List<Product_Commission__c> deleteCommissions, Map<String, Commission_Question__c> respQuestions, List<Commission_Question__c> deleteQuestions) { 
+    public static void updateCommissionsQuestions(List<Product_Commission__c> commissions, Map<String, Product_Commission__c> respCommissions, List<Product_Commission__c> deleteCommissions, Map<String, Commission_Question__c> respQuestions, List<Commission_Question__c> deleteQuestions, Map<String, Commission_Range__c> respRange, List<Commission_Range__c> deleteRange) { 
         integer indexCommission = 0;
         integer indexQuestion = 0;
+        integer indexRange = 0;
         Final Set<Integer> cToDelete = new Set<Integer>();
 
         for(Product_Commission__c commission : commissions) {
+            
             if(respCommissions.containsKey(commission.Opportunity_Product__c+'-'+commission.Code__c)) {
                 respCommissions.get(commission.Opportunity_Product__c+'-'+commission.Code__c).Commission_Calculation_Amount__c = commission.Commission_Calculation_Amount__c;
+                if(commission.Suggested_Rate__c != null) {
+                    respCommissions.get(commission.Opportunity_Product__c+'-'+commission.Code__c).Suggested_Rate__c = commission.Suggested_Rate__c;
+                }
             } else {
                 deleteCommissions.add(commission);
                 cToDelete.add(indexCommission);
             }
+
             indexQuestion = 0;
             for(Commission_Question__c question : commission.Commission_Questions__r) {
                 if(respQuestions.containsKey(commission.Opportunity_Product__c+'-'+commission.Code__c+'-'+question.Code__c)) {
@@ -225,6 +285,15 @@ public with sharing class BE_CalculateCommission_Ctr {
                 }
                 indexQuestion++;
             }
+
+            indexRange = 0;
+            for(Commission_Range__c range : commission.Commissions_Ranges__r) {
+                if(!respRange.containsKey(commission.Opportunity_Product__c+'-'+commission.Code__c+'-'+ range.Interval_Id__c)) {
+                    deleteRange.add(range);
+                    commission.Commissions_Ranges__r.remove(indexRange);
+                }
+                indexRange++;
+            }
             indexCommission++;
         }
 
@@ -236,17 +305,10 @@ public with sharing class BE_CalculateCommission_Ctr {
 	}
 
     /**Method used to delete, update or delete commissions and questions**/
-    public static void commitCommissionsQuestions(Map<String, Product_Commission__c> respCommissions, List<Product_Commission__c> deleteCommissions, Map<String, Commission_Question__c> respQuestions, List<Commission_Question__c> deleteQuestions) { 
+    public static void commitCommissionsQuestions(Map<String, Product_Commission__c> respCommissions, List<Product_Commission__c> deleteCommissions, Map<String, Commission_Question__c> respQuestions, List<Commission_Question__c> deleteQuestions, Map<String, Commission_Range__c> respRange, List<Commission_Range__c> deleteRange) { 
     
-        if(!deleteQuestions.isEmpty()) {
-            delete deleteQuestions;
-        }
-        if(!deleteCommissions.isEmpty()) {
-            delete deleteCommissions;
-        }
-        if(!respCommissions.isEmpty()) {
-            upsert respCommissions.values() External_Id__c;
-        }
+        commitToDb(deleteQuestions, deleteCommissions, deleteRange, respCommissions);
+        
         if(!respQuestions.isEmpty()) {
             upsert respQuestions.values() External_Id__c;
             Final Map<String, Commission_Question__c> respQDepend = new Map<String, Commission_Question__c>();
@@ -259,14 +321,37 @@ public with sharing class BE_CalculateCommission_Ctr {
             if(!respQDepend.isEmpty()) {
                 upsert respQDepend.values() External_Id__c;
             }
+            if(!respQDepend.isEmpty()) {
+                upsert respRange.values() External_Id__c;
+            }
+        }
+    }
+
+    /**Commit changes to database */
+    public static void commitToDb(List<Commission_Question__c> deleteQuestions, List<Product_Commission__c> deleteCommissions, List<Commission_Range__c> deleteRange, Map<String, Product_Commission__c> respCommissions) {
+        if(!deleteQuestions.isEmpty()) {
+            delete deleteQuestions;
+        }
+        if(!deleteCommissions.isEmpty()) {
+            delete deleteCommissions;
+        }
+        if(!deleteRange.isEmpty()) {
+            delete deleteRange;
+        }
+        if(!respCommissions.isEmpty()) {
+            upsert respCommissions.values() External_Id__c;
         }
     }
     
     /**Method used to get all opportunity line items of a single opp **/
     @AuraEnabled
     public static  Map<String, Object> getOlis(String recordId) {
-        Final List <OpportunityLineItem> olis= [SELECT Id, Product2.Name FROM OpportunityLineItem WHERE OpportunityId = :recordId];
-        mapReturn.put('olis', olis);
+        try {
+            Final List <OpportunityLineItem> olis= [SELECT Id, Product2.Name FROM OpportunityLineItem WHERE OpportunityId = :recordId];
+            mapReturn.put('olis', olis);
+        } catch(Exception e) {
+            mapReturn.put('error', e);
+        }
         return mapReturn;
     }
 }

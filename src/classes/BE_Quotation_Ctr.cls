@@ -44,7 +44,8 @@ public with sharing class BE_Quotation_Ctr {
 
         commissionsx =  [SELECT Id,Calculation_Type__c,Commission_Calculation_Amount__c,
         Product_Commission_Name__c,Suggested_Rate__c,Suggested_Rate_Type__c, Final_Rate__c,
-        Requested_Rate_Value__c,Authorized_Rate_Value__c FROM Product_Commission__c 
+        Requested_Rate_Value__c,Authorized_Rate_Value__c, Rate_Is_Amount__c, Suggested_Rate_Iso_Code__c,
+        Rate_Is_Percent__c, Commission_Calculation_Currency__c FROM Product_Commission__c 
         WHERE Is_Negotiable__c = TRUE AND Opportunity_Product__c  =:oli.Id];
  
        

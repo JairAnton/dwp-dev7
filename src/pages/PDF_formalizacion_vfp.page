@@ -206,26 +206,43 @@
     <apex:outputPanel id="DatosOportunidad"  layout="block">
         <br/>
 
-        <div class="subtitle">
-            <strong>&nbsp;Datos de Comisión</strong>
-        </div>
-        <table class="classTableBack">
-            <tr>
-                <th class="cb">COMISIÓN</th>
-                <th class="cb">SOLICITADO (%)</th>
-                <th class="cb">AUTORIZADO (%) </th>
-                <th class="cb">COMISIÓN FINAL</th>
-
-            </tr>
-            <apex:repeat value="{!commissions1}" var="comi1">
-                <tr>
-                    <td class="cd"><apex:outputField value="{!comi1.Product_Commission_Name__c}"/></td>
-                    <td class="cd"><apex:outputField value="{!comi1.Requested_Rate_Value__c}"/></td>
-                    <td class="cd"><apex:outputField value="{!comi1.Authorized_Rate_Value__c}"/></td>
-                    <td class="cd"><apex:outputField value="{!comi1.Commission_Calculation_Amount__c}"/></td>
-                </tr>
-            </apex:repeat>
-        </table>
+        <apex:outputPanel rendered="{!OLI.hasCommissions__c}">
+            <div class="subtitle">
+                <strong>&nbsp;Datos de Comisión</strong>
+            </div>
+            <table class="classTableBack">
+                <thead>
+                    <tr>
+                        <th class="cb">COMISIÓN</th>
+                        <th class="cb">SOLICITADO</th>
+                        <th class="cb">AUTORIZADO</th>
+                        <th class="cb">COMISIÓN FINAL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <apex:repeat value="{!commissions1}" var="comi1">
+                        <tr>
+                            <td>
+                                <apex:outputField value="{!comi1.Product_Commission_Name__c}" />
+                            </td>
+                            <td>
+                                <apex:outputPanel rendered="{!comi1.Rate_Is_Amount__c}">{!comi1.Suggested_Rate_Iso_Code__c}&nbsp;</apex:outputPanel>
+                                <apex:outputField value="{!comi1.Requested_Rate_Value__c}" />
+                                <apex:outputPanel rendered="{!comi1.Rate_Is_Percent__c}">&nbsp;%</apex:outputPanel>
+                            </td>
+                            <td>
+                                <apex:outputPanel rendered="{!comi1.Rate_Is_Amount__c}">{!comi1.Suggested_Rate_Iso_Code__c}&nbsp;</apex:outputPanel>
+                                <apex:outputField value="{!comi1.Authorized_Rate_Value__c}" />
+                                <apex:outputPanel rendered="{!comi1.Rate_Is_Percent__c}">&nbsp;%</apex:outputPanel>
+                            </td>
+                            <td>
+                                <apex:outputField value="{!comi1.Commission_Calculation_Amount__c}" />
+                            </td>
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+            </table>
+        </apex:outputPanel>
 
         <br/>
         <div class="subtitle">
@@ -326,10 +343,6 @@
         </table>
     </apex:outputPanel>
     <br/>
-
-
-
-
     <div class="subtitle">
         &nbsp;Garantias
     </div>
@@ -370,8 +383,6 @@
         </apex:repeat>
     </table>
     <br/>
-
-
     <div class="subtitle">
         &nbsp;Intervinientes
     </div>

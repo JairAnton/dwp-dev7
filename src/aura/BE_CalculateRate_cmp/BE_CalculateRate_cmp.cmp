@@ -111,10 +111,9 @@
     <lightning:layoutItem padding="horizontal-small" size="6">
       <div class="slds-form-element slds-p-bottom_xx-small">
         <span class="slds-form-element__label">¿Usar Comisiones?</span>
-
         <div class="slds-form-element__control">
           <span class="slds-form-element__static">
-            <ui:inputCheckbox aura:id="useCommissionsCheckbox" change="{!c.onCheckUseCommissions}" />
+            <ui:inputCheckbox aura:id="useCommissionsCheckbox" value="{!v.useCommissionsCheckbox}" change="{!c.onCheckUseCommissions}" />
           </span>
         </div>
       </div>

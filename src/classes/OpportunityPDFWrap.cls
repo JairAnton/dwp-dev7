@@ -173,8 +173,9 @@ public without sharing virtual class OpportunityPDFWrap {
 			Opp = database.query(String.escapeSingleQuotes(getQuery('Opportunity') + ' WHERE id =:Oppid LIMIT 1'));
 			final String idTempo = Opp.Id;
 			OLI = database.query(String.escapeSingleQuotes(getQuery('OpportunityLineItem') + ' WHERE  OpportunityID =:idTempo ORDER BY CreatedDate DESC LIMIT 1'));
-			commissions1 =  [SELECT Calculation_Type__c , Commission_Calculation_Amount__c, Product_Commission_Name__c, Suggested_Rate__c, Suggested_Rate_Type__c, Requested_Rate_Value__c,Authorized_Rate_Value__c, Final_Rate__c FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id  ];
- 
+			commissions1 =  [SELECT Calculation_Type__c , Commission_Calculation_Amount__c, Product_Commission_Name__c, Suggested_Rate__c, Suggested_Rate_Type__c, Requested_Rate_Value__c,Authorized_Rate_Value__c, Final_Rate__c, Rate_Is_Amount__c, Suggested_Rate_Iso_Code__c, Rate_Is_Percent__c FROM Product_Commission__c WHERE Opportunity_Product__c = :oli.Id and Is_Negotiable__c = TRUE ];
+			system.debug('Commissions:'+commissions1);
+
 			final List<String> Litemp = new list<String> {'Autorizado por riesgos', 'Riesgo aprobado dentro de línea'};
 			Audit = database.query(String.escapeSingleQuotes(getQuery('dwp_cvad__Action_Audit__c') + ' WHERE  dwp_cvad__action_audit_name__c IN:Litemp  AND  DWP_CVAD__ACTION_AUDIT_RECORD_ID__C =:idTempo  ORDER BY CreatedDate DESC'));
 			if(Audit.size() > 0) {
