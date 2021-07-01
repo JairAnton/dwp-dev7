@@ -10,7 +10,7 @@
    2021-03-12  MAMC    luis.vargas.matute.contractor@bbva.com   Creation
    -------------------------------------------------------------------------------------------------
  */
-@SuppressWarnings('PMD')
+@SuppressWarnings('PMD.AuraEnabledWithoutCatchBlock')
 public with sharing class BE_ProdCommissionSection_Ctr {
     /* Map that contains return values*/
     static Map<String,Object> mapReturn = new Map<String,Object>();

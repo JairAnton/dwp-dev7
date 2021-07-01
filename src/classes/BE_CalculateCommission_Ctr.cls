@@ -10,7 +10,7 @@
    2021-05-12  MAMC     luis.vargas.matute.contractor@bbva.com  Update
    -------------------------------------------------------------------------------------------------
  */
-@SuppressWarnings('PMD')
+@SuppressWarnings('PMD.AuraEnabledWithoutCatchBlock')
 public with sharing class BE_CalculateCommission_Ctr {
     /* Map with results of call */
     static Map<String, Object> mapReturn = new Map<String, Object>();

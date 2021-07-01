@@ -9,6 +9,7 @@
    2020-08-10  MAMC     martin.mori.contractor@bbva.com    	Creation
    -------------------------------------------------------------------------------------------------
  */
+@SuppressWarnings('PMD.AuraEnabledWithoutCatchBlock')
 public with sharing class BE_AnalyzeRate_ctrl {
     /* Map that contains return values*/
     static Map<String,Object> mapReturn = new Map<String,Object>();
