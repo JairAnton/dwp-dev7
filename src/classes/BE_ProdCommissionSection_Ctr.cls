@@ -67,7 +67,6 @@ public with sharing class BE_ProdCommissionSection_Ctr {
         } catch(Exception e) {
             mapReturn.put('error',true);
             mapReturn.put('responseCode',e.getStackTraceString());
-            throw new AuraHandledException(e.getMessage());
         }
         return mapReturn;
     }
@@ -100,7 +99,6 @@ public with sharing class BE_ProdCommissionSection_Ctr {
         } catch(Exception e) {
             mapReturn.put('error',true);
             mapReturn.put('responseCode',e.getStackTraceString());
-            throw new AuraHandledException(e.getMessage());
         }
         return commission;
     }
