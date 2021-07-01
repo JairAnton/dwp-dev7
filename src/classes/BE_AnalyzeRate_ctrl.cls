@@ -79,6 +79,7 @@ public with sharing class BE_AnalyzeRate_ctrl {
             } catch(Exception e) {
                 mapReturn.put(STROK, false);
                 errorCal = e.getMessage();
+                throw new AuraHandledException(e.getMessage());
             }
         }
         mapReturn.put('errorCal',errorCal);
@@ -100,6 +101,7 @@ public with sharing class BE_AnalyzeRate_ctrl {
             } catch(Exception e) { 
                 mapReturn.put(STROK, false);
                 errorCal = e.getMessage();
+                throw new AuraHandledException(e.getMessage());
             }
         }
     }

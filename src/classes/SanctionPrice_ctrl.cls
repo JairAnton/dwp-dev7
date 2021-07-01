@@ -87,6 +87,7 @@ public with sharing class SanctionPrice_ctrl {
         } catch(Exception e) {
             genericError = e.getMessage();
             mapReturn.put(STRINGERROR, genericError);
+            throw new AuraHandledException(e.getMessage());
         }
         return mapReturn;
     }
@@ -177,6 +178,7 @@ public with sharing class SanctionPrice_ctrl {
         } catch(Exception e) {
             genericError = e.getMessage();
             mapReturn.put(STRINGERROR, genericError);
+            throw new AuraHandledException(e.getMessage());
         }
         return mapReturn; 
     }
@@ -208,6 +210,7 @@ public with sharing class SanctionPrice_ctrl {
         } catch(Exception e) {
             genericError = e.getMessage();
             mapReturn.put(STRINGERROR, genericError);
+            throw new AuraHandledException(e.getMessage());
         }
         return mapReturn; 
     }
@@ -245,6 +248,7 @@ public with sharing class SanctionPrice_ctrl {
         } catch(Exception e) {
             genericError = e.getMessage();
             mapReturn.put(STRINGERROR, genericError);
+            throw new AuraHandledException(e.getMessage());
         }
         return mapReturn; 
     }
@@ -281,6 +285,7 @@ public with sharing class SanctionPrice_ctrl {
         } catch(Exception e) {
             genericError = e.getMessage();
             mapReturn.put(STRINGERROR, genericError);
+            throw new AuraHandledException(e.getMessage());
         }
         return mapReturn; 
     }

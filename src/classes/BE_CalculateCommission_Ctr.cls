@@ -53,7 +53,7 @@ public with sharing class BE_CalculateCommission_Ctr {
             }
         } catch(Exception e) {
             system.debug('Error: '+e.getMessage());
-            throw e;
+            throw new AuraHandledException(e.getMessage());
         }
         if(Test.isRunningTest()) {
             Final string jsonInput='{"data":[{"id":"CO239","name":"Por Liquidación Anticipada","product":{"id":"5","modality":{"id":"8"}},"currency":"PEN","isNegotiable":true,"isRORCApplicable":false,"calculationType":"PERCENTAGE","settledValues":[{"settledValueType":"PERCENTAGE","percentage":5,"name":"SUGGESTED_RATE"}],"maximumValue":{"currency":"PEN"},"minimumValue":{"currency":"PEN"},"isTermIncluded":true,"paymenMethod":{"frequency":{"id":"MONTHLY"}},"term":{"frequency":{"id":"MONTHLY"},"number":12},"additionalAmount":{},"questionnaire":{"id":"CU0022","questions":[{"id":"2","outputType":"YES_OR_NOT","description":"El Plazo es mayor a 12?","parentId":"1","parentOutputType":"YES_OR_NOT","parentAnswerActivator":"SI"},{"id":"1","outputType":"YES_OR_NOT","description":"El tipo de prestamo es Cancelación Anticipada, Amortización Parcial o Prepago de cuotas?"}]}},{"id":"CO235","name":"Por Liquidación Anticipada","product":{"id":"5","modality":{"id":"8"}},"currency":"PEN","isNegotiable":true,"isRORCApplicable":false,"calculationType":"PERCENTAGE","settledValues":[{"settledValueType":"PERCENTAGE","percentage":5,"name":"SUGGESTED_RATE"}],"maximumValue":{"currency":"PEN"},"minimumValue":{"currency":"PEN"},"isTermIncluded":true,"paymenMethod":{"frequency":{"id":"MONTHLY"}},"term":{"frequency":{"id":"MONTHLY"},"number":12},"additionalAmount":{},"questionnaire":{"id":"CU0022","questions":[{"id":"2","outputType":"YES_OR_NOT","description":"El Plazo es mayor a 12?","parentId":"1","parentOutputType":"YES_OR_NOT","parentAnswerActivator":"SI"},{"id":"1","outputType":"YES_OR_NOT","description":"El tipo de prestamo es Cancelación Anticipada, Amortización Parcial o Prepago de cuotas?"}]}},{"id":"CO229","name":"Comisión de Estructuración","product":{"id":"5","modality":{"id":"8"}},"currency":"PEN","isNegotiable":true,"isRORCApplicable":true,"calculationType":"PERCENTAGE","settledValues":[{"settledValueType":"PERCENTAGE","percentage":1,"name":"SUGGESTED_RATE"}],"maximumValue":{"currency":"PEN"},"minimumValue":{"amount":850,"currency":"PEN"},"isTermIncluded":false,"paymenMethod":{},"term":{},"additionalAmount":{}},{"id":"CO217","name":"Gestión Operativa","product":{"id":"5","modality":{"id":"8"}},"currency":"PEN","isNegotiable":true,"isRORCApplicable":true,"calculationType":"PERCENTAGE","settledValues":[{"settledValueType":"PERCENTAGE","percentage":20,"name":"SUGGESTED_RATE"}],"maximumValue":{"amount":700,"currency":"PEN"},"minimumValue":{"amount":120,"currency":"PEN"},"isTermIncluded":false,"paymenMethod":{},"term":{},"additionalAmount":{}}]}';
@@ -141,6 +141,7 @@ public with sharing class BE_CalculateCommission_Ctr {
         mapReturn.put('commissions',response);
         } catch(Exception e) {
             mapReturn.put('error', e);
+            throw new AuraHandledException(e.getMessage());
         }
         return mapReturn;
     }
