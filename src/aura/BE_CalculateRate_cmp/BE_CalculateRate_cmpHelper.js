@@ -1,6 +1,3 @@
-// NOSONAR
-//NOSONAR
-//CHECKSTYLE:OFF
 ({
     calRate: function (cmp, evt, helper) {
         cmp.set('v.disabled', 'true');

@@ -198,14 +198,6 @@
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
-        <fields>NAME</fields>
-        <fields>year_month_day_date__c</fields>
-        <fields>product_group_classification_id__c</fields>
-        <fields>product_desc__c</fields>
-        <fields>entity_name__c</fields>
-        <relatedList>Account_Banking_System_Debt__c.account_id__c</relatedList>
-    </relatedLists>
-    <relatedLists>
         <excludeButtons>New</excludeButtons>
         <fields>OPPORTUNITY.NAME</fields>
         <fields>OPPORTUNITY.STAGE_NAME</fields>

@@ -5727,6 +5727,11 @@ Sub Gerentes de oficina</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>OpportunityLineItem.hasCommissions__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>OpportunityLineItem.tcf_Legal_VB_text__c</field>
         <readable>true</readable>
     </fieldPermissions>
