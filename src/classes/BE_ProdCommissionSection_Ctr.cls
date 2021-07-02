@@ -92,7 +92,7 @@ public with sharing class BE_ProdCommissionSection_Ctr {
             if(comData.rawCommission.Requested_Rate_Value__c == null) {
                 commission.Requested_Rate_Value__c = obtainTwoDecimals(Decimal.valueOf(commission.Suggested_Rate__c));
                 if(commission.Suggested_Rate_Type__c.toUppercase() == 'PERCENTAGE') {
-                    commission.Requested_Rate_Value__c = obtainTwoDecimals(Decimal.valueOf(commission.Suggested_Rate__c)*100);
+                    commission.Requested_Rate_Value__c = obtainTwoDecimals(Decimal.valueOf(commission.Suggested_Rate__c));
                 }
                 
             }
