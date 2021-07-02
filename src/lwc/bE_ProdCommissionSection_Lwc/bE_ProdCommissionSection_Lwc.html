@@ -5,7 +5,7 @@
       <h1 style="font-size: 1.25rem; font-weight: 400; margin: 10px 10px">Comisiones</h1>
     </div>
     <template for:each={commisions} for:item="commission">
-      <div if:true={commission.Is_Negotiable__c} key={commission.Id}>
+      <div if:true={commission.showCurrentCommission} key={commission.Id}>
         <lightning-accordion allow-multiple-sections-open key={commission.Id} active-section-name={activeSections} onsectiontoggle={handleSectionToggle}>
           <lightning-accordion-section name={commission.Id} label={commission.Product_Commission_Name__c} >
             <div>
@@ -36,9 +36,9 @@
                             <lightning-input
                                     if:true={commission.Rate_Is_Percent__c}
                                     label="Tarifa mínima"
-                                    formatter="percent"
+                                    formatter="percent-fixed"
                                     value={commission.Minimum_Rate__c}
-                                    step="0.0001"
+                                    step="0.01"
                                     type="number"
                                     readonly
                             ></lightning-input>
@@ -72,9 +72,9 @@
                             <lightning-input
                                     if:true={commission.Rate_Is_Percent__c}
                                     label="Valor tarifario"
-                                    formatter="percent"
+                                    formatter="percent-fixed"
                                     value={commission.Suggested_Rate__c}
-                                    step="0.0001"
+                                    step="0.01"
                                     type="number"
                                     readonly
                             ></lightning-input>
@@ -94,7 +94,7 @@
                       </div>
                     </div>
                     <div class="slds-size_2-of-8">
-                      <div  if:true={commission.Is_Negotiable__c}>
+                      <div if:true={commission.Is_Negotiable__c}>
                       <div if:true={showRateRequested} class="slds-form-element">
                         <div class="slds-form-element__control">
                           <div class="slds-form-element__static">
@@ -113,10 +113,10 @@
                                     data-rate="REQUESTED"
                                     data-cid={commission.Id}
                                     label="Valor solicitado"
-                                    formatter="percent"
+                                    formatter="percent-fixed"
                                     value={commission.Requested_Rate_Value__c}
                                     onchange={changeRate}
-                                    step="0.0001"
+                                    step="0.01"
                                     type="number"
                             ></lightning-input>
                             <div style="display:flex;flex-direction:column;" if:true={commission.Rate_Is_Amount__c}>
@@ -146,16 +146,15 @@
                             <lightning-input
                                     if:true={commission.Rate_Is_Percent__c}
                                     label="Valor solicitado"
-                                    formatter="percent"
+                                    formatter="percent-fixed"
                                     value={commission.Requested_Rate_Value__c}
-                                    step="0.0001"
+                                    step="0.01"
                                     type="number"
                                     readonly
                             ></lightning-input>
                             <div style="display:flex;flex-direction:column;" if:true={commission.Rate_Is_Amount__c}>
                               <label style="font-size:0.75rem;padding-bottom:0.3rem;">Valor solicitado ({commission.Suggested_Rate_Iso_Code__c})</label>
                               <div style="display:flex;">
-                                <!--<label style="margin-top:auto;padding:0.4rem;">{commission.Suggested_Rate_Iso_Code__c}</label>-->
                                 <lightning-input
                                       data-rate="REQUESTED"
                                       type="number"
@@ -195,9 +194,9 @@
                                       data-rate="AUTHORIZED"
                                       data-cid={commission.Id}
                                       onchange={changeRate}
-                                      formatter="percent"
+                                      formatter="percent-fixed"
                                       value={commission.Authorized_Rate_Value__c}
-                                      step="0.0001"
+                                      step="0.01"
                                       type="number"
                               ></lightning-input>
                               <div style="display:flex;flex-direction:column;" if:true={commission.Rate_Is_Amount__c}>
@@ -228,9 +227,9 @@
                             <lightning-input
                                     if:true={commission.Rate_Is_Percent__c}
                                     label="Tarifa autorizado"
-                                    formatter="percent"
+                                    formatter="percent-fixed"
                                     value={commission.Authorized_Rate_Value__c}
-                                    step="0.0001"
+                                    step="0.01"
                                     type="number"
                                     readonly
                             ></lightning-input>

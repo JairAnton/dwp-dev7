@@ -144,10 +144,11 @@ public class SanctionPriceAnalistWeb_ctrl {
 		String errorMessage;
 		List<OpportunityLineItem> lstOLI = new List<OpportunityLineItem>();
 		try {
-			lstOLI = [Select Id, price_quote_id__c, product_price_approval_method__c, proposed_apr_per__c, funding_cost_per__c, price_rates_calculation_Id__c from OpportunityLineItem where OpportunityId =:oppId];
+			lstOLI = [Select Id, price_quote_id__c, product_price_approval_method__c, proposed_apr_per__c, funding_cost_per__c, price_rates_calculation_Id__c, hasCommissions__c from OpportunityLineItem where OpportunityId =:oppId];
 			if(lstOLI[0].price_quote_id__c != '' && lstOLI[0].product_price_approval_method__c == 'Web') {
 				//helper to call the service
 				Final AnalyzeRate_helper analyzerateHelper = new AnalyzeRate_helper(oppId, lstOLI[0].price_rates_calculation_Id__c, tea, false);
+				analyzerateHelper.hasCommissions = lstOLI[0].hasCommissions__c;
 				//invoke the service
 				Final System.HttpResponse invoke = analyzerateHelper.invoke();
 				//get json body

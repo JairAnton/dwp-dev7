@@ -56,7 +56,6 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
             this.showRateAuthorized = showRateAuthorizedArr.includes(this.status);
             this.isEditableQuestionnaire = this.status !== '09' && this.isEditable;
 
-            console.log('read stage status', this.status);
             this.showNoCommissionMessage = this.isEditable && (this.status !== '09');
         } else if (value.error) {
             console.log("ERROR: ", value.error)
@@ -64,7 +63,6 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
     }
 
     connectedCallback() {
-        console.log('FIRST LINE 11111111111111111111');
         getCommissions({ recordId: this.recordId, negotiables: this.requestNegotiables, requestDataToAso: this.requestDataToAso })
             .then(result => {
 
@@ -169,11 +167,8 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
         console.log('sending 0...:...', this.commisions);
         let commissionRequestBody = this.commisions.map((m) => {
             // eslint-disable-next-line no-unused-vars
-            let { Commission_Questions__r, isModified, error, Requested_Rate_Value__c, Authorized_Rate_Value__c, Commissions_Ranges__r, ...additional } = m;
-            if (m.Suggested_Rate_Type__c.toUpperCase() === 'PERCENTAGE') {
-                Requested_Rate_Value__c = Requested_Rate_Value__c * 100;
-                Authorized_Rate_Value__c = Authorized_Rate_Value__c * 100;
-            }
+            let { Commission_Questions__r, isModified, error, Requested_Rate_Value__c, Authorized_Rate_Value__c, Commissions_Ranges__r, showCurrentCommission, ...additional } = m;
+
             return { Commission_Questions__r: this.rewriteSubquery(Commission_Questions__r), Requested_Rate_Value__c, Authorized_Rate_Value__c, ...additional };
         });
         console.log('sending...:...', commissionRequestBody);
@@ -324,12 +319,8 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
         return commissions.map((comm) => {
             let { Commission_Questions__r, ...cData } = comm;
             let questions = [];
-            cData.Is_Negotiable__c = cData.Is_Negotiable__c || !this.requestNegotiables;
+            cData.showCurrentCommission = cData.Is_Negotiable__c || !this.requestNegotiables;
 
-            if (cData.Suggested_Rate_Type__c.toUpperCase() === 'PERCENTAGE') {
-                cData.Requested_Rate_Value__c = comm.Requested_Rate_Value__c / 100;
-                cData.Authorized_Rate_Value__c = comm.Authorized_Rate_Value__c / 100;
-            }
             if (Commission_Questions__r) {
                 questions = Commission_Questions__r.map((quest) => {
                     let { Answer__c, ...qData } = quest;
