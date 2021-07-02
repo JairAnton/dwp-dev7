@@ -1,6 +1,3 @@
-// NOSONAR
-//NOSONAR
-//CHECKSTYLE:OFF
 ({
     closeMe: function (component, event) {
         var cancelEvent = component.getEvent('dynamicFlowWizardCancel');
