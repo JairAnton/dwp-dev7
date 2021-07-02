@@ -17,7 +17,7 @@
         <name>Calculation_Type__c</name>
         <picklistValues>
             <masterLabel>AMOUNT</masterLabel>
-            <translation>MONTO</translation>
+            <translation>IMPORTE</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>FACTOR</masterLabel>
