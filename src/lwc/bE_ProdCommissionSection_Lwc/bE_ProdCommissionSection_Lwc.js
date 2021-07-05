@@ -56,7 +56,6 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
             this.showRateAuthorized = showRateAuthorizedArr.includes(this.status);
             this.isEditableQuestionnaire = this.status !== '09' && this.isEditable;
 
-            console.log('read stage status', this.status);
             this.showNoCommissionMessage = this.isEditable && (this.status !== '09');
         } else if (value.error) {
             console.log("ERROR: ", value.error)
@@ -126,8 +125,12 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
         } else {
             value = event.currentTarget.value;
         }
-
         currentQuestion.Answer__c = value;
+
+        if (currentCommission.Rate_Is_Range__c && currentQuestion.output_Type__c !== 'YES_OR_NOT') {
+            this.updateRangeSugestedValue(currentCommission, currentQuestion);
+        }
+
         currentCommission.isModified = true;
         this.commisionHasBeenModified = false;
         this.showNhideQuestions(currentQuestion, currentCommission.Commission_Questions__r, value);
@@ -143,10 +146,10 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
         this.commisionHasBeenModified = false;
 
         if (event.target.dataset.rate === 'REQUESTED') {
-            currentCommission.Requested_Rate_Value__c = value;
+            currentCommission.Requested_Rate_Value__c = value === '' ? undefined : value;
         }
         if (event.target.dataset.rate === 'AUTHORIZED') {
-            currentCommission.Authorized_Rate_Value__c = value;
+            currentCommission.Authorized_Rate_Value__c = value === '' ? undefined : value;
         }
     }
 
@@ -164,11 +167,8 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
         console.log('sending 0...:...', this.commisions);
         let commissionRequestBody = this.commisions.map((m) => {
             // eslint-disable-next-line no-unused-vars
-            let { Commission_Questions__r, isModified, error, Requested_Rate_Value__c, Authorized_Rate_Value__c, ...additional } = m;
-            if (m.Suggested_Rate_Type__c.toUpperCase() === 'PERCENTAGE') {
-                Requested_Rate_Value__c = Requested_Rate_Value__c * 100;
-                Authorized_Rate_Value__c = Authorized_Rate_Value__c * 100;
-            }
+            let { Commission_Questions__r, isModified, error, Requested_Rate_Value__c, Authorized_Rate_Value__c, Commissions_Ranges__r, showCurrentCommission, ...additional } = m;
+
             return { Commission_Questions__r: this.rewriteSubquery(Commission_Questions__r), Requested_Rate_Value__c, Authorized_Rate_Value__c, ...additional };
         });
         console.log('sending...:...', commissionRequestBody);
@@ -233,6 +233,23 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
     /*             Utilities Functions               */
     /*                                               */
     /*-----------------------------------------------*/
+    updateRangeSugestedValue(currentCommission, currentQuestion) {
+        let isInRangeFlag = true;
+        if (currentCommission.Commissions_Ranges__r) {
+            for (let range of currentCommission.Commissions_Ranges__r) {
+                if (range.Limit_Minimum_Value__c <= currentQuestion.Answer__c && currentQuestion.Answer__c < range.Limit_Maximum_Value__c) {
+                    isInRangeFlag = false;
+                    currentCommission.Suggested_Rate__c = range.Settled_Value_Amount__c;
+                    if (range.Settled_Value_Iso_Code__c) {
+                        currentCommission.Suggested_Rate_Iso_Code__c = range.Settled_Value_Iso_Code__c;
+                    }
+                }
+            }
+        }
+        if (isInRangeFlag) {
+            currentCommission.Suggested_Rate__c = 0;
+        }
+    }
     updateCommission(commissions) {
         // eslint-disable-next-line guard-for-in
         for (let cindx in commissions) {
@@ -298,16 +315,12 @@ export default class BE_ProdCommissionSection_Lwc extends LightningElement {
         }
         return array;
     }
-
     parseInitialData(commissions) {
         return commissions.map((comm) => {
             let { Commission_Questions__r, ...cData } = comm;
-            let questions = []; //showMinimumRateClass__c
+            let questions = [];
+            cData.showCurrentCommission = cData.Is_Negotiable__c || !this.requestNegotiables;
 
-            if (cData.Suggested_Rate_Type__c.toUpperCase() === 'PERCENTAGE') {
-                cData.Requested_Rate_Value__c = comm.Requested_Rate_Value__c / 100;
-                cData.Authorized_Rate_Value__c = comm.Authorized_Rate_Value__c / 100;
-            }
             if (Commission_Questions__r) {
                 questions = Commission_Questions__r.map((quest) => {
                     let { Answer__c, ...qData } = quest;

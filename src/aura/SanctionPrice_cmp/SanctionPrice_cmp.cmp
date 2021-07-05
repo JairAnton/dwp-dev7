@@ -15,6 +15,7 @@
   <aura:attribute name="btnCalculate" type="Boolean" default="false" />
   <aura:attribute name="showWebForm" type="Boolean" default="false" />
   <aura:attribute name="proposedEmpty" type="Boolean" default="false" />
+  <aura:attribute name="hasCommission" type="Boolean" default="false" />
 
   <aura:handler name="commitmentsEvent" event="c:Commitments_evt" action="{!c.doTypeMode}" />
   <aura:registerEvent name="commitmentsEvent" type="c:Commitments_evt" />
@@ -80,6 +81,7 @@
                     finMarLostCur="{!v.finMarLostCur}"
                     finMarRecoverCur="{!v.finMarRecoverCur}"
                     classHide="{!v.classHide}"
+                    useCommissionsCheckbox="{!v.hasCommission}"
                   />
                   <!--<div class="custom-title" style="margin-top:15px;">
                                         <lightning:icon iconName="utility:puzzle" alternativeText="Comisiones" title="Comisiones" />

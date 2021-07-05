@@ -480,9 +480,20 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Range_Rate_Type__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Range Rate Type</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Rate_Is_Amount__c</fullName>
         <externalId>false</externalId>
-        <formula>ISPICKVAL(Calculation_Type__c, &apos;AMOUNT&apos;)</formula>
+        <formula>OR(ISPICKVAL(Calculation_Type__c, &apos;AMOUNT&apos;),AND(ISPICKVAL(Calculation_Type__c, &apos;RANGE&apos;),Range_Rate_Type__c== &apos;AMOUNT&apos;))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Rate Is Amount</label>
         <trackTrending>false</trackTrending>
@@ -500,7 +511,7 @@
     <fields>
         <fullName>Rate_Is_Percent__c</fullName>
         <externalId>false</externalId>
-        <formula>ISPICKVAL(Calculation_Type__c, &apos;PERCENTAGE&apos;)</formula>
+        <formula>OR(ISPICKVAL(Calculation_Type__c, &apos;PERCENTAGE&apos;),AND(ISPICKVAL(Calculation_Type__c, &apos;RANGE&apos;),Range_Rate_Type__c== &apos;PERCENTAGE&apos;))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Rate Is Percent</label>
         <trackTrending>false</trackTrending>

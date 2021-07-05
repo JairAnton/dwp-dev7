@@ -1,6 +1,6 @@
 <apex:page renderAs="pdf" language="es" applyBodyTag="false" standardController="Opportunity" extensions="BE_Quotation_Ctr">
-    <apex:stylesheet value="{!$Resource.BE_StyleQuotationPDF}"/>
-    <apex:image value="{!URLFOR($Resource.BBVALogo)}" width="350" height="100"/>
+    <apex:stylesheet value="{!$Resource.BE_StyleQuotationPDF}" />
+    <apex:image value="{!URLFOR($Resource.BBVALogo)}" width="350" height="100" />
     <br/>
     <div>
         <strong>&nbsp;Datos de cliente</strong>
@@ -36,7 +36,10 @@
                 <td width="50%">Modalidad: {!modality} </td>
             </tr>
             <tr>
-                <td width="50%">Importe: {!Opportunity.CurrencyIsoCode}&nbsp;<apex:outputText value="{0, number, ###,###,##0.00}"><apex:param value="{!Opportunity.Amount}"/></apex:outputText> </td>
+                <td width="50%">Importe: {!Opportunity.CurrencyIsoCode}&nbsp;
+                    <apex:outputText value="{0, number, ###,###,##0.00}">
+                        <apex:param value="{!Opportunity.Amount}" /></apex:outputText>
+                </td>
                 <td width="50%">&nbsp;</td>
             </tr>
         </apex:repeat>
@@ -50,68 +53,93 @@
         <apex:repeat value="{!Opportunity.OpportunityLineItems}" var="lineitem">
             <tr>
                 <td width="50%">Nº cotización: {!lineitem.price_quote_id__c} </td>
-                <td width="50%">Fecha de sanción:&nbsp;<apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!TODAY()}" /> </apex:outputText> </td>
+                <td width="50%">Fecha de sanción:&nbsp;
+                    <apex:outputText value="{0,date,dd/MM/yyyy}">
+                        <apex:param value="{!TODAY()}" /> </apex:outputText>
+                </td>
             </tr>
             <tr>
                 <td>
-                    <apex:outputPanel layout="none" rendered="{!IF(lineitem.Product2.ProductCode == $Label.lblPDFProductCartaTecnicaEconomica || lineitem.Product2.ProductCode ==$Label.lblPDFProductCartaTecnicaImport,true,false)}" >
-                        Comisión aprobada:<apex:outputText value=" {0, number,.00} %">
-                        <apex:param value="{!lineitem.proposed_fee_per__c}"/>
+                    <apex:outputPanel layout="none" rendered="{!IF(lineitem.Product2.ProductCode == $Label.lblPDFProductCartaTecnicaEconomica || lineitem.Product2.ProductCode ==$Label.lblPDFProductCartaTecnicaImport,true,false)}">
+                        Comisión aprobada:
+                        <apex:outputText value=" {0, number,.00} %">
+                            <apex:param value="{!lineitem.proposed_fee_per__c}" />
                         </apex:outputText>
                     </apex:outputPanel>
-                    <apex:outputPanel layout="none" rendered="{!IF(lineitem.Product2.ProductCode != $Label.lblPDFProductCartaTecnicaEconomica && lineitem.Product2.ProductCode !=$Label.lblPDFProductCartaTecnicaImport,true,false)}" >
-                        TEA aprobada:<apex:outputText value=" {0, number,.00} %">
-                        <apex:param value="{!lineitem.proposed_apr_per__c}"/>
+                    <apex:outputPanel layout="none" rendered="{!IF(lineitem.Product2.ProductCode != $Label.lblPDFProductCartaTecnicaEconomica && lineitem.Product2.ProductCode !=$Label.lblPDFProductCartaTecnicaImport,true,false)}">
+                        TEA aprobada:
+                        <apex:outputText value=" {0, number,.00} %">
+                            <apex:param value="{!lineitem.proposed_apr_per__c}" />
                         </apex:outputText>
                     </apex:outputPanel>
                 </td>
-                <td>Vigencia:&nbsp;<apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!lineitem.validityDate__c}" /></apex:outputText></td>
+                <td>Vigencia:&nbsp;
+                    <apex:outputText value="{0,date,dd/MM/yyyy}">
+                        <apex:param value="{!lineitem.validityDate__c}" /></apex:outputText>
+                </td>
             </tr>
             <tr>
-                <td>Plazo:&nbsp;<apex:outputfield value="{!lineitem.gipr_Plazo__c}"/>&nbsp;<apex:outputfield value="{!lineitem.gipr_Periodicidad__c}"/></td>
-                <td>Tipo garantía:&nbsp; <apex:outputfield value="{!lineitem.gipr_Tipo_Garantia__c}"/></td>
+                <td>Plazo:&nbsp;
+                    <apex:outputfield value="{!lineitem.gipr_Plazo__c}" />&nbsp;
+                    <apex:outputfield value="{!lineitem.gipr_Periodicidad__c}" />
+                </td>
+                <td>Tipo garantía:&nbsp;
+                    <apex:outputfield value="{!lineitem.gipr_Tipo_Garantia__c}" />
+                </td>
             </tr>
             <apex:outputPanel layout="none" rendered="{!lineitem.Product2.ProductCode == $Label.lblPDFProductExportComex || lineitem.Product2.ProductCode == $Label.lblPDFProductImportComex}">
                 <tr>
-                    <td>Medio de pago:&nbsp;<apex:outputfield value="{!lineitem.gipr_Payment_Method__c}"/></td>
-                    <td>Bolsa comex:&nbsp;<apex:outputfield value="{!lineitem.gipr_Comex_Bag__c}"/></td>
+                    <td>Medio de pago:&nbsp;
+                        <apex:outputfield value="{!lineitem.gipr_Payment_Method__c}" />
+                    </td>
+                    <td>Bolsa comex:&nbsp;
+                        <apex:outputfield value="{!lineitem.gipr_Comex_Bag__c}" />
+                    </td>
                 </tr>
             </apex:outputPanel>
             <tr>
-                <td>Aprobador:&nbsp;<apex:outputText value="{!$User.FirstName + ' ' + $User.LastName}"/></td>
-                <td>Cargo:&nbsp;<apex:outputText value="{!$User.User_position_equivalence__c}"/></td>
+                <td>Aprobador:&nbsp;
+                    <apex:outputText value="{!$User.FirstName + ' ' + $User.LastName}" />
+                </td>
+                <td>Cargo:&nbsp;
+                    <apex:outputText value="{!$User.User_position_equivalence__c}" />
+                </td>
             </tr>
             <tr>
-                <td colspan="2">Comentarios:<br/>{!comments}</td>
+                <td colspan="2">Comentarios:
+                    <br/>{!comments}</td>
             </tr>
         </apex:repeat>
     </table>
     <br/>
 
-    
 
-
-    <div>
-        <strong>&nbsp;Datos de comisión</strong>
-    </div>
-    <br/>
-    <table cellpadding="6">
-        <tr class="commitment">
-            <th>COMISIÓN</th>
-            <th>SOLICITADO (%)</th>
-            <th>AUTORIZADO (%) </th>
-	    <th>COMISIÓN FINAL</th>
-        </tr>
-        <apex:repeat value="{!commissionsx}" var="comi">
-            <tr>
-                <td>{!comi.Product_Commission_Name__c}</td>
-                <td>{!comi.Requested_Rate_Value__c}</td>
-                <td>{!comi.Authorized_Rate_Value__c}</td>
-                <td>{!comi.Commission_Calculation_Amount__c}</td>
-            </tr>
-        </apex:repeat>
-    </table>
-
+    <apex:repeat value="{!Opportunity.OpportunityLineItems}" var="lineitem">
+        <apex:outputPanel rendered="{!lineitem.hasCommissions__c}">
+            <div>
+                <strong>&nbsp;Datos de comisión</strong>
+            </div>
+            <br/>
+            <table cellpadding="6">
+                <tr class="commitment">
+                    <th>COMISIÓN</th>
+                    <th>SOLICITADO</th>
+                    <th>AUTORIZADO</th>
+                    <th>COMISIÓN FINAL</th>
+                </tr>
+                <apex:repeat value="{!commissionsx}" var="comi">
+                    <tr>
+                        <td>{!comi.Product_Commission_Name__c}</td>
+                        <td>{!IF(comi.Rate_Is_Amount__c, comi.Suggested_Rate_Iso_Code__c, "")}&nbsp; {!comi.Requested_Rate_Value__c}
+                            {!IF(comi.Rate_Is_Percent__c, "%", "")}</td>
+                        <td>{!IF(comi.Rate_Is_Amount__c, comi.Suggested_Rate_Iso_Code__c, "")}&nbsp; {!comi.Authorized_Rate_Value__c}
+                            {!IF(comi.Rate_Is_Percent__c, "%", "")}</td>
+                        <td>{!comi.Commission_Calculation_Currency__c}&nbsp; {!comi.Commission_Calculation_Amount__c}</td>
+                    </tr>
+                </apex:repeat>
+            </table>
+        </apex:outputPanel>
+    </apex:repeat>
     <br/>
 
     <div>
