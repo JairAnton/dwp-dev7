@@ -95,7 +95,7 @@ public with sharing class BE_AnalyzeRate_ctrl {
         if(recordId != null && recordId != '') {
         try {
             
-                OpportunityLineItem oli = [SELECT Id, hasCommissions__c FROM OpportunityLineItem WHERE Id = :recordId];
+                Final OpportunityLineItem oli = [SELECT Id, hasCommissions__c FROM OpportunityLineItem WHERE Id = :recordId];
                 oli.hasCommissions__c = hasCommission;
                 update oli;
             

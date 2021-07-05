@@ -255,7 +255,7 @@ public with sharing class SanctionPrice_ctrl {
      */
     @AuraEnabled
     public static Map<String,Object> requestQuote(String recordId) {
-            try{
+            try {
             mapReturn.put('nextCallout',false);
             final List<OpportunityLineItem> oliList = [SELECT price_quote_id__c, price_quote_owner_id__c, Liquidity_Margin_Lost__c
                                                 FROM OpportunityLineItem WHERE OpportunityId = :recordId];
