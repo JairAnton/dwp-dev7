@@ -12,6 +12,12 @@
  */
 @SuppressWarnings('PMD.AuraEnabledWithoutCatchBlock')
 public with sharing class BE_ProdCommissionSection_Ctr {
+    /* Variable */
+    public static Final String percentage = 'PERCENTAGE';
+
+    /* Variable */
+    public static Final String error = 'error';
+
     /* Map that contains return values*/
     static Map<String,Object> mapReturn = new Map<String,Object>();
     /* constructor of class */
@@ -19,12 +25,6 @@ public with sharing class BE_ProdCommissionSection_Ctr {
 
     /* exception of class */
     public class ApplicationException extends Exception {}
-
-    /* Variable */
-    public static String PERCENTAGE = 'PERCENTAGE';
-
-    /* Variable */
-    public static String ERROR = 'error';
     
     /**Method used to get quotes **/
 	@AuraEnabled
@@ -42,7 +42,7 @@ public with sharing class BE_ProdCommissionSection_Ctr {
             Final BE_CalculateCommissionRequest_Helper listComHelper = new BE_CalculateCommissionRequest_Helper(commission,status);
             Final System.HttpResponse invoke = listComHelper.invoke();
             mapReturn = new Map<String,Object>();
-            mapReturn.put(ERROR,false);
+            mapReturn.put(error,false);
 
             switch on invoke.getStatusCode() {
                 when 200 {
@@ -61,7 +61,7 @@ public with sharing class BE_ProdCommissionSection_Ctr {
                     commission.Commission_Calculation_Currency__c = String.valueOf(calculatedAmount.get('currency'));
                 
                 } when else {
-                    mapReturn.put(ERROR,true);
+                    mapReturn.put(error,true);
                     mapReturn.put('responseCode',invoke.getStatusCode());
                     mapReturn.put('errorBody',invoke.getBody());
                 }
@@ -72,7 +72,7 @@ public with sharing class BE_ProdCommissionSection_Ctr {
             }
             mapReturn.put('commission',commission);
         } catch(Exception e) {
-            mapReturn.put(ERROR,true);
+            mapReturn.put(error,true);
             mapReturn.put('responseCode',e.getStackTraceString());
         }
         return mapReturn;
@@ -97,14 +97,14 @@ public with sharing class BE_ProdCommissionSection_Ctr {
 
             if(comData.rawCommission.Requested_Rate_Value__c == null) {
                 commission.Requested_Rate_Value__c = obtainTwoDecimals(Decimal.valueOf(commission.Suggested_Rate__c));
-                if(commission.Suggested_Rate_Type__c.toUppercase() == PERCENTAGE) {
+                if(commission.Suggested_Rate_Type__c.toUppercase() == percentage) {
                     commission.Requested_Rate_Value__c = obtainTwoDecimals(Decimal.valueOf(commission.Suggested_Rate__c));
                 }
                 
             }
             commission = parseQuestions(commission, comData);
         } catch(Exception e) {
-            mapReturn.put(ERROR,true);
+            mapReturn.put(error,true);
             mapReturn.put('responseCode',e.getStackTraceString());
         }
         return commission;
