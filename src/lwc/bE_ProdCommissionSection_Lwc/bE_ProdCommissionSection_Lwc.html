@@ -42,18 +42,19 @@
                                     type="number"
                                     readonly
                             ></lightning-input>
-                            <lightning-input
-                                    if:true={commission.Rate_Is_Amount__c}
-                                    label="Tarifa mínima"
-                                    type="number"
-                                    formatter="currency"
-                                    value={commission.Minimum_Rate__c}
-                                    format-style="currency"
-                                    currency-display-as="code"
-                                    step="0.01"
-                                    currency-code={commission.Minimum_Rate_Iso_Code__c}
-                                    readonly
-                            ></lightning-input>
+                            <div if:true={commission.Rate_Is_Amount__c} style="display:inline-grid">
+                              <label style="font-size:0.75rem;padding-bottom:0.3rem;">Tarifa mínima</label>
+                              <lightning-formatted-number
+                                value={commission.Minimum_Rate__c}
+                                currency-display-as="code"
+                                step="0.01"
+                                format-style="currency"
+                                currency-code={commission.Minimum_Rate_Iso_Code__c}
+                                minimum-fraction-digits="2"
+                                maximum-fraction-digits="2"
+                                style="padding-bottom:0.45rem;"
+                            ></lightning-formatted-number>
+                            </div>
                           </div>
                         </div>
                       </div>
