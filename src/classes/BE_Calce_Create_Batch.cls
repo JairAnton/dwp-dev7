@@ -95,7 +95,7 @@ public without sharing class BE_Calce_Create_Batch implements Database.Batchable
                                               }
         final List<Calce__c> ltsCalce = new List<Calce__c>();
         for(User usr : lstUser) {
-            for( Integer i=0; i < 5; i++ ){
+            for( Integer i=0; i < 5; i++ ) {
             Final Calce__c calce = new Calce__c();
             calce.Name = String.valueOf(dateCalEnd.addDays(i)).leftPad(2, '0')+' - '+usr.Name;
             calce.OwnerId = usr.Id;
