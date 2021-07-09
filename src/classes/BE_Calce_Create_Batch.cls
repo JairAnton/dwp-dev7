@@ -95,13 +95,14 @@ public without sharing class BE_Calce_Create_Batch implements Database.Batchable
                                               }
         final List<Calce__c> ltsCalce = new List<Calce__c>();
         for(User usr : lstUser) {
-            for(Integer i=0; i < 5; i++){
+            for( Integer i=0; i < 5; i++ ){
             Final Calce__c calce = new Calce__c();
-            calce.Name = String.valueOf((dateCalEnd.addDays(i))).leftPad(2, '0')+' - '+usr.Name;
+            calce.Name = String.valueOf(dateCalEnd.addDays(i)).leftPad(2, '0')+' - '+usr.Name;
             calce.OwnerId = usr.Id;
-            if(usr.prof_position_id__c == 'E01') { calce.manager_id__c = calce.ownerid; } 
-            else if (usr.prof_position_id__c == 'I21') { calce.manager_id__c = calce.ownerid;}
-            else {calce.manager_id__c = usr.ManagerId;}
+            calce.manager_id__c          = usr.ManagerId;
+            if(usr.prof_position_id__c == 'E01'|| usr.prof_position_id__c == 'I21') { 
+                    calce.manager_id__c = calce.ownerid;
+                }
             calce.close_date__c          = dateCalEnd.addDays(i);
             calce.start_date__c          = dateCalStart;
             calce.status__c              = 'Iniciado';
