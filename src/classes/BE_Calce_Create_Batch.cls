@@ -95,19 +95,22 @@ public without sharing class BE_Calce_Create_Batch implements Database.Batchable
                                               }
         final List<Calce__c> ltsCalce = new List<Calce__c>();
         for(User usr : lstUser) {
+            for(Integer i=0; i < 5; i++){
             Final Calce__c calce = new Calce__c();
-            calce.Name = nameMonth.get(dateCalEnd.month())+String.valueOf(dateCalEnd.day()).leftPad(2, '0')+'-'+dateCalEnd.year()+' - '+usr.Name;
+            calce.Name = String.valueOf((dateCalEnd.addDays(i))).leftPad(2, '0')+' - '+usr.Name;
             calce.OwnerId = usr.Id;
             if(usr.prof_position_id__c == 'E01') { calce.manager_id__c = calce.ownerid; } 
             else if (usr.prof_position_id__c == 'I21') { calce.manager_id__c = calce.ownerid;}
             else {calce.manager_id__c = usr.ManagerId;}
-            calce.close_date__c          = dateCalEnd;
+            calce.close_date__c          = dateCalEnd.addDays(i);
             calce.start_date__c          = dateCalStart;
             calce.status__c              = 'Iniciado';
             calce.Indirect_commitment__c = mapGroupingRisk.get(usr.Id);
             calce.Direct_commitment__c   = mapGroupingCP.get(usr.Id)+mapGroupingLP.get(usr.Id);
+            calce.reportcalce__c         = True;
             ltsCalce.add(calce);
         }
+    	   }	
          insert ltsCalce;
         final Map<Id,Id> mapCalce = new Map<Id,Id>();
         for(Calce__c calce : ltsCalce) { mapCalce.put(calce.OwnerId, calce.Id); }
