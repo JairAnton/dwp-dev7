@@ -153,6 +153,16 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
+        <fullName>Get_Date_details__c</fullName>
+        <externalId>false</externalId>
+        <formula>calce_id__r.Get_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Get Date details</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>account_contract_id__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -348,7 +358,7 @@
     </fields>
     <fields>
         <fullName>return__c</fullName>
-        <defaultValue>true</defaultValue>
+        <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Return</label>
         <trackTrending>false</trackTrending>
