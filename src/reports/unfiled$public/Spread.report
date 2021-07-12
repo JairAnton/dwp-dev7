@@ -12,30 +12,35 @@
         <booleanFilter>(1 OR 4) AND 2 AND 3 AND 5</booleanFilter>
         <criteriaItems>
             <column>Account_Profitability__c.year_month_day_date__c</column>
+            <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>LAST_N_MONTHS:11</value>
         </criteriaItems>
         <criteriaItems>
             <column>Account_Profitability__c.profitability_type__c</column>
+            <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>02</value>
         </criteriaItems>
         <criteriaItems>
             <column>Account_Profitability__c.product_desc__c</column>
+            <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>CLIENTE</value>
         </criteriaItems>
         <criteriaItems>
             <column>Account_Profitability__c.year_month_day_date__c</column>
+            <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>THIS_MONTH</value>
         </criteriaItems>
         <criteriaItems>
             <column>Account_Profitability__c.profitability_category_type__c</column>
+            <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>Spread</value>
@@ -45,8 +50,8 @@
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Account_Profitability__c.period__c</field>
-        <sortOrder>Asc</sortOrder>
+        <field>Account_Profitability__c.Periodo__c</field>
+        <sortOrder>Desc</sortOrder>
     </groupingsDown>
     <name>Spread</name>
     <params>

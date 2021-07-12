@@ -494,7 +494,7 @@
                 <flexComponentProperties>
                     <decimalPrecision>-1</decimalPrecision>
                     <flexTableColumn>
-                        <reportColumn>Account_Profitability__c.period__c</reportColumn>
+                        <reportColumn>Account_Profitability__c.Periodo__c</reportColumn>
                         <showSubTotal>false</showSubTotal>
                         <showTotal>true</showTotal>
                         <type>grouping</type>
@@ -513,7 +513,7 @@
                 <groupingSortProperties>
                     <groupingSorts>
                         <groupingLevel>g1</groupingLevel>
-                        <sortOrder>a</sortOrder>
+                        <sortOrder>d</sortOrder>
                     </groupingSorts>
                 </groupingSortProperties>
                 <header>Facturación</header>
@@ -531,7 +531,7 @@
                 <flexComponentProperties>
                     <decimalPrecision>-1</decimalPrecision>
                     <flexTableColumn>
-                        <reportColumn>Account_Profitability__c.period__c</reportColumn>
+                        <reportColumn>Account_Profitability__c.Periodo__c</reportColumn>
                         <showSubTotal>false</showSubTotal>
                         <showTotal>false</showTotal>
                         <type>grouping</type>
@@ -550,7 +550,7 @@
                 <groupingSortProperties>
                     <groupingSorts>
                         <groupingLevel>g1</groupingLevel>
-                        <sortOrder>a</sortOrder>
+                        <sortOrder>d</sortOrder>
                     </groupingSorts>
                 </groupingSortProperties>
                 <header>Spread</header>
@@ -737,6 +737,7 @@
     </dashboardGridLayout>
     <dashboardType>MyTeamUser</dashboardType>
     <isGridLayout>true</isGridLayout>
+    <runningUser>gerson.diaz@bbva.com</runningUser>
     <textColor>#000000</textColor>
     <title>Cartera de Gestores</title>
     <titleColor>#000000</titleColor>
