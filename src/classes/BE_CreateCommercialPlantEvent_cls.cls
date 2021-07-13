@@ -1,12 +1,10 @@
 /**
  * BE_CreateCommercialPlantEvent_cls
- * <p /><p />
- * Modification log:<p />
  * -------------------------------------------------------------------
  * Developer                    Date                Description<p />
  * -------------------------------------------------------------------
  * Diego Carbajal    		15/05/2020          Original version.<p />
- *
+ * Jair Anton               13/07/2021          Modificar el comentario de un Growth Driver
  * @author Diego Carbajal
  */
 public with sharing class BE_CreateCommercialPlantEvent_cls extends BE_SingleRelatedListCRUD_Cls {
@@ -59,13 +57,14 @@ public with sharing class BE_CreateCommercialPlantEvent_cls extends BE_SingleRel
                 if(mapAU.get(V_SUCCESS) == V_TRUE) {
                     lstCPE[0].Name = lstAp[0].Name.length()>66? lstAp[0].Name.substring(0,66) + V_LIT + String.valueOf(lstCPE[0].acpl__gf_event_date__c).left(10) : lstAp[0].Name + V_LIT + String.valueOf(lstCPE[0].acpl__gf_event_date__c).left(10);
                     response = BE_SingleRelatedListModal_Ctr.returnResponse(lstCPE, 'update');
-                    Final acpl__Commercial_Plan_Event__c[] lstCPEAux = [SELECT Id, ClientAssigned__c, acpl__gf_event_date__c, GrowthDriver__c 
+                    Final acpl__Commercial_Plan_Event__c[] lstCPEAux = [SELECT Id, ClientAssigned__c, acpl__gf_event_date__c, GrowthDriver__c, Comments__c 
                                                                         FROM acpl__Commercial_Plan_Event__c WHERE Id =: lstCPE[0].Id LIMIT 1];
                     if(response.isSuccess && !lstCPEAux.isEmpty() && String.isNotBlank(lstCPEAux[0].GrowthDriver__c)) {
                         Final bupl__BP_GrowthDriver__c[] lstGD = [SELECT Id, ExpectedDate__c, ClientAssigned__c FROM bupl__BP_GrowthDriver__c 
                                                         WHERE Id=:lstCPEAux[0].GrowthDriver__c LIMIT 1];
                         lstGD[0].ExpectedDate__c = lstCPEAux[0].acpl__gf_event_date__c;
                         lstGD[0].ClientAssigned__c = lstCPEAux[0].ClientAssigned__c;
+                        lstGD[0].bupl__gf_growth_drvr_prdt_desc__c = lstCPEAux[0].Comments__c;
                         update lstGD;
                     }
                 } else {
