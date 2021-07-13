@@ -17,6 +17,11 @@
             &quot;type&quot;: &quot;Date&quot;
         },
         {
+            &quot;label&quot;: &quot;PRODUCTO&quot;,
+            &quot;fieldName&quot;: &quot;Product__c&quot;,
+            &quot;type&quot;: &quot;text&quot;
+        },
+        {
             &quot;label&quot;: &quot;COMENTARIOS&quot;,
             &quot;fieldName&quot;: &quot;Comments__c&quot;,
             &quot;type&quot;: &quot;textArea&quot;
@@ -94,7 +99,7 @@
     </values>
     <values>
         <field>FieldsQuery__c</field>
-        <value xsi:type="xsd:string">toLabel(acpl__gf_comm_plan_event_type_name__c),acpl__gf_event_date__c,Comments__c</value>
+        <value xsi:type="xsd:string">toLabel(acpl__gf_comm_plan_event_type_name__c),acpl__gf_event_date__c,Comments__c, Product__c</value>
     </values>
     <values>
         <field>Filter__c</field>
