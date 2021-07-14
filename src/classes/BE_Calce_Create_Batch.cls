@@ -111,11 +111,24 @@ public without sharing class BE_Calce_Create_Batch implements Database.Batchable
 	*/
     private static List<Calce__c> createCalce(List<User> lstUser, Map<Id, Decimal> mapGroupingRisk, Map<Id, Decimal> mapGroupingCP, Map<Id, Decimal> mapGroupingLP, Date dateCalStart, Date dateCalEnd) {
         final List<Calce__c> ltsCalce = new List<Calce__c>();
+        final Map<Integer, String> nameMonth = new Map<Integer, String>();
+        nameMonth.put(1,'Enero ');
+        nameMonth.put(2,'Febrero ');
+        nameMonth.put(3,'Marzo ');
+        nameMonth.put(4,'Abril ');
+        nameMonth.put(5,'Mayo ');
+        nameMonth.put(6,'Junio ');
+        nameMonth.put(7,'Julio ');
+        nameMonth.put(8,'Agosto ');
+        nameMonth.put(9,'Septiembre ');
+        nameMonth.put(10,'Octubre ');
+        nameMonth.put(11,'Noviembre ');
+        nameMonth.put(12,'Diciembre ');
 
         for(User usr : lstUser) {
             for(Integer i=0; i < 5; i++ ) {
                 Final Calce__c calce = new Calce__c();
-                calce.Name = String.valueOf(dateCalEnd.addDays(i)).leftPad(2, '0')+' - '+usr.Name;
+                calce.Name = nameMonth.get(dateCalEnd.addDays(i).month())+String.valueOf(dateCalEnd.addDays(i).day()).leftPad(2, '0')+'-'+dateCalEnd.year()+' - '+usr.Name;
                 calce.OwnerId = usr.Id;
                 calce.manager_id__c = usr.ManagerId;
 
@@ -124,7 +137,7 @@ public without sharing class BE_Calce_Create_Batch implements Database.Batchable
                 }
 
                 calce.close_date__c = dateCalEnd.addDays(i);
-                calce.start_date__c = dateCalStart;
+                calce.start_date__c = dateCalStart.addDays(i);
                 calce.status__c = 'Iniciado';
                 calce.Indirect_commitment__c = mapGroupingRisk.get(usr.Id);
                 calce.Direct_commitment__c = mapGroupingCP.get(usr.Id)+mapGroupingLP.get(usr.Id);
