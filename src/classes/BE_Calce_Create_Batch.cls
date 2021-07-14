@@ -14,8 +14,7 @@ public without sharing class BE_Calce_Create_Batch implements Database.Batchable
     public final Date dateCalEnd;
     /*date used to process*/
     public final Date dateCalStart;
-    /*date map of months*/
-    public final Map<Integer, String> nameMonth = new Map<Integer, String>();
+
     /*date map of months*/
     private final static String STRDAY = 'Mon';
     
@@ -52,18 +51,7 @@ public without sharing class BE_Calce_Create_Batch implements Database.Batchable
     @return Database.QueryLocator QueryLocator result query of executive users
     */
     public Database.QueryLocator start(Database.BatchableContext context) {
-        nameMonth.put(1,'Enero ');
-        nameMonth.put(2,'Febrero ');
-        nameMonth.put(3,'Marzo ');
-        nameMonth.put(4,'Abril ');
-        nameMonth.put(5,'Mayo ');
-        nameMonth.put(6,'Junio ');
-        nameMonth.put(7,'Julio ');
-        nameMonth.put(8,'Agosto ');
-        nameMonth.put(9,'Septiembre ');
-        nameMonth.put(10,'Octubre ');
-        nameMonth.put(11,'Noviembre ');
-        nameMonth.put(12,'Diciembre ');
+
         String query;
         if(Test.isRunningTest()) {
             query = 'SELECT Id, Name, ManagerId, prof_position_id__c FROM User WHERE IsActive = TRUE AND Profile.Name = \'Ejecutivo\' AND prof_position_id__c IN (\'E03\', \'I32\',\'E01\', \'I21\') LIMIT 10';
@@ -111,6 +99,7 @@ public without sharing class BE_Calce_Create_Batch implements Database.Batchable
 	*/
     private static List<Calce__c> createCalce(List<User> lstUser, Map<Id, Decimal> mapGroupingRisk, Map<Id, Decimal> mapGroupingCP, Map<Id, Decimal> mapGroupingLP, Date dateCalStart, Date dateCalEnd) {
         final List<Calce__c> ltsCalce = new List<Calce__c>();
+   /*date map of months*/
         final Map<Integer, String> nameMonth = new Map<Integer, String>();
         nameMonth.put(1,'Enero ');
         nameMonth.put(2,'Febrero ');
