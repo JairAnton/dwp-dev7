@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?> 
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
@@ -269,7 +269,7 @@
         <summaryFilterItems>
             <field>Calce_Details__c.return__c</field>
             <operation>equals</operation>
-            <value>False</value>
+            <value>True</value>
         </summaryFilterItems>
         <summaryForeignKey>Calce_Details__c.calce_id__c</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
@@ -326,7 +326,7 @@
         <summaryFilterItems>
             <field>Calce_Details__c.return__c</field>
             <operation>equals</operation>
-            <value>False</value>
+            <value>True</value>
         </summaryFilterItems>
         <summaryForeignKey>Calce_Details__c.calce_id__c</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
@@ -357,7 +357,7 @@
         <summaryFilterItems>
             <field>Calce_Details__c.return__c</field>
             <operation>equals</operation>
-            <value>False</value>
+            <value>True</value>
         </summaryFilterItems>
         <summaryForeignKey>Calce_Details__c.calce_id__c</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
@@ -393,7 +393,7 @@
         <summaryFilterItems>
             <field>Calce_Details__c.return__c</field>
             <operation>equals</operation>
-            <value>False</value>
+            <value>True</value>
         </summaryFilterItems>
         <summaryFilterItems>
             <field>Calce_Details__c.type__c</field>
@@ -429,7 +429,7 @@
         <summaryFilterItems>
             <field>Calce_Details__c.return__c</field>
             <operation>equals</operation>
-            <value>False</value>
+            <value>True</value>
         </summaryFilterItems>
         <summaryForeignKey>Calce_Details__c.calce_id__c</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
@@ -455,7 +455,7 @@
         <summaryFilterItems>
             <field>Calce_Details__c.return__c</field>
             <operation>equals</operation>
-            <value>False</value>
+            <value>True</value>
         </summaryFilterItems>
         <summaryForeignKey>Calce_Details__c.calce_id__c</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
@@ -633,7 +633,7 @@
         <summaryFilterItems>
             <field>Calce_Details__c.return__c</field>
             <operation>equals</operation>
-            <value>False</value>
+            <value>True</value>
         </summaryFilterItems>
         <summaryForeignKey>Calce_Details__c.calce_id__c</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
@@ -659,7 +659,7 @@
         <summaryFilterItems>
             <field>Calce_Details__c.return__c</field>
             <operation>equals</operation>
-            <value>False</value>
+            <value>True</value>
         </summaryFilterItems>
         <summaryForeignKey>Calce_Details__c.calce_id__c</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
@@ -808,7 +808,7 @@
         <summaryFilterItems>
             <field>Calce_Details__c.return__c</field>
             <operation>equals</operation>
-            <value>False</value>
+            <value>True</value>
         </summaryFilterItems>
         <summaryForeignKey>Calce_Details__c.calce_id__c</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
@@ -905,7 +905,7 @@
         <summaryFilterItems>
             <field>Calce_Details__c.return__c</field>
             <operation>equals</operation>
-            <value>False</value>
+            <value>True</value>
         </summaryFilterItems>
         <summaryForeignKey>Calce_Details__c.calce_id__c</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
