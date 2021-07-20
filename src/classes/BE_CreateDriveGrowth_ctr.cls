@@ -1,13 +1,11 @@
 /**
  * BE_CreateDriveGrowth_ctr
- * <p /><p />
- * Modification log:<p />
  * -------------------------------------------------------------------
  * Developer                    Date                Description<p />
  * -------------------------------------------------------------------
  * Diego Carbajal    		15/05/2020          Original version.<p />
  * Diego Carbajal    		07/10/2020          Modified version.<p />
- *
+ * Jair Anton               13/07/2021          Agrega datos al campo comentario del GD
  * @author Diego Carbajal
  */
 public with sharing class BE_CreateDriveGrowth_ctr extends BE_SingleRelatedListCRUD_Cls {
@@ -58,6 +56,7 @@ public with sharing class BE_CreateDriveGrowth_ctr extends BE_SingleRelatedListC
             lstCPE[0].Name = lstCPE[0].Name.left(lstCPE[0].Name.length() - 10) + String.valueOf(lstGD[0].ExpectedDate__c).left(10);
             lstCPE[0].acpl__gf_event_date__c = lstGD[0].ExpectedDate__c;
             lstCPE[0].ClientAssigned__c = lstGD[0].ClientAssigned__c;
+            lstCPE[0].Comments__c = lstGD[0].bupl__gf_growth_drvr_prdt_desc__c;
             response = BE_SingleRelatedListModal_Ctr.returnResponse(lstCPE, 'update');
             if(validateProductInactive(lstGD[0].bupl__solution_category_desc__c, lstGD[0].CurrencyIsoCode)) {
                 Database.rollback(svp);
@@ -97,7 +96,7 @@ public with sharing class BE_CreateDriveGrowth_ctr extends BE_SingleRelatedListC
         Final acpl__Commercial_Plan_Event__c[] cpe = new List<acpl__Commercial_Plan_Event__c>{
             new acpl__Commercial_Plan_Event__c(acpl__participant_id__c = bpAux.acpl__gf_account_planning_id__r.acpl__participant_id__c, 
                                                acpl__gf_comm_plan_event_type_name__c = 'Opportunity', acpl__gf_account_planning_id__c = gdAux.acpl__gf_account_planning_id__c, 
-                                               Name = bpAux.acpl__gf_account_planning_id__r.Name + ' - ' + String.valueOf(gdAux.ExpectedDate__c).left(10), 
+                                               Name = bpAux.acpl__gf_account_planning_id__r.Name + ' - ' + String.valueOf(gdAux.ExpectedDate__c).left(10), Comments__c = gdAux.bupl__gf_growth_drvr_prdt_desc__c,
                                                GrowthDriver__c = gdAux.Id, acpl__gf_event_date__c = gdAux.ExpectedDate__c, ClientAssigned__c = gdAux.ClientAssigned__c)};
 		Final BE_SingleRelatedListCRUD_Cls.Response response = BE_SingleRelatedListModal_Ctr.returnResponse(cpe, 'insert');
         if(validateProductInactive(gdAux.bupl__solution_category_desc__c, gdAux.CurrencyIsoCode)) {

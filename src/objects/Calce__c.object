@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?> 
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
@@ -188,6 +188,15 @@
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>CheckRenewal__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>CheckRenewal</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Early_Cancellations_Resource__c</fullName>
         <externalId>false</externalId>
         <label>Cancelaciones Anticipadas Recurso</label>
@@ -207,6 +216,23 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Get_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>DATE(
+
+(VALUE(LEFT(Name,4))), 
+
+(VALUE(RIGHT(LEFT(Name,7),2))),
+
+(VALUE(RIGHT(LEFT(Name,10),2))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Get Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>My_Sessions__c</fullName>
@@ -913,7 +939,7 @@
         <filterScope>Everything</filterScope>
         <filters>
             <field>close_date__c</field>
-            <operation>greaterOrEqual</operation>
+            <operation>lessOrEqual</operation>
             <value>LAST_N_DAYS:7</value>
         </filters>
         <label>Calce de los últimos siete días</label>
@@ -947,6 +973,25 @@
             <value>YESTERDAY</value>
         </filters>
         <label>Calce de ayer</label>
+    </listViews>
+    <listViews>
+        <fullName>Calce_Next_Week</fullName>
+        <columns>NAME</columns>
+        <columns>status__c</columns>
+        <columns>Calcee_Neto_Indirecto__c</columns>
+        <columns>Calce_Neto_Directo__c</columns>
+        <columns>net_resource_calce__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>close_date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>Calce de la semana</label>
+        <sharedTo>
+            <group>Ejecutivos_de_Oficina</group>
+            <group>Gerentes_de_Oficina</group>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Mis_clientes</fullName>

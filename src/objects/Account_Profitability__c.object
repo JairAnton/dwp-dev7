@@ -102,6 +102,31 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Periodo__c</fullName>
+        <externalId>false</externalId>
+        <formula>RIGHT(TEXT(YEAR(year_month_day_date__c)),4) + &apos;/&apos; + CASE(
+MONTH( year_month_day_date__c),
+1, &quot;01&quot;,
+2, &quot;02&quot;,
+3, &quot;03&quot;,
+4, &quot;04&quot;,
+5, &quot;05&quot;,
+6, &quot;06&quot;,
+7, &quot;07&quot;,
+8, &quot;08&quot;,
+9, &quot;09&quot;,
+10, &quot;10&quot;,
+11, &quot;11&quot;,
+&quot;12&quot;
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Periodo</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>		
         <fullName>Spread__c</fullName>
         <externalId>false</externalId>
         <formula>IF(profitability_category_type__c=&quot;Spread&quot; &amp;&amp; product_desc__c=&quot;CLIENTE&quot;,currenct_mon_per__c , 0)</formula>

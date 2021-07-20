@@ -17,6 +17,11 @@
             &quot;type&quot;: &quot;Date&quot;
         },
 {
+            &quot;label&quot;: &quot;PRODUCTO&quot;,
+            &quot;fieldName&quot;: &quot;Product__c&quot;,
+            &quot;type&quot;: &quot;text&quot;
+        },
+{
 &quot;label&quot;: &quot;CLIENTE&quot;,
 &quot;fieldName&quot;: &quot;ClientAssigned__r&quot;,
 &quot;type&quot;: &quot;customlookup&quot;,
@@ -59,7 +64,7 @@
     </values>
     <values>
         <field>FieldsQuery__c</field>
-        <value xsi:type="xsd:string">toLabel(acpl__gf_comm_plan_event_type_name__c),acpl__gf_event_date__c,Comments__c, ClientAssigned__r.Name</value>
+        <value xsi:type="xsd:string">toLabel(acpl__gf_comm_plan_event_type_name__c),acpl__gf_event_date__c,Comments__c, ClientAssigned__r.Name,Product__c</value>
     </values>
     <values>
         <field>Filter__c</field>

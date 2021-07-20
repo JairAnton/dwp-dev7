@@ -72,13 +72,11 @@
                         &quot;fields&quot;: [
                             {
                                 &quot;fieldName&quot;: &quot;bupl__solution_category_id__c&quot;,
-                                &quot;required&quot;: &quot;true&quot;,
-                                &quot;disabled&quot;: &quot;true&quot;
+                                &quot;required&quot;: &quot;true&quot;
                             },
                             {
                                 &quot;fieldName&quot;: &quot;bupl__solution_category_desc__c&quot;,
-                                &quot;required&quot;: &quot;true&quot;,
-                                &quot;disabled&quot;: &quot;true&quot;
+                                &quot;required&quot;: &quot;true&quot;
                             },
                             {
                                 &quot;fieldName&quot;: &quot;bupl__gf_growth_drvr_prdt_desc__c&quot;

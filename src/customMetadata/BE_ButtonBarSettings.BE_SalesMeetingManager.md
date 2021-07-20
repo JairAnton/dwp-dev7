@@ -72,6 +72,17 @@
                     &quot;actionName&quot;: &quot;view&quot;
                 }
             }
+        },
+        {
+            &quot;label&quot;: &quot;Incentivación&quot;,
+            &quot;name&quot;: &quot;button06&quot;,
+            &quot;variant&quot;: &quot;brand&quot;,
+            &quot;navigate&quot;: {
+                &quot;type&quot;: &quot;standard__webPage&quot;,
+                &quot;attributes&quot;: {
+                    &quot;url&quot;: &quot;https://sites.google.com/bbva.com/incentivacion/bec/&quot;
+                }
+            }
         }
     ]
 }</value>
