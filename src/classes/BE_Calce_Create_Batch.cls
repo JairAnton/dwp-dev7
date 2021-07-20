@@ -7,6 +7,7 @@
    @Changes
    Date        Author   Email                  				Type
    2020-06-21  MAMC     martin.mori.contractor@bbva.com    	Creation
+   2021-07-21  JASM     jaime.silva.contractor@bbva.com 	Update
    -------------------------------------------------------------------------------------------------
  */
 public without sharing class BE_Calce_Create_Batch implements Database.Batchable<sObject>, Database.Stateful {

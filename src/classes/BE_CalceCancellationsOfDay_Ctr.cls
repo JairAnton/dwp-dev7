@@ -8,6 +8,7 @@
     Date        Author   Email                  			Type		Description
     2020-06-21  LMBR     lolo.bravo@bbva.com    			Creation
 	2020-07-14  MAMC     martin.mori.contractor@bbva.com	Modify		change to Exception for DMLException in catch sections
+    2021-07-21  JASM     jaime.silva.contractor@bbva.com 	Update
    ----------------------------------------------------------------------------------------------------
  */
 public with sharing class BE_CalceCancellationsOfDay_Ctr extends BE_SingleRelatedListCRUD_Cls {
