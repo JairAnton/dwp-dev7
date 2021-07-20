@@ -11,6 +11,7 @@
     <aura:attribute name="StringPE" type="String" default="0"/>
     <aura:attribute name="StringCE" type="String" default="0"/>
     <aura:attribute name="StringCR" type="String" default="0"/>
+    <aura:attribute name="StringRAROUpdated" type="String" default="0"/>
     <aura:attribute name="StringDI_FC" type="String" default="0"/>
     <aura:attribute name="StringSPREAD" type="String" default="0"/>
 	<aura:attribute name="hasCommissions" type="Boolean" default="false"/>
@@ -109,6 +110,16 @@
                                     <div class="slds-form-element__control">
                                         <span class="slds-form-element__static">
                                             <lightning:formattedNumber value="{!v.StringRAROEC}" class="{!v.StringRAROEC lt 0 ? 'redColor' : ''}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2"/>
+                                        </span>
+                                    </div>
+                                </div>
+                        	</lightning:layoutItem>
+                            <lightning:layoutItem padding="horizontal-small" size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="4">
+                            	<div class="slds-form-element slds-p-bottom_xx-small">
+                                    <span class="slds-form-element__label">RORC cliente con TEA propuesta (%)</span>
+                                    <div class="slds-form-element__control">
+                                        <span class="slds-form-element__static">
+                                            <lightning:formattedNumber value="{!v.StringRAROUpdated}" class="{!v.StringRAROUpdated lt 0 ? 'redColor' : ''}" style="decimal" minimumFractionDigits="2" maximumFractionDigits="2"/>
                                         </span>
                                     </div>
                                 </div>

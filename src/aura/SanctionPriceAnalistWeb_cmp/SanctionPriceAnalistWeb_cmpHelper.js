@@ -130,6 +130,11 @@
                         formatNumber = parseFloat(RAROEC);
                         RAROEC = formatNumber.toFixed(2);
                     }
+                    var RORCUPD = ret.rorcupdated;
+                    if (RORCUPD !== undefined && RORCUPD !== '' && RORCUPD !== null) {
+                        formatNumber = parseFloat(RORCUPD);
+                        RORCUPD = formatNumber.toFixed(2);
+                    }
                     cmp.set('v.oliId', ret.oliId);
                     cmp.set('v.hasCommissions', ret.hasCommissions);
                     cmp.set('v.StringRORC_Client', RORC_Client);
@@ -139,6 +144,7 @@
                     cmp.set('v.StringPE', raPE);
                     cmp.set('v.StringCE', raCE);
                     cmp.set('v.StringCR', raCR);
+                    cmp.set('v.StringRAROUpdated', RORCUPD);
                     cmp.set('v.data', [
                         {
                             id: 'TEA',
@@ -216,6 +222,7 @@
                     var baiReq;
                     var rorcapp;
                     var raroec;
+                    var rorcupdated;
                     var adjTea;
                     if (strjson.data != null && strjson.data.liquidityIndicators != null) {
                         var liquidity = strjson.data.liquidityIndicators;
@@ -237,6 +244,9 @@
                             } else if (indicators[y].id === 'RAROEC_OPERATION') {
                                 raroec = (indicators[y].value * 100);
                                 raroec = raroec.toFixed(2);
+                            } else if (indicators[y].id === 'RORC_CLIENT_POST') {
+                                rorcupdated = (indicators[y].value * 100);
+                                rorcupdated = rorcupdated.toFixed(2);
                             }
                         }
                     }
@@ -273,6 +283,7 @@
                         }
                     }
                     cmp.set("v.StringSPREAD", ret.SPREAD);
+                    cmp.set('v.StringRAROUpdated', rorcupdated);
                     cmp.set('v.StringRAROEC', raroec);
                     cmp.set('v.data', datalst);
                     cmp.set('v.spreadinput', spreadReq);
