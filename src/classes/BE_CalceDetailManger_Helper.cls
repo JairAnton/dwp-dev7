@@ -41,7 +41,7 @@ public with sharing class BE_CalceDetailManger_Helper {
 			                                   Opportunity.AccountId,Product2Id,Product2.type__c,ProductCode,Opportunity.CurrencyIsoCode FROM OpportunityLineItem WHERE
 			                                   Opportunity.Type=:oppType AND Product2.type__c IN:(productTypes) AND Opportunity.StageName NOT IN:(CLOSE_OPP) AND
 			                                   Opportunity.OwnerId=:calce.OwnerId AND Opportunity.opportunity_expiry_date__c <=: calce.close_date__c AND Opportunity.opportunity_expiry_date__c >=: calce.start_date__c AND
-			                                   /*Opportunity.CloseDate<=:calce.close_date__c AND Opportunity.CloseDate>=:calce.start_date__c AND */  Opportunity.Account.RecordType.DeveloperName='Record_Type_Client']) {
+			                                   Opportunity.Account.RecordType.DeveloperName='Record_Type_Client']) {
 				final Calce_Details__c targetDetail=new Calce_Details__c(
 					calce_id__c=calce.Id,
 					Name=oppItem.Opportunity.Name,
@@ -61,8 +61,7 @@ public with sharing class BE_CalceDetailManger_Helper {
 					targetDetail.Id=calceDetailsMap.get(oppItem.OpportunityId).Id;
 					targetDetail.amount_cancelled__c=String.isNotBlank(String.valueOf(calceDetailsMap.get(oppItem.OpportunityId).amount_cancelled__c)) ? calceDetailsMap.get(oppItem.OpportunityId).amount_cancelled__c : targetDetail.amount_cancelled__c;
 					oldOpps.remove(oppItem.OpportunityId);
-				} else
-                    { 
+				} else{ 
                         targetDetail.return__c = false;
             		}          
 				calceDetailUpsert.add(targetDetail);
