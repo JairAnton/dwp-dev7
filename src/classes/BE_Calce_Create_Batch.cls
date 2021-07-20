@@ -7,6 +7,7 @@
    @Changes
    Date        Author   Email                  				Type
    2020-06-21  MAMC     martin.mori.contractor@bbva.com    	Creation
+   2021-07-21  JASM     jaime.silva.contractor@bbva.com 	Update
    -------------------------------------------------------------------------------------------------
  */
 public without sharing class BE_Calce_Create_Batch implements Database.Batchable<sObject>, Database.Stateful {
@@ -117,7 +118,7 @@ public without sharing class BE_Calce_Create_Batch implements Database.Batchable
         for(User usr : lstUser) {
             for(Integer i=0; i < 5; i++ ) {
                 Final Calce__c calce = new Calce__c();
-                calce.Name = nameMonth.get(dateCalEnd.addDays(i).month())+String.valueOf(dateCalEnd.addDays(i).day()).leftPad(2, '0')+'-'+dateCalEnd.year()+' - '+usr.Name;
+                calce.Name = String.valueOf(dateCalEnd.addDays(i)).leftPad(2, '0')+' - '+usr.Name;
                 calce.OwnerId = usr.Id;
                 calce.manager_id__c = usr.ManagerId;
 
