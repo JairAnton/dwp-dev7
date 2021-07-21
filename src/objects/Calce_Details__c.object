@@ -149,9 +149,38 @@
     <enableHistory>false</enableHistory>
     <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
-    <enableSearch>false</enableSearch>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>CheckCurrentDate__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( CurrentDate__c =  calce_id__r.Get_Date__c , true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>CheckCurrentDate</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ChildId__c</fullName>
+        <externalId>false</externalId>
+        <formula>opportunity_id__r.Id</formula>
+        <label>ChildId</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CurrentDate__c</fullName>
+        <externalId>false</externalId>
+        <formula>calce_id__r.Get_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>CurrentDate</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
     <fields>
         <fullName>Get_Date_details__c</fullName>
         <externalId>false</externalId>
@@ -161,6 +190,24 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>HasChild__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>HasChild</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ParentId__c</fullName>
+        <externalId>false</externalId>
+        <formula>Id</formula>
+        <label>ParentId</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>account_contract_id__c</fullName>
@@ -268,6 +315,14 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>isToday__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>isToday</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>opportunity_id__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -358,7 +413,7 @@
     </fields>
     <fields>
         <fullName>return__c</fullName>
-        <defaultValue>false</defaultValue>
+        <defaultValue>true</defaultValue>
         <externalId>false</externalId>
         <label>Return</label>
         <trackTrending>false</trackTrending>
@@ -399,6 +454,14 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>test__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(  TODAY()  =  close_date__c , true, false)</formula>
+        <label>test</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>type__c</fullName>
         <externalId>false</externalId>
         <label>Type</label>
@@ -434,6 +497,20 @@
     </fields>
     <gender>Feminine</gender>
     <label>Calce Details</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>opportunity_id__c</columns>
+        <columns>type__c</columns>
+        <columns>close_date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>All</label>
+    </listViews>
     <nameField>
         <encryptionScheme>None</encryptionScheme>
         <label>Name</label>
