@@ -6,7 +6,7 @@ public class SanctionPriceAnalistWeb_ctrl {
 		List<OpportunityLineItem> lstOLI;
 		try {
 			lstOLI = [Select Id, price_quote_id__c, product_price_approval_method__c, proposed_apr_per__c, validityDate__c, RORC_Client__c,
-                      RORC_Operation__c, RORC_Model__c, RORC_Approved__c, RAROEC_Operation__c, hasCommissions__c from OpportunityLineItem where OpportunityId =:oppId];
+                      RORC_Operation__c, RORC_Model__c, RORC_Approved__c, RAROEC_Operation__c, hasCommissions__c, RORC_Updated__c from OpportunityLineItem where OpportunityId =:oppId];
 			if(!lstOLI.isEmpty()) {
 				mpReturn.put('oliId', lstOLI[0].Id);
 				mpReturn.put('hasCommissions', lstOLI[0].hasCommissions__c);
@@ -16,6 +16,7 @@ public class SanctionPriceAnalistWeb_ctrl {
                 mpReturn.put('rorcmodel',lstOli[0].RORC_Model__c);
                 mpReturn.put('rorcreq',lstOli[0].RORC_Operation__c);
                 mpReturn.put('rorcapp',lstOli[0].RORC_Approved__c);
+				mpReturn.put('rorcupdated',lstOLI[0].RORC_Updated__c);
                 //Call a RECOVER Service One product
 				if(lstOLI[0].price_quote_id__c != '' && lstOLI[0].product_price_approval_method__c == 'Web') {
 					//helper to call the service
