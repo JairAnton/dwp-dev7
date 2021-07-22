@@ -21,6 +21,7 @@ public with sharing class BE_CalceDetailManger_Helper {
 	/** Product C */
 	private BE_CalceDetailManger_Helper () {
 	}
+
 	/*
 	@Description updateCancellationsOfDay
 	@param  calce Sobject
@@ -114,7 +115,7 @@ public with sharing class BE_CalceDetailManger_Helper {
 					);
 				if(calceDetailsMap.containsKey(oppItem.OpportunityId)) {
 					targetDetail.Id=calceDetailsMap.get(oppItem.OpportunityId).Id;
-					oldOpps.remove(oppItem.OpportunityId); 
+					oldOpps.remove(oppItem.OpportunityId);
 				}
 				calceDetailUpsert.add(targetDetail);
 			}
@@ -165,7 +166,9 @@ public with sharing class BE_CalceDetailManger_Helper {
 					targetDetail.Id=calceDetailsMap.get(oppItem.OpportunityId).Id;
 					targetDetail.amount_cancelled__c=String.isNotBlank(String.valueOf(calceDetailsMap.get(oppItem.OpportunityId).amount_cancelled__c)) ? calceDetailsMap.get(oppItem.OpportunityId).amount_cancelled__c : targetDetail.amount_cancelled__c;
 					oldOpps.remove(oppItem.OpportunityId);
-				}
+				} else { 
+                    targetDetail.return__c = false; 
+                }
 				calceDetailUpsert.add(targetDetail);
 			}
 			upsert calceDetailUpsert;
@@ -202,7 +205,9 @@ public with sharing class BE_CalceDetailManger_Helper {
 				if(calceDetailsMap.containsKey(contract.ID)) {
 					targetDetail.Id=calceDetailsMap.get(contract.ID).Id;
 					oldContracts.remove(contract.ID);
-				}
+				} else { 
+                    targetDetail.return__c = false; 
+                }
 				calceDetailUpsert.add(targetDetail);
 			}
 			upsert calceDetailUpsert;
@@ -263,7 +268,7 @@ public with sharing class BE_CalceDetailManger_Helper {
 	@return String
 	 */
 	public static void updateCalceStatus(String calDetId) {
-		final Calce_Details__c calceDet=[SELECT ID,calce_id__c,calce_id__r.status__c FROM Calce_Details__c WHERE Id=:calDetId];
+		final Calce_Details__c calceDet=[SELECT ID,calce_id__c,calce_id__r.status__c, return__c FROM Calce_Details__c WHERE Id=:calDetId];
 		setCalceStatus(new Calce__c(Id=calceDet.calce_id__c,status__c=calceDet.calce_id__r.status__c));
 	}
 	/*
@@ -273,6 +278,7 @@ public with sharing class BE_CalceDetailManger_Helper {
 	public static void setCalceStatus(Calce__c calce) {
 		if(calce.status__c==CLOSE_STATUS[0]) {
 			calce.status__c=CLOSE_STATUS[1];
+            
 			update calce;
 		}
 	}

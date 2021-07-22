@@ -32,6 +32,7 @@ public with sharing class BE_CalceNewEarlyCancellations_Ctr extends BE_SingleRel
 				calDet.product_name__c=product.Name;
 				calDet.product_code__c=product.ProductCode;
 				calDet.type__c=product.type__c;
+                calDet.return__c = false;
 				insert calDet;
 				messages.put(LANG_CODE[0], 'Cancelación Anticipada creada correctamente');
 				messages.put(LANG_CODE[1], 'Early cancellation created successfully');
@@ -63,7 +64,7 @@ public with sharing class BE_CalceNewEarlyCancellations_Ctr extends BE_SingleRel
 			messages.put(LANG_CODE[0], 'Cancelación anticipada eliminada correctamente.');
 			messages.put(LANG_CODE[1], 'Early cancellation deleted successfully.');
 			res.message = messages.get(UserInfo.getLanguage());
-			for(Calce_Details__c item : [SELECT ID, opportunity_id__c FROM Calce_Details__c WHERE Id IN:(sObjs)]) {
+			for(Calce_Details__c item : [SELECT ID, opportunity_id__c, return__c FROM Calce_Details__c WHERE Id IN:(sObjs)]) {
 				if(String.isNotBlank(String.valueOf(item.opportunity_id__c))) {
 					res.isSuccess=false;
 					messages.put(LANG_CODE[0], 'No puede eliminar una oportunidad de tipo cancelación');
