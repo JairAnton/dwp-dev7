@@ -114,7 +114,7 @@ public with sharing class BE_CalceDetailManger_Helper {
 					);
 				if(calceDetailsMap.containsKey(oppItem.OpportunityId)) {
 					targetDetail.Id=calceDetailsMap.get(oppItem.OpportunityId).Id;
-					oldOpps.remove(oppItem.OpportunityId);
+					oldOpps.remove(oppItem.OpportunityId); 
 				}
 				calceDetailUpsert.add(targetDetail);
 			}
