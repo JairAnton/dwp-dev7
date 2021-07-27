@@ -593,7 +593,7 @@
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
         <fullName>BE_Check_Amount_Cancelled</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>El monto cancelado no puede ser mayor al monto original asociado al producto</description>
         <errorConditionFormula>IF( Opp_amount__c &lt; amount_cancelled__c , TRUE, FALSE)</errorConditionFormula>
         <errorDisplayField>amount_cancelled__c</errorDisplayField>
