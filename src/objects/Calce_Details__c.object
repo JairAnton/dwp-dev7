@@ -155,9 +155,17 @@
     <fields>
         <fullName>CheckCurrentDate__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( CurrentDate__c =  calce_id__r.Get_Date__c , true, false)</formula>
+        <formula>IF( CurrentDate__c =   close_date__c  , true, false)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>CheckCurrentDate</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>CheckDate__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>CheckDate</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -192,6 +200,15 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>HadCanAmount__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Opp_amount__c &gt;  amount_cancelled__c , true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>HadCanAmount</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>HasChild__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -200,10 +217,57 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Opp_amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>opportunity_id__r.Amount</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opp amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>ParentId__c</fullName>
         <externalId>false</externalId>
         <formula>Id</formula>
         <label>ParentId</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Pending_amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opp_amount__c  -  amount_cancelled__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Pending amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TomorrowCalceDetail__c</fullName>
+        <externalId>false</externalId>
+        <formula>close_date__c  + 1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>TomorrowCalceDetail</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Unique_OPP__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Unique OPP</label>
+        <length>50</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -401,6 +465,14 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>prueba__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>prueba</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>regional__c</fullName>
         <externalId>false</externalId>
         <formula>account_id__r.branch_level4_desc__c</formula>
@@ -521,15 +593,23 @@
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
         <fullName>BE_Check_Amount_Cancelled</fullName>
-        <active>true</active>
-        <errorConditionFormula>IF( amount__c &lt;  amount_cancelled__c , TRUE, FALSE)</errorConditionFormula>
-        <errorMessage>El monto cancelado no puede ser mayor al monto original</errorMessage>
+        <active>false</active>
+        <description>El monto cancelado no puede ser mayor al monto original asociado al producto</description>
+        <errorConditionFormula>IF( Opp_amount__c &lt; amount_cancelled__c , TRUE, FALSE)</errorConditionFormula>
+        <errorDisplayField>amount_cancelled__c</errorDisplayField>
+        <errorMessage>El monto cancelado no puede ser mayor al monto original asociado al producto</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>BE_ValidateReturnExtension</fullName>
         <active>true</active>
         <errorConditionFormula>AND( extension__c = true, return__c=true)</errorConditionFormula>
         <errorMessage>No se puede prorrogar y retomar un cancelación al mismo tiempo</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>HasCalceDetails</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND ( IsNew() ,  HasChild__c = true )</errorConditionFormula>
+        <errorMessage>error</errorMessage>
     </validationRules>
     <visibility>Public</visibility>
 </CustomObject>
