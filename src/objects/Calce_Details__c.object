@@ -153,6 +153,16 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
+        <fullName>Calce_User__c</fullName>
+        <externalId>false</externalId>
+        <formula>calce_id__r.OwnerId</formula>
+        <label>Calce User</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>CheckCurrentDate__c</fullName>
         <externalId>false</externalId>
         <formula>IF( CurrentDate__c =   close_date__c  , true, false)</formula>
@@ -195,6 +205,15 @@
         <formula>calce_id__r.Get_Date__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Get Date details</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Get_Date_for_Tomorrow__c</fullName>
+        <externalId>false</externalId>
+        <formula>calce_id__r.Get_Date__c + 1</formula>
+        <label>Get Date for Tomorrow</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -272,6 +291,35 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Upsert_New_Calce_Detail__c</fullName>
+        <externalId>false</externalId>
+        <label>Upsert New Calce Detail</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1</fullName>
+                    <default>true</default>
+                    <label>1</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                    <label>3</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>account_contract_id__c</fullName>
@@ -575,6 +623,10 @@
         <columns>opportunity_id__c</columns>
         <columns>type__c</columns>
         <columns>close_date__c</columns>
+        <columns>amount__c</columns>
+        <columns>product_id__c</columns>
+        <columns>product_name__c</columns>
+        <columns>product_code__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>CREATED_DATE</field>
@@ -595,7 +647,7 @@
         <fullName>BE_Check_Amount_Cancelled</fullName>
         <active>false</active>
         <description>El monto cancelado no puede ser mayor al monto original asociado al producto</description>
-        <errorConditionFormula>IF( Opp_amount__c &lt; amount_cancelled__c , TRUE, FALSE)</errorConditionFormula>
+        <errorConditionFormula>AND(!ISBLANK(Opp_amount__c) ,Opp_amount__c &lt; amount_cancelled__c)</errorConditionFormula>
         <errorDisplayField>amount_cancelled__c</errorDisplayField>
         <errorMessage>El monto cancelado no puede ser mayor al monto original asociado al producto</errorMessage>
     </validationRules>
@@ -604,6 +656,14 @@
         <active>true</active>
         <errorConditionFormula>AND( extension__c = true, return__c=true)</errorConditionFormula>
         <errorMessage>No se puede prorrogar y retomar un cancelación al mismo tiempo</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Calce_Detail_creation_handling</fullName>
+        <active>false</active>
+        <description>Controla que solo se pueda crear una oportunidad como resultado de cancelación parcialmente cancelada en el calce del día siguiente.</description>
+        <errorConditionFormula>ISPICKVAL( Upsert_New_Calce_Detail__c , &apos;3&apos;)</errorConditionFormula>
+        <errorDisplayField>amount_cancelled__c</errorDisplayField>
+        <errorMessage>Ya se ha creado una oportunidad en el calce del día de mañana relacionada a esta cancelación parcial. Por favor, actualice el monto cancelado en dicho calce.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>HasCalceDetails</fullName>
