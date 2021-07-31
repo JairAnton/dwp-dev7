@@ -1,4 +1,4 @@
-/**
+/**    
    -------------------------------------------------------------------------------------------------
    @Name <BE_CalceNewOpportunities_Tst>
    @Author Jaime Andre Silva Marroquin
