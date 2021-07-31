@@ -1,4 +1,4 @@
-/**
+/**     
    ----------------------------------------------------------------------------------------------------
    @Name <BE_CalceDetailManger_Helper>
    @Author Lolo Michel Bravo Ruiz (lolo.bravo@bbva.com)

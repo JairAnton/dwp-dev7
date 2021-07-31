@@ -1,4 +1,4 @@
-public without sharing  class CalceDetails_Trigger_cls {   
+public without sharing  class CalceDetails_Trigger_cls {
 
 /*  Metodo para crear nuevos Calces Details, el cual recibe una lista de los Calce Details que disparan el trigger
     tanto antes como despues de hacer la actualizaciòn                                                               */
