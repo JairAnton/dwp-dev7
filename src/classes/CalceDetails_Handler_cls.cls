@@ -1,4 +1,4 @@
-public without sharing class CalceDetails_Handler_cls extends TriggerHandler { 
+public without sharing class CalceDetails_Handler_cls extends TriggerHandler {     
     
 	List<Calce_Details__c> triggerNew = Trigger.new;
 	List<Calce_Details__c> triggerOld = Trigger.Old;
