@@ -142,7 +142,7 @@ public class CalceDetails_Trigger_cls_Tst {
         detail.amount__c=40000;
         lts.add(detail);
         
-
+        upsert detail;
         
         Test.StartTest();
         detail.amount__c = 30000;
