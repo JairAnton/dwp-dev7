@@ -1,12 +1,12 @@
-/*  Triiger del objeto Calce Details*/
+/*  Trigger del objeto Calce Details*/
 public without sharing  class CalceDetails_Trigger_cls {    
 
     /*  Private method */
-    private CalceDetails_Trigger_cls(){
+    private CalceDetails_Trigger_cls() { 
 	// ...
   }
 
-
+	/*  Sirve para crear nuevos Calce Details  */
 	public static void createNewCalceDetails(List<Calce_Details__c> triggerNew, Map<Id, Calce_Details__c> triggerOldMap) {
         /*  Lista de IDs de los owners de cada calce__c  */
 		/*Final Set<Id> ownersId = new Set<Id>();*/
@@ -40,7 +40,7 @@ public without sharing  class CalceDetails_Trigger_cls {
         for(Calce_Details__c item : parentCDList) {
              /*  Lista que obtiene los calcedetails originales y revisa si estan dentro del mapa a actualizar
                  Ademàs, la condicional setea los nuevos valores del monto cancellado (para que figure en la tabla)  */
-            if(verifyCDMap.containsKey(item.ParentCD__c)){
+            if(verifyCDMap.containsKey(item.ParentCD__c)) {
                final Decimal amountCancelled = verifyCDMap.get(item.ParentCD__c);
                 item.amount_cancelled__c = amountCancelled;
                 item.amount__c = amountCancelled;
@@ -74,7 +74,7 @@ public without sharing  class CalceDetails_Trigger_cls {
         Final List<Calce__c> calceList = [SELECT Id, Name, OwnerId, close_date__c FROM Calce__c
                                     WHERE OwnerId =: UserInfo.getUserId() AND close_date__c =: Date.today().addDays(1) LIMIT 1];
         /*  Mapa de Calce Details y IDs que selecciona la data que prevalece desde el calce detail antiguo al nuevo */
-        Final Map<Id, Calce_Details__c> calceDetailOldList = new Map<Id, Calce_Details__c>([SELECT Id, Name, opportunity_id__c,
+        Final Map<Id, Calce_Details__c> cDOldList = new Map<Id, Calce_Details__c>([SELECT Id, Name, opportunity_id__c,
          opportunity_id__r.Pricebook2Id, opportunity_id__r.opportunity_product__c, opportunity_id__r.opportunity_product_family__c
                                                                  FROM Calce_Details__c WHERE Id IN : verifyCDMap.keySet()]); 
         
@@ -93,7 +93,7 @@ public without sharing  class CalceDetails_Trigger_cls {
         
         for(Id item : verifyCDMap.keySet()) {
             final Calce_Details__c oldItem = triggerOldMap.get(item);
-            final Calce_Details__c oldRelatedItem = calceDetailOldList.get(item);
+            final Calce_Details__c oldRelatedItem = cDOldList.get(item);
          	final Decimal amountCancelled = verifyCDMap.get(item);
             
             /*  Setear valores de la oportunidad  */
