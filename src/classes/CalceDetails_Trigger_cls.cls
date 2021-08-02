@@ -1,12 +1,12 @@
-/*  Trigger del objeto Calce Details*/
+/*  Triiger del objeto Calce Details*/
 public without sharing  class CalceDetails_Trigger_cls {    
 
     /*  Private method */
-    private CalceDetails_Trigger_cls() { 
+    private CalceDetails_Trigger_cls(){
 	// ...
   }
 
-	/*  Sirve para crear nuevos Calce Details  */
+
 	public static void createNewCalceDetails(List<Calce_Details__c> triggerNew, Map<Id, Calce_Details__c> triggerOldMap) {
         /*  Lista de IDs de los owners de cada calce__c  */
 		/*Final Set<Id> ownersId = new Set<Id>();*/
@@ -26,7 +26,7 @@ public without sharing  class CalceDetails_Trigger_cls {
             }
         }
 		/*  Si el mapa de calce details tiene registros, entonces actualiza el padre  */
-        if(verifyCDMap.size() > 0) {
+        if(!verifyCDMap.isEmpty()) {
             updateParent(verifyCDMap, oppMapToUpdate, triggerOldMap);
         } 
     }
@@ -40,7 +40,7 @@ public without sharing  class CalceDetails_Trigger_cls {
         for(Calce_Details__c item : parentCDList) {
              /*  Lista que obtiene los calcedetails originales y revisa si estan dentro del mapa a actualizar
                  Ademàs, la condicional setea los nuevos valores del monto cancellado (para que figure en la tabla)  */
-            if(verifyCDMap.containsKey(item.ParentCD__c)) {
+            if(verifyCDMap.containsKey(item.ParentCD__c)){
                final Decimal amountCancelled = verifyCDMap.get(item.ParentCD__c);
                 item.amount_cancelled__c = amountCancelled;
                 item.amount__c = amountCancelled;
@@ -50,7 +50,7 @@ public without sharing  class CalceDetails_Trigger_cls {
             }
         }
          /*  Si se tiene registros en la lista de calce details originales, entonces los actualiza  */
-        if(parentCDList.size() > 0) {
+        if(!parentCDList.isEmpty()) {
 			update parentCDList;            
         }
         
@@ -67,14 +67,14 @@ public without sharing  class CalceDetails_Trigger_cls {
     }
     
     private static void validateOpportunities(List<Opportunity> oppListToUpdate, Map<Id, Decimal> verifyCDMap, Map<Id, Calce_Details__c> triggerOldMap) {
-        if(oppListToUpdate.size() > 0) {
+        if(!oppListToUpdate.isEmpty()) {
             update oppListToUpdate;
         }
         /*  Lista de calce donde la fecha de cierre es mañana, y el owner es el current user  */
         Final List<Calce__c> calceList = [SELECT Id, Name, OwnerId, close_date__c FROM Calce__c
                                     WHERE OwnerId =: UserInfo.getUserId() AND close_date__c =: Date.today().addDays(1) LIMIT 1];
         /*  Mapa de Calce Details y IDs que selecciona la data que prevalece desde el calce detail antiguo al nuevo */
-        Final Map<Id, Calce_Details__c> cDOldList = new Map<Id, Calce_Details__c>([SELECT Id, Name, opportunity_id__c,
+        Final Map<Id, Calce_Details__c> calceDetailOldList = new Map<Id, Calce_Details__c>([SELECT Id, Name, opportunity_id__c,
          opportunity_id__r.Pricebook2Id, opportunity_id__r.opportunity_product__c, opportunity_id__r.opportunity_product_family__c
                                                                  FROM Calce_Details__c WHERE Id IN : verifyCDMap.keySet()]); 
         
@@ -87,31 +87,31 @@ public without sharing  class CalceDetails_Trigger_cls {
         
         Id calceId = null;
             
-        if(calceList.size() > 0) {
+        if(!calceList.isEmpty()) {
             calceId = calceList[0].Id;
         }
         
         for(Id item : verifyCDMap.keySet()) {
             final Calce_Details__c oldItem = triggerOldMap.get(item);
-            final Calce_Details__c oldRelatedItem = cDOldList.get(item);
+            final Calce_Details__c oldRelatedItem = calceDetailOldList.get(item);
          	final Decimal amountCancelled = verifyCDMap.get(item);
             
-            /*  Setear valores de la oportunidad  */
+            /*  Setear valores de la oportunidad changed  */
             final Opportunity newOpp = new Opportunity();
-            newOpp.AccountId = oldItem.account_id__c; newOpp.Amount = amountCancelled; newOpp.CloseDate = Date.today().addDays(1); newOpp.CurrencyIsoCode = oldItem.CurrencyIsoCode; newOpp.Name = oldItem.Name; newOpp.StageName = '02'; newOpp.Type = '01'; newOpp.opportunity_planning_date__c = Date.today().addDays(1); newOpp.opportunity_origin_name__c = '01'; newOpp.Field_Sup_Closing_Date__c = Date.today().addDays(1); newOpp.Pricebook2Id = oldRelatedItem.opportunity_id__r.Pricebook2Id; newOpp.opportunity_product__c = oldRelatedItem.opportunity_id__r.opportunity_product__c; newOpp.opportunity_product_family__c = oldRelatedItem.opportunity_id__r.opportunity_product_family__c;
+            newOpp.AccountId = oldItem.account_id__c; newOpp.Amount = amountCancelled; newOpp.CloseDate = Date.today().addDays(1);  newOpp.Name = oldItem.Name; newOpp.StageName = '02'; newOpp.Type = '01'; newOpp.opportunity_planning_date__c = Date.today().addDays(1); newOpp.opportunity_origin_name__c = '01'; newOpp.Field_Sup_Closing_Date__c = Date.today().addDays(1); newOpp.Pricebook2Id = oldRelatedItem.opportunity_id__r.Pricebook2Id; newOpp.opportunity_product__c = oldRelatedItem.opportunity_id__r.opportunity_product__c; newOpp.opportunity_product_family__c = oldRelatedItem.opportunity_id__r.opportunity_product_family__c;
             oppCDInsert.put(item, newOpp);
             
             /*  Setear valores de la OLI  */
             final OpportunityLineItem newOppItem = new OpportunityLineItem();
             newOppItem.Product2Id = oldItem.product_id__c; newOppItem.Quantity = 1; nOpItemIn.put(item, newOppItem);
             
-            /*  Setear valores al Calce Detail hijo  */
+            /*  Setear valores al Calce Detail hijo changed  */
             final Calce_Details__c newDetail = new Calce_Details__c();
-            newDetail.CheckDate__c = true; newDetail.Name = oldItem.Name; newDetail.ParentCD__c = item; newDetail.account_id__c = oldItem.account_id__c; newDetail.amount__c = amountCancelled; newDetail.amount_cancelled__c = amountCancelled; newDetail.calce_id__c =  calceId; newDetail.close_date__c = Date.today().addDays(1); newDetail.product_code__c = oldItem.product_code__c; newDetail.product_id__c = oldItem.product_id__c; newDetail.product_name__c = oldItem.product_name__c; newDetail.sub_type__c = '02'; newDetail.type__c = oldItem.type__c;
+            newDetail.CheckDate__c = true; newDetail.Name = oldItem.Name; newDetail.ParentCD__c = item; newDetail.amount__c = amountCancelled; newDetail.amount_cancelled__c = amountCancelled; newDetail.calce_id__c =  calceId; newDetail.close_date__c = Date.today().addDays(1); newDetail.product_code__c = oldItem.product_code__c; newDetail.product_id__c = oldItem.product_id__c; newDetail.product_name__c = oldItem.product_name__c; newDetail.sub_type__c = '02'; newDetail.type__c = oldItem.type__c;
 			nCDIn.put(item, newDetail);
         }
         
-        if(oppCDInsert.size() > 0) {
+        if(!oppCDInsert.isEmpty()) {
             insert oppCDInsert.values();
         }          
         /* Enlaza las oportunidades con los Calce Details   */
@@ -129,11 +129,11 @@ public without sharing  class CalceDetails_Trigger_cls {
             calceDetail.opportunity_id__c = opp.Id;
         }
         
-        if(nCDIn.size() > 0) {
+        if(!nCDIn.isEmpty()) {
         	insert nCDIn.values();    
         }
         
-        if(nOpItemIn.size() > 0) {
+        if(!nOpItemIn.isEmpty()) {
             insert nOpItemIn.values();
         }
         
