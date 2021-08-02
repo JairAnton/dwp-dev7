@@ -1,4 +1,4 @@
-/**
+/**  
    ----------------------------------------------------------------------------------------------------
    @Name <BE_CalceDetailManger_Helper>
    @Author Lolo Michel Bravo Ruiz (lolo.bravo@bbva.com)
@@ -8,7 +8,7 @@
     Date        Author   Email                  			Type		Description
     2020-06-21  LMBR     lolo.bravo@bbva.com    			Creation
 	2020-07-14  MAMC     martin.mori.contractor@bbva.com	Modify		remove CreatedDate filter in updatePortfolioFall method
-	2021-07-21  JASM     jaime.silva.contractor@bbva.com 	Update
+	2021-07-21  JASM     jaime.silva.contractor@bbva.com 	Update 
    ----------------------------------------------------------------------------------------------------
  */
 public with sharing class BE_CalceDetailManger_Helper {
