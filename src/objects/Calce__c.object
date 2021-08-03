@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>      
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
@@ -188,6 +188,33 @@
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>CheckRenewal__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>CheckRenewal</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Check_Tomorrow_date__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(TODAY() + 1 =  Get_Date__c , true, false)</formula>
+        <label>Check Tomorrow date</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DateMatch__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>DateMatch</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Early_Cancellations_Resource__c</fullName>
         <externalId>false</externalId>
         <label>Cancelaciones Anticipadas Recurso</label>
@@ -202,11 +229,33 @@
             <operation>equals</operation>
             <value>03</value>
         </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.CheckDate__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
         <summaryForeignKey>Calce_Details__c.calce_id__c</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Get_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>DATE(
+
+(VALUE(LEFT(Name,4))), 
+
+(VALUE(RIGHT(LEFT(Name,7),2))),
+
+(VALUE(RIGHT(LEFT(Name,10),2))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Get Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>My_Sessions__c</fullName>
@@ -254,6 +303,11 @@
             <operation>equals</operation>
             <value>True</value>
         </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.CheckDate__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
         <summaryForeignKey>Calce_Details__c.calce_id__c</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
         <trackHistory>false</trackHistory>
@@ -287,6 +341,17 @@
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>TomorrowCalce__c</fullName>
+        <externalId>false</externalId>
+        <formula>close_date__c + 1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>TomorrowCalce</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Vista_PJ__c</fullName>
         <externalId>false</externalId>
         <label>Vista PJ</label>
@@ -308,6 +373,11 @@
         </summaryFilterItems>
         <summaryFilterItems>
             <field>Calce_Details__c.return__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.CheckDate__c</field>
             <operation>equals</operation>
             <value>True</value>
         </summaryFilterItems>
@@ -339,6 +409,11 @@
         </summaryFilterItems>
         <summaryFilterItems>
             <field>Calce_Details__c.return__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.CheckDate__c</field>
             <operation>equals</operation>
             <value>True</value>
         </summaryFilterItems>
@@ -383,6 +458,11 @@
             <operation>equals</operation>
             <value>Direct</value>
         </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.CheckDate__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
         <summaryForeignKey>Calce_Details__c.calce_id__c</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
         <trackHistory>false</trackHistory>
@@ -414,6 +494,11 @@
             <operation>equals</operation>
             <value>True</value>
         </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.CheckDate__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
         <summaryForeignKey>Calce_Details__c.calce_id__c</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
         <trackHistory>false</trackHistory>
@@ -437,6 +522,11 @@
         </summaryFilterItems>
         <summaryFilterItems>
             <field>Calce_Details__c.return__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.CheckDate__c</field>
             <operation>equals</operation>
             <value>True</value>
         </summaryFilterItems>
@@ -472,6 +562,11 @@
             <operation>equals</operation>
             <value>03</value>
         </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.CheckDate__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
         <summaryForeignKey>Calce_Details__c.calce_id__c</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
         <trackHistory>false</trackHistory>
@@ -497,6 +592,11 @@
             <field>Calce_Details__c.extension__c</field>
             <operation>equals</operation>
             <value>False</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.CheckDate__c</field>
+            <operation>equals</operation>
+            <value>True</value>
         </summaryFilterItems>
         <summaryForeignKey>Calce_Details__c.calce_id__c</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
@@ -557,6 +657,11 @@
             <operation>equals</operation>
             <value>False</value>
         </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.CheckDate__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
         <summaryForeignKey>Calce_Details__c.calce_id__c</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
         <trackHistory>false</trackHistory>
@@ -582,6 +687,11 @@
             <field>Calce_Details__c.sub_type__c</field>
             <operation>contains</operation>
             <value>cancelaciones del dia, Caida de Cartera</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.CheckDate__c</field>
+            <operation>equals</operation>
+            <value>True</value>
         </summaryFilterItems>
         <summaryForeignKey>Calce_Details__c.calce_id__c</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
@@ -618,6 +728,11 @@
             <operation>equals</operation>
             <value>True</value>
         </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.CheckDate__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
         <summaryForeignKey>Calce_Details__c.calce_id__c</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
         <trackHistory>false</trackHistory>
@@ -641,6 +756,11 @@
         </summaryFilterItems>
         <summaryFilterItems>
             <field>Calce_Details__c.return__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.CheckDate__c</field>
             <operation>equals</operation>
             <value>True</value>
         </summaryFilterItems>
@@ -721,6 +841,11 @@
             <operation>equals</operation>
             <value>False</value>
         </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.CheckDate__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
         <summaryForeignKey>Calce_Details__c.calce_id__c</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
         <trackHistory>false</trackHistory>
@@ -767,6 +892,11 @@
             <operation>equals</operation>
             <value>False</value>
         </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.CheckDate__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
         <summaryForeignKey>Calce_Details__c.calce_id__c</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
         <trackHistory>false</trackHistory>
@@ -790,6 +920,11 @@
         </summaryFilterItems>
         <summaryFilterItems>
             <field>Calce_Details__c.return__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.CheckDate__c</field>
             <operation>equals</operation>
             <value>True</value>
         </summaryFilterItems>
@@ -890,6 +1025,11 @@
             <operation>equals</operation>
             <value>True</value>
         </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Calce_Details__c.CheckDate__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
         <summaryForeignKey>Calce_Details__c.calce_id__c</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
         <trackHistory>false</trackHistory>
@@ -913,7 +1053,7 @@
         <filterScope>Everything</filterScope>
         <filters>
             <field>close_date__c</field>
-            <operation>greaterOrEqual</operation>
+            <operation>lessOrEqual</operation>
             <value>LAST_N_DAYS:7</value>
         </filters>
         <label>Calce de los últimos siete días</label>
@@ -947,6 +1087,25 @@
             <value>YESTERDAY</value>
         </filters>
         <label>Calce de ayer</label>
+    </listViews>
+    <listViews>
+        <fullName>Calce_Next_Week</fullName>
+        <columns>NAME</columns>
+        <columns>status__c</columns>
+        <columns>Calcee_Neto_Indirecto__c</columns>
+        <columns>Calce_Neto_Directo__c</columns>
+        <columns>net_resource_calce__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>close_date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>Calce de la semana</label>
+        <sharedTo>
+            <group>Ejecutivos_de_Oficina</group>
+            <group>Gerentes_de_Oficina</group>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Mis_clientes</fullName>

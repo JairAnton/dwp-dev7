@@ -12,6 +12,7 @@
     <filter>
         <criteriaItems>
             <column>Account_Profitability__c.is_type_3_last_date__c</column>
+            <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>1</value>

@@ -1,4 +1,4 @@
-/**
+/**  
    ----------------------------------------------------------------------------------------------------
    @Name <BE_CalceDetailManger_Helper>
    @Author Lolo Michel Bravo Ruiz (lolo.bravo@bbva.com)
@@ -8,6 +8,7 @@
     Date        Author   Email                  			Type		Description
     2020-06-21  LMBR     lolo.bravo@bbva.com    			Creation
 	2020-07-14  MAMC     martin.mori.contractor@bbva.com	Modify		remove CreatedDate filter in updatePortfolioFall method
+	2021-07-21  JASM     jaime.silva.contractor@bbva.com 	Update 
    ----------------------------------------------------------------------------------------------------
  */
 public with sharing class BE_CalceDetailManger_Helper {
@@ -17,9 +18,10 @@ public with sharing class BE_CalceDetailManger_Helper {
 	final static Map<Integer,String>PRODUCTS_CODE=new Map<Integer,String> {1=>'PC00001',9=>'PC00009',20=>'PRESTAMOS EMPRESAS'};
 	/** private constructor */
     final static List<String> CLOSE_OPP=new List<String> {'07'};
-	/** Product C */ 
-	private BE_CalceDetailManger_Helper () {  
+	/** Product C */
+	private BE_CalceDetailManger_Helper () {
 	}
+
 	/*
 	@Description updateCancellationsOfDay
 	@param  calce Sobject
@@ -27,10 +29,10 @@ public with sharing class BE_CalceDetailManger_Helper {
 	@param  calceType type CancellationsOfDay
 	@param  oppType type Renewal
 	 */
-	public static void updateCancellationsOfDay(Calce__c calce, List<String>productTypes,String calceType, String oppType) {    
+	public static void updateCancellationsOfDay(Calce__c calce, List<String>productTypes,String calceType, String oppType) {
 		try {
 			final List<Calce_Details__c>calceDetailUpsert = new List<Calce_Details__c>();
-			Map<Id,Calce_Details__c>calceDetailsMap = new Map<Id,Calce_Details__c>(); 
+			Map<Id,Calce_Details__c>calceDetailsMap = new Map<Id,Calce_Details__c>();
 
 			for(Calce_Details__c cDetItem : [SELECT ID,calce_id__c,account_contract_id__c,opportunity_id__c,amount__c,amount_cancelled__c FROM Calce_Details__c WHERE calce_id__c=: calce.Id AND sub_type__c=:calceType]) {
 				calceDetailsMap.put(cDetItem.opportunity_id__c,cDetItem);
@@ -41,7 +43,7 @@ public with sharing class BE_CalceDetailManger_Helper {
 			                                   Opportunity.AccountId,Product2Id,Product2.type__c,ProductCode,Opportunity.CurrencyIsoCode FROM OpportunityLineItem WHERE
 			                                   Opportunity.Type=:oppType AND Product2.type__c IN:(productTypes) AND Opportunity.StageName NOT IN:(CLOSE_OPP) AND
 			                                   Opportunity.OwnerId=:calce.OwnerId AND Opportunity.opportunity_expiry_date__c <=: calce.close_date__c AND Opportunity.opportunity_expiry_date__c >=: calce.start_date__c AND
-			                                   /*Opportunity.CloseDate<=:calce.close_date__c AND Opportunity.CloseDate>=:calce.start_date__c AND */  Opportunity.Account.RecordType.DeveloperName='Record_Type_Client']) {
+			                                   Opportunity.Account.RecordType.DeveloperName='Record_Type_Client']) {
 				final Calce_Details__c targetDetail=new Calce_Details__c(
 					calce_id__c=calce.Id,
 					Name=oppItem.Opportunity.Name,
@@ -61,8 +63,11 @@ public with sharing class BE_CalceDetailManger_Helper {
 					targetDetail.Id=calceDetailsMap.get(oppItem.OpportunityId).Id;
 					targetDetail.amount_cancelled__c=String.isNotBlank(String.valueOf(calceDetailsMap.get(oppItem.OpportunityId).amount_cancelled__c)) ? calceDetailsMap.get(oppItem.OpportunityId).amount_cancelled__c : targetDetail.amount_cancelled__c;
 					oldOpps.remove(oppItem.OpportunityId);
-				}
+				} else{ 
+                        targetDetail.return__c = false;
+            		}          
 				calceDetailUpsert.add(targetDetail);
+                                                   
 			}
 			upsert calceDetailUpsert;
 			delete oldOpps.values();
@@ -161,7 +166,9 @@ public with sharing class BE_CalceDetailManger_Helper {
 					targetDetail.Id=calceDetailsMap.get(oppItem.OpportunityId).Id;
 					targetDetail.amount_cancelled__c=String.isNotBlank(String.valueOf(calceDetailsMap.get(oppItem.OpportunityId).amount_cancelled__c)) ? calceDetailsMap.get(oppItem.OpportunityId).amount_cancelled__c : targetDetail.amount_cancelled__c;
 					oldOpps.remove(oppItem.OpportunityId);
-				}
+				} else { 
+                    targetDetail.return__c = false; 
+                }
 				calceDetailUpsert.add(targetDetail);
 			}
 			upsert calceDetailUpsert;
@@ -198,7 +205,9 @@ public with sharing class BE_CalceDetailManger_Helper {
 				if(calceDetailsMap.containsKey(contract.ID)) {
 					targetDetail.Id=calceDetailsMap.get(contract.ID).Id;
 					oldContracts.remove(contract.ID);
-				}
+				} else { 
+                    targetDetail.return__c = false; 
+                }
 				calceDetailUpsert.add(targetDetail);
 			}
 			upsert calceDetailUpsert;
@@ -259,7 +268,7 @@ public with sharing class BE_CalceDetailManger_Helper {
 	@return String
 	 */
 	public static void updateCalceStatus(String calDetId) {
-		final Calce_Details__c calceDet=[SELECT ID,calce_id__c,calce_id__r.status__c FROM Calce_Details__c WHERE Id=:calDetId];
+		final Calce_Details__c calceDet=[SELECT ID,calce_id__c,calce_id__r.status__c, return__c FROM Calce_Details__c WHERE Id=:calDetId];
 		setCalceStatus(new Calce__c(Id=calceDet.calce_id__c,status__c=calceDet.calce_id__r.status__c));
 	}
 	/*
@@ -269,6 +278,7 @@ public with sharing class BE_CalceDetailManger_Helper {
 	public static void setCalceStatus(Calce__c calce) {
 		if(calce.status__c==CLOSE_STATUS[0]) {
 			calce.status__c=CLOSE_STATUS[1];
+            
 			update calce;
 		}
 	}
