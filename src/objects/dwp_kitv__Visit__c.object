@@ -277,6 +277,15 @@
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>Minute_Description__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Minute Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Notify_meeting_changed_peru__c</fullName>
         <externalId>false</externalId>
         <formula>IF(ISPICKVAL(dwp_kitv__visit_status_type__c,&quot;03&quot;),(IMAGE(&quot;/resource/bbva_icon_alert&quot;,&quot;Recuerda pulsar click en &apos;Crear / Actualizar visita&apos; para sincronizar el calendario del contacto seleccionado.&quot;,24,24)),&quot;&quot;)</formula>
