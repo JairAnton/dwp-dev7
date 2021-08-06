@@ -6,6 +6,12 @@
 **/
 
 public with sharing class BE_MP_Executive_Summary_Cls extends BE_SingleRelatedListCRUD_Cls {
+    private static Final String groupCP = 'Financiamiento a corto plazo';
+    private static Final String groupLP = 'Financiamiento a largo plazo';
+    private static Final String groupRF = 'Riesgo de firma';
+    private static Final String groupRC = 'Recursos';
+    private static Final String typeOpp = '02';
+
     /**
      * Wrapper class to the response
      */
@@ -127,8 +133,6 @@ public with sharing class BE_MP_Executive_Summary_Cls extends BE_SingleRelatedLi
     }
 
     private static List<AggregateResult> validateGrouping(List<AggregateResult> groupOppList, Map<Id, ResponseModel> dtMap) {
-        Final String typeOpp = '02';
-
         for(AggregateResult oppItem : groupOppList) {
             if(dtMap.containsKey((Id)oppItem.get('dwp_frct__grouping_id__c'))) {
                 Final ResponseModel itemMap = dtMap.get((Id)oppItem.get('dwp_frct__grouping_id__c'));
@@ -146,12 +150,7 @@ public with sharing class BE_MP_Executive_Summary_Cls extends BE_SingleRelatedLi
     }
 
     private static Integer validateName(String groupingName, Map<Integer, dwp_frct__grouping__c> groupingMap) {
-        Integer groupingPosition = groupingMap.size() + 1;
-        Final String groupCP = 'Financiamiento a corto plazo';
-        Final String groupLP = 'Financiamiento a largo plazo';
-        Final String groupRF = 'Riesgo de firma';
-        Final String groupRC = 'Recursos';
-                
+        Integer groupingPosition = groupingMap.size() + 1; 
 
         if(groupingName == groupCP) {
             groupingPosition = 1;

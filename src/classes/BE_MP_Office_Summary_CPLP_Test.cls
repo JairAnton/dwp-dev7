@@ -7,6 +7,8 @@
 
 @isTest
 public class BE_MP_Office_Summary_CPLP_Test {
+    private static Final String stageLabel = 'Prospecting';
+
     static testMethod void testSummaryCPLP() {
         Final List<dwp_frct__management_plan__c> mPlanList = [SELECT Id, Name FROM dwp_frct__management_plan__c WHERE Name = 'Test Plan Gerente Month1'];
         
@@ -81,11 +83,11 @@ public class BE_MP_Office_Summary_CPLP_Test {
             System.AssertNotEquals(mplan2, null);
             System.AssertNotEquals(mplan3, null);
             
-            createGrouping(mplan1, mplan2, mplan3, usr3, usr4);
+            createGrouping(mplan2, mplan3, usr3, usr4);
         }
     }
 
-    private static void createGrouping(dwp_frct__management_plan__c mplan1, dwp_frct__management_plan__c mplan2, dwp_frct__management_plan__c mplan3, User usr3, User usr4) {
+    private static void createGrouping(dwp_frct__management_plan__c mplan2, dwp_frct__management_plan__c mplan3, User usr3, User usr4) {
         Final List<dwp_frct__grouping__c> groupList = new List<dwp_frct__grouping__c>();
         groupList.add(new dwp_frct__grouping__c(dwp_frct__solution_category_type__c = 'Financiamiento a corto plazo', dwp_frct__management_plan_id__c = mplan2.Id));
         groupList.add(new dwp_frct__grouping__c(dwp_frct__solution_category_type__c = 'Financiamiento a largo plazo', dwp_frct__management_plan_id__c = mplan2.Id));
@@ -109,8 +111,6 @@ public class BE_MP_Office_Summary_CPLP_Test {
     }
 
     private static List<Opportunity> createOpp(User usr3, User usr4) {
-        Final String stageLabel = 'Prospecting';
-
         Final Account acc = new Account(Name = 'TestAcct');
         insert acc;
         

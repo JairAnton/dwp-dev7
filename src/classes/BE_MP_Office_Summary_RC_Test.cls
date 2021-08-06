@@ -7,6 +7,9 @@
 
 @isTest
 public class BE_MP_Office_Summary_RC_Test {
+    private static Final String stageLabel = 'Prospecting';
+    private static Final String categoryType = 'Recursos';
+
     static testMethod void testSummaryRC() {
         Final List<dwp_frct__management_plan__c> mPlanList = [SELECT Id, Name FROM dwp_frct__management_plan__c WHERE Name = 'Test Plan Gerente Month1' LIMIT 1];
         
@@ -88,9 +91,9 @@ public class BE_MP_Office_Summary_RC_Test {
 
     private static void createGrouping(dwp_frct__management_plan__c mplan1, dwp_frct__management_plan__c mplan2, dwp_frct__management_plan__c mplan3, User usr3, User usr4) {
         Final List<dwp_frct__grouping__c> groupList = new List<dwp_frct__grouping__c>();
-        groupList.add(new dwp_frct__grouping__c(dwp_frct__solution_category_type__c = 'Recursos', dwp_frct__management_plan_id__c = mplan1.Id));
-        groupList.add(new dwp_frct__grouping__c(dwp_frct__solution_category_type__c = 'Recursos', dwp_frct__management_plan_id__c = mplan2.Id));
-        groupList.add(new dwp_frct__grouping__c(dwp_frct__solution_category_type__c = 'Recursos', dwp_frct__management_plan_id__c = mplan3.Id));
+        groupList.add(new dwp_frct__grouping__c(dwp_frct__solution_category_type__c = categoryType, dwp_frct__management_plan_id__c = mplan1.Id));
+        groupList.add(new dwp_frct__grouping__c(dwp_frct__solution_category_type__c = categoryType, dwp_frct__management_plan_id__c = mplan2.Id));
+        groupList.add(new dwp_frct__grouping__c(dwp_frct__solution_category_type__c = categoryType, dwp_frct__management_plan_id__c = mplan3.Id));
         insert groupList;
         System.assertEquals(3, groupList.size());
         
@@ -107,8 +110,6 @@ public class BE_MP_Office_Summary_RC_Test {
     }
 
     private static List<Opportunity> createOpp(User usr3, User usr4) {
-        Final String stageLabel = 'Prospecting';
-
         Final Account acc = new Account(Name = 'TestAcct');
         insert acc;
         

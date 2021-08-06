@@ -7,6 +7,11 @@
 
 @isTest
 public class BE_MP_Executive_Summary_Test {
+    private static Final String stageLabel = 'Prospecting';
+    private static Final String indirectLabel = 'Indirect';
+    private static Final String decriptionLabel = 'Producto code 15';
+    private static Final String typeQuoteLabel = 'Carta de credito';
+
     static testMethod void testSummaryExecutive() {
         Final List<dwp_frct__management_plan__c> mPlanList = [SELECT Id, Name FROM dwp_frct__management_plan__c WHERE Name = 'Test Plan Ejecutivo(Test3) Month1' LIMIT 1];
         
@@ -79,11 +84,6 @@ public class BE_MP_Executive_Summary_Test {
     }
 
     private static List<Opportunity> createOpp(User usr3) {
-        Final String stageLabel = 'Prospecting';
-        Final String indirectLabel = 'Indirect';
-        Final String decriptionLabel = 'Producto code 15';
-        Final String typeQuoteLabel = 'Carta de credito';
-
         Final Account acc = new Account(Name = 'TestAcct');
         insert acc;
         
