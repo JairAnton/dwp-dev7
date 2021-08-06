@@ -45,12 +45,20 @@
         <name>dwp_frct__mngmt_plan_achievement_per__c</name>
     </fields>
     <fields>
-        <label>Total Compromiso</label>
+        <label>Total facturado</label>
         <name>dwp_frct__mngmt_plan_tot_commitment_amount__c</name>
     </fields>
     <fields>
-        <label>Total de Cierre</label>
+        <label>Total facturado</label>
+        <name>dwp_frct__mngmt_plan_tot_commitment_formule_amount__c</name>
+    </fields>
+    <fields>
+        <label>Variación mes</label>
         <name>dwp_frct__mngmt_plan_total_regisn_amount__c</name>
+    </fields>
+    <fields>
+        <label>Variación mes</label>
+        <name>dwp_frct__mngmt_plan_total_regisn_formule_amount__c</name>
     </fields>
     <fields>
         <label>Proyección Transaccional</label>
