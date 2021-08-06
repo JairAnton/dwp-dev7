@@ -5,17 +5,30 @@
     2021-08-02  JAA     jair.anton.contractor@bbva.com    	    Initial version
 **/
 
-public class BE_MP_Office_Summary_RC_Cls extends BE_SingleRelatedListCRUD_Cls {
+public with sharing class BE_MP_Office_Summary_RC_Cls extends BE_SingleRelatedListCRUD_Cls {
+    /**
+     * Wrapper class to the response
+     */
     public class ResponseModel {
+        /* Variable response model */
         Id PlanId { get; set; }
+        /* Variable response model */
         Id GroupId { get; set; }
+        /* Variable response model */
         String name { get; set; }
+        /* Variable response model */
         Double expectedDrop { get; set; }
+        /* Variable response model */
         Double retomaR { get; set; }
+        /* Variable response model */
         Id OwnerId { get; set; }
+        /* Variable response model */
         Integer nOperation { get; set; }
+        /* Variable response model */
         Double oppAmount { get; set; }
+        /* Variable response model */
         Double totalAmount { get; set; }
+        /* Variable response model */
         Double netCommitment { get; set; }
     }
     
