@@ -6,11 +6,16 @@
 **/
 
 public with sharing class BE_MP_Executive_Summary_Cls extends BE_SingleRelatedListCRUD_Cls {
-    private static Final String groupCP = 'Financiamiento a corto plazo';
-    private static Final String groupLP = 'Financiamiento a largo plazo';
-    private static Final String groupRF = 'Riesgo de firma';
-    private static Final String groupRC = 'Recursos';
-    private static Final String typeOpp = '02';
+    /* GROUP CP */
+    private static Final String GROUPCP = 'Financiamiento a corto plazo';
+    /* GROUP LP */
+    private static Final String GROUPLP = 'Financiamiento a largo plazo';
+    /* GROUP RF */
+    private static Final String GROUPRF = 'Riesgo de firma';
+    /* GROUP RC */
+    private static Final String GROUPRC = 'Recursos';
+    /* TYPE OPP */
+    private static Final String TYPEOPP = '02';
 
     /**
      * Wrapper class to the response
@@ -137,7 +142,7 @@ public with sharing class BE_MP_Executive_Summary_Cls extends BE_SingleRelatedLi
             if(dtMap.containsKey((Id)oppItem.get('dwp_frct__grouping_id__c'))) {
                 Final ResponseModel itemMap = dtMap.get((Id)oppItem.get('dwp_frct__grouping_id__c'));
 
-                if((String)oppItem.get('typeOpp') == typeOpp) {
+                if((String)oppItem.get('typeOpp') == TYPEOPP) {
                     itemMap.retoma = (Double)oppItem.get('sumAmount');
                 } else {
                     itemMap.nOperation = (Integer)oppItem.get('nOperation');
@@ -152,13 +157,13 @@ public with sharing class BE_MP_Executive_Summary_Cls extends BE_SingleRelatedLi
     private static Integer validateName(String groupingName, Map<Integer, dwp_frct__grouping__c> groupingMap) {
         Integer groupingPosition = groupingMap.size() + 1; 
 
-        if(groupingName == groupCP) {
+        if(groupingName == GROUPCP) {
             groupingPosition = 1;
-        } else if(groupingName == groupLP) {
+        } else if(groupingName == GROUPLP) {
             groupingPosition = 2;
-        } else if(groupingName == groupRF) {
+        } else if(groupingName == GROUPRF) {
             groupingPosition = 3;
-        } else if(groupingName == groupRC) {
+        } else if(groupingName == GROUPRC) {
             groupingPosition = 4;
         }
 

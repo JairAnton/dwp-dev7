@@ -7,7 +7,8 @@
 
 @isTest
 public class BE_MP_Office_Summary_CPLP_Test {
-    private static Final String stageLabel = 'Prospecting';
+    /* stage label */
+    private static Final String STAGELABEL = 'Prospecting';
 
     static testMethod void testSummaryCPLP() {
         Final List<dwp_frct__management_plan__c> mPlanList = [SELECT Id, Name FROM dwp_frct__management_plan__c WHERE Name = 'Test Plan Gerente Month1'];
@@ -115,12 +116,12 @@ public class BE_MP_Office_Summary_CPLP_Test {
         insert acc;
         
         Final List<Opportunity> oppList = new List<Opportunity>();
-        oppList.add(new Opportunity(Name = 'XXX Test 1', CloseDate = Date.today().addDays(-20), StageName = stageLabel, Amount = 111111, AccountId = acc.id, OwnerId = usr3.Id, Type='01'));
-        oppList.add(new Opportunity(Name = 'XXX Test2', CloseDate = Date.today(), StageName = stageLabel, Amount = 111111, AccountId = acc.id, OwnerId = usr3.Id, Type='02'));
-        oppList.add(new Opportunity(Name = 'XXX Test3', CloseDate = Date.today().addDays(-20), StageName = stageLabel, Amount = 200000, AccountId = acc.id, OwnerId = usr4.Id, Type='01'));
-        oppList.add(new Opportunity(Name = 'XXX Test4', CloseDate = Date.today(), StageName = stageLabel, Amount = 111111, AccountId = acc.id, OwnerId = usr4.Id, Type='02'));
-        oppList.add(new Opportunity(Name = 'XXX Test5', CloseDate = Date.today(), StageName = stageLabel, Amount = 111111, AccountId = acc.id, OwnerId = usr4.Id, Type='01'));
-        oppList.add(new Opportunity(Name = 'XXX Test6', CloseDate = Date.today(), StageName = stageLabel, Amount = 111111, AccountId = acc.id, OwnerId = usr4.Id, Type='02'));
+        oppList.add(new Opportunity(Name = 'XXX Test 1', CloseDate = Date.today().addDays(-20), StageName = STAGELABEL, Amount = 111111, AccountId = acc.id, OwnerId = usr3.Id, Type='01'));
+        oppList.add(new Opportunity(Name = 'XXX Test2', CloseDate = Date.today(), StageName = STAGELABEL, Amount = 111111, AccountId = acc.id, OwnerId = usr3.Id, Type='02'));
+        oppList.add(new Opportunity(Name = 'XXX Test3', CloseDate = Date.today().addDays(-20), StageName = STAGELABEL, Amount = 200000, AccountId = acc.id, OwnerId = usr4.Id, Type='01'));
+        oppList.add(new Opportunity(Name = 'XXX Test4', CloseDate = Date.today(), StageName = STAGELABEL, Amount = 111111, AccountId = acc.id, OwnerId = usr4.Id, Type='02'));
+        oppList.add(new Opportunity(Name = 'XXX Test5', CloseDate = Date.today(), StageName = STAGELABEL, Amount = 111111, AccountId = acc.id, OwnerId = usr4.Id, Type='01'));
+        oppList.add(new Opportunity(Name = 'XXX Test6', CloseDate = Date.today(), StageName = STAGELABEL, Amount = 111111, AccountId = acc.id, OwnerId = usr4.Id, Type='02'));
         insert oppList;
         System.assertEquals(6, oppList.size());
         

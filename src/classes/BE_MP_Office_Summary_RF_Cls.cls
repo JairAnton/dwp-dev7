@@ -6,7 +6,8 @@
 **/
 
 public with sharing class BE_MP_Office_Summary_RF_Cls extends BE_SingleRelatedListCRUD_Cls {
-    private static Final String typeOpp = '02';
+    /* Variable type Opp */
+    private static Final String TYPEOPP = '02';
     /**
      * Wrapper class to the response
      */
@@ -179,7 +180,7 @@ public with sharing class BE_MP_Office_Summary_RF_Cls extends BE_SingleRelatedLi
         Double finalSumAmount = sumAmount;
 
         if(itemMap.OwnerId == (Id)oppItem.get('oppOwnerId')) {
-            if((String)oppItem.get('typeOpp') == typeOpp) {
+            if((String)oppItem.get('typeOpp') == TYPEOPP) {
                 itemMap.retomaRF = (Double)oppItem.get('sumAmount');
             } else {
                 itemMap.nOperation = (Integer)oppItem.get('nOperation');

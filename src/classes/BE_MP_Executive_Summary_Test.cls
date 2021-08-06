@@ -7,10 +7,14 @@
 
 @isTest
 public class BE_MP_Executive_Summary_Test {
-    private static Final String stageLabel = 'Prospecting';
-    private static Final String indirectLabel = 'Indirect';
-    private static Final String decriptionLabel = 'Producto code 15';
-    private static Final String typeQuoteLabel = 'Carta de credito';
+    /* STAGE LABEL */
+    private static Final String STAGELABEL = 'Prospecting';
+    /* INDIRECT LABEL */
+    private static Final String INDIRECTLABEL = 'Indirect';
+    /* DESCRIPTION LABEL */
+    private static Final String DESCRIPTIONLABEL = 'Producto code 15';
+    /* TYPE QUOTE LABEL */
+    private static Final String TYPEQUOTELABEL = 'Carta de credito';
 
     static testMethod void testSummaryExecutive() {
         Final List<dwp_frct__management_plan__c> mPlanList = [SELECT Id, Name FROM dwp_frct__management_plan__c WHERE Name = 'Test Plan Ejecutivo(Test3) Month1' LIMIT 1];
@@ -88,24 +92,24 @@ public class BE_MP_Executive_Summary_Test {
         insert acc;
         
         Final List<Opportunity> oppList = new List<Opportunity>();
-        oppList.add(new Opportunity(Name = 'XXX Test1', CloseDate = Date.today().addDays(-20), StageName = stageLabel, Amount = 111111, AccountId = acc.id, OwnerId = usr3.Id, Type='01'));
-        oppList.add(new Opportunity(Name = 'XXX Test2', CloseDate = Date.today(), StageName = stageLabel, Amount = 111111, AccountId = acc.id, OwnerId = usr3.Id, Type='02'));
-        oppList.add(new Opportunity(Name = 'XXX Test3', CloseDate = Date.today().addDays(-20), StageName = stageLabel, Amount = 200000, AccountId = acc.id, OwnerId = usr3.Id, Type='01'));
-        oppList.add(new Opportunity(Name = 'XXX Test4', CloseDate = Date.today(), StageName = stageLabel, Amount = 111111, AccountId = acc.id, OwnerId = usr3.Id, Type='02'));
-        oppList.add(new Opportunity(Name = 'XXX Test5', CloseDate = Date.today().addDays(-20), StageName = stageLabel, Amount = 111111, AccountId = acc.id, OwnerId = usr3.Id, Type='01'));
-        oppList.add(new Opportunity(Name = 'XXX Test7', CloseDate = Date.today().addDays(-20), StageName = stageLabel, Amount = 200000, AccountId = acc.id, OwnerId = usr3.Id, Type='01'));
+        oppList.add(new Opportunity(Name = 'XXX Test1', CloseDate = Date.today().addDays(-20), StageName = STAGELABEL, Amount = 111111, AccountId = acc.id, OwnerId = usr3.Id, Type='01'));
+        oppList.add(new Opportunity(Name = 'XXX Test2', CloseDate = Date.today(), StageName = STAGELABEL, Amount = 111111, AccountId = acc.id, OwnerId = usr3.Id, Type='02'));
+        oppList.add(new Opportunity(Name = 'XXX Test3', CloseDate = Date.today().addDays(-20), StageName = STAGELABEL, Amount = 200000, AccountId = acc.id, OwnerId = usr3.Id, Type='01'));
+        oppList.add(new Opportunity(Name = 'XXX Test4', CloseDate = Date.today(), StageName = STAGELABEL, Amount = 111111, AccountId = acc.id, OwnerId = usr3.Id, Type='02'));
+        oppList.add(new Opportunity(Name = 'XXX Test5', CloseDate = Date.today().addDays(-20), StageName = STAGELABEL, Amount = 111111, AccountId = acc.id, OwnerId = usr3.Id, Type='01'));
+        oppList.add(new Opportunity(Name = 'XXX Test7', CloseDate = Date.today().addDays(-20), StageName = STAGELABEL, Amount = 200000, AccountId = acc.id, OwnerId = usr3.Id, Type='01'));
         insert oppList;
         System.assertEquals(6, oppList.size());
         
         Final List<Product2> productList = new List<Product2>();
-        productList.add(new Product2(Name = 'Product1', ProductCode = 'PC00015', Description = decriptionLabel, IsActive = true, Family = 'Financiamiento a corto plazo', Type_of_quote__c = typeQuoteLabel, 
-                                            Unique_id__c = '0292430', formalization__c = true, pdf__c = true, price_penalty__c = true, risk_sanction__c = true, type__c = indirectLabel));
-        productList.add(new Product2(Name = 'Product2', ProductCode = 'PC00016', Description = decriptionLabel, IsActive = true, Family = 'Financiamiento a largo plazo', Type_of_quote__c = typeQuoteLabel, 
-                                            Unique_id__c = '0292431', formalization__c = true, pdf__c = true, price_penalty__c = true, risk_sanction__c = true, type__c = indirectLabel));
-        productList.add(new Product2(Name = 'Product3', ProductCode = 'PC00017', Description = decriptionLabel, IsActive = true, Family = 'Riesgo de firma', Type_of_quote__c = typeQuoteLabel, 
-                                            Unique_id__c = '0292432', formalization__c = true, pdf__c = true, price_penalty__c = true, risk_sanction__c = true, type__c = indirectLabel));
-        productList.add(new Product2(Name = 'Product4', ProductCode = 'PC00018', Description = decriptionLabel, IsActive = true, Family = 'Recursos', Type_of_quote__c = typeQuoteLabel , 
-                                            Unique_id__c = '0292433', formalization__c = true, pdf__c = true, price_penalty__c = true, risk_sanction__c = true, type__c = indirectLabel));
+        productList.add(new Product2(Name = 'Product1', ProductCode = 'PC00015', Description = DESCRIPTIONLABEL, IsActive = true, Family = 'Financiamiento a corto plazo', Type_of_quote__c = TYPEQUOTELABEL, 
+                                            Unique_id__c = '0292430', formalization__c = true, pdf__c = true, price_penalty__c = true, risk_sanction__c = true, type__c = INDIRECTLABEL));
+        productList.add(new Product2(Name = 'Product2', ProductCode = 'PC00016', Description = DESCRIPTIONLABEL, IsActive = true, Family = 'Financiamiento a largo plazo', Type_of_quote__c = TYPEQUOTELABEL, 
+                                            Unique_id__c = '0292431', formalization__c = true, pdf__c = true, price_penalty__c = true, risk_sanction__c = true, type__c = INDIRECTLABEL));
+        productList.add(new Product2(Name = 'Product3', ProductCode = 'PC00017', Description = DESCRIPTIONLABEL, IsActive = true, Family = 'Riesgo de firma', Type_of_quote__c = TYPEQUOTELABEL, 
+                                            Unique_id__c = '0292432', formalization__c = true, pdf__c = true, price_penalty__c = true, risk_sanction__c = true, type__c = INDIRECTLABEL));
+        productList.add(new Product2(Name = 'Product4', ProductCode = 'PC00018', Description = DESCRIPTIONLABEL, IsActive = true, Family = 'Recursos', Type_of_quote__c = TYPEQUOTELABEL , 
+                                            Unique_id__c = '0292433', formalization__c = true, pdf__c = true, price_penalty__c = true, risk_sanction__c = true, type__c = INDIRECTLABEL));
         insert productList;
         System.assertEquals(4, productList.size());
 

@@ -6,8 +6,10 @@
 **/
 
 public with sharing class BE_MP_Office_Summary_CPLP_Cls extends BE_SingleRelatedListCRUD_Cls {
-    private static Final String typeOpp = '02';
-    private static Final String categoryType = 'Financiamiento a corto plazo';
+    /* TYPE OPP */
+    private static Final String TYPEOPP = '02';
+    /* CATEGORY TYPE */
+    private static Final String CATEGORYTYPE = 'Financiamiento a corto plazo';
 
     /**
      * Wrapper class to the response
@@ -195,7 +197,7 @@ public with sharing class BE_MP_Office_Summary_CPLP_Cls extends BE_SingleRelated
     }
 
     private static void validateCP(dwp_frct__grouping__c item, ResponseModel itemMap, Map<Id, Id> cpIdMap) {
-        if(item.dwp_frct__solution_category_type__c == categoryType) {
+        if(item.dwp_frct__solution_category_type__c == CATEGORYTYPE) {
             itemMap.expectedDrop = item.dwp_frct__opportunity_expected_drop_amount__c;
             itemMap.groupId = item.Id;
             itemMap.ownerId = item.dwp_frct__management_plan_id__r.OwnerId;
@@ -222,7 +224,7 @@ public with sharing class BE_MP_Office_Summary_CPLP_Cls extends BE_SingleRelated
         Double finalSumAmount = sumAmount;
 
         if(itemMap.ownerId == (Id)oppItem.get('oppOwnerId')) {
-            if((String)oppItem.get('typeOpp') == typeOpp) {
+            if((String)oppItem.get('typeOpp') == TYPEOPP) {
                 if(cpIdMap.containsKey((Id)oppItem.get('dwp_frct__grouping_id__c'))) {
                     itemMap.retomaCP = (Double)oppItem.get('sumAmount');
                 }                            
