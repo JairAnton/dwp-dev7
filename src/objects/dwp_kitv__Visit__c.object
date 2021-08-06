@@ -281,9 +281,10 @@
         <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Minute Description</label>
-        <required>false</required>
+        <length>5000</length>
         <trackHistory>false</trackHistory>
-        <type>TextArea</type>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>Notify_meeting_changed_peru__c</fullName>
