@@ -83,13 +83,15 @@ public with sharing class BE_MP_Office_Summary_CPLP_Cls extends BE_SingleRelated
         calculateCPLP(groupList, dtMap, cpIdMap, gpOppSet, groupOppMap);
         
         /* Get selected opportunities of type 'renewal' and 'new' */
-        List<AggregateResult> groupOppList = [SELECT dwp_frct__grouping_id__c, COUNT(dwp_frct__opportunity_id__c) nOperation, SUM(dwp_frct__opportunity_id__r.Amount) sumAmount, dwp_frct__opportunity_id__r.OwnerId oppOwnerId, dwp_frct__opportunity_id__r.Type typeOpp
-                                                FROM dwp_frct__grouping_opp__c 
-                                                WHERE dwp_frct__grouping_id__c  IN : groupOppMap.keySet() AND dwp_frct__opportunity_id__r.Type IN ('01', '02') AND dwp_frct__opportunity_id__r.OwnerId IN : gpOppSet
-                                                GROUP BY dwp_frct__opportunity_id__r.Type, dwp_frct__grouping_id__c, dwp_frct__opportunity_id__r.OwnerId];
+        Final List<AggregateResult> groupOppList;
+        groupOppList = [SELECT dwp_frct__grouping_id__c, COUNT(dwp_frct__opportunity_id__c) nOperation, SUM(dwp_frct__opportunity_id__r.Amount) sumAmount, dwp_frct__opportunity_id__r.OwnerId oppOwnerId, dwp_frct__opportunity_id__r.Type typeOpp
+                        FROM dwp_frct__grouping_opp__c 
+                        WHERE dwp_frct__grouping_id__c  IN : groupOppMap.keySet() AND dwp_frct__opportunity_id__r.Type IN ('01', '02') AND dwp_frct__opportunity_id__r.OwnerId IN : gpOppSet
+                        GROUP BY dwp_frct__opportunity_id__r.Type, dwp_frct__grouping_id__c, dwp_frct__opportunity_id__r.OwnerId];
         
         /* Loop for setear retomaCP and set operations, amount of operation per owner */
-        Double sumAmount = calculateRetoma(groupOppList, groupOppMap, dtMap, cpIdMap);
+        Final Double sumAmount;
+        sumAmount = calculateRetoma(groupOppList, groupOppMap, dtMap, cpIdMap);
         
         return setResultList(dtMap, sumAmount, param);
     }

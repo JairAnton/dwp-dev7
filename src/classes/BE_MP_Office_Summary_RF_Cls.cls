@@ -94,19 +94,21 @@ public with sharing class BE_MP_Office_Summary_RF_Cls extends BE_SingleRelatedLi
         }
         
         /* Get selected opportunities of type 'renewal' and 'new' */
-        List<AggregateResult> groupOppList = [SELECT dwp_frct__grouping_id__c, COUNT(dwp_frct__opportunity_id__c) nOperation, SUM(dwp_frct__opportunity_id__r.Amount) sumAmount, 
-                                                    dwp_frct__opportunity_id__r.OwnerId oppOwnerId, dwp_frct__opportunity_id__r.Type typeOpp
-                                                FROM dwp_frct__grouping_opp__c 
-                                                WHERE dwp_frct__grouping_id__c  IN : groupOppMap.keySet() AND dwp_frct__opportunity_id__r.Type IN ('01', '02') AND dwp_frct__opportunity_id__r.OwnerId IN : gpOppSet
-                                                GROUP BY dwp_frct__opportunity_id__r.Type, dwp_frct__grouping_id__c, dwp_frct__opportunity_id__r.OwnerId];
+        Final List<AggregateResult> groupOppList;
+        groupOppList = [SELECT dwp_frct__grouping_id__c, COUNT(dwp_frct__opportunity_id__c) nOperation, SUM(dwp_frct__opportunity_id__r.Amount) sumAmount, 
+                            dwp_frct__opportunity_id__r.OwnerId oppOwnerId, dwp_frct__opportunity_id__r.Type typeOpp
+                        FROM dwp_frct__grouping_opp__c 
+                        WHERE dwp_frct__grouping_id__c  IN : groupOppMap.keySet() AND dwp_frct__opportunity_id__r.Type IN ('01', '02') AND dwp_frct__opportunity_id__r.OwnerId IN : gpOppSet
+                        GROUP BY dwp_frct__opportunity_id__r.Type, dwp_frct__grouping_id__c, dwp_frct__opportunity_id__r.OwnerId];
         
         /* Loop for setear retomaCP and set operations, amount of operation per owner */
-        Double sumAmount = calculateRetoma(groupOppList, groupOppMap, dtMap);
+        Final Double sumAmount;
+        sumAmount = calculateRetoma(groupOppList, groupOppMap, dtMap);
         
-        return setResultList(dtMap, sumAmount);
+        return setResultList(dtMap, sumAmount, param);
     }
 
-    private static List<dwp_frct__grouping__c> setResultList(Map<Id, ResponseModel> dtMap, Double sumAmount) {
+    private static List<dwp_frct__grouping__c> setResultList(Map<Id, ResponseModel> dtMap, Double sumAmount, Map<String, Object> param) {
         Final List<dwp_frct__grouping__c> resultList = new List<dwp_frct__grouping__c>();
         /* Variable for calculate amount per column */
         Double amountCol1 = 0, amountCol2 = 0, amountCol3 = 0, amountCol5 = 0, amountCol6 = 0, amountCol7 = 0;
@@ -138,6 +140,7 @@ public with sharing class BE_MP_Office_Summary_RF_Cls extends BE_SingleRelatedLi
         
         /* Add item per total per column */
         Final dwp_frct__grouping__c calculateGP = new dwp_frct__grouping__c();
+        calculateGP.dwp_frct__management_plan_id__c = (String)param.get('recordId');
         calculateGP.Name = 'TOTAL';
         calculateGP.dwp_frct__management_expected_drop_amount__c = amountCol1;
         calculateGP.dwp_frct__opportunity_selected_tot_amount__c = amountCol2;
