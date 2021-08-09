@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>BE_MP_Office_Summary_RF</label>
+    <protected>false</protected>
+    <values>
+        <field>BE_SingleRetatedListView__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Columns__c</field>
+        <value xsi:type="xsd:string">{
+&quot;values&quot;: [
+{
+&quot;label&quot;: &quot;Nombre&quot;,
+&quot;fieldName&quot;: &quot;dwp_frct__management_plan_id__c&quot;,
+&quot;type&quot;: &quot;customurl&quot;,
+&quot;typeAttributes&quot;: {
+&quot;rowData&quot;: {
+&quot;fieldName&quot;: &quot;rowData&quot;
+},
+&quot;isCustom&quot;: true,
+&quot;label&quot;: &quot;Name&quot;,
+&quot;fieldName&quot;: &quot;dwp_frct__management_plan_id__c&quot;
+},
+&quot;initialWidth&quot;: 250
+},
+{
+&quot;label&quot;: &quot;Vcto Ind&quot;,
+&quot;fieldName&quot;: &quot;dwp_frct__management_expected_drop_amount__c&quot;,
+&quot;type&quot;: &quot;currency&quot;,
+&quot;typeAttributes&quot;: {
+&quot;currencyCode&quot;: &quot;PEN&quot;,
+&quot;step&quot;: &quot;0.01&quot;
+},
+&quot;initialWidth&quot;: 150
+},
+{
+&quot;label&quot;: &quot;Retoma Ind&quot;,
+&quot;fieldName&quot;: &quot;dwp_frct__opportunity_selected_tot_amount__c&quot;,
+&quot;type&quot;: &quot;currency&quot;,
+&quot;typeAttributes&quot;: {
+&quot;currencyCode&quot;: &quot;PEN&quot;,
+&quot;step&quot;: &quot;0.01&quot;
+},
+&quot;initialWidth&quot;: 150
+},
+{
+&quot;label&quot;: &quot;% Retoma Ind&quot;,
+&quot;fieldName&quot;: &quot;dwp_frct__opportunity_antcp_expiry_amount__c&quot;,
+&quot;type&quot;: &quot;percent&quot;,
+&quot;cellAttributes&quot;: {
+&quot;iconName&quot;: {
+&quot;fieldName&quot;: &quot;trendIcon&quot;
+},
+&quot;iconPosition&quot;: &quot;right&quot;
+},
+&quot;typeAttributes&quot;: {
+&quot;step&quot;: &quot;0.00001&quot;,
+&quot;minimumFractionDigits&quot;: &quot;2&quot;,
+&quot;maximumFractionDigits&quot;: &quot;2&quot;
+},
+&quot;initialWidth&quot;: 150
+},
+{
+&quot;label&quot;: &quot;N° Operaciones&quot;,
+&quot;fieldName&quot;: &quot;dwp_frct__solution_category_type__c&quot;,
+&quot;type&quot;: &quot;text&quot;,
+&quot;cellAttributes&quot;: {
+&quot;alignment&quot;: &quot;center&quot;
+},
+&quot;initialWidth&quot;: 150
+},
+{
+&quot;label&quot;: &quot;Importe&quot;,
+&quot;fieldName&quot;: &quot;dwp_frct__opportunity_cancellation_amount__c&quot;,
+&quot;type&quot;: &quot;currency&quot;,
+&quot;typeAttributes&quot;: {
+&quot;currencyCode&quot;: &quot;PEN&quot;,
+&quot;step&quot;: &quot;0.01&quot;
+},
+&quot;initialWidth&quot;: 150
+},
+{
+&quot;label&quot;: &quot;% Participación del ejecutivo&quot;,
+&quot;fieldName&quot;: &quot;dwp_frct__opportunity_closed_amount__c&quot;,
+&quot;type&quot;: &quot;percent&quot;,
+&quot;cellAttributes&quot;: {
+&quot;iconName&quot;: {
+&quot;fieldName&quot;: &quot;trendIcon&quot;
+},
+&quot;iconPosition&quot;: &quot;right&quot;
+},
+&quot;typeAttributes&quot;: {
+&quot;step&quot;: &quot;0.00001&quot;,
+&quot;minimumFractionDigits&quot;: &quot;2&quot;,
+&quot;maximumFractionDigits&quot;: &quot;2&quot;
+},
+&quot;initialWidth&quot;: 150
+},
+{
+&quot;label&quot;: &quot;Compromiso Riesgo Indirecto (Crecimiento Neto)&quot;,
+&quot;fieldName&quot;: &quot;dwp_frct__original_commitment_amount__c&quot;,
+&quot;type&quot;: &quot;currency&quot;,
+&quot;typeAttributes&quot;: {
+&quot;currencyCode&quot;: &quot;PEN&quot;,
+&quot;step&quot;: &quot;0.01&quot;
+},
+&quot;initialWidth&quot;: 200
+}
+]
+}</value>
+    </values>
+    <values>
+        <field>FieldsQuery__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Filter__c</field>
+        <value xsi:type="xsd:string">dwp_frct__management_plan_id__c=:recordId</value>
+    </values>
+    <values>
+        <field>HeadActions__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>NumberRows__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Settings__c</field>
+        <value xsi:type="xsd:string">{
+&quot;readClassName&quot;: &quot;BE_MP_Office_Summary_RF_Cls&quot;
+}</value>
+    </values>
+    <values>
+        <field>sObjectApiName__c</field>
+        <value xsi:type="xsd:string">dwp_frct__grouping__c</value>
+    </values>
+</CustomMetadata>
