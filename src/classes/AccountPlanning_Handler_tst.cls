@@ -1,12 +1,10 @@
-/**
-* ------------------------------------------------------------------------------------------------
-* @Name AccountPlanning_Handler_tst
+/** @Name AccountPlanning_Handler_tst
 * @Author Diego Carbajal diego.carbajal@bbva.com
 * @Date Created: 2020-05-01
-* @Group 
 * @Description AccountPlanning_Handler_tst
 * 				Methods in companion class AP_Handler_Helper_tst
 * Jair Anton 		07/06/2021		 	Modificación Cobertura de Test AP
+* Jair Anton 		11/08/2021		 	Add batch for related questions
 */
 @isTest
 public class AccountPlanning_Handler_tst {
@@ -48,7 +46,9 @@ public class AccountPlanning_Handler_tst {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
 		final acpl__Account_Planning__c accountPlanning1 = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
 		Test.startTest();
-		insert accountPlanning1;
+			insert accountPlanning1;
+			AP_RelateAPQuestionsBatch apBatch = new AP_RelateAPQuestionsBatch();
+            DataBase.executeBatch(apBatch);
 		Test.stopTest();
 		Final acpl__Account_Planning__c apR = [SELECT Id, acpl__gf_ap_question_form_number__c, acpl__gf_ap_validator_user_id__c FROM acpl__Account_Planning__c
 		                                      WHERE Id =:accountPlanning1.Id];
