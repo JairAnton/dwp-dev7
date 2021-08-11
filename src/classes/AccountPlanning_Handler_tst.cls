@@ -1,12 +1,10 @@
-/**
-* ------------------------------------------------------------------------------------------------
-* @Name AccountPlanning_Handler_tst
+/** @Name AccountPlanning_Handler_tst
 * @Author Diego Carbajal diego.carbajal@bbva.com
 * @Date Created: 2020-05-01
-* @Group 
 * @Description AccountPlanning_Handler_tst
 * 				Methods in companion class AP_Handler_Helper_tst
 * Jair Anton 		07/06/2021		 	Modificación Cobertura de Test AP
+* Jair Anton 		11/08/2021		 	Add batch for related questions
 */
 @isTest
 public class AccountPlanning_Handler_tst {
@@ -34,6 +32,9 @@ public class AccountPlanning_Handler_tst {
     Final static String VALIDATED = 'Validated';
     /**@Description NOT_STARTED*/
     Final static String NOT_STARTED = 'Not started';
+	/**@Description variable handler*/
+    private static Final acpl.AccountPlanningHandler AP_HANDLER = acpl.AccountPlanningHandler.getInstance();
+    
 	/*
 	 * @author 		Global Desktop
 	 * @Description  AP questions creation
@@ -48,7 +49,10 @@ public class AccountPlanning_Handler_tst {
 		Final Account acc = [SELECT Id FROM Account LIMIT 1];
 		final acpl__Account_Planning__c accountPlanning1 = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
 		Test.startTest();
-		insert accountPlanning1;
+			insert accountPlanning1;
+			Final List<acpl__Account_Planning__c> apList = [SELECT Id, Name, acpl__Account_Planning_Type__c, CreatedDate, acpl__gf_mandatory_type__c FROM acpl__Account_Planning__c 
+                                                  WHERE CreatedDate = TODAY AND Name = 'Account Planning'];
+        	AP_HANDLER.relateAPQuestions(apList);
 		Test.stopTest();
 		Final acpl__Account_Planning__c apR = [SELECT Id, acpl__gf_ap_question_form_number__c, acpl__gf_ap_validator_user_id__c FROM acpl__Account_Planning__c
 		                                      WHERE Id =:accountPlanning1.Id];

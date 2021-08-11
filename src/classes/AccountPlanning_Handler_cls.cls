@@ -1,13 +1,9 @@
-/**
- * Handler of Trigger of the AccountPlanning object.
- * <p /><p />
- * Modification log:<p />
- * -------------------------------------------------------------------------------------
+/** Handler of Trigger of the AccountPlanning object.
  * Developer                    		Date                Description<p />
- * -------------------------------------------------------------------------------------
  * Diego Carbajal    					15/05/2020          Original version.<p />
  * Martin Alejandro Mori Chávez    		20/01/2021          Update methods for package 3.3.<p />
  * Jair Anton							07/06/2021			Modificación para compartir AP con los JPN por región
+ * Jair Anton							11/08/2021			apHandler.relateAPQuestions executed per batch
  * @author Diego Carbajal
  */
 public class AccountPlanning_Handler_cls extends TriggerHandler {
@@ -88,7 +84,8 @@ public class AccountPlanning_Handler_cls extends TriggerHandler {
 		apHandler.insertAPHistory(triggerNewMap, null, true, false);
         //start new methods ver 3.3
         //Method relateAPQuestions: Relates all the existing form questions
-        apHandler.relateAPQuestions(triggerNew);
+        /* method executed per batch - AP version 3.5 */
+		//apHandler.relateAPQuestions(triggerNew);
         //Method changeToTimedOut: Applies "Timed-out" sub-status to previous Account Plannings linked to the same account
         apHandler.changeToTimedOut(triggerNew);
         //end new methods ver 3.3
