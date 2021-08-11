@@ -32,6 +32,9 @@ public class AccountPlanning_Handler_tst {
     Final static String VALIDATED = 'Validated';
     /**@Description NOT_STARTED*/
     Final static String NOT_STARTED = 'Not started';
+	/**@Description variable handler*/
+    private static Final acpl.AccountPlanningHandler apHandler = acpl.AccountPlanningHandler.getInstance();
+    
 	/*
 	 * @author 		Global Desktop
 	 * @Description  AP questions creation
@@ -47,8 +50,9 @@ public class AccountPlanning_Handler_tst {
 		final acpl__Account_Planning__c accountPlanning1 = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
 		Test.startTest();
 			insert accountPlanning1;
-			AP_RelateAPQuestionsBatch apBatch = new AP_RelateAPQuestionsBatch();
-            DataBase.executeBatch(apBatch);
+			List<acpl__Account_Planning__c> apList = [SELECT Id, Name, acpl__Account_Planning_Type__c, CreatedDate FROM acpl__Account_Planning__c 
+                                                  WHERE CreatedDate = TODAY AND Name = 'Account Planning'];
+        	apHandler.relateAPQuestions(apList);
 		Test.stopTest();
 		Final acpl__Account_Planning__c apR = [SELECT Id, acpl__gf_ap_question_form_number__c, acpl__gf_ap_validator_user_id__c FROM acpl__Account_Planning__c
 		                                      WHERE Id =:accountPlanning1.Id];

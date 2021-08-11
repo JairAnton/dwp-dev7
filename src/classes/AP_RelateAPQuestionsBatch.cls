@@ -4,7 +4,11 @@
  * @author jair.anton.contractor@bbva.com
  */
 global class AP_RelateAPQuestionsBatch implements Database.Batchable<SObject> {
+    /**
+	 * @Description handler package
+	 */
     Final acpl.AccountPlanningHandler apHandler = acpl.AccountPlanningHandler.getInstance();
+
     /** QueryLocator BatchableContext*/
     global Database.QueryLocator start(Database.BatchableContext bc) {
         return Database.getQueryLocator([SELECT Id, Name, acpl__Account_Planning_Type__c, CreatedDate FROM acpl__Account_Planning__c WHERE CreatedDate = TODAY]);
