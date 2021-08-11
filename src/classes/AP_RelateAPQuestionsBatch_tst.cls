@@ -37,9 +37,9 @@ public class AP_RelateAPQuestionsBatch_tst {
 		insert apList;
 
         Final User admin = [SELECT Id FROM User WHERE Id=:UserInfo.getUserId() LIMIT 1];
-        System.runas(admin){
+        System.runas(admin) {
             Test.startTest();
-                AP_RelateAPQuestionsBatch apBatch = new AP_RelateAPQuestionsBatch();
+                Final AP_RelateAPQuestionsBatch apBatch = new AP_RelateAPQuestionsBatch();
                 DataBase.executeBatch(apBatch);
             Test.stopTest();
             Final List<acpl__AP_Question__c> questionList = [SELECT Id, Name, acpl__gf_account_planning_id__c FROM acpl__AP_Question__c 

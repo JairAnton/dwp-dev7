@@ -33,7 +33,7 @@ public class AccountPlanning_Handler_tst {
     /**@Description NOT_STARTED*/
     Final static String NOT_STARTED = 'Not started';
 	/**@Description variable handler*/
-    private static Final acpl.AccountPlanningHandler apHandler = acpl.AccountPlanningHandler.getInstance();
+    private static Final acpl.AccountPlanningHandler AP_HANDLER = acpl.AccountPlanningHandler.getInstance();
     
 	/*
 	 * @author 		Global Desktop
@@ -50,9 +50,9 @@ public class AccountPlanning_Handler_tst {
 		final acpl__Account_Planning__c accountPlanning1 = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
 		Test.startTest();
 			insert accountPlanning1;
-			List<acpl__Account_Planning__c> apList = [SELECT Id, Name, acpl__Account_Planning_Type__c, CreatedDate, acpl__gf_mandatory_type__c FROM acpl__Account_Planning__c 
+			Final List<acpl__Account_Planning__c> apList = [SELECT Id, Name, acpl__Account_Planning_Type__c, CreatedDate, acpl__gf_mandatory_type__c FROM acpl__Account_Planning__c 
                                                   WHERE CreatedDate = TODAY AND Name = 'Account Planning'];
-        	apHandler.relateAPQuestions(apList);
+        	AP_HANDLER.relateAPQuestions(apList);
 		Test.stopTest();
 		Final acpl__Account_Planning__c apR = [SELECT Id, acpl__gf_ap_question_form_number__c, acpl__gf_ap_validator_user_id__c FROM acpl__Account_Planning__c
 		                                      WHERE Id =:accountPlanning1.Id];

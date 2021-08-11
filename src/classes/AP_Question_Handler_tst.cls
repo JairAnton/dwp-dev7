@@ -17,7 +17,7 @@ public class AP_Question_Handler_tst {
     /**
 	 * @Description variable handler
 	 */
-    private static Final acpl.AccountPlanningHandler apHandler = acpl.AccountPlanningHandler.getInstance();
+    private static Final acpl.AccountPlanningHandler AP_HANDLER = acpl.AccountPlanningHandler.getInstance();
     
 	/**
 	 * @Description method setUp
@@ -35,9 +35,9 @@ public class AP_Question_Handler_tst {
 		Final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
 		insert apR;
         
-        List<acpl__Account_Planning__c> apList = [SELECT Id, Name, acpl__Account_Planning_Type__c, CreatedDate, acpl__gf_mandatory_type__c FROM acpl__Account_Planning__c 
+        Final List<acpl__Account_Planning__c> apList = [SELECT Id, Name, acpl__Account_Planning_Type__c, CreatedDate, acpl__gf_mandatory_type__c FROM acpl__Account_Planning__c 
                                                   WHERE CreatedDate = TODAY AND Name = 'Account Planning'];
-        apHandler.relateAPQuestions(apList);
+        AP_HANDLER.relateAPQuestions(apList);
         
 		Final acpl__AP_Question__c question = [SELECT Id, acpl__AA_answer_text__c FROM acpl__AP_Question__c WHERE acpl__gf_account_planning_id__c =:apR.Id LIMIT 1];
 		Final String assert = question.acpl__AA_answer_text__c;
@@ -65,9 +65,9 @@ public class AP_Question_Handler_tst {
 		Final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
 		insert apR;
         
-        List<acpl__Account_Planning__c> apList = [SELECT Id, Name, acpl__Account_Planning_Type__c, CreatedDate, acpl__gf_mandatory_type__c FROM acpl__Account_Planning__c
+        Final List<acpl__Account_Planning__c> apList = [SELECT Id, Name, acpl__Account_Planning_Type__c, CreatedDate, acpl__gf_mandatory_type__c FROM acpl__Account_Planning__c
                                                   WHERE CreatedDate = TODAY AND Name = 'Account Planning'];
-        apHandler.relateAPQuestions(apList);
+        AP_HANDLER.relateAPQuestions(apList);
         
 		Final acpl__AP_Question__c question = [SELECT Id, acpl__AA_answer_text__c FROM acpl__AP_Question__c WHERE acpl__gf_account_planning_id__c =:apR.Id LIMIT 1];
 		Test.startTest();
@@ -94,9 +94,9 @@ public class AP_Question_Handler_tst {
 		Final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
 		insert apR;
         
-        List<acpl__Account_Planning__c> apList = [SELECT Id, Name, acpl__Account_Planning_Type__c, CreatedDate, acpl__gf_mandatory_type__c FROM acpl__Account_Planning__c
+        Final List<acpl__Account_Planning__c> apList = [SELECT Id, Name, acpl__Account_Planning_Type__c, CreatedDate, acpl__gf_mandatory_type__c FROM acpl__Account_Planning__c
                                                   WHERE CreatedDate = TODAY AND Name = 'Account Planning'];
-        apHandler.relateAPQuestions(apList);
+        AP_HANDLER.relateAPQuestions(apList);
         
 		Final acpl__AP_Question__c question = [SELECT Id, acpl__AA_answer_text__c FROM acpl__AP_Question__c WHERE acpl__gf_account_planning_id__c =: apR.Id LIMIT 1];
         
