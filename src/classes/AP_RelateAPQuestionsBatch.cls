@@ -11,7 +11,7 @@ global class AP_RelateAPQuestionsBatch implements Database.Batchable<SObject> {
 
     /** QueryLocator BatchableContext*/
     global Database.QueryLocator start(Database.BatchableContext bc) {
-        return Database.getQueryLocator([SELECT Id, Name, acpl__Account_Planning_Type__c, CreatedDate FROM acpl__Account_Planning__c WHERE CreatedDate = TODAY]);
+        return Database.getQueryLocator([SELECT Id, Name, acpl__Account_Planning_Type__c, CreatedDate, acpl__gf_mandatory_type__c FROM acpl__Account_Planning__c WHERE CreatedDate = TODAY]);
     }
     /** Execute BatchableContext*/
     global void execute(Database.BatchableContext bc, List<acpl__Account_Planning__c> scope) {

@@ -35,7 +35,7 @@ public class AP_Question_Handler_tst {
 		Final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
 		insert apR;
         
-        List<acpl__Account_Planning__c> apList = [SELECT Id, Name, acpl__Account_Planning_Type__c, CreatedDate FROM acpl__Account_Planning__c 
+        List<acpl__Account_Planning__c> apList = [SELECT Id, Name, acpl__Account_Planning_Type__c, CreatedDate, acpl__gf_mandatory_type__c FROM acpl__Account_Planning__c 
                                                   WHERE CreatedDate = TODAY AND Name = 'Account Planning'];
         apHandler.relateAPQuestions(apList);
         
@@ -65,7 +65,7 @@ public class AP_Question_Handler_tst {
 		Final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
 		insert apR;
         
-        List<acpl__Account_Planning__c> apList = [SELECT Id, Name, acpl__Account_Planning_Type__c, CreatedDate FROM acpl__Account_Planning__c 
+        List<acpl__Account_Planning__c> apList = [SELECT Id, Name, acpl__Account_Planning_Type__c, CreatedDate, acpl__gf_mandatory_type__c FROM acpl__Account_Planning__c
                                                   WHERE CreatedDate = TODAY AND Name = 'Account Planning'];
         apHandler.relateAPQuestions(apList);
         
@@ -94,7 +94,7 @@ public class AP_Question_Handler_tst {
 		Final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
 		insert apR;
         
-        List<acpl__Account_Planning__c> apList = [SELECT Id, Name, acpl__Account_Planning_Type__c, CreatedDate FROM acpl__Account_Planning__c 
+        List<acpl__Account_Planning__c> apList = [SELECT Id, Name, acpl__Account_Planning_Type__c, CreatedDate, acpl__gf_mandatory_type__c FROM acpl__Account_Planning__c
                                                   WHERE CreatedDate = TODAY AND Name = 'Account Planning'];
         apHandler.relateAPQuestions(apList);
         
