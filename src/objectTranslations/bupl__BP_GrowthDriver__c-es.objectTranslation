@@ -258,10 +258,6 @@
             <translation><!-- PFL --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>PPF</masterLabel>
-            <translation><!-- PPF --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Pago a proveedores</masterLabel>
             <translation><!-- Pago a proveedores --></translation>
         </picklistValues>
