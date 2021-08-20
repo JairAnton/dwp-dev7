@@ -322,6 +322,10 @@
             <translation><!-- Tesorería --></translation>
         </picklistValues>
     </fields>
+    <fields>
+        <label>Fecha estimada de cierre</label>
+        <name>ExpectedDate__c</name>
+    </fields>
     <gender><!-- Feminine --></gender>
     <nameFieldLabel><!-- Growth Driver Name --></nameFieldLabel>
 </CustomObjectTranslation>

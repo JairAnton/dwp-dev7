@@ -3,6 +3,10 @@
     <label>AP Acciones Comerciales - Clientes Resum</label>
     <protected>false</protected>
     <values>
+        <field>BE_SingleRetatedListView__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
         <field>Columns__c</field>
         <value xsi:type="xsd:string">{
     &quot;values&quot;: [
@@ -16,7 +20,7 @@
             &quot;fieldName&quot;: &quot;acpl__gf_event_date__c&quot;,
             &quot;type&quot;: &quot;Date&quot;
         },
-{
+        {
             &quot;label&quot;: &quot;PRODUCTO&quot;,
             &quot;fieldName&quot;: &quot;Product__c&quot;,
             &quot;type&quot;: &quot;text&quot;
@@ -25,6 +29,11 @@
             &quot;label&quot;: &quot;COMENTARIOS&quot;,
             &quot;fieldName&quot;: &quot;Comments__c&quot;,
             &quot;type&quot;: &quot;textArea&quot;
+        },
+        {
+            &quot;label&quot;: &quot;FECHA DE CREACIÓN&quot;,
+            &quot;fieldName&quot;: &quot;Name&quot;,
+            &quot;type&quot;: &quot;Date&quot;
         },
         {
             &quot;type&quot;: &quot;action&quot;,
@@ -50,7 +59,7 @@
     </values>
     <values>
         <field>FieldsQuery__c</field>
-        <value xsi:type="xsd:string">toLabel(acpl__gf_comm_plan_event_type_name__c),acpl__gf_event_date__c,Comments__c,Product__c</value>
+        <value xsi:type="xsd:string">toLabel(acpl__gf_comm_plan_event_type_name__c),acpl__gf_event_date__c,Comments__c,Product__c,Name</value>
     </values>
     <values>
         <field>Filter__c</field>
@@ -65,8 +74,15 @@
         <value xsi:type="xsd:double">6.0</value>
     </values>
     <values>
-        <field>Settings__c</field>
+        <field>Order__c</field>
         <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Settings__c</field>
+        <value xsi:type="xsd:string">{
+&quot;readClassName&quot;: &quot;BE_CreateCommercialPlantEvent_cls&quot;,
+&quot;refreshView&quot;: true
+}</value>
     </values>
     <values>
         <field>sObjectApiName__c</field>

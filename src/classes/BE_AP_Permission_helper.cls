@@ -1,12 +1,8 @@
-/**
- * BE_AP_Permission_helper helper class for validation AP
- * <p /><p />
- * Modification log:<p />
- * -------------------------------------------------------------------
+/*** BE_AP_Permission_helper helper class for validation AP
  * Developer                    Date                Description<p />
  * -------------------------------------------------------------------
  * Diego Carbajal    		07/05/2020          Original version.<p />
- *
+ * Jair Anton				19/08/2021			Omitir validación para reabrir AP
  * @author Diego Carbajal
  */
 @SuppressWarnings('all')
@@ -231,7 +227,8 @@ public with sharing class BE_AP_Permission_helper {
 			Final Map<String, Object> validateSobj = BE_AP_Administration_helper.validateStatus(apR);
 			if((Boolean) validateSobj.get('validation') == false) { // validacion SONAR
 				if(!(adminUser || workOnSObj)) {
-					BE_AP_Administration_helper.addErrorOnSobject(mapsObject.get(apR.Id), sobjType, BE_AP_Administration_helper.customMessage(actionType, recordName, (String)validateSobj.get('status')));
+					// commented for reopen account planning
+					//BE_AP_Administration_helper.addErrorOnSobject(mapsObject.get(apR.Id), sobjType, BE_AP_Administration_helper.customMessage(actionType, recordName, (String)validateSobj.get('status')));
 				}
 			} else if(!(apR.acpl__gf_ap_indvi_lock_edit_ind_type__c)) {//validacion SONAR
 				if(!(adminUser || workOnSObj)) {

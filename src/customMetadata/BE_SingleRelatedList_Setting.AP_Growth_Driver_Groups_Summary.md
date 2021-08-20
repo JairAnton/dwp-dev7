@@ -3,6 +3,10 @@
     <label>AP Variable de crecimiento - Grupos Resu</label>
     <protected>false</protected>
     <values>
+        <field>BE_SingleRetatedListView__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
         <field>Columns__c</field>
         <value xsi:type="xsd:string">{
     &quot;values&quot;: [
@@ -54,6 +58,11 @@
             &quot;fieldName&quot;: &quot;bupl__gf_growth_drvr_prdt_desc__c&quot;,
             &quot;type&quot;: &quot;textArea&quot;
         },
+{
+&quot;label&quot;: &quot;FECHA DE CREACIÓN&quot;,
+&quot;fieldName&quot;: &quot;ExpectedDate__c&quot;,
+&quot;type&quot;: &quot;Date&quot;
+},
         {
             &quot;type&quot;: &quot;action&quot;,
             &quot;typeAttributes&quot;: {
@@ -78,7 +87,7 @@
     </values>
     <values>
         <field>FieldsQuery__c</field>
-        <value xsi:type="xsd:string">bupl__solution_category_id__c,toLabel(bupl__solution_category_desc__c),bupl__gf_growth_drvr_prdt_desc__c, ClientAssigned__r.Name, Amount__c</value>
+        <value xsi:type="xsd:string">bupl__solution_category_id__c,toLabel(bupl__solution_category_desc__c),bupl__gf_growth_drvr_prdt_desc__c, ClientAssigned__r.Name, Amount__c,ExpectedDate__c</value>
     </values>
     <values>
         <field>Filter__c</field>
@@ -93,8 +102,15 @@
         <value xsi:type="xsd:double">6.0</value>
     </values>
     <values>
-        <field>Settings__c</field>
+        <field>Order__c</field>
         <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Settings__c</field>
+        <value xsi:type="xsd:string">{
+&quot;readClassName&quot;: &quot;BE_CreateDriveGrowth_ctr&quot;,
+&quot;refreshView&quot; : true
+}</value>
     </values>
     <values>
         <field>sObjectApiName__c</field>

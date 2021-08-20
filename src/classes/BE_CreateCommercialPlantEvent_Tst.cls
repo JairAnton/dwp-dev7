@@ -1,17 +1,18 @@
-/**
-   -------------------------------------------------------------------------------------------------
-   @Name <BE_CreateCommercialPlantEvent_Tst>
+/**@Name <BE_CreateCommercialPlantEvent_Tst>
    @Author Martin Alejandro Mori Chavez (martin.mori.contractor@bbva.com)
-   @Date 2020-06-04
-   @Description test for BE_CreateCommercialPlantEvent_cls class
-   @Changes
    Date        Author   Email                  				Type
    2020-06-04  MAMC     martin.mori.contractor@bbva.com		Creation
    2020-10-09  DCP     diego.carbajal@bbva.com				Modified
+   19/08/2021  JAA     jair.anton.contractor@bbva.com      Valida CPE creados.
    -------------------------------------------------------------------------------------------------
  */
 @isTest
 public without sharing class BE_CreateCommercialPlantEvent_Tst {
+    /** @Description VALIDATED*/
+    Final static String VALIDATED = 'Validated';
+    /**@Description IN_PLACE */
+    Final static String IN_PLACE = 'In place';
+
     /*Setup Data*/
     @TestSetup
     public static void setUp() {
@@ -27,6 +28,47 @@ public without sharing class BE_CreateCommercialPlantEvent_Tst {
                                              acpl__participant_id__c = acc.Id, recordTypeId = recordType.get('Account_Planning').getRecordTypeId());
     }
     
+        /**
+     @Description test readRecords method, correct scenary
+    */
+    @isTest
+    static void readRecordsTest() {
+        Final acpl__Account_Planning__c accPlan = [SELECT Id, acpl__participant_id__c FROM acpl__Account_Planning__c LIMIT 1][0];
+        Final acpl__Commercial_Plan_Event__c evt1 = new acpl__Commercial_Plan_Event__c(Name = 'AP_RECORD_102 - 2020-05-31', acpl__gf_account_planning_id__c = accPlan.Id, acpl__gf_comm_plan_event_type_name__c = 'Task', 
+                                                            acpl__gf_event_date__c = System.today(), acpl__participant_id__c = accPlan.acpl__participant_id__c);
+        Final acpl__Commercial_Plan_Event__c evt2 = new acpl__Commercial_Plan_Event__c(Name = 'AP_RECORD_102 - 2020-05-31', acpl__gf_account_planning_id__c = accPlan.Id, acpl__gf_comm_plan_event_type_name__c = 'Opportunity', 
+                                                                acpl__gf_event_date__c = System.today(), acpl__participant_id__c = accPlan.acpl__participant_id__c);
+        Final acpl__Commercial_Plan_Event__c evt3 = new acpl__Commercial_Plan_Event__c(Name = 'AP_RECORD_102 - 2020-05-31', acpl__gf_account_planning_id__c = accPlan.Id, acpl__gf_comm_plan_event_type_name__c = 'Visit', 
+                                                                acpl__gf_event_date__c = System.today(), acpl__participant_id__c = accPlan.acpl__participant_id__c);
+        
+        Final List<SObject> sObjs = new List<SObject>();
+        sObjs.add(evt1);
+        
+        Final BE_CreateCommercialPlantEvent_cls commPlanEvt = new BE_CreateCommercialPlantEvent_cls();
+        Final BE_SingleRelatedListCRUD_Cls.Response resp1 = commPlanEvt.createRecords(sObjs);
+        sObjs[0] = evt2;
+        Final BE_SingleRelatedListCRUD_Cls.Response resp2 = commPlanEvt.createRecords(sObjs);
+        sObjs[0] = evt3;
+        Final BE_SingleRelatedListCRUD_Cls.Response resp3 = commPlanEvt.createRecords(sObjs);
+
+        Test.startTest();
+		accPlan.acpl__gf_ap_status_type_name__c = VALIDATED;
+        accPlan.acpl__gf_ap_substatus_type_name__c = IN_PLACE;
+        accPlan.acpl__gf_ap_indvi_lock_edit_ind_type__c = false;
+        update accPlan;
+
+        
+        Final Map<String,Object> apMap = new Map<String,Object>();
+        apMap.put('recordId', accPlan.Id);
+
+        final BE_SingleRelatedListCRUD_Cls.Response response = commPlanEvt.readRecords(apMap);
+
+        //System.assertEquals(resp.message, 'Successful', 'Fail');
+        Test.stopTest();
+        System.assertEquals(true, response.isSuccess);
+    }
+
+
     /**
      @Description test createRecords method, correct scenary
     */
@@ -118,4 +160,161 @@ public without sharing class BE_CreateCommercialPlantEvent_Tst {
         System.assert(!resp.isSuccess, 'fail!');
         Test.stopTest();
     }
+
+    
+    /**
+     @Description test updateRecords method, correct scenary task
+    */
+    @isTest
+    static void updateRecordsTaskTest() {
+        Final acpl__Account_Planning__c accPlan = [SELECT Id, acpl__participant_id__c FROM acpl__Account_Planning__c LIMIT 1][0];
+        Final acpl__Commercial_Plan_Event__c evt1 = new acpl__Commercial_Plan_Event__c(Name = 'AP_RECORD_102 - 2020-05-31', acpl__gf_account_planning_id__c = accPlan.Id, acpl__gf_comm_plan_event_type_name__c = 'Task', 
+                                                            acpl__gf_event_date__c = System.today(), acpl__participant_id__c = accPlan.acpl__participant_id__c);
+        
+        Final List<SObject> sObjs = new List<SObject>();
+        sObjs.add(evt1);
+        
+        Final BE_CreateCommercialPlantEvent_cls commPlanEvt = new BE_CreateCommercialPlantEvent_cls();
+        Final BE_SingleRelatedListCRUD_Cls.Response resp1 = commPlanEvt.createRecords(sObjs);
+        
+        Test.startTest();
+        
+		accPlan.acpl__gf_ap_status_type_name__c = VALIDATED;
+        accPlan.acpl__gf_ap_substatus_type_name__c = IN_PLACE;
+        accPlan.acpl__gf_ap_indvi_lock_edit_ind_type__c = false;
+        update accPlan;
+
+		accPlan.acpl__gf_ap_status_type_name__c = 'In Progress';
+        accPlan.acpl__gf_ap_substatus_type_name__c = 'Pre-validated';
+        accPlan.acpl__gf_ap_indvi_lock_edit_ind_type__c = true;
+        update accPlan;
+
+        final BE_SingleRelatedListCRUD_Cls.Response resp = new BE_CreateCommercialPlantEvent_cls().updateRecords(sObjs);
+        Test.stopTest();
+        System.assertEquals(false, resp.isSuccess);
+    }
+
+    
+    /**
+     @Description test deleteRecords method, correct scenary 
+    */
+    @isTest
+    static void deleteRecordsTest() {
+        final acpl__Account_Planning__c accPlan = [SELECT Id, acpl__participant_id__c FROM acpl__Account_Planning__c LIMIT 1][0];
+        final acpl__Commercial_Plan_Event__c planEvt = new acpl__Commercial_Plan_Event__c();
+        planEvt.Name = 'AP_RECORD_102 - 2020-05-31';
+        planEvt.acpl__gf_account_planning_id__c = accPlan.Id;
+        planEvt.acpl__gf_comm_plan_event_type_name__c = 'Task';
+        planEvt.acpl__gf_event_date__c = System.today();
+        planEvt.acpl__participant_id__c = accPlan.acpl__participant_id__c;
+        final List<SObject> sObjs = new List<SObject>();
+        sObjs.add(planEvt);
+        
+        final BE_CreateCommercialPlantEvent_cls commPlanEvt = new BE_CreateCommercialPlantEvent_cls();
+        final BE_SingleRelatedListCRUD_Cls.Response response = commPlanEvt.createRecords(sObjs);
+        
+        Test.startTest();
+
+        final BE_SingleRelatedListCRUD_Cls.Response resp = new BE_CreateCommercialPlantEvent_cls().deleteRecords(sObjs);
+        Test.stopTest();
+        System.assertEquals(true, resp.isSuccess);
+    }
+
+    /**
+     @Description test deleteRecords method, correct scenary visit
+    */
+    @isTest
+    static void deleteRecordsVisitTest() {
+        Final acpl__Account_Planning__c accPlan = [SELECT Id, acpl__participant_id__c FROM acpl__Account_Planning__c LIMIT 1][0];
+        Final acpl__Commercial_Plan_Event__c evt3 = new acpl__Commercial_Plan_Event__c(Name = 'AP_RECORD_102 - 2020-05-31', acpl__gf_account_planning_id__c = accPlan.Id, acpl__gf_comm_plan_event_type_name__c = 'Visit', 
+                                                                acpl__gf_event_date__c = System.today(), acpl__participant_id__c = accPlan.acpl__participant_id__c);
+        
+        Final List<SObject> sObjs = new List<SObject>();
+        sObjs.add(evt3);
+        
+        Final BE_CreateCommercialPlantEvent_cls commPlanEvt = new BE_CreateCommercialPlantEvent_cls();
+        Final BE_SingleRelatedListCRUD_Cls.Response resp3 = commPlanEvt.createRecords(sObjs);
+        
+        Test.startTest();
+        
+		accPlan.acpl__gf_ap_status_type_name__c = VALIDATED;
+        accPlan.acpl__gf_ap_substatus_type_name__c = IN_PLACE;
+        accPlan.acpl__gf_ap_indvi_lock_edit_ind_type__c = false;
+        update accPlan;
+
+		accPlan.acpl__gf_ap_status_type_name__c = 'In Progress';
+        accPlan.acpl__gf_ap_substatus_type_name__c = 'Pre-validated';
+        accPlan.acpl__gf_ap_indvi_lock_edit_ind_type__c = true;
+        update accPlan;
+
+        final BE_SingleRelatedListCRUD_Cls.Response resp = new BE_CreateCommercialPlantEvent_cls().deleteRecords(sObjs);
+        Test.stopTest();
+        System.assertEquals(false, resp.isSuccess);
+    }
+
+    
+    /**
+     @Description test deleteRecords method, correct scenary opportunity
+    */
+    @isTest
+    static void deleteRecordsOpportunityTest() {
+        Final acpl__Account_Planning__c accPlan = [SELECT Id, acpl__participant_id__c FROM acpl__Account_Planning__c LIMIT 1][0];
+        Final acpl__Commercial_Plan_Event__c evt2 = new acpl__Commercial_Plan_Event__c(Name = 'AP_RECORD_102 - 2020-05-31', acpl__gf_account_planning_id__c = accPlan.Id, acpl__gf_comm_plan_event_type_name__c = 'Opportunity', 
+                                                                acpl__gf_event_date__c = System.today(), acpl__participant_id__c = accPlan.acpl__participant_id__c);
+        
+        Final List<SObject> sObjs = new List<SObject>();
+        sObjs.add(evt2);
+        
+        Final BE_CreateCommercialPlantEvent_cls commPlanEvt = new BE_CreateCommercialPlantEvent_cls();
+        Final BE_SingleRelatedListCRUD_Cls.Response resp1 = commPlanEvt.createRecords(sObjs);
+        
+        Test.startTest();
+        
+		accPlan.acpl__gf_ap_status_type_name__c = VALIDATED;
+        accPlan.acpl__gf_ap_substatus_type_name__c = IN_PLACE;
+        accPlan.acpl__gf_ap_indvi_lock_edit_ind_type__c = false;
+        update accPlan;
+
+		accPlan.acpl__gf_ap_status_type_name__c = 'In Progress';
+        accPlan.acpl__gf_ap_substatus_type_name__c = 'Pre-validated';
+        accPlan.acpl__gf_ap_indvi_lock_edit_ind_type__c = true;
+        update accPlan;
+
+        final BE_SingleRelatedListCRUD_Cls.Response resp = new BE_CreateCommercialPlantEvent_cls().deleteRecords(sObjs);
+        Test.stopTest();
+        System.assertEquals(false, resp.isSuccess);
+    }
+
+    /**
+     @Description test deleteRecords method, correct scenary task
+    */
+    @isTest
+    static void deleteRecordsTaskTest() {
+        Final acpl__Account_Planning__c accPlan = [SELECT Id, acpl__participant_id__c FROM acpl__Account_Planning__c LIMIT 1][0];
+        Final acpl__Commercial_Plan_Event__c evt1 = new acpl__Commercial_Plan_Event__c(Name = 'AP_RECORD_102 - 2020-05-31', acpl__gf_account_planning_id__c = accPlan.Id, acpl__gf_comm_plan_event_type_name__c = 'Task', 
+                                                            acpl__gf_event_date__c = System.today(), acpl__participant_id__c = accPlan.acpl__participant_id__c);
+        
+        Final List<SObject> sObjs = new List<SObject>();
+        sObjs.add(evt1);
+        
+        Final BE_CreateCommercialPlantEvent_cls commPlanEvt = new BE_CreateCommercialPlantEvent_cls();
+        Final BE_SingleRelatedListCRUD_Cls.Response resp1 = commPlanEvt.createRecords(sObjs);
+        
+        Test.startTest();
+        
+		accPlan.acpl__gf_ap_status_type_name__c = VALIDATED;
+        accPlan.acpl__gf_ap_substatus_type_name__c = IN_PLACE;
+        accPlan.acpl__gf_ap_indvi_lock_edit_ind_type__c = false;
+        update accPlan;
+
+		accPlan.acpl__gf_ap_status_type_name__c = 'In Progress';
+        accPlan.acpl__gf_ap_substatus_type_name__c = 'Pre-validated';
+        accPlan.acpl__gf_ap_indvi_lock_edit_ind_type__c = true;
+        update accPlan;
+
+        final BE_SingleRelatedListCRUD_Cls.Response resp = new BE_CreateCommercialPlantEvent_cls().deleteRecords(sObjs);
+        Test.stopTest();
+        System.assertEquals(false, resp.isSuccess);
+    }
+
 }

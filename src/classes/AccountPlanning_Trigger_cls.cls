@@ -1,10 +1,9 @@
-/**
- * Logic class of Handler Trigger of the AccountPlanning object.
- * -------------------------------------------------------------------
+/**Logic class of Handler Trigger of the AccountPlanning object.
  * Developer                    Date                Description<p />
  * -------------------------------------------------------------------
  * Diego Carbajal    		15/05/2020          Original version.<p />
  * Jair Anton				07/06/2021			Compartir AP con el JPN de cada región
+ * Jair Anton				20/08/2021			Shared edit access level to JPN
  * @SuppressWarnings("PMD.CyclomaticComplexity"): Se utiliza para excluir del sonar para el metodo relateAPQuestions
  * implementado por Global
  * @author Diego Carbajal
@@ -69,22 +68,41 @@ public without sharing class AccountPlanning_Trigger_cls {
         Final List<User> userList = [SELECT Id, Name, UserRoleId FROM User WHERE UserRoleId IN : jpnRole.keySet() AND isActive = TRUE];
         Final List<acpl__Account_Planning__c> apList = [SELECT Id, acpl__proposal_manager_id__r.UserRoleId FROM acpl__Account_Planning__c WHERE Id IN : apNewMap.keySet()];
         Final List<acpl__Account_Planning__Share> apShareList = new List<acpl__Account_Planning__Share>();
-        
+		Final List<bupl__BusinessPlan__Share> bpShareList = new List<bupl__BusinessPlan__Share>();
+		Final List<bupl__BusinessPlan__c> bpList = [SELECT Id, acpl__gf_account_planning_id__c FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c IN : apNewMap.keySet()];
+        Final Map<Id, Id> bpMap = new Map<Id, Id>();
+
+		for(bupl__BusinessPlan__c item : bpList) {
+			bpMap.put(item.acpl__gf_account_planning_id__c, item.Id);
+		}
+		
         for(User usItem : userList) {
             Final Map<Id, Id> currentRole = usRoles.get(usItem.UserRoleId);
-            
-            for(acpl__Account_Planning__c apItem : apList) {
-                if(currentRole.containsKey(apItem.acpl__proposal_manager_id__r.UserRoleId)) {
-                    apShareList.add(new acpl__Account_Planning__Share(ParentId = apItem.Id, UserOrGroupId = usItem.Id, AccessLevel = 'Read', RowCause = 'Manual'));
-                }   
-            }
+            sharingAPWithBP(apList, bpMap, usItem, bpShareList, apShareList, currentRole);
         }
         
         if(!apShareList.isEmpty()) {
             insert apShareList;
         }
+
+		if(!bpShareList.isEmpty()) {
+			insert bpShareList;
+		}
     }
     
+	private static void sharingAPWithBP(List<acpl__Account_Planning__c> apList, Map<Id, Id> bpMap, User usItem, List<bupl__BusinessPlan__Share> bpShareList, List<acpl__Account_Planning__Share> apShareList, Map<Id, Id> currentRole) {
+		for(acpl__Account_Planning__c apItem : apList) {
+			if(currentRole.containsKey(apItem.acpl__proposal_manager_id__r.UserRoleId)) {
+				apShareList.add(new acpl__Account_Planning__Share(ParentId = apItem.Id, UserOrGroupId = usItem.Id, AccessLevel = 'Edit', RowCause = 'Manual'));
+				if(bpMap.containsKey(apItem.Id)) {
+					Id bpItem = bpMap.get(apItem.Id);
+					bpShareList.add(new bupl__BusinessPlan__Share(ParentId = bpItem, UserOrGroupId = usItem.Id, AccessLevel = 'Edit', RowCause = 'Manual'));
+				}
+			}   
+
+		}
+	}
+
     /**
 	 * @Description Filtra los roles por su jerarquía obteniendo levels and sub-levels 
 	 */
@@ -102,11 +120,11 @@ public without sharing class AccountPlanning_Trigger_cls {
             if(rolesPerLevel.containsKey(item.ParentRoleId)) {
                 current = rolesPerLevel.get(item.ParentRoleId);
             }
-            
-            current.put(item.Id, item);
-            rolesPerLevel.put(item.ParentRoleId, current);
+
+			current.put(item.Id, item);
+			rolesPerLevel.put(item.ParentRoleId, current);
         }
-        
+		
         return rolesPerLevel;
     }
     

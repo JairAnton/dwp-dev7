@@ -1,18 +1,18 @@
-/**
-   -------------------------------------------------------------------------------------------------
-   @Name <BE_CreateDriveGrowth_Tst>
+/**@Name <BE_CreateDriveGrowth_Tst>
    @Author Martin Alejandro Mori Chavez (martin.mori.contractor@bbva.com)
-   @Date 2020-06-04
-   @Description test for BE_CreateDriveGrowth_ctr class
-   @Changes
    Date        Author   Email                  				Type
    2020-06-04  MAMC     martin.mori.contractor@bbva.com		Creation
    2020-10-09  DCP     diego.carbajal@bbva.com				Modified
+   2021-08-19  JAAA    jair.anton.contractor@bbva.com       Valida GD creados.
    -------------------------------------------------------------------------------------------------
  */
 @isTest
 public without sharing class BE_CreateDriveGrowth_Tst {
-    
+    /** @Description VALIDATED*/
+    Final static String VALIDATED = 'Validated';
+    /**@Description IN_PLACE */
+    Final static String IN_PLACE = 'In place';
+
     /*Setup Data*/
     @TestSetup
     public static void setUp() {
@@ -42,6 +42,30 @@ public without sharing class BE_CreateDriveGrowth_Tst {
                                      acpl__gf_account_planning_id__c = bpAux.acpl__gf_account_planning_id__c);
     }
     
+    /**
+     @Description test createRecords method, correct scenary
+    */
+    @isTest
+    static void readRecordsTest() {
+        Final List<acpl__Account_Planning__c> apList = [SELECT Id FROM acpl__Account_Planning__c LIMIT 1];
+        Final bupl__BP_GrowthDriver__c growthDriver = obtainGD();
+        new BE_CreateDriveGrowth_ctr().createRecords(new List<SObject>{growthDriver});
+
+        Test.startTest();
+		apList[0].acpl__gf_ap_status_type_name__c = VALIDATED;
+        apList[0].acpl__gf_ap_substatus_type_name__c = IN_PLACE;
+        apList[0].acpl__gf_ap_indvi_lock_edit_ind_type__c = false;
+        update apList[0];
+
+        Final Map<String,Object> apMap = new Map<String,Object>();
+        apMap.put('recordId', apList[0].Id);
+
+        Final BE_SingleRelatedListCRUD_Cls.Response response = new BE_CreateDriveGrowth_ctr().readRecords(apMap);
+        Test.stopTest();
+
+        System.assertEquals(response.isSuccess, true, 'success!!!');
+    }
+
     /**
      @Description test createRecords method, correct scenary
     */
@@ -99,6 +123,20 @@ public without sharing class BE_CreateDriveGrowth_Tst {
      @Description test updateRecords method, correct scenary invalid Product
     */
     @isTest
+    static void updateRecordsExpectedTest() {
+        Final bupl__BP_GrowthDriver__c growthDriver = obtainGD();
+        new BE_CreateDriveGrowth_ctr().createRecords(new List<SObject>{growthDriver});
+        growthDriver.ExpectedDate__c = null;
+        Test.startTest();
+        final BE_SingleRelatedListCRUD_Cls.Response resp = new BE_CreateDriveGrowth_ctr().updateRecords(new List<SObject>{growthDriver});
+        Test.stopTest();
+        System.assert(!resp.isSuccess, 'Failed');
+    }
+
+    /**
+     @Description test updateRecords method, correct scenary invalid Product
+    */
+    @isTest
     static void updateRecordsInvalidPrdTest() {
         Final bupl__BP_GrowthDriver__c growthDriver = obtainGD();
         new BE_CreateDriveGrowth_ctr().createRecords(new List<SObject>{growthDriver});
@@ -108,17 +146,91 @@ public without sharing class BE_CreateDriveGrowth_Tst {
         Test.stopTest();
         System.assert(!resp.isSuccess, 'Failed');
     }
+
+    /**
+     @Description test updateRecords method, correct scenary invalid Product
+    */
+    @isTest
+    static void updateRecordsClientTest() {
+        Final List<acpl__Account_Planning__c> apList = [SELECT Id FROM acpl__Account_Planning__c LIMIT 1];
+        Final Account acc = new Account(Name = 'TestAcct 2');
+		insert acc;
+
+        Final bupl__BP_GrowthDriver__c growthDriver = obtainGD();
+        new BE_CreateDriveGrowth_ctr().createRecords(new List<SObject>{growthDriver});
+
+        Test.startTest();
+		apList[0].acpl__gf_ap_status_type_name__c = VALIDATED;
+        apList[0].acpl__gf_ap_substatus_type_name__c = IN_PLACE;
+        apList[0].acpl__gf_ap_indvi_lock_edit_ind_type__c = false;
+        update apList[0];
+
+		apList[0].acpl__gf_ap_status_type_name__c = 'In Progress';
+        apList[0].acpl__gf_ap_substatus_type_name__c = 'Pre-validated';
+        apList[0].acpl__gf_ap_indvi_lock_edit_ind_type__c = true;
+        update apList[0];
+
+        growthDriver.ClientAssigned__c = acc.Id;
+
+        final BE_SingleRelatedListCRUD_Cls.Response resp = new BE_CreateDriveGrowth_ctr().updateRecords(new List<SObject>{growthDriver});
+        Test.stopTest();
+        System.assert(!resp.isSuccess, 'Failed');
+    }
+
+        /**
+     @Description test updateRecords method, correct scenary
+    */
+    @isTest
+    static void updateRecordsNullTest() {
+        Test.startTest();
+        Final BE_SingleRelatedListCRUD_Cls.Response response = new BE_CreateDriveGrowth_ctr().updateRecords(null);
+        Test.stopTest();
+        System.assert(!response.isSuccess, 'fail!');
+    }
     
+    /**
+     @Description test deleteRecords method, correct scenary invalid CPE
+    */
+    @isTest
+    static void deleteRecordsInvalidTest() {
+        Final List<acpl__Account_Planning__c> apList = [SELECT Id FROM acpl__Account_Planning__c LIMIT 1];
+        Final bupl__BP_GrowthDriver__c growthDriver = obtainGD();
+        new BE_CreateDriveGrowth_ctr().createRecords(new List<SObject>{growthDriver});
+        
+        Test.startTest();
+		apList[0].acpl__gf_ap_status_type_name__c = VALIDATED;
+        apList[0].acpl__gf_ap_substatus_type_name__c = IN_PLACE;
+        apList[0].acpl__gf_ap_indvi_lock_edit_ind_type__c = false;
+        update apList[0];
+
+        final BE_SingleRelatedListCRUD_Cls.Response resp = new BE_CreateDriveGrowth_ctr().deleteRecords(new List<SObject>{growthDriver});
+        Test.stopTest();
+        System.assertEquals(false, resp.isSuccess);
+    }
+
     /**
      @Description test deleteRecords method, correct scenary 
     */
     @isTest
     static void deleteRecordsTest() {
+        Final List<acpl__Account_Planning__c> apList = [SELECT Id FROM acpl__Account_Planning__c LIMIT 1];
         Final bupl__BP_GrowthDriver__c growthDriver = obtainGD();
         new BE_CreateDriveGrowth_ctr().createRecords(new List<SObject>{growthDriver});
+        
         Test.startTest();
         final BE_SingleRelatedListCRUD_Cls.Response resp = new BE_CreateDriveGrowth_ctr().deleteRecords(new List<SObject>{growthDriver});
         Test.stopTest();
-        System.assert(resp.isSuccess, 'Failed');
+        System.assertEquals(true, resp.isSuccess);
+    }
+
+       /**
+     @Description test deleteRecords method, correct scenary
+    */
+    @isTest
+    static void deleteRecordsNullTest() {
+        Test.startTest();
+        Final BE_SingleRelatedListCRUD_Cls.Response response = new BE_CreateDriveGrowth_ctr().deleteRecords(null);
+        Test.stopTest();
+        System.assert(!response.isSuccess, 'fail!');
     }
 }

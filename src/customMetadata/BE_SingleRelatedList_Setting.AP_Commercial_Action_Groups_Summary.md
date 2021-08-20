@@ -3,6 +3,10 @@
     <label>AP Acciones Comerciales - Grupos Resum</label>
     <protected>false</protected>
     <values>
+        <field>BE_SingleRetatedListView__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
         <field>Columns__c</field>
         <value xsi:type="xsd:string">{
     &quot;values&quot;: [
@@ -16,29 +20,34 @@
             &quot;fieldName&quot;: &quot;acpl__gf_event_date__c&quot;,
             &quot;type&quot;: &quot;Date&quot;
         },
-{
+        {
             &quot;label&quot;: &quot;PRODUCTO&quot;,
             &quot;fieldName&quot;: &quot;Product__c&quot;,
             &quot;type&quot;: &quot;text&quot;
         },
-{
-&quot;label&quot;: &quot;CLIENTE&quot;,
-&quot;fieldName&quot;: &quot;ClientAssigned__r&quot;,
-&quot;type&quot;: &quot;customlookup&quot;,
-&quot;typeAttributes&quot;: {
-&quot;isCustom&quot;: true,
-&quot;fieldName&quot;: &quot;Id&quot;,
-&quot;label&quot;: &quot;Name&quot;,
-&quot;objectApiName&quot;: &quot;ClientAssigned__r&quot;,
-&quot;rowData&quot;: {
-&quot;fieldName&quot;: &quot;rowData&quot;
-}
-}
-}, 
+        {
+            &quot;label&quot;: &quot;CLIENTE&quot;,
+            &quot;fieldName&quot;: &quot;ClientAssigned__r&quot;,
+            &quot;type&quot;: &quot;customlookup&quot;,
+            &quot;typeAttributes&quot;: {
+                &quot;isCustom&quot;: true,
+                &quot;fieldName&quot;: &quot;Id&quot;,
+                &quot;label&quot;: &quot;Name&quot;,
+                &quot;objectApiName&quot;: &quot;ClientAssigned__r&quot;,
+                &quot;rowData&quot;: {
+                    &quot;fieldName&quot;: &quot;rowData&quot;
+                }
+            }
+        },
         {
             &quot;label&quot;: &quot;COMENTARIOS&quot;,
             &quot;fieldName&quot;: &quot;Comments__c&quot;,
             &quot;type&quot;: &quot;textArea&quot;
+        },
+        {
+            &quot;label&quot;: &quot;FECHA DE CREACIÓN&quot;,
+            &quot;fieldName&quot;: &quot;Name&quot;,
+            &quot;type&quot;: &quot;Date&quot;
         },
         {
             &quot;type&quot;: &quot;action&quot;,
@@ -79,8 +88,15 @@
         <value xsi:type="xsd:double">6.0</value>
     </values>
     <values>
-        <field>Settings__c</field>
+        <field>Order__c</field>
         <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Settings__c</field>
+        <value xsi:type="xsd:string">{
+&quot;readClassName&quot;: &quot;BE_CreateCommercialPlantEvent_cls&quot;,
+&quot;refreshView&quot;: true
+}</value>
     </values>
     <values>
         <field>sObjectApiName__c</field>
