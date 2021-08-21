@@ -1,3 +1,9 @@
+/**@Name BE_AP_ReopenController_test
+   @Author Jair Anton
+   @Date 2021-08-19
+   Date        Author       Email                  Type
+   2021-08-19   JAAA    jair.anton.contractor@bbva.com  creation
+*/
 @isTest
 public class BE_AP_ReopenController_Test {
     /** @Description IN_PROGRESS*/
@@ -11,13 +17,12 @@ public class BE_AP_ReopenController_Test {
 
     /* testSetUp */
     @TestSetup
-    static void setUp(){
+    static void setUp() {
         AP_FactoryTest_tst.forSetUp();   
     }
 
     /* test reopen */
     static testMethod void testReopen() {
-        Final Boolean result;
         Final Account acc = [SELECT Id FROM Account LIMIT 1];
 		final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);
 		insert apR;
@@ -28,8 +33,8 @@ public class BE_AP_ReopenController_Test {
         update apR;
         
         Test.startTest();
-            result = BE_AP_ReopenController.reopenAPValidated(apR.Id);
+        Final Boolean result = BE_AP_ReopenController.reopenAPValidated(apR.Id);
         Test.stopTest();
-        System.assertEquals(true, result);
+        System.assert(result, 'Success');
     }
 }

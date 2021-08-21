@@ -111,7 +111,6 @@ public class AP_DynamicButtonsPanelTacticoTest {
     /* test elevar */
     static testMethod void testToInProgress() {
         Final Set<String> buttonsStatusSet = new Set<String>();
-        Final User admin = [SELECT Id FROM User WHERE Id=:UserInfo.getUserId() LIMIT 1];
         Final Account acc = [SELECT Id FROM Account LIMIT 1];
 
         final acpl__Account_Planning__c apR = AP_FactoryTest_tst.createAccountPlanning(acc.Id, MAP_USERS.get(EJECUTIVO).Id, null, true);

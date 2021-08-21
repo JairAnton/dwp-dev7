@@ -34,6 +34,7 @@ global without sharing class APDynamicButtonsStatusHandlerTactico implements dwp
         return buttonsStatusSet;
     }
 	
+    /** apValidatedUnlocked*/
     public static Boolean apValidatedUnlocked(acpl__Account_Planning__c accountPlan) {
         Boolean isValidated = false;
         if(accountPlan != null && accountPlan.acpl__gf_ap_status_type_name__c == 'Validated' && !accountPlan.acpl__gf_ap_indvi_lock_edit_ind_type__c) {
@@ -64,12 +65,13 @@ global without sharing class APDynamicButtonsStatusHandlerTactico implements dwp
                                                   WHERE bupl__gf_ap_team_role_user_name__c = :apSetting.acpl__Member_Role__c  AND acpl__gf_account_planning_id__c =:accountPlan.Id];
 
             Final Set<Id> apTeamIdSet = new Set<Id>();
-            hasCorrectRole = validateEmpty(apTeamList, apTeamIdSet, hasCorrectRole);
+            hasCorrectRole = validateEmpty(apTeamList, apTeamIdSet);
         }
         return hasCorrectRole;
     }
 
-    private static Boolean validateEmpty(List <bupl__AP_Team__c> apTeamList, Set<Id> apTeamIdSet, Boolean hasCorrectRole) {
+    private static Boolean validateEmpty(List <bupl__AP_Team__c> apTeamList, Set<Id> apTeamIdSet) {
+        Boolean hasCorrectRole = false;
         if(!apTeamList.isEmpty()) {
             for(bupl__AP_Team__c apTeamMAux : apTeamList) {
                 apTeamIdSet.add(apTeamMAux.bupl__gf_ap_team_user_id__c);

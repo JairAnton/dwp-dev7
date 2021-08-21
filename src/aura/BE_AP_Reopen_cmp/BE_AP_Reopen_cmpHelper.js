@@ -5,17 +5,14 @@
     },
     doContinue: function(component, event, helper) {
         var inputObject = component.get('v.inputAttributes');
-
         var action = component.get("c.reopenAPValidated");
         action.setParams({
             "recordId" : inputObject.recordId
         });
         action.setCallback(this, function(response) {
             var state = response.getState();
-
             if(state === "SUCCESS") {
                 var result = response.getReturnValue();
-                
                 if(result) {
                     helper.showToast("Success", "El plan de cuenta ha sido reabierto con éxito! Ahora puede editarlo nuevamente.", "Success");
                 } else {
@@ -24,7 +21,6 @@
             } else {
                 helper.showToast("Error", "El plan de cuenta no pudo ser reabierto con exito, inténtelo nuevamente.", "Error");
             }
-
             helper.closeMe(component, event);
             $A.get('e.force:refreshView').fire();
         });

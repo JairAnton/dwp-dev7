@@ -31,7 +31,7 @@ public with sharing class BE_CreateCommercialPlantEvent_cls extends BE_SingleRel
                                                                                                                 ORDER BY CreatedDate DESC]);
 
             for(acpl__Commercial_Plan_Event__c item : cplanMap.values()) {
-                item.Name = null;
+                item.Name = '';
             }
 
             for(Opportunity item : [SELECT Id, commercial_plan_event__c, CreatedDate FROM Opportunity WHERE commercial_plan_event__c IN : cplanMap.keySet()]) {
@@ -153,7 +153,7 @@ public with sharing class BE_CreateCommercialPlantEvent_cls extends BE_SingleRel
             typeActionSet.addAll(verifyTypeAction(lstCPE[0], 'Call'));
             typeActionSet.addAll(verifyTypeAction(lstCPE[0], 'Opportunity'));
     
-            if(typeActionSet.size() > 0) {            
+            if(!typeActionSet.isEmpty()) {            
                 Database.rollback(sPoint);
                 response.isSuccess = false;
                 response.message = 'No puedes eliminar una oportunidad, visita, llamada o tarea creada en una validación anterior.';
@@ -174,7 +174,7 @@ public with sharing class BE_CreateCommercialPlantEvent_cls extends BE_SingleRel
     }
 
     private static void evaluateRollback(Set<Id> typeActionSet, List<acpl__Commercial_Plan_Event__c> lstCPE, Savepoint sPoint, BE_SingleRelatedListCRUD_Cls.Response response) {
-        if(typeActionSet.size() > 0) {            
+        if(!typeActionSet.isEmpty()) {            
             Database.rollback(sPoint);
             response.isSuccess = false;
             response.message = 'No puedes editar una visita, llamada o tarea creada en una validación anterior, debes generar una nueva.';

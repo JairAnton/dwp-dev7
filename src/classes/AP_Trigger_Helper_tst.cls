@@ -15,10 +15,14 @@ public class AP_Trigger_Helper_tst {
     Final static String IN_PROGRESS = 'In Progress';
     /**@Description VALIDATED*/
     Final static String VALIDATED = 'Validated';
+    /**@Description SUCCESS*/
+    Final static String SUCCESS = 'Success';
+    /**@Description RECORD_NNAME*/
+    Final static String RECORD_NAME = 'AP_RECORD_102 - 2020-05-31';
 
     /* setUp */
     @TestSetup
-    static void setUp(){
+    static void setUp() {
 		AP_FactoryTest_tst.forSetUp();
 		AP_FactoryTest_tst.generateProduct();
         
@@ -36,7 +40,7 @@ public class AP_Trigger_Helper_tst {
         Final Account acc = [SELECT Id FROM Account LIMIT 1];
         Final User usr2 = [SELECT Id, LastName FROM User WHERE LastName = 'EJECUTIVO'];
         System.runAs(admin) {
-            createAP(acc.Id, usr2.Id, null, true);
+            createAP(acc.Id, usr2.Id, true);
             
             final Product2 prod = TestFactory.createProduct();
             prod.IsActive = true;
@@ -50,7 +54,7 @@ public class AP_Trigger_Helper_tst {
         }
     }
     
-    private static void createAP(String account, String usuario, Id rtId, Boolean unlock) {
+    private static void createAP(String account, String usuario, Boolean unlock) {
         final List<acpl__Account_Planning_Type__c> apTypes = [SELECT Id FROM acpl__Account_Planning_Type__c WHERE acpl__external_reference_id__c = 'TypeTest1' LIMIT 1];
         acpl__Account_Planning_Type__c apType;
         if(apTypes.isEmpty()) {
@@ -83,7 +87,6 @@ public class AP_Trigger_Helper_tst {
 	@isTest
 	static void updateAPActionsTest() {
         Final Map<Id, acpl__Account_Planning__c> apMap = new Map<Id, acpl__Account_Planning__c>();
-        Final Account acc = [SELECT Id FROM Account LIMIT 1];
         final acpl__Account_Planning__c accPlan = [SELECT Id, NAME, ACPL__GF_ACCOUNT_PLANNING_NAME__C, ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C, ACPL__GF_AP_LAUNCH_NAME__C, ACPL__GF_AP_LAUNCH_PERIOD_DESC__C, ACPL__GF_AP_LIMIT_DATE__C, 
                                                     ACPL__GF_AP_REQ_VALIDATION_IND_TYPE__C, ACPL__GF_AP_STATUS_TYPE_NAME__C, ACPL__GF_AP_SUBSTATUS_TYPE_NAME__C, ACPL__GF_MANDATORY_TYPE__C, acpl__participant_id__c, 
                                                     acpl__proposal_manager_id__c, acpl__gf_ap_priority_type_name__c, acpl__gf_ap_validator_user_id__c, acpl__Account_Planning_Type__c, acpl__gf_ap_validation_date__c 
@@ -110,6 +113,8 @@ public class AP_Trigger_Helper_tst {
 				}
 			}
 		Test.stopTest();
+        Final List<acpl__Commercial_Plan_Event__c> cpeList = [SELECT Id, Name, acpl__gf_account_planning_id__c FROM acpl__Commercial_Plan_Event__c WHERE acpl__gf_account_planning_id__c =: accPlan.Id];
+        System.assert(cpeList.size() == 3, SUCCESS);
 	}
 
        /**
@@ -118,7 +123,6 @@ public class AP_Trigger_Helper_tst {
 	@isTest
 	static void updateAPGDTest() {
         Final Map<Id, acpl__Account_Planning__c> apMap = new Map<Id, acpl__Account_Planning__c>();
-        Final Account acc = [SELECT Id FROM Account LIMIT 1];
         final acpl__Account_Planning__c accPlan = [SELECT Id, NAME, ACPL__GF_ACCOUNT_PLANNING_NAME__C, ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C, ACPL__GF_AP_LAUNCH_NAME__C, ACPL__GF_AP_LAUNCH_PERIOD_DESC__C, ACPL__GF_AP_LIMIT_DATE__C, 
                                                     ACPL__GF_AP_REQ_VALIDATION_IND_TYPE__C, ACPL__GF_AP_STATUS_TYPE_NAME__C, ACPL__GF_AP_SUBSTATUS_TYPE_NAME__C, ACPL__GF_MANDATORY_TYPE__C, acpl__participant_id__c, 
                                                     acpl__proposal_manager_id__c, acpl__gf_ap_priority_type_name__c, acpl__gf_ap_validator_user_id__c, acpl__Account_Planning_Type__c, acpl__gf_ap_validation_date__c 
@@ -145,6 +149,9 @@ public class AP_Trigger_Helper_tst {
 				}
 			}
 		Test.stopTest();
+
+		Final bupl__BP_GrowthDriver__c gdItem = [SELECT Id, bupl__solution_category_desc__c, acpl__gf_account_planning_id__c FROM bupl__BP_GrowthDriver__c WHERE acpl__gf_account_planning_id__c =: accPlan.Id LIMIT 1];
+        System.assert(gdItem.bupl__solution_category_desc__c == '0292230_NEW', SUCCESS);
 	}
 
        /**
@@ -153,7 +160,6 @@ public class AP_Trigger_Helper_tst {
 	@isTest
 	static void updateAPAmountTest() {
         Final Map<Id, acpl__Account_Planning__c> apMap = new Map<Id, acpl__Account_Planning__c>();
-        Final Account acc = [SELECT Id FROM Account LIMIT 1];
         final acpl__Account_Planning__c accPlan = [SELECT Id, NAME, ACPL__GF_ACCOUNT_PLANNING_NAME__C, ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C, ACPL__GF_AP_LAUNCH_NAME__C, ACPL__GF_AP_LAUNCH_PERIOD_DESC__C, ACPL__GF_AP_LIMIT_DATE__C, 
                                                     ACPL__GF_AP_REQ_VALIDATION_IND_TYPE__C, ACPL__GF_AP_STATUS_TYPE_NAME__C, ACPL__GF_AP_SUBSTATUS_TYPE_NAME__C, ACPL__GF_MANDATORY_TYPE__C, acpl__participant_id__c, 
                                                     acpl__proposal_manager_id__c, acpl__gf_ap_priority_type_name__c, acpl__gf_ap_validator_user_id__c, acpl__Account_Planning_Type__c, acpl__gf_ap_validation_date__c 
@@ -180,23 +186,26 @@ public class AP_Trigger_Helper_tst {
 				}
 			}
 		Test.stopTest();
+        Final bupl__BP_GrowthDriver__c gdItem = [SELECT Id, bupl__solution_category_desc__c, acpl__gf_account_planning_id__c, Amount__c FROM bupl__BP_GrowthDriver__c WHERE acpl__gf_account_planning_id__c =: accPlan.Id LIMIT 1];
+        System.assert(gdItem.Amount__c == 100300, SUCCESS);
+
 	}
 
 	private static void createActions(acpl__Account_Planning__c accPlan) {	
         Final User usr1 = [SELECT Id, Name FROM User WHERE LastName = 'EJECUTIVO 2'];
         Final List<acpl__Commercial_Plan_Event__c> cpeList = new List<acpl__Commercial_Plan_Event__c>();
-		cpeList.add(new acpl__Commercial_Plan_Event__c(Name = 'AP_RECORD_102 - 2020-05-31', acpl__gf_account_planning_id__c = accPlan.Id, acpl__gf_comm_plan_event_type_name__c = 'Task', 
+		cpeList.add(new acpl__Commercial_Plan_Event__c(Name = RECORD_NAME, acpl__gf_account_planning_id__c = accPlan.Id, acpl__gf_comm_plan_event_type_name__c = 'Task', 
 														acpl__gf_event_date__c = System.today(), acpl__participant_id__c = accPlan.acpl__participant_id__c));
-    	cpeList.add(new acpl__Commercial_Plan_Event__c(Name = 'AP_RECORD_102 - 2020-05-31', acpl__gf_account_planning_id__c = accPlan.Id, acpl__gf_comm_plan_event_type_name__c = 'Opportunity', 
+    	cpeList.add(new acpl__Commercial_Plan_Event__c(Name = RECORD_NAME, acpl__gf_account_planning_id__c = accPlan.Id, acpl__gf_comm_plan_event_type_name__c = 'Opportunity', 
 					acpl__gf_event_date__c = System.today(), acpl__participant_id__c = accPlan.acpl__participant_id__c));
-		cpeList.add(new acpl__Commercial_Plan_Event__c(Name = 'AP_RECORD_102 - 2020-05-31', acpl__gf_account_planning_id__c = accPlan.Id, acpl__gf_comm_plan_event_type_name__c = 'Visit', 
+		cpeList.add(new acpl__Commercial_Plan_Event__c(Name = RECORD_NAME, acpl__gf_account_planning_id__c = accPlan.Id, acpl__gf_comm_plan_event_type_name__c = 'Visit', 
 					acpl__gf_event_date__c = System.today(), acpl__participant_id__c = accPlan.acpl__participant_id__c, Asiggned_User__c = usr1.Id));
         
         insert cpeList;
 	}
 
 	private static void updateActions(acpl__Account_Planning__c accPlan) {
-		List<acpl__Commercial_Plan_Event__c> cpeList = [SELECT Id, Name, acpl__gf_account_planning_id__c, acpl__gf_comm_plan_event_type_name__c, acpl__gf_event_date__c, acpl__participant_id__c 
+		Final List<acpl__Commercial_Plan_Event__c> cpeList = [SELECT Id, Name, acpl__gf_account_planning_id__c, acpl__gf_comm_plan_event_type_name__c, acpl__gf_event_date__c, acpl__participant_id__c 
 																FROM acpl__Commercial_Plan_Event__c WHERE acpl__gf_account_planning_id__c =: accPlan.Id];
 
 		for(acpl__Commercial_Plan_Event__c item : cpeList) {
@@ -214,7 +223,7 @@ public class AP_Trigger_Helper_tst {
 		
 		insert growthDriver;
         
-        Final acpl__Commercial_Plan_Event__c cpeItem = new acpl__Commercial_Plan_Event__c(Name = 'AP_RECORD_102 - 2020-05-31', acpl__gf_account_planning_id__c = accPlan.Id, acpl__gf_comm_plan_event_type_name__c = 'Opportunity', 
+        Final acpl__Commercial_Plan_Event__c cpeItem = new acpl__Commercial_Plan_Event__c(Name = RECORD_NAME, acpl__gf_account_planning_id__c = accPlan.Id, acpl__gf_comm_plan_event_type_name__c = 'Opportunity', 
 					acpl__gf_event_date__c = System.today(), acpl__participant_id__c = accPlan.acpl__participant_id__c, GrowthDriver__c = growthDriver.Id, Asiggned_User__c = usr1.Id);
         insert cpeItem;
     }

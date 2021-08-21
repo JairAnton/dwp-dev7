@@ -4,7 +4,8 @@
    Date        Author       Email                  Type
    2021-08-19   JAAA    jair.anton.contractor@bbva.com  creation
 */
-public with sharing class BE_AP_ReopenController {
+public without sharing class BE_AP_ReopenController {
+    /* reopen AP validated */
     @AuraEnabled
     public static Boolean reopenAPValidated(String recordId) {
         Boolean isValidated = false;
@@ -18,7 +19,7 @@ public with sharing class BE_AP_ReopenController {
             item.acpl__gf_ap_indvi_lock_edit_ind_type__c = true;
         }
 
-        if(apList.size() > 0) {
+        if(!apList.isEmpty()) {
             update apList;
             isValidated = true;
         }

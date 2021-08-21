@@ -21,8 +21,6 @@ public with sharing class BE_CreateDriveGrowth_ctr extends BE_SingleRelatedListC
                                                                                                         FROM bupl__BP_GrowthDriver__c WHERE acpl__gf_account_planning_id__c	=: (String)param.get('recordId')
                                                                                                         ORDER BY CreatedDate DESC]);
             
-                                                                                                        System.debug('readrecords before');
-                                                                                                        System.debug([SELECT Id, acpl__gf_account_planning_id__c FROM bupl__BP_GrowthDriver__c]);
             for(bupl__BP_GrowthDriver__c item : growthMap.values()) {
                 item.ExpectedDate__c = null;
             }
@@ -40,8 +38,7 @@ public with sharing class BE_CreateDriveGrowth_ctr extends BE_SingleRelatedListC
                     }
                 }
             }
-            System.debug('readrecords');
-            System.debug(growthMap.values());
+
             response.data = growthMap.values();
             response.isSuccess = true;
             response.message = messageMap.get(UserInfo.getLanguage());
@@ -150,7 +147,7 @@ public with sharing class BE_CreateDriveGrowth_ctr extends BE_SingleRelatedListC
 			
             response = BE_SingleRelatedListModal_Ctr.returnResponse(lstGD, 'delete');
             
-            if(typeActionSet.size() > 0) {            
+            if(!typeActionSet.isEmpty()) {            
                 Database.rollback(sPoint);
                 response.isSuccess = false;
                 response.message = 'No puedes eliminar una variable de crecimiento creada en una validación anterior.';
@@ -175,7 +172,7 @@ public with sharing class BE_CreateDriveGrowth_ctr extends BE_SingleRelatedListC
     private static Set<Id> verifyTypeAction(List<acpl__Commercial_Plan_Event__c> cpeList) {
         Final Set<Id> cpeIdSet = new Set<Id>();
 
-        if(cpeList.size() > 0) {
+        if(!cpeList.isEmpty()) {
             for(Opportunity opp : [SELECT Id, commercial_plan_event__c FROM Opportunity WHERE commercial_plan_event__c =: cpeList[0].Id]) {
                 cpeIdSet.add(opp.commercial_plan_event__c);
             }
@@ -195,7 +192,7 @@ public with sharing class BE_CreateDriveGrowth_ctr extends BE_SingleRelatedListC
             }
         }
 
-        if(cpeIdSet.size() > 0) {
+        if(!cpeIdSet.isEmpty()) {
             Database.rollback(svp);
             response.isSuccess = false;
             response.message = 'No puedes modificar el cliente asignado creado en una validación anterior.';

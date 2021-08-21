@@ -3,12 +3,13 @@
 * @Date Created: 2021-08-19
 * Jair Anton 		19/08/2021		Helper clase AP_ConvertCPE_cls
 */
-public without sharing class AP_ConvertCPE_Helper_cls {
+public class AP_ConvertCPE_Helper_cls {
     /** @Description  NAME*/
     private static Final String NAME = 'Name';
     /** @Description  NAME*/
     private static Final String RT_ECO_GRP = 'Record_Type_Economic_Group';
 
+    /** Modify actions commercial created */
     public static void verifyCPEModified(Map<Id, acpl__Commercial_Plan_Event__c> mapCPE, Map<Id, acpl__Commercial_Plan_Event__c> mapCPEAux, Map<Id, User> mapUser, Map<Id, Id> mapCPEPartner) {
 		Final Set<Id> cpeModifiedSet = new Set<Id>();
 		Final List<acpl__Commercial_Plan_Event__c> cpeList = [SELECT Id, acpl__gf_account_planning_id__r.acpl__gf_ap_validation_date__c, LastModifiedDate, CreatedDate 
@@ -20,7 +21,7 @@ public without sharing class AP_ConvertCPE_Helper_cls {
 			}
 		}
 
-		if(cpeModifiedSet.size() > 0) {
+		if(!cpeModifiedSet.isEmpty()) {
 			Final Map<String, PriceBookEntry> mapPBE = new Map<String, PriceBookEntry>();
 			for(PriceBookEntry pbe: [SELECT Id, Product2.Name, Product2.Family, Product2.Unique_id__c, CurrencyIsoCode FROM PriceBookEntry WHERE IsActive = TRUE AND Product2.isActive = TRUE]) {
 				mapPBE.put(pbe.Product2.Unique_id__c + '_' + PBE.CurrencyIsoCode, pbe);
@@ -47,26 +48,25 @@ public without sharing class AP_ConvertCPE_Helper_cls {
         Final Map<Id, Id> visitTeamMap = new Map<Id, Id>();
 
         for(acpl__Commercial_Plan_Event__c item : mapCPE.values()) {
-            if(cpeModifiedSet.contains(item.Id)) {
-                if(resultOppToUpdate.containsKey(item.Id)) {	
-                    Opportunity oppItem = resultOppToUpdate.get(item.Id);
-                    Final Map<String, String> mapClient = getMapClientAssigned(item);
-                    
-                    validateGD(item, mapCPEAux, oppItem, mapPBE, resultOppLineItem, oliToInsert, oliToDelete, oliToUpdate, oppToUpdate, mapClient);
-                    validateCreateATM(oppItem, item, otmToInsert, visitTeamMap, mapUser, mapCPEPartner);
-                }   
+            if(cpeModifiedSet.contains(item.Id) && resultOppToUpdate.containsKey(item.Id)) {
+                Opportunity oppItem = resultOppToUpdate.get(item.Id);
+                Final Map<String, String> mapClient = getMapClientAssigned(item);
+                
+                validateGD(item, mapCPEAux, oppItem, mapPBE, resultOppLineItem, oliToInsert, oliToDelete, oliToUpdate, oppToUpdate);
+                validateCreateATM(oppItem, item, otmToInsert, visitTeamMap, mapUser, mapCPEPartner);
             }
         }
         validateAction(oliToInsert, oliToDelete, oliToUpdate, oppToUpdate);
 
-        if(otmToInsert.size() > 0) {
+        if(!otmToInsert.isEmpty()) {
             insert otmToInsert;
         }
     }
 
     private static void validateCreateATM(Opportunity oppItem, acpl__Commercial_Plan_Event__c item, List<OpportunityTeamMember> otmToInsert, Map<Id, Id> visitTeamMap, Map<Id, User> mapUser, Map<Id, Id> mapCPEPartner) {
         if(mapCPEPartner.containsKey(item.Id)) {
-            if(mapUser.containsKey(mapCPEPartner.get(item.Id))) {   
+            Id itemId = mapCPEPartner.get(item.Id);
+            if(mapUser.containsKey(itemId)) {   
                 otmToInsert.add(new OpportunityTeamMember(UserId = item.Asiggned_User__c, OpportunityId = oppItem.Id));
                 visitTeamMap.put(item.Id, item.Asiggned_User__c);
             }
@@ -74,25 +74,25 @@ public without sharing class AP_ConvertCPE_Helper_cls {
     }
 
     private static void validateAction(List<OpportunityLineItem> oliToInsert, List<OpportunityLineItem> oliToDelete, List<OpportunityLineItem> oliToUpdate, List<Opportunity> oppToUpdate) {
-        if(oliToDelete.size() > 0) {
+        if(!oliToDelete.isEmpty()) {
             delete oliToDelete;
         }
 
-        if(oppToUpdate.size() > 0) {
+        if(!oppToUpdate.isEmpty()) {
             update oppToUpdate;
         }
 
-        if(oliToInsert.size() > 0) {
+        if(!oliToInsert.isEmpty()) {
             insert oliToInsert;
         }
 
-        if(oliToUpdate.size() > 0) {
+        if(!oliToUpdate.isEmpty()) {
             update oliToUpdate;
         }
     }
 
     private static void validateGD(acpl__Commercial_Plan_Event__c item, Map<Id, acpl__Commercial_Plan_Event__c> mapCPEAux, Opportunity oppItem, Map<String, PriceBookEntry> mapPBE, Map<Id, OpportunityLineItem> resultOppLineItem,
-                                        List<OpportunityLineItem> oliToInsert, List<OpportunityLineItem> oliToDelete, List<OpportunityLineItem> oliToUpdate, List<Opportunity> oppToUpdate, Map<String, String> mapClient) {
+                                        List<OpportunityLineItem> oliToInsert, List<OpportunityLineItem> oliToDelete, List<OpportunityLineItem> oliToUpdate, List<Opportunity> oppToUpdate) {
         if(mapCPEAux.containsKey(item.Id)) {
             Final acpl__Commercial_Plan_Event__c cpeAuxItem = mapCPEAux.get(item.Id);
             Final OpportunityLineItem oppLineItem = resultOppLineItem.get(oppItem.Id);
@@ -104,12 +104,8 @@ public without sharing class AP_ConvertCPE_Helper_cls {
 
             validateProduct(mapPBE, cpeAuxItem, oppLineItem, oppItem, oliToInsert, oliToDelete, oliToUpdate, item, mapCPEAux);     
         } else {
-            //oppItem.AccountId = mapClient.get('Id');
-            //oppItem.Name = 'Oportunidad AP - ' + mapClient.get(NAME) + ' ' + String.valueOf(item.acpl__gf_event_date__c).left(10);
             oppItem.CloseDate = item.acpl__gf_event_date__c; 
-            //oppItem.Field_Sup_Closing_Date__c = Date.today().addMonths(2)
             oppItem.Description = item.Comments__c;
-            //oppItem.opportunity_planning_date__c = Date.today().addDays(14);
         }
 
         oppToUpdate.add(oppItem);   
@@ -118,7 +114,7 @@ public without sharing class AP_ConvertCPE_Helper_cls {
     private static void validateProduct(Map<String, PriceBookEntry> mapPBE, acpl__Commercial_Plan_Event__c cpeAuxItem, OpportunityLineItem oppLineItem, Opportunity oppItem, List<OpportunityLineItem> oliToInsert, 
                                             List<OpportunityLineItem> oliToDelete, List<OpportunityLineItem> oliToUpdate, acpl__Commercial_Plan_Event__c item, Map<Id, acpl__Commercial_Plan_Event__c> mapCPEAux) {
         if(mapPBE.containsKey(cpeAuxItem.GrowthDriver__r.bupl__solution_category_desc__c + '_' + cpeAuxItem.GrowthDriver__r.CurrencyIsoCode)) {
-            if(mapPBE.get(cpeAuxItem.GrowthDriver__r.bupl__solution_category_desc__c + '_' + cpeAuxItem.GrowthDriver__r.CurrencyIsoCode).Id != oppLineItem.PricebookEntryId) {
+            if(mapPBE.get(cpeAuxItem.GrowthDriver__r.bupl__solution_category_desc__c + '_' + cpeAuxItem.GrowthDriver__r.CurrencyIsoCode).Id <> oppLineItem.PricebookEntryId) {
                 Final PriceBookEntry pbeItem = mapPBE.get(cpeAuxItem.GrowthDriver__r.bupl__solution_category_desc__c + '_' + cpeAuxItem.GrowthDriver__r.CurrencyIsoCode);
                 oliToDelete.add(oppLineItem);
                 oliToInsert.add(new OpportunityLineItem(OpportunityId = oppItem.Id, Quantity = 1, UnitPrice = oppItem.Amount, PricebookEntryId = pbeItem.Id));
