@@ -175,7 +175,7 @@ public with sharing class BE_CreateCommercialPlantEvent_cls extends BE_SingleRel
     }
 
     private static void evaluateRollback(Set<Id> typeActionSet, List<acpl__Commercial_Plan_Event__c> lstCPE, Savepoint sPoint, BE_SingleRelatedListCRUD_Cls.Response response) {
-        if(typeActionSet.isEmpty() == false)  {            
+        if(typeActionSet.isEmpty() == false) {            
             Database.rollback(sPoint);
             response.isSuccess = false;
             response.message = 'No puedes editar una visita, llamada o tarea creada en una validación anterior, debes generar una nueva.';

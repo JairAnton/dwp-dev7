@@ -148,7 +148,7 @@ public with sharing class BE_CreateDriveGrowth_ctr extends BE_SingleRelatedListC
 			
             response = BE_SingleRelatedListModal_Ctr.returnResponse(lstGD, 'delete');
             
-            if(!typeActionSet.isEmpty()) {            
+            if(typeActionSet.isEmpty() == false) {            
                 Database.rollback(sPoint);
                 response.isSuccess = false;
                 response.message = 'No puedes eliminar una variable de crecimiento creada en una validación anterior.';
