@@ -3,11 +3,13 @@
 * @Date Created: 2021-08-19
 * Jair Anton 		19/08/2021		Helper clase AP_ConvertCPE_cls
 */
-public class AP_ConvertCPE_Helper_cls {
+public with sharing class AP_ConvertCPE_Helper_cls {
     /** @Description  NAME*/
     private static Final String NAME = 'Name';
     /** @Description  NAME*/
     private static Final String RT_ECO_GRP = 'Record_Type_Economic_Group';
+
+    private AP_ConvertCPE_Helper_cls() {}
 
     /** Modify actions commercial created */
     public static void verifyCPEModified(Map<Id, acpl__Commercial_Plan_Event__c> mapCPE, Map<Id, acpl__Commercial_Plan_Event__c> mapCPEAux, Map<Id, User> mapUser, Map<Id, Id> mapCPEPartner) {
@@ -50,7 +52,6 @@ public class AP_ConvertCPE_Helper_cls {
         for(acpl__Commercial_Plan_Event__c item : mapCPE.values()) {
             if(cpeModifiedSet.contains(item.Id) && resultOppToUpdate.containsKey(item.Id)) {
                 Opportunity oppItem = resultOppToUpdate.get(item.Id);
-                Final Map<String, String> mapClient = getMapClientAssigned(item);
                 
                 validateGD(item, mapCPEAux, oppItem, mapPBE, resultOppLineItem, oliToInsert, oliToDelete, oliToUpdate, oppToUpdate);
                 validateCreateATM(oppItem, item, otmToInsert, visitTeamMap, mapUser, mapCPEPartner);
@@ -114,7 +115,10 @@ public class AP_ConvertCPE_Helper_cls {
     private static void validateProduct(Map<String, PriceBookEntry> mapPBE, acpl__Commercial_Plan_Event__c cpeAuxItem, OpportunityLineItem oppLineItem, Opportunity oppItem, List<OpportunityLineItem> oliToInsert, 
                                             List<OpportunityLineItem> oliToDelete, List<OpportunityLineItem> oliToUpdate, acpl__Commercial_Plan_Event__c item, Map<Id, acpl__Commercial_Plan_Event__c> mapCPEAux) {
         if(mapPBE.containsKey(cpeAuxItem.GrowthDriver__r.bupl__solution_category_desc__c + '_' + cpeAuxItem.GrowthDriver__r.CurrencyIsoCode)) {
-            if(mapPBE.get(cpeAuxItem.GrowthDriver__r.bupl__solution_category_desc__c + '_' + cpeAuxItem.GrowthDriver__r.CurrencyIsoCode).Id <> oppLineItem.PricebookEntryId) {
+            if(mapPBE.get(cpeAuxItem.GrowthDriver__r.bupl__solution_category_desc__c + '_' + cpeAuxItem.GrowthDriver__r.CurrencyIsoCode).Id == oppLineItem.PricebookEntryId) {
+                oppLineItem.UnitPrice = oppItem.Amount;
+                oliToUpdate.add(oppLineItem);
+            } else {
                 Final PriceBookEntry pbeItem = mapPBE.get(cpeAuxItem.GrowthDriver__r.bupl__solution_category_desc__c + '_' + cpeAuxItem.GrowthDriver__r.CurrencyIsoCode);
                 oliToDelete.add(oppLineItem);
                 oliToInsert.add(new OpportunityLineItem(OpportunityId = oppItem.Id, Quantity = 1, UnitPrice = oppItem.Amount, PricebookEntryId = pbeItem.Id));
@@ -122,9 +126,6 @@ public class AP_ConvertCPE_Helper_cls {
                 oppItem.CurrencyIsoCode = mapCPEAux.get(item.Id).GrowthDriver__r.CurrencyIsoCode;
                 oppItem.opportunity_product__c = pbeItem.Product2.Name;
                 oppItem.opportunity_product_family__c = pbeItem.Product2.Family;
-            } else {
-                oppLineItem.UnitPrice = oppItem.Amount;
-                oliToUpdate.add(oppLineItem);
             }	
         }    
     }

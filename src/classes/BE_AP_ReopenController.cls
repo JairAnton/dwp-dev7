@@ -5,6 +5,8 @@
    2021-08-19   JAAA    jair.anton.contractor@bbva.com  creation
 */
 public without sharing class BE_AP_ReopenController {
+    private BE_AP_ReopenController() {}
+
     /* reopen AP validated */
     @AuraEnabled
     public static Boolean reopenAPValidated(String recordId) {

@@ -60,7 +60,7 @@
         },
 {
 &quot;label&quot;: &quot;FECHA DE CREACIÓN&quot;,
-&quot;fieldName&quot;: &quot;ExpectedDate__c&quot;,
+&quot;fieldName&quot;: &quot;bupl__gf_growth_drvr_prdt_short_desc__c&quot;,
 &quot;type&quot;: &quot;Date&quot;
 },
         {
@@ -140,7 +140,7 @@
     </values>
     <values>
         <field>FieldsQuery__c</field>
-        <value xsi:type="xsd:string">bupl__solution_category_id__c,toLabel(bupl__solution_category_desc__c),bupl__gf_growth_drvr_prdt_desc__c, ClientAssigned__r.Name, Amount__c,ExpectedDate__c</value>
+        <value xsi:type="xsd:string">bupl__solution_category_id__c,toLabel(bupl__solution_category_desc__c),bupl__gf_growth_drvr_prdt_desc__c, ClientAssigned__r.Name, Amount__c,ExpectedDate__c,bupl__gf_growth_drvr_prdt_short_desc__c</value>
     </values>
     <values>
         <field>Filter__c</field>

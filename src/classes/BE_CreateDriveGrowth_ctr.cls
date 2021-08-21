@@ -7,6 +7,7 @@
  * Jair Anton               19/08/2021          Valida GD creados..
  * @author Diego Carbajal
  */
+@SuppressWarnings('PMD.CyclomaticComplexity')
 public with sharing class BE_CreateDriveGrowth_ctr extends BE_SingleRelatedListCRUD_Cls {
     /*
     * @Description  method readRecords
@@ -16,13 +17,13 @@ public with sharing class BE_CreateDriveGrowth_ctr extends BE_SingleRelatedListC
         Final Map<String,String> messageMap = new Map<String,String>();
 
         try {   
-            Final Map<Id, bupl__BP_GrowthDriver__c> growthMap = new Map<Id, bupl__BP_GrowthDriver__c>([SELECT Id, acpl__gf_account_planning_id__c, CurrencyIsoCode, bupl__solution_category_id__c, CreatedDate, ExpectedDate__c,
+            Final Map<Id, bupl__BP_GrowthDriver__c> growthMap = new Map<Id, bupl__BP_GrowthDriver__c>([SELECT Id, bupl__gf_growth_drvr_prdt_short_desc__c, acpl__gf_account_planning_id__c, CurrencyIsoCode, bupl__solution_category_id__c, CreatedDate, ExpectedDate__c,
                                                                                                         toLabel(bupl__solution_category_desc__c), Amount__c, bupl__gf_growth_drvr_prdt_desc__c, ClientAssigned__r.Name
                                                                                                         FROM bupl__BP_GrowthDriver__c WHERE acpl__gf_account_planning_id__c	=: (String)param.get('recordId')
                                                                                                         ORDER BY CreatedDate DESC]);
             
             for(bupl__BP_GrowthDriver__c item : growthMap.values()) {
-                item.ExpectedDate__c = null;
+                item.bupl__gf_growth_drvr_prdt_short_desc__c = '';
             }
 
             Final Map<Id, acpl__Commercial_Plan_Event__c> cplanMap = new Map<Id, acpl__Commercial_Plan_Event__c>([SELECT Id, GrowthDriver__c FROM acpl__Commercial_Plan_Event__c WHERE GrowthDriver__c IN : growthMap.keySet()]);
@@ -34,7 +35,7 @@ public with sharing class BE_CreateDriveGrowth_ctr extends BE_SingleRelatedListC
 
                     if(growthMap.containsKey(cplanItem.GrowthDriver__c)) {
                         Final bupl__BP_GrowthDriver__c growthItem = growthMap.get(cplanItem.GrowthDriver__c);
-                        growthItem.ExpectedDate__c = Date.valueOf(item.CreatedDate);
+                        growthItem.bupl__gf_growth_drvr_prdt_short_desc__c = item.CreatedDate.format('yyyy-MM-dd');
                     }
                 }
             }
@@ -185,14 +186,12 @@ public with sharing class BE_CreateDriveGrowth_ctr extends BE_SingleRelatedListC
     public static void validateOpportunity(List<acpl__Commercial_Plan_Event__c> cpeList, BE_SingleRelatedListCRUD_Cls.Response response, Savepoint svp) {
         Final Set<Id> cpeIdSet = new Set<Id>();
         for(Opportunity opp : [SELECT Id, commercial_plan_event__c, AccountId FROM Opportunity WHERE commercial_plan_event__c =: cpeList[0].Id]) {
-            if(cpeList[0].ClientAssigned__c != null) {
-                if(opp.AccountId != cpeList[0].ClientAssigned__c) {
-                    cpeIdSet.add(opp.commercial_plan_event__c);
-                }
+            if(cpeList[0].ClientAssigned__c != null && opp.AccountId != cpeList[0].ClientAssigned__c) {
+                cpeIdSet.add(opp.commercial_plan_event__c);
             }
         }
 
-        if(!cpeIdSet.isEmpty()) {
+        if(cpeIdSet.isEmpty() == false) {
             Database.rollback(svp);
             response.isSuccess = false;
             response.message = 'No puedes modificar el cliente asignado creado en una validación anterior.';

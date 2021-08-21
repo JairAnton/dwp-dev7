@@ -7,6 +7,7 @@
  * Jair Anton               13/07/2021          Modificar el comentario de un Growth Driver
  * @author Diego Carbajal
  */
+@SuppressWarnings('PMD.CyclomaticComplexity')
 public with sharing class BE_CreateCommercialPlantEvent_cls extends BE_SingleRelatedListCRUD_Cls {
     /** @Description  MSG*/
     private static Final String MSG = 'msg';
@@ -153,7 +154,7 @@ public with sharing class BE_CreateCommercialPlantEvent_cls extends BE_SingleRel
             typeActionSet.addAll(verifyTypeAction(lstCPE[0], 'Call'));
             typeActionSet.addAll(verifyTypeAction(lstCPE[0], 'Opportunity'));
     
-            if(!typeActionSet.isEmpty()) {            
+            if(typeActionSet.isEmpty() == false) {            
                 Database.rollback(sPoint);
                 response.isSuccess = false;
                 response.message = 'No puedes eliminar una oportunidad, visita, llamada o tarea creada en una validación anterior.';
@@ -174,7 +175,7 @@ public with sharing class BE_CreateCommercialPlantEvent_cls extends BE_SingleRel
     }
 
     private static void evaluateRollback(Set<Id> typeActionSet, List<acpl__Commercial_Plan_Event__c> lstCPE, Savepoint sPoint, BE_SingleRelatedListCRUD_Cls.Response response) {
-        if(!typeActionSet.isEmpty()) {            
+        if(typeActionSet.isEmpty() == false)  {            
             Database.rollback(sPoint);
             response.isSuccess = false;
             response.message = 'No puedes editar una visita, llamada o tarea creada en una validación anterior, debes generar una nueva.';
