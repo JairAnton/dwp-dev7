@@ -114,7 +114,7 @@ public class AP_Trigger_Helper_tst {
 			}
 		Test.stopTest();
         Final List<acpl__Commercial_Plan_Event__c> cpeList = [SELECT Id, Name, acpl__gf_account_planning_id__c FROM acpl__Commercial_Plan_Event__c WHERE acpl__gf_account_planning_id__c =: accPlan.Id];
-        System.assert(cpeList.size() == 3, SUCCESS);
+        System.assertEquals(cpeList.size(), 3, SUCCESS);
 	}
 
        /**
@@ -151,7 +151,7 @@ public class AP_Trigger_Helper_tst {
 		Test.stopTest();
 
 		Final bupl__BP_GrowthDriver__c gdItem = [SELECT Id, bupl__solution_category_desc__c, acpl__gf_account_planning_id__c FROM bupl__BP_GrowthDriver__c WHERE acpl__gf_account_planning_id__c =: accPlan.Id LIMIT 1];
-        System.assert(gdItem.bupl__solution_category_desc__c == '0292230_NEW', SUCCESS);
+        System.assertEquals(gdItem.bupl__solution_category_desc__c, '0292230_NEW', SUCCESS);
 	}
 
        /**
@@ -187,7 +187,7 @@ public class AP_Trigger_Helper_tst {
 			}
 		Test.stopTest();
         Final bupl__BP_GrowthDriver__c gdItem = [SELECT Id, bupl__solution_category_desc__c, acpl__gf_account_planning_id__c, Amount__c FROM bupl__BP_GrowthDriver__c WHERE acpl__gf_account_planning_id__c =: accPlan.Id LIMIT 1];
-        System.assert(gdItem.Amount__c == 100300, SUCCESS);
+        System.assertEquals(gdItem.Amount__c, 100300, SUCCESS);
 
 	}
 
