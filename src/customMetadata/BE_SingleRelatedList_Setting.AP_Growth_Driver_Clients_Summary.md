@@ -3,68 +3,77 @@
     <label>AP Variable de crecimiento - Clientes Re</label>
     <protected>false</protected>
     <values>
+        <field>BE_SingleRetatedListView__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
         <field>Columns__c</field>
         <value xsi:type="xsd:string">{
-    &quot;values&quot;: [
-        {
-            &quot;label&quot;: &quot;FAMILIA DE PRODUCTO&quot;,
-            &quot;fieldName&quot;: &quot;bupl__solution_category_id__c&quot;,
-            &quot;type&quot;: &quot;picklist&quot;
-        },
-        {
-            &quot;label&quot;: &quot;PRODUCTO&quot;,
-            &quot;fieldName&quot;: &quot;bupl__solution_category_desc__c&quot;,
-            &quot;type&quot;: &quot;picklist&quot;
-        },
-		{
-			&quot;label&quot;: &quot;MONTO&quot;,
-			&quot;fieldName&quot;: &quot;Amount__c&quot;,
-			&quot;type&quot;: &quot;customcurrency&quot;,
-			&quot;typeAttributes&quot;: {
-			&quot;isCustom&quot;: &quot;true&quot;,
-			&quot;value&quot;: {
-				&quot;fieldName&quot;: &quot;Amount__c&quot;
-			},
-			&quot;currencyCode&quot;: {
-				&quot;fieldName&quot;: &quot;CurrencyIsoCode&quot;
-			},
-			&quot;displayAs&quot;: &quot;code&quot;,
-				&quot;maxFractionDigits&quot;: 2
-			},
-			&quot;cellAttributes&quot;: {
-				&quot;alignment&quot;: &quot;right&quot;
-			}
-		},
-        {
-            &quot;label&quot;: &quot;DETALLE&quot;,
-            &quot;fieldName&quot;: &quot;bupl__gf_growth_drvr_prdt_desc__c&quot;,
-            &quot;type&quot;: &quot;textArea&quot;
-        },
-        {
-            &quot;type&quot;: &quot;action&quot;,
-            &quot;typeAttributes&quot;: {
-                &quot;rowActions&quot;: [
-                    {
-                        &quot;name&quot;: &quot;view&quot;,
-                        &quot;objectApiName&quot;: &quot;bupl__BP_GrowthDriver__c&quot;,
-                        &quot;label&quot;: {
-                            &quot;es&quot;: &quot;Ver detalle&quot;,
-                            &quot;en-US&quot;: &quot;View detail&quot;
-                        },
-                        &quot;title&quot;: {
-                            &quot;es&quot;: &quot;Detalle de la variable de crecimiento&quot;,
-                            &quot;en-US&quot;: &quot;Growth driver detail&quot;
+        &quot;values&quot;: [
+            {
+                &quot;label&quot;: &quot;FAMILIA DE PRODUCTO&quot;,
+                &quot;fieldName&quot;: &quot;bupl__solution_category_id__c&quot;,
+                &quot;type&quot;: &quot;picklist&quot;
+            },
+            {
+                &quot;label&quot;: &quot;PRODUCTO&quot;,
+                &quot;fieldName&quot;: &quot;bupl__solution_category_desc__c&quot;,
+                &quot;type&quot;: &quot;picklist&quot;
+            },
+            {
+                &quot;label&quot;: &quot;MONTO&quot;,
+                &quot;fieldName&quot;: &quot;Amount__c&quot;,
+                &quot;type&quot;: &quot;customcurrency&quot;,
+                &quot;typeAttributes&quot;: {
+                    &quot;isCustom&quot;: &quot;true&quot;,
+                    &quot;value&quot;: {
+                        &quot;fieldName&quot;: &quot;Amount__c&quot;
+                    },
+                    &quot;currencyCode&quot;: {
+                        &quot;fieldName&quot;: &quot;CurrencyIsoCode&quot;
+                    },
+                    &quot;displayAs&quot;: &quot;code&quot;,
+                    &quot;maxFractionDigits&quot;: 2
+                },
+                &quot;cellAttributes&quot;: {
+                    &quot;alignment&quot;: &quot;right&quot;
+                }
+            },
+            {
+                &quot;label&quot;: &quot;DETALLE&quot;,
+                &quot;fieldName&quot;: &quot;bupl__gf_growth_drvr_prdt_desc__c&quot;,
+                &quot;type&quot;: &quot;textArea&quot;
+            },        
+            {
+                &quot;label&quot;: &quot;FECHA DE CREACIÓN&quot;,
+                &quot;fieldName&quot;: &quot;bupl__gf_growth_drvr_prdt_short_desc__c&quot;,
+                &quot;type&quot;: &quot;Date&quot;
+            },
+            {
+                &quot;type&quot;: &quot;action&quot;,
+                &quot;typeAttributes&quot;: {
+                    &quot;rowActions&quot;: [
+                        {
+                            &quot;name&quot;: &quot;view&quot;,
+                            &quot;objectApiName&quot;: &quot;bupl__BP_GrowthDriver__c&quot;,
+                            &quot;label&quot;: {
+                                &quot;es&quot;: &quot;Ver detalle&quot;,
+                                &quot;en-US&quot;: &quot;View detail&quot;
+                            },
+                            &quot;title&quot;: {
+                                &quot;es&quot;: &quot;Detalle de la variable de crecimiento&quot;,
+                                &quot;en-US&quot;: &quot;Growth driver detail&quot;
+                            }
                         }
-                    }
-                ]
+                    ]
+                }
             }
-        }
-    ]
-}</value>
+        ]
+    }</value>
     </values>
     <values>
         <field>FieldsQuery__c</field>
-        <value xsi:type="xsd:string">bupl__solution_category_id__c,toLabel(bupl__solution_category_desc__c),Amount__c, bupl__gf_growth_drvr_prdt_desc__c</value>
+        <value xsi:type="xsd:string">bupl__solution_category_id__c,toLabel(bupl__solution_category_desc__c),Amount__c, bupl__gf_growth_drvr_prdt_desc__c,ExpectedDate__c,acpl__gf_account_planning_id__c,bupl__gf_growth_drvr_prdt_short_desc__c</value>
     </values>
     <values>
         <field>Filter__c</field>
@@ -79,8 +88,14 @@
         <value xsi:type="xsd:double">6.0</value>
     </values>
     <values>
-        <field>Settings__c</field>
+        <field>Order__c</field>
         <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Settings__c</field>
+        <value xsi:type="xsd:string">{
+&quot;readClassName&quot;: &quot;BE_CreateDriveGrowth_ctr&quot;
+}</value>
     </values>
     <values>
         <field>sObjectApiName__c</field>

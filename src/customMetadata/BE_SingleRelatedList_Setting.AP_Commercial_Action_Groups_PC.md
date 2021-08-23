@@ -3,6 +3,10 @@
     <label>AP Acciones Comerciales - Grupos - PC</label>
     <protected>false</protected>
     <values>
+        <field>BE_SingleRetatedListView__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
         <field>Columns__c</field>
         <value xsi:type="xsd:string">{
     &quot;values&quot;: [
@@ -39,6 +43,11 @@
             &quot;label&quot;: &quot;COMENTARIOS&quot;,
             &quot;fieldName&quot;: &quot;Comments__c&quot;,
             &quot;type&quot;: &quot;textArea&quot;
+        },
+        {
+            &quot;label&quot;: &quot;FECHA DE CREACIÓN&quot;,
+            &quot;fieldName&quot;: &quot;Name&quot;,
+            &quot;type&quot;: &quot;Date&quot;
         },
         {
             &quot;type&quot;: &quot;action&quot;,
@@ -101,11 +110,11 @@
                             &quot;es&quot;: &quot;Eliminar acción&quot;,
                             &quot;en-US&quot;: &quot;Delete action&quot;
                         },
-                        &quot;className&quot;: &quot;&quot;,
+                        &quot;className&quot;: &quot;BE_CreateCommercialPlantEvent_cls&quot;,
                         &quot;objectApiName&quot;: &quot;acpl__Commercial_Plan_Event__c&quot;,
                         &quot;title&quot;: {
                             &quot;es&quot;: &quot;Eliminar acción comercial&quot;,
-                            &quot;en-US&quot;: &quot;Delete commercial  action&quot;
+                            &quot;en-US&quot;: &quot;Delete commercial action&quot;
                         }
                     }
                 ]
@@ -116,7 +125,7 @@
     </values>
     <values>
         <field>FieldsQuery__c</field>
-        <value xsi:type="xsd:string">toLabel(acpl__gf_comm_plan_event_type_name__c),acpl__gf_event_date__c,Comments__c, ClientAssigned__r.Name, Product__c</value>
+        <value xsi:type="xsd:string">toLabel(acpl__gf_comm_plan_event_type_name__c),acpl__gf_event_date__c,Comments__c, ClientAssigned__r.Name, Product__c, Name</value>
     </values>
     <values>
         <field>Filter__c</field>
@@ -174,8 +183,13 @@
         <value xsi:type="xsd:double">6.0</value>
     </values>
     <values>
+        <field>Order__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
         <field>Settings__c</field>
         <value xsi:type="xsd:string">{
+&quot;readClassName&quot;: &quot;BE_CreateCommercialPlantEvent_cls&quot;,
     &quot;updateClassName&quot;: &quot;BE_CreateCommercialPlantEvent_cls&quot;,
     &quot;refreshView&quot;: true
 }</value>

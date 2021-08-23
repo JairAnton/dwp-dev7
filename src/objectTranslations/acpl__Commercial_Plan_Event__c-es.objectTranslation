@@ -63,11 +63,11 @@
         <name>acpl__gf_event_date_Q__c</name>
     </fields>
     <fields>
-        <label>Fecha expectativa de completación</label>
+        <label>Fecha estimada de cierre</label>
         <name>acpl__gf_event_date__c</name>
     </fields>
     <fields>
-        <label>Fecha expectativa de completación</label>
+        <label>Fecha estimada de cierre</label>
         <name>acpl__gf_event_date_formula__c</name>
     </fields>
     <fields>

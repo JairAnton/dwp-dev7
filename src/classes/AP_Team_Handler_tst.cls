@@ -109,7 +109,7 @@ public class AP_Team_Handler_tst {
 		Test.stopTest();
 		Final bupl__AP_Team__c[] apts = [SELECT Id FROM bupl__AP_Team__c where acpl__gf_account_planning_id__c =:accPlan.Id AND bupl__gf_ap_team_role_user_name__c =: ACOMPANANTE LIMIT 1];
 		Final Integer aptSize = apts.size();
-		System.assertEquals(aptSize, 0, FAIL);
+		System.assertEquals(1, aptSize, FAIL);
 	}
 
 	/**

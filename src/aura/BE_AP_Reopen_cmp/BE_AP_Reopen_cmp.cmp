@@ -1,0 +1,39 @@
+<aura:component implements="dwp_dbpn:DynamicFlowWizardStep_itf,force:lightningQuickAction,force:hasRecordId,force:hasSObjectName" extends="dwp_mdal:ModalTemplate_cmp" access="GLOBAL" controller="BE_AP_ReopenController">
+    <aura:attribute name="title" type="String" default="Reabrir Plan de cuenta" access="global" description="Specify the modal"/>
+    <aura:attribute name="recordId" type="String" />
+
+    <div class="slds-modal__content slds-p-around_small" >
+        <div class="slds-grid slds-wrap slds-m-horizontal_small">
+            <div class="slds-col slds-p-left-small slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12">
+                <p style="font-size: 1.1rem;"><strong>¿Desea volver a editar el Plan de Cuenta?</strong></p>
+                <br/>
+                <p>Nota: Sólo se podrán modificar las oportunidades creadas previamente que se encuentren en etapa <strong>"En Gestión"</strong>.</p>
+                <br/>
+            </div>
+        </div>
+    </div>              
+    <footer class="slds-modal__footer slds-theme_default">
+        <aura:if isTrue="{!$Browser.formFactor == 'DESKTOP'}">
+            <table width="100%">
+                <tr>
+                    <td>
+                        <lightning:button variant="neutral" onclick="{!c.close}">Cancelar</lightning:button>
+                    </td>
+                    <td>
+                        <div class="slds-float_right"><c:ButtonWithoutDoubleClick_cmp variant="brand" onclick="{!c.doContinue}" label="Confirmar" id="idContinueSPE"/></div>
+                    </td>
+                </tr>
+            </table>
+            <aura:set attribute="else">
+                <lightning:layout multipleRows="true">
+                    <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" padding="around-small">
+                        <c:ButtonWithoutDoubleClick_cmp class="slds-button slds-button_neutral slds-button_stretch" variant="brand" onclick="{!c.doContinue}" label="Confirmar" id="idContinueSPE"/>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem size="12" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="6" padding="around-small">
+                        <lightning:button class="slds-button slds-button_neutral slds-button_stretch" onclick="{!c.close}">Cancelar</lightning:button>
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </aura:set>
+        </aura:if>
+    </footer>
+</aura:component>	
