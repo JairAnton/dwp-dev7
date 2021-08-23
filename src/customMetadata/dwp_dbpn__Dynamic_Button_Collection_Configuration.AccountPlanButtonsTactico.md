@@ -15,3 +15,4 @@
         <value xsi:type="xsd:string">Button_Collection_No_ActionsTactico</value>
     </values>
 </CustomMetadata>
+ 
