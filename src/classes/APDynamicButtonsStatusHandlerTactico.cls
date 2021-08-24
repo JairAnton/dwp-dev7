@@ -96,16 +96,12 @@ global without sharing class APDynamicButtonsStatusHandlerTactico implements dwp
     
     private static Boolean searchManager() {
         Boolean hasCorrectRole = false;
-        Final List<User> userList = [SELECT Id, Name, UserRoleId, UserRole.Name FROM User WHERE prof_position_id__c IN ('OS8', 'OS9', 'E01') AND isActive = TRUE];
+        Final List<User> userList = [SELECT Id, Name, UserRoleId, UserRole.Name FROM User WHERE prof_position_id__c IN ('OS8', 'OS9', 'E01') AND Id =: UserInfo.getUserId() AND isActive = TRUE];
         
-        for(User usItem : userList) {
-            if(usItem.UserRoleId == UserInfo.getUserRoleId()) {
-                hasCorrectRole = true;
-            }
+        if(userList.isEmpty() == false) {
+            hasCorrectRole = true;
         }
-        
+
         return hasCorrectRole;
     }
-    
-
 }
