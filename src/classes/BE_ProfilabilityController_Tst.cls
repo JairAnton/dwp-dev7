@@ -17,6 +17,7 @@ public with sharing class BE_ProfilabilityController_Tst {
 	 */
   @testSetup
   static void setupData() {
+    User manager = TestFactory.createUser('sample', 'Ejecutivo');
     final Account acc1 = new Account(Name = 'ASIA MOTORS');
     insert acc1;
     final List<Account> accs = new List<Account>{
@@ -26,101 +27,161 @@ public with sharing class BE_ProfilabilityController_Tst {
     };
     insert accs;
 
-    final List<acpl__Account_Planning__c> accountPlanning = new List<acpl__Account_Planning__c>{
-      new acpl__Account_Planning__c(Name = 'AP ASIA MOTORS', acpl__participant_id__c = acc1.Id)
+    final acpl__Account_Planning__c ap = new acpl__Account_Planning__c();
+    ap.NAME = 'AP-REVIEW EV V1';
+    //ap.RECORDTYPEID = '0123F000001bwFvQAI'; //????????????????????????
+    ap.ACPL__EXTERNAL_REFERENCE_ID__C = 'AP-REVIEW EV V11';
+    ap.ACPL__GF_ACCOUNT_PLANNING_NAME__C = 'Full';
+    ap.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = true;
+    ap.ACPL__GF_AP_LAUNCH_NAME__C = 'General period';
+    ap.ACPL__GF_AP_LAUNCH_PERIOD_DESC__C = '04/21';
+    ap.ACPL__GF_AP_LIMIT_DATE__C = Date.newInstance(2030, 12, 31);
+    ap.ACPL__GF_AP_REQ_VALIDATION_IND_TYPE__C = 'Yes';
+    ap.ACPL__GF_AP_STATUS_TYPE_NAME__C = 'Not started';
+    ap.ACPL__GF_AP_SUBSTATUS_TYPE_NAME__C = 'Not started';
+    ap.ACPL__GF_MANDATORY_TYPE__C = 'Mandatory';
+    ap.acpl__participant_id__c = acc1.Id; //Asia Motors
+    ap.acpl__proposal_manager_id__c = manager.Id; // EDUARDO VARGAS
+    //ap.acpl__Account_Planning_Type__c = 'a1yq0000001JABfAAO';//'a1y6u0000008OtnAAE';
+
+    insert ap;
+
+    bupl__BusinessPlan__c bp = [SELECT ID, Name FROM bupl__BusinessPlan__c LIMIT 1];
+    final List<bupl__BP_GrowthDriver__c> growDrivers = new List<bupl__BP_GrowthDriver__c>{
+      new bupl__BP_GrowthDriver__c(
+        acpl__gf_account_planning_id__c = ap.Id,
+        Amount__c = 160000,
+        bupl__solution_category_id__c = 'Financiamiento a largo plazo',
+        ClientAssigned__c = accs[1].Id,
+        CurrencyIsoCode = 'PEN',
+        ExpectedDate__c = date.valueOf('2021-11-11'),
+        bupl__gf_business_plan_id__c = bp.Id
+      ),
+      new bupl__BP_GrowthDriver__c(
+        acpl__gf_account_planning_id__c = ap.Id,
+        Amount__c = 90000,
+        bupl__solution_category_id__c = 'Financiamiento a corto plazo',
+        ClientAssigned__c = accs[1].Id,
+        CurrencyIsoCode = 'USD',
+        ExpectedDate__c = date.valueOf('2021-09-30'),
+        bupl__gf_business_plan_id__c = bp.Id
+      ),
+      new bupl__BP_GrowthDriver__c(
+        acpl__gf_account_planning_id__c = ap.Id,
+        Amount__c = 300000,
+        bupl__solution_category_id__c = 'Tesorería',
+        ClientAssigned__c = accs[2].Id,
+        CurrencyIsoCode = 'PEN',
+        ExpectedDate__c = date.valueOf('2021-09-30'),
+        bupl__gf_business_plan_id__c = bp.Id
+      )
     };
-    insert accountPlanning;
+
+    insert growDrivers;
 
     final List<Account_Profitability__c> accountProfilability = new List<Account_Profitability__c>{
       new Account_Profitability__c(
         account_id__c = acc1.Id,
-        current_ydt_amount__c = 24254.0,
-        profitability_type__c = '03',
+        current_ydt_amount__c = 24254,
+        previous_ydt_amount__c = 147399,
         profitability_category_type__c = 'Margen Financiero',
+        profitability_type__c = '03',
         year_month_day_date__c = date.valueOf('2018-10-31')
       ),
       new Account_Profitability__c(
         account_id__c = acc1.Id,
-        current_ydt_amount__c = 151914.0,
-        profitability_type__c = '03',
+        current_ydt_amount__c = 151914,
+        previous_ydt_amount__c = 67789,
         profitability_category_type__c = 'Margen Financiero',
+        profitability_type__c = '03',
         year_month_day_date__c = date.valueOf('2018-10-31')
       ),
       new Account_Profitability__c(
         account_id__c = acc1.Id,
-        current_ydt_amount__c = 0.0,
-        profitability_type__c = '03',
+        current_ydt_amount__c = 0,
+        previous_ydt_amount__c = 0,
         profitability_category_type__c = 'Margen Financiero',
+        profitability_type__c = '03',
         year_month_day_date__c = date.valueOf('2018-10-31')
       ),
       new Account_Profitability__c(
         account_id__c = acc1.Id,
-        current_ydt_amount__c = 38775.0,
-        profitability_type__c = '03',
+        current_ydt_amount__c = 38775,
+        previous_ydt_amount__c = 78252,
         profitability_category_type__c = 'Comisiones',
+        profitability_type__c = '03',
         year_month_day_date__c = date.valueOf('2018-10-31')
       ),
       new Account_Profitability__c(
         account_id__c = acc1.Id,
-        current_ydt_amount__c = 0.0,
-        profitability_type__c = '01',
+        current_ydt_amount__c = 0,
+        previous_ydt_amount__c = 0,
         profitability_category_type__c = 'Altas',
+        profitability_type__c = '01',
         year_month_day_date__c = date.valueOf('2020-09-28')
       ),
       new Account_Profitability__c(
         account_id__c = acc1.Id,
-        current_ydt_amount__c = 0.0,
-        profitability_type__c = '02',
+        current_ydt_amount__c = 0,
+        previous_ydt_amount__c = 0,
         profitability_category_type__c = 'Spread',
-        year_month_day_date__c = date.valueOf('2021-06-28')
-      ),
-      new Account_Profitability__c(
-        account_id__c = acc1.Id,
-        current_ydt_amount__c = 0.0,
         profitability_type__c = '02',
-        profitability_category_type__c = 'Tasa',
         year_month_day_date__c = date.valueOf('2020-04-28')
       ),
       new Account_Profitability__c(
         account_id__c = acc1.Id,
-        current_ydt_amount__c = 39388.0,
-        profitability_type__c = '03',
+        current_ydt_amount__c = 0,
+        previous_ydt_amount__c = 0,
+        profitability_category_type__c = 'Tasa',
+        profitability_type__c = '02',
+        year_month_day_date__c = date.valueOf('2020-04-28')
+      ),
+      new Account_Profitability__c(
+        account_id__c = acc1.Id,
+        current_ydt_amount__c = 39388,
+        previous_ydt_amount__c = 61751,
         profitability_category_type__c = 'Margen Financiero',
+        profitability_type__c = '03',
         year_month_day_date__c = date.valueOf('2018-09-28')
       ),
       new Account_Profitability__c(
         account_id__c = acc1.Id,
-        current_ydt_amount__c = 0.0,
-        profitability_type__c = '03',
+        current_ydt_amount__c = 0,
+        previous_ydt_amount__c = 0,
         profitability_category_type__c = 'Margen Financiero',
+        profitability_type__c = '03',
         year_month_day_date__c = date.valueOf('2018-09-28')
       ),
       new Account_Profitability__c(
         account_id__c = acc1.Id,
-        current_ydt_amount__c = 98395.0,
-        profitability_type__c = '03',
+        current_ydt_amount__c = 98395,
+        previous_ydt_amount__c = 168050,
         profitability_category_type__c = 'Comisiones',
+        profitability_type__c = '03',
         year_month_day_date__c = date.valueOf('2018-09-28')
       ),
       new Account_Profitability__c(
         account_id__c = acc1.Id,
-        current_ydt_amount__c = 0.0,
-        profitability_type__c = '01',
+        current_ydt_amount__c = 0,
+        previous_ydt_amount__c = 0,
         profitability_category_type__c = 'Altas',
+        profitability_type__c = '01',
         year_month_day_date__c = date.valueOf('2020-08-28')
       ),
       new Account_Profitability__c(
         account_id__c = acc1.Id,
-        current_ydt_amount__c = 0.0,
-        profitability_type__c = '02',
+        current_ydt_amount__c = 0,
+        previous_ydt_amount__c = 0,
         profitability_category_type__c = 'DI',
+        profitability_type__c = '02',
         year_month_day_date__c = date.valueOf('2020-04-28')
       ),
       new Account_Profitability__c(
         account_id__c = acc1.Id,
-        current_ydt_amount__c = 4019.0,
-        profitability_type__c = '03',
+        current_ydt_amount__c = 4019,
+        previous_ydt_amount__c = 9325,
         profitability_category_type__c = 'Margen Financiero',
+        profitability_type__c = '03',
         year_month_day_date__c = date.valueOf('2018-09-28')
       )
     };
@@ -135,12 +196,38 @@ public with sharing class BE_ProfilabilityController_Tst {
     final acpl__Account_Planning__c accountPlan = [
       SELECT Id
       FROM acpl__Account_Planning__c
-      WHERE Name = 'AP ASIA MOTORS'
+      WHERE Name = 'AP-REVIEW EV V1'
       LIMIT 1
     ];
 
-    Map<String, Object> resp = BE_ProfilabilityController_cls.getData(accountPlan.Id);
+    Map<String, Object> rentabilityUI = BE_ProfilabilityController_cls.getRentabilityData(accountPlan.Id);
+    Integer count = 0;
+    for (Object accsObj : (List<Object>) rentabilityUI.get('data')) {
+      Map<String, Object> accsMap = (Map<String, Object>) accsObj;
+      for (Object sect : (List<Object>) accsMap.get('sections')) {
+        Map<String, Object> sectMap = (Map<String, Object>) sect;
+        count++;
+      }
+    }
 
-    System.assert(true, 'success!!!');
+    System.assertEquals(count, 9, 'Wrong number of Accounts');
+  }
+
+  @isTest
+  public static void testGetGrowthVariableData() {
+    final acpl__Account_Planning__c accountPlan = [
+      SELECT Id
+      FROM acpl__Account_Planning__c
+      WHERE Name = 'AP-REVIEW EV V1'
+      LIMIT 1
+    ];
+    Map<String, Object> rentabilityUI = BE_ProfilabilityController_cls.getGrowthVariableData(accountPlan.Id);
+
+    Integer rentCount = 0;
+    for (Object rentObj : (List<Object>) rentabilityUI.get('data')) {
+      Map<String, Object> rentMap = (Map<String, Object>) rentObj;
+      rentCount++;
+    }
+    System.assertEquals(rentCount, 3, 'Rentability Growth Variables');
   }
 }
