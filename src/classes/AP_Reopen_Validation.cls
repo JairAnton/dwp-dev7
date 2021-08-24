@@ -4,7 +4,7 @@
    Date        Author       Email                  Type
    2021-08-19   JAAA    jair.anton.contractor@bbva.com  creation
 */
-public class AP_Reopen_Validation implements dwp_dbpn.DynamicFlowValidationInterface {
+public with sharing class AP_Reopen_Validation implements dwp_dbpn.DynamicFlowValidationInterface {
 
     private AP_Reopen_Validation() {}
   
