@@ -4041,4 +4041,11 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <shortDescription>taskStatusFilter</shortDescription>
         <value>Inbound Email</value>
     </labels>
+    <labels>
+        <fullName>Re_Open</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Re_Open</shortDescription>
+        <value>Reabrir</value>
+    </labels>
 </CustomLabels>
