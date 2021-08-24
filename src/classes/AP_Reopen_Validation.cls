@@ -4,22 +4,12 @@
    Date        Author       Email                  Type
    2021-08-19   JAAA    jair.anton.contractor@bbva.com  creation
 */
-global without sharing class AP_Reopen_Validation implements dwp_dbpn.DynamicFlowValidationInterface {
-    // private static variable referencing the class
-    private static AP_Reopen_Validation instance = null;
+public class AP_Reopen_Validation implements dwp_dbpn.DynamicFlowValidationInterface {
 
-    // a static method that returns the instance of the record type
-    public static AP_Reopen_Validation getInstance(){
-        // lazy load the record type - only initialize if it doesn't already exist
-        if(instance == null) {
-            instance = new AP_Reopen_Validation();
-        }
-
-        return instance;
-    }
-
+    private AP_Reopen_Validation() {}
+  
 	/** getErrorMessagesList*/
-    global static List<String> getErrorMessagesList(String recordId, String source, String validationClass) {
+    public static List<String> getErrorMessagesList(String recordId, String source, String validationClass) {
         Final List<String> lstErrorMessage = new List<String>();
         /*Id del AP para obtener su estado*/
         Final acpl__Account_Planning__c accountPlan = [SELECT Id, acpl__gf_ap_status_type_name__c, acpl__gf_ap_indvi_lock_edit_ind_type__c, acpl__gf_ap_validator_user_id__c
