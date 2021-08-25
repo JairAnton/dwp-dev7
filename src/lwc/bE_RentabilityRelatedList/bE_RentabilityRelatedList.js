@@ -49,7 +49,7 @@ export default class bE_RentabilityRelatedList extends LightningElement {
     },
     {
       label: year,
-      fieldName: "currentYearEstimation",
+      fieldName: "cyEstim",
       type: "currency",
       sortable: true,
       cellAttributes: {
@@ -96,7 +96,7 @@ export default class bE_RentabilityRelatedList extends LightningElement {
     },
     {
       label: `${date} Proyectado`,
-      fieldName: "currentYearEstimation",
+      fieldName: "cyEstim",
       type: "currency",
       sortable: true,
       cellAttributes: {
@@ -143,7 +143,7 @@ export default class bE_RentabilityRelatedList extends LightningElement {
       editable: true
     },
     {
-      label: "Spread (%)",
+      label: "Spread / Comisión (%)",
       fieldName: "spread",
       type: "number",
       sortable: true,
@@ -152,7 +152,7 @@ export default class bE_RentabilityRelatedList extends LightningElement {
     },
     {
       label: "Comisión de Estructuración (%)",
-      fieldName: "structuredCommission",
+      fieldName: "strComm",
       type: "number",
       sortable: true,
       cellAttributes: { alignment: "left" },
@@ -265,8 +265,7 @@ export default class bE_RentabilityRelatedList extends LightningElement {
 
     list.data[accIndex].sections[sectionIndex].nextYear = Number(event.detail.draftValues[0].nextYear);
     list.data[accIndex].sections[sectionIndex].iconNameNY = `utility:${
-      list.data[accIndex].sections[sectionIndex].currentYearEstimation >
-      list.data[accIndex].sections[sectionIndex].nextYear
+      list.data[accIndex].sections[sectionIndex].cyEstim > list.data[accIndex].sections[sectionIndex].nextYear
         ? "arrowdown"
         : "arrowup"
     }`;
@@ -279,7 +278,7 @@ export default class bE_RentabilityRelatedList extends LightningElement {
       .reduce((a, b) => a + b.nextYear, 0);
 
     list.data[accIndex].sections[mOrdIndex].iconNameNY = `utility:${
-      list.data[accIndex].sections[mOrdIndex].currentYearEstimation > list.data[accIndex].sections[mOrdIndex].nextYear
+      list.data[accIndex].sections[mOrdIndex].cyEstim > list.data[accIndex].sections[mOrdIndex].nextYear
         ? "arrowdown"
         : "arrowup"
     }`;

@@ -10,7 +10,7 @@
  * @param {*} clientSections
  * @param {*} sectionType
  * @param {*} cyAP
- * @param {*} currentYearEstimation
+ * @param {*} cyEstim
  * @param {*} iconNameCondition
  *
  * @author Eduardo Vargas
@@ -20,36 +20,30 @@ export const setClientSection = (clientSections, marginSum, commSum) => {
   let marginIndex = clientSections.findIndex((obj) => obj.row === "Margen Financiero");
   if (marginIndex >= 0) {
     clientSections[marginIndex].cyAP = marginSum;
-    clientSections[marginIndex].currentYearEstimation = marginSum + clientSections[marginIndex].currentYear;
+    clientSections[marginIndex].cyEstim = marginSum + clientSections[marginIndex].currentYear;
 
     clientSections[marginIndex].iconNameCY = `utility:${
-      clientSections[marginIndex].priorYear > clientSections[marginIndex].currentYearEstimation
-        ? "arrowdown"
-        : "arrowup"
+      clientSections[marginIndex].priorYear > clientSections[marginIndex].cyEstim ? "arrowdown" : "arrowup"
     }`;
   }
 
   let commissionIndex = clientSections.findIndex((obj) => obj.row === "Comisiones");
   if (commissionIndex >= 0) {
     clientSections[commissionIndex].cyAP = commSum;
-    clientSections[commissionIndex].currentYearEstimation = commSum + clientSections[commissionIndex].currentYear;
+    clientSections[commissionIndex].cyEstim = commSum + clientSections[commissionIndex].currentYear;
     clientSections[commissionIndex].iconNameCY = `utility:${
-      clientSections[commissionIndex].priorYear > clientSections[commissionIndex].currentYearEstimation
-        ? "arrowdown"
-        : "arrowup"
+      clientSections[commissionIndex].priorYear > clientSections[commissionIndex].cyEstim ? "arrowdown" : "arrowup"
     }`;
   }
 
   let mrgOrdnIndex = clientSections.findIndex((obj) => obj.row === "Margen Ordinario");
   if (mrgOrdnIndex >= 0) {
     clientSections[mrgOrdnIndex].cyAP = clientSections[marginIndex].cyAP + clientSections[commissionIndex].cyAP;
-    clientSections[mrgOrdnIndex].currentYearEstimation =
-      clientSections[marginIndex].currentYearEstimation + clientSections[commissionIndex].currentYearEstimation;
+    clientSections[mrgOrdnIndex].cyEstim =
+      clientSections[marginIndex].cyEstim + clientSections[commissionIndex].cyEstim;
 
     clientSections[mrgOrdnIndex].iconNameCY = `utility:${
-      clientSections[mrgOrdnIndex].priorYear > clientSections[mrgOrdnIndex].currentYearEstimation
-        ? "arrowdown"
-        : "arrowup"
+      clientSections[mrgOrdnIndex].priorYear > clientSections[mrgOrdnIndex].cyEstim ? "arrowdown" : "arrowup"
     }`;
   }
 };
@@ -75,10 +69,10 @@ export const calculator = (estimationList, currentEstimationIndex, rentabilityDa
   let months = current.term <= 12 - (expectedDate.getMonth() + 1) ? current.term : 12 - (expectedDate.getMonth() + 1);
   let rentabilityDataMap = JSON.parse(JSON.stringify(rentabilityData));
 
-  console.log("margin calculate:", current.opportunityValue, months, current.calculatedSpreadMensual);
-  current.calculatedMargin = Number((current.opportunityValue * (months * current.calculatedSpreadMensual)).toFixed(2));
+  console.log("margin calculate:", current.opportunityValue, months, current.calcSpreadM);
+  current.calculatedMargin = Number((current.opportunityValue * (months * current.calcSpreadM)).toFixed(2));
 
-  current.calculatedCommission = Number(((current.opportunityValue * current.structuredCommission) / 100).toFixed(2));
+  current.calComm = Number(((current.opportunityValue * current.strComm) / 100).toFixed(2));
 
   let accountId = current.opportunityId.split("-")[0];
 
@@ -87,7 +81,7 @@ export const calculator = (estimationList, currentEstimationIndex, rentabilityDa
   for (let i = 0; i < estimationList.length; i++) {
     if (accountId === estimationList[i].accountId) {
       marginSum = marginSum + estimationList[i].calculatedMargin;
-      commSum = commSum + estimationList[i].calculatedCommission;
+      commSum = commSum + estimationList[i].calComm;
     }
   }
 
@@ -114,12 +108,12 @@ export const updateEstimationList = (estimationList, currentEstimationIndex, eve
   let currEstimation = estimationList[currentEstimationIndex];
   if (eventData[0].hasOwnProperty("spread")) {
     currEstimation.spread = eventData[0].spread;
-    console.log("calculating spread mensual", currEstimation.calculatedSpreadMensual, eventData[0].spread);
-    currEstimation.calculatedSpreadMensual = Math.pow(1 + currEstimation.spread / 100, 1 / 12) - 1;
-    console.log("calculated spread mensual", currEstimation.calculatedSpreadMensual);
+    console.log("calculating spread mensual", currEstimation.calcSpreadM, eventData[0].spread);
+    currEstimation.calcSpreadM = Math.pow(1 + currEstimation.spread / 100, 1 / 12) - 1;
+    console.log("calculated spread mensual", currEstimation.calcSpreadM);
   }
-  if (eventData[0].hasOwnProperty("structuredCommission")) {
-    currEstimation.structuredCommission = eventData[0].structuredCommission;
+  if (eventData[0].hasOwnProperty("strComm")) {
+    currEstimation.strComm = eventData[0].strComm;
   }
   if (eventData[0].hasOwnProperty("term")) {
     currEstimation.term = eventData[0].term;

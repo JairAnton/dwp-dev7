@@ -138,11 +138,11 @@ public without sharing class BE_ProfilabilityController_cls {
       estimationMap.put('CurrencyIsoCode', accountPlanning.CurrencyIsoCode);
 
       estimationMap.put('spread', compareWithSavedData(accPlanRen, accountPlanning, 'Spread__c'));
-      estimationMap.put('calculatedSpreadMensual', compareWithSavedData(accPlanRen, accountPlanning, 'Spread_Month__c'));
+      estimationMap.put('calcSpreadM', compareWithSavedData(accPlanRen, accountPlanning, 'Spread_Month__c'));
       estimationMap.put('term', compareWithSavedData(accPlanRen, accountPlanning, 'Term__c'));
-      estimationMap.put('structuredCommission', compareWithSavedData(accPlanRen, accountPlanning, 'Structured_Commission__c'));
+      estimationMap.put('strComm', compareWithSavedData(accPlanRen, accountPlanning, 'Structured_Commission__c'));
       estimationMap.put('calculatedMargin', 0);
-      estimationMap.put('calculatedCommission', 0);
+      estimationMap.put('calComm', 0);
 
       estimationList.add(estimationMap);
     }
@@ -221,7 +221,7 @@ public without sharing class BE_ProfilabilityController_cls {
         apl.Account_Planning__c = recordId;
         apl.Type__c = 'RENTABILITY';
 
-        apl.Current_Year_Estimation__c = sections.currentYearEstimation;
+        apl.Current_Year_Estimation__c = sections.cyEstim;
         apl.Current_Year_Account_Plan__c = sections.cyAP;
         apl.Icon_Name_Current_Year__c = sections.iconNameCY;
         apl.Icon_Name_Next_Year__c = sections.iconNameNY;
@@ -242,9 +242,9 @@ public without sharing class BE_ProfilabilityController_cls {
       apl.Account_Id__c = estUI.accountId;
       apl.Account_Planning__c = recordId;
       apl.Term__c = estUI.term;
-      apl.Structured_Commission__c = estUI.structuredCommission;
+      apl.Structured_Commission__c = estUI.strComm;
       apl.Spread__c = estUI.spread;
-      apl.Spread_Month__c = estUI.calculatedSpreadMensual;
+      apl.Spread_Month__c = estUI.calcSpreadM;
       apl.Section_Id__c = estUI.opportunityId;
       apl.Type__c = 'ESTVARIABLES';
 
@@ -306,14 +306,14 @@ public without sharing class BE_ProfilabilityController_cls {
     /** accountId */
     public String accountId { get; set; }
 
-    /** calculatedCommission */
-    public Decimal calculatedCommission { get; set; }
+    /** calComm */
+    public Decimal calComm { get; set; }
 
     /** calculatedMargin */
     public Decimal calculatedMargin { get; set; }
 
-    /** calculatedSpreadMensual */
-    public Decimal calculatedSpreadMensual { get; set; }
+    /** calcSpreadM */
+    public Decimal calcSpreadM { get; set; }
 
     /** expectedDate */
     public Date expectedDate { get; set; }
@@ -330,8 +330,8 @@ public without sharing class BE_ProfilabilityController_cls {
     /** spread */
     public Decimal spread { get; set; }
 
-    /** structuredCommission */
-    public Decimal structuredCommission { get; set; }
+    /** strComm */
+    public Decimal strComm { get; set; }
 
     /** term */
     public Integer term { get; set; }
@@ -343,7 +343,7 @@ public without sharing class BE_ProfilabilityController_cls {
     public Decimal currentYear { get; set; }
 
     /** currentYearEstimation */
-    public Decimal currentYearEstimation { get; set; }
+    public Decimal cyEstim { get; set; }
 
     /** cyAP */
     public Decimal cyAP { get; set; }
