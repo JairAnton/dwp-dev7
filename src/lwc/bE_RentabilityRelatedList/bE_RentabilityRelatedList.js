@@ -166,8 +166,6 @@ export default class be_RentabilityRelatedList extends LightningElement {
   //#region
 
   setRentabilityData() {
-    console.log("sending rentability...", this.rentabilityData.data);
-    console.log("sending rentabilityModal...", [...this.estimationData.data]);
     saveRentabilityDrivers({
       rentability: JSON.stringify(this.rentabilityData.data),
       rentabilityModal: JSON.stringify([...this.estimationData.data]),
@@ -177,7 +175,6 @@ export default class be_RentabilityRelatedList extends LightningElement {
         if (res.error) {
           console.log("Error 1", res);
         } else {
-          console.log("response from server is:", res);
           this.isModalOpen = false;
         }
       })
@@ -190,16 +187,12 @@ export default class be_RentabilityRelatedList extends LightningElement {
   getRentabilityData(data) {
     if (data.data) {
       this.rentabilityData = data.data;
-      console.log("response...", data);
-    } else {
-      console.log("---- geting data...---", data);
     }
   }
 
   getEstimationData() {
     getGrowthVariableData({ recordId: this.recordId }).then((res) => {
       this.estimationData = res;
-      console.log("estimation data:", res);
     });
   }
 
@@ -207,10 +200,10 @@ export default class be_RentabilityRelatedList extends LightningElement {
     this._wiredResult = result;
     if (result.data) {
       this.sections = result.data;
-      this.error = undefined;
+      this.error = null;
     } else if (result.error) {
       this.error = result.error;
-      this.sections = undefined;
+      this.sections = null;
     }
   }
   //#endregion
@@ -320,7 +313,6 @@ export default class be_RentabilityRelatedList extends LightningElement {
 
   submitDetails() {
     this.setRentabilityData();
-    //this.isModalOpen = false;
   }
 
   //#endregion
