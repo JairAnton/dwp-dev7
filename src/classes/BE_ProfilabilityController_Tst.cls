@@ -16,8 +16,8 @@ public with sharing class BE_ProfilabilityController_Tst {
 	   @Description setup data
 	 */
   @testSetup
-  static void setupData() {
-    User manager = TestFactory.createUser('sample', 'Ejecutivo');
+  static void setup() {
+    final User manager = TestFactory.createUser('sample', 'Ejecutivo');
     final Account acc1 = new Account(Name = 'ASIA MOTORS');
     insert acc1;
     final List<Account> accs = new List<Account>{
@@ -27,29 +27,29 @@ public with sharing class BE_ProfilabilityController_Tst {
     };
     insert accs;
 
-    final acpl__Account_Planning__c ap = new acpl__Account_Planning__c();
-    ap.NAME = 'AP-REVIEW EV V1';
+    final acpl__Account_Planning__c accPlan = new acpl__Account_Planning__c();
+    accPlan.NAME = 'AP-REVIEW EV V1';
     //ap.RECORDTYPEID = '0123F000001bwFvQAI'; //????????????????????????
-    ap.ACPL__EXTERNAL_REFERENCE_ID__C = 'AP-REVIEW EV V11';
-    ap.ACPL__GF_ACCOUNT_PLANNING_NAME__C = 'Full';
-    ap.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = true;
-    ap.ACPL__GF_AP_LAUNCH_NAME__C = 'General period';
-    ap.ACPL__GF_AP_LAUNCH_PERIOD_DESC__C = '04/21';
-    ap.ACPL__GF_AP_LIMIT_DATE__C = Date.newInstance(2030, 12, 31);
-    ap.ACPL__GF_AP_REQ_VALIDATION_IND_TYPE__C = 'Yes';
-    ap.ACPL__GF_AP_STATUS_TYPE_NAME__C = 'Not started';
-    ap.ACPL__GF_AP_SUBSTATUS_TYPE_NAME__C = 'Not started';
-    ap.ACPL__GF_MANDATORY_TYPE__C = 'Mandatory';
-    ap.acpl__participant_id__c = acc1.Id; //Asia Motors
-    ap.acpl__proposal_manager_id__c = manager.Id; // EDUARDO VARGAS
+    accPlan.ACPL__EXTERNAL_REFERENCE_ID__C = 'AP-REVIEW EV V11';
+    accPlan.ACPL__GF_ACCOUNT_PLANNING_NAME__C = 'Full';
+    accPlan.ACPL__GF_AP_INDVI_LOCK_EDIT_IND_TYPE__C = true;
+    accPlan.ACPL__GF_AP_LAUNCH_NAME__C = 'General period';
+    accPlan.ACPL__GF_AP_LAUNCH_PERIOD_DESC__C = '04/21';
+    accPlan.ACPL__GF_AP_LIMIT_DATE__C = Date.newInstance(2030, 12, 31);
+    accPlan.ACPL__GF_AP_REQ_VALIDATION_IND_TYPE__C = 'Yes';
+    accPlan.ACPL__GF_AP_STATUS_TYPE_NAME__C = 'Not started';
+    accPlan.ACPL__GF_AP_SUBSTATUS_TYPE_NAME__C = 'Not started';
+    accPlan.ACPL__GF_MANDATORY_TYPE__C = 'Mandatory';
+    accPlan.acpl__participant_id__c = acc1.Id; //Asia Motors
+    accPlan.acpl__proposal_manager_id__c = manager.Id; // EDUARDO VARGAS
     //ap.acpl__Account_Planning_Type__c = 'a1yq0000001JABfAAO';//'a1y6u0000008OtnAAE';
 
-    insert ap;
+    insert accPlan;
 
     bupl__BusinessPlan__c bp = [SELECT ID, Name FROM bupl__BusinessPlan__c LIMIT 1];
     final List<bupl__BP_GrowthDriver__c> growDrivers = new List<bupl__BP_GrowthDriver__c>{
       new bupl__BP_GrowthDriver__c(
-        acpl__gf_account_planning_id__c = ap.Id,
+        acpl__gf_account_planning_id__c = accPlan.Id,
         Amount__c = 160000,
         bupl__solution_category_id__c = 'Financiamiento a largo plazo',
         ClientAssigned__c = accs[1].Id,
@@ -58,7 +58,7 @@ public with sharing class BE_ProfilabilityController_Tst {
         bupl__gf_business_plan_id__c = bp.Id
       ),
       new bupl__BP_GrowthDriver__c(
-        acpl__gf_account_planning_id__c = ap.Id,
+        acpl__gf_account_planning_id__c = accPlan.Id,
         Amount__c = 90000,
         bupl__solution_category_id__c = 'Financiamiento a corto plazo',
         ClientAssigned__c = accs[1].Id,
@@ -67,7 +67,7 @@ public with sharing class BE_ProfilabilityController_Tst {
         bupl__gf_business_plan_id__c = bp.Id
       ),
       new bupl__BP_GrowthDriver__c(
-        acpl__gf_account_planning_id__c = ap.Id,
+        acpl__gf_account_planning_id__c = accPlan.Id,
         Amount__c = 300000,
         bupl__solution_category_id__c = 'Tesorería',
         ClientAssigned__c = accs[2].Id,
@@ -200,7 +200,7 @@ public with sharing class BE_ProfilabilityController_Tst {
       LIMIT 1
     ];
 
-    Map<String, Object> rentabilityUI = BE_ProfilabilityController_cls.getRentabilityData(accountPlan.Id);
+    Map<String, Object> rentabilityUI = BE_ProfilabilityController_cls.getRentData(accountPlan.Id);
     Integer count = 0;
     for (Object accsObj : (List<Object>) rentabilityUI.get('data')) {
       Map<String, Object> accsMap = (Map<String, Object>) accsObj;

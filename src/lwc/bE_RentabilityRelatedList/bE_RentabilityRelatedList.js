@@ -1,6 +1,6 @@
 import { api, LightningElement, track, wire } from "lwc";
 import { refreshApex } from "@salesforce/apex";
-import getData from "@salesforce/apex/BE_ProfilabilityController_cls.getRentabilityData";
+import getData from "@salesforce/apex/BE_ProfilabilityController_cls.getRentData";
 import getGrowthVariableData from "@salesforce/apex/BE_ProfilabilityController_cls.getGrowthVariableData";
 import saveRentabilityDrivers from "@salesforce/apex/BE_ProfilabilityController_cls.saveRentabilityDrivers";
 import { updateEstimationList, calculator } from "./be_RentabilityRelatedListUtilities";
@@ -184,7 +184,7 @@ export default class be_RentabilityRelatedList extends LightningElement {
   }
 
   @wire(getData, { recordId: "$recordId" })
-  getRentabilityData(data) {
+  getRentData(data) {
     if (data.data) {
       this.rentabilityData = data.data;
     }

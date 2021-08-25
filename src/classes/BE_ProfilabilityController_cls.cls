@@ -22,9 +22,33 @@ public without sharing class BE_ProfilabilityController_cls {
   static final String SECTIONS = 'sections';
   /** @Description ERROR */
   static final String ERROR = 'error';
+  /** @Description typeClass */
+  static final string typeClass = 'type';
+  /** @Description rowClass */
+  static final string rowClass = 'row';
+  /** @Description priorYearClass */
+  static final string priorYearClass = 'priorYear';
+  /** @Description currentYearClass */
+  static final string currentYearClass = 'currentYear';
+  /** @Description cYEstClass */
+  static final string cYEstClass = 'currentYearEstimation';
+  /** @Description nextYearClass */
+  static final string nextYearClass = 'nextYear';
+  /** @Description cyAPClass */
+  static final string cyAPClass = 'cyAP';
+  /** @Description iconNameCYClass */
+  static final string iconNameCYClass = 'iconNameCY';
+  /** @Description iconNameNYClass */
+  static final string iconNameNYClass = 'iconNameNY';
+  /** @Description sectionIdClass */
+  static final string sectionIdClass = 'sectionId';
+  /** @Description sumCYClass */
+  static Decimal sumCYClass = 0;
+  /** @Description sumPYClass */
+  static Decimal sumPYClass = 0;
 
   /**Constructor */
-  public BE_ProfilabilityController_cls() {
+  private BE_ProfilabilityController_cls() {
   }
 
   /*
@@ -32,8 +56,7 @@ public without sharing class BE_ProfilabilityController_cls {
    * @recordId Account Planning ID
    */
   @AuraEnabled(cacheable=true)
-  public static Map<String, Object> getRentabilityData(string recordId) {
-    Map<String, Object> response = new Map<String, Object>();
+  public static Map<String, Object> getRentData(string recordId) {
     final acpl__Account_Planning__c accountPlanning = [
       SELECT Id, Name, acpl__participant_id__r.Id, acpl__participant_id__r.Name
       FROM acpl__Account_Planning__c
@@ -45,7 +68,7 @@ public without sharing class BE_ProfilabilityController_cls {
       WHERE parentId = :accountPlanning.acpl__participant_id__r.Id
     ];
 
-    Map<String, Account_Plan_Rentability__c> accountPlantRentability = new Map<String, Account_Plan_Rentability__c>();
+    Map<String, Account_Plan_Rentability__c> accPlanRen = new Map<String, Account_Plan_Rentability__c>();
     for (Account_Plan_Rentability__c accPR : [
       SELECT
         Id,
@@ -63,7 +86,7 @@ public without sharing class BE_ProfilabilityController_cls {
       FROM Account_Plan_Rentability__c
       WHERE Account_Planning__c = :recordId
     ]) {
-      accountPlantRentability.put(accPR.Section_Id__c, accPR);
+      accPlanRen.put(accPR.Section_Id__c, accPR);
     }
 
     final Map<string, AggregateResult> marOrd = new Map<string, AggregateResult>(
@@ -84,6 +107,8 @@ public without sharing class BE_ProfilabilityController_cls {
         ORDER BY Account_id__c
       ]
     );
+    System.debug('---' + marOrd);
+    System.debug('---' + [SELECT is_type_3_last_date__c, profitability_type__c FROM Account_Profitability__c]);
     final Map<string, AggregateResult> comi = new Map<string, AggregateResult>(
       [
         SELECT
@@ -119,16 +144,14 @@ public without sharing class BE_ProfilabilityController_cls {
       ]
     );
 
-    List<Map<String, Object>> responseList = new List<Map<String, Object>>();
+    final List<Map<String, Object>> responseList = new List<Map<String, Object>>();
     for (Account acc : accounts) {
-      Map<String, Object> mapValues = new Map<String, Object>{ 'accountId' => acc.Id, 'accountName' => acc.Name };
-      List<Map<String, Object>> sectionsList = new List<Map<String, Object>>();
+      final Map<String, Object> mapValues = new Map<String, Object>{ 'accountId' => acc.Id, 'accountName' => acc.Name };
+      final List<Map<String, Object>> sectionsList = new List<Map<String, Object>>();
 
-      Decimal sumCY;
-      Decimal sumPY;
-      sectionsList.add(generateRentSections(marFin, accountPlantRentability, acc, MARGIN_FIN));
-      sectionsList.add(generateRentSections(comi, accountPlantRentability, acc, COMMISION));
-      sectionsList.add(generateRentSections(marOrd, accountPlantRentability, acc, MARGIN_ORD));
+      sectionsList.add(generateRentSections(marFin, accPlanRen, acc, MARGIN_FIN));
+      sectionsList.add(generateRentSections(comi, accPlanRen, acc, COMMISION));
+      sectionsList.add(generateRentSections(marOrd, accPlanRen, acc, MARGIN_ORD));
 
       mapValues.put(SECTIONS, sectionsList);
       responseList.add(mapValues);
@@ -143,10 +166,10 @@ public without sharing class BE_ProfilabilityController_cls {
    */
   @AuraEnabled
   public static Map<String, Object> getGrowthVariableData(string recordId) {
-    Map<String, Object> response = new Map<String, Object>();
-    List<Map<String, Object>> estimationList = new List<Map<String, Object>>();
+    final Map<String, Object> response = new Map<String, Object>();
+    final List<Map<String, Object>> estimationList = new List<Map<String, Object>>();
+    final Map<String, Account_Plan_Rentability__c> accPlanRen = new Map<String, Account_Plan_Rentability__c>();
 
-    Map<String, Account_Plan_Rentability__c> accountPlantRentability = new Map<String, Account_Plan_Rentability__c>();
     for (Account_Plan_Rentability__c accPR : [
       SELECT
         Id,
@@ -164,7 +187,7 @@ public without sharing class BE_ProfilabilityController_cls {
       FROM Account_Plan_Rentability__c
       WHERE Account_Planning__c = :recordId AND Type__c = 'ESTVARIABLES'
     ]) {
-      accountPlantRentability.put(accPR.Section_Id__c, accPR);
+      accPlanRen.put(accPR.Section_Id__c, accPR);
     }
 
     for (bupl__BP_GrowthDriver__c accountPlanning : [
@@ -179,7 +202,7 @@ public without sharing class BE_ProfilabilityController_cls {
       FROM bupl__BP_GrowthDriver__c
       WHERE acpl__gf_account_planning_id__c = :recordId AND ClientAssigned__c != NULL
     ]) {
-      Map<String, Object> estimationMap = new Map<String, Object>();
+      final Map<String, Object> estimationMap = new Map<String, Object>();
       estimationMap.put('opportunityId', accountPlanning.ClientAssigned__r.Id + '-' + accountPlanning.Id);
       estimationMap.put('accountId', accountPlanning.ClientAssigned__r.Id);
       estimationMap.put('opportunityName', accountPlanning.bupl__solution_category_id__c);
@@ -188,15 +211,15 @@ public without sharing class BE_ProfilabilityController_cls {
       estimationMap.put('opportunityValue', accountPlanning.Amount__c);
       estimationMap.put('CurrencyIsoCode', accountPlanning.CurrencyIsoCode);
 
-      estimationMap.put('spread', compareWithSavedData(accountPlantRentability, accountPlanning, 'Spread__c'));
+      estimationMap.put('spread', compareWithSavedData(accPlanRen, accountPlanning, 'Spread__c'));
       estimationMap.put(
         'calculatedSpreadMensual',
-        compareWithSavedData(accountPlantRentability, accountPlanning, 'Spread_Month__c')
+        compareWithSavedData(accPlanRen, accountPlanning, 'Spread_Month__c')
       );
-      estimationMap.put('term', compareWithSavedData(accountPlantRentability, accountPlanning, 'Term__c'));
+      estimationMap.put('term', compareWithSavedData(accPlanRen, accountPlanning, 'Term__c'));
       estimationMap.put(
         'structuredCommission',
-        compareWithSavedData(accountPlantRentability, accountPlanning, 'Structured_Commission__c')
+        compareWithSavedData(accPlanRen, accountPlanning, 'Structured_Commission__c')
       );
       estimationMap.put('calculatedMargin', 0);
       estimationMap.put('calculatedCommission', 0);
@@ -209,23 +232,19 @@ public without sharing class BE_ProfilabilityController_cls {
 
   /** saveRentabilityDrivers */
   @AuraEnabled
-  public static Map<String, Object> saveRentabilityDrivers(
-    String rentability,
-    String rentabilityModal,
-    String recordId
-  ) {
-    Map<String, Object> response = new Map<String, Object>();
+  public static Map<String, Object> saveRentabilityDrivers(String rentability, String rentModUI, String recordId) {
+    final Map<String, Object> response = new Map<String, Object>();
     try {
       final List<RentabilityUI> rentabilitiesUI = (List<RentabilityUI>) JSON.deserialize(
         rentability,
         List<RentabilityUI>.class
       );
-      final List<RentabilityEstimationUI> rentabilitiesModalUI = (List<RentabilityEstimationUI>) JSON.deserialize(
-        rentabilityModal,
+      final List<RentabilityEstimationUI> rentsModUI = (List<RentabilityEstimationUI>) JSON.deserialize(
+        rentModUI,
         List<RentabilityEstimationUI>.class
       );
 
-      Map<String, Id> apMap = new Map<String, Id>();
+      final Map<String, Id> apMap = new Map<String, Id>();
       for (Account_Plan_Rentability__c apr : [
         SELECT Id, Section_Id__c
         FROM Account_Plan_Rentability__c
@@ -234,9 +253,9 @@ public without sharing class BE_ProfilabilityController_cls {
         apMap.put(apr.Section_Id__c, apr.Id);
       }
 
-      List<Account_Plan_Rentability__c> accountPlanRentability = rentabilityUIModalToSObject(
+      final List<Account_Plan_Rentability__c> accountPlanRentability = rentabilityUIModalToSObject(
         rentabilitiesUI,
-        rentabilitiesModalUI,
+        rentsModUI,
         apMap,
         recordId
       );
@@ -254,15 +273,15 @@ public without sharing class BE_ProfilabilityController_cls {
    --------------------------------*/
   /** compareWithSavedData */
   public static Object compareWithSavedData(
-    Map<String, Account_Plan_Rentability__c> accountPlantRentability,
+    Map<String, Account_Plan_Rentability__c> accPlanRen,
     bupl__BP_GrowthDriver__c accountPlanning,
     String accountPlanField
   ) {
     Object response;
 
     try {
-      if (accountPlantRentability.containsKey(accountPlanning.ClientAssigned__r.Id + '-' + accountPlanning.Id)) {
-        Account_Plan_Rentability__c accPlan = accountPlantRentability.get(
+      if (accPlanRen.containsKey(accountPlanning.ClientAssigned__r.Id + '-' + accountPlanning.Id)) {
+        final Account_Plan_Rentability__c accPlan = accPlanRen.get(
           accountPlanning.ClientAssigned__r.Id +
           '-' +
           accountPlanning.Id
@@ -279,10 +298,8 @@ public without sharing class BE_ProfilabilityController_cls {
   }
 
   /** compareRentabilityWithSavedData */
-  //accountPlanning
-
   public static Object compareRentabilityWithSavedData(
-    Map<String, Account_Plan_Rentability__c> accountPlantRentability,
+    Map<String, Account_Plan_Rentability__c> accPlanRen,
     String accId,
     String accountPlanField,
     String rentType
@@ -290,8 +307,8 @@ public without sharing class BE_ProfilabilityController_cls {
     Object response;
 
     try {
-      if (accountPlantRentability.containsKey(rentType + '-' + accId)) {
-        Account_Plan_Rentability__c accPlan = accountPlantRentability.get(rentType + '-' + accId);
+      if (accPlanRen.containsKey(rentType + '-' + accId)) {
+        final Account_Plan_Rentability__c accPlan = accPlanRen.get(rentType + '-' + accId);
         response = accPlan.get(accountPlanField);
       } else {
         response = 0;
@@ -305,14 +322,14 @@ public without sharing class BE_ProfilabilityController_cls {
   /**Mapper */
   private static List<Account_Plan_Rentability__c> rentabilityUIModalToSObject(
     List<RentabilityUI> rentabilitiesUi,
-    List<RentabilityEstimationUI> rentabilitiesModalUI,
+    List<RentabilityEstimationUI> rentsModalUI,
     Map<String, Id> apMap,
     String recordId
   ) {
-    List<Account_Plan_Rentability__c> response = new List<Account_Plan_Rentability__c>();
+    final List<Account_Plan_Rentability__c> response = new List<Account_Plan_Rentability__c>();
     for (RentabilityUI rentabilityUI : rentabilitiesUi) {
       for (RentabilitySection sections : rentabilityUI.sections) {
-        Account_Plan_Rentability__c apl = new Account_plan_Rentability__c();
+        final Account_Plan_Rentability__c apl = new Account_plan_Rentability__c();
         apl.Account_Id__c = rentabilityUI.accountId;
         apl.Account_Planning__c = recordId;
         apl.Type__c = 'RENTABILITY';
@@ -332,8 +349,8 @@ public without sharing class BE_ProfilabilityController_cls {
       }
     }
 
-    for (RentabilityEstimationUI rentabilityEstimationUI : rentabilitiesModalUI) {
-      Account_Plan_Rentability__c apl = new Account_plan_Rentability__c();
+    for (RentabilityEstimationUI rentabilityEstimationUI : rentsModalUI) {
+      final Account_Plan_Rentability__c apl = new Account_plan_Rentability__c();
 
       apl.Account_Id__c = rentabilityEstimationUI.accountId;
       apl.Account_Planning__c = recordId;
@@ -359,63 +376,40 @@ public without sharing class BE_ProfilabilityController_cls {
    */
   private static Map<String, Object> generateRentSections(
     Map<string, AggregateResult> obj,
-    Map<String, Account_Plan_Rentability__c> accountPlantRentability,
+    Map<String, Account_Plan_Rentability__c> accPlanRen,
     Account acc,
     String rentType
   ) {
-    Map<String, Object> sectionsMaps = new Map<String, Object>();
-    final string type = 'type';
-    final string row = 'row';
-    final string priorYear = 'priorYear';
-    final string currentYear = 'currentYear';
-    final string currentYearEstimation = 'currentYearEstimation';
-    final string nextYear = 'nextYear';
-    final string cyAP = 'cyAP';
-    final string iconNameCY = 'iconNameCY';
-    final string iconNameNY = 'iconNameNY';
-    final string sectionId = 'sectionId';
+    final Map<String, Object> sectionsMaps = new Map<String, Object>();
 
-    Decimal sumCY = 0;
-    Decimal sumPY = 0;
     if (obj.containsKey(acc.Id)) {
-      sumCY = (Decimal) obj.get(acc.Id).get('sumCY');
-      sumPY = (Decimal) obj.get(acc.Id).get('sumPY');
+      sumCYClass = (Decimal) obj.get(acc.Id).get('sumCY');
+      sumPYClass = (Decimal) obj.get(acc.Id).get('sumPY');
     }
-    sectionsMaps.put(row, rentType);
-    sectionsMaps.put(priorYear, sumPY);
-    sectionsMaps.put(currentYear, sumCY);
+    sectionsMaps.put(rowClass, rentType);
+    sectionsMaps.put(priorYearClass, sumPYClass);
+    sectionsMaps.put(currentYearClass, sumCYClass);
 
-    /**
-     * public static Object compareRentabilityWithSavedData(
-        Map<String, Account_Plan_Rentability__c> accountPlantRentability,
-        String accId,
-        String accountPlanField
-      ) {
-     */
-
-    sectionsMaps.put(sectionId, rentType + '-' + acc.Id);
+    sectionsMaps.put(sectionIdClass, rentType + '-' + acc.Id);
 
     sectionsMaps.put(
-      currentYearEstimation,
-      compareRentabilityWithSavedData(accountPlantRentability, acc.Id, 'Current_Year_Estimation__c', rentType)
+      cYEstClass,
+      compareRentabilityWithSavedData(accPlanRen, acc.Id, 'Current_Year_Estimation__c', rentType)
     );
     sectionsMaps.put(
-      iconNameCY,
-      compareRentabilityWithSavedData(accountPlantRentability, acc.Id, 'Icon_Name_Current_Year__c', rentType)
+      iconNameCYClass,
+      compareRentabilityWithSavedData(accPlanRen, acc.Id, 'Icon_Name_Current_Year__c', rentType)
     );
     sectionsMaps.put(
-      iconNameNY,
-      compareRentabilityWithSavedData(accountPlantRentability, acc.Id, 'Icon_Name_Next_Year__c', rentType)
+      iconNameNYClass,
+      compareRentabilityWithSavedData(accPlanRen, acc.Id, 'Icon_Name_Next_Year__c', rentType)
     );
+    sectionsMaps.put(nextYearClass, compareRentabilityWithSavedData(accPlanRen, acc.Id, 'Next_Year__c', rentType));
     sectionsMaps.put(
-      nextYear,
-      compareRentabilityWithSavedData(accountPlantRentability, acc.Id, 'Next_Year__c', rentType)
+      cyAPClass,
+      compareRentabilityWithSavedData(accPlanRen, acc.Id, 'Current_Year_Account_Plan__c', rentType)
     );
-    sectionsMaps.put(
-      cyAP,
-      compareRentabilityWithSavedData(accountPlantRentability, acc.Id, 'Current_Year_Account_Plan__c', rentType)
-    );
-    sectionsMaps.put(type, 1);
+    sectionsMaps.put(typeClass, 1);
     return sectionsMaps;
   }
 
