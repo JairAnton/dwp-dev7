@@ -23,25 +23,25 @@ public without sharing class BE_ProfilabilityController_cls {
   /** @Description ERROR */
   static final String ERROR = 'error';
   /** @Description typeClass */
-  static final string typeClass = 'type';
+  static final string TYPECLASS = 'type';
   /** @Description rowClass */
-  static final string rowClass = 'row';
+  static final string ROWCLASS = 'row';
   /** @Description priorYearClass */
-  static final string priorYearClass = 'priorYear';
+  static final string PRIORYEARCLASS = 'priorYear';
   /** @Description currentYearClass */
-  static final string currentYearClass = 'currentYear';
+  static final string CURRENTYEARCLASS = 'currentYear';
   /** @Description cYEstClass */
-  static final string cYEstClass = 'currentYearEstimation';
+  static final string CYESTCLASS = 'currentYearEstimation';
   /** @Description nextYearClass */
-  static final string nextYearClass = 'nextYear';
+  static final string NEXTYEARCLASS = 'nextYear';
   /** @Description cyAPClass */
-  static final string cyAPClass = 'cyAP';
+  static final string CYAPCLASS = 'cyAP';
   /** @Description iconNameCYClass */
-  static final string iconNameCYClass = 'iconNameCY';
+  static final string ICONNAMECYCLASS = 'iconNameCY';
   /** @Description iconNameNYClass */
-  static final string iconNameNYClass = 'iconNameNY';
+  static final string ICONNAMENYCLASS = 'iconNameNY';
   /** @Description sectionIdClass */
-  static final string sectionIdClass = 'sectionId';
+  static final string SECTIONIDCLASS = 'sectionId';
   /** @Description sumCYClass */
   static Decimal sumCYClass = 0;
   /** @Description sumPYClass */
@@ -56,7 +56,7 @@ public without sharing class BE_ProfilabilityController_cls {
    * @recordId Account Planning ID
    */
   @AuraEnabled(cacheable=true)
-  public static Map<String, Object> getRentData(string recordId) {
+  public static Map<String, Object> getRDt(string recordId) {
     final acpl__Account_Planning__c accountPlanning = [
       SELECT Id, Name, acpl__participant_id__r.Id, acpl__participant_id__r.Name
       FROM acpl__Account_Planning__c
@@ -68,7 +68,7 @@ public without sharing class BE_ProfilabilityController_cls {
       WHERE parentId = :accountPlanning.acpl__participant_id__r.Id
     ];
 
-    Map<String, Account_Plan_Rentability__c> accPlanRen = new Map<String, Account_Plan_Rentability__c>();
+    final Map<String, Account_Plan_Rentability__c> accPlanRen = new Map<String, Account_Plan_Rentability__c>();
     for (Account_Plan_Rentability__c accPR : [
       SELECT
         Id,
@@ -107,8 +107,6 @@ public without sharing class BE_ProfilabilityController_cls {
         ORDER BY Account_id__c
       ]
     );
-    System.debug('---' + marOrd);
-    System.debug('---' + [SELECT is_type_3_last_date__c, profitability_type__c FROM Account_Profitability__c]);
     final Map<string, AggregateResult> comi = new Map<string, AggregateResult>(
       [
         SELECT
@@ -200,7 +198,7 @@ public without sharing class BE_ProfilabilityController_cls {
         ExpectedDate__c,
         CurrencyIsoCode
       FROM bupl__BP_GrowthDriver__c
-      WHERE acpl__gf_account_planning_id__c = :recordId AND ClientAssigned__c != NULL
+      WHERE acpl__gf_account_planning_id__c = :recordId AND ClientAssigned__c = NULL
     ]) {
       final Map<String, Object> estimationMap = new Map<String, Object>();
       estimationMap.put('opportunityId', accountPlanning.ClientAssigned__r.Id + '-' + accountPlanning.Id);
@@ -253,15 +251,15 @@ public without sharing class BE_ProfilabilityController_cls {
         apMap.put(apr.Section_Id__c, apr.Id);
       }
 
-      final List<Account_Plan_Rentability__c> accountPlanRentability = rentabilityUIModalToSObject(
+      final List<Account_Plan_Rentability__c> apRent = rentabilityUIModalToSObject(
         rentabilitiesUI,
         rentsModUI,
         apMap,
         recordId
       );
 
-      //response.put('example', accountPlanRentability);
-      upsert accountPlanRentability;
+      //response.put('example', apRent);
+      upsert apRent;
     } catch (Exception e) {
       response.put(ERROR, e);
     }
@@ -349,20 +347,20 @@ public without sharing class BE_ProfilabilityController_cls {
       }
     }
 
-    for (RentabilityEstimationUI rentabilityEstimationUI : rentsModalUI) {
+    for (RentabilityEstimationUI estUI : rentsModalUI) {
       final Account_Plan_Rentability__c apl = new Account_plan_Rentability__c();
 
-      apl.Account_Id__c = rentabilityEstimationUI.accountId;
+      apl.Account_Id__c = estUI.accountId;
       apl.Account_Planning__c = recordId;
-      apl.Term__c = rentabilityEstimationUI.term;
-      apl.Structured_Commission__c = rentabilityEstimationUI.structuredCommission;
-      apl.Spread__c = rentabilityEstimationUI.spread;
-      apl.Spread_Month__c = rentabilityEstimationUI.calculatedSpreadMensual;
-      apl.Section_Id__c = rentabilityEstimationUI.opportunityId;
+      apl.Term__c = estUI.term;
+      apl.Structured_Commission__c = estUI.structuredCommission;
+      apl.Spread__c = estUI.spread;
+      apl.Spread_Month__c = estUI.calculatedSpreadMensual;
+      apl.Section_Id__c = estUI.opportunityId;
       apl.Type__c = 'ESTVARIABLES';
 
-      if (apMap.containsKey(rentabilityEstimationUI.opportunityId)) {
-        apl.Id = Id.valueOf(apMap.get(rentabilityEstimationUI.opportunityId));
+      if (apMap.containsKey(estUI.opportunityId)) {
+        apl.Id = Id.valueOf(apMap.get(estUI.opportunityId));
       }
       response.add(apl);
     }
@@ -386,30 +384,30 @@ public without sharing class BE_ProfilabilityController_cls {
       sumCYClass = (Decimal) obj.get(acc.Id).get('sumCY');
       sumPYClass = (Decimal) obj.get(acc.Id).get('sumPY');
     }
-    sectionsMaps.put(rowClass, rentType);
-    sectionsMaps.put(priorYearClass, sumPYClass);
-    sectionsMaps.put(currentYearClass, sumCYClass);
+    sectionsMaps.put(ROWCLASS, rentType);
+    sectionsMaps.put(PRIORYEARCLASS, sumPYClass);
+    sectionsMaps.put(CURRENTYEARCLASS, sumCYClass);
 
-    sectionsMaps.put(sectionIdClass, rentType + '-' + acc.Id);
+    sectionsMaps.put(SECTIONIDCLASS, rentType + '-' + acc.Id);
 
     sectionsMaps.put(
-      cYEstClass,
+      CYESTCLASS,
       compareRentabilityWithSavedData(accPlanRen, acc.Id, 'Current_Year_Estimation__c', rentType)
     );
     sectionsMaps.put(
-      iconNameCYClass,
+      ICONNAMECYCLASS,
       compareRentabilityWithSavedData(accPlanRen, acc.Id, 'Icon_Name_Current_Year__c', rentType)
     );
     sectionsMaps.put(
-      iconNameNYClass,
+      ICONNAMENYCLASS,
       compareRentabilityWithSavedData(accPlanRen, acc.Id, 'Icon_Name_Next_Year__c', rentType)
     );
-    sectionsMaps.put(nextYearClass, compareRentabilityWithSavedData(accPlanRen, acc.Id, 'Next_Year__c', rentType));
+    sectionsMaps.put(NEXTYEARCLASS, compareRentabilityWithSavedData(accPlanRen, acc.Id, 'Next_Year__c', rentType));
     sectionsMaps.put(
-      cyAPClass,
+      CYAPCLASS,
       compareRentabilityWithSavedData(accPlanRen, acc.Id, 'Current_Year_Account_Plan__c', rentType)
     );
-    sectionsMaps.put(typeClass, 1);
+    sectionsMaps.put(TYPECLASS, 1);
     return sectionsMaps;
   }
 

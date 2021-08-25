@@ -46,7 +46,7 @@ public with sharing class BE_ProfilabilityController_Tst {
 
     insert accPlan;
 
-    bupl__BusinessPlan__c bp = [SELECT ID, Name FROM bupl__BusinessPlan__c LIMIT 1];
+    final bupl__BusinessPlan__c bussinessPl = [SELECT ID, Name FROM bupl__BusinessPlan__c LIMIT 1];
     final List<bupl__BP_GrowthDriver__c> growDrivers = new List<bupl__BP_GrowthDriver__c>{
       new bupl__BP_GrowthDriver__c(
         acpl__gf_account_planning_id__c = accPlan.Id,
@@ -55,7 +55,7 @@ public with sharing class BE_ProfilabilityController_Tst {
         ClientAssigned__c = accs[1].Id,
         CurrencyIsoCode = 'PEN',
         ExpectedDate__c = date.valueOf('2021-11-11'),
-        bupl__gf_business_plan_id__c = bp.Id
+        bupl__gf_business_plan_id__c = bussinessPl.Id
       ),
       new bupl__BP_GrowthDriver__c(
         acpl__gf_account_planning_id__c = accPlan.Id,
@@ -64,7 +64,7 @@ public with sharing class BE_ProfilabilityController_Tst {
         ClientAssigned__c = accs[1].Id,
         CurrencyIsoCode = 'USD',
         ExpectedDate__c = date.valueOf('2021-09-30'),
-        bupl__gf_business_plan_id__c = bp.Id
+        bupl__gf_business_plan_id__c = bussinessPl.Id
       ),
       new bupl__BP_GrowthDriver__c(
         acpl__gf_account_planning_id__c = accPlan.Id,
@@ -73,13 +73,13 @@ public with sharing class BE_ProfilabilityController_Tst {
         ClientAssigned__c = accs[2].Id,
         CurrencyIsoCode = 'PEN',
         ExpectedDate__c = date.valueOf('2021-09-30'),
-        bupl__gf_business_plan_id__c = bp.Id
+        bupl__gf_business_plan_id__c = bussinessPl.Id
       )
     };
 
     insert growDrivers;
 
-    final List<Account_Profitability__c> accountProfilability = new List<Account_Profitability__c>{
+    final List<Account_Profitability__c> accProf = new List<Account_Profitability__c>{
       new Account_Profitability__c(
         account_id__c = acc1.Id,
         current_ydt_amount__c = 24254,
@@ -185,7 +185,7 @@ public with sharing class BE_ProfilabilityController_Tst {
         year_month_day_date__c = date.valueOf('2018-09-28')
       )
     };
-    insert accountProfilability;
+    insert accProf;
   }
 
   /**
@@ -200,12 +200,11 @@ public with sharing class BE_ProfilabilityController_Tst {
       LIMIT 1
     ];
 
-    Map<String, Object> rentabilityUI = BE_ProfilabilityController_cls.getRentData(accountPlan.Id);
+    final Map<String, Object> rentabilityUI = BE_ProfilabilityController_cls.getRDt(accountPlan.Id);
     Integer count = 0;
     for (Object accsObj : (List<Object>) rentabilityUI.get('data')) {
-      Map<String, Object> accsMap = (Map<String, Object>) accsObj;
+      final Map<String, Object> accsMap = (Map<String, Object>) accsObj;
       for (Object sect : (List<Object>) accsMap.get('sections')) {
-        Map<String, Object> sectMap = (Map<String, Object>) sect;
         count++;
       }
     }
@@ -213,6 +212,7 @@ public with sharing class BE_ProfilabilityController_Tst {
     System.assertEquals(count, 9, 'Wrong number of Accounts');
   }
 
+  /** testGetGrowthVariableData */
   @isTest
   public static void testGetGrowthVariableData() {
     final acpl__Account_Planning__c accountPlan = [
@@ -221,11 +221,10 @@ public with sharing class BE_ProfilabilityController_Tst {
       WHERE Name = 'AP-REVIEW EV V1'
       LIMIT 1
     ];
-    Map<String, Object> rentabilityUI = BE_ProfilabilityController_cls.getGrowthVariableData(accountPlan.Id);
+    final Map<String, Object> rentabilityUI = BE_ProfilabilityController_cls.getGrowthVariableData(accountPlan.Id);
 
     Integer rentCount = 0;
     for (Object rentObj : (List<Object>) rentabilityUI.get('data')) {
-      Map<String, Object> rentMap = (Map<String, Object>) rentObj;
       rentCount++;
     }
     System.assertEquals(rentCount, 3, 'Rentability Growth Variables');
