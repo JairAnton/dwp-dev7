@@ -41,6 +41,8 @@ public with sharing class BE_ProfilabilityController_Tst {
     insert accPlan;
 
     final bupl__BusinessPlan__c bussinessPl = [SELECT ID, Name FROM bupl__BusinessPlan__c LIMIT 1];
+
+    writeDate(accPlan, bussinessPl, acc1, accs);
   }
 
   /**
