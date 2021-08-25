@@ -3,14 +3,14 @@ import { refreshApex } from "@salesforce/apex";
 import getData from "@salesforce/apex/BE_ProfilabilityController_cls.getRDt";
 import getGrowthVariableData from "@salesforce/apex/BE_ProfilabilityController_cls.getGrowthVariableData";
 import saveRentabilityDrivers from "@salesforce/apex/BE_ProfilabilityController_cls.saveRentabilityDrivers";
-import { updateEstimationList, calculator } from "./BE_RentabilityRelatedListUtilities";
+import { updateEstimationList, calculator } from "./bE_RentabilityRelatedListUtilities";
 
 let date = new Date().getFullYear();
 
 let year = `${date} Estimación`;
 let nextY = `${date + 1} Estimación`;
 
-export default class BE_RentabilityRelatedList extends LightningElement {
+export default class bE_RentabilityRelatedList extends LightningElement {
   @api position = [{ item: 1 }];
   @api recordId;
   @api showEditButton;
