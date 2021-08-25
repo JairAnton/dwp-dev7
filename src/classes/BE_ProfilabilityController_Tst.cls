@@ -80,7 +80,7 @@ public with sharing class BE_ProfilabilityController_Tst {
   }
 
   /** writeDate */
-  private void writeDate(acpl__Account_Planning__c accPlan, bupl__BusinessPlan__c bussinessPl, Account acc1, List<Account> accs) {
+  private static void writeDate(acpl__Account_Planning__c accPlan, bupl__BusinessPlan__c bussinessPl, Account acc1, List<Account> accs) {
     final List<bupl__BP_GrowthDriver__c> growDrivers = new List<bupl__BP_GrowthDriver__c>{
       new bupl__BP_GrowthDriver__c(acpl__gf_account_planning_id__c = accPlan.Id, Amount__c = 160000, bupl__solution_category_id__c = 'Financiamiento a largo plazo', ClientAssigned__c = accs[1].Id, CurrencyIsoCode = 'PEN', ExpectedDate__c = date.valueOf('2021-11-11'), bupl__gf_business_plan_id__c = bussinessPl.Id),
       new bupl__BP_GrowthDriver__c(acpl__gf_account_planning_id__c = accPlan.Id, Amount__c = 90000, bupl__solution_category_id__c = 'Financiamiento a corto plazo', ClientAssigned__c = accs[1].Id, CurrencyIsoCode = 'USD', ExpectedDate__c = date.valueOf('2021-09-30'), bupl__gf_business_plan_id__c = bussinessPl.Id),

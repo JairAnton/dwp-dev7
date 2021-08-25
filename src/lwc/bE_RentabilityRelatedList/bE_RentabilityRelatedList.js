@@ -1,16 +1,16 @@
 import { api, LightningElement, track, wire } from "lwc";
 import { refreshApex } from "@salesforce/apex";
-import getData from "@salesforce/apex/BE_ProfilabilityController_cls.getRentData";
+import getData from "@salesforce/apex/BE_ProfilabilityController_cls.getRDt";
 import getGrowthVariableData from "@salesforce/apex/BE_ProfilabilityController_cls.getGrowthVariableData";
 import saveRentabilityDrivers from "@salesforce/apex/BE_ProfilabilityController_cls.saveRentabilityDrivers";
-import { updateEstimationList, calculator } from "./be_RentabilityRelatedListUtilities";
+import { updateEstimationList, calculator } from "./BE_RentabilityRelatedListUtilities";
 
 let date = new Date().getFullYear();
 
 let year = `${date} Estimación`;
 let nextY = `${date + 1} Estimación`;
 
-export default class be_RentabilityRelatedList extends LightningElement {
+export default class BE_RentabilityRelatedList extends LightningElement {
   @api position = [{ item: 1 }];
   @api recordId;
   @api showEditButton;
@@ -166,9 +166,11 @@ export default class be_RentabilityRelatedList extends LightningElement {
   //#region
 
   setRentabilityData() {
+    console.log("sending rentabilityData ...", this.rentabilityData.data);
+    console.log("sending estimationData ...", [...this.estimationData.data]);
     saveRentabilityDrivers({
       rentability: JSON.stringify(this.rentabilityData.data),
-      rentabilityModal: JSON.stringify([...this.estimationData.data]),
+      rentModUI: JSON.stringify([...this.estimationData.data]),
       recordId: this.recordId
     })
       .then((res) => {
@@ -184,7 +186,7 @@ export default class be_RentabilityRelatedList extends LightningElement {
   }
 
   @wire(getData, { recordId: "$recordId" })
-  getRentData(data) {
+  getRDt(data) {
     if (data.data) {
       this.rentabilityData = data.data;
     }
