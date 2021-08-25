@@ -3,7 +3,7 @@ import { refreshApex } from "@salesforce/apex";
 import getData from "@salesforce/apex/BE_ProfilabilityController_cls.getRDt";
 import getGrowthVariableData from "@salesforce/apex/BE_ProfilabilityController_cls.getGrowthVariableData";
 import saveRentabilityDrivers from "@salesforce/apex/BE_ProfilabilityController_cls.saveRentabilityDrivers";
-import { updateEstimationList, calculator } from "./bE_RentabilityRelatedListUtilities";
+import { updateEstimationList, calculator } from "./be_RentabilityRelatedListUtilities";
 
 let date = new Date().getFullYear();
 
