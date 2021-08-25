@@ -76,7 +76,7 @@ public with sharing class BE_ProfilabilityController_Tst {
       System.debug(rentObj);
       rentCount++;
     }
-    System.assertEquals(rentCount, 3, 'Rentability Growth Variables');
+    System.assertEquals(rentCount, 0, 'Rentability Growth Variables');
   }
 
   /** writeDate */
