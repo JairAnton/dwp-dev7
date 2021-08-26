@@ -1,0 +1,135 @@
+<template>
+  <div style="display: flex; flex-direction: column">
+    <div if:true={showEditButton} class="slds-float--left">
+      <lightning-button
+        label="Agregar Datos"
+        variant="brand"
+        onclick={openModal}
+        class="slds-float_right"
+        icon-name="utility:edit"
+      >
+      </lightning-button>
+    </div>
+    <lightning-layout if:true={contains} multiple-rows>
+      <template for:each={rentabilityData.data} for:item="acc">
+        <lightning-layout-item key={acc.accountId} size="12">
+          <lightning-accordion
+            allow-multiple-sections-open
+            onsectiontoggle={handleSectionToggle}
+            active-section-name={activeSections}
+          >
+            <lightning-accordion-section name={acc.accountName} label={acc.accountName}>
+              <lightning-datatable
+                key-field="sectionId"
+                columns={rentabilityColumns}
+                data={acc.sections}
+                sorted-by={sortedBy}
+                hide-checkbox-column
+                default-sort-direction={defaultSortDirection}
+                sorted-direction={onHandleSort}
+                onsort={onHandleSort}
+              >
+              </lightning-datatable>
+            </lightning-accordion-section>
+          </lightning-accordion>
+        </lightning-layout-item>
+      </template>
+    </lightning-layout>
+  </div>
+
+  <!--Modal-->
+
+  <template if:true={isModalOpen}>
+    <!-- Modal/Popup Box LWC starts here -->
+    <section
+      role="dialog"
+      tabindex="-1"
+      aria-labelledby="modal-heading-01"
+      aria-modal="true"
+      aria-describedby="modal-content-id-1"
+      class="slds-modal slds-fade-in-open slds-modal_large"
+    >
+      <div class="slds-modal__container">
+        <!-- Modal/Popup Box LWC header here -->
+        <header class="slds-modal__header">
+          <button
+            class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+            title="Close"
+            onclick={closeModal}
+          >
+            <lightning-icon
+              icon-name="utility:close"
+              alternative-text="close"
+              variant="inverse"
+              size="small"
+            ></lightning-icon>
+            <span class="slds-assistive-text">Close</span>
+          </button>
+          <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Agregar Datos</h2>
+        </header>
+        <!-- Modal/Popup Box LWC body starts here -->
+        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+          <div class="slds-box c-editable_table slds-m-top_large">
+            <span style="font-size: 1.25rem">Variables de estimación</span>
+            <p>
+              Por favor, ingrese los datos a considerar en la estimación. Tener en cuenta que en caso de financiamientos
+              directos, llenar el spread. Caso contrario, considerar comisión.
+            </p>
+            <lightning-layout if:true={contains} class="slds-m-top_x-small" multiple-rows>
+              <lightning-datatable
+                key-field="opportunityId"
+                columns={modalEstimationColumns}
+                data={estimationData.data}
+                sorted-by={sortedBy}
+                hide-checkbox-column
+                suppress-bottom-bar="true"
+                oncellchange={handleCellChange}
+              >
+              </lightning-datatable>
+            </lightning-layout>
+          </div>
+          <div class="slds-box c-sample_table slds-m-top_large" style="margin-top: 2rem">
+            <span style="font-size: 1.25rem">Vista Previa de la Rentabilidad</span>
+            <p>
+              La siguiente tabla se actualizará conforme los datos en la sección "Variables de estimación" se igresen.
+              Es Opcional ingresar una proyección para el 2022
+            </p>
+            <lightning-layout if:true={contains} multiple-rows>
+              <template for:each={rentabilityData.data} for:item="macc">
+                <lightning-layout-item key={macc.accountId} size="12">
+                  <lightning-accordion
+                    allow-multiple-sections-open
+                    onsectiontoggle={handleSectionToggle}
+                    active-section-name={activeSections}
+                  >
+                    <lightning-accordion-section name={macc.accountName} label={macc.accountName}>
+                      <lightning-datatable
+                        key-field="sectionId"
+                        columns={rentabilityModalResumeColumns}
+                        data={macc.sections}
+                        sorted-by={sortedBy}
+                        hide-checkbox-column
+                        default-sort-direction={defaultSortDirection}
+                        sorted-direction={onHandleSort}
+                        onsort={onHandleSort}
+                        suppress-bottom-bar="true"
+                        oncellchange={handleCellChangeSection}
+                      >
+                      </lightning-datatable>
+                    </lightning-accordion-section>
+                  </lightning-accordion>
+                </lightning-layout-item>
+              </template>
+            </lightning-layout>
+          </div>
+        </div>
+        <!-- Modal/Popup Box LWC footer starts here -->
+        <footer class="slds-modal__footer">
+          <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button>
+          <button class="slds-button slds-button_brand" onclick={submitDetails} title="OK">OK</button>
+        </footer>
+      </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+  </template>
+</template>
