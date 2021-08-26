@@ -18,6 +18,9 @@ public with sharing class BE_ProfilabilityController_Tst {
   /**examp margen financiero */
   final static string MARGFIN = 'Margen Financiero';
 
+  /**examp date 2 */
+  final static string EXMP_DATE = '2018-10-31';
+
   /**
 	   @Description setup data
 	 */
@@ -96,10 +99,10 @@ public with sharing class BE_ProfilabilityController_Tst {
     insert growDrivers;
 
     final List<Account_Profitability__c> accProf = new List<Account_Profitability__c>{
-      new Account_Profitability__c(account_id__c = acc1.Id, current_ydt_amount__c = 24254, previous_ydt_amount__c = 147399, profitability_category_type__c = MARGFIN, profitability_type__c = '03', year_month_day_date__c = date.valueOf('2018-10-31')),
-      new Account_Profitability__c(account_id__c = acc1.Id, current_ydt_amount__c = 151914, previous_ydt_amount__c = 67789, profitability_category_type__c = MARGFIN, profitability_type__c = '03', year_month_day_date__c = date.valueOf('2018-10-31')),
-      new Account_Profitability__c(account_id__c = acc1.Id, current_ydt_amount__c = 0, previous_ydt_amount__c = 0, profitability_category_type__c = MARGFIN, profitability_type__c = '03', year_month_day_date__c = date.valueOf('2018-10-31')),
-      new Account_Profitability__c(account_id__c = acc1.Id, current_ydt_amount__c = 38775, previous_ydt_amount__c = 78252, profitability_category_type__c = 'Comisiones', profitability_type__c = '03', year_month_day_date__c = date.valueOf('2018-10-31')),
+      new Account_Profitability__c(account_id__c = acc1.Id, current_ydt_amount__c = 24254, previous_ydt_amount__c = 147399, profitability_category_type__c = MARGFIN, profitability_type__c = '03', year_month_day_date__c = date.valueOf(EXMP_DATE)),
+      new Account_Profitability__c(account_id__c = acc1.Id, current_ydt_amount__c = 151914, previous_ydt_amount__c = 67789, profitability_category_type__c = MARGFIN, profitability_type__c = '03', year_month_day_date__c = date.valueOf(EXMP_DATE)),
+      new Account_Profitability__c(account_id__c = acc1.Id, current_ydt_amount__c = 0, previous_ydt_amount__c = 0, profitability_category_type__c = MARGFIN, profitability_type__c = '03', year_month_day_date__c = date.valueOf(EXMP_DATE)),
+      new Account_Profitability__c(account_id__c = acc1.Id, current_ydt_amount__c = 38775, previous_ydt_amount__c = 78252, profitability_category_type__c = 'Comisiones', profitability_type__c = '03', year_month_day_date__c = date.valueOf(EXMP_DATE)),
       new Account_Profitability__c(account_id__c = acc1.Id, current_ydt_amount__c = 0, previous_ydt_amount__c = 0, profitability_category_type__c = 'Altas', profitability_type__c = '01', year_month_day_date__c = date.valueOf('2020-09-28')),
       new Account_Profitability__c(account_id__c = acc1.Id, current_ydt_amount__c = 0, previous_ydt_amount__c = 0, profitability_category_type__c = 'Spread', profitability_type__c = '02', year_month_day_date__c = date.valueOf('2020-04-28')),
       new Account_Profitability__c(account_id__c = acc1.Id, current_ydt_amount__c = 0, previous_ydt_amount__c = 0, profitability_category_type__c = 'Tasa', profitability_type__c = '02', year_month_day_date__c = date.valueOf('2020-04-28')),
