@@ -1,3 +1,4 @@
+const RIESGO_DE_FIRMA = "Riesgo de firma";
 /** -------------------------------------
  *
  *        Utilities Function
@@ -69,12 +70,27 @@ export const calculator = (estimationList, currentEstimationIndex, rentabilityDa
   let months = current.term <= 12 - (expectedDate.getMonth() + 1) ? current.term : 12 - (expectedDate.getMonth() + 1);
   let rentabilityDataMap = JSON.parse(JSON.stringify(rentabilityData));
 
-  console.log("margin calculate:", current.opportunityValue, months, current.calcSpreadM);
-  current.calculatedMargin = Number((current.opportunityValue * (months * current.calcSpreadM)).toFixed(2));
+  if (current.opportunityName === RIESGO_DE_FIRMA) {
+    const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+    const firstDate = new Date(new Date().getFullYear(), 11 - months, 31);
+    const secondDate = new Date(new Date().getFullYear(), 11, 31);
+
+    current.calculatedMargin = Number(
+      (
+        ((current.opportunityValue * Number(current.spread)) / 100 / 360) *
+        Math.round(Math.abs((firstDate - secondDate) / oneDay))
+      ).toFixed(2)
+    );
+  } else {
+    current.calculatedMargin = Number((current.opportunityValue * (months * current.calcSpreadM)).toFixed(2));
+  }
 
   current.calComm = Number(((current.opportunityValue * current.strComm) / 100).toFixed(2));
 
   let accountId = current.opportunityId.split("-")[0];
+  if (accountId === "null") {
+    accountId = undefined;
+  }
 
   let marginSum = 0;
   let commSum = 0;
@@ -86,6 +102,9 @@ export const calculator = (estimationList, currentEstimationIndex, rentabilityDa
   }
 
   let cRentabilityIndex = rentabilityDataMap.data.findIndex((obj) => obj.accountId === accountId);
+  if (rentabilityDataMap.data.length === 1 && cRentabilityIndex === -1) {
+    cRentabilityIndex = 0;
+  }
   let clientSections = rentabilityDataMap.data[cRentabilityIndex].sections;
   if (cRentabilityIndex > -1) {
     if (clientSections.length > 0) {

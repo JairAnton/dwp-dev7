@@ -750,6 +750,10 @@
         <apexClass>BE_ProdCommissionSection_Ctr</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>BE_ProfilabilityController_cls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
 	<classAccesses>
         <apexClass>BE_Quotation_Ctr</apexClass>
         <enabled>true</enabled>
@@ -4136,6 +4140,71 @@ Asistente BE</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Payroll__c.year_month_day_date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+	<fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Plan_Rentability__c.Account_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Plan_Rentability__c.Account_Planning__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Plan_Rentability__c.Current_Year_Account_Plan__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Plan_Rentability__c.Current_Year_Estimation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Plan_Rentability__c.Icon_Name_Current_Year__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Plan_Rentability__c.Icon_Name_Next_Year__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Plan_Rentability__c.Next_Year__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Plan_Rentability__c.Section_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Plan_Rentability__c.Spread_Month__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Plan_Rentability__c.Spread__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Plan_Rentability__c.Structured_Commission__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Plan_Rentability__c.Term__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account_Plan_Rentability__c.Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10183,6 +10252,9 @@ Asistente BE</description>
         <layout>Account_Payroll__c-Account Payroll Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Account_Plan_Rentability__c-Account Plan Rentability Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Account_Product__c-Account Asset Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -10419,6 +10491,15 @@ Asistente BE</description>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Account_Payroll__c</object>
         <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+	<objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Account_Plan_Rentability__c</object>
+        <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>false</allowCreate>

@@ -71,7 +71,7 @@ public with sharing class BE_ProfilabilityController_Tst {
       }
     }
 
-    System.assertEquals(count, 9, 'Wrong number of Accounts');
+    System.assertEquals(count, 3, 'Wrong number of Accounts');
   }
 
   /** testGetGrowthVariableData */
@@ -85,7 +85,7 @@ public with sharing class BE_ProfilabilityController_Tst {
       System.debug(rentObj);
       rentCount++;
     }
-    System.assertEquals(rentCount, 0, 'Rentability Growth Variables');
+    System.assertEquals(rentCount, 3, 'Rentability Growth Variables');
   }
 
   /** writeDate */

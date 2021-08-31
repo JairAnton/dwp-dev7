@@ -188,12 +188,14 @@ export default class bE_RentabilityRelatedList extends LightningElement {
   @wire(getData, { recordId: "$recordId" })
   getRDt(data) {
     if (data.data) {
+      console.log("Data Rentability", data.data);
       this.rentabilityData = data.data;
     }
   }
 
   getEstimationData() {
     getGrowthVariableData({ recordId: this.recordId }).then((res) => {
+      console.log("Growth Data", res);
       this.estimationData = res;
     });
   }

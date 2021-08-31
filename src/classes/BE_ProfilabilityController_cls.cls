@@ -31,7 +31,7 @@ public without sharing class BE_ProfilabilityController_cls {
   /** @Description currentYearClass */
   static final string CURRENTYEARCLASS = 'currentYear';
   /** @Description cYEstClass */
-  static final string CYESTCLASS = 'currentYearEstimation';
+  static final string CYESTCLASS = 'cyEstim';
   /** @Description nextYearClass */
   static final string NEXTYEARCLASS = 'nextYear';
   /** @Description cyAPClass */
@@ -43,9 +43,9 @@ public without sharing class BE_ProfilabilityController_cls {
   /** @Description sectionIdClass */
   static final string SECTIONIDCLASS = 'sectionId';
   /** @Description sumCYClass */
-  static Decimal sumCYClass = 0;
+  //static Decimal sumCYClass = 0;
   /** @Description sumPYClass */
-  static Decimal sumPYClass = 0;
+  //static Decimal sumPYClass = 0;
 
   /**Constructor */
   private BE_ProfilabilityController_cls() {
@@ -57,41 +57,88 @@ public without sharing class BE_ProfilabilityController_cls {
    */
   @AuraEnabled(cacheable=true)
   public static Map<String, Object> getRDt(string recordId) {
-    final acpl__Account_Planning__c accountPlanning = [SELECT Id, Name, acpl__participant_id__r.Id, acpl__participant_id__r.Name FROM acpl__Account_Planning__c WHERE ID = :recordId];
-    final List<Account> accounts = [SELECT Id, Name FROM Account WHERE parentId = :accountPlanning.acpl__participant_id__r.Id];
+    final acpl__Account_Planning__c accountPlanning = [SELECT Id, Name, acpl__participant_id__r.Id, acpl__participant_id__r.Name, acpl__participant_id__r.RecordType.Name FROM acpl__Account_Planning__c WHERE ID = :recordId];
+    final List<Account> accounts = new List<Account>();
+    final Map<string, AggregateResult> marOrd = new Map<string, AggregateResult>();
+    final Map<string, AggregateResult> comi = new Map<string, AggregateResult>();
+    final Map<string, AggregateResult> marFin = new Map<string, AggregateResult>();
+
+    if (accountPlanning.acpl__participant_id__r.RecordType.Name == 'Economic Group') {
+      accounts.addAll([SELECT Id, Name FROM Account WHERE parentId = :accountPlanning.acpl__participant_id__r.Id]);
+      marOrd.putAll(
+        new Map<string, AggregateResult>(
+          [
+            SELECT Account_id__c cuenta, account_id__c Id, SUM(current_ydt_amount__c) sumCY, SUM(previous_ydt_amount__c) sumPY
+            FROM Account_Profitability__c
+            WHERE account_id__r.ParentID = :accountPlanning.acpl__participant_id__r.Id AND is_type_3_last_date__c = TRUE AND profitability_type__c = '03' AND (profitability_category_type__c = 'Comisiones' OR profitability_category_type__c = 'Margen financiero')
+            GROUP BY Account_id__c
+            ORDER BY Account_id__c
+          ]
+        )
+      );
+      comi.putAll(
+        new Map<string, AggregateResult>(
+          [
+            SELECT Account_id__c cuenta, account_id__c Id, SUM(current_ydt_amount__c) sumCY, SUM(previous_ydt_amount__c) sumPY
+            FROM Account_Profitability__c
+            WHERE account_id__r.ParentID = :accountPlanning.acpl__participant_id__r.Id AND is_type_3_last_date__c = TRUE AND profitability_type__c = '03' AND profitability_category_type__c = 'Comisiones'
+            GROUP BY Account_id__c
+            ORDER BY Account_id__c
+          ]
+        )
+      );
+      marFin.putAll(
+        new Map<string, AggregateResult>(
+          [
+            SELECT Account_id__c cuenta, account_id__c Id, SUM(current_ydt_amount__c) sumCY, SUM(previous_ydt_amount__c) sumPY
+            FROM Account_Profitability__c
+            WHERE account_id__r.ParentID = :accountPlanning.acpl__participant_id__r.Id AND is_type_3_last_date__c = TRUE AND profitability_type__c = '03' AND profitability_category_type__c = 'Margen financiero'
+            GROUP BY Account_id__c
+            ORDER BY Account_id__c
+          ]
+        )
+      );
+    } else {
+      accounts.addAll([SELECT Id, Name FROM Account WHERE Id = :accountPlanning.acpl__participant_id__r.Id]);
+      marOrd.putAll(
+        new Map<string, AggregateResult>(
+          [
+            SELECT Account_id__c cuenta, account_id__c Id, SUM(current_ydt_amount__c) sumCY, SUM(previous_ydt_amount__c) sumPY
+            FROM Account_Profitability__c
+            WHERE account_id__r.Id = :accountPlanning.acpl__participant_id__r.Id AND is_type_3_last_date__c = TRUE AND profitability_type__c = '03' AND (profitability_category_type__c = 'Comisiones' OR profitability_category_type__c = 'Margen financiero')
+            GROUP BY Account_id__c
+            ORDER BY Account_id__c
+          ]
+        )
+      );
+      comi.putAll(
+        new Map<string, AggregateResult>(
+          [
+            SELECT Account_id__c cuenta, account_id__c Id, SUM(current_ydt_amount__c) sumCY, SUM(previous_ydt_amount__c) sumPY
+            FROM Account_Profitability__c
+            WHERE account_id__r.Id = :accountPlanning.acpl__participant_id__r.Id AND is_type_3_last_date__c = TRUE AND profitability_type__c = '03' AND profitability_category_type__c = 'Comisiones'
+            GROUP BY Account_id__c
+            ORDER BY Account_id__c
+          ]
+        )
+      );
+      marFin.putAll(
+        new Map<string, AggregateResult>(
+          [
+            SELECT Account_id__c cuenta, account_id__c Id, SUM(current_ydt_amount__c) sumCY, SUM(previous_ydt_amount__c) sumPY
+            FROM Account_Profitability__c
+            WHERE account_id__r.Id = :accountPlanning.acpl__participant_id__r.Id AND is_type_3_last_date__c = TRUE AND profitability_type__c = '03' AND profitability_category_type__c = 'Margen financiero'
+            GROUP BY Account_id__c
+            ORDER BY Account_id__c
+          ]
+        )
+      );
+    }
 
     final Map<String, Account_Plan_Rentability__c> accPlanRen = new Map<String, Account_Plan_Rentability__c>();
     for (Account_Plan_Rentability__c accPR : [SELECT Id, Current_Year_Account_Plan__c, Current_Year_Estimation__c, Icon_Name_Current_Year__c, Icon_Name_Next_Year__c, Next_Year__c, Section_Id__c, Spread__c, Spread_Month__c, Structured_Commission__c, Term__c, Type__c FROM Account_Plan_Rentability__c WHERE Account_Planning__c = :recordId]) {
       accPlanRen.put(accPR.Section_Id__c, accPR);
     }
-
-    final Map<string, AggregateResult> marOrd = new Map<string, AggregateResult>(
-      [
-        SELECT Account_id__c cuenta, account_id__c Id, SUM(current_ydt_amount__c) sumCY, SUM(previous_ydt_amount__c) sumPY
-        FROM Account_Profitability__c
-        WHERE account_id__r.ParentID = :accountPlanning.acpl__participant_id__r.Id AND is_type_3_last_date__c = TRUE AND profitability_type__c = '03' AND (profitability_category_type__c = 'Comisiones' OR profitability_category_type__c = 'Margen financiero')
-        GROUP BY Account_id__c
-        ORDER BY Account_id__c
-      ]
-    );
-    final Map<string, AggregateResult> comi = new Map<string, AggregateResult>(
-      [
-        SELECT Account_id__c cuenta, account_id__c Id, SUM(current_ydt_amount__c) sumCY, SUM(previous_ydt_amount__c) sumPY
-        FROM Account_Profitability__c
-        WHERE account_id__r.ParentID = :accountPlanning.acpl__participant_id__r.Id AND is_type_3_last_date__c = TRUE AND profitability_type__c = '03' AND profitability_category_type__c = 'Comisiones'
-        GROUP BY Account_id__c
-        ORDER BY Account_id__c
-      ]
-    );
-    final Map<string, AggregateResult> marFin = new Map<string, AggregateResult>(
-      [
-        SELECT Account_id__c cuenta, account_id__c Id, SUM(current_ydt_amount__c) sumCY, SUM(previous_ydt_amount__c) sumPY
-        FROM Account_Profitability__c
-        WHERE account_id__r.ParentID = :accountPlanning.acpl__participant_id__r.Id AND is_type_3_last_date__c = TRUE AND profitability_type__c = '03' AND profitability_category_type__c = 'Margen financiero'
-        GROUP BY Account_id__c
-        ORDER BY Account_id__c
-      ]
-    );
 
     final List<Map<String, Object>> responseList = new List<Map<String, Object>>();
     for (Account acc : accounts) {
@@ -127,7 +174,7 @@ public without sharing class BE_ProfilabilityController_cls {
       accPlanRen.put(accPR.Section_Id__c, accPR);
     }
 
-    for (bupl__BP_GrowthDriver__c accountPlanning : [SELECT Id, bupl__solution_category_id__c, ClientAssigned__r.Name, ClientAssigned__r.Id, convertCurrency(Amount__c), ExpectedDate__c, CurrencyIsoCode FROM bupl__BP_GrowthDriver__c WHERE acpl__gf_account_planning_id__c = :recordId AND ClientAssigned__c = NULL]) {
+    for (bupl__BP_GrowthDriver__c accountPlanning : [SELECT Id, bupl__solution_category_id__c, ClientAssigned__r.Name, ClientAssigned__r.Id, convertCurrency(Amount__c), ExpectedDate__c, CurrencyIsoCode FROM bupl__BP_GrowthDriver__c WHERE acpl__gf_account_planning_id__c = :recordId]) {
       final Map<String, Object> estimationMap = new Map<String, Object>();
       estimationMap.put('opportunityId', accountPlanning.ClientAssigned__r.Id + '-' + accountPlanning.Id);
       estimationMap.put('accountId', accountPlanning.ClientAssigned__r.Id);
@@ -196,7 +243,7 @@ public without sharing class BE_ProfilabilityController_cls {
 
   /** compareRentabilityWithSavedData */
   public static Object compareRentabilityWithSavedData(Map<String, Account_Plan_Rentability__c> accPlanRen, String accId, String accountPlanField, String rentType) {
-    Object response;
+    Object response = null;
 
     try {
       if (accPlanRen.containsKey(rentType + '-' + accId)) {
@@ -263,6 +310,8 @@ public without sharing class BE_ProfilabilityController_cls {
    */
   private static Map<String, Object> generateRentSections(Map<string, AggregateResult> obj, Map<String, Account_Plan_Rentability__c> accPlanRen, Account acc, String rentType) {
     final Map<String, Object> sectionsMaps = new Map<String, Object>();
+    Decimal sumCYClass = 0;
+    Decimal sumPYClass = 0;
 
     if (obj.containsKey(acc.Id)) {
       sumCYClass = (Decimal) obj.get(acc.Id).get('sumCY');
