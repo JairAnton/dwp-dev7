@@ -107,12 +107,6 @@
                                 <span class="textBody">{!dwp_kitv__Visit__c.dwp_kitv__visit_desc__c}</span>
                             </td>
                         </tr>
-                        <tr>
-                            <td colspan="2" style="padding-top:10px;padding-bottom:10px">
-                                <span class="textBodyBold">Descripción de la minuta:&nbsp;</span> 
-                                <span class="textBody">{!dwp_kitv__Visit__c.Minute_Description__c}</span>
-                            </td>
-                        </tr>
                     </table>
                 </td>
             </tr>
