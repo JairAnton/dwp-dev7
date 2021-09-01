@@ -398,20 +398,14 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>showEditButton</name>
-                    <value>true</value>
+                    <value>false</value>
                 </componentInstanceProperties>
                 <componentName>bE_RentabilityRelatedList</componentName>
                 <visibilityRule>
-                    <booleanFilter>1 AND 2</booleanFilter>
                     <criteria>
                         <leftValue>{!Record.acpl__gf_ap_indvi_lock_edit_ind_type__c}</leftValue>
                         <operator>EQUAL</operator>
-                        <rightValue>true</rightValue>
-                    </criteria>
-                    <criteria>
-                        <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Record_Type_Economic_Group</rightValue>
+                        <rightValue>false</rightValue>
                     </criteria>
                 </visibilityRule>
             </componentInstance>
@@ -420,25 +414,19 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>showEditButton</name>
-                    <value>false</value>
+                    <value>true</value>
                 </componentInstanceProperties>
                 <componentName>bE_RentabilityRelatedList</componentName>
                 <visibilityRule>
-                    <booleanFilter>1 AND 2</booleanFilter>
                     <criteria>
                         <leftValue>{!Record.acpl__gf_ap_indvi_lock_edit_ind_type__c}</leftValue>
                         <operator>EQUAL</operator>
-                        <rightValue>false</rightValue>
-                    </criteria>
-                    <criteria>
-                        <leftValue>{!Record.acpl__participant_id__r.RecordType.DeveloperName}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Record_Type_Economic_Group</rightValue>
+                        <rightValue>true</rightValue>
                     </criteria>
                 </visibilityRule>
             </componentInstance>
         </itemInstances>
-        <name>Facet-269bdc84-4f02-4dae-8cca-c4f127fa637a</name>
+        <name>Facet-e52561ae-f828-4882-a52e-57cbdba52603</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -459,7 +447,7 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>body</name>
-                    <value>Facet-269bdc84-4f02-4dae-8cca-c4f127fa637a</value>
+                    <value>Facet-e52561ae-f828-4882-a52e-57cbdba52603</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>title</name>
