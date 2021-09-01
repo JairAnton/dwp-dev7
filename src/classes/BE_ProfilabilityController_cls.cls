@@ -43,9 +43,7 @@ public without sharing class BE_ProfilabilityController_cls {
   /** @Description sectionIdClass */
   static final string SECTIONIDCLASS = 'sectionId';
   /** @Description sumCYClass */
-  //static Decimal sumCYClass = 0;
-  /** @Description sumPYClass */
-  //static Decimal sumPYClass = 0;
+  static final string ECONOMICGROUP = 'Economic Group';
 
   /**Constructor */
   private BE_ProfilabilityController_cls() {
@@ -63,7 +61,7 @@ public without sharing class BE_ProfilabilityController_cls {
     final Map<string, AggregateResult> comi = new Map<string, AggregateResult>();
     final Map<string, AggregateResult> marFin = new Map<string, AggregateResult>();
 
-    if (accountPlanning.acpl__participant_id__r.RecordType.Name == 'Economic Group') {
+    if (accountPlanning.acpl__participant_id__r.RecordType.Name == ECONOMICGROUP) {
       accounts.addAll([SELECT Id, Name FROM Account WHERE parentId = :accountPlanning.acpl__participant_id__r.Id]);
       marOrd.putAll(
         new Map<string, AggregateResult>(
