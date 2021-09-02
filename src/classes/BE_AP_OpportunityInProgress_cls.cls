@@ -10,7 +10,8 @@
  * @author Diego Carbajal
  */
 public with sharing class BE_AP_OpportunityInProgress_cls extends BE_SingleRelatedListCRUD_Cls {
-
+	/**@Description Quotes*/
+	Final static String STATUS_CODE ='01';
 	/**@Description Quotes*/
 	Final static String QUOTES='\'';
 	/**@Description params to quotes*/
@@ -29,6 +30,10 @@ public with sharing class BE_AP_OpportunityInProgress_cls extends BE_SingleRelat
 		param.sObjName = (String)mapParams.get('sObjName');
 		param.sObjFields = (String)mapParams.get('sObjFields');
 		param.filterSQOL = (String)mapParams.get('filterSQOL');
+		// Filtro para omitir las oportunidades inactivas
+		param.filterSQOL = 'opportunity_status_type__c <> @@' + STATUS_CODE  + '@@ AND ' + param.filterSQOL;
+
+		param.filterSQOL = param.filterSQOL.replace('LIMIT', 'ORDER BY CloseDate ASC LIMIT');
 		try {
 			Final acpl__Account_Planning__c apRecord = BE_AP_Administration_helper.getAP((String) mapParams.get('recordId'))[0];
 			if(apRecord.acpl__participant_id__r.RecordType.DeveloperName == RT_ECO_GRP) {
