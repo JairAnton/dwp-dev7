@@ -397,12 +397,61 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
+                    <name>showEditButton</name>
+                    <value>false</value>
+                </componentInstanceProperties>
+                <componentName>bE_RentabilityRelatedList</componentName>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.acpl__gf_ap_indvi_lock_edit_ind_type__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>false</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>showEditButton</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentName>bE_RentabilityRelatedList</componentName>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.acpl__gf_ap_indvi_lock_edit_ind_type__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>true</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-e52561ae-f828-4882-a52e-57cbdba52603</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
                     <name>body</name>
                     <value>Facet-4afa472b-6cfb-405e-8501-9dc954fa65e6</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>title</name>
                     <value>Variables de Crecimiento</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tab</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-e52561ae-f828-4882-a52e-57cbdba52603</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Rentabilidad</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
             </componentInstance>
