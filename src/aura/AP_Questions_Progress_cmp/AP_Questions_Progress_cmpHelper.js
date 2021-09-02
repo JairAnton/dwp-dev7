@@ -27,7 +27,6 @@
                     component.set('v.completeMandatory', false);
                 }
             } else {
-                console.log(response.getError());
                 var toastEvent = $A.get("e.force:showToast");
                 toastEvent.setParams({
                     "title": 'Error',

@@ -1,3 +1,8 @@
+/** AP_QuestionsProgressController_Test
+ * Developer                    Date                Description<p />
+ * -------------------------------------------------------------------
+ * Jair Anton 				02/09/2021			Test for class AP_QuestionsProgressController
+ */
 @isTest
 public class AP_QuestionsProgressController_Test {
     /**
@@ -13,11 +18,13 @@ public class AP_QuestionsProgressController_Test {
 	 */
     private static Final acpl.AccountPlanningHandler AP_HANDLER = acpl.AccountPlanningHandler.getInstance();
     
+    /* test setup */
     @TestSetup
-    static void makeData(){
+    static void makeData() {
         AP_FactoryTest_tst.forSetUp();
     }
 
+    /* test calculateQuestion */
     @isTest
     public static void calculateQuestionsTest() {
         Final Account acc = [SELECT Id FROM Account LIMIT 1];
@@ -51,6 +58,7 @@ public class AP_QuestionsProgressController_Test {
 			}
 		}
 		Test.stopTest();
-
+        Final List<acpl__AP_Question__c> resultList = [SELECT Id, acpl__Answered__c FROM acpl__AP_Question__c WHERE Id =: questionList[0].Id];
+        System.assert(resultList[0].acpl__Answered__c, 'Success');
     }
 }
