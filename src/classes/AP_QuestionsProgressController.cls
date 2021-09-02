@@ -60,10 +60,8 @@ public without sharing class AP_QuestionsProgressController {
     
         for(dyfr__Field_Config__c item : fieldList) {
             if(questionsMap.containsKey(item.dyfr__DeveloperName__c)) {
-                acpl__AP_Question__c questionItem = questionsMap.get(item.dyfr__DeveloperName__c);
-                
+                Final acpl__AP_Question__c questionItem = questionsMap.get(item.dyfr__DeveloperName__c);
                 validateQuestions(questionItem, item, qMandatoryAswered, qNotAswered, totalMandatory);
-                
             }
         }
     }

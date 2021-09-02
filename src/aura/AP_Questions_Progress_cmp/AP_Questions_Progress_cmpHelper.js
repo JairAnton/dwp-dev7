@@ -2,9 +2,7 @@
     doInit : function(component, event, helper) {
         component.set('v.isLoaded', false);
         var recordId = component.get('v.recordId');
-        
         var action = component.get("c.calculateQuestions");
-
         action.setParams({
             "recordId" : recordId
         });
@@ -13,9 +11,6 @@
             var state = response.getState();
 
             if(state === 'SUCCESS') {
-                console.log('result');
-                console.log(result);
-
                 component.set('v.questionsAswered', Math.round(result['questionsAswered']));
                 component.set('v.questionsMandatory', Math.round(result['questionsMandatory']));
                 component.set('v.questionsNotMandatory', Math.round(result['questionsNotMandatory']));
