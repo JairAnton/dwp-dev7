@@ -3140,7 +3140,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>AP_QuestionsProgressController</apexClass>
-        <enabled> true</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <custom>true</custom>
     <description>Los cargos pueden ser:
