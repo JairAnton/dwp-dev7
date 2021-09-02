@@ -907,6 +907,18 @@ acpl__participant_id__r.Parent.Name, &quot;_self&quot;)</formula>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <webLinks>
+        <fullName>Site_Transaccional</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Site Transaccional</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>https://sites.google.com/bbva.com/cashmanagement/p%C3%A1gina-principal</url>
+    </webLinks>
     <label>Account Planning</label>
     <listViews>
         <fullName>Account_Planning_Expired</fullName>
