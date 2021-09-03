@@ -1,0 +1,81 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickActionWithoutHeader" access="global" 
+    controller="AP_QuestionsProgressController">
+    <aura:attribute name="questionsAswered" type="Double" default="0"/>
+    <aura:attribute name="questionsMandatory" type="Double" default="0"/>
+    <aura:attribute name="questionsNotMandatory" type="Double" default="0"/>
+    <aura:attribute name="completeMandatory" type="Boolean" default="false"/>
+    <aura:attribute name="isLoaded" type="Boolean" default="false"/>
+    <aura:attribute name="recordId" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+ 
+    <lightning:card class="slds-text-heading_small slds-card_boundary slds-item_label slds-text-color_weak slds-truncate fontLabel" title="Progreso de preguntas" iconName='standard:contact_list'>
+        <aura:set attribute="actions">
+            <lightning:buttonIcon iconName="utility:refresh" variant="brand" alternativeText="Actualizar" title="Actualizar" onclick="{!c.doInit}" />
+        </aura:set>
+        <aura:if isTrue="{!v.isLoaded}">
+            <div style="padding-left: 5%; padding-right: 5%;">
+                <aura:if isTrue="{!v.completeMandatory}">
+                    <div style="justify-content: flex-end; display: flex;">
+                        <lightning:icon variant="success" iconName="action:approval" size="small" alternativeText="Preguntas completadas, ya puedes elevar el Plan de cuentas."/>
+                    </div>
+                    <br/>
+                </aura:if>
+                <div class="slds-grid slds-grid_align-spread without-border slds-item_label slds-text-color_weak slds-truncate fontLabel" style="padding-bottom: 10px;">
+                    <span>
+                        Progreso del total de preguntas
+                    </span>
+                    <span aria-hidden="true">
+                        <strong>{!v.questionsAswered}% completado</strong>
+                    </span>
+                </div>
+                <div class="slds-m-around_xx-large without-border">
+                    <div class="slds-progress-bar slds-progress-bar_large" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{!v.questionsAswered}" role="progressbar" style="height: 30px;">
+                        <span aura:id="prgBar" class="slds-progress-bar__value" style="{!'background: var(--lwc-colorTextPathCurrent,rgb(1, 68, 134)); width:'+v.questionsAswered+'%'}">
+                            <span class="slds-assistive-text">Progress: {!v.questionsAswered}%</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div style="padding-left: 5%; padding-right: 5%;">
+                <div class="slds-grid slds-grid_align-spread without-border slds-item_label slds-text-color_weak slds-truncate fontLabel" style="padding-bottom: 10px;">
+                    <span>
+                        Progreso de las preguntas obligatorias
+                    </span>
+                    <span aria-hidden="true">
+                        <strong>{!v.questionsMandatory}% completado</strong>
+                    </span>
+                </div>
+                <div class="slds-m-around_xx-large without-border">
+                    <div class="slds-progress-bar slds-progress-bar_large" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{!v.questionsMandatory}" role="progressbar" style="height: 30px;">
+                        <span aura:id="prgBar" class="slds-progress-bar__value" style="{!'background: #0176D3; width:'+v.questionsMandatory+'%'}">
+                            <span class="slds-assistive-text">Progress: {!v.questionsMandatory}%</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div style="padding-left: 5%; padding-right: 5%;">
+                <div class="slds-grid slds-grid_align-spread without-border slds-item_label slds-text-color_weak slds-truncate fontLabel" style="padding-bottom: 10px;">
+                    <span>
+                        Progreso de las preguntas opcionales
+                    </span>
+                    <span aria-hidden="true">
+                        <strong>{!v.questionsNotMandatory}% completado</strong>
+                    </span>
+                </div>
+                <div class="slds-m-around_xx-large without-border">
+                    <div class="slds-progress-bar slds-progress-bar_large" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{!v.questionsNotMandatory}" role="progressbar" style="height: 30px;">
+                        <span aura:id="prgBar" class="slds-progress-bar__value" style="{!'background: #00AAE4; width:'+v.questionsNotMandatory+'%'}">
+                            <span class="slds-assistive-text">Progress: {!v.questionsNotMandatory}%</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <aura:set attribute="else">
+                <lightning:spinner alternativeText="Loading" />
+            </aura:set> 
+        </aura:if>
+    </lightning:card>
+</aura:component>	

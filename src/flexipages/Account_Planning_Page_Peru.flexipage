@@ -1140,6 +1140,11 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
+                <componentName>AP_Questions_Progress_cmp</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
                 <componentInstanceProperties>
                     <name>enableReload</name>
                     <value>false</value>
@@ -1342,6 +1347,11 @@
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentName>AP_Questions_Progress_cmp</componentName>
+            </componentInstance>
+        </itemInstances>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>

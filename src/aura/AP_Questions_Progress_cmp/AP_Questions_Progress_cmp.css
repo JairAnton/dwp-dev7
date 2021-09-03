@@ -1,0 +1,8 @@
+.THIS .without-border {
+    padding: 0px; 
+    margin: 0px;
+}
+
+.THIS .fontLabel {
+    font-size: var(--lwc-fontSize3, 0.8125rem);
+}
