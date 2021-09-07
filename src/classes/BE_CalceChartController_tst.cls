@@ -1,6 +1,6 @@
 @isTest
 private with sharing class BE_CalceChartController_tst {
-	@isTest
+	@isTest   
     private static void testGetCalceChart()
         {
       

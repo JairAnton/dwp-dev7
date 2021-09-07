@@ -1,7 +1,7 @@
 import { LightningElement, wire, api } from 'lwc';
 import getCalceChart from '@salesforce/apex/BE_CalceChartController.getCalceChart';
 import { NavigationMixin } from 'lightning/navigation';
- 
+  
 export default class generateCalceChart extends NavigationMixin(LightningElement) {
     chartConfiguration;
     @api grandTotal
