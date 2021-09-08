@@ -1,6 +1,6 @@
 <template> 
     <lightning-card title="Resumen Calce Neto " icon-name="utility:chart">
-        <h1> Monto total oficina (D+I): &nbsp;      
+        <h1> Monto total oficina  (D+I): &nbsp;      
             <lightning-formatted-number value={grandTotal} format-style="currency"
              
             minimum-fraction-digits="2" maximum-fraction-digits="2">
@@ -9,6 +9,6 @@
         <template if:true={chartConfiguration}> 
             <c-generate-bar-chart chart-config={chartConfiguration}></c-generate-bar-chart>
         </template>
-        <a onclick={redirectToReport}>View Report</a>
+        <a onclick={redirectToReport}>Ver Reporte</a>
 </lightning-card>
 </template>
