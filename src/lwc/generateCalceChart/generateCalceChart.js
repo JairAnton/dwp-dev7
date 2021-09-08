@@ -1,36 +1,31 @@
 import { LightningElement, wire, api } from 'lwc';
 import getCalceChart from '@salesforce/apex/BE_CalceChartController.getCalceChart';
 import { NavigationMixin } from 'lightning/navigation';
-  
 export default class generateCalceChart extends NavigationMixin(LightningElement) {
     chartConfiguration;
     @api grandTotal
-    @wire(getCalceChart)  
+    @wire(getCalceChart)
     getCalceChart({ error, data }) {
         if (error) {
             this.error = error;
-            this.chartConfiguration = undefined;
-        } else if (data) { 
+            this.chartConfiguration = null;
+        } else if (data) {
             let chartAmtData = [];
             let chartRevData = [];
             let chartRecData = [];
-            let chartLabel = [];
-            
+            let chartLabel = []; 
             data.forEach(cal => {
                 chartAmtData.push(cal.netDirect);
                 chartRevData.push(cal.netIndirect);
                 chartRecData.push(cal.netResource);
                 chartLabel.push('Resumen Calce Neto');
             });
-
-            
-            this.grandTotal = chartAmtData[0] + chartRevData[0];
-
+         this.grandTotal = chartAmtData[0] + chartRevData[0];
             this.chartConfiguration = {
                 type: 'bar',
                 data: {
                     datasets: [{
-                            label: 'Directo', 
+                            label: 'Directo',
                             data: chartAmtData,
                             barPercentage: 0.5,
                             barThickness: 6,
@@ -39,14 +34,14 @@ export default class generateCalceChart extends NavigationMixin(LightningElement
                            backgroundColor: "rgba(0, 110, 193)",
                         },
                         {
-                            label: 'Indirecto', 
+                            label: 'Indirecto',
                             data: chartRevData,
                             barPercentage: 0.5,
                             barThickness: 6,
                             maxBarThickness: 8,
                             minBarLength: 2,
                            backgroundColor: "rgba(82, 188, 236)",
-                        },                        
+                        },                     
                         {
                             label: 'Recursos',
                             data: chartRecData,
@@ -69,16 +64,13 @@ export default class generateCalceChart extends NavigationMixin(LightningElement
                         }]
                     }
                 },
-               
             };
             console.log('data => ', data);
-            this.error = undefined;
+            this.error = null;
 
             console.log('grandTotalllllll', this.grandTotal);
-            this.error = undefined;
- 
+            this.error = null;
         }
-        
     }
 
     redirectToReport(evt) {
