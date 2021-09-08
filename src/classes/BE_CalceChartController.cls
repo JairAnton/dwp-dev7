@@ -1,7 +1,7 @@
 public with sharing class BE_CalceChartController {
     @TestVisible
     private BE_CalceChartController(){
-        // constructor
+        // ...
       }
     /* controlador para el dashboard calce */
     @AuraEnabled(cacheable=true)

@@ -1,6 +1,6 @@
 @isTest
 private with sharing class BE_CalceChartController_tst {
-    /*Method for test  GetCalceChartt*/
+    /*Method  1 for  test GetCalceChart */
 	@isTest
     private static void testGetCalceChart(){      
             final Calce__c calce = new Calce__c();
@@ -9,7 +9,7 @@ private with sharing class BE_CalceChartController_tst {
             calce.start_date__c = Date.today();
       	    calce.status__c = 'Iniciado';  
               insert calce;
-              final BE_CalceChartController calChartCrl = new BE_CalceChartController();
+              BE_CalceChartController calChartCrl = new BE_CalceChartController();
               final List<AggregateResult> cal = BE_CalceChartController.getCalceChart(); 
               System.assert(cal.size()==1);
               calChartCrl = null;

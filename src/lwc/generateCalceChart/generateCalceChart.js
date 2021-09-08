@@ -34,7 +34,7 @@ export default class generateCalceChart extends NavigationMixin(LightningElement
                            backgroundColor: "rgba(0, 110, 193)",
                         },
                         {
-                            label: 'Indirecto ',
+                            label: 'Indirecto',
                             data: chartRevData,
                             barPercentage: 0.5,
                             barThickness: 6,
@@ -43,7 +43,7 @@ export default class generateCalceChart extends NavigationMixin(LightningElement
                            backgroundColor: "rgba(82, 188, 236)",
                         },                     
                         {
-                            label: 'Recursos ',
+                            label: 'Recursos',
                             data: chartRecData,
                             barPercentage: 0.5,
                             barThickness: 6,
@@ -56,7 +56,7 @@ export default class generateCalceChart extends NavigationMixin(LightningElement
                 },
                 options: {
                     scales: {
-                        indexAxis: 'y',
+                        indexAxis: 'x',
                         yAxes: [{
                             ticks: {
                                 beginAtZero: true

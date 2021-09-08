@@ -9,7 +9,7 @@ export default class generateBarChart extends LightningElement {
         if (this.isChartJsInitialized) {
             return;
         }
-        // load chartjs from the static resource
+        // load chartjs from the static  resource
         Promise.all([loadScript(this, ChartJS23)])
             .then(() => {
                 this.isChartJsInitialized = true;
@@ -27,5 +27,3 @@ export default class generateBarChart extends LightningElement {
             });
     }
 }
- 
-
