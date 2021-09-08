@@ -5,7 +5,7 @@ import { NavigationMixin } from 'lightning/navigation';
 export default class generateCalceChart extends NavigationMixin(LightningElement) {
     chartConfiguration;
     @api grandTotal
-    @wire(getCalceChart)
+    @wire(getCalceChart) 
     getCalceChart({ error, data }) {
         if (error) {
             this.error = error;

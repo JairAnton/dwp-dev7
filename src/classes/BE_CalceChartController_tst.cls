@@ -7,7 +7,7 @@ private with sharing class BE_CalceChartController_tst {
             final Calce__c calce = new Calce__c();
 			calce.Name = 'Test Calce'; 
             calce.close_date__c = Date.today(); 
-            calce.start_date__c = Date.today();
+            calce.start_date__c = Date.today(); 
       	    calce.status__c = 'Iniciado';
 			/*calce.Get_Date__c = Date.today();
             calce.CheckUser__c = true; */

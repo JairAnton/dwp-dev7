@@ -5,7 +5,7 @@ import { ShowToastEvent } from 'lightning/platformShowToastEvent';
  
 export default class generateBarChart extends LightningElement {
     @api chartConfig;
- 
+  
     isChartJsInitialized;
     renderedCallback() {
         if (this.isChartJsInitialized) {
