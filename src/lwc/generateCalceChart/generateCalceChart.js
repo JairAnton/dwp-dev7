@@ -34,7 +34,7 @@ export default class generateCalceChart extends NavigationMixin(LightningElement
                            backgroundColor: "rgba(0, 110, 193)",
                         },
                         {
-                            label: 'Indirecto',
+                            label: 'Indirecto ',
                             data: chartRevData,
                             barPercentage: 0.5,
                             barThickness: 6,

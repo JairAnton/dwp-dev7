@@ -1,6 +1,6 @@
 @isTest
 private with sharing class BE_CalceChartController_tst {
-    /*Method for test GetCalceChart*/
+    /*Method for test  GetCalceChart*/
 	@isTest
     private static void testGetCalceChart(){      
             final Calce__c calce = new Calce__c();
