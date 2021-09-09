@@ -35,8 +35,10 @@ public with sharing class ManagementPlanAfterUpdate_handler {
 	/* add 5 hours to start and end date */
 	public static void hoursInPeriod(List<dwp_frct__management_plan__c> mPlanNew) {
 		for(dwp_frct__management_plan__c item : mPlanNew) {
-			item.dwp_frct__management_plan_start_date__c = item.dwp_frct__management_plan_start_date__c.addHours(5);
-			item.dwp_frct__management_plan_end_date__c = item.dwp_frct__management_plan_end_date__c.addHours(4).addMinutes(59);
+			if(item.dwp_frct__management_plan_start_date__c <> null && item.dwp_frct__management_plan_end_date__c <> null) {
+				item.dwp_frct__management_plan_start_date__c = item.dwp_frct__management_plan_start_date__c.addHours(5);
+				item.dwp_frct__management_plan_end_date__c = item.dwp_frct__management_plan_end_date__c.addHours(4).addMinutes(59);
+			}
 		}
 	}
 }
