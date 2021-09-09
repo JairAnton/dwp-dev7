@@ -227,16 +227,12 @@ public without sharing class AccountPlanning_Trigger_cls {
 	/*
 	 * @Description  Setea la fecha de validación 1 vez
 	 */
-	public static void setInitialValidated(List<acpl__Account_Planning__c> triggerNew) {
-		Final Map<Id, acpl__Account_Planning__c> validatedAP = new Map<Id, acpl__Account_Planning__c>();
-
+	public static void initialValidated(List<acpl__Account_Planning__c> triggerNew) {
 		for(acpl__Account_Planning__c apItem : triggerNew) {
 			if(!apItem.acpl__gf_ap_indvi_lock_edit_ind_type__c && apItem.acpl__gf_ap_status_type_name__c == 'Validated' &&
-				apItem.acpl__gf_ap_substatus_type_name__c == 'In place' && String.isNotBlank(apItem.acpl__participant_id__c)) {
+				apItem.validation_initial_date__c == null && String.isNotBlank(apItem.acpl__participant_id__c)) {
 				
-				if(apItem.validation_initial_date__c == null) {
-					apItem.validation_initial_date__c = Date.today();
-				}
+				apItem.validation_initial_date__c = Date.today();
 			}
 		}
 	}

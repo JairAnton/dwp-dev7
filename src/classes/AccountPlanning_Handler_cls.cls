@@ -62,8 +62,8 @@ public class AccountPlanning_Handler_cls extends TriggerHandler {
         //end new methods ver 3.3
         //Completa el campo 'Fecha de validación' cuando el AP es validado
 		apHandler.fillValidationDate(triggerNew, triggerOldMap);
-		//Completa el campo 'Fecha de validación' cuando el AP es validado por primera vez
-		AccountPlanning_Trigger_cls.setInitialValidated(triggerNew);
+		//Completa el campo 'Fecha de validación Inicial' cuando el AP es validado por primera vez
+		AccountPlanning_Trigger_cls.initialValidated(triggerNew);
 	}
 
 	/*
