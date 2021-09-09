@@ -4,9 +4,9 @@
  * Diego Carbajal    		15/05/2020          Original version.<p />
  * Jair Anton				07/06/2021			Compartir AP con el JPN de cada región
  * Jair Anton				20/08/2021			Shared edit access level to JPN
+ * Jair Anton				08/09/2021			Guarda solo 1 vez la fecha de validación
  * @SuppressWarnings("PMD.CyclomaticComplexity"): Se utiliza para excluir del sonar para el metodo relateAPQuestions
  * implementado por Global
- * @author Diego Carbajal
  */
 @SuppressWarnings('PMD.CyclomaticComplexity')
 public without sharing class AccountPlanning_Trigger_cls {
@@ -222,5 +222,18 @@ public without sharing class AccountPlanning_Trigger_cls {
 		delete [SELECT ID, acpl__gf_account_planning_id__c, name FROM bupl__BusinessPlan__c WHERE acpl__gf_account_planning_id__c IN : triggerOldMap.keySet()];
 		//Elimina los APT del AP
 		delete [Select id From bupl__AP_Team__c Where acpl__gf_account_planning_id__c in : triggerOldMap.keySet()];
+	}
+
+	/*
+	 * @Description  Setea la fecha de validación 1 vez
+	 */
+	public static void initialValidated(List<acpl__Account_Planning__c> triggerNew) {
+		for(acpl__Account_Planning__c apItem : triggerNew) {
+			if(!apItem.acpl__gf_ap_indvi_lock_edit_ind_type__c && apItem.acpl__gf_ap_status_type_name__c == 'Validated' &&
+				apItem.validation_initial_date__c == null && String.isNotBlank(apItem.acpl__participant_id__c)) {
+				
+				apItem.validation_initial_date__c = Date.today();
+			}
+		}
 	}
 }
