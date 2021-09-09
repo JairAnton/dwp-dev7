@@ -95,6 +95,10 @@
                 <behavior>Edit</behavior>
                 <field>acpl__gf_event_date__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>validation_initial_date__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
