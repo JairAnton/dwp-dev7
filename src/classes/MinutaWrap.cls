@@ -45,7 +45,7 @@ public without sharing virtual class MinutaWrap {
 			}
 			usuarios.addAll([select id, name, email, prof_position_type__c from User where id IN: strUserId]);
 			System.debug('--usuarios-->' + usuarios);
-			visitAgreements = [Select id, ActivityDate, Subject, Status, Owner.Name, RecordType.Name from Task where RecordType.Name = 'Agreement' and dwp_kitv__visit_id__c =: visitId];
+			visitAgreements = [Select id, ActivityDate, Description, visit_responsible__c, Subject, Status, Owner.Name, RecordType.Name from Task where RecordType.Name = 'Agreement' and dwp_kitv__visit_id__c =: visitId];
 			Final List<Document> lstMembrete = [SELECT Id FROM Document WHERE DeveloperName = 'Logo_BBVA'];
 			Final List<Document> lstMembreteWhite = [SELECT Id FROM Document WHERE DeveloperName = 'Logo_BBVA_white'];
 			Final List<Document> lstLogoFace = [SELECT Id FROM Document WHERE DeveloperName = 'facebook_logo'];
