@@ -1,9 +1,13 @@
 import { api, LightningElement, track, wire } from "lwc";
 import { refreshApex } from "@salesforce/apex";
 import getData from "@salesforce/apex/BE_ProfilabilityController_cls.getRDt";
+import { ShowToastEvent } from "lightning/platformShowToastEvent";
 import getGrowthVariableData from "@salesforce/apex/BE_ProfilabilityController_cls.getGrowthVariableData";
 import saveRentabilityDrivers from "@salesforce/apex/BE_ProfilabilityController_cls.saveRentabilityDrivers";
-import { updateEstimationList, calculator } from "./be_RentabilityRelatedListUtilities";
+import {
+  updateEstimationList,
+  calculator
+} from "./be_RentabilityRelatedListUtilities";
 
 let date = new Date().getFullYear();
 
@@ -160,14 +164,14 @@ export default class bE_RentabilityRelatedList extends LightningElement {
     }
   ];
 
+  firstTimeRender = false;
+
   /**----------------------------
  *        Apex Class
  ----------------------------*/
   //#region
 
   setRentabilityData() {
-    console.log("sending rentabilityData ...", this.rentabilityData.data);
-    console.log("sending estimationData ...", [...this.estimationData.data]);
     saveRentabilityDrivers({
       rentability: JSON.stringify(this.rentabilityData.data),
       rentModUI: JSON.stringify([...this.estimationData.data]),
@@ -176,11 +180,18 @@ export default class bE_RentabilityRelatedList extends LightningElement {
       .then((res) => {
         if (res.error) {
           console.log("Error 1", res);
+          this.showToastEvent("Error al guardar", res.error, "Error");
         } else {
           this.isModalOpen = false;
+          this.showToastEvent(
+            "Se guardo la información satisfactoriamente",
+            "",
+            "success"
+          );
         }
       })
       .catch((err) => {
+        this.showToastEvent("Error al guardar", err.message, "Error");
         console.log("Error 2", err);
       });
   }
@@ -197,6 +208,27 @@ export default class bE_RentabilityRelatedList extends LightningElement {
     getGrowthVariableData({ recordId: this.recordId }).then((res) => {
       console.log("Growth Data", res);
       this.estimationData = res;
+
+      if (!this.firstTimeRender) {
+        let list = this.estimationData.data;
+        if (list.length > 0) {
+          for (let i = 0; i < list.length; i++) {
+            let tempObj = [
+              {
+                opportunityId: this.estimationData.data[i].opportunityId,
+                term: this.estimationData.data[i].term,
+                spread: this.estimationData.data[i].spread,
+                strComm: this.estimationData.data[i].strComm
+              }
+            ];
+            updateEstimationList(list, i, tempObj);
+            let asdasd = calculator(list, i, this.rentabilityData);
+            this.rentabilityData = asdasd;
+          }
+        }
+
+        this.firstTimeRender = true;
+      }
     });
   }
 
@@ -256,31 +288,42 @@ export default class bE_RentabilityRelatedList extends LightningElement {
   }
 
   handleCellChangeSection(event) {
-    let [sectionType, accountId] = event.detail.draftValues[0].sectionId.split("-");
+    let [sectionType, accountId] =
+      event.detail.draftValues[0].sectionId.split("-");
     let list = JSON.parse(JSON.stringify(this.rentabilityData));
 
     let accIndex = list.data.findIndex((obj) => obj.accountId === accountId);
     if (accIndex === -1) return;
 
-    let sectionIndex = list.data[accIndex].sections.findIndex((obj) => obj.row === sectionType);
+    let sectionIndex = list.data[accIndex].sections.findIndex(
+      (obj) => obj.row === sectionType
+    );
     if (sectionIndex === -1) return;
 
-    list.data[accIndex].sections[sectionIndex].nextYear = Number(event.detail.draftValues[0].nextYear);
+    list.data[accIndex].sections[sectionIndex].nextYear = Number(
+      event.detail.draftValues[0].nextYear
+    );
     list.data[accIndex].sections[sectionIndex].iconNameNY = `utility:${
-      list.data[accIndex].sections[sectionIndex].cyEstim > list.data[accIndex].sections[sectionIndex].nextYear
+      list.data[accIndex].sections[sectionIndex].cyEstim >
+      list.data[accIndex].sections[sectionIndex].nextYear
         ? "arrowdown"
         : "arrowup"
     }`;
 
-    let mOrdIndex = list.data[accIndex].sections.findIndex((obj) => obj.row === "Margen Ordinario");
+    let mOrdIndex = list.data[accIndex].sections.findIndex(
+      (obj) => obj.row === "Margen Ordinario"
+    );
     if (mOrdIndex === -1) return;
 
-    list.data[accIndex].sections[mOrdIndex].nextYear = list.data[accIndex].sections
+    list.data[accIndex].sections[mOrdIndex].nextYear = list.data[
+      accIndex
+    ].sections
       .filter((obj) => obj.row !== "Margen Ordinario")
       .reduce((a, b) => a + b.nextYear, 0);
 
     list.data[accIndex].sections[mOrdIndex].iconNameNY = `utility:${
-      list.data[accIndex].sections[mOrdIndex].cyEstim > list.data[accIndex].sections[mOrdIndex].nextYear
+      list.data[accIndex].sections[mOrdIndex].cyEstim >
+      list.data[accIndex].sections[mOrdIndex].nextYear
         ? "arrowdown"
         : "arrowup"
     }`;
@@ -291,15 +334,26 @@ export default class bE_RentabilityRelatedList extends LightningElement {
   handleCellChange(event) {
     let list = this.estimationData.data;
 
-    let index = list.findIndex((obj) => obj.opportunityId === event.detail.draftValues[0].opportunityId);
+    let index = list.findIndex(
+      (obj) => obj.opportunityId === event.detail.draftValues[0].opportunityId
+    );
     if (index === -1) return;
-
     updateEstimationList(list, index, event.detail.draftValues);
 
     let asdasd = calculator(list, index, this.rentabilityData);
     this.rentabilityData = asdasd;
     //index = this.rentabilityData.findIndex((obj) => obj.accountId === );
   }
+
+  /** SHOW TOAST MESSAJE */
+  showToastEvent = (title, message, variant) => {
+    const evt = new ShowToastEvent({
+      title: title,
+      message: message,
+      variant: variant
+    });
+    this.dispatchEvent(evt);
+  };
   //#endregion
 
   /**----------------------------
@@ -307,7 +361,9 @@ export default class bE_RentabilityRelatedList extends LightningElement {
    /**----------------------------*/
   //#region
   openModal() {
-    this.getEstimationData();
+    if (this.estimationData.data.length < 1) {
+      this.getEstimationData();
+    }
     this.isModalOpen = true;
   }
   closeModal() {
