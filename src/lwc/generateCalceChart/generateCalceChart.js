@@ -1,11 +1,13 @@
 import { LightningElement, wire, api } from 'lwc';
 import getCalceChart from '@salesforce/apex/BE_CalceChartController.getCalceChart';
 import { NavigationMixin } from 'lightning/navigation';
-export default class generateCalceChart extends NavigationMixin(LightningElement) {
+export default class GenerateCalceChart extends NavigationMixin(LightningElement) {
     chartConfiguration;
     @api grandTotal
     @wire(getCalceChart)
     getCalceChart({ error, data }) {
+        console.log(data,'dataaaaaaa')
+        console.log(error,'errrrrror')
         if (error) {
             this.error = error;
             this.chartConfiguration = null;
@@ -86,3 +88,4 @@ export default class generateCalceChart extends NavigationMixin(LightningElement
         });
     }
 }
+ 

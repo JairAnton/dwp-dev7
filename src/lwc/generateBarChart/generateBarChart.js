@@ -2,7 +2,7 @@ import { LightningElement, api } from 'lwc';
 import ChartJS23 from '@salesforce/resourceUrl/ChartJS23';
 import { loadScript } from 'lightning/platformResourceLoader';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
-export default class generateBarChart extends LightningElement {
+export default class GenerateBarChart extends LightningElement {
     @api chartConfig;
     isChartJsInitialized;
     renderedCallback() {
