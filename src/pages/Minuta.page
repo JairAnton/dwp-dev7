@@ -115,18 +115,20 @@
                     <table style="width:100%; border: solid 0px; border-collapse: collapse;">
                         <tr style="background-color: #043263;" class="border_bottom">
                             <th colspan="1" class="subtitle" > ACUERDO/ACTIVIDAD</th>
+                            <th colspan="1" class="subtitle" > COMENTARIOS</th>
                             <th colspan="1" class="subtitle" > FECHA COMPROMISO</th>
                             <th colspan="1" class="subtitle" > RESPONSABLE</th>
                         </tr>
                         <apex:repeat value="{!visitAgreements}" var="agreement" id="agreement">
                             <tr class="border_bottom">
                                 <td><apex:outputText styleClass="textBody" value="{!agreement.Subject}"/></td>
+                                <td><apex:outputText styleClass="textBody" value="{!agreement.Description}"/></td>
                                 <td>
                                     <apex:outputText styleClass="textBody"  value="{0, date, dd/MM/yyyy}">
                                         <apex:param value="{!agreement.ActivityDate}" /> 
                                     </apex:outputText>
                                 </td>
-                                <td><apex:outputText styleClass="textBody" value="{!agreement.Owner.Name}"/></td>
+                                <td><apex:outputText styleClass="textBody" value="{!agreement.visit_responsible__c}"/></td>
                             </tr>
                         </apex:repeat>
                     </table>
