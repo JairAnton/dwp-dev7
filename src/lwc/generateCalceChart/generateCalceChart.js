@@ -15,7 +15,7 @@ export default class GenerateCalceChart extends NavigationMixin(LightningElement
             let chartAmtData = [];
             let chartRevData = [];
             let chartRecData = [];
-            let chartLabel = []; 
+            let chartLabel = [];
             data.forEach(cal => {
                 chartAmtData.push(cal.netDirect);
                 chartRevData.push(cal.netIndirect);
@@ -43,7 +43,7 @@ export default class GenerateCalceChart extends NavigationMixin(LightningElement
                             maxBarThickness: 8,
                             minBarLength: 2,
                            backgroundColor: "rgba(82, 188, 236)",
-                        },                     
+                        },                   
                         {
                             label: 'Recursos',
                             data: chartRecData,
@@ -88,4 +88,3 @@ export default class GenerateCalceChart extends NavigationMixin(LightningElement
         });
     }
 }
- 

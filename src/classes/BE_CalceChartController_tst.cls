@@ -1,8 +1,9 @@
+/*Method   for  test GetCalceChart */
 @isTest
 public class BE_CalceChartController_tst {
     /*Method  1 for  test GetCalceChart */
 	@isTest
-    private static void testGetCalceChart(){      
+    private static void testGetCalceChart() {      
             final Calce__c calce = new Calce__c();
 			calce.Name = 'Test Calce'; 
             calce.close_date__c = Date.today(); 
@@ -10,6 +11,7 @@ public class BE_CalceChartController_tst {
       	    calce.status__c = 'Iniciado';  
               insert calce;
               final List<AggregateResult> cal = BE_CalceChartController.getCalceChart(); 
+              System.assertNotEquals(cal, null,'Success');
               test.StartTest();
         		calce.Name = 'Test Calce 1';
               test.stopTest();
