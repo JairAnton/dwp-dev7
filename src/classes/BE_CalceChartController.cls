@@ -1,6 +1,6 @@
-public with sharing class BE_CalceChartController {
 /* controlador para el dashboard calce */
-    
+public with sharing class BE_CalceChartController {
+/* controlador */
     private BE_CalceChartController() { }
     /* constructor para el dashboard calce */
  
