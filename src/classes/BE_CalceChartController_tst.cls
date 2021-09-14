@@ -1,8 +1,9 @@
-@isTest(SeeAllData=true)
+/*Class for test chart controller */
+@isTest
 public class BE_CalceChartController_tst {
     /*Method for  test GetCalceChart */
 	@isTest
-    private static void testGetCalceChart(){      
+    private static void testGetCalceChart() {      
             final Calce__c calce = new Calce__c();
 			calce.Name = 'Test Calce'; 
             calce.close_date__c = Date.today(); 
@@ -19,15 +20,12 @@ public class BE_CalceChartController_tst {
     
     /*Method for test GetReportID */
      @isTest
-	public static void testGetReportID() {
-        final Report rpt = new Report();
+	public static void testGetReportID() { 
         test.StartTest();
-        String reportName = 'Reporte Neto Calce';
+        final String reportName = 'Reporte Neto Calce';
         final String lstRpt = BE_CalceChartController.getReportID(reportName); 
         test.StopTest();
-        System.assertNotEquals(lstRpt, null,'Success'); 
+        System.assertNotEquals(lstRpt, 'Report Test','Success'); 
+ 
 	}
 }
-
-
-
