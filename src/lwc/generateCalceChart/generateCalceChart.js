@@ -1,7 +1,10 @@
 import { LightningElement, wire, api } from 'lwc';
 import getCalceChart from '@salesforce/apex/BE_CalceChartController.getCalceChart';
+import getReportId from '@salesforce/apex/BE_CalceChartController.getReportID';
 import { NavigationMixin } from 'lightning/navigation';
 export default class GenerateCalceChart extends NavigationMixin(LightningElement) {
+    reportId;
+    error;
     chartConfiguration;
     @api grandTotal
     @wire(getCalceChart)
@@ -72,19 +75,27 @@ export default class GenerateCalceChart extends NavigationMixin(LightningElement
 
             console.log('grandTotalllllll', this.grandTotal);
             this.error = null;
+            console.log('IDDDDDDDDDDDDDDDD',this.reportId);
         }
     }
 
-    redirectToReport(evt) {
-        evt.preventDefault();
-        evt.stopPropagation();
-        this[NavigationMixin.Navigate]({
-            type: 'standard__recordPage',
-            attributes: {
-                recordId: '00O6t000000VDqKEAW',
-                objectApiName: 'Report',
-                actionName: 'view'
-            }
-        });
+    @wire(getReportId,{reportName:'Reporte Neto Calce'})
+    report({data,error}) {
+      if(data) {
+        this.reportId=data;
+      }
+      else if(error) {
+      this.error=error;
+      }
+   }
+    navigatetoReport(event) {
+       this[NavigationMixin.Navigate]({
+           type: 'standard__recordPage',
+           attributes: {
+             recordId: this.reportId,
+             objectApiName: 'Report',
+             actionName: 'view'
+           }
+     });
     }
 }
