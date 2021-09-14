@@ -2,6 +2,7 @@
 @isTest
 public class BE_CalceChartController_tst {
     /*Method for  test GetCalceChart */
+    static final  String reportName = 'Reporte Neto Calce';
 	@isTest
     private static void testGetCalceChart() {      
             final Calce__c calce = new Calce__c();
@@ -20,12 +21,10 @@ public class BE_CalceChartController_tst {
     
     /*Method for test GetReportID */
      @isTest
-	public static void testGetReportID() { 
+	public static void testGetReportID() {
         test.StartTest();
-        final String reportName = 'Reporte Neto Calce';
         final String lstRpt = BE_CalceChartController.getReportID(reportName); 
         test.StopTest();
         System.assertNotEquals(lstRpt, 'Report Test','Success'); 
- 
 	}
 }
