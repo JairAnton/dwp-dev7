@@ -46,7 +46,7 @@ export default class GenerateCalceChart extends NavigationMixin(LightningElement
                             maxBarThickness: 8,
                             minBarLength: 2,
                            backgroundColor: "rgba(82, 188, 236)",
-                        },        
+                        },
                         {
                             label: 'Recursos',
                             data: chartRecData,
