@@ -100,7 +100,7 @@ public without sharing class visit_helper_Trigger_cls {
     /*
 	 * Method to check contacts in a visit
 	 */
-    ublic void validateInvite(List<dwp_kitv__Visit_Contact__c> visitsNew, Map<Id, dwp_kitv__Visit_Contact__c> visitsOld) {
+    public void validateInvite(List<dwp_kitv__Visit_Contact__c> visitsNew, Map<Id, dwp_kitv__Visit_Contact__c> visitsOld) {
         Integer countContacts = 0;
         Boolean anychange = false;
         
