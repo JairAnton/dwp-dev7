@@ -96,4 +96,33 @@ public without sharing class visit_helper_Trigger_cls {
             }
         }
     }
+    
+    /*
+	 * Method to check contacts in a visit
+	 */
+    public static void validateInvite(List<dwp_kitv__Visit__c> visits) {
+        Integer countContacts = 0;
+        Integer countVisitContacts = 0;
+        
+        if(visits.size()==1){
+            for(dwp_kitv__Visit_Contact__c visit : [select ID, dwp_kitv__contact_called_type__c from dwp_kitv__Visit_Contact__c where dwp_kitv__visit_id__c =: visits.get(0).Id]) {
+                countVisitContacts++;
+                if(visit.dwp_kitv__contact_called_type__c){
+                    countContacts++;
+                }
+            }
+            if(countContacts==0 && countVisitContacts>0){
+                visits.get(0).addError('Se debe invitar al menos a un contacto.');
+            }          
+        }
+    }
+    
+    /*
+	 * Method to assign dwp_kitv__contact_called_type__c field for launch visit
+	 */
+    public void asiggnInvite(List<dwp_kitv__Visit_Contact__c> visitContacts) {
+        for(dwp_kitv__Visit_Contact__c visitContact: visitContacts) {
+            visitContact.dwp_kitv__contact_called_type__c = true;            
+        }
+    }
 }

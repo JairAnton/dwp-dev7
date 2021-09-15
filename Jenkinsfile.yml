@@ -28,7 +28,7 @@ branches:
     feature/dwp:
         stages:
             deploy:
-                skip: false
+                skip: true
                 params:
                     mdapiConfig:
                         credentialId: SFDC_DEV
@@ -37,6 +37,7 @@ branches:
                         testLevel: RunLocalTests
                         
             publish:
+                skip: false
                 params:
                     mdapiConfig:
                         credentialId: SFDC_QA_DWP
@@ -45,7 +46,7 @@ branches:
     feature/arce:
         stages:
             deploy:
-                skip: false
+                skip: true
                 params:
                     mdapiConfig:
                         credentialId: SFDC_DEV
@@ -54,6 +55,7 @@ branches:
                         testLevel: RunLocalTests
                         
             publish:
+                skip: false
                 params:
                     mdapiConfig:
                         credentialId: SFDC_QA_ARCE
@@ -137,6 +139,7 @@ pullRequests:
                         testLevel: RunLocalTests
                         
             publish:
+                skip: true
                 params:
                     mdapiConfig:
                         credentialId: SFDC_QA_DWP
@@ -154,6 +157,7 @@ pullRequests:
                         testLevel: RunLocalTests
                         
             publish:
+                skip: true
                 params:
                     mdapiConfig:
                         credentialId: SFDC_QA_ARCE
