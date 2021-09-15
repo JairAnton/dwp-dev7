@@ -100,21 +100,22 @@ public without sharing class visit_helper_Trigger_cls {
     /*
 	 * Method to check contacts in a visit
 	 */
-    public static void validateInvite(List<dwp_kitv__Visit__c> visits) {
+    ublic void validateInvite(List<dwp_kitv__Visit_Contact__c> visitsNew, Map<Id, dwp_kitv__Visit_Contact__c> visitsOld) {
         Integer countContacts = 0;
-        Integer countVisitContacts = 0;
+        Boolean anychange = false;
         
-        if(visits.size()==1){
-            for(dwp_kitv__Visit_Contact__c visit : [select ID, dwp_kitv__contact_called_type__c from dwp_kitv__Visit_Contact__c where dwp_kitv__visit_id__c =: visits.get(0).Id]) {
-                countVisitContacts++;
-                if(visit.dwp_kitv__contact_called_type__c){
-                    countContacts++;
-                }
+        for(dwp_kitv__Visit_Contact__c visitnew :visitsNew){
+            if(visitnew.dwp_kitv__contact_called_type__c != visitsOld.get(visitnew.Id).dwp_kitv__contact_called_type__c){
+                anychange = true;                
             }
-            if(countContacts==0 && countVisitContacts>0){
-                visits.get(0).addError('Se debe invitar al menos a un contacto.');
-            }          
+            if(visitnew.dwp_kitv__contact_called_type__c){
+                countContacts++;
+            }            
         }
+        
+        if(countContacts==0 && anychange){
+            visitsNew.get(0).addError('Se debe invitar al menos a un contacto.');                      
+        }        
     }
     
     /*
