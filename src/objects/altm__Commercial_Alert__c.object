@@ -1258,6 +1258,16 @@
                     <default>false</default>
                     <label>Uso de Líneas</label>
                 </value>
+                <value>
+                    <fullName>Vinculación3/7</fullName>
+                    <default>false</default>
+                    <label>Vinculación 3/7</label>
+                </value>
+                <value>
+                    <fullName>Vinculación4/7</fullName>
+                    <default>false</default>
+                    <label>Vinculación 4/7</label>
+                </value>
             </valueSetDefinition>
             <valueSettings>
                 <controllingFieldValue>01</controllingFieldValue>
@@ -1298,6 +1308,18 @@
                 <controllingFieldValue>01</controllingFieldValue>
                 <controllingFieldValue>02</controllingFieldValue>
                 <valueName>UsodeLineas</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>01</controllingFieldValue>
+                <controllingFieldValue>02</controllingFieldValue>
+                <controllingFieldValue>03</controllingFieldValue>
+                <valueName>Vinculación3/7</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>01</controllingFieldValue>
+                <controllingFieldValue>02</controllingFieldValue>
+                <controllingFieldValue>03</controllingFieldValue>
+                <valueName>Vinculación4/7</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>03</controllingFieldValue>
