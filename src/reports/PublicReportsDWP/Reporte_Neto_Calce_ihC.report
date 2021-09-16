@@ -7,14 +7,14 @@
         </blockInfo>
         <columns>
             <aggregateTypes>Sum</aggregateTypes>
-            <field>Calce__c.sub_total_direct__c</field>
+            <field>Calce__c.Calce_Neto_Directo__c</field>
         </columns>
         <currency>PEN</currency>
         <format>Summary</format>
         <name>Calce Directo</name>
         <params>
             <name>co</name>
-            <value>0</value>
+            <value>1</value>
         </params>
         <reportType>CustomEntityCustomEntity$Calce__c$Calce_Details__c</reportType>
         <scope>organization</scope>
@@ -32,14 +32,14 @@
         </blockInfo>
         <columns>
             <aggregateTypes>Sum</aggregateTypes>
-            <field>Calce__c.sub_total_indirect__c</field>
+            <field>Calce__c.Calcee_Neto_Indirecto__c</field>
         </columns>
         <currency>PEN</currency>
         <format>Summary</format>
         <name>Calce Indirecto</name>
         <params>
             <name>co</name>
-            <value>0</value>
+            <value>1</value>
         </params>
         <reportType>CustomEntityCustomEntity$Calce__c$Calce_Details__c</reportType>
         <scope>organization</scope>
@@ -57,14 +57,14 @@
         </blockInfo>
         <columns>
             <aggregateTypes>Sum</aggregateTypes>
-            <field>Calce__c.Sub_Total_Resource__c</field>
+            <field>Calce__c.net_resource_calce__c</field>
         </columns>
         <currency>PEN</currency>
         <format>Summary</format>
         <name>Calce Recurso</name>
         <params>
             <name>co</name>
-            <value>0</value>
+            <value>1</value>
         </params>
         <reportType>CustomEntityCustomEntity$Calce__c$Calce_Details__c</reportType>
         <scope>organization</scope>
