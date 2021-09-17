@@ -33,7 +33,7 @@
         </inputParameters>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
-    <apiVersion>53.0</apiVersion>
+    <apiVersion>50.0</apiVersion>
     <assignments>
         <name>Assign_Response</name>
         <label>Assign Response</label>
