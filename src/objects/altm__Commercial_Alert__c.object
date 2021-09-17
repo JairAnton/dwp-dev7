@@ -1713,6 +1713,14 @@
                 <fullName>UsodeLineas</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Vinculación3%2F7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vinculación4%2F7</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
     </recordTypes>
     <searchLayouts>
