@@ -814,11 +814,26 @@
     </fields>
     <fields>
         <fullName>Has_financial_sponsor__c</fullName>
-        <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Has financial sponsor</label>
+        <label>Has financial sponsor?</label>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <type>Checkbox</type>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>NO</fullName>
+                    <default>true</default>
+                    <label>NO</label>
+                </value>
+                <value>
+                    <fullName>SI</fullName>
+                    <default>false</default>
+                    <label>SI</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Industry</fullName>
@@ -2054,6 +2069,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Has_financial_sponsor__c</picklist>
+            <values>
+                <fullName>NO</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>SI</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Industry</picklist>
             <values>
                 <fullName>Agriculture</fullName>
@@ -2406,6 +2432,17 @@
             </values>
             <values>
                 <fullName>Website</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Has_financial_sponsor__c</picklist>
+            <values>
+                <fullName>NO</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>SI</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2766,6 +2803,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Has_financial_sponsor__c</picklist>
+            <values>
+                <fullName>NO</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>SI</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Industry</picklist>
             <values>
                 <fullName>Agriculture</fullName>
@@ -3086,6 +3134,17 @@
             </values>
             <values>
                 <fullName>Purchased List</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Has_financial_sponsor__c</picklist>
+            <values>
+                <fullName>NO</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>SI</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

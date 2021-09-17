@@ -10069,6 +10069,10 @@
         <field>slmt__Sales_Meeting__c.slmt__mngmt_plan_meeting_user_id__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<flowAccesses>
+        <enabled>false</enabled>
+        <flow>Account_Record_Update_Has_Finantial_Sponsor</flow>
+    </flowAccesses>
     <flowAccesses>
         <enabled>false</enabled>
         <flow>BE_CA_CreateTask</flow>

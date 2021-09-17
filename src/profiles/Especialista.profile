@@ -7584,7 +7584,11 @@ Ejecutivos de REDES</description>
         <field>Opportunity.Loss_date__c</field>
         <readable>true</readable>
     </fieldPermissions>
-        <flowAccesses>
+	<flowAccesses>
+        <enabled>false</enabled>
+        <flow>Account_Record_Update_Has_Finantial_Sponsor</flow>
+    </flowAccesses>
+	<flowAccesses>
         <enabled>false</enabled>
         <flow>BE_CA_CreateTask</flow>
     </flowAccesses>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <actionCalls>
+        <name>Success_Update_Finacial_Sponsor</name>
+        <label>Success Update Finacial Sponsor</label>
+        <locationX>176</locationX>
+        <locationY>638</locationY>
+        <actionName>c:BE_ShowToastCmp</actionName>
+        <actionType>component</actionType>
+        <inputParameters>
+            <name>message</name>
+            <value>
+                <stringValue>Se actualizó la información del Sponsor Financiero</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>mode</name>
+            <value>
+                <stringValue>dismissible</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>type</name>
+            <value>
+                <stringValue>success</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <stringValue>Dato Actualizado</stringValue>
+            </value>
+        </inputParameters>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>50.0</apiVersion>
+    <assignments>
+        <name>Assign_Response</name>
+        <label>Assign Response</label>
+        <locationX>176</locationX>
+        <locationY>398</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Account_Financial_Sponsor.Has_financial_sponsor__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Has_Finantial_Sponsor</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Financial_Sponsor</targetReference>
+        </connector>
+    </assignments>
+    <description>Update financial sponsor for an account.</description>
+    <dynamicChoiceSets>
+        <name>Picklist_Has_Financial_Sponsor</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Has_financial_sponsor__c</picklistField>
+        <picklistObject>Account</picklistObject>
+    </dynamicChoiceSets>
+    <interviewLabel>Account - Record Update - Has Finantial Sponsor {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Account - Record Update - Has Financial Sponsor</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <name>Get_Account_Financial_Sponsor</name>
+        <label>Get Account Financial Sponsor</label>
+        <locationX>176</locationX>
+        <locationY>158</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Account_Financial_Sponsor_Modal</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Has_financial_sponsor__c</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Financial_Sponsor</name>
+        <label>Update Financial Sponsor</label>
+        <locationX>176</locationX>
+        <locationY>518</locationY>
+        <connector>
+            <targetReference>Success_Update_Finacial_Sponsor</targetReference>
+        </connector>
+        <inputReference>Get_Account_Financial_Sponsor</inputReference>
+    </recordUpdates>
+    <screens>
+        <name>Account_Financial_Sponsor_Modal</name>
+        <label>Account Financial Sponsor Modal</label>
+        <locationX>176</locationX>
+        <locationY>278</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Assign_Response</targetReference>
+        </connector>
+        <fields>
+            <name>Has_Finantial_Sponsor</name>
+            <choiceReferences>Picklist_Has_Financial_Sponsor</choiceReferences>
+            <dataType>String</dataType>
+            <defaultValue>
+                <elementReference>Get_Account_Financial_Sponsor.Has_financial_sponsor__c</elementReference>
+            </defaultValue>
+            <fieldText>Has Financial Sponsor?</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Account_Financial_Sponsor</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>
