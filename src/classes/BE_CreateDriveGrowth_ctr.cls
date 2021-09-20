@@ -207,7 +207,7 @@ public with sharing class BE_CreateDriveGrowth_ctr extends BE_SingleRelatedListC
         Final acpl__Commercial_Plan_Event__c[] cpe = new List<acpl__Commercial_Plan_Event__c>{
             new acpl__Commercial_Plan_Event__c(acpl__participant_id__c = bpAux.acpl__gf_account_planning_id__r.acpl__participant_id__c, 
                                                acpl__gf_comm_plan_event_type_name__c = 'Opportunity', acpl__gf_account_planning_id__c = gdAux.acpl__gf_account_planning_id__c, 
-                                               Name = bpAux.acpl__gf_account_planning_id__r.Name + ' - ' + String.valueOf(gdAux.ExpectedDate__c).left(10), Comments__c = gdAux.bupl__gf_growth_drvr_prdt_desc__c,
+                                               Name = bpAux.acpl__gf_account_planning_id__r.Name + ' - ' + String.valueOf(gdAux.ExpectedDate__c).left(10), 
                                                GrowthDriver__c = gdAux.Id, acpl__gf_event_date__c = gdAux.ExpectedDate__c, ClientAssigned__c = gdAux.ClientAssigned__c)};
                                                
 		Final BE_SingleRelatedListCRUD_Cls.Response response = BE_SingleRelatedListModal_Ctr.returnResponse(cpe, 'insert');
