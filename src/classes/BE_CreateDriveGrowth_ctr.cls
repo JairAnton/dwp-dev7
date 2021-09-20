@@ -108,7 +108,7 @@ public with sharing class BE_CreateDriveGrowth_ctr extends BE_SingleRelatedListC
                 lstCPE[0].Name = lstCPE[0].Name.left(lstCPE[0].Name.length() - 10) + String.valueOf(lstGD[0].ExpectedDate__c).left(10);
                 lstCPE[0].acpl__gf_event_date__c = lstGD[0].ExpectedDate__c;
                 lstCPE[0].ClientAssigned__c = lstGD[0].ClientAssigned__c;
-                lstCPE[0].Comments__c = lstGD[0].bupl__gf_growth_drvr_prdt_desc__c;
+                //lstCPE[0].Comments__c = lstGD[0].bupl__gf_growth_drvr_prdt_desc__c;
 
                 response = BE_SingleRelatedListModal_Ctr.returnResponse(lstCPE, 'update');
 

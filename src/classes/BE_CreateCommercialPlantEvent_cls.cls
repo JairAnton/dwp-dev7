@@ -186,7 +186,7 @@ public with sharing class BE_CreateCommercialPlantEvent_cls extends BE_SingleRel
                 Final List<bupl__BP_GrowthDriver__c> growthList = [SELECT Id, ExpectedDate__c, ClientAssigned__c FROM bupl__BP_GrowthDriver__c WHERE Id =: lstCPEAux[0].GrowthDriver__c LIMIT 1];
                 growthList[0].ExpectedDate__c = lstCPEAux[0].acpl__gf_event_date__c;
                 growthList[0].ClientAssigned__c = lstCPEAux[0].ClientAssigned__c;
-                growthList[0].bupl__gf_growth_drvr_prdt_desc__c = lstCPEAux[0].Comments__c;
+                //growthList[0].bupl__gf_growth_drvr_prdt_desc__c = lstCPEAux[0].Comments__c;
                 update growthList;
             }
         }
