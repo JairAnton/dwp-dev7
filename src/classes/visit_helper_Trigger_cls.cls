@@ -104,17 +104,17 @@ public without sharing class visit_helper_Trigger_cls {
         Integer countContacts = 0;
         Boolean anychange = false;
         
-        for(dwp_kitv__Visit_Contact__c visitnew :visitsNew){
-            if(visitnew.dwp_kitv__contact_called_type__c != visitsOld.get(visitnew.Id).dwp_kitv__contact_called_type__c){
+        for(dwp_kitv__Visit_Contact__c visitnew :visitsNew) {
+            if(visitnew.dwp_kitv__contact_called_type__c != visitsOld.get(visitnew.Id).dwp_kitv__contact_called_type__c) {
                 anychange = true;                
             }
-            if(visitnew.dwp_kitv__contact_called_type__c){
+            if(visitnew.dwp_kitv__contact_called_type__c) {
                 countContacts++;
             }            
         }
         
-        if(countContacts==0 && anychange){
-            visitsNew.get(0).addError('Se debe invitar al menos a un contacto.');                      
+        if(countContacts==0 && anychange) {
+            visitsNew.get(0).addError(System.Label.BE_VisitValidateInvite);                      
         }        
     }
     
