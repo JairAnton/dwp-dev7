@@ -616,6 +616,13 @@ Por favor verifique la estructura de acuerdo a la guía en la documentación.</v
         <value>View</value>
     </labels>
     <labels>
+        <fullName>BE_VisitValidateInvite</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BE_VisitValidateInvite</shortDescription>
+        <value>Se debe invitar al menos a un contacto.</value>
+    </labels>
+    <labels>
         <fullName>BE_SingleRelatedList_ViewAll</fullName>
         <categories>BE</categories>
         <language>en_US</language>
