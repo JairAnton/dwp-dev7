@@ -6,10 +6,10 @@ trigger Visit_Contact_Trigger on dwp_kitv__Visit_Contact__c(before insert, befor
             handler.visitContactBeforeInsert(trigger.new);
             Handlervisithelper.asiggnInvite(trigger.new);
         }
-		if(trigger.isdelete){
+		if(trigger.isdelete) {
             Handlervisithelper.ComunMethod1(trigger.old);
         }
-        if(trigger.isUpdate){
+        if(trigger.isUpdate) {
             Handlervisithelper.validateInvite(trigger.new, Trigger.oldMap);
         }
     }
