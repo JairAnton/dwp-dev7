@@ -202,7 +202,10 @@ public without sharing class AP_ConvertCPE_cls {
 		}
 		for(Opportunity opp: lstOpp) {
 			if(mapCPEAux.containsKey(opp.commercial_plan_event__c)) {
-				opp.Amount = mapCPEAux.get(opp.commercial_plan_event__c).GrowthDriver__r.Amount__c;
+                opp.Amount = 0;
+                if(mapCPEAux.get(opp.commercial_plan_event__c).GrowthDriver__r.Amount__c != null && !String.isBlank(String.valueOf(mapCPEAux.get(opp.commercial_plan_event__c).GrowthDriver__r.Amount__c)) ) {
+                    opp.Amount = mapCPEAux.get(opp.commercial_plan_event__c).GrowthDriver__r.Amount__c;
+                }
 				opp.CurrencyIsoCode = mapCPEAux.get(opp.commercial_plan_event__c).GrowthDriver__r.CurrencyIsoCode;
 				
 			}
