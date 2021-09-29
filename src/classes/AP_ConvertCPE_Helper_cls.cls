@@ -100,8 +100,11 @@ public with sharing class AP_ConvertCPE_Helper_cls {
 
             oppItem.CloseDate = item.acpl__gf_event_date__c; 
             oppItem.Description = item.Comments__c;
-
-            oppItem.Amount = mapCPEAux.get(item.Id).GrowthDriver__r.Amount__c;
+			oppItem.Amount  = 0;
+            
+            if(mapCPEAux.get(item.Id).GrowthDriver__r.Amount__c != null && !String.isBlank(String.valueOf(mapCPEAux.get(item.Id).GrowthDriver__r.Amount__c)) ){
+                oppItem.Amount  = mapCPEAux.get(item.Id).GrowthDriver__r.Amount__c;
+            }            
 
             validateProduct(mapPBE, cpeAuxItem, oppLineItem, oppItem, oliToInsert, oliToDelete, oliToUpdate, item, mapCPEAux);     
         } else {
