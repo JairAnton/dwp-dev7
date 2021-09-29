@@ -102,7 +102,7 @@ public with sharing class AP_ConvertCPE_Helper_cls {
             oppItem.Description = item.Comments__c;
 			oppItem.Amount  = 0;
             
-            if(mapCPEAux.get(item.Id).GrowthDriver__r.Amount__c != null && !String.isBlank(String.valueOf(mapCPEAux.get(item.Id).GrowthDriver__r.Amount__c)) ){
+            if(mapCPEAux.get(item.Id).GrowthDriver__r.Amount__c != null && !String.isBlank(String.valueOf(mapCPEAux.get(item.Id).GrowthDriver__r.Amount__c)) ) {
                 oppItem.Amount  = mapCPEAux.get(item.Id).GrowthDriver__r.Amount__c;
             }            
 
