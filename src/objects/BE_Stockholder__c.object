@@ -255,7 +255,7 @@
         <fullName>Participation__c</fullName>
         <externalId>false</externalId>
         <label>Participación</label>
-        <precision>4</precision>
+        <precision>5</precision>
         <required>false</required>
         <scale>2</scale>
         <trackTrending>false</trackTrending>
@@ -297,6 +297,12 @@
     <pluralLabel>Stockholders</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+		<fullName>BE_ValidateParticipation</fullName>
+		<active>true</active>
+		<errorConditionFormula>Participation__c &gt; 0.1</errorConditionFormula>
+		<errorMessage>Valor fuera del rango válido. El porcentaje máximo permitido es 100.</errorMessage>
+	</validationRules>
     <validationRules>
         <fullName>Invalid_Document_Number</fullName>
         <active>true</active>
