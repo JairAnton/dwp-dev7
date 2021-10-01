@@ -297,12 +297,12 @@
     <pluralLabel>Stockholders</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
-    <validationRules>
-		<fullName>BE_ValidateParticipation</fullName>
-		<active>true</active>
-		<errorConditionFormula>Participation__c &gt; 0.1</errorConditionFormula>
-		<errorMessage>Valor fuera del rango válido. El porcentaje máximo permitido es 100.</errorMessage>
-	</validationRules>
+	<validationRules>
+        <fullName>BE_ValidateParticipation</fullName>
+        <active>true</active>
+        <errorConditionFormula>Participation__c &gt; 1 || Participation__c &lt; 0</errorConditionFormula>
+        <errorMessage>Valor fuera del rango válido. El porcentaje  permitido es entre 0%-100%.</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Invalid_Document_Number</fullName>
         <active>true</active>
